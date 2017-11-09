@@ -15,6 +15,7 @@ alias gc='cd ~/.config;ls -a'
 alias gd='cd ~/Pobrane;ls -a'
 alias gh='cd ~'
 alias home=$HOME
+alias cdD='cd ~/.dotfiles;ls -a'
 
 # funkcje
 cdls() { cd "$@" && ls; }
