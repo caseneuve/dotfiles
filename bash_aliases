@@ -23,20 +23,20 @@ cdls() { cd "$@" && ls; }
 # polecenia
 alias sbr='source ~/.bashrc'
 alias cfg='emacsclient ~/.i3/config'
-alias nba='nano ~/.bash_aliases'
-alias nbr='nano ~/.bashrc'
+alias nba='nano --nohelp ~/.bash_aliases'
+alias nbr='nano --nohelp ~/.bashrc'
 alias mpva='mpv --no-video'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
 alias ya=yaourt
-alias nlog='date >> ~/.log-antergos; nano ~/.log-antergos'
+alias nlog='date >> ~/.log-antergos; nano --nohelp ~/.log-antergos'
 
 # programy 
 alias em=emacsclient
 alias r=ranger
 alias m=mocp 
 alias f=feh
-alias n=nano
+alias n='nano --nohelp'
 alias qb=qutebrowser
 alias v=mpv 
 alias c=calcurse
@@ -46,7 +46,7 @@ alias hg=hangups
 alias mp=mupdf
 
 # system info / akcje
-alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state|to\ full|percentage"'
+alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
 # skrypty
 alias wall='~/.bin/wall.sh'
@@ -55,3 +55,4 @@ alias kl=pkill
 alias bhelp='~/.bin/bashhelp.sh'
 alias hbash='~/.bin/bashhelp.sh'
 alias hmupdf='~/.bin/mupdfhelp.sh'
+
