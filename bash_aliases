@@ -16,6 +16,11 @@ alias gd='cd ~/Pobrane;ls -a'
 alias gh='cd ~'
 alias home=$HOME
 alias cdD='cd ~/.dotfiles;ls -a'
+alias cdP='cd ~/pdf;ls -a'
+alias cdA='cd ~/Pobrane;ls -a'
+alias cdO='cd ~/Obrazy;ls -a'
+alias cdC='cd ~/.config;ls -a'
+
 
 # funkcje
 cdls() { cd "$@" && ls; }
@@ -25,6 +30,7 @@ alias sbr='source ~/.bashrc'
 alias cfg='emacsclient ~/.i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
+
 alias mpva='mpv --no-video'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
