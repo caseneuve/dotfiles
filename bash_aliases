@@ -16,6 +16,13 @@ alias gd='cd ~/Pobrane;ls -a'
 alias gh='cd ~'
 alias home=$HOME
 alias cdD='cd ~/.dotfiles;ls -a'
+alias cdO='cd ~/Obrazy;ls -a'
+alias cdP='cd ~/Pobrane;ls -a'
+alias cdC='cd ~/.config;ls -a'
+alias cdDr='cd ~/Dropbox;ls -a'
+alias cdE='cd ~/Dropbox/EMACS;ls -a'
+alias cdM='cd ~/Muzyka;ls -a'
+alias cdW='cd ~/Wideo;ls -a'
 
 # funkcje
 cdls() { cd "$@" && ls; }
@@ -25,6 +32,7 @@ alias sbr='source ~/.bashrc'
 alias cfg='emacsclient ~/.i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
+alias nco='nano --nohelp ~/.compton.conf'
 alias mpva='mpv --no-video'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
@@ -56,3 +64,9 @@ alias bhelp='~/.bin/bashhelp.sh'
 alias hbash='~/.bin/bashhelp.sh'
 alias hmupdf='~/.bin/mupdfhelp.sh'
 
+# zmienne
+dot=/home/piotr/.dotfiles
+moc=/home/piotr/.moc
+pob=/home/piotr/Pobrane
+obr=/home/piotr/Obrazy
+wid=/home/piotr/Wideo
