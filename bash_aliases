@@ -18,11 +18,14 @@ alias gd='cd ~/Pobrane;ls -a'
 alias gh='cd ~; ls -a'
 alias home=$HOME
 alias cdD='cd ~/.dotfiles;ls -a'
-alias cdP='cd ~/pdf;ls -a'
-alias cdA='cd ~/Pobrane;ls -a'
 alias cdO='cd ~/Obrazy;ls -a'
 alias cdC='cd ~/.config;ls -a'
+alias cdDr='cd ~/Dropbox;ls -a'
 alias cdM='cd ~/Muzyka;ls -a'
+alias cdW='cd ~/Wideo;ls -a'
+alias cdP='cd ~/pdf;ls -a'
+alias cdA='cd ~/Pobrane;ls -a'
+alias cdC='cd ~/.config;ls -a'
 alias cdS='cd ~/Szkoła;ls -a'
 alias cdB='cd ~/.bin; ls -a'
 alias cdH='cd ~/.help; ls -a'
@@ -37,7 +40,7 @@ alias sbr='source ~/.bashrc'
 alias cfg='emacsclient ~/.i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
-
+alias nco='nano --nohelp ~/.compton.conf'
 alias mpva='mpv --no-video'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
@@ -75,3 +78,9 @@ alias tnij='~/.bin/tnijpdf.sh'
 # zmienne
 muz=/home/piotr/Muzyka
 pod=/home/piotr/Pobrane
+dot=/home/piotr/.dotfiles
+moc=/home/piotr/.moc
+pob=/home/piotr/Pobrane
+obr=/home/piotr/Obrazy
+wid=/home/piotr/Wideo
+
