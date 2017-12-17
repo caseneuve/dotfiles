@@ -199,7 +199,7 @@ bindsym Control+5 workspace $ws5; layout tabbed
 bindsym Control+6 workspace $ws6
 bindsym Control+7 workspace $ws7
 bindsym Control+8 workspace $ws8
-bindsym Control+9 workspace $ws9
+bindsym Control+9 workspace $ws9; layout stacking
 # bindsym Control+0 workspace $ws10
 
 # =============================
