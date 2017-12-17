@@ -98,8 +98,8 @@ obr=/home/piotr/Obrazy
 wid=/home/piotr/Wideo
 
 # git
-alias gts='git status'
-alias push='~/.bin/gitpush.sh'
-alias pull='~/.bin/gitpull.sh'
+alias gts='/home/piotr/.bin/gitstatus.sh'
+alias push='/home/piotr/.bin/gitpush.sh'
+alias pull='/home/piotr/.bin/gitpull.sh'
 alias gta='git add'
 alias gtc='git commit -m'
