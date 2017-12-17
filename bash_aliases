@@ -11,6 +11,7 @@ alias cdl='cd $1;ls'
 alias 'cd.'='cd ..'
 alias lg='ls --group-directories-first'
 alias lag='ls -a --group-directories-first'
+alias kl=pkill
 
 # fast dirs
 alias gc='cd ~/.config;ls -a'
@@ -31,9 +32,22 @@ alias cdB='cd ~/.bin; ls -a'
 alias cdH='cd ~/.help; ls -a'
 alias cdE='cd ~/Dropbox/EMACS; ls -a --group-directories-first'
 alias cdd='cd ~/Dropbox; ls -a --group-directories-first'
+alias cdk='cd ~/Dokumenty; ls -a --group-directories-first'
 
 # funkcje
 cdls() { cd "$@" && ls; }
+
+mk()
+{
+    mkdir -p -- "$1" &&
+    ls -a --group-directories-first
+}
+
+mkc()
+{
+    mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
 
 # polecenia
 alias sbr='source ~/.bashrc'
@@ -53,6 +67,7 @@ alias r=ranger
 alias m=mocp 
 alias f=feh
 alias n='nano --nohelp'
+alias nl='nano -l --nohelp'
 alias qb=qutebrowser
 alias v=mpv 
 alias c=calcurse
@@ -67,8 +82,6 @@ alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percent
 
 # skrypty
 alias wall='~/.bin/wall.sh'
-# alias kl='~/.bin/kill.sh'
-alias kl=pkill
 alias bhelp='~/.bin/bashhelp.sh'
 alias hbash='~/.bin/bashhelp.sh'
 alias hmupdf='~/.bin/mupdfhelp.sh'
