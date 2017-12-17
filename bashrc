@@ -24,3 +24,6 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 # export TERM=xterm-xfree86
 
 shopt -s autocd
+
+# aliasy lokalne
+alias nco='nano --nohelp ~/.config/compton.conf'
