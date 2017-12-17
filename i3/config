@@ -431,8 +431,8 @@ bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%H%M_%d.%m.%Y.scrot
 # ===============
 
 # lenovo
-# bindsym $mod+t           exec synclient TouchpadOff=1
-# bindsym $mod+Shift+t     exec synclient TouchpadOff=0
+# bindsym $mod+z           exec synclient TouchpadOff=1
+# bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 
 
 ##################################################
