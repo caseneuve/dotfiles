@@ -88,6 +88,7 @@ alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
 alias drop='/home/piotr/.bin/drop.sh'
 alias tnij='/home/piotr/.bin/tnijpdf.sh'
+alias off='/home/piotr/.bin/poweroff.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka
