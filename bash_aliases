@@ -60,6 +60,7 @@ alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
 alias ya=yaourt
 alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
+alias yta='youtube-dl --extract-audio --audio-format mp3'
 
 # programy 
 alias em=emacsclient
