@@ -97,3 +97,9 @@ pob=/home/piotr/Pobrane
 obr=/home/piotr/Obrazy
 wid=/home/piotr/Wideo
 
+# git
+alias gts='git status'
+alias push='git push'
+alias pull='git pull'
+alias gta='git add'
+alias gtc='git commit -a -m'
