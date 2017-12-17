@@ -99,7 +99,7 @@ wid=/home/piotr/Wideo
 
 # git
 alias gts='git status'
-alias push='git push'
+alias push='~/.bin/gitpush.sh'
 alias pull='git pull'
 alias gta='git add'
 alias gtc='git commit -a -m'
