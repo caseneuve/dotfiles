@@ -1,5 +1,4 @@
 #+title: PK EMACS CONFIG 
-#+author: Piotr Kaznowski 
 #+date: 25.08.2017
 #+startup: hideblocks
 #+todo: check (x) | ok (o) 
@@ -702,11 +701,6 @@ url: http://pragmaticemacs.com/emacs/wrap-text-in-an-org-mode-block/"
 
 * VARIABLES                                                :variables:
 #+begin_src emacs-lisp :results silent
-  ;; dane osobiste
-  (setq user-full-name "Piotr Kaznowski"
-        user-mail-address "piotr.kaznowski@gmail.com")
-
-        ;;; zmienne środowiskowe
   ;; win
   ;; (when (string-equal system-type "windows-nt")
   ;;   (setq org-directory "C:/Users/piotr/Dropbox/EMACS/")
