@@ -12,7 +12,7 @@ GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
 
 #PS1='[\u@\h \W]\$ '
-PS1="${RED}[\u ${GREEN}\w${RED}]$ ${RESET}"
+PS1="${RED}[\u ${GREEN}\w${RED}]# ${RESET}"
 
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
