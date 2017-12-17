@@ -34,11 +34,7 @@ alias sbr='source ~/.bashrc'
 alias cfg='emacsclient ~/.i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
-<<<<<<< HEAD
 alias nco='nano --nohelp ~/.compton.conf'
-=======
-
->>>>>>> 5f7d44770b6a4177562066f0017241dbee82e38f
 alias mpva='mpv --no-video'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
@@ -69,6 +65,7 @@ alias kl=pkill
 alias bhelp='~/.bin/bashhelp.sh'
 alias hbash='~/.bin/bashhelp.sh'
 alias hmupdf='~/.bin/mupdfhelp.sh'
+alias drop='~/.bin/dropdown.sh'
 
 # zmienne
 dot=/home/piotr/.dotfiles
