@@ -14,25 +14,25 @@ alias lag='ls -a --group-directories-first'
 alias kl=pkill
 
 # fast dirs
-alias gc='cd ~/.config;ls -a'
-alias gd='cd ~/Pobrane;ls -a'
-alias gh='cd ~; ls -a'
-alias home=$HOME
-alias cdD='cd ~/.dotfiles;ls -a'
-alias cdO='cd ~/Obrazy;ls -a'
-alias cdC='cd ~/.config;ls -a'
-alias cdDr='cd ~/Dropbox;ls -a'
-alias cdM='cd ~/Muzyka;ls -a'
-alias cdW='cd ~/Wideo;ls -a'
-alias cdP='cd ~/pdf;ls -a'
-alias cdA='cd ~/Pobrane;ls -a'
-alias cdC='cd ~/.config;ls -a'
-alias cdS='cd ~/Szkoła;ls -a'
-alias cdB='cd ~/.bin; ls -a'
-alias cdH='cd ~/.help; ls -a'
-alias cdE='cd ~/Dropbox/EMACS; ls -a --group-directories-first'
-alias cdd='cd ~/Dropbox; ls -a --group-directories-first'
-alias cdk='cd ~/Dokumenty; ls -a --group-directories-first'
+alias gc='cd /home/piotr/.config;ls -a'
+alias gd='cd /home/piotr/Pobrane;ls -a'
+alias gh='cd ~; ls -a --group-directories-first'
+alias home='cd /home/piotr; ls -a --group-directories-first'
+alias cdD='cd /home/piotr/.dotfiles;ls -a'
+alias cdO='cd /home/piotr/Obrazy;ls -a'
+alias cdC='cd /home/piotr/.config;ls -a'
+alias cdDr='cd /home/piotr/Dropbox;ls -a'
+alias cdM='cd /home/piotr/Muzyka;ls -a'
+alias cdW='cd /home/piotr/Wideo;ls -a'
+alias cdP='cd /home/piotr/pdf;ls -a'
+alias cdA='cd /home/piotr/Pobrane;ls -a'
+alias cdC='cd /home/piotr/.config;ls -a'
+alias cdS='cd /home/piotr/Szkoła;ls -a'
+alias cdB='cd /home/piotr/.bin; ls -a'
+alias cdH='cd /home/piotr/.help; ls -a'
+alias cdE='cd /home/piotr/Dropbox/EMACS; ls -a --group-directories-first'
+alias cdd='cd /home/piotr/Dropbox; ls -a --group-directories-first'
+alias cdk='cd /home/piotr/Dokumenty; ls -a --group-directories-first'
 
 # funkcje
 cdls() { cd "$@" && ls; }
@@ -51,7 +51,7 @@ mkc()
 
 # polecenia
 alias sbr='source ~/.bashrc'
-alias cfg='emacsclient ~/.i3/config'
+alias cfg='emacsclient /home/piotr/.i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
@@ -59,7 +59,7 @@ alias mpva='mpv --no-video'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
 alias ya=yaourt
-alias nlog='date >> ~/.log-antergos; nano --nohelp ~/.log-antergos'
+alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
 
 # programy 
 alias em=emacsclient
@@ -81,12 +81,12 @@ alias mu=mupdf
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
 # skrypty
-alias wall='~/.bin/wall.sh'
-alias bhelp='~/.bin/bashhelp.sh'
-alias hbash='~/.bin/bashhelp.sh'
-alias hmupdf='~/.bin/mupdfhelp.sh'
-alias drop='~/.bin/drop.sh'
-alias tnij='~/.bin/tnijpdf.sh'
+alias wall='/home/piotr/.bin/wall.sh'
+alias bhelp='/home/piotr/.bin/bashhelp.sh'
+alias hbash='/home/piotr/.bin/bashhelp.sh'
+alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
+alias drop='/home/piotr/.bin/drop.sh'
+alias tnij='/home/piotr/.bin/tnijpdf.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka

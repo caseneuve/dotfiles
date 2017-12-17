@@ -20,18 +20,24 @@ floating_modifier $mod
 set $browser firefox
 
 bindsym $mod+Shift+q kill
-bindsym $mod+q kill
+bindsym $mod+q       kill
 
 # ================
 # power management:
 # ================
 
+#x200
 bindsym $mod+Shift+End exec shutdown now
 bindsym $mod+Shift+BackSpace exec i3-msg exit
 bindsym $mod+Shift+Home exec systemctl hibernate
 bindsym $mod+Shift+Pause exec systemctl suspend
 bindsym $mod++Pause exec systemctl suspend
 
+#lenovo
+# bindsym $mod+Shift+Delete       exec shutdown now
+# bindsym $mod+Shift+BackSpace    exec i3-msg exit
+# bindsym $mod+Shift+Home         exec systemctl hibernate
+# bindsym $mod+Shift+End          exec systemctl suspend
 
 ##################################################
 ###             STARTUP & PROGRAMS             ###
@@ -42,7 +48,6 @@ bindsym $mod++Pause exec systemctl suspend
 # ===========
 
 # wallpaper, dropbox, compton, emacs-daemon, network manag, mocp, pamac
-exec_always feh --bg-fill ~/.i3/wall.jpg start
 exec_always --no-startup-id dropbox start 
 # exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
 exec_always --no-startup-id nm-applet
@@ -51,11 +56,13 @@ exec        --no-startup-id mocp
 exec        --no-startup-id emacs --daemon start
 
 # ===============
-# monitory & wall:
+# monitory & wall 
 # ===============
 
+# lenovo
 # exec_always ~/.i3/bin/monitory.sh
 
+exec_always feh --bg-fill ~/.i3/wall.jpg start
 
 ##################################################
 ###                    NAVIG                   ###
@@ -79,30 +86,30 @@ bindsym $mod+Right focus right
 # moving windows:
 # ==============
 
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+i move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+j     move left
+bindsym $mod+Shift+k     move down
+bindsym $mod+Shift+i     move up
+bindsym $mod+Shift+l     move right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # ===============================================
 # enter fullscreen mode for the focused container:
 # ===============================================
 
-bindsym $mod+f fullscreen toggle
-bindsym $mod+F11 fullscreen toggle
+bindsym $mod+f           fullscreen toggle
+bindsym $mod+F11         fullscreen toggle
 
 # =======
 # layouts:
 # =======
 
-bindsym $mod+y       layout tabbed
-bindsym $mod+Ctrl+y  layout stacking
-bindsym $mod+Shift+y layout toggle split
+bindsym $mod+y           layout tabbed
+bindsym $mod+Ctrl+y      layout stacking
+bindsym $mod+Shift+y     layout toggle split
 
 # ========================
 # toggle tiling / floating:
@@ -120,8 +127,8 @@ bindsym $mod+Ctrl+i resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
 
-# flash active window (za: Luke Smith)
-bindsym $mod+grave exec --no-startup-id bash ~/.i3/bin/flash.sh
+# flash active window (za: Luke Smith) / jeśli compton jest włączony
+# bindsym $mod+grave exec --no-startup-id bash ~/.i3/bin/flash.sh
 
 # =======
 # orphans:
@@ -237,6 +244,10 @@ assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
 assign [class="Messenger for Desktop"] $ws9
 
+# =======
+# orphans:
+# =======
+
 # for_window [title="GIMP Startup"] move workspace $ws6
 # for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
@@ -244,7 +255,6 @@ assign [class="Messenger for Desktop"] $ws9
 # for_window [title=".*Private.*"] move to workspace $ws7 
 # for_window [title=".*Private.Browsing.*"] move to workspace "7: "
 # for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
-
 
 # =======================================
 # przejdź do workspace i otwórz aplikację:
@@ -267,20 +277,20 @@ bindsym $mod+Control+0 workspace $ws10; exec --no-startup-id qutebrowser
 bindsym $mod+Control+b workspace $ws10; exec --no-startup-id qutebrowser
 
 # =============================
-# reload the configuration file
+# reload the configuration file:
 # =============================
 
 bindsym $mod+Escape reload
 # bindsym $mod+Shift+c reload
 
-# ==================
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# ==================
+# =============================================================================
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3):
+# =============================================================================
 
 bindsym $mod+Shift+Escape restart
 
 # ========================================
-# exit i3 (logs you out of your X session)
+# exit i3 (logs you out of your X session):
 # ========================================
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -325,7 +335,7 @@ bindsym $mod+Shift+r mode "resize"
 ##################################################
 
 for_window [class="Catfish"] floating enable
-for_window [class="Gpick"] floating enable
+for_window [class="Gpick"]   floating enable
 
 
 ##################################################
@@ -346,16 +356,16 @@ new_window pixel 0
 # sticky windows:
 # ==============
 
-for_window [class=mpv] sticky enable
-bindsym $mod+Shift+s sticky toggle
-bindsym $mod+Shift+v fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
+for_window [class=mpv]  sticky enable
+bindsym $mod+Shift+s    sticky toggle
+bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
 
 # =======================
 # toggle gaps 0 / default:
 # =======================
 
-bindsym $mod+Shift+m gaps inner current set 10; gaps outer current set 10
-bindsym $mod+m gaps inner current set 0; gaps outer current set 0
+bindsym $mod+Shift+m    gaps inner current set 10; gaps outer current set 10
+bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
 
 
 ##################################################
@@ -381,11 +391,16 @@ bar {
 ###                  CONTROLS                  ###
 ##################################################
 
-# Sreen brightness controls
+# =========================
+# Sreen brightness controls:
+# =========================
+
 bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15 # increase screen brightness
 bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15 # decrease screen brightness
 
-# regulacja głośności
+# ===================
+# regulacja głośności:
+# ===================
 
 bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5% # && killall -USR1 i3status
 bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5% # && killall -USR1 i3status
@@ -411,7 +426,11 @@ bindsym Print            exec --no-startup-id scrot -d 3 '%H%M_%d.%m.%Y.scrot.pn
 # zrzut tylko aktywnego okna
 bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%H%M_%d.%m.%Y.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 
-# TOUCHPAD OFF/ON
+# ===============
+# touchpad OFF/ON:
+# ===============
+
+# lenovo
 # bindsym $mod+t           exec synclient TouchpadOff=1
 # bindsym $mod+Shift+t     exec synclient TouchpadOff=0
 
@@ -458,3 +477,8 @@ bindsym $mod+F8        exec --no-startup-id mocp -p
 # bindsym $mod+F10	exec --no-startup-id sudo bash ~/.i3/bin/unmount.sh
 
 # bindsym $mod+F9 exec --no-startup-id $term -e ffmpeg -f x11grab -s 1280x800 -i :0.0 out3.mkv
+
+# lenovo
+# exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
+# bindsym F1 exec mupdf ~/.i3/cheatsheet.pdf
+# for_window [class="MuPDF"] fullscreen enable
