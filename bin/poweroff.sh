@@ -10,7 +10,7 @@ cd /home/piotr/.dotfiles/
         while true; do
         read -p "${bold}${RED}### Czy chcesz wyłączyć komputer? [t/n] ###${RESET} " yn
         case $yn in
-            [Tt]* ) systemctl suspend; break;;
+            [Tt]* ) systemctl poweroff -i; break;;
             [Nn]* ) exit;;
             * ) echo "${bold}${RED} Wpisz [Tt/Nn] :${RESET} ";;
          esac
@@ -20,7 +20,7 @@ else
     while true; do
     read -p "${bold}${RED}### Czy chcesz wyłączyć komputer? [t/n] ###${RESET} " yn
     case $yn in
-        [Tt]* ) systemctl suspend; break;;
+        [Tt]* ) systemctl poweroff -i; break;;
         [Nn]* ) exit;;
         * ) echo "${bold}${RED} Wpisz [Tt/Nn] :${RESET} ";;
     esac
