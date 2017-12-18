@@ -21,7 +21,7 @@ cd /home/piotr/.dotfiles/
  
 else
     while true; do
-    read -p "${bold}${RED}### Czy chcesz wyłączyć komputer? [t/n] ###${RESET} " yn
+    read -p "${bold}${RED}\n### Czy chcesz wyłączyć komputer? [t/n] ###${RESET} " yn
     case $yn in
         [Tt]* ) systemctl poweroff -i; break;;
         [Nn]* ) exit;;
