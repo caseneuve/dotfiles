@@ -483,3 +483,5 @@ bindsym $mod+F8        exec --no-startup-id mocp -p
 # exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
 # bindsym F1 workspace $ws5; exec mupdf ~/.i3/cheatsheet.pdf 
 # for_window [class="MuPDF"] fullscreen enable
+
+bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
