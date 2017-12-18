@@ -4,11 +4,11 @@ cd /home/piotr/.dotfiles/
 if [[ `git status --porcelain` ]]; then
     /home/piotr/.bin/gitpush.sh && \
     while true; do
-    read -p "Do you wish to install this program?" yn
+    read -p "Czy chcesz wyłączyć komputer? [t/n] " yn
     case $yn in
         [Tt]* ) systemctl suspend;;
         [Nn]* ) exit;;
-        * ) echo "Please answer T or N.";;
+        * ) echo "Wpisz [Tt/Nn] :";;
     esac
 done   
  
