@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/home/piotr/.bin/gitpush.sh &&\
+/home/piotr/.bin/gitpush.sh && \
 systemctl poweroff -i
