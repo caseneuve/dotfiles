@@ -47,6 +47,8 @@ bindsym $mod++Pause exec systemctl suspend
 # starup apps:
 # ===========
 
+exec        --no-startup-id ~/.bin/gitpull.sh
+
 # wallpaper, dropbox, compton, emacs-daemon, network manag, mocp, pamac
 exec_always --no-startup-id dropbox start 
 # exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
@@ -54,8 +56,10 @@ exec_always --no-startup-id nm-applet
 exec_always --no-startup-id pamac-tray start
 exec        --no-startup-id mocp
 exec        --no-startup-id emacs --daemon start
-exec        --no-startup-id ~/.bin/gitpull.sh
 
+exec        --no-startup-id emacs
+exec        --no-startup-id slack
+exec        --no-startup-id firefox
 # ===============
 # monitory & wall 
 # ===============
