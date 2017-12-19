@@ -184,25 +184,25 @@ set $ws10 "10: "
 # switch to workspace:
 # ===================
 
-bindsym $mod+1 workspace $ws1; layout split
-bindsym $mod+2 workspace $ws2; layout split
-bindsym $mod+3 workspace $ws3; layout split
-bindsym $mod+4 workspace $ws4; layout split
+bindsym $mod+1 workspace $ws1; layout default
+bindsym $mod+2 workspace $ws2; layout default
+bindsym $mod+3 workspace $ws3; layout default
+bindsym $mod+4 workspace $ws4; layout default
 bindsym $mod+5 workspace $ws5; layout tabbed
-bindsym $mod+6 workspace $ws6; layout split
-bindsym $mod+7 workspace $ws7; layout split
-bindsym $mod+8 workspace $ws8; layout split
+bindsym $mod+6 workspace $ws6; layout default
+bindsym $mod+7 workspace $ws7; layout default
+bindsym $mod+8 workspace $ws8; layout default
 bindsym $mod+9 workspace $ws9; layout stacking
-bindsym $mod+0 workspace $ws10; layout split
+bindsym $mod+0 workspace $ws10; layout default
 
-bindsym Control+1 workspace $ws1; layout split
-bindsym Control+2 workspace $ws2; layout split
-bindsym Control+3 workspace $ws3; layout split
-bindsym Control+4 workspace $ws4; layout split
+bindsym Control+1 workspace $ws1; layout default
+bindsym Control+2 workspace $ws2; layout default
+bindsym Control+3 workspace $ws3; layout default
+bindsym Control+4 workspace $ws4; layout default
 bindsym Control+5 workspace $ws5; layout tabbed
-bindsym Control+6 workspace $ws6; layout split
-bindsym Control+7 workspace $ws7; layout split
-bindsym Control+8 workspace $ws8; layout split
+bindsym Control+6 workspace $ws6; layout default
+bindsym Control+7 workspace $ws7; layout default
+bindsym Control+8 workspace $ws8; layout default
 bindsym Control+9 workspace $ws9; layout stacking
 # bindsym Control+0 workspace $ws10
 
