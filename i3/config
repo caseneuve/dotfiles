@@ -60,6 +60,8 @@ exec        --no-startup-id emacs --daemon start
 exec        --no-startup-id emacs
 exec        --no-startup-id slack
 exec        --no-startup-id firefox
+exec        --no-startup-id
+
 # ===============
 # monitory & wall 
 # ===============
@@ -240,14 +242,15 @@ bindsym $mod+Tab workspace back_and_forth
 # reguły dla aplikacji:
 # ====================
 
-for_window [title=".*tryb.prywatny.*"] move to workspace $ws7
-#for_window [title=".*prywatny.*"] move to workspace "7: "
-#for_window [title=".*\(tryb prywatny\).*"] move to workspace "7: "
-
 assign [class="Slack"]                 $ws9
 assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
 assign [class="Messenger for Desktop"] $ws9
+assign [class="Firefox"]               $ws2
+
+for_window [title=".*tryb.prywatny.*"] move to workspace $ws7
+#for_window [title=".*prywatny.*"] move to workspace "7: "
+#for_window [title=".*\(tryb prywatny\).*"] move to workspace "7: "
 
 # =======
 # orphans:
