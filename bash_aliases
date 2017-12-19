@@ -35,6 +35,7 @@ alias cdH='cd /home/piotr/.help; ls -a'
 alias cdE='cd /home/piotr/Dropbox/EMACS; ls -a --group-directories-first'
 alias cdd='cd /home/piotr/Dropbox; ls -a --group-directories-first'
 alias cdk='cd /home/piotr/Dokumenty; ls -a --group-directories-first'
+alias cdI='cd /home/piotr/.i3; ls -a'
 
 # funkcje
 cdls() { cd "$@" && ls; }
