@@ -389,6 +389,19 @@ bar {
         status_command i3blocks -c ~/.i3/i3blocks.conf
         position top
         height 18
+
+        colors {
+               background #000000
+               statusline #ffffff
+               # separator #666666
+
+               # colorclass       border   backgro    text
+               focused_workspace  #2c3e50  #2980b9  #bdc3c7
+               active_workspace   #000000  #000000  #696969
+               inactive_workspace #000000  #000000  #696969
+               urgent_workspace   #c0392b  #e74c3c  #bdc3c7
+               #binding_mode       #2f343a  #900000  #ffffff
+               }
 }
 
 # ukryj status bar
