@@ -60,7 +60,6 @@ exec        --no-startup-id emacs --daemon start
 exec        --no-startup-id emacs
 exec        --no-startup-id slack
 exec        --no-startup-id firefox
-exec        --no-startup-id
 
 # ===============
 # monitory & wall 
