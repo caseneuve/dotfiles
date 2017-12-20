@@ -377,6 +377,25 @@ bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
 
 
 ##################################################
+###                   COLORS                   ###
+##################################################
+
+set $text #bdc3c7
+set $bga  #2980b9
+set $bgi  #2c3e50
+set $brf  #2c3e50
+set $bru  #34495e
+set $bgur #e74c3c
+set $brur #c0392b
+
+# class                 border  backgr. text   
+client.focused          #2c3e50 #2980b9 #bdc3c7 
+client.focused_inactive #2c3e50 #2c3e50 #bdc3c7 
+client.unfocused        #34495e #2c3e50 #bdc3c7 
+client.urgent           #c0392b #e74c3c #bdc3c7 
+
+
+##################################################
 ###                     BAR                    ###
 ##################################################
 
@@ -393,14 +412,14 @@ bar {
         colors {
                background #000000
                statusline #ffffff
-               # separator #666666
+               #separator #666666
 
-               # colorclass       border   backgro    text
+                              # colorclass       border   backgro    text
                focused_workspace  #2c3e50  #2980b9  #bdc3c7
                active_workspace   #000000  #000000  #696969
                inactive_workspace #000000  #000000  #696969
                urgent_workspace   #c0392b  #e74c3c  #bdc3c7
-               #binding_mode       #2f343a  #900000  #ffffff
+               #binding_mode      #2f343a  #900000  #ffffff
                }
 }
 
