@@ -27,11 +27,11 @@ bindsym $mod+q       kill
 # ================
 
 #x200
-bindsym $mod+Shift+End exec shutdown now
-bindsym $mod+Shift+BackSpace exec i3-msg exit
-bindsym $mod+Shift+Home exec systemctl hibernate
-bindsym $mod+Shift+Pause exec systemctl suspend
-bindsym $mod++Pause exec systemctl suspend
+bindsym $mod+Shift+End           exec shutdown now
+bindsym $mod+Shift+BackSpace     exec i3-msg exit
+bindsym $mod+Shift+Home          exec systemctl hibernate
+bindsym $mod+Shift+Pause         exec systemctl suspend
+bindsym $mod++Pause              exec systemctl suspend
 
 #lenovo
 # bindsym $mod+Shift+Delete       exec shutdown now
