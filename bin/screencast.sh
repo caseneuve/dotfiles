@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d "$HOME/Wideo/cast" ]; then
+    mkdir $HOME/Wideo/cast
+fi;
+
 pkill compton;
 
 if [ "$1" = '--help' ];then

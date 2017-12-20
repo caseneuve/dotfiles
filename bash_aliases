@@ -93,6 +93,8 @@ alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
 alias drop='/home/piotr/.bin/drop.sh'
 alias tnij='/home/piotr/.bin/tnijpdf.sh'
 alias off='/home/piotr/.bin/poweroff.sh'
+alias mnt='/home/piotr/.bin/mount.sh'
+alias umnt='/home/piotr/.bin/unmount.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka

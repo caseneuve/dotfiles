@@ -531,4 +531,5 @@ bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 # bindsym F1 workspace $ws5; exec mupdf ~/.i3/cheatsheet.pdf 
 # for_window [class="MuPDF"] fullscreen enable
 
+#x200
 bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
