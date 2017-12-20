@@ -86,6 +86,7 @@ alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percent
 
 # skrypty
 alias wall='/home/piotr/.bin/wall.sh'
+alias walp='/home/piotr/.bin/walp.sh' 
 alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
