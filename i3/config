@@ -51,7 +51,7 @@ exec        --no-startup-id ~/.bin/gitpull.sh
 
 # wallpaper, dropbox, compton, emacs-daemon, network manag, mocp, pamac
 exec_always --no-startup-id dropbox start 
-# exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
+exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id pamac-tray start
 exec        --no-startup-id mocp
@@ -134,7 +134,7 @@ bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
 
 # flash active window (za: Luke Smith) / jeśli compton jest włączony
-# bindsym $mod+grave exec --no-startup-id bash ~/.i3/bin/flash.sh
+bindsym $mod+grave exec --no-startup-id bash ~/.i3/bin/flash.sh
 
 # =======
 # orphans:
@@ -365,13 +365,13 @@ new_window pixel 0
 
 for_window [class=mpv]  sticky enable
 bindsym $mod+Shift+s    sticky toggle
-bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
+bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1000 20
 
 # =======================
 # toggle gaps 0 / default:
 # =======================
 
-bindsym $mod+Shift+m    gaps inner current set 10; gaps outer current set 10
+bindsym $mod+Shift+m    gaps inner current set 12; gaps outer current set 2
 bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
 
 
@@ -492,7 +492,7 @@ bindsym $mod+Shift+Return   split v exec $term
 bindsym $mod+b         exec qutebrowser
 bindsym $mod+Shift+c   exec $term -e calcurse
 bindsym $mod+c         exec $term -e gcalccmd
-bindsym $mod+Ctrl+c    exec --no-startup-id compton --config ~/.config/compton.conf -b            
+#exec --no-startup-id compton --config ~/.config/compton.conf -b
 #bindsym $mod+d         exec --no-startup-id j4-dmenu-desktop #-sb '#b58900'
 bindsym $mod+d         exec --no-startup-id dmenu_run -sb '#b58900' -p 'run:'
 bindsym $mod+e         exec emacs
@@ -508,7 +508,8 @@ bindsym $mod+x         exec --no-startup-id ~/.i3/i3lock/lock.sh
 
 bindsym F8             workspace $ws8; exec --no-startup-id $term -e mocp
 bindsym $mod+F8        exec --no-startup-id mocp -p
-
+bindsym $mod+Ctrl+F2   exec --no-startup-id compton
+bindsym $mod+F2        exec pkill compton
 
 ##################################################
 ###             NARZĘDZIA SYSTEMOWE            ###
@@ -518,7 +519,12 @@ bindsym $mod+F8        exec --no-startup-id mocp -p
 # bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
 # bindsym $mod+F10	exec --no-startup-id sudo bash ~/.i3/bin/unmount.sh
 
-# bindsym $mod+F9 exec --no-startup-id $term -e ffmpeg -f x11grab -s 1280x800 -i :0.0 out3.mkv
+# =============
+# screencasting:
+# =============
+
+bindsym $mod+F12        exec --no-startup-id ~/.bin/screencast.sh $(date "+%d%h%H:%M")
+bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
 # lenovo
 # exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
