@@ -47,7 +47,7 @@ bindsym $mod++Pause exec systemctl suspend
 # starup apps:
 # ===========
 
-exec        --no-startup-id ~/.bin/gitpull.sh
+exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 
 # wallpaper, dropbox, compton, emacs-daemon, network manag, mocp, pamac
 exec_always --no-startup-id dropbox start 
@@ -134,7 +134,7 @@ bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
 
 # flash active window (za: Luke Smith) / jeśli compton jest włączony
-bindsym $mod+grave exec --no-startup-id bash ~/.i3/bin/flash.sh
+bindsym $mod+grave exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 
 # =======
 # orphans:
@@ -155,7 +155,7 @@ bindsym $mod+grave exec --no-startup-id bash ~/.i3/bin/flash.sh
 ##################################################
 
 exec $term -T=dropdown -e tmux; move scratchpad
-exec --no-startup-id bash ~/.bin/drop.sh
+exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 
 for_window [title="dropdown"] floating enable;
 for_window [title="dropdown"] move scratchpad
@@ -499,12 +499,12 @@ bindsym $mod+e         exec emacs
 bindsym $mod+h         bar mode toggle
 bindsym $mod+n         split h exec --no-startup-id $term -e nano 
 bindsym $mod+Shift+n   split v exec --no-startup-id $term -e nano
-bindsym $mod+Control+n exec --no-startup-id $term -e ~/.bin/notes.sh
+bindsym $mod+Control+n exec --no-startup-id $term -e ~/.dotfiles/bin/notes.sh
 bindsym $mod+r         exec $term -e ranger
 bindsym $mod+t         exec --no-startup-id thunar
 bindsym $mod+w         exec firefox
-bindsym Scroll_Lock    exec --no-startup-id ~/.i3/i3lock/lock.sh
-bindsym $mod+x         exec --no-startup-id ~/.i3/i3lock/lock.sh
+bindsym Scroll_Lock    exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
+bindsym $mod+x         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
 
 bindsym F8             workspace $ws8; exec --no-startup-id $term -e mocp
 bindsym $mod+F8        exec --no-startup-id mocp -p
@@ -523,7 +523,7 @@ bindsym $mod+F2        exec pkill compton
 # screencasting:
 # =============
 
-bindsym $mod+F12        exec --no-startup-id ~/.bin/screencast.sh $(date "+%d%h%H:%M")
+bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H:%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
 # lenovo
