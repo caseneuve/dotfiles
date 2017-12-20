@@ -2,7 +2,7 @@
 ###                                            ###
 ###               i3 config (pk)               ###
 ###                                            ###
-###             last up: 17/12/2017            ###
+###             last up: 20/12/2017            ###
 ###                                            ###
 ##################################################
 
@@ -379,6 +379,8 @@ bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
 ##################################################
 ###                   COLORS                   ###
 ##################################################
+
+# ze strony: http://flatuicolors.com/
 
 set $text #bdc3c7
 set $bga  #2980b9
