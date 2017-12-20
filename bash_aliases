@@ -23,14 +23,13 @@ alias cdDb='cd /home/piotr/.dotfiles/bin;ls -a'
 alias cdDi='cd /home/piotr/.dotfiles/i3;ls -a'
 alias cdO='cd /home/piotr/Obrazy;ls -a'
 alias cdC='cd /home/piotr/.config;ls -a'
-alias cdDr='cd /home/piotr/Dropbox;ls -a'
 alias cdM='cd /home/piotr/Muzyka;ls -a'
 alias cdW='cd /home/piotr/Wideo;ls -a'
 alias cdP='cd /home/piotr/pdf;ls -a'
 alias cdA='cd /home/piotr/Pobrane;ls -a'
 alias cdC='cd /home/piotr/.config;ls -a'
 alias cdS='cd /home/piotr/Szkoła;ls -a'
-alias cdB='cd /home/piotr/.bin; ls -a'
+alias cdB='cd /home/piotr/.dotfiles/bin; ls -a'
 alias cdH='cd /home/piotr/.help; ls -a'
 alias cdE='cd /home/piotr/Dropbox/EMACS; ls -a --group-directories-first'
 alias cdd='cd /home/piotr/Dropbox; ls -a --group-directories-first'
@@ -85,16 +84,17 @@ alias mu=mupdf
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
 # skrypty
-alias wall='/home/piotr/.bin/wall.sh'
-alias walp='/home/piotr/.bin/walp.sh' 
+alias wall='/home/piotr/.dotfiles/bin/wallt.sh'
+alias walp='/home/piotr/.dotfiles/bin/walp.sh' 
+alias drop='/home/piotr/.dotfiles/bin/drop.sh'
+alias tnij='/home/piotr/.dotfiles/bin/tnijpdf.sh'
+alias off='/home/piotr/.dotfiles/bin/poweroff.sh'
+alias mnt='/home/piotr/.dotfiles/bin/mount.sh'
+alias umnt='/home/piotr/.dotfiles/bin/unmount.sh'
+
+alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
 alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
-alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
-alias drop='/home/piotr/.bin/drop.sh'
-alias tnij='/home/piotr/.bin/tnijpdf.sh'
-alias off='/home/piotr/.bin/poweroff.sh'
-alias mnt='/home/piotr/.bin/mount.sh'
-alias umnt='/home/piotr/.bin/unmount.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka
@@ -106,8 +106,8 @@ obr=/home/piotr/Obrazy
 wid=/home/piotr/Wideo
 
 # git
-alias gts='/home/piotr/.bin/gitstatus.sh'
-alias push='/home/piotr/.bin/gitpush.sh'
-alias pull='/home/piotr/.bin/gitpull.sh'
+alias gts='/home/piotr/.dotfiles/bin/gitstatus.sh'
+alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
+alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
 alias gta='git add'
 alias gtc='git commit -m'
