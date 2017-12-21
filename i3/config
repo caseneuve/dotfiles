@@ -26,18 +26,19 @@ bindsym $mod+q       kill
 # power management:
 # ================
 
+bindsym $mod+Shift+BackSpace    exec i3-msg exit
+
 #x200
 bindsym $mod+Shift+End           exec shutdown now
-bindsym $mod+Shift+BackSpace     exec i3-msg exit
 bindsym $mod+Shift+Home          exec systemctl hibernate
 bindsym $mod+Shift+Pause         exec systemctl suspend
-bindsym $mod++Pause              exec systemctl suspend
+bindsym $mod+Pause              exec systemctl suspend
 
-#lenovo
+#lenovo & manjaro
 # bindsym $mod+Shift+Delete       exec shutdown now
-# bindsym $mod+Shift+BackSpace    exec i3-msg exit
 # bindsym $mod+Shift+Home         exec systemctl hibernate
 # bindsym $mod+Shift+End          exec systemctl suspend
+# bindsym $mod+Pause              exec systemctl suspend
 
 ##################################################
 ###             STARTUP & PROGRAMS             ###
@@ -407,7 +408,7 @@ font pango:xos4 Terminus Regular 8
 bar {
         modifier $mod 
         # status_command i3status 
-        status_command i3blocks -c ~/.i3/i3blocks.conf
+        status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
         position top
         height 18
 
