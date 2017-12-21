@@ -6,3 +6,5 @@ bindsym $mod+Shift+Home         exec systemctl hibernate
 bindsym $mod+Shift+End          exec systemctl suspend
 bindsym $mod+Pause              exec systemctl suspend
 
+
+
