@@ -9,10 +9,16 @@ len=~/.dotfiles/i3/lenovo-conf
 
 cp "$cfg" "$ap"
 
-if [ $HOSTNAME == "manjaroi3" ]; then
-    cat "$man" >> "$ap"
-    cp "$ap" "$loc"
-fi && \
+case $HOSTNAME in
+  (manjaroi3) cat "$man" >> "$ap"; cp "$ap" "$loc";;
+  (x200) cat "$x200" >> "$ap"; cp "$ap" "$loc";;
+  (lenovo) cat "$len" >> "$ap"; cp "$ap" "$loc";;
+esac && \
+
+# if [ $HOSTNAME == "manjaroi3" ]; then
+#     cat "$man" >> "$ap"
+#     cp "$ap" "$loc"
+# fi && \
 
 # if [ $HOSTNAME == "x200" ]; then
 #     cat "$x200" >> "$ap"
