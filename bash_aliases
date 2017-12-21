@@ -84,9 +84,9 @@ alias mu=mupdf
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
 # skrypty
-alias wall='/home/piotr/.dotfiles/bin/wallt.sh'
+alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh' 
-alias drop='/home/piotr/.dotfiles/bin/drop.sh'
+alias drop='/home/piotr/.dotfiles/bin/dropdown.sh'
 alias tnij='/home/piotr/.dotfiles/bin/tnijpdf.sh'
 alias off='/home/piotr/.dotfiles/bin/poweroff.sh'
 alias mnt='/home/piotr/.dotfiles/bin/mount.sh'
@@ -95,6 +95,8 @@ alias umnt='/home/piotr/.dotfiles/bin/unmount.sh'
 alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
 alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
+
+alias ap='/home/piotr/.dotfiles/bin/i3append.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka
