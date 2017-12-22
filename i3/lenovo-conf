@@ -6,8 +6,7 @@
 bindsym F1 workspace $ws5; exec mupdf ~/.i3/cheatsheet.pdf 
 for_window [class="MuPDF"] fullscreen enable
 
-#lenovo & manjaro
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
 bindsym $mod+Shift+End          exec systemctl suspend
-bindsym $mod+Pause              exec systemctl suspend
+bindsym Pause                   exec systemctl suspend

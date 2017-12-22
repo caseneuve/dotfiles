@@ -525,10 +525,14 @@ bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 # > tu koniec pliku wspólnego, poniżej append  < #
 ##################################################
 
-# manjaro 
+# lenovo
+
+# exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
+
+bindsym F1 workspace $ws5; exec mupdf ~/.i3/cheatsheet.pdf 
+for_window [class="MuPDF"] fullscreen enable
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
 bindsym $mod+Shift+End          exec systemctl suspend
-bindsym $mod+Pause              exec systemctl suspend
-
+bindsym Pause                   exec systemctl suspend
