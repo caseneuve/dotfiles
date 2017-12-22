@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/piotr/.dotfiles && \
+cd /home/piotr/.dotfiles 
 git pull
