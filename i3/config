@@ -47,9 +47,9 @@ exec_always --no-startup-id pamac-tray start
 exec        --no-startup-id mocp
 exec        --no-startup-id emacs --daemon start
 
-exec        --no-startup-id emacs
-exec        --no-startup-id slack
-exec        --no-startup-id firefox
+#exec        --no-startup-id emacs
+#exec        --no-startup-id slack
+#exec        --no-startup-id firefox
 
 # ===============
 # monitory & wall 
@@ -524,4 +524,3 @@ bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
 ##################################################
-
