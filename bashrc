@@ -27,3 +27,6 @@ shopt -s autocd
 
 # aliasy lokalne
 alias nco='nano --nohelp ~/.config/compton.conf'
+
+# mutt background fix
+COLORFGBG="default;default"

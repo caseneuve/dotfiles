@@ -91,12 +91,11 @@ alias tnij='/home/piotr/.dotfiles/bin/tnijpdf.sh'
 alias off='/home/piotr/.dotfiles/bin/poweroff.sh'
 alias mnt='/home/piotr/.dotfiles/bin/mount.sh'
 alias umnt='/home/piotr/.dotfiles/bin/unmount.sh'
-
 alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
 alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
-
-alias ap='/home/piotr/.dotfiles/bin/i3append.sh'
+alias Ap='/home/piotr/.dotfiles/bin/i3append.sh'
+alias apd='/home/piotr/.dotfiles/bin/append.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka

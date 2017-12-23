@@ -8,5 +8,5 @@ for_window [class="MuPDF"] fullscreen enable
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
-bindsym $mod+Shift+End          exec systemctl suspend
+bindsym $mod+Shift+End          exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh; exec systemctl suspend 
 bindsym Pause                   exec systemctl suspend
