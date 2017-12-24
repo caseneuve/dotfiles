@@ -96,6 +96,7 @@ alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias Ap='/home/piotr/.dotfiles/bin/i3append.sh'
 alias apd='/home/piotr/.dotfiles/bin/append.sh'
+alias pif=$HOME/.dotfiles/bin/ifpackage.sh
 
 # zmienne
 muz=/home/piotr/Muzyka
