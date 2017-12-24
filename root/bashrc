@@ -8,12 +8,12 @@
 alias ls='ls --color=auto'
 
 bold=$(tput bold)
-RED="\[$(tput setaf 1)\]"
-GREEN="\[$(tput setaf 2)\]"
-RESET="\[$(tput sgr0)\]"
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+RESET=$(tput sgr0)
 
 #PS1='[\u@\h \W]\$ '
-PS1="${bold}${RED}[\u${RESET} ${GREEN}\w${bold}${RED}]# ${RESET}"
+PS1='${bold}${RED}[\u${RESET} ${GREEN}\w${bold}${RED}]\$${RESET} '
 
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
