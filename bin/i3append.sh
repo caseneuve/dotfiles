@@ -8,9 +8,10 @@ man=~/.dotfiles/i3/manjaro-conf
 len=~/.dotfiles/i3/lenovo-conf
 
 cp "$cfg" "$ap"
+echo "# ostatni update: $(date '+%d.%m.%y, %H:%M')" >> "$ap"
 
 case $HOSTNAME in
-  (manjaroi3) cat "$man" >> "$ap"; cp "$ap" "$loc";;
+  (manjaroi3) cat "$man" >> "$ap";  cp "$ap" "$loc";;
   (x200) cat "$x200" >> "$ap"; cp "$ap" "$loc";;
   (lenovo) cat "$len" >> "$ap"; cp "$ap" "$loc";;
 esac 

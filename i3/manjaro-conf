@@ -6,6 +6,6 @@ bindsym $mod+Shift+Home         exec systemctl hibernate
 bindsym $mod+Shift+End          exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh; exec systemctl suspend
 bindsym $mod+Pause              exec systemctl suspend
 
-# mutt
+# mutt >> testowo, jak skończę konfigurować, wrzucić to do ogólnego configa
 
 bindsym $mod+g                  workspace $ws10; exec --no-startup-id $term -e mutt 
