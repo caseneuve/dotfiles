@@ -8,4 +8,4 @@ bindsym $mod+Pause              exec systemctl suspend
 
 # mutt
 
-bindsym $mod+g                  workspace $ws10; exec --no-startup-id $term -e mutt 
+# bindsym $mod+g                  workspace $ws10; exec --no-startup-id $term -e mutt 
