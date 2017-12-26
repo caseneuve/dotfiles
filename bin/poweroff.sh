@@ -9,7 +9,7 @@ cd /home/piotr/.dotfiles/
     if [[ `git status --porcelain` ]]; then
         clear
         printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n-----------------------------------------------------\n\n$(git diff --cached)\n" 
-        /home/piotr/.bin/gitpush.sh && \
+        /home/piotr/.dotfiles/bin/gitpush.sh && \
         while true; do
         printf "\n"
         read -p "${bold}${RED}### Czy chcesz wyłączyć komputer? [t/n] ###${RESET} " yn
@@ -23,7 +23,7 @@ cd /home/piotr/.dotfiles/
 else
     while true; do
     clear
-    read -p "${bold}${RED}\n### Czy chcesz wyłączyć komputer? [t/n] ###${RESET} " yn
+    read -p "${bold}${RED}### Czy chcesz wyłączyć komputer? [t/n] ###${RESET} " yn
     case $yn in
         [Tt]* ) systemctl poweroff -i; break;;
         [Nn]* ) exit;;
