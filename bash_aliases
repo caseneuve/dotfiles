@@ -79,7 +79,7 @@ alias kal='cal -s --color'
 alias hg=hangups 
 alias mp=mupdf
 alias mu=mupdf
-alias mt='cd ~/Pobrane; neomutt'
+alias mt='cd ~/Pobrane; mutt'
 
 # system info / akcje
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
