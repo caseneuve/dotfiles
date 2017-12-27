@@ -53,7 +53,7 @@ mkc()
 
 # polecenia
 alias sbr='source ~/.bashrc'
-alias cfg='emacsclient /home/piotr/.i3/config'
+alias cfg='emacsclient -nw -c /home/piotr/.i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
@@ -65,7 +65,7 @@ alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-an
 alias yta='youtube-dl --extract-audio --audio-format mp3'
 
 # programy 
-alias em=emacsclient
+alias e="emacsclient -nw -c $1"
 alias r=ranger
 alias m=mocp 
 alias f=feh
