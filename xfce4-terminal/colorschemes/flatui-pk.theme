@@ -1,0 +1,11 @@
+[Scheme]
+Name=Flatui-pk
+Name[pl]=Flatui-pk
+
+ColorCursor=#ececf0f0f1f1
+ColorForeground=#ececf0f0f1f1
+ColorPalette=#28282a2a2e2e;#c0c039392b2b;#2727aeae6060;#f3f39c9c1212;#29298080b9b9;#8e8e4444adad;#1616a0a08585;#bdbdc3c3c7c7;#37373b3b4141;#e7e74c4c3c3c;#2e2ecccc7171;#f1f1c4c40f0f;#34349898dbdb;#9b9b5959b6b6;#1a1abcbc9c9c;#ececf0f0f1f1
+
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+ColorBackground=#2d2c37364343
+ColorBackgroundVary=TRUE

@@ -4,9 +4,10 @@ bold=$(tput bold)
 cyan=$(tput setaf 6)
 reset=$(tput sgr0)
 
-cd /home/piotr/.dotfiles 
+cd /home/piotr/.dotfiles
 
-if git diff-index --quiet HEAD --; then
+# if git diff-index --quiet HEAD --; then
+if [ -z $(git status --porcelain) ] ; then
     echo "Git jest aktualny.";
 else
     git add . && \
