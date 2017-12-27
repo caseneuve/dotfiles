@@ -1,0 +1,9 @@
+[Scheme]
+Name=Tango-pk
+Name[pl]=Tango-pk
+
+ColorPalette=#000000;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#d3d7cf;#555753;#ef2929;#8ae234;#fce94f;#739fcf;#ad7fa8;#34e2e2;#eeeeec
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+ColorBackground=#2d2c37364343
+ColorBackgroundVary=TRUE
+
