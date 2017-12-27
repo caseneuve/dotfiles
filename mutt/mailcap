@@ -1,0 +1,6 @@
+# ~/.mutt/mailcap @ lenovo 
+
+# załączniki
+image/*; ~/.mutt/viewimagefeh.sh %s 
+application/pdf; ~/.mutt/viewpdf.sh %s 
+
