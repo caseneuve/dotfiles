@@ -7,7 +7,7 @@ reset=$(tput sgr0)
 cd /home/piotr/.dotfiles
 
 # if git diff-index --quiet HEAD --; then
-if [ -z $(git status --porcelain) ] ; then
+if [ -z "$(git status --porcelain)" ]; then
     echo "Git jest aktualny.";
 else
     git add . && \
