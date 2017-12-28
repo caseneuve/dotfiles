@@ -1,0 +1,31 @@
+source ~/Dropbox/config/.muttmail
+source ~/Dropbox/config/.mutt_aliases
+set mailcap_path=~/.mutt/mailcap
+
+# kolory
+source ~/.mutt/schemes/manjaro-color
+
+# set move = no 
+set imap_keepalive = 900
+
+# sortowanie 
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+# editor
+set editor="nano --fill=80"
+
+# kbd
+source ~/.mutt/kbd.conf
+
+# nie podświetlaj całej linii
+set arrow_cursor 
+
+# open html messages
+auto_view text/html                                  
+alternative_order text/plain text/enriched text/html 
+
+# sidebar
+#set sidebar_visible=yes
+
