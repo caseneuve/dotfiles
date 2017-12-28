@@ -57,6 +57,7 @@ alias hg=hangups
 alias mp=mupdf
 alias mu=mupdf
 alias mt='cd ~/Pobrane; mutt'
+alias nf='clear; neofetch'
 
 # system info / akcje
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
@@ -75,6 +76,7 @@ alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias Ap='/home/piotr/.dotfiles/bin/i3append.sh'
 alias apd='/home/piotr/.dotfiles/bin/append.sh'
 alias pif=$HOME/.dotfiles/bin/ifpackage.sh
+alias sm=$HOME/.dotfiles/bin/sendmail.sh
 
 # zmienne
 muz=/home/piotr/Muzyka

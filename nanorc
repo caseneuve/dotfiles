@@ -61,6 +61,7 @@ set cutfromcursor
 ## If the value is 0 or less, the wrapping point will be the screen
 ## width less this number.
 # set fill -8
+set fill 72
 
 ## Remember the used search/replace strings for the next session.
 # set historylog
