@@ -40,6 +40,7 @@ alias sp='sudo pacman -S'
 alias ya='yaourt --noconfirm'
 alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
+alias nmt='nano ~/.muttrc'
 
 # programy 
 alias e="emacsclient -nw -c $1"
