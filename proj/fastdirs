@@ -1,0 +1,20 @@
+# FAST DIRS
+map gh cd ~
+map gd cd ~/.dotfiles
+map gm cd ~/Muzyka
+map gM cd /media
+map go cd ~/Obrazy
+map ge cd ~/Dropbox/EMACS
+map gs cd ~/Dropbox/EMACS/szkoła
+map gx cd ~/Dropbox
+map gS cd ~/Szkoła
+map ga cd ~/Pobrane
+map gb cd ~/.dotfiles/bin
+map gw cd ~/Wideo
+map gp cd ~/pdf
+map gP cd ~/Pulpit
+#map gB cd ~/Biurko
+map g/ cd ~/ /
+map g? cd ~/ /usr/share/doc/ranger
+map gr cd /
+map gR cd /root
