@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/tmux-boot.sh
 # Created:     29.12.17, 16:49    @lenovo
-# Last update: 29.12.17, 19:16:22 @x200
+# Last update: 29.12.17, 23:15:25 @x200
 
 # Doc: Aktualizuje wtyczki dla tmuxa i tworzy plik konfiguracyjny z moimi kbd
 
@@ -11,29 +11,32 @@ package2=tmux
 confdir=$HOME/.tmux/
 confile=$HOME/.tmux.conf
 
-# fixme: yaourt wywala się przy wyborach; trzeba to obejść budowaniem paczki ze źródła?
-if [ ! pacman -Qi "$package1" &> /dev/null ] ; then
-    yaourt --noconfirm $package1 &&\
-        echo "Zainstalowałem paczkę $(pacman -Q "$package1")."
-else
+# sprawdź, czy urlview jest zainstalowana
+if pacman -Qi "$package1" &>/dev/null; then
     echo "Paczka $(pacman -Q "$package1") jest zainstalowana."
+else
+    git clone https://aur.archlinux.org/urlview.git $HOME/biurko/aur/urlview && \
+        cd $HOME/biurko/aur/urlview && \
+        makepkg -si --noconfirm && \
+        echo "Zainstalowałem paczkę $(pacman -Q "$package1")."
 fi
 
-# trzeba jeszcze zakomentować aktywną komendę
+# popraw plik wykonawczy dla urlview
+if [ -z "$(cat /etc/urlview/system.urlview | grep firefox)" ]; then
+    echo "Dopisuję komendę wykonawczą do urlview:"
+    sudo sed -i 's/COMMAND url_handler.sh/#COMMAND url_handler.sh/g' /etc/urlview/system.urlview
+    echo "COMMAND firefox %s" | sudo tee -a /etc/urlview/system.urlview
+fi
 
-# fixme:
-# if [ ! -z "$(cat /etc/urlview/system.urlview | grep firefox)" ]; then
-#     echo "Dopisuję komendę wykonawczą do urlview:"
-#     echo "COMMAND firefox %s" | sudo tee -a /etc/urlview/system.urlview 
-# fi
-
-if [ ! pacman -Qi "$package2" &> /dev/null ] ; then
+# sprawdź, czy tmux jest zainstalowany
+if pacman -Qi "$package2" &>/dev/null; then
+    echo "Paczka $(pacman -Q "$package2") jest zainstalowana."
+else
     sudo pacman -S --noconfirm $package2 &&\
         echo "Zainstalowałem paczkę $(pacman -Q "$package2")."
-else
-    echo "Paczka $(pacman -Q "$package2") jest zainstalowana."
 fi
 
+# usuń folder ~/.tmux, jeśli istnieje
 if [ -d "$confdir" ]; then
     while true; do
         read -p "Usunę folder '$confdir'. Kontynuować? [t/n] " dec
@@ -45,6 +48,7 @@ if [ -d "$confdir" ]; then
     done
 fi
 
+# usuń ~/.tmux.conf, jeśli istnieje 
 if [ -f "$confile" ]; then
     while true; do
         read -p "Usunę plik '$confile' Kontynuować? [t/n] " dec
@@ -56,12 +60,15 @@ if [ -f "$confile" ]; then
     done
 fi
 
+# utwórz symlink 
 ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 
+# zainstaluj pluginy
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/tmux-plugins/tmux-urlview ~/.tmux/plugins/tmux-urlview
 tmux source-file ~/.tmux.conf
 
+# info
 echo "Konfiguracja tmuxa zainstalowana przez skrypt termite-boot.sh $(date "+%d.%m.%y, %H:%M") wraz z zależnościami: $(pacman -Q urlview)" >> $HOME/.tmux/log.txt
 
 printf "\nSukces, zainstalowałem $(pacman -Q urlview), utworzyłem $(ls -la --color=always ~ | grep tmux)\n"
