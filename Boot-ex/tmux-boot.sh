@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/tmux-boot.sh
 # Created:     29.12.17, 16:49    @lenovo
-# Last update: 29.12.17, 18:30:18 @lenovo
+# Last update: 29.12.17, 18:51:37 @lenovo
 
 # Doc: Aktualizuje wtyczki dla tmuxa i tworzy plik konfiguracyjny z moimi kbd
 
@@ -16,6 +16,10 @@ if [ ! pacman -Qi "$package1" &> /dev/null ] ; then
         echo "Zainstalowałem paczkę $(pacman -Q "$package1")."
 else
     echo "Paczka $(pacman -Q "$package1") jest zainstalowana."
+fi
+
+if [ ! -z "$(cat /etc/urlview/system.urlview | grep firefox)" ]; then
+    echo "COMMAND firefox %s" | sudo tee -a /etc/urlview/system.urlview 
 fi
 
 if [ ! pacman -Qi "$package2" &> /dev/null ] ; then
