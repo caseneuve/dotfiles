@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/tmux-boot.sh
 # Created:     29.12.17, 16:49    @lenovo
-# Last update: 29.12.17, 17:33:57 @lenovo
+# Last update: 29.12.17, 17:43:36 @lenovo
 
 # Doc: Aktualizuje wtyczki dla tmuxa i tworzy plik konfiguracyjny z moimi kbd
 
@@ -21,7 +21,7 @@ else
 fi
 
 if [ ! pacman -Qi "$package2" &> /dev/null ] ; then
-    sudo pacman -S $package2 &&\
+    sudo pacman -S --noconfirm $package2 &&\
         echo "Zainstalowałem paczkę $(pacman -Q "$package2")."
 else
     echo "Paczka $(pacman -Q "$package2") jest zainstalowana."
