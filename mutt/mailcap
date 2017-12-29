@@ -1,3 +1,4 @@
+image/*; ~/.mutt/muttimage.sh %s ; copiousoutput
 image/*; ~/.mutt/viewimagefeh.sh %s
 application/pdf; ~/.mutt/viewpdf.sh %s
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
