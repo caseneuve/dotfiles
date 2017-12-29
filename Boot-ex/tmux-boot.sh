@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/tmux-boot.sh
 # Created:     29.12.17, 16:49    @lenovo
-# Last update: 29.12.17, 18:51:37 @lenovo
+# Last update: 29.12.17, 18:55:33 @lenovo
 
 # Doc: Aktualizuje wtyczki dla tmuxa i tworzy plik konfiguracyjny z moimi kbd
 
@@ -19,6 +19,7 @@ else
 fi
 
 if [ ! -z "$(cat /etc/urlview/system.urlview | grep firefox)" ]; then
+    echo "Dopisuję komendę wykonawczą do urlview:"
     echo "COMMAND firefox %s" | sudo tee -a /etc/urlview/system.urlview 
 fi
 
