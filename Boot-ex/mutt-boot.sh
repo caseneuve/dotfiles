@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/mutt-boot.sh
 # Created:     29.12.17, 17:39    @lenovo
-# Last update: 29.12.17, 18:37:14 @lenovo
+# Last update: 29.12.17, 19:22:25 @x200
 
 # Doc: Sprawdź, czy mutt jest zainstalowany, następnie ściągnij konfig z .dotfiles
 
@@ -14,14 +14,14 @@ dotmt=$HOME/.dotfiles/mutt
 if pacman -Qi $package1 &> /dev/null ; then
     echo "Paczka $(pacman -Q $package1) jest zainstalowana." 
 else
-    sudo pacman -S --noconfirm neomutt &&\
+    sudo pacman -S --noconfirm $package1 &&\
         echo "Zainstalowałem paczkę $(pacman -Q $package1)."
 fi
 
 if pacman -Qi $package2 &> /dev/null ; then
     echo "Paczka $(pacman -Q $package2) jest zainstalowana." 
 else
-    sudo pacman -S --noconfirm neomutt &&\
+    sudo pacman -S --noconfirm $package2 &&\
         echo "Zainstalowałem paczkę $(pacman -Q $package2)."
 fi
 
