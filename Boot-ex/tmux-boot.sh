@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/tmux-boot.sh
 # Created:     29.12.17, 16:49    @lenovo
-# Last update: 29.12.17, 18:55:33 @lenovo
+# Last update: 29.12.17, 19:16:22 @x200
 
 # Doc: Aktualizuje wtyczki dla tmuxa i tworzy plik konfiguracyjny z moimi kbd
 
@@ -11,17 +11,21 @@ package2=tmux
 confdir=$HOME/.tmux/
 confile=$HOME/.tmux.conf
 
+# fixme: yaourt wywala się przy wyborach; trzeba to obejść budowaniem paczki ze źródła?
 if [ ! pacman -Qi "$package1" &> /dev/null ] ; then
-    yaourt -S --noconfirm $package1 &&\
+    yaourt --noconfirm $package1 &&\
         echo "Zainstalowałem paczkę $(pacman -Q "$package1")."
 else
     echo "Paczka $(pacman -Q "$package1") jest zainstalowana."
 fi
 
-if [ ! -z "$(cat /etc/urlview/system.urlview | grep firefox)" ]; then
-    echo "Dopisuję komendę wykonawczą do urlview:"
-    echo "COMMAND firefox %s" | sudo tee -a /etc/urlview/system.urlview 
-fi
+# trzeba jeszcze zakomentować aktywną komendę
+
+# fixme:
+# if [ ! -z "$(cat /etc/urlview/system.urlview | grep firefox)" ]; then
+#     echo "Dopisuję komendę wykonawczą do urlview:"
+#     echo "COMMAND firefox %s" | sudo tee -a /etc/urlview/system.urlview 
+# fi
 
 if [ ! pacman -Qi "$package2" &> /dev/null ] ; then
     sudo pacman -S --noconfirm $package2 &&\
