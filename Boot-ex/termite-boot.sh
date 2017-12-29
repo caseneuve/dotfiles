@@ -1,11 +1,12 @@
 # ~/.dotfiles/Boot-ex/termite.sh
 # Created:     29.12.17, 15:49    @lenovo
-# Last update: 29.12.17, 18:29:25 @lenovo
+# Last update: 29.12.17, 19:20:13 @x200
 
 # Doc: Sprawdź, czy termite jest zainstalowany, następnie utwórz symlink do  ~/.config/termite; skrypt zakłada, że na komputerze jest aktywne repo .dotfiles ze ściągniętym folderem /termite/
 
 #!/bin/bash
 
+# fixme: polecenie pacmana i tak się wywala ...? todo: sprawdzić jak to obejść
 if [ ! pacman -Qi termite &> /dev/null ] ; then
     sudo pacman -S --noconfirm termite &&\
         echo "Zainstalowałem paczkę $(pacman -Q termite)."
