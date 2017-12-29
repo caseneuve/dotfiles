@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/tmux-boot.sh
 # Created:     29.12.17, 16:49    @lenovo
-# Last update: 29.12.17, 17:43:36 @lenovo
+# Last update: 29.12.17, 18:30:18 @lenovo
 
 # Doc: Aktualizuje wtyczki dla tmuxa i tworzy plik konfiguracyjny z moimi kbd
 
@@ -10,8 +10,6 @@ package1=urlview
 package2=tmux
 confdir=$HOME/.tmux/
 confile=$HOME/.tmux.conf
-
-clear
 
 if [ ! pacman -Qi "$package1" &> /dev/null ] ; then
     yaourt -S --noconfirm $package1 &&\
@@ -58,8 +56,3 @@ tmux source-file ~/.tmux.conf
 echo "Konfiguracja tmuxa zainstalowana przez skrypt termite-boot.sh $(date "+%d.%m.%y, %H:%M") wraz z zależnościami: $(pacman -Q urlview)" >> $HOME/.tmux/log.txt
 
 printf "\nSukces, zainstalowałem $(pacman -Q urlview), utworzyłem $(ls -la --color=always ~ | grep tmux)\n"
-
-
-
-
-

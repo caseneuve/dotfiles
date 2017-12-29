@@ -1,12 +1,10 @@
 # ~/.dotfiles/Boot-ex/termite.sh
 # Created:     29.12.17, 15:49    @lenovo
-# Last update: 29.12.17, 17:43:20 @lenovo
+# Last update: 29.12.17, 18:29:25 @lenovo
 
 # Doc: Sprawdź, czy termite jest zainstalowany, następnie utwórz symlink do  ~/.config/termite; skrypt zakłada, że na komputerze jest aktywne repo .dotfiles ze ściągniętym folderem /termite/
 
 #!/bin/bash
-
-clear
 
 if [ ! pacman -Qi termite &> /dev/null ] ; then
     sudo pacman -S --noconfirm termite &&\
@@ -34,6 +32,3 @@ echo "Konfiguracja termite zainstalowana przez skrypt termite-boot.sh $(date "+%
 printf "\nSukces, utworzyłem ~/.config/termite z następującymi plikami:\n\n"
 
 ls -l --color=always $HOME/.config/termite
-
-
-
