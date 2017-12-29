@@ -77,8 +77,8 @@ color6  = #16a085
 color14 = #1abc9c
 
 # white
-color7  = #7f8c8d
-color15 = #bdc3c7
+color7  = #bdc3c7
+color15 = #ecf0f1
 
 # cursor = #dcdccc
 # cursor_foreground = #dcdccc
@@ -87,7 +87,8 @@ color15 = #bdc3c7
 # background = #000000
 
 # 20% background transparency (requires a compositor)
-background = rgba(45, 55, 67, 0.90)
+#background = rgba(45, 55, 67, 0.90)
+background = rgba(45, 44, 55, 0.95)
 
 [hints]
 #font = Monospace 12
