@@ -144,13 +144,13 @@ bindsym $mod+grave exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 ###                 SCRATCHPAD                 ###
 ##################################################
 
-exec $term -T=dropdown -e tmux; move scratchpad
+exec termite -t dropdown -e tmux; move scratchpad
 exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 
 for_window [title="dropdown"] floating enable;
 for_window [title="dropdown"] move scratchpad
 
-bindsym $mod+Shift+u exec $term -T=dropdown -e tmux
+bindsym $mod+Shift+u exec termite -t dropdown -e tmux
 bindsym $mod+u scratchpad show 
 
 
@@ -298,9 +298,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ###                    MODES                   ###
 ##################################################
 
-# ===================================================
-# resize window (you can also use the mouse for that):
-# ===================================================
+# ===========================================================
+# resize window (you can also use the mouse for that) (mod+R):
+# ===========================================================
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -326,6 +326,62 @@ mode "resize" {
 }
 
 bindsym $mod+Shift+r mode "resize"
+
+# ============================
+# move floating window (mod+W):
+# ============================
+
+mode "moveit" {
+    bindsym i move up 20px
+    bindsym j move left 20px
+    bindsym k move down 20px
+    bindsym l move right 20px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+w focus floating; mode "moveit"
+
+# ===================
+# modify gaps (mod+S):
+# ===================
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+s mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym i  gaps inner current plus 5
+        bindsym k  gaps inner current minus 5
+        bindsym 0  gaps inner current set 0
+
+        bindsym Shift+i  gaps inner all plus 5
+        bindsym Shift+k  gaps inner all minus 5
+        bindsym Shift+0  gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym i  gaps outer current plus 5
+        bindsym k  gaps outer current minus 5
+        bindsym 0  gaps outer current set 0
+
+        bindsym Shift+i  gaps outer all plus 5
+        bindsym Shift+k  gaps outer all minus 5
+        bindsym Shift+0  gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 
 ##################################################
@@ -356,7 +412,7 @@ new_window pixel 0
 
 for_window [class=mpv]  sticky enable
 bindsym $mod+Shift+s    sticky toggle
-bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1000 20
+bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 950 30
 
 # =======================
 # toggle gaps 0 / default:
