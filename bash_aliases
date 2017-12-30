@@ -43,6 +43,7 @@ alias yta='youtube-dl --extract-audio --audio-format mp3'
 alias nmt='nano ~/.muttrc'
 alias ntm='nano ~/.config/termite/config'
 alias ntx='nano ~/.tmux.conf'
+alias ch7='chmod 750 $1'
 
 # programy 
 alias e="emacsclient -nw -c $1"
