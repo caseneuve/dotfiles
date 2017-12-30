@@ -7,8 +7,8 @@
 #!/bin/bash
 
 cd /usr/lib/i3blocks
-sudo sed -i 's/⭣/↓/g' battery
-sudo sed -i 's/⭡/↑/g' battery
+sudo sed -i 's/ /↓/g' battery
+sudo sed -i 's/ /↑/g' battery
 printf "Poprawiłem skrypt /usr/lib/i3blocks:\n"
 sed -n 39,45p battery
 printf "\n"
