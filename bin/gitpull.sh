@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     21.12.17           ?
-# Last update: 01.01.18, 11:45:31 @manjaroi3
+# Last update: 01.01.18, 11:55:46 @manjaroi3
 
 # Doc:
 #
@@ -8,12 +8,13 @@
 
 #!/bin/bash
 
-echo "Aktualizuję repo .dotfiles"
+echo "Aktualizuję repo DOTFILES:"
 cd /home/piotr/.dotfiles 
 git pull
 echo "... ok!"
+printf "\n"
 
-echo "Aktualizuję repo .emacs.d/load"
+echo "Aktualizuję repo EMACS:"
 cd /home/piotr/.emacs.d/load 
 git pull
 echo "... ok!"
