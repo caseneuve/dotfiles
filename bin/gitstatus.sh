@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 01.01.18, 11:57:05 @manjaroi3
+# Last update: 01.01.18, 11:57:41 @manjaroi3
 
 # Doc:
 #
@@ -34,7 +34,4 @@ if [[ `git status --porcelain` ]]; then
 else
     git status
 fi
-
-echo "...ok!"
-
 
