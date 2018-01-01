@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/feh.sh
 # Created:     01.01.18, 16:47    @x200
-# Last update: 01.01.18, 17:10:52 @x200
+# Last update: 01.01.18, 17:16:35 @lenovo
 
 # Doc: Symlink feh keys file to dotfiles
 
@@ -14,7 +14,8 @@ file=$HOME/.dotfiles/feh/keys
 
 # sprawdź czy feh jest w ogóle zainstalowany
 if pacman -Qi $package &>/dev/null; then
-    #echo "Paczka $(pacman -Q termite) jest zainstalowana."
+    echo "Sprawdzam, czy paczka $package jest zainstalowana..."
+    echo "... ok!"
 else
     echo "Paczka $package nie jest zainstalowana, instaluję."
     sudo pacman -S --noconfirm $package &&\
@@ -33,7 +34,6 @@ else
 fi
 
 echo "... ok!"
-printf "\n"
 
 # utwórz symlink 
 echo "Tworzę symlink do $file"
