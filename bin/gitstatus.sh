@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 01.01.18, 11:49:51 @manjaroi3
+# Last update: 01.01.18, 11:57:05 @manjaroi3
 
 # Doc:
 #
@@ -15,6 +15,7 @@ RESET=$(tput sgr0)
 bold=$(tput bold)
 
 echo "Sprawdzam status repo DOTFILES:"
+echo "==============================="
 cd /home/piotr/.dotfiles/
 if [[ `git status --porcelain` ]]; then
     printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
@@ -25,6 +26,7 @@ fi
 
 printf "\n"
 echo "Sprawdzam status repo EMACS:"
+echo "============================"
 cd /home/piotr/.emacs.d/load/
 if [[ `git status --porcelain` ]]; then
     printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
