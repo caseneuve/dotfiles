@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/make-repo-emacs.sh
 # Created:     01.01.18, 11:58    @manjaroi3
-# Last update: 01.01.18, 12:22:55 @lenovo
+# Last update: 01.01.18, 12:28:51 @lenovo
 
 # Doc: clone repo /emacs to ~/.emacs.git
 
@@ -24,6 +24,10 @@ printf "\n"
 
 echo "Tworzę repo ~/.emacs.git"
 git clone https://github.com/caseneuve/emacs $dirgit
+cd $dirgit
+
+git remote set-url origin git+ssh://git@github.com/caseneuve/emacs.git
+
 echo "...ok!"
 printf "\n"
 
