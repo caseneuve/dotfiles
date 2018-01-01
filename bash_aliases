@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 01.01.18, 15:28:01 @manjaroi3
+# Last update: 01.01.18, 15:31:49 @lenovo
 
 # ALIASY 
 
@@ -164,3 +164,4 @@ alias gmt='cd $HOME/.mutt;ls -a --group-directories-first'
 alias gm='cd $HOME/Muzyka;ls -a --group-directories-first'
 alias gdB='cd $HOME/.dotfiles/Boot-ex; ls'
 alias geg='cd $HOME/.emacs.git; ls -R'
+alias ged='cd $HOME/.emacs.d; ls --group-directories-first'
