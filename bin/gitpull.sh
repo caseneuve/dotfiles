@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     21.12.17           ?
-# Last update: 01.01.18, 11:55:46 @manjaroi3
+# Last update: 01.01.18, 12:24:38 @lenovo
 
 # Doc:
 #
@@ -15,6 +15,6 @@ echo "... ok!"
 printf "\n"
 
 echo "Aktualizuję repo EMACS:"
-cd /home/piotr/.emacs.d/load 
+cd /home/piotr/.emacs.git 
 git pull
 echo "... ok!"
