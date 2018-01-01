@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 01.01.18, 11:53:24 @manjaroi3
+# Last update: 01.01.18, 11:54:01 @manjaroi3
 
 # Doc:
 #
@@ -44,4 +44,5 @@ else
     git push
 fi
 
+printf "\n"
 echo "... zrobione!"
