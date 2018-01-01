@@ -1,6 +1,10 @@
 # ~/.dotfiles/Boot-ex/make-repo-emacs.sh
 # Created:     01.01.18, 11:58    @manjaroi3
+<<<<<<< HEAD
 # Last update: 01.01.18, 13:34:48 @lenovo
+=======
+# Last update: 01.01.18, 12:46:46 @manjaroi3
+>>>>>>> bdffe28e81328851c8e038f6770279f827ff362c
 
 # Doc: clone repo /emacs to ~/.emacs.git
 
