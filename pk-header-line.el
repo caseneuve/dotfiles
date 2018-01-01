@@ -1,6 +1,6 @@
 ;; ~/Dropbox/EMACS/.load/pk-header-line.el
 ;; Created:     30.12.17, 17:05    @lenovo
-;; Last update: 31.12.17, 17:39:23 @lenovo
+;; Last update: 01.01.18, 11:30:23 @manjaroi3
 
 ;; Status: In progress
 ;;TODO:
@@ -8,7 +8,7 @@
 
 ;; Doc:
 ;;
-;; My custom header line fomrat (replacing default mode line).
+;; My custom header line format (replacing default mode line).
 ;; Items:
 ;; 1. buffer-modified - red, buffer-savedl - none
 ;; 2. buffer-name
