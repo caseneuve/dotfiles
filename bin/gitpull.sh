@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     21.12.17           ?
-# Last update: 01.01.18, 15:29:35 @manjaroi3
+# Last update: 01.01.18, 15:37:34 @manjaroi3
 
 # Doc:
 #
@@ -19,4 +19,4 @@ cd /home/piotr/.emacs.git
 git pull
 echo "... ok!"
 
-. ~/.bashrc
+source ~/.bashrc
