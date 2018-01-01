@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 01.01.18, 11:43:54 @manjaroi3
+# Last update: 01.01.18, 11:53:24 @manjaroi3
 
 # Doc:
 #
@@ -16,10 +16,9 @@ reset=$(tput sgr0)
 
 # repo DOTFILES
 
-echo "Aktualizuję repo .dotfiles"
+echo "Aktualizuję repo DOTFILES:"
+echo "=========================="
 cd /home/piotr/.dotfiles
-
-# if git diff-index --quiet HEAD --; then
 if [ -z "$(git status --porcelain)" ]; then
     echo "Git jest aktualny.";
 else
@@ -29,11 +28,12 @@ else
     git commit -m "$opis" && \
     git push
 fi
+printf "\n"
 
 # repo EMACS
-echo "Aktualizuję repo .emacs.d/load"
+echo "Aktualizuję repo EMACS:"
+echo "=========================="
 cd /home/piotr/.emacs.d/load
-
 if [ -z "$(git status --porcelain)" ]; then
     echo "Git jest aktualny.";
 else
