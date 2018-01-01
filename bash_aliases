@@ -1,4 +1,8 @@
-# MOJE ALIASY PK
+# ~/.dotfiles/bash_aliases
+# Created:     ?
+# Last update: 01.01.18, 15:28:01 @manjaroi3
+
+# ALIASY 
 
 # komendy terminala
 alias q=exit
