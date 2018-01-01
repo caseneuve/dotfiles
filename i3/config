@@ -19,14 +19,14 @@ floating_modifier $mod
 
 set $browser firefox
 
-bindsym $mod+Shift+q kill
-bindsym $mod+q       kill
+bindsym $mod+Shift+q             kill
+bindsym $mod+q                   kill
 
 # ================
 # power management:
 # ================
 
-bindsym $mod+Shift+BackSpace    exec i3-msg exit
+bindsym $mod+Shift+BackSpace     exec i3-msg exit
 
 
 ##################################################
@@ -68,63 +68,63 @@ exec_always feh --bg-fill ~/.i3/wall.jpg start
 # change focus:
 # ============
 
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+i focus up
-bindsym $mod+l focus right
+bindsym $mod+j                  focus left
+bindsym $mod+k                  focus down
+bindsym $mod+i                  focus up
+bindsym $mod+l                  focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left               focus left
+bindsym $mod+Down               focus down
+bindsym $mod+Up                 focus up
+bindsym $mod+Right              focus right
 
 # ==============
 # moving windows:
 # ==============
 
-bindsym $mod+Shift+j     move left
-bindsym $mod+Shift+k     move down
-bindsym $mod+Shift+i     move up
-bindsym $mod+Shift+l     move right
+bindsym $mod+Shift+j            move left
+bindsym $mod+Shift+k            move down
+bindsym $mod+Shift+i            move up
+bindsym $mod+Shift+l            move right
 
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left         move left
+bindsym $mod+Shift+Down         move down
+bindsym $mod+Shift+Up           move up
+bindsym $mod+Shift+Right        move right
 
 # ===============================================
 # enter fullscreen mode for the focused container:
 # ===============================================
 
-bindsym $mod+f           fullscreen toggle
-bindsym $mod+F11         fullscreen toggle
+bindsym $mod+f                  fullscreen toggle
+bindsym $mod+F11                fullscreen toggle
 
 # =======
 # layouts:
 # =======
 
-bindsym $mod+y           layout tabbed
-bindsym $mod+Ctrl+y      layout stacking
-bindsym $mod+Shift+y     layout toggle split
+bindsym $mod+y                  layout tabbed
+bindsym $mod+Ctrl+y             layout stacking
+bindsym $mod+Shift+y            layout toggle split
 
 # ========================
 # toggle tiling / floating:
 # ========================
 
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space        floating toggle
+bindsym $mod+space              focus mode_toggle
 
 # ================
 # resizing windows:
 # ================
 
-bindsym $mod+Ctrl+j resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+i resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+j     resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+i     resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+k     resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+l     resize grow width 10 px or 10 ppt
 
 # flash active window (za: Luke Smith) / jeśli compton jest włączony
-bindsym $mod+grave exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
+bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 
 # =======
 # orphans:
@@ -150,8 +150,8 @@ exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable;
 for_window [title="dropdown"] move scratchpad
 
-bindsym $mod+Shift+u exec termite -t dropdown -e tmux
-bindsym $mod+u scratchpad show 
+bindsym $mod+Shift+u               exec termite -t dropdown -e tmux
+bindsym $mod+u                     scratchpad show 
 
 
 ##################################################
@@ -176,57 +176,57 @@ set $ws10 "10: "
 # switch to workspace:
 # ===================
 
-bindsym $mod+1 workspace $ws1; 
-bindsym $mod+2 workspace $ws2; 
-bindsym $mod+3 workspace $ws3; 
-bindsym $mod+4 workspace $ws4; 
-bindsym $mod+5 workspace $ws5; layout tabbed
-bindsym $mod+6 workspace $ws6; 
-bindsym $mod+7 workspace $ws7; 
-bindsym $mod+8 workspace $ws8; 
-bindsym $mod+9 workspace $ws9; layout stacking
-bindsym $mod+0 workspace $ws10;
+bindsym $mod+1          workspace $ws1; 
+bindsym $mod+2          workspace $ws2; 
+bindsym $mod+3          workspace $ws3; 
+bindsym $mod+4          workspace $ws4; 
+bindsym $mod+5          workspace $ws5; layout tabbed
+bindsym $mod+6          workspace $ws6; 
+bindsym $mod+7          workspace $ws7; 
+bindsym $mod+8          workspace $ws8; 
+bindsym $mod+9          workspace $ws9; layout stacking
+bindsym $mod+0          workspace $ws10;
 
-bindsym Control+1 workspace $ws1; 
-bindsym Control+2 workspace $ws2; 
-bindsym Control+3 workspace $ws3; 
-bindsym Control+4 workspace $ws4; 
-bindsym Control+5 workspace $ws5; layout tabbed
-bindsym Control+6 workspace $ws6; 
-bindsym Control+7 workspace $ws7; 
-bindsym Control+8 workspace $ws8; 
-bindsym Control+9 workspace $ws9; layout stacking
+bindsym Control+1       workspace $ws1; 
+bindsym Control+2       workspace $ws2; 
+bindsym Control+3       workspace $ws3; 
+bindsym Control+4       workspace $ws4; 
+bindsym Control+5       workspace $ws5; layout tabbed
+bindsym Control+6       workspace $ws6; 
+bindsym Control+7       workspace $ws7; 
+bindsym Control+8       workspace $ws8; 
+bindsym Control+9       workspace $ws9; layout stacking
 # bindsym Control+0 workspace $ws10
 
 # =============================
 # move focused container to $ws:
 # =============================
 
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1    move container to workspace $ws1
+bindsym $mod+Shift+2    move container to workspace $ws2
+bindsym $mod+Shift+3    move container to workspace $ws3
+bindsym $mod+Shift+4    move container to workspace $ws4
+bindsym $mod+Shift+5    move container to workspace $ws5
+bindsym $mod+Shift+6    move container to workspace $ws6
+bindsym $mod+Shift+7    move container to workspace $ws7
+bindsym $mod+Shift+8    move container to workspace $ws8
+bindsym $mod+Shift+9    move container to workspace $ws9
+bindsym $mod+Shift+0    move container to workspace $ws10
 
 # =================================
 # move workspace to another monitor:
 # =================================
 
-bindsym $mod+Control+h move workspace to output left
-bindsym $mod+Control+semicolon move workspace to output right
+bindsym $mod+Control+h           move workspace to output left
+bindsym $mod+Control+semicolon   move workspace to output right
 
 # ============================
 # pk: cycle through workspaces:
 # ============================
 
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
-bindsym $mod+Tab workspace back_and_forth
+bindsym Mod1+Tab                workspace next
+bindsym Mod1+Shift+Tab          workspace prev
+bindsym $mod+Tab workspace      back_and_forth
 
 # ====================
 # reguły dla aplikacji:
@@ -258,40 +258,40 @@ for_window [title=".*tryb.prywatny.*"] move to workspace $ws7
 # przejdź do workspace i otwórz aplikację:
 # =======================================
 
-bindsym $mod+Control+1 workspace $ws1; exec emacs
-bindsym $mod+Control+e workspace $ws1; exec emacs
-bindsym $mod+Control+2 workspace $ws2; exec $browser
-bindsym $mod+Control+3 workspace $ws3; exec $term
-bindsym $mod+Control+4 workspace $ws4; exec $term -e 'emacsclient ~/.i3/config'
-bindsym $mod+Control+5 workspace $ws5; exec thunar
-bindsym $mod+Control+6 workspace $ws6; exec $term -e ranger
-bindsym $mod+Control+r workspace $ws6; exec $term -e ranger
-bindsym $mod+Control+t workspace $ws6; exec thunar
-bindsym $mod+Control+7 workspace $ws7; exec gimp
-bindsym $mod+p         workspace $ws7; exec mtpaint
-bindsym $mod+Control+8 workspace $ws8; exec $term -e mocp
-bindsym $mod+Control+9 workspace $ws9; exec --no-startup-id slack
-bindsym $mod+Control+0 workspace $ws10; exec --no-startup-id qutebrowser
-bindsym $mod+Control+b workspace $ws10; exec --no-startup-id qutebrowser
+bindsym $mod+Control+1          workspace $ws1; exec emacs
+bindsym $mod+Control+e          workspace $ws1; exec emacs
+bindsym $mod+Control+2          workspace $ws2; exec $browser
+bindsym $mod+Control+3          workspace $ws3; exec $term
+bindsym $mod+Control+4          workspace $ws4; exec $term -e 'emacsclient ~/.i3/config'
+bindsym $mod+Control+5          workspace $ws5; exec thunar
+bindsym $mod+Control+6          workspace $ws6; exec $term -e ranger
+bindsym $mod+Control+r          workspace $ws6; exec $term -e ranger
+bindsym $mod+Control+t          workspace $ws6; exec thunar
+bindsym $mod+Control+7          workspace $ws7; exec gimp
+bindsym $mod+p                  workspace $ws7; exec mtpaint
+bindsym $mod+Control+8          workspace $ws8; exec $term -e mocp
+bindsym $mod+Control+9          workspace $ws9; exec --no-startup-id slack
+bindsym $mod+Control+0          workspace $ws10; exec --no-startup-id qutebrowser
+bindsym $mod+Control+b          workspace $ws10; exec --no-startup-id qutebrowser
 
 # =============================
 # reload the configuration file:
 # =============================
 
-bindsym $mod+Escape reload
+bindsym $mod+Escape             reload
 # bindsym $mod+Shift+c reload
 
 # =============================================================================
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3):
 # =============================================================================
 
-bindsym $mod+Shift+Escape restart
+bindsym $mod+Shift+Escape       restart
 
 # ========================================
 # exit i3 (logs you out of your X session):
 # ========================================
 
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
 ##################################################
@@ -309,38 +309,38 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym i resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym j        resize shrink width 10 px or 10 ppt
+        bindsym i        resize grow height 10 px or 10 ppt
+        bindsym k        resize shrink height 10 px or 10 ppt
+        bindsym l        resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left     resize shrink width 10 px or 10 ppt
+        bindsym Down     resize grow height 10 px or 10 ppt
+        bindsym Up       resize shrink height 10 px or 10 ppt
+        bindsym Right    resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return   mode "default"
+        bindsym Escape   mode "default"
 }
 
-bindsym $mod+Shift+r mode "resize"
+bindsym $mod+Shift+r    mode "resize"
 
 # ============================
 # move floating window (mod+W):
 # ============================
 
 mode "moveit" {
-    bindsym i move up 20px
-    bindsym j move left 20px
-    bindsym k move down 20px
-    bindsym l move right 20px
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym i           move up 20px
+    bindsym j           move left 20px
+    bindsym k           move down 20px
+    bindsym l           move right 20px
+    bindsym Return      mode "default"
+    bindsym Escape      mode "default"
 }
 
-bindsym $mod+Shift+w focus floating; mode "moveit"
+bindsym $mod+Shift+w    focus floating; mode "moveit"
 
 # ===================
 # modify gaps (mod+S):
@@ -359,32 +359,32 @@ mode "$mode_gaps" {
 }
 
 mode "$mode_gaps_inner" {
-        bindsym i  gaps inner current plus 5
-        bindsym k  gaps inner current minus 5
-        bindsym l  gaps inner current plus 5
-        bindsym j  gaps inner current minus 5
-        bindsym 0  gaps inner current set 0
+        bindsym i      gaps inner current plus 5
+        bindsym k      gaps inner current minus 5
+        bindsym l      gaps inner current plus 5
+        bindsym j      gaps inner current minus 5
+        bindsym 0      gaps inner current set 0
 
         bindsym Shift+i  gaps inner all plus 5
         bindsym Shift+k  gaps inner all minus 5
         bindsym Shift+0  gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return   mode "default"
+        bindsym Escape   mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym i  gaps outer current plus 5
-        bindsym k  gaps outer current minus 5
-        bindsym l  gaps outer current plus 5
-        bindsym j  gaps outer current minus 5
-        bindsym 0  gaps outer current set 0
+        bindsym i       gaps outer current plus 5
+        bindsym k       gaps outer current minus 5
+        bindsym l       gaps outer current plus 5
+        bindsym j       gaps outer current minus 5
+        bindsym 0       gaps outer current set 0
 
         bindsym Shift+i  gaps outer all plus 5
         bindsym Shift+k  gaps outer all minus 5
         bindsym Shift+0  gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return   mode "default"
+        bindsym Escape   mode "default"
 }
 
 
@@ -505,10 +505,10 @@ set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 #bindsym $mod+minus           exec --no-startEOFup-id pactl set-sink-volume $sink -- -10%
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute $sink toggle
 
-bindsym XF86AudioPlay exec --no-startup-id mocp -G 
-bindsym XF86AudioStop exec --no-startup-id mocp -s 
-bindsym XF86AudioNext exec --no-startup-id mocp -f
-bindsym XF86AudioPrev exec --no-startup-id mocp -r
+bindsym XF86AudioPlay        exec --no-startup-id mocp -G 
+bindsym XF86AudioStop        exec --no-startup-id mocp -s 
+bindsym XF86AudioNext        exec --no-startup-id mocp -f
+bindsym XF86AudioPrev        exec --no-startup-id mocp -r
 
 # ============
 # zrzut ekranu:
