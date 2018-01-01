@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 01.01.18, 15:38:33 @manjaroi3
+# Last update: 01.01.18, 15:42:45 @lenovo
 
 # ALIASY 
 
@@ -167,4 +167,4 @@ alias geg='cd $HOME/.emacs.git; ls -R'
 alias ged='cd $HOME/.emacs.d; ls --group-directories-first'
 
 # test
-alias bla='echo "juhu!"'
+alias blab='echo "Juhu!"'
