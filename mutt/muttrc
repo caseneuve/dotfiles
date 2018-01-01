@@ -14,10 +14,11 @@ set sort_browser=date
 set sort_aux=reverse-last-date-received
 
 # editor
-set editor="nano --fill=80"
+#set editor="nano --fill=80"
+#set editor="emacsclient -nw"
+set editor="emacsclient -a \"\" -t"
 
-# kbd
-source ~/.mutt/kbd.conf
+# kbd source ~/.mutt/kbd.conf
 
 # nie podświetlaj całej linii
 set arrow_cursor 

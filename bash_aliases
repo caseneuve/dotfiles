@@ -45,6 +45,16 @@ alias ntm='nano ~/.config/termite/config'
 alias ntx='nano ~/.tmux.conf'
 alias ch7='chmod 750 $1'
 
+alias eba='emacsclient  ~/.bash_aliases'
+alias ebr='emacsclient  ~/.bashrc'
+alias eco='emacsclient  ~/.compton.conf'
+alias elog='date >> /home/piotr/.log-antergos; emacsclient  /home/piotr/.log-antergos'
+alias emt='emacsclient ~/.muttrc'
+alias etm='emacsclient ~/.config/termite/config'
+alias etx='emacsclient ~/.tmux.conf'
+alias e='emacsclient'
+
+
 # programy 
 alias e="emacsclient -nw -c $1"
 alias r=ranger
@@ -148,3 +158,5 @@ alias ges='cd $HOME/Dropbox/EMACS/szkoła;ls -a --group-directories-first'
 alias gmt='cd $HOME/.mutt;ls -a --group-directories-first'
 alias gm='cd $HOME/Muzyka;ls -a --group-directories-first'
 alias gdB='cd $HOME/.dotfiles/Boot-ex; ls'
+
+
