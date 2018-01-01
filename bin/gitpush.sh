@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 01.01.18, 11:54:01 @manjaroi3
+# Last update: 01.01.18, 11:54:23 @manjaroi3
 
 # Doc:
 #
@@ -32,7 +32,7 @@ printf "\n"
 
 # repo EMACS
 echo "Aktualizuję repo EMACS:"
-echo "=========================="
+echo "======================="
 cd /home/piotr/.emacs.d/load
 if [ -z "$(git status --porcelain)" ]; then
     echo "Git jest aktualny.";
