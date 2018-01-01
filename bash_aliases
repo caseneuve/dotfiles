@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 01.01.18, 16:12:40 @x200
+# Last update: 01.01.18, 17:41:32 @manjaroi3
 
 # ALIASY 
 
