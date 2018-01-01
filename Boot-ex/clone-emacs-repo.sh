@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/make-repo-emacs.sh
 # Created:     01.01.18, 11:58    @manjaroi3
-# Last update: 01.01.18, 12:28:51 @lenovo
+# Last update: 01.01.18, 12:41:37 @lenovo
 
 # Doc: clone repo /emacs to ~/.emacs.git
 
@@ -16,7 +16,7 @@ echo "Czyszczę katalog  $dirold"
 
 if [ -d "$dirold" ]; then
     cd $dirold
-    rm -r *
+    rm -rf *
 fi
 
 echo "...ok!"
