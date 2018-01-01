@@ -1,7 +1,7 @@
 # ~/.dotfiles/Boot-ex/make-repo-emacs.sh
 # Created:     01.01.18, 11:58    @manjaroi3
 
-# Last update: 01.01.18, 13:49:01 @lenovo
+# Last update: 01.01.18, 13:54:00 @manjaroi3
 
 # Doc: clone repo /emacs to ~/.emacs.git
 
@@ -10,8 +10,7 @@
 # vars
 dirold=$HOME/.emacs.d/load
 dirgit=$HOME/.emacs.git
-heder=$HOME/.emacs.git/pk-header-line.el
-heder2=$HOME/.emacs.git/tweaks/pk-header-line.el
+heder=$HOME/.emacs.git/tweaks/pk-header-line.el
 
 echo "Czyszczę katalog  $dirold"
 
@@ -32,9 +31,7 @@ printf "\n"
 
 echo "Tworzę symlink do pk-header-line.el"
 cd $dirgit
-mkdir -p tweaks
-mv $heder $heder2
-ln -s $heder2 $dirold
+ln -s $heder $dirold
 echo "...ok!"
 printf "\n"
 
