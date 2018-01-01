@@ -515,9 +515,9 @@ bindsym XF86AudioPrev exec --no-startup-id mocp -r
 # ============
 
 # zrzut calego ekranu
-bindsym Print            exec --no-startup-id scrot -d 3 '%H%M_%d.%m.%Y.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
+bindsym Print            exec --no-startup-id scrot -d 3 '%H.%M_%d%b.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 # zrzut tylko aktywnego okna
-bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%H%M_%d.%m.%Y.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
+bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%d%b%y_%H.%M.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 
 # ===============
 # touchpad OFF/ON:
