@@ -9,6 +9,7 @@ alias la='ls -a'
 alias ll='ls -l'
 alias cdl='cd $1;ls'
 alias 'cd.'='cd ..'
+alias '..'='cd ..'
 alias lg='ls --group-directories-first'
 alias lag='ls -a --group-directories-first'
 alias kl=pkill

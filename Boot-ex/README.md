@@ -1,1 +1,1 @@
-Some bootstrap exercises. Work in progress.
+Some bootstrap exercises. Learning stuff.
