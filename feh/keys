@@ -1,0 +1,12 @@
+# my kbd, pk / 07.11.2017
+
+# action            # keys (1=Alt)
+zoom_in             1-o
+zoom_out            1-u
+scroll_up           1-i
+scroll_down         1-k
+scroll_right        1-l
+scroll_left         1-j
+zoom_default        1-0
+toggle_fullscreen   f
+save_filelist       F

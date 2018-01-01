@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/termite.sh
 # Created:     29.12.17, 15:49    @lenovo
-# Last update: 29.12.17, 23:18:14 @x200
+# Last update: 01.01.18, 17:03:26 @x200
 
 # Doc: Sprawdź, czy termite jest zainstalowany, następnie utwórz symlink do  ~/.config/termite; skrypt zakłada, że na komputerze jest aktywne repo .dotfiles ze ściągniętym folderem /termite/
 

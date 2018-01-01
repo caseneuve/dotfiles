@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 01.01.18, 15:42:45 @lenovo
+# Last update: 01.01.18, 16:12:40 @x200
 
 # ALIASY 
 
@@ -35,7 +35,7 @@ mkc()
 
 # polecenia
 alias sbr='source ~/.bashrc'
-alias cfg='emacsclient -nw -c /home/piotr/.i3/config'
+alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
