@@ -46,14 +46,14 @@ alias ntm='nano ~/.config/termite/config'
 alias ntx='nano ~/.tmux.conf'
 alias ch7='chmod 750 $1'
 
-alias eba='emacsclient  ~/.bash_aliases'
-alias ebr='emacsclient  ~/.bashrc'
-alias eco='emacsclient  ~/.compton.conf'
-alias elog='date >> /home/piotr/.log-antergos; emacsclient  /home/piotr/.log-antergos'
-alias emt='emacsclient ~/.muttrc'
-alias etm='emacsclient ~/.config/termite/config'
-alias etx='emacsclient ~/.tmux.conf'
-alias e='emacsclient'
+alias eba='emacsclient -nw  ~/.bash_aliases'
+alias ebr='emacsclient -nw  ~/.bashrc'
+alias eco='emacsclient -nw  ~/.compton.conf'
+alias elog='date >> /home/piotr/.log-antergos; emacsclient -nw  /home/piotr/.log-antergos'
+alias emt='emacsclient -nw ~/.muttrc'
+alias etm='emacsclient -nw ~/.config/termite/config'
+alias etx='emacsclient -nw ~/.tmux.conf'
+alias e='emacsclient -nw'
 
 
 # programy 
@@ -159,5 +159,4 @@ alias ges='cd $HOME/Dropbox/EMACS/szkoła;ls -a --group-directories-first'
 alias gmt='cd $HOME/.mutt;ls -a --group-directories-first'
 alias gm='cd $HOME/Muzyka;ls -a --group-directories-first'
 alias gdB='cd $HOME/.dotfiles/Boot-ex; ls'
-
-
+alias geg='cd $HOME/.emacs.git; ls -R'
