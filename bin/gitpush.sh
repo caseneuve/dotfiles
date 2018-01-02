@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 02.01.18, 14:10:35 @x200
+# Last update: 02.01.18, 14:12:56 @x200
 
 # Doc:
 #
@@ -14,7 +14,7 @@ bold=$(tput bold)
 cyan=$(tput setaf 6)
 reset=$(tput sgr0)
 
-# ustaw cache na 30 min.
+# ustaw cache na 30 min. (timeout=sec.), exit: "git credential-cache exit"
 git config credential.helper 'cache --timeout=1800'
 
 # repo DOTFILES
