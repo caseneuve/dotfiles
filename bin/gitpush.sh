@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 01.01.18, 12:25:16 @lenovo
+# Last update: 02.01.18, 14:10:35 @x200
 
 # Doc:
 #
@@ -14,8 +14,10 @@ bold=$(tput bold)
 cyan=$(tput setaf 6)
 reset=$(tput sgr0)
 
-# repo DOTFILES
+# ustaw cache na 30 min.
+git config credential.helper 'cache --timeout=1800'
 
+# repo DOTFILES
 echo "Aktualizuję repo DOTFILES:"
 echo "=========================="
 cd /home/piotr/.dotfiles
