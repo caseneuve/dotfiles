@@ -18,7 +18,8 @@ set sort_aux=reverse-last-date-received
 #set editor="emacsclient -nw"
 set editor="emacsclient -a \"\" -t"
 
-# kbd source ~/.mutt/kbd.conf
+# kbd
+source ~/.mutt/kbd.conf
 
 # nie podświetlaj całej linii
 set arrow_cursor 
@@ -29,4 +30,3 @@ alternative_order text/plain text/enriched text/html
 
 # sidebar
 #set sidebar_visible=yes
-
