@@ -504,8 +504,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 #bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume $sink -- +10%
 #bindsym $mod+minus           exec --no-startEOFup-id pactl set-sink-volume $sink -- -10%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute $sink toggle
-
+#bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute $sink toggle
+bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle
 bindsym XF86AudioPlay        exec --no-startup-id mocp -G 
 bindsym XF86AudioStop        exec --no-startup-id mocp -s 
 bindsym XF86AudioNext        exec --no-startup-id mocp -f
