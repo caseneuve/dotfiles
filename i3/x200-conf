@@ -1,5 +1,7 @@
 
-# x200
+# x200 local settings:
+# ===================
+# Last update: 04.01.18, 19:11:25 @x200
 
 bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
 
@@ -7,3 +9,4 @@ bindsym $mod+Shift+End           exec shutdown now
 bindsym $mod+Shift+Home          exec systemctl hibernate
 bindsym $mod+Shift+Pause         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh; exec systemctl suspend
 bindsym $mod+Pause               exec systemctl suspend
+

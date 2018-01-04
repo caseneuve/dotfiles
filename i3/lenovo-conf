@@ -1,5 +1,7 @@
 
-# lenovo
+# lenovo local settings:
+# =====================
+# Last update: 04.01.18, 19:10:24 @x200
 
 # exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
 
@@ -10,3 +12,4 @@ bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
 bindsym $mod+Shift+End          exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh; exec systemctl suspend 
 bindsym Pause                   exec systemctl suspend
+

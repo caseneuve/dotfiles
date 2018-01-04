@@ -1,3 +1,12 @@
+# ~/.dotfiles/bin/asfddsf.sh
+# Created:     04.01.18, 18:43    @x200
+# Last update: 04.01.18, 19:09:14 @x200
+
+# Doc:  Appends  i3config  file  (main) with  local  files  containing
+# different settings  for different machines, then  executes i3 reload
+# command (works only  for key bindings, otherwise  execute i3 restart
+# from keyboard shortcut/command line)
+
 #!/bin/bash
 
 loc=~/.i3/config
@@ -8,7 +17,7 @@ man=~/.dotfiles/i3/manjaro-conf
 len=~/.dotfiles/i3/lenovo-conf
 
 cp "$cfg" "$ap"
-echo "# ostatni update: $(date '+%d.%m.%y, %H:%M')" >> "$ap"
+echo "# Last append: $(date '+%d.%m.%y, %H:%M:%S') @$HOSTNAME" >> "$ap"
 
 case $HOSTNAME in
   (manjaroi3) cat "$man" >> "$ap";  cp "$ap" "$loc";;
@@ -17,20 +26,5 @@ case $HOSTNAME in
 esac 
 
 rm "$ap"
-
-# if [ $HOSTNAME == "manjaroi3" ]; then
-#     cat "$man" >> "$ap"
-#     cp "$ap" "$loc"
-# fi && \
-
-# if [ $HOSTNAME == "x200" ]; then
-#     cat "$x200" >> "$ap"
-#     cp "$ap" "$loc"
-# fi && \
-
-# if [ $HOSTNAME == "lenovo" ]; then
-#     cat "$len" >> "$ap"
-#     cp "$ap" "$loc"
-# fi && \
 
 i3-msg reload

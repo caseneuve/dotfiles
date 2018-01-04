@@ -1,5 +1,7 @@
 
-# manjaro 
+# manjaro local settings:
+# ======================
+# Last update: 04.01.18, 19:11:00 @x200
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
