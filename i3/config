@@ -559,7 +559,7 @@ bindsym $mod+w         exec firefox
 bindsym Scroll_Lock    exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
 bindsym $mod+x         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
 
-bindsym F8             workspace $ws8; exec --no-startup-id $term -e mocp
+#bindsym F8             workspace $ws8; exec --no-startup-id $term -e mocp
 bindsym $mod+F8        exec --no-startup-id mocp -p
 bindsym $mod+Ctrl+F2   exec --no-startup-id compton
 bindsym $mod+F2        exec pkill compton
