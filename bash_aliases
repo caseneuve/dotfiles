@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 01.01.18, 17:50:36 @manjaroi3
+# Last update: 04.01.18, 19:58:14 @x200
 
 # ALIASY 
 
@@ -39,9 +39,6 @@ alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
-alias mpva='mpv --no-video'
-alias va='mpv --no-video'
-alias v=mpv
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
 alias ya='yaourt --noconfirm'
@@ -70,7 +67,10 @@ alias f=feh
 alias n='nano --nohelp'
 alias nl='nano -l --nohelp'
 alias qb=qutebrowser
-alias v=mpv 
+alias v=mpv
+alias mpva='mpv --no-video'
+alias va='mpv --no-video'
+alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
 alias c=calcurse
 alias clc=gcalccmd
 alias kal='cal -s --color'

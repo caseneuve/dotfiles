@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 04.01.18, 19:09:20 @x200
+# Last update: 04.01.18, 19:45:05 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -417,7 +417,7 @@ new_window pixel 0
 
 for_window [class=mpv]  sticky enable
 bindsym $mod+Shift+s    sticky toggle
-bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 950 30
+bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 850 30
 
 # =======================
 # toggle gaps 0 / default:
