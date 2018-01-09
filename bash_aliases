@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 04.01.18, 19:58:14 @x200
+# Last update: 08.01.18, 20:10:54 @x200
 
 # ALIASY 
 
@@ -56,6 +56,7 @@ alias elog='date >> /home/piotr/.log-antergos; emacsclient -nw  /home/piotr/.log
 alias emt='emacsclient -nw ~/.muttrc'
 alias etm='emacsclient -nw ~/.config/termite/config'
 alias etx='emacsclient -nw ~/.tmux.conf'
+alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
 alias e='emacsclient -nw'
 
 

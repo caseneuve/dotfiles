@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 04.01.18, 19:45:05 @x200
+# Last update: 09.01.18, 01:12:16 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -314,6 +314,8 @@ mode "resize" {
         bindsym i        resize grow height 10 px or 10 ppt
         bindsym k        resize shrink height 10 px or 10 ppt
         bindsym l        resize grow width 10 px or 10 ppt
+        bindsym d        resize set 600 400
+        bindsym c        move position center    
 
         # same bindings, but for the arrow keys
         bindsym Left     resize shrink width 10 px or 10 ppt
@@ -337,6 +339,8 @@ mode "moveit" {
     bindsym j           move left 20px
     bindsym k           move down 20px
     bindsym l           move right 20px
+    bindsym c           move position center
+    bindsym d           resize set 600 400
     bindsym Return      mode "default"
     bindsym Escape      mode "default"
 }
