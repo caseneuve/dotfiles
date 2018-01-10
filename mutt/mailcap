@@ -1,6 +1,7 @@
 #image/*; ~/.mutt/muttimage.sh %s ; copiousoutput
 image/*; ~/.mutt/viewimagefeh.sh %s
 application/pdf; ~/.mutt/viewpdf.sh %s
+application/x-pdf; ~/.mutt/viewpdf.sh %s
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 #application/vnd.oasis.opendocument.text; soffice '%s' #; edit=soffice -no-oosplash --writer '%s'; test=test -n "$DISPLAY"; 
 application/vnd.oasis.opendocument.text; odt2txt '%s' | less
