@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.01.18, 01:12:16 @x200
+# Last update: 10.01.18, 11:06:40 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -502,6 +502,9 @@ bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15 # decrea
 
 bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5% # && killall -USR1 i3status
 bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5% # && killall -USR1 i3status
+bindsym $mod+Shift+plus      exec --no-startup-id pactl set-sink-volume 0 +10% # && killall -USR1 i3status
+bindsym $mod+Shift+minus     exec --no-startup-id pactl set-sink-volume 0 -10% # && killall -USR1 i3status
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% 
 

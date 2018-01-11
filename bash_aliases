@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 08.01.18, 20:10:54 @x200
+# Last update: 11.01.18, 01:12:35 @x200
 
 # ALIASY 
 
@@ -41,6 +41,7 @@ alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
+alias spR='sudo pacman -Rs'
 alias ya='yaourt --noconfirm'
 alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
