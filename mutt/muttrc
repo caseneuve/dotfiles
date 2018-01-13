@@ -30,4 +30,7 @@ alternative_order text/plain text/enriched text/html
 
 # sidebar
 #set sidebar_visible=yes
-alias jasiek Jan Kaznowski <nienawidzeinternetu@gmail.com>
+
+# index format (http://www.mutt.org/doc/manual/#index-format)
+#                num  flag  att.      from     subj      date             size       label#
+set index_format="%4C %S %?X?A& ? %?M?[%M]&   ? %-25.25L %-50.50s  %{%d/%m/%y}     (%4.4c)     %> %B"

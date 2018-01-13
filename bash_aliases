@@ -1,8 +1,11 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 11.01.18, 01:12:35 @x200
+# Last update: 13.01.18, 02:30:21 @x200
 
 # ALIASY 
+
+# vars
+home=/home/piotr
 
 # komendy terminala
 alias q=exit
@@ -98,9 +101,9 @@ alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias Ap='/home/piotr/.dotfiles/bin/i3append.sh'
 alias apd='/home/piotr/.dotfiles/bin/append.sh'
-alias pif=$HOME/.dotfiles/bin/ifpackage.sh
-alias sm=$HOME/.dotfiles/bin/sendmail.sh
-alias kbd=$HOME/.dotfiles/bin/kbd-help.sh
+alias pif=$home/.dotfiles/bin/ifpackage.sh
+alias sm=$home/.dotfiles/bin/sendmail.sh
+alias kbd=$home/.dotfiles/bin/kbd-help.sh
 
 # zmienne
 muz=/home/piotr/Muzyka
@@ -141,35 +144,34 @@ alias cdd='cd /home/piotr/Dropbox; ls -a --group-directories-first'
 alias cdk='cd /home/piotr/Dokumenty; ls -a --group-directories-first'
 alias cdI='cd /home/piotr/.i3; ls -a'
 
-alias gh='cd $HOME; ls -a --group-directories-first'
-alias ga='cd $HOME/Pobrane;ls -a --group-directories-first'
-alias gpo='cd $HOME/Pobrane;ls -a --group-directories-first'
-alias gs='cd $HOME/Szkoła;ls -a --group-directories-first'
-alias go='cd $HOME/Obrazy;ls -a --group-directories-first'
-alias gw='cd $HOME/Wideo;ls -a --group-directories-first'
-alias gw='cd $HOME/Wideo;ls -a --group-directories-first'
-alias gpd='cd $HOME/pdf;ls -a --group-directories-first'
-alias gb='cd $HOME/biurko;ls -a --group-directories-first'
-alias gd='cd $HOME/.dotfiles;ls -a --group-directories-first'
-alias gdb='cd $HOME/.dotfiles/bin;ls -a --group-directories-first'
-alias gdi='cd $HOME/.dotfiles/i3;ls -a --group-directories-first'
-#alias gd='cd $HOME/.dotfiles;ls -a --group-directories-first'
-alias gc='cd $HOME/.config;ls -a --group-directories-first'
-alias gcr='cd $HOME/.config/ranger;ls -a --group-directories-first'
-alias gct='cd $HOME/.config/termite;ls -a --group-directories-first'
-alias gcx='cd $HOME/.config/xfce4;ls -a --group-directories-first'
-alias gt='cd $HOME/.tmux/plugins;ls -a --group-directories-first'
-alias gD='cd $HOME/Dropbox;ls -a --group-directories-first'
-alias gDc='cd $HOME/Dropbox/config;ls -a --group-directories-first'
-alias gDl='cd $HOME/Dropbox/linux;ls -a --group-directories-first'
-alias gDp='cd $HOME/Dropbox/linux/pdf;ls -a --group-directories-first'
-alias ge='cd $HOME/Dropbox/EMACS;ls -a --group-directories-first'
-alias ges='cd $HOME/Dropbox/EMACS/szkoła;ls -a --group-directories-first'
-alias gmt='cd $HOME/.mutt;ls -a --group-directories-first'
-alias gm='cd $HOME/Muzyka;ls -a --group-directories-first'
-alias gdB='cd $HOME/.dotfiles/Boot-ex; ls'
-alias geg='cd $HOME/.emacs.git; ls -R'
-alias ged='cd $HOME/.emacs.d; ls --group-directories-first'
+alias gh='cd $home'
+alias ga='cd $home/Pobrane;ls -a --group-directories-first'
+alias gpo='cd $home/Pobrane;ls -a --group-directories-first'
+alias gs='cd $home/Szkoła;ls -a --group-directories-first'
+alias go='cd $home/Obrazy;ls -a --group-directories-first'
+alias gw='cd $home/Wideo;ls -a --group-directories-first'
+alias gw='cd $home/Wideo;ls -a --group-directories-first'
+alias gpd='cd $home/pdf;ls -a --group-directories-first'
+alias gb='cd $home/biurko;ls -a --group-directories-first'
+alias gd='cd $home/.dotfiles;ls -a --group-directories-first'
+alias gdb='cd $home/.dotfiles/bin;ls -a --group-directories-first'
+alias gdi='cd $home/.dotfiles/i3;ls -a --group-directories-first'
+alias gc='cd $home/.config;ls -a --group-directories-first'
+alias gcr='cd $home/.config/ranger;ls -a --group-directories-first'
+alias gct='cd $home/.config/termite;ls -a --group-directories-first'
+alias gcx='cd $home/.config/xfce4;ls -a --group-directories-first'
+alias gt='cd $home/.tmux/plugins;ls -a --group-directories-first'
+alias gD='cd $home/Dropbox;ls -a --group-directories-first'
+alias gDc='cd $home/Dropbox/config;ls -a --group-directories-first'
+alias gDl='cd $home/Dropbox/linux;ls -a --group-directories-first'
+alias gDp='cd $home/Dropbox/linux/pdf;ls -a --group-directories-first'
+alias ge='cd $home/Dropbox/EMACS;ls -a --group-directories-first'
+alias ges='cd $home/Dropbox/EMACS/szkoła;ls -a --group-directories-first'
+alias gmt='cd $home/.mutt;ls -a --group-directories-first'
+alias gm='cd $home/Muzyka;ls -a --group-directories-first'
+alias gdB='cd $home/.dotfiles/Boot-ex; ls'
+alias geg='cd $home/.emacs.git; ls -R'
+alias ged='cd $home/.emacs.d; ls --group-directories-first'
 
 # test
 alias blab='echo "Juhu!"'
