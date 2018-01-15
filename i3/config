@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 10.01.18, 11:06:40 @x200
+# Last update: 15.01.18, 11:05:50 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -399,7 +399,7 @@ mode "$mode_gaps_outer" {
 
 for_window [class="Catfish"] floating enable
 for_window [class="Gpick"]   floating enable
-
+for_window [title="mutt-audio"] floating enable
 
 ##################################################
 ###                    GAPS                    ###

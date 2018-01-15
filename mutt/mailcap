@@ -1,4 +1,4 @@
-# Last update: 11.01.18, 01:21:24 @x200
+# Last update: 15.01.18, 12:47:48 @x200
 
 # all images:
 image/*; ~/.mutt/viewimagefeh.sh %s
@@ -20,6 +20,8 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2tx
 # rtf
 application/rtf; unrtf --text '%s' | less
 
+# audio
+audio/*; ~/.mutt/listenaudio.sh %s
 
 # This file tells mutt how to open mail attachments.  Your distribution may come with one by default.
 #
