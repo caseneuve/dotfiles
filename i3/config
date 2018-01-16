@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 15.01.18, 11:05:50 @x200
+# Last update: 15.01.18, 16:44:24 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -238,10 +238,11 @@ assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
 assign [class="Messenger for Desktop"] $ws9
 assign [class="Firefox"]               $ws2
+assign [class="libreoffice-writer"]    $ws5
+assign [class="libreoffice"]           $ws5
 
-for_window [title=".*tryb.prywatny.*"] move to workspace $ws7
-#for_window [title=".*prywatny.*"] move to workspace "7: "
-#for_window [title=".*\(tryb prywatny\).*"] move to workspace "7: "
+for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws5
+for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
 
 # =======
 # orphans:
@@ -252,7 +253,6 @@ for_window [title=".*tryb.prywatny.*"] move to workspace $ws7
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # for_window [title=".*Private.*"] move to workspace $ws7 
-# for_window [title=".*Private.Browsing.*"] move to workspace "7: "
 # for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
 
 # =======================================
