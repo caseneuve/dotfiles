@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 13.01.18, 02:30:21 @x200
+# Last update: 16.01.18, 10:15:02 @x200
 
 # ALIASY 
 
@@ -104,6 +104,7 @@ alias apd='/home/piotr/.dotfiles/bin/append.sh'
 alias pif=$home/.dotfiles/bin/ifpackage.sh
 alias sm=$home/.dotfiles/bin/sendmail.sh
 alias kbd=$home/.dotfiles/bin/kbd-help.sh
+alias update=/home/piotr/.dotfiles/bin/update.sh
 
 # zmienne
 muz=/home/piotr/Muzyka

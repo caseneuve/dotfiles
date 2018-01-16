@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/update.sh
 # Created:     15.01.18, 13:14    @x200
-# Last update: 15.01.18, 13:39:09 @x200
+# Last update: 16.01.18, 10:19:24 @x200
 
 # Doc: updates symbolic links
 
@@ -10,6 +10,7 @@ sym1=$HOME/.mutt/listenaudio.sh
 file2=$HOME/.dotfiles/mutt/goobook.sh
 sym2=$HOME/.mutt/goobook.sh
 mdir=$HOME/.mutt/
+
 
 # check if files are updated from git
 #$HOME/.dotfiles/bin/gitpull.sh
@@ -32,4 +33,7 @@ else
     echo "Plik $sym2 już istnieje."
 fi
 
-echo "Zrobione."
+echo "Sprawdzam, czy goobook jest zainstalowany:"
+/home/piotr/.dotfiles/Boot-ex/goobook.sh
+
+echo "...OK!"
