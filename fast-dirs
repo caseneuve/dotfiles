@@ -1,35 +1,53 @@
+# -*- mode: conf-space;  -*-
+
 # fast dirs shrotcuts for:
 # - bash_aliases
 # - ranger
 
-# Last update: 22.01.18, 02:44:28 @x200
-# todo:
+# Last update: 22.01.18, 03:41:16 @x200
+# todo: uporządkować skróty według folderów
 
-#gc    /bla
-gc    /home/piotr/.config
-gh    /home/piotr 
-ga    /home/piotr/Pobrane
-gpo   /home/piotr/Pobrane
-gs    /home/piotr/Szkoła
-go    /home/piotr/Obrazy
-gw    /home/piotr/Wideo
-gpd   /home/piotr/pdf
-gb    /home/piotr/biurko
-gd    /home/piotr/.dotfiles
-gdb   /home/piotr/.dotfiles/bin
-gdi   /home/piotr/.dotfiles/i3
-gcr   /home/piotr/.config/ranger
-gct   /home/piotr/.config/termite
-gcx   /home/piotr/.config/xfce4
-gt    /home/piotr/.tmux/plugins
-gD    /home/piotr/Dropbox
-gDc   /home/piotr/Dropbox/config
-gDl   /home/piotr/Dropbox/linux
-gDp   /home/piotr/Dropbox/linux/pdf
-ge    /home/piotr/Dropbox/EMACS
-ges   /home/piotr/Dropbox/EMACS/szkoła
-gmt   /home/piotr/.mutt
-gm    /home/piotr/Muzyka
-gdB   /home/piotr/.dotfiles/Boot-ex 
-geg   /home/piotr/.emacs.git 
-ged   /home/piotr/.emacs.d 
+# key  # path
+gc     /home/piotr/.config
+gh     /home/piotr 
+ga     /home/piotr/Pobrane
+gpo    /home/piotr/Pobrane
+go     /home/piotr/Obrazy
+gw     /home/piotr/Wideo
+gpd    /home/piotr/pdf
+gb     /home/piotr/biurko
+gd     /home/piotr/.dotfiles
+gdb    /home/piotr/.dotfiles/bin
+gdi    /home/piotr/.dotfiles/i3
+gcr    /home/piotr/.config/ranger
+gct    /home/piotr/.config/termite
+gcx    /home/piotr/.config/xfce4
+gt     /home/piotr/.tmux/plugins
+gD     /home/piotr/Dropbox
+gDc    /home/piotr/Dropbox/config
+gDl    /home/piotr/Dropbox/linux
+gDp    /home/piotr/Dropbox/linux/pdf
+ge     /home/piotr/Dropbox/EMACS
+ges    /home/piotr/Dropbox/EMACS/szkoła
+gmt    /home/piotr/.mutt
+gm     /home/piotr/Muzyka
+gdB    /home/piotr/.dotfiles/Boot-ex 
+geg    /home/piotr/.emacs.git 
+ged    /home/piotr/.emacs.d 
+
+gdd    /home/piotr/.dotfiles
+gdr    /home/piotr/.dotfiles/ranger
+gM     /media
+gs     /home/piotr/Dropbox/EMACS/szkoła
+gx     /home/piotr/Dropbox
+gS     /home/piotr/Szkoła
+gp     /home/piotr/pdf
+gP     /home/piotr/Pulpit
+# gB  /home/piotr/Biurko
+gr     /
+gR     /root
+
+# Local variables:
+# eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")
+# eval: (add-hook 'after-save-hook 'pk/sync-fastdirs nil t)
+# End:
