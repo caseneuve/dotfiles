@@ -1,6 +1,6 @@
-# ~/.dotfiles/bin/asdf.sh
+# ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 01.01.18, 15:42:02 @lenovo
+# Last update: 22.01.18, 17:53:51 @x200
 
 # Doc:
 #

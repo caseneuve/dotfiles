@@ -4,46 +4,49 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 22.01.18, 03:41:16 @x200
+# Last update: 22.01.18, 16:38:04 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
-gc     /home/piotr/.config
+
 gh     /home/piotr 
 ga     /home/piotr/Pobrane
-gpo    /home/piotr/Pobrane
 go     /home/piotr/Obrazy
 gw     /home/piotr/Wideo
-gpd    /home/piotr/pdf
+gm     /home/piotr/Muzyka
+gp     /home/piotr/pdf
 gb     /home/piotr/biurko
-gd     /home/piotr/.dotfiles
-gdb    /home/piotr/.dotfiles/bin
-gdi    /home/piotr/.dotfiles/i3
+gS     /home/piotr/Szkoła
+gP     /home/piotr/Pulpit
+gk     /home/piotr/Książki
+gy     /home/piotr/Dokumenty
+
+gc     /home/piotr/.config
 gcr    /home/piotr/.config/ranger
 gct    /home/piotr/.config/termite
 gcx    /home/piotr/.config/xfce4
-gt     /home/piotr/.tmux/plugins
-gD     /home/piotr/Dropbox
-gDc    /home/piotr/Dropbox/config
-gDl    /home/piotr/Dropbox/linux
-gDp    /home/piotr/Dropbox/linux/pdf
+gcb    /home/piotr/.bak
+
+gd     /home/piotr/.dotfiles
+gdd    /home/piotr/.dotfiles
+gdb    /home/piotr/.dotfiles/bin
+gdi    /home/piotr/.dotfiles/i3
+gdr    /home/piotr/.dotfiles/ranger
+
+gj     /home/piotr/Dropbox
+gjc    /home/piotr/Dropbox/config
+gjl    /home/piotr/Dropbox/linux
+gjp    /home/piotr/Dropbox/linux/pdf
+
 ge     /home/piotr/Dropbox/EMACS
-ges    /home/piotr/Dropbox/EMACS/szkoła
-gmt    /home/piotr/.mutt
-gm     /home/piotr/Muzyka
-gdB    /home/piotr/.dotfiles/Boot-ex 
+gs     /home/piotr/Dropbox/EMACS/szkoła
 geg    /home/piotr/.emacs.git 
 ged    /home/piotr/.emacs.d 
 
-gdd    /home/piotr/.dotfiles
-gdr    /home/piotr/.dotfiles/ranger
+gcm    /home/piotr/.mutt
+gdx    /home/piotr/.dotfiles/Boot-ex 
+
 gM     /media
-gs     /home/piotr/Dropbox/EMACS/szkoła
-gx     /home/piotr/Dropbox
-gS     /home/piotr/Szkoła
-gp     /home/piotr/pdf
-gP     /home/piotr/Pulpit
-# gB  /home/piotr/Biurko
 gr     /
 gR     /root
 
