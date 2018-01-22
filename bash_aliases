@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 16.01.18, 10:15:02 @x200
+# Last update: 21.01.18, 18:56:47 @x200
 
 # ALIASY 
 
@@ -122,7 +122,7 @@ alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
 alias gta='git add'
 alias gtc='git commit -m'
 
-# fast dirs
+# fast dirs start
 alias gc='cd /home/piotr/.config;ls -a'
 alias gd='cd /home/piotr/Pobrane;ls -a'
 alias gh='cd ~; ls -a --group-directories-first'
@@ -174,5 +174,5 @@ alias gdB='cd $home/.dotfiles/Boot-ex; ls'
 alias geg='cd $home/.emacs.git; ls -R'
 alias ged='cd $home/.emacs.d; ls --group-directories-first'
 
-# test
-alias blab='echo "Juhu!"'
+# fast dirs end
+
