@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 26.01.18, 14:16:32 @x200
+# Last update: 26.01.18, 20:34:42 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -258,6 +258,7 @@ assign [class="libreoffice"]           $ws5
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws5
 for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
+for_window [class="Gpick"]                    resize set 1000 600
 
 # =======
 # orphans:
@@ -415,8 +416,8 @@ mode "$mode_gaps_outer" {
 ###                  FLOATING                  ###
 ##################################################
 
-for_window [class="Catfish"] floating enable
-for_window [class="Gpick"]   floating enable
+for_window [class="Catfish"]    floating enable
+for_window [class="Gpick"]      floating enable
 for_window [title="mutt-audio"] floating enable
 
 ##################################################
