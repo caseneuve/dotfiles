@@ -1,12 +1,10 @@
+#!/bin/bash
+
 # ~/.dotfiles/bin/monitory.sh
 # Created:     ?
-# Last update: 22.01.18, 18:22:20 @x200
+# Last update: 26.01.18, 13:38:45 @x200
 
-# Doc: Sprawdza czy są podłączone inne monitory i ustawia 
-#
-# Aktualizuje repozytoria 'dotfiles' i 'emacs/load' na lokalnym komputerze
-
-#!/bin/bash
+# Doc: Sprawdza czy są podłączone inne monitory i ustawia zewnętrzny po lewej
 
 intern=LVDS1
 extern=VGA1

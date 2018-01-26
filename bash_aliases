@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 22.01.18, 18:04:15 @x200
+# Last update: 26.01.18, 13:41:07 @x200
 
 # ALIASY 
 
@@ -105,7 +105,9 @@ alias pif=$home/.dotfiles/bin/ifpackage.sh
 alias sm=$home/.dotfiles/bin/sendmail.sh
 alias kbd=$home/.dotfiles/bin/kbd-help.sh
 alias update=/home/piotr/.dotfiles/bin/update.sh
-alias monitory='/home/piotr/.dotfiles/bin/monitory.sh'
+alias monitory='/home/piotr/.dotfiles/bin/monitoryL.sh'
+alias monitL='/home/piotr/.dotfiles/bin/monitoryL.sh'
+alias monitR='/home/piotr/.dotfiles/bin/monitoryR.sh'
 alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
 
 # zmienne
