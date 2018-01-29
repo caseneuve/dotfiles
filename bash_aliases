@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 26.01.18, 13:41:07 @x200
+# Last update: 28.01.18, 17:09:58 @x200
 
 # ALIASY 
 
@@ -109,6 +109,8 @@ alias monitory='/home/piotr/.dotfiles/bin/monitoryL.sh'
 alias monitL='/home/piotr/.dotfiles/bin/monitoryL.sh'
 alias monitR='/home/piotr/.dotfiles/bin/monitoryR.sh'
 alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
+alias notes='/home/piotr/.dotfiles/bin/notes.sh'
+alias nt='/home/piotr/.dotfiles/bin/notes.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka

@@ -88,7 +88,7 @@ color15 = #ecf0f1
 
 # 20% background transparency (requires a compositor)
 #background = rgba(45, 55, 67, 0.90)
-background = rgba(45, 44, 55, 0.75)
+background = rgba(45, 44, 55, 0.85)
 
 [hints]
 #font = Monospace 12

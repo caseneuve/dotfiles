@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 26.01.18, 20:34:42 @x200
+# Last update: 28.01.18, 22:37:46 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -149,8 +149,9 @@ exec termite -t dropdown -e tmux; move scratchpad
 # exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 
 for_window [title="dropdown"] floating enable
-for_window [title="dropdown"] move scratchpad
 for_window [title="dropdown"] resize set 1000 600
+for_window [title="dropdown"] move position center
+for_window [title="dropdown"] move scratchpad
 
 bindsym $mod+Shift+u               exec termite -t dropdown -e tmux
 #; resize set 1000 600
