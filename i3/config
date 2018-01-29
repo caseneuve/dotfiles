@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.01.18, 01:12:16 @x200
+# Last update: 09.01.18, 19:58:09 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -252,7 +252,7 @@ for_window [title=".*tryb.prywatny.*"] move to workspace $ws7
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # for_window [title=".*Private.*"] move to workspace $ws7 
-# for_window [title=".*Private.Browsing.*"] move to workspace "7: "
+for_window [title=".*Private.Browsing.*"] move to workspace "7: "
 # for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
 
 # =======================================
