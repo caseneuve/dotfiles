@@ -1,6 +1,6 @@
 # ~/.dotfiles/Boot-ex/tmux-boot.sh
 # Created:     29.12.17, 16:49    @lenovo
-# Last update: 29.12.17, 23:15:25 @x200
+# Last update: 16.01.18, 10:12:47 @x200
 
 # Doc: Aktualizuje wtyczki dla tmuxa i tworzy plik konfiguracyjny z moimi kbd
 

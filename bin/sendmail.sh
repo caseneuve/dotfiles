@@ -1,3 +1,5 @@
+# Last update: 13.01.18, 15:42:01 @x200
+
 #!/bin/bash
 
 clear

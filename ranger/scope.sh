@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+
+# Last update: 22.01.18, 21:27:54 @x200
+
 # ranger supports enhanced previews.  If the option "use_preview_script"
 # is set to True and this file exists, this script will be called and its
 # output is displayed in ranger.  ANSI color codes are supported.
@@ -88,6 +91,12 @@ case "$extension" in
     # ODT Files
     odt|ods|odp|sxw)
         try odt2txt "$path" && { dump | trim; exit 5; } || exit 1;;
+    # RTF
+    rtf)
+        try unrtf --text "$path" && { dump | trim; exit 5; } || exit 1;;
+    # DOCX
+    docx)
+        try docx2txt < "$path" && { dump | trim | fmt -s; exit 5; } || exit 1;;
     # HTML Pages:
     htm|html|xhtml)
         try w3m    -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }

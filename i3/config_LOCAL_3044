@@ -4,11 +4,7 @@
 ###                                            ###
 ##################################################
 
-<<<<<<< HEAD
 # Last update: 09.01.18, 19:58:09 @manjaroi3
-=======
-# Last update: 26.01.18, 20:34:42 @x200
->>>>>>> 39ccccfd9c9f116ba7d771f9dabeb4bce8927984
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -150,14 +146,12 @@ bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 ##################################################
 
 exec termite -t dropdown -e tmux; move scratchpad
-# exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
+exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 
-for_window [title="dropdown"] floating enable
+for_window [title="dropdown"] floating enable;
 for_window [title="dropdown"] move scratchpad
-for_window [title="dropdown"] resize set 1000 600
 
 bindsym $mod+Shift+u               exec termite -t dropdown -e tmux
-#; resize set 1000 600
 bindsym $mod+u                     scratchpad show 
 
 
@@ -167,26 +161,17 @@ bindsym $mod+u                     scratchpad show
 
 workspace_auto_back_and_forth yes
 
-# pencil
-set $ws1 "1: &#xf044;"
-# firefox icon 
-set $ws2 "2: &#xf269;" 
-# teminal
-set $ws3 "3: &#xf120;"
-# document (fa-file-text-o)
-set $ws4 "4: &#xf0f6;"
-# pdf
-set $ws5 "5: &#xf1c1;"
-# folder
-set $ws6 "6: &#xf115;"
-# film
-set $ws7 "7: &#xf008;"
-# music
-set $ws8 "8: &#xf028;"          
-# volume (audio)
-set $ws9 "9: &#xf0e5;"
-# envelope
-set $ws10 "10: &#xf0e0;"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "          
+set $ws9 "9: "
+set $ws10 "10: "
+# set $ws10 "10: "
 
 # ===================
 # switch to workspace:
@@ -234,11 +219,7 @@ bindsym $mod+Shift+0    move container to workspace $ws10
 # =================================
 
 bindsym $mod+Control+h           move workspace to output left
-bindsym $mod+Shift+h             move workspace to output left
 bindsym $mod+Control+semicolon   move workspace to output right
-bindsym $mod+Shift+semicolon     move workspace to output right
-# bindsym $mod+Shift+Tab           focus output left 
-bindsym $mod+Control+Tab         focus output right
 
 # ============================
 # pk: cycle through workspaces:
@@ -257,12 +238,10 @@ assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
 assign [class="Messenger for Desktop"] $ws9
 assign [class="Firefox"]               $ws2
-assign [class="libreoffice-writer"]    $ws5
-assign [class="libreoffice"]           $ws5
 
-for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws5
-for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
-for_window [class="Gpick"]                    resize set 1000 600
+for_window [title=".*tryb.prywatny.*"] move to workspace $ws7
+#for_window [title=".*prywatny.*"] move to workspace "7: "
+#for_window [title=".*\(tryb prywatny\).*"] move to workspace "7: "
 
 # =======
 # orphans:
@@ -273,10 +252,7 @@ for_window [class="Gpick"]                    resize set 1000 600
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # for_window [title=".*Private.*"] move to workspace $ws7 
-<<<<<<< HEAD
 for_window [title=".*Private.Browsing.*"] move to workspace "7: "
-=======
->>>>>>> 39ccccfd9c9f116ba7d771f9dabeb4bce8927984
 # for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
 
 # =======================================
@@ -338,8 +314,7 @@ mode "resize" {
         bindsym i        resize grow height 10 px or 10 ppt
         bindsym k        resize shrink height 10 px or 10 ppt
         bindsym l        resize grow width 10 px or 10 ppt
-        bindsym m        resize set 600 400
-        bindsym d        resize set 1000 600     
+        bindsym d        resize set 600 400
         bindsym c        move position center    
 
         # same bindings, but for the arrow keys
@@ -365,9 +340,7 @@ mode "moveit" {
     bindsym k           move down 20px
     bindsym l           move right 20px
     bindsym c           move position center
-    bindsym m           resize set 600 400
-    bindsym d           resize set 1000 600     
-
+    bindsym d           resize set 600 400
     bindsym Return      mode "default"
     bindsym Escape      mode "default"
 }
@@ -424,9 +397,9 @@ mode "$mode_gaps_outer" {
 ###                  FLOATING                  ###
 ##################################################
 
-for_window [class="Catfish"]    floating enable
-for_window [class="Gpick"]      floating enable
-for_window [title="mutt-audio"] floating enable
+for_window [class="Catfish"] floating enable
+for_window [class="Gpick"]   floating enable
+
 
 ##################################################
 ###                    GAPS                    ###
@@ -529,9 +502,6 @@ bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15 # decrea
 
 bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5% # && killall -USR1 i3status
 bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5% # && killall -USR1 i3status
-bindsym $mod+Shift+plus      exec --no-startup-id pactl set-sink-volume 0 +10% # && killall -USR1 i3status
-bindsym $mod+Shift+minus     exec --no-startup-id pactl set-sink-volume 0 -10% # && killall -USR1 i3status
-
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% 
 

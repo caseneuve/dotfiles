@@ -1,0 +1,56 @@
+# -*- mode: conf-space;  -*-
+
+# fast dirs shrotcuts for:
+# - bash_aliases
+# - ranger
+
+# Last update: 22.01.18, 16:38:04 @x200
+# todo: uporządkować skróty według folderów
+
+# key  # path
+
+gh     /home/piotr 
+ga     /home/piotr/Pobrane
+go     /home/piotr/Obrazy
+gw     /home/piotr/Wideo
+gm     /home/piotr/Muzyka
+gp     /home/piotr/pdf
+gb     /home/piotr/biurko
+gS     /home/piotr/Szkoła
+gP     /home/piotr/Pulpit
+gk     /home/piotr/Książki
+gy     /home/piotr/Dokumenty
+
+gc     /home/piotr/.config
+gcr    /home/piotr/.config/ranger
+gct    /home/piotr/.config/termite
+gcx    /home/piotr/.config/xfce4
+gcb    /home/piotr/.bak
+
+gd     /home/piotr/.dotfiles
+gdd    /home/piotr/.dotfiles
+gdb    /home/piotr/.dotfiles/bin
+gdi    /home/piotr/.dotfiles/i3
+gdr    /home/piotr/.dotfiles/ranger
+
+gj     /home/piotr/Dropbox
+gjc    /home/piotr/Dropbox/config
+gjl    /home/piotr/Dropbox/linux
+gjp    /home/piotr/Dropbox/linux/pdf
+
+ge     /home/piotr/Dropbox/EMACS
+gs     /home/piotr/Dropbox/EMACS/szkoła
+geg    /home/piotr/.emacs.git 
+ged    /home/piotr/.emacs.d 
+
+gcm    /home/piotr/.mutt
+gdx    /home/piotr/.dotfiles/Boot-ex 
+
+gM     /media
+gr     /
+gR     /root
+
+# Local variables:
+# eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")
+# eval: (add-hook 'after-save-hook 'pk/sync-fastdirs nil t)
+# End:

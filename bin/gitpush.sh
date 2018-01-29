@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 02.01.18, 14:12:56 @x200
+# Last update: 19.01.18, 17:01:40 @x200
 
 # Doc:
 #
@@ -13,9 +13,6 @@
 bold=$(tput bold)
 cyan=$(tput setaf 6)
 reset=$(tput sgr0)
-
-# ustaw cache na 30 min. (timeout=sec.), exit: "git credential-cache exit"
-git config credential.helper 'cache --timeout=1800'
 
 # repo DOTFILES
 echo "Aktualizuję repo DOTFILES:"
@@ -36,6 +33,8 @@ printf "\n"
 echo "Aktualizuję repo EMACS:"
 echo "======================="
 cd /home/piotr/.emacs.git
+# ustaw cache na 30 min. (timeout=sec.), exit: "git credential-cache exit"
+git config credential.helper 'cache --timeout=1800'
 if [ -z "$(git status --porcelain)" ]; then
     echo "Git jest aktualny.";
 else

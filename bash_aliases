@@ -1,8 +1,11 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 08.01.18, 20:10:54 @x200
+# Last update: 26.01.18, 13:41:07 @x200
 
 # ALIASY 
+
+# vars
+home=/home/piotr
 
 # komendy terminala
 alias q=exit
@@ -41,6 +44,7 @@ alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
 alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
+alias spR='sudo pacman -Rs'
 alias ya='yaourt --noconfirm'
 alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
@@ -97,9 +101,14 @@ alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias Ap='/home/piotr/.dotfiles/bin/i3append.sh'
 alias apd='/home/piotr/.dotfiles/bin/append.sh'
-alias pif=$HOME/.dotfiles/bin/ifpackage.sh
-alias sm=$HOME/.dotfiles/bin/sendmail.sh
-alias kbd=$HOME/.dotfiles/bin/kbd-help.sh
+alias pif=$home/.dotfiles/bin/ifpackage.sh
+alias sm=$home/.dotfiles/bin/sendmail.sh
+alias kbd=$home/.dotfiles/bin/kbd-help.sh
+alias update=/home/piotr/.dotfiles/bin/update.sh
+alias monitory='/home/piotr/.dotfiles/bin/monitoryL.sh'
+alias monitL='/home/piotr/.dotfiles/bin/monitoryL.sh'
+alias monitR='/home/piotr/.dotfiles/bin/monitoryR.sh'
+alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
 
 # zmienne
 muz=/home/piotr/Muzyka
@@ -117,58 +126,42 @@ alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
 alias gta='git add'
 alias gtc='git commit -m'
 
-# fast dirs
-alias gc='cd /home/piotr/.config;ls -a'
-alias gd='cd /home/piotr/Pobrane;ls -a'
-alias gh='cd ~; ls -a --group-directories-first'
-alias home='cd /home/piotr; ls -a --group-directories-first'
-alias cdD='cd /home/piotr/.dotfiles;ls -a'
-alias cdDb='cd /home/piotr/.dotfiles/bin;ls -a'
-alias cdDi='cd /home/piotr/.dotfiles/i3;ls -a'
-alias cdO='cd /home/piotr/Obrazy;ls -a'
-alias cdC='cd /home/piotr/.config;ls -a'
-alias cdM='cd /home/piotr/Muzyka;ls -a'
-alias cdW='cd /home/piotr/Wideo;ls -a'
-alias cdP='cd /home/piotr/pdf;ls -a'
-alias cdA='cd /home/piotr/Pobrane;ls -a'
-alias cdC='cd /home/piotr/.config;ls -a'
-alias cdS='cd /home/piotr/Szkoła;ls -a'
-alias cdB='cd /home/piotr/.dotfiles/bin; ls -a'
-alias cdH='cd /home/piotr/.help; ls -a'
-alias cdE='cd /home/piotr/Dropbox/EMACS; ls -a --group-directories-first'
-alias cdd='cd /home/piotr/Dropbox; ls -a --group-directories-first'
-alias cdk='cd /home/piotr/Dokumenty; ls -a --group-directories-first'
-alias cdI='cd /home/piotr/.i3; ls -a'
+# fast dirs start
 
-alias gh='cd $HOME; ls -a --group-directories-first'
-alias ga='cd $HOME/Pobrane;ls -a --group-directories-first'
-alias gpo='cd $HOME/Pobrane;ls -a --group-directories-first'
-alias gs='cd $HOME/Szkoła;ls -a --group-directories-first'
-alias go='cd $HOME/Obrazy;ls -a --group-directories-first'
-alias gw='cd $HOME/Wideo;ls -a --group-directories-first'
-alias gw='cd $HOME/Wideo;ls -a --group-directories-first'
-alias gpd='cd $HOME/pdf;ls -a --group-directories-first'
-alias gb='cd $HOME/biurko;ls -a --group-directories-first'
-alias gd='cd $HOME/.dotfiles;ls -a --group-directories-first'
-alias gdb='cd $HOME/.dotfiles/bin;ls -a --group-directories-first'
-alias gdi='cd $HOME/.dotfiles/i3;ls -a --group-directories-first'
-#alias gd='cd $HOME/.dotfiles;ls -a --group-directories-first'
-alias gc='cd $HOME/.config;ls -a --group-directories-first'
-alias gcr='cd $HOME/.config/ranger;ls -a --group-directories-first'
-alias gct='cd $HOME/.config/termite;ls -a --group-directories-first'
-alias gcx='cd $HOME/.config/xfce4;ls -a --group-directories-first'
-alias gt='cd $HOME/.tmux/plugins;ls -a --group-directories-first'
-alias gD='cd $HOME/Dropbox;ls -a --group-directories-first'
-alias gDc='cd $HOME/Dropbox/config;ls -a --group-directories-first'
-alias gDl='cd $HOME/Dropbox/linux;ls -a --group-directories-first'
-alias gDp='cd $HOME/Dropbox/linux/pdf;ls -a --group-directories-first'
-alias ge='cd $HOME/Dropbox/EMACS;ls -a --group-directories-first'
-alias ges='cd $HOME/Dropbox/EMACS/szkoła;ls -a --group-directories-first'
-alias gmt='cd $HOME/.mutt;ls -a --group-directories-first'
-alias gm='cd $HOME/Muzyka;ls -a --group-directories-first'
-alias gdB='cd $HOME/.dotfiles/Boot-ex; ls'
-alias geg='cd $HOME/.emacs.git; ls -R'
-alias ged='cd $HOME/.emacs.d; ls --group-directories-first'
+alias gh='cd /home/piotr'
+alias ga='cd /home/piotr/Pobrane'
+alias go='cd /home/piotr/Obrazy'
+alias gw='cd /home/piotr/Wideo'
+alias gm='cd /home/piotr/Muzyka'
+alias gp='cd /home/piotr/pdf'
+alias gb='cd /home/piotr/biurko'
+alias gS='cd /home/piotr/Szkoła'
+alias gP='cd /home/piotr/Pulpit'
+alias gk='cd /home/piotr/Książki'
+alias gy='cd /home/piotr/Dokumenty'
+alias gc='cd /home/piotr/.config'
+alias gcr='cd /home/piotr/.config/ranger'
+alias gct='cd /home/piotr/.config/termite'
+alias gcx='cd /home/piotr/.config/xfce4'
+alias gcb='cd /home/piotr/.bak'
+alias gd='cd /home/piotr/.dotfiles'
+alias gdd='cd /home/piotr/.dotfiles'
+alias gdb='cd /home/piotr/.dotfiles/bin'
+alias gdi='cd /home/piotr/.dotfiles/i3'
+alias gdr='cd /home/piotr/.dotfiles/ranger'
+alias gj='cd /home/piotr/Dropbox'
+alias gjc='cd /home/piotr/Dropbox/config'
+alias gjl='cd /home/piotr/Dropbox/linux'
+alias gjp='cd /home/piotr/Dropbox/linux/pdf'
+alias ge='cd /home/piotr/Dropbox/EMACS'
+alias gs='cd /home/piotr/Dropbox/EMACS/szkoła'
+alias geg='cd /home/piotr/.emacs.git'
+alias ged='cd /home/piotr/.emacs.d'
+alias gcm='cd /home/piotr/.mutt'
+alias gdx='cd /home/piotr/.dotfiles/Boot-ex'
+alias gM='cd /media'
+alias gr='cd /'
+alias gR='cd /root'
 
-# test
-alias blab='echo "Juhu!"'
+# fast dirs end
+

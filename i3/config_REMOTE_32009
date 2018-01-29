@@ -4,11 +4,7 @@
 ###                                            ###
 ##################################################
 
-<<<<<<< HEAD
-# Last update: 09.01.18, 19:58:09 @manjaroi3
-=======
 # Last update: 26.01.18, 20:34:42 @x200
->>>>>>> 39ccccfd9c9f116ba7d771f9dabeb4bce8927984
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -273,10 +269,6 @@ for_window [class="Gpick"]                    resize set 1000 600
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # for_window [title=".*Private.*"] move to workspace $ws7 
-<<<<<<< HEAD
-for_window [title=".*Private.Browsing.*"] move to workspace "7: "
-=======
->>>>>>> 39ccccfd9c9f116ba7d771f9dabeb4bce8927984
 # for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
 
 # =======================================

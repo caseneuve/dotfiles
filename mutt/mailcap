@@ -1,10 +1,27 @@
-#image/*; ~/.mutt/muttimage.sh %s ; copiousoutput
+# Last update: 15.01.18, 12:47:48 @x200
+
+# all images:
 image/*; ~/.mutt/viewimagefeh.sh %s
+#image/*; ~/.mutt/muttimage.sh %s ; copiousoutput
+
+# pdf
 application/pdf; ~/.mutt/viewpdf.sh %s
+application/x-pdf; ~/.mutt/viewpdf.sh %s
+
+# view html messages
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
-#application/vnd.oasis.opendocument.text; soffice '%s' #; edit=soffice -no-oosplash --writer '%s'; test=test -n "$DISPLAY"; 
+
+# open office
 application/vnd.oasis.opendocument.text; odt2txt '%s' | less
+
+# docx
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt < '%s' | less
+
+# rtf
 application/rtf; unrtf --text '%s' | less
+
+# audio
+audio/*; ~/.mutt/listenaudio.sh %s
 
 # This file tells mutt how to open mail attachments.  Your distribution may come with one by default.
 #
