@@ -1,12 +1,16 @@
+#!/bin/bash
+
 # ~/.dotfiles/bin/update.sh
 # Created:     15.01.18, 13:14    @x200
-# Last update: 28.01.18, 16:26:45 @x200
+# Last update: 29.01.18, 20:15:38 @manjaroi3
 
 # Doc:
 # - updates symbolic links for mutt
 # - installes ditaa, R
 
-#!/bin/bash
+# Status:
+# todo: wydzielić instalowanie paczek do innego skryptu
+
 file1=$HOME/.dotfiles/mutt/listenaudio.sh
 sym1=$HOME/.mutt/listenaudio.sh
 file2=$HOME/.dotfiles/mutt/goobook.sh
@@ -41,7 +45,7 @@ echo "Sprawdzam paczki..."
 /home/piotr/.dotfiles/Boot-ex/goobook.sh
 
 # zainstaluj ditaa i R
-for package in ditaa r          
+for package in ditaa r gnome-calculator
 do
 if pacman -Qi $package &> /dev/null ; then
   echo "Paczka $(pacman -Q $package) jest zainstalowana." 
