@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 29.01.18, 20:14:38 @manjaroi3
+# Last update: 29.01.18, 20:41:43 @x200
 
 # ALIASY 
 
@@ -152,7 +152,9 @@ alias gdd='cd /home/piotr/.dotfiles'
 alias gdb='cd /home/piotr/.dotfiles/bin'
 alias gdi='cd /home/piotr/.dotfiles/i3'
 alias gdr='cd /home/piotr/.dotfiles/ranger'
+alias gdc='cd /home/piotr/.dotfiles/calcurse'
 alias gj='cd /home/piotr/Dropbox'
+alias gjx='cd /home/piotr/Dropbox'
 alias gjc='cd /home/piotr/Dropbox/config'
 alias gjl='cd /home/piotr/Dropbox/linux'
 alias gjp='cd /home/piotr/Dropbox/linux/pdf'
