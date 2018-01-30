@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/update.sh
 # Created:     15.01.18, 13:14    @x200
-# Last update: 30.01.18, 20:30:56 @manjaroi3
+# Last update: 30.01.18, 22:15:52 @manjaroi3
 
 # Doc:
 # - updates symbolic links for mutt and ranger (scope.sh)
@@ -22,6 +22,13 @@ mdir=$HOME/.mutt/
 file3=$HOME/.dotfiles/ranger/scope.sh
 sym3=$HOME/.config/ranger/scope.sh
 bak=$HOME/.config/bak/
+cdir=$HOME/.calcurse
+file4=$HOME/.dotfiles/calcurse/conf
+file5=$HOME/.dotfiles/calcurse/keys
+sym4=$HOME/.calcurse/conf
+sym5=$HOME/.calcurse/keys
+file6=$HOME/Dropbox/config/.apts
+sym6=$HOME/.calcurse/apts
 
 # check symlink mutt/listenaudio
 printf "Sprawdzam, czy istnieje link do skryptu:\n$file1...\n"
@@ -59,6 +66,30 @@ else
     echo "...OK!"
 fi
 
+# check sylmlinks for calcurse
+echo "Sprawdzam, czy istnieją linki do plików konfiguracyjnych calcurse."
+if ! [ -d $cdir ]; then
+    mkdir $cdir
+fi
+
+for file in $sym4 $sym5 $sym6
+do
+    if [ -L $file ]; then
+        echo "Symlink $file istnieje."
+    else
+        echo "Tworzę sylink dla $file."
+        rm $file > /dev/null 2>&1
+        if [ "$file" == "$sym4" ]; then
+            ln -s $file4 $file
+        elif [ "$file" == "$sym5" ]; then
+            ln -s $file5 $file
+        elif [ "$file" == "$sym6" ]; then
+            ln -s $file6 $file
+        fi
+    fi
+done
+
+echo "...OK!"
 
 # check if packages are installed
 echo "Sprawdzam paczki..."
