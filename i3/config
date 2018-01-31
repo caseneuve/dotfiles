@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 30.01.18, 12:19:28 @manjaroi3
+# Last update: 31.01.18, 15:08:16 @lenovo
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -164,26 +164,37 @@ bindsym $mod+u                     scratchpad show
 
 workspace_auto_back_and_forth yes
 
-# pencil
-set $ws1 "1: &#xf044;"
-# firefox icon 
-set $ws2 "2: &#xf269;" 
-# teminal
-set $ws3 "3: &#xf120;"
-# document (fa-file-text-o)
-set $ws4 "4: &#xf0f6;"
-# pdf
-set $ws5 "5: &#xf1c1;"
-# folder
-set $ws6 "6: &#xf115;"
-# film
-set $ws7 "7: &#xf008;"
-# music
-set $ws8 "8: &#xf028;"          
-# volume (audio)
-set $ws9 "9: &#xf0e5;"
-# envelope
-set $ws10 "10: &#xf0e0;"
+set $ws1 "1"
+set $ws2 "2" 
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"          
+set $ws9 "9"
+set $ws10 "10"
+
+# # pencil
+# set $ws1 "1: &#xf044;"
+# # firefox icon 
+# set $ws2 "2: &#xf269;" 
+# # teminal
+# set $ws3 "3: &#xf120;"
+# # document (fa-file-text-o)
+# set $ws4 "4: &#xf0f6;"
+# # pdf
+# set $ws5 "5: &#xf1c1;"
+# # folder
+# set $ws6 "6: &#xf115;"
+# # film
+# set $ws7 "7: &#xf008;"
+# # music
+# set $ws8 "8: &#xf028;"          
+# # volume (audio)
+# set $ws9 "9: &#xf0e5;"
+# # envelope
+# set $ws10 "10: &#xf0e0;"
 
 # ===================
 # switch to workspace:
