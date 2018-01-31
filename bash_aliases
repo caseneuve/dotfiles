@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 29.01.18, 20:41:43 @x200
+# Last update: 31.01.18, 13:26:26 @manjaroi3
 
 # ALIASY 
 
@@ -77,7 +77,7 @@ alias mpva='mpv --no-video'
 alias va='mpv --no-video'
 alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
 alias c=calcurse
-alias clc=gcalccmd
+alias clc='clear; bc -q'
 alias kal='cal -s --color'
 alias hg=hangups 
 alias mp=mupdf

@@ -30,3 +30,7 @@ alias nco='nano --nohelp ~/.config/compton.conf'
 
 # mutt background fix
 COLORFGBG="default;default"
+
+# bc calc
+export BC_ENV_ARGS=$HOME/.bc
+

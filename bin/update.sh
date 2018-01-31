@@ -2,11 +2,11 @@
 
 # ~/.dotfiles/bin/update.sh
 # Created:     15.01.18, 13:14    @x200
-# Last update: 30.01.18, 22:15:52 @manjaroi3
+# Last update: 31.01.18, 13:25:13 @manjaroi3
 
 # Doc:
 # - updates symbolic links for mutt and ranger (scope.sh)
-# - installes ditaa, R, gnome-calc, docx2txt, unrtf
+# - installes ditaa, R, docx2txt, unrtf
 
 # Status:
 # todo: wydzielić instalowanie paczek do innego skryptu
@@ -29,6 +29,7 @@ sym4=$HOME/.calcurse/conf
 sym5=$HOME/.calcurse/keys
 file6=$HOME/Dropbox/config/.apts
 sym6=$HOME/.calcurse/apts
+file7=$HOME/.bc
 
 # check symlink mutt/listenaudio
 printf "Sprawdzam, czy istnieje link do skryptu:\n$file1...\n"
@@ -96,7 +97,7 @@ echo "Sprawdzam paczki..."
 /home/piotr/.dotfiles/Boot-ex/goobook.sh
 
 # zainstaluj brakujące paczki
-for package in ditaa r gnome-calculator unrtf docx2txt calcurse
+for package in ditaa r unrtf docx2txt calcurse
 do
 if pacman -Qi $package &> /dev/null ; then
   echo "Paczka $(pacman -Q $package) jest zainstalowana." 
@@ -106,6 +107,26 @@ else
     echo "Paczka $(pacman -Q $package) została zainstalowana."
 fi
 done
+
+echo "...OK!"
+
+# remove gnome-calc
+if pacman -Qi gnome-calculator &> /dev/null ; then
+    echo "Usuwam gnome-calculator."
+    sudo pacman -Rs --noconfirm gnome-calculator
+    echo "...OK"
+fi
+
+# set up .bc (config for gnu calc)
+echo "Sprawdzam ustawienia dla bc."
+if ! [ -f $file7 ]; then
+    echo "Tworzę plik $file7."
+    touch $file7
+    echo "scale=2" > $file7
+else
+    echo "Plik $file7 istnieje i zawiera następujące ustawienia:"
+    cat $file7
+fi
 
 echo "...OK!"
 
