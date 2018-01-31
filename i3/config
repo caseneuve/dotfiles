@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 31.01.18, 15:08:16 @lenovo
+# Last update: 31.01.18, 21:55:13 @lenovo
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -581,7 +581,7 @@ bindsym $mod+Shift+Return   split v exec $term
 
 bindsym $mod+b         exec qutebrowser
 bindsym $mod+Shift+c   exec $term -e calcurse
-bindsym $mod+c         exec $term -e gcalccmd
+bindsym $mod+c         exec $term -e 'bc -q'
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
 #bindsym $mod+d         exec --no-startup-id j4-dmenu-desktop #-sb '#b58900'
 bindsym $mod+d         exec --no-startup-id dmenu_run -sb '#b58900' -p 'run:'
