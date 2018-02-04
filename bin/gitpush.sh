@@ -1,13 +1,13 @@
+#!/bin/bash
+
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 19.01.18, 17:01:40 @x200
+# Last update: 04.02.18, 20:48:48 @x200
 
 # Doc:
 #
 # Wysyła zmiany do repo 'dotfiles' i 'emacs' na githubie
 # https://stackoverflow.com/questions/5143795/how-can-i-check-in-a-bash-script-if-my-local-git-repo-has-changes
-
-#!/bin/bash
 
 # variables
 bold=$(tput bold)
@@ -33,6 +33,22 @@ printf "\n"
 echo "Aktualizuję repo EMACS:"
 echo "======================="
 cd /home/piotr/.emacs.git
+# ustaw cache na 30 min. (timeout=sec.), exit: "git credential-cache exit"
+git config credential.helper 'cache --timeout=1800'
+if [ -z "$(git status --porcelain)" ]; then
+    echo "Git jest aktualny.";
+else
+    git add . && \
+    git add -u && \
+    read -p "${cyan}${bold}Opis commita: ${reset}" opis && \
+    git commit -m "$opis" && \
+    git push
+fi
+
+# repo Liberal Artist @gitlab
+echo "Aktualizuję repo LIBERAL ARTIST:"
+echo "======================="
+cd /home/piotr/gitlab
 # ustaw cache na 30 min. (timeout=sec.), exit: "git credential-cache exit"
 git config credential.helper 'cache --timeout=1800'
 if [ -z "$(git status --porcelain)" ]; then
