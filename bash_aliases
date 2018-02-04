@@ -169,6 +169,9 @@ alias gdx='cd /home/piotr/.dotfiles/Boot-ex'
 alias gM='cd /media'
 alias gr='cd /'
 alias gR='cd /root'
+alias ggg='cd /home/piotr/gitlab'
+alias gg='cd /home/piotr/gitlab'
+alias ggl='cd /home/piotr/gitlab/liberal_artist_org'
 
 # fast dirs end
 
