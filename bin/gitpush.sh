@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 04.02.18, 20:48:48 @x200
+# Last update: 04.02.18, 20:51:37 @x200
 
 # Doc:
 #
@@ -44,11 +44,12 @@ else
     git commit -m "$opis" && \
     git push
 fi
+printf "\n"
 
 # repo Liberal Artist @gitlab
 echo "Aktualizuję repo LIBERAL ARTIST:"
 echo "======================="
-cd /home/piotr/gitlab
+cd /home/piotr/gitlab/liberal_artist_org
 # ustaw cache na 30 min. (timeout=sec.), exit: "git credential-cache exit"
 git config credential.helper 'cache --timeout=1800'
 if [ -z "$(git status --porcelain)" ]; then

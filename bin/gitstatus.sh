@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 01.01.18, 12:26:54 @lenovo
+# Last update: 04.02.18, 20:52:37 @x200
 
 # Doc:
 #
@@ -23,11 +23,22 @@ if [[ `git status --porcelain` ]]; then
 else
     git status
 fi
-
 printf "\n"
+
 echo "Sprawdzam status repo EMACS:"
 echo "============================"
 cd /home/piotr/.emacs.git
+if [[ `git status --porcelain` ]]; then
+    printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
+#-----------------------------------------------------\n\n$(git diff --cached)\n" 
+else
+    git status
+fi
+printf "\n"
+
+echo "Sprawdzam status repo LIBERAL ARTIST:"
+echo "==============================="
+cd /home/piotr/gitlab/liberal_artist_org
 if [[ `git status --porcelain` ]]; then
     printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
 #-----------------------------------------------------\n\n$(git diff --cached)\n" 
