@@ -10,7 +10,7 @@ alias ls='ls --color=auto'
 # PS1='[\u@\h \W]\$ '
 # PS1='\[\e[33m\][\[\e[36m\]\A \[\e[32m\]\w\[\e[m\e[33m\]]\[\e[33m\]$\[\e[0m\] '
 #    | orange |[| cyan   |tim| green  | dir| pink  |  git branch                                    | orange      |]$| reset |
-PS1='\[\e[33m\][\[\e[1;36m\]\A \[\e[32m\]\w \[\e[0;31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\]]$\[\e[0m\] '
+PS1='\[\e[33m\][\[\e[1;36m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\]]$\[\e[0m\] '
 
 BROWSER=/usr/bin/firefox
 # EDITOR=/usr/bin/nano
