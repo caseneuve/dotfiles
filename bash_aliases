@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 31.01.18, 13:26:26 @manjaroi3
+# Last update: 04.02.18, 00:22:12 @x200
 
 # ALIASY 
 
@@ -38,7 +38,6 @@ mkc()
 
 # polecenia
 alias sbr='source ~/.bashrc'
-alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
@@ -53,6 +52,8 @@ alias ntm='nano ~/.config/termite/config'
 alias ntx='nano ~/.tmux.conf'
 alias ch7='chmod 750 $1'
 
+# emacsclient
+alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
 alias eba='emacsclient -nw  ~/.bash_aliases'
 alias ebr='emacsclient -nw  ~/.bashrc'
 alias eco='emacsclient -nw  ~/.compton.conf'
@@ -61,8 +62,7 @@ alias emt='emacsclient -nw ~/.muttrc'
 alias etm='emacsclient -nw ~/.config/termite/config'
 alias etx='emacsclient -nw ~/.tmux.conf'
 alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
-alias e='emacsclient -nw'
-
+alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 
 # programy 
 alias e="emacsclient -nw -c $1"
