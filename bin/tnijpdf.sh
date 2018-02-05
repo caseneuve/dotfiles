@@ -1,7 +1,8 @@
 #!/bin/bash
+# Last update: 05.02.18, 11:22:54 @x200
 
-# problem: skrypt nie widzi input file, jeśli są spacje w nazwie...
-# solved: należy wziąć zeminną w cudzysłów 
+# Doc:
+# fixme: nie działa dla stron wybranych nie po kolei (np. 12;15-18)
 
 YEL='\033[1;33m' # yellow
 NC='\033[0m'     # no color
