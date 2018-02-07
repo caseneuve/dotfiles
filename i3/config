@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 06.02.18, 20:22:00 @x200
+# Last update: 07.02.18, 11:26:33 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -149,6 +149,7 @@ bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 # exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] resize set 1000 600
+for_window [title="dropdown"] border pixel 3
 for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 

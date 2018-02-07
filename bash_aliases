@@ -1,6 +1,6 @@
 # ~/.dotfiles/bash_aliases
 # Created:     ?
-# Last update: 04.02.18, 00:22:12 @x200
+# Last update: 07.02.18, 10:00:11 @x200
 
 # ALIASY 
 
@@ -47,6 +47,7 @@ alias spR='sudo pacman -Rs'
 alias ya='yaourt --noconfirm'
 alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
+alias yt=youtube-dl
 alias nmt='nano ~/.muttrc'
 alias ntm='nano ~/.config/termite/config'
 alias ntx='nano ~/.tmux.conf'
