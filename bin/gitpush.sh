@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 08.02.18, 00:48:56 @lenovo
+# Last update: 08.02.18, 01:42:08 @lenovo
 
 # Doc:
 #
@@ -64,5 +64,5 @@ if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
     fi
 fi
 
-printf "\n"
 echo "... zrobione!"
+
