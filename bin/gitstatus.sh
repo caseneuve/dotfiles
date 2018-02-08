@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 04.02.18, 20:52:37 @x200
+# Last update: 08.02.18, 01:55:51 @lenovo
 
 # Doc:
 #
@@ -36,13 +36,17 @@ else
 fi
 printf "\n"
 
-echo "Sprawdzam status repo LIBERAL ARTIST:"
-echo "==============================="
-cd /home/piotr/gitlab/liberal_artist_org
-if [[ `git status --porcelain` ]]; then
-    printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
-#-----------------------------------------------------\n\n$(git diff --cached)\n" 
-else
-    git status
+if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
+    echo "Sprawdzam status repo LIBERAL ARTIST:"
+    echo "==============================="
+    cd /home/piotr/gitlab/liberal_artist_org
+    if [[ `git status --porcelain` ]]; then
+        printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
+        #-----------------------------------------------------\n\n$(git diff --cached)\n" 
+    else
+        git status
+    fi
 fi
+
+echo "...zrobione!"
 
