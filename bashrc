@@ -31,3 +31,5 @@ COLORFGBG="default;default"
 # bc calc
 export BC_ENV_ARGS=$HOME/.bc
 
+neofetch
+

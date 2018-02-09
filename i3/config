@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 07.02.18, 11:26:33 @x200
+# Last update: 09.02.18, 12:51:14 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -499,8 +499,9 @@ client.urgent           #c0392b #e74c3c #bdc3c7
 ###                     BAR                    ###
 ##################################################
 
-# font pango:DejaVu Sans Mono Book 8
-font pango:xos4 Terminus Regular 8
+font pango:DejaVu Sans Book 8
+#font pango:xos4 Terminus Regular 8
+#font pango:Meslo LG M Regular 8
 
 bar {
         modifier $mod 
