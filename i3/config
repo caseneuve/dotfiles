@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.02.18, 12:51:14 @x200
+# Last update: 09.02.18, 18:36:09 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -489,7 +489,7 @@ set $bgur #e74c3c
 set $brur #c0392b
 
 # class                 border  backgr. text   
-client.focused          #2c3e50 #2980b9 #bdc3c7 
+client.focused          #2c3e50 #2980b9 #ffffff 
 client.focused_inactive #2c3e50 #2c3e50 #bdc3c7 
 client.unfocused        #34495e #2c3e50 #bdc3c7 
 client.urgent           #c0392b #e74c3c #bdc3c7 

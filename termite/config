@@ -47,9 +47,10 @@ filter_unmatched_urls = true
 foreground      = #ececf0
 foreground_bold = #ececf0
 #cursor          = #f1c40f
-cursor          = #ececf0
+#cursor          = #ececf0
 #cursor          = #ff8194
-
+#cursor           =#839496
+cursor           =#2980b9
 
 d700af background = #2d2c37
 
