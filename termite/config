@@ -10,7 +10,7 @@ clickable_url = true
 #font = Monospace 9
 #font = xos4 Terminus 12 
 #Ubuntu Mono 12
-font = Meslo LG M 12
+font = Meslo LG M 11
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
