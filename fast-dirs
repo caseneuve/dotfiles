@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 14.02.18, 10:37:34 @x200
+# Last update: 14.02.18, 17:17:56 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -18,9 +18,10 @@ gp     /home/piotr/pdf
 gb     /home/piotr/biurko
 gS     /home/piotr/Szkoła
 gP     /home/piotr/Pulpit
-gk     /home/piotr/Książki
-gK     /home/piotr/Kursy
-gku    /home/piotr/Kursy/Udemy\ -\ python-and-django-full-stack-web-developer-bootcamp
+gkk    /home/piotr/Książki
+gkK    /home/piotr/Kursy
+gku    /home/piotr/Kursy/Udemy-web-developer-bootcamp
+gke    /home/piotr/Kursy/Udemy-web-developer-bootcamp/Exercises
 gy     /home/piotr/Dokumenty
 
 gc     /home/piotr/.config

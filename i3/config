@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 14.02.18, 10:24:07 @x200
+# Last update: 14.02.18, 22:06:23 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -395,8 +395,8 @@ bindsym $mod+Shift+w    focus floating; mode "moveit"
 # ===================
 
 set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_outer Outer Gaps: ikjl|0 (local), IK|Shift+0 (global)
+set $mode_gaps_inner Inner Gaps: ikjl+| (local), IK|Shift+0 (global)
 bindsym $mod+s mode "$mode_gaps"
 
 mode "$mode_gaps" {
@@ -420,6 +420,7 @@ mode "$mode_gaps_inner" {
         bindsym Return   mode "default"
         bindsym Escape   mode "default"
 }
+
 mode "$mode_gaps_outer" {
         bindsym i       gaps outer current plus 5
         bindsym k       gaps outer current minus 5
@@ -449,14 +450,16 @@ for_window [title="mutt-audio"] floating enable
 ##################################################
 
 smart_gaps on
+for_window [class="^.*"] border pixel 1
+hide_edge_borders smart
 
 # zmieniłem liczby z 10/10, bo wychodziły bardzo nierówne przerwy (???)
 gaps inner 12
 gaps outer 2
-hide_edge_borders both
 
 # no title bar:
-new_window pixel 0
+#new_window border pixel 10
+smart_borders on
 
 # ==============
 # sticky windows:
@@ -490,7 +493,7 @@ set $bgur #e74c3c
 set $brur #c0392b
 
 # class                 border  backgr. text   
-client.focused          #2c3e50 #2980b9 #ffffff 
+client.focused          #f39c12 #2980b9 #ffffff 
 client.focused_inactive #2c3e50 #2c3e50 #bdc3c7 
 client.unfocused        #34495e #2c3e50 #bdc3c7 
 client.urgent           #c0392b #e74c3c #bdc3c7 

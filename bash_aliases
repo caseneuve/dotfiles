@@ -1,13 +1,16 @@
 # ~/.dotfiles/bash_aliases
-# Created:     ?
-# Last update: 07.02.18, 10:00:11 @x200
+# Last update: 14.02.18, 17:22:49 @x200
 
-# ALIASY 
+########################
+########################
+###   BASH ALIASES   ###
+########################
+########################
 
-# vars
-home=/home/piotr
+#########################
+### KOMENDY TERMINALA ###
+#########################
 
-# komendy terminala
 alias q=exit
 alias cl=clear
 alias cls=clear
@@ -21,22 +24,37 @@ alias lg='ls --group-directories-first'
 alias lag='ls -a --group-directories-first'
 alias kl=pkill
 
-# funkcje
+##############
+## FUNKCJE ###
+##############
+
+# wejdź do katalogu i wyświetl zawartość
 cdls() { cd "$@" && ls; }
 
+# utwórz katalog i wyświetl zawartość nadrzędnego katalogu sortując najpierw katalogi
 mk()
 {
     mkdir -p -- "$1" &&
-    ls -a --group-directories-first
+        ls -a --group-directories-first
 }
 
+# utwórz katalog i wejdź do niego
 mkc()
 {
     mkdir -p -- "$1" &&
-    cd -P -- "$1"
+        cd -P -- "$1"
 }
 
-# polecenia
+# mpv odtwórz daną listę
+mpvopenplaylist()
+{
+    mpv --playlist="$1" &
+}
+
+#################
+### POLECENIA ###
+#################
+
 alias sbr='source ~/.bashrc'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
@@ -65,7 +83,10 @@ alias etx='emacsclient -nw ~/.tmux.conf'
 alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
 alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 
-# programy 
+################
+### PROGRAMY ###
+################
+
 alias e="emacsclient -nw -c $1"
 alias r=ranger
 alias m=mocp 
@@ -77,6 +98,7 @@ alias v=mpv
 alias mpva='mpv --no-video'
 alias va='mpv --no-video'
 alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
+alias mpvp=mpvopenplaylist
 alias c=calcurse
 alias clc='clear; bc -q'
 alias kal='cal -s --color'
@@ -86,10 +108,16 @@ alias mu=mupdf
 alias mt='cd ~/Pobrane; mutt'
 alias nf='clear; neofetch'
 
-# system info / akcje
+###################
+### SYSTEM INFO ###
+###################
+
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
-# skrypty
+###############
+### SKRYPTY ###
+###############
+
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh' 
 alias drop='/home/piotr/.dotfiles/bin/dropdown.sh'
@@ -114,7 +142,11 @@ alias notes='/home/piotr/.dotfiles/bin/notes.sh'
 alias nt='/home/piotr/.dotfiles/bin/notes.sh'
 alias update='/home/piotr/.dotfiles/bin/update.sh'
 
-# zmienne
+###############
+### ZMIENNE ###
+###############
+
+home=/home/piotr
 muz=/home/piotr/Muzyka
 pod=/home/piotr/Pobrane
 dot=/home/piotr/.dotfiles
@@ -123,7 +155,10 @@ pob=/home/piotr/Pobrane
 obr=/home/piotr/Obrazy
 wid=/home/piotr/Wideo
 
-# git
+###########
+### GIT ###
+###########
+
 alias gts='/home/piotr/.dotfiles/bin/gitstatus.sh'
 alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
 alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
@@ -141,9 +176,10 @@ alias gp='cd /home/piotr/pdf'
 alias gb='cd /home/piotr/biurko'
 alias gS='cd /home/piotr/Szkoła'
 alias gP='cd /home/piotr/Pulpit'
-alias gk='cd /home/piotr/Książki'
-alias gK='cd /home/piotr/Kursy'
-alias gku='cd /home/piotr/Kursy/Udemy\'
+alias gkk='cd /home/piotr/Książki'
+alias gkK='cd /home/piotr/Kursy'
+alias gku='cd /home/piotr/Kursy/Udemy-web-developer-bootcamp'
+alias gke='cd /home/piotr/Kursy/Udemy-web-developer-bootcamp/Exercises'
 alias gy='cd /home/piotr/Dokumenty'
 alias gc='cd /home/piotr/.config'
 alias gcr='cd /home/piotr/.config/ranger'
