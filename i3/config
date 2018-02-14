@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.02.18, 18:36:09 @x200
+# Last update: 14.02.18, 10:24:07 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -277,6 +277,7 @@ assign [class="Messenger for Desktop"] $ws9
 assign [class="Firefox"]               $ws2
 assign [class="libreoffice-writer"]    $ws5
 assign [class="libreoffice"]           $ws5
+assign [class="Vlc"]           $ws7
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
 for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
