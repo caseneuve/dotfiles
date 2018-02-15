@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 14.02.18, 17:22:49 @x200
+# Last update: 16.02.18, 00:25:12 @x200
 
 ########################
 ########################
@@ -98,6 +98,7 @@ alias v=mpv
 alias mpva='mpv --no-video'
 alias va='mpv --no-video'
 alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
+alias vp='mpv --playlist=playlist &'
 alias mpvp=mpvopenplaylist
 alias c=calcurse
 alias clc='clear; bc -q'
