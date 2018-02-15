@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 14.02.18, 22:06:23 @x200
+# Last update: 15.02.18, 00:51:16 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -450,7 +450,7 @@ for_window [title="mutt-audio"] floating enable
 ##################################################
 
 smart_gaps on
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 hide_edge_borders smart
 
 # zmieniłem liczby z 10/10, bo wychodziły bardzo nierówne przerwy (???)
