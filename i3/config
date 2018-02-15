@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 15.02.18, 00:51:16 @x200
+# Last update: 15.02.18, 10:23:54 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -167,6 +167,8 @@ for_window [title="math"] move scratchpad
 exec termite -t math -e 'R -q'
 bindsym $mod+Shift+c    exec termite -t math -e 'R -q' 
 bindsym $mod+c          [title="math"] scratchpad show 
+
+bindsym $mod+Shift+s    move scratchpad 
 
 ##################################################
 ###                 WORKSPACES                 ###
@@ -355,8 +357,9 @@ mode "resize" {
         bindsym k        resize shrink height 10 px or 10 ppt
         bindsym l        resize grow width 10 px or 10 ppt
         bindsym m        resize set 600 400
-        bindsym d        resize set 1000 600     
-        bindsym c        move position center    
+        bindsym d        resize set 1000 600; move position center     
+        bindsym c        move position center
+        bindsym f        resize set 1280 820; move position center
 
         # same bindings, but for the arrow keys
         bindsym Left     resize shrink width 10 px or 10 ppt
@@ -370,6 +373,8 @@ mode "resize" {
 }
 
 bindsym $mod+Shift+r    mode "resize"
+bindsym $mod+Shift+f    floating enable; resize set 1280 820; move position center
+bindsym $mod+Control+f  floating disable
 
 # ============================
 # move floating window (mod+W):
@@ -493,11 +498,11 @@ set $bgur #e74c3c
 set $brur #c0392b
 
 # class                 border  backgr. text   
-client.focused          #f39c12 #2980b9 #ffffff 
-client.focused_inactive #2c3e50 #2c3e50 #bdc3c7 
-client.unfocused        #34495e #2c3e50 #bdc3c7 
-client.urgent           #c0392b #e74c3c #bdc3c7 
-
+client.focused          #2980b9 #2980b9 #ffffff 
+client.focused_inactive #466380 #466380 #ffffff 
+client.unfocused        #34495e #34495e #bdc3c7 
+client.urgent           #c0392b #e74c3c #ffffff 
+# former inact. #2c3e50
 
 ##################################################
 ###                     BAR                    ###
