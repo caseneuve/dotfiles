@@ -31,5 +31,7 @@ COLORFGBG="default;default"
 # bc calc
 export BC_ENV_ARGS=$HOME/.bc
 
+TERM=xterm-256color
+
 # neofetch
 
