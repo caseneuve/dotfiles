@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 15.02.18, 10:23:54 @x200
+# Last update: 22.02.18, 17:18:15 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -471,7 +471,7 @@ smart_borders on
 # ==============
 
 for_window [class=mpv]  sticky enable
-bindsym $mod+Shift+s    sticky toggle
+bindsym $mod+v          sticky toggle
 bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 850 30
 
 # =======================
