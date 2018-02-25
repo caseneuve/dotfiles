@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 16.02.18, 00:25:12 @x200
+# Last update: 25.02.18, 21:09:09 @x200
 
 ########################
 ########################
@@ -70,6 +70,7 @@ alias nmt='nano ~/.muttrc'
 alias ntm='nano ~/.config/termite/config'
 alias ntx='nano ~/.tmux.conf'
 alias ch7='chmod 750 $1'
+alias mejk='make && sudo make install'
 
 # emacsclient
 alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
