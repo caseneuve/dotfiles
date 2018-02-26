@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 25.02.18, 21:09:09 @x200
+# Last update: 26.02.18, 22:19:34 @manjaroi3
 
 ########################
 ########################
@@ -91,7 +91,7 @@ alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 alias e="emacsclient -nw -c $1"
 alias r=ranger
 alias m=mocp 
-alias f=feh
+alias f='feh -B black'
 alias n='nano --nohelp'
 alias nl='nano -l --nohelp'
 alias qb=qutebrowser
