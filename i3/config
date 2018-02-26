@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 26.02.18, 18:10:30 @x200
+# Last update: 26.02.18, 22:38:54 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -504,6 +504,7 @@ client.unfocused        #34495e #34495e #bdc3c7
 client.urgent           #c0392b #e74c3c #ffffff 
 # former inact. #2c3e50
 # former client.focused #2980b9
+
 ##################################################
 ###                     BAR                    ###
 ##################################################
@@ -637,7 +638,7 @@ bindsym $mod+F2        exec pkill compton
 # screencasting:
 # =============
 
-bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H:%M")
+bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
 # ===============

@@ -1,13 +1,13 @@
 
 # manjaro local settings:
 # ======================
-# Last update: 04.01.18, 19:11:00 @x200
+# Last update: 26.02.18, 22:03:25 @manjaroi3
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
 bindsym $mod+Shift+End          exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh; exec systemctl suspend
 bindsym $mod+Pause              exec systemctl suspend
 
-bindsym F12                exec lk4b
+bindsym shift+F12                exec lk4b
 
 
