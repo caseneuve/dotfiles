@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 22.02.18, 17:18:15 @manjaroi3
+# Last update: 26.02.18, 22:01:38 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -637,7 +637,7 @@ bindsym $mod+F2        exec pkill compton
 # screencasting:
 # =============
 
-bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H:%M")
+bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
 # ===============
