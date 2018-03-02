@@ -1,4 +1,4 @@
-# Last update: 15.01.18, 12:47:48 @x200
+# Last update: 02.03.18, 11:07:21 @x200
 
 # all images:
 image/*; ~/.mutt/viewimagefeh.sh %s
@@ -19,6 +19,7 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2tx
 
 # rtf
 application/rtf; unrtf --text '%s' | less
+application/msword; unrtf --text '%s' | less
 
 # audio
 audio/*; ~/.mutt/listenaudio.sh %s
@@ -32,7 +33,7 @@ audio/*; ~/.mutt/listenaudio.sh %s
 #image/gif; feh %s
 #image/tiff; feh %s
 #image/*; feh %s
-#application/msword; antiword %s; copiousoutput
+application/msword; antiword %s; copiousoutput
 #application/vnd.ms-excel; xls2csv '%s'; copiousoutput; description="MS Excel sheet";
 #application/vnd.ms-powerpoint; catppt '%s'; copiousoutput; description="MS PowerPoint presentation";
 #application/pdf; acroread %s
