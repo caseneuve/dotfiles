@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 26.02.18, 22:19:34 @manjaroi3
+# Last update: 03.03.18, 22:48:58 @x200
 
 ########################
 ########################
@@ -45,10 +45,18 @@ mkc()
         cd -P -- "$1"
 }
 
-# mpv odtwórz daną listę
-mpvopenplaylist()
+# mpv open playlist
+mpvplaylist()
 {
-    mpv --playlist="$1" &
+    if [ -f "playlist" ]; then
+        mpv --playlist="playlist" &
+    else
+        if [ $# -eq 0 ]; then
+            mpv &
+        else
+            mpv --playlist="$1"
+        fi
+    fi
 }
 
 #################
@@ -98,9 +106,11 @@ alias qb=qutebrowser
 alias v=mpv
 alias mpva='mpv --no-video'
 alias va='mpv --no-video'
-alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
-alias vp='mpv --playlist=playlist &'
-alias mpvp=mpvopenplaylist
+#alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
+#alias vp='mpv --playlist=playlist &'
+alias vp=mpvplaylist
+alias mpvp=mpvplaylist
+#alias mpvp=mpvopenplaylist
 alias c=calcurse
 alias clc='clear; bc -q'
 alias kal='cal -s --color'
