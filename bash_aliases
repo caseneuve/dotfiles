@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 03.03.18, 22:48:58 @x200
+# Last update: 08.03.18, 08:48:51 @x200
 
 ########################
 ########################
@@ -131,7 +131,8 @@ alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percent
 ###############
 
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
-alias walp='/home/piotr/.dotfiles/bin/walp.sh' 
+alias walp='/home/piotr/.dotfiles/bin/walp.sh'
+alias wallp='/home/piotr/.dotfiles/bin/walp.sh' 
 alias drop='/home/piotr/.dotfiles/bin/dropdown.sh'
 alias tnij='/home/piotr/.dotfiles/bin/tnijpdf.sh'
 alias off='/home/piotr/.dotfiles/bin/poweroff.sh'

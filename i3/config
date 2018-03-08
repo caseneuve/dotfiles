@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 26.02.18, 22:38:54 @x200
+# Last update: 08.03.18, 08:45:30 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -59,7 +59,7 @@ exec        --no-startup-id xfce4-power-manager
 # lenovo
 # exec_always ~/.i3/bin/monitory.sh
 
-exec_always feh --bg-fill ~/.i3/wall.jpg start
+exec_always feh --bg-max ~/.i3/wall.jpg 
 
 ##################################################
 ###                    NAVIG                   ###
@@ -606,7 +606,7 @@ bindsym $mod+b         exec qutebrowser
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
 #bindsym $mod+d         exec --no-startup-id j4-dmenu-desktop #-sb '#b58900'
 #bindsym $mod+d         exec --no-startup-id dmenu_run -sb '#b58900' -p 'run:'
-bindsym $mod+d         exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
+bindsym $mod+d         exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:' 
 bindsym $mod+e         exec emacs
 bindsym $mod+g         workspace $ws10; exec --no-startup-id $term -e mutt 
 # bindsym $mod+g         workspace $ws10; exec --no-startup-id ~/.dotfiles/bin/mutt.sh
