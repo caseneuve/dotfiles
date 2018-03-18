@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 13.03.18, 10:48:15 @x200
+# Last update: 18.03.18, 13:42:27 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -59,7 +59,7 @@ exec        --no-startup-id xfce4-power-manager
 # lenovo
 # exec_always ~/.i3/bin/monitory.sh
 
-exec_always feh --bg-max ~/.i3/wall.jpg 
+exec_always feh --bg-fill ~/.i3/wall.jpg 
 
 ##################################################
 ###                    NAVIG                   ###
