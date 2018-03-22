@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 22.03.18, 09:31:10 @x200
+# Last update: 22.03.18, 21:09:37 @manjaroi3
 
 ########################
 ########################
@@ -98,7 +98,9 @@ alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 
 alias e="emacsclient -nw -c $1"
 alias r=ranger
-alias m=mocp 
+alias m="mocp -l"
+alias ms="mocp -s"
+alias mp="mocp -G"
 alias f='feh -B black'
 alias n='nano --nohelp'
 alias nl='nano -l --nohelp'
@@ -115,7 +117,6 @@ alias c=calcurse
 alias clc='clear; bc -q'
 alias kal='cal -s --color'
 alias hg=hangups 
-alias mp=mupdf
 alias mu=mupdf
 alias mt='cd ~/Pobrane; mutt'
 alias nf='clear; neofetch'

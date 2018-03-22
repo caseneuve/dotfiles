@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 22.03.18, 17:27:20 @manjaroi3
+# Last update: 22.03.18, 21:05:29 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -44,8 +44,8 @@ exec_always --no-startup-id dropbox start
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id pamac-tray start
-exec        --no-startup-id mocp
-exec        --no-startup-id emacs --daemon start
+exec        --no-startup-id mocp -S
+exec        --no-startup-id emacs --daemon 
 exec        --no-startup-id xfce4-power-manager
 
 #exec        --no-startup-id emacs
