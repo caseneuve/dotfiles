@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 13.03.18, 10:48:15 @x200
+# Last update: 14.03.18, 10:53:54 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -153,7 +153,7 @@ for_window [title="dropdown"] border pixel 3
 for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 
-exec termite -t dropdown -e tmux 
+exec    termite -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh 
 bindsym $mod+Shift+u               exec termite -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh      
 bindsym $mod+u                     [title="dropdown"] scratchpad show 
 

@@ -12,18 +12,20 @@ alias ls='ls --color=auto'
 #    | orange |[| cyan   |tim| green  | dir| pink  |  git branch                                    | orange      |]$| reset |
 PS1='\[\e[33m\][\[\e[1;36m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\]]$\[\e[0m\] '
 
-BROWSER=/usr/bin/firefox
-# EDITOR=/usr/bin/nano
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+shopt -s autocd
+
+# VARIABLES:
+
+BROWSER=/usr/bin/firefox
+# EDITOR=/usr/bin/nano
+
 export PATH=$PATH:~/.bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
 # export TERM=xterm-xfree86
-
-shopt -s autocd
 
 # mutt background fix
 COLORFGBG="default;default"
@@ -32,6 +34,7 @@ COLORFGBG="default;default"
 export BC_ENV_ARGS=$HOME/.bc
 
 TERM=xterm-256color
+TERMINAL=xfce4-terminal
 
 # neofetch
 
