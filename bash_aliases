@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 22.03.18, 21:09:37 @manjaroi3
+# Last update: 22.03.18, 23:37:33 @manjaroi3
 
 ########################
 ########################
@@ -145,17 +145,17 @@ alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias Ap='/home/piotr/.dotfiles/bin/i3append.sh'
 alias apd='/home/piotr/.dotfiles/bin/append.sh'
-alias pif=$home/.dotfiles/bin/ifpackage.sh
-alias sm=$home/.dotfiles/bin/sendmail.sh
-alias kbd=$home/.dotfiles/bin/kbd-help.sh
-alias update=/home/piotr/.dotfiles/bin/update.sh
+alias pif='$home/.dotfiles/bin/ifpackage.sh'
+alias sm='$home/.dotfiles/bin/sendmail.sh'
+alias kbd='$home/.dotfiles/bin/kbd-help.sh'
+alias update='/home/piotr/.dotfiles/bin/update.sh'
 alias monitory='/home/piotr/.dotfiles/bin/monitoryL.sh'
 alias monitL='/home/piotr/.dotfiles/bin/monitoryL.sh'
 alias monitR='/home/piotr/.dotfiles/bin/monitoryR.sh'
 alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
 alias notes='/home/piotr/.dotfiles/bin/notes.sh'
 alias nt='/home/piotr/.dotfiles/bin/notes.sh'
-alias update='/home/piotr/.dotfiles/bin/update.sh'
+alias upd='/home/piotr/.dotfiles/bin/update-local.sh'
 
 ###############
 ### ZMIENNE ###

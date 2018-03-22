@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/update.sh
 # Created:     15.01.18, 13:14    @x200
-# Last update: 31.01.18, 13:25:13 @manjaroi3
+# Last update: 22.03.18, 23:38:20 @manjaroi3
 
 # Doc:
 # - updates symbolic links for mutt and ranger (scope.sh)
