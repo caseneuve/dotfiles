@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 22.03.18, 23:37:33 @manjaroi3
+# Last update: 23.03.18, 07:19:12 @x200
 
 ########################
 ########################
@@ -155,7 +155,7 @@ alias monitR='/home/piotr/.dotfiles/bin/monitoryR.sh'
 alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
 alias notes='/home/piotr/.dotfiles/bin/notes.sh'
 alias nt='/home/piotr/.dotfiles/bin/notes.sh'
-alias upd='/home/piotr/.dotfiles/bin/update-local.sh'
+alias updt='/home/piotr/.dotfiles/bin/update-local.sh'
 
 ###############
 ### ZMIENNE ###
