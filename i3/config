@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 28.03.18, 22:54:31 @lenovo
+# Last update: 29.03.18, 00:06:03 @lenovo
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -266,7 +266,7 @@ bindsym $mod+Control+Tab         focus output right
 
 bindsym Mod1+Tab                workspace next
 bindsym Mod1+Shift+Tab          workspace prev
-bindsym $mod+Tab workspace      back_and_forth
+bindsym $mod+Tab                workspace back_and_forth
 
 # ====================
 # reguły dla aplikacji:
@@ -276,15 +276,17 @@ assign [class="Slack"]                 $ws9
 assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
 assign [class="Messenger for Desktop"] $ws9
-# przypisz wszystkie okna z klasy 'firefox' do ws2 =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile oraz oprócz okienek dialogowych HANGOUTSA...    
-assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)" name="^?!Rozmowa.*"] $ws2
+# przypisz wszystkie okna z klasy 'firefox' do ws2 =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile
+assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws2
 assign [class="libreoffice-writer"]    $ws5
 assign [class="libreoffice"]           $ws5
-assign [class="Vlc"]           $ws7
+assign [class="Vlc"]                   $ws7
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
 for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
 for_window [class="Gpick"]                    resize set 1000 600
+# wartości zmiennych $right i $down podane w plikach lokalnych!
+for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
 
 # =======
 # orphans:
