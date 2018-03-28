@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 22.03.18, 21:05:29 @manjaroi3
+# Last update: 28.03.18, 22:54:31 @lenovo
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -276,8 +276,8 @@ assign [class="Slack"]                 $ws9
 assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
 assign [class="Messenger for Desktop"] $ws9
-# przypisz wszystkie okna z klasy 'firefox' do ws2 =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile...    
-assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws2
+# przypisz wszystkie okna z klasy 'firefox' do ws2 =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile oraz oprócz okienek dialogowych HANGOUTSA...    
+assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)" name="^?!Rozmowa.*"] $ws2
 assign [class="libreoffice-writer"]    $ws5
 assign [class="libreoffice"]           $ws5
 assign [class="Vlc"]           $ws7
