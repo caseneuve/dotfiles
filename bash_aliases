@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 23.03.18, 07:19:12 @x200
+# Last update: 29.03.18, 02:35:40 @manjaroi3
 
 ########################
 ########################
@@ -96,6 +96,7 @@ alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 ### PROGRAMY ###
 ################
 
+alias ff=fzf
 alias e="emacsclient -nw -c $1"
 alias r=ranger
 alias m="mocp -l"
