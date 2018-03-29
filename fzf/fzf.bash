@@ -1,6 +1,6 @@
 # Path:        ~/.dotfiles/fzf/fzf.bash
 # Created:     29.03.18, 11:02    @manjaroi3
-# Last update: 29.03.18, 13:05:34 @manjaroi3
+# Last update: 29.03.18, 13:59:34 @manjaroi3
 
 # Doc: functions for fuzzy finder
 
@@ -28,6 +28,14 @@ export FZF_ALT_C_COMMAND='fd --type d . ~'
 
 # FUNCTIONS
 fp () {
-    mupdf "$(fd -e pdf . ~ | fzf --height 50% --reverse --border --inline-info)" &
+    xdg-open "$(fd -e pdf . ~ | fzf --height 50% --reverse --border --inline-info)" &>/dev/null
 }
+
+fm () {
+    mocp -l "$(fd -e mp3 . ~ | fzf --height 50% --reverse --border --inline-info)" &>/dev/null
+}
+
+fe () {
+    emacsclient -nw "$(fd --type f . ~ -E '*.mp?' -E '*.jpg' -E '*.png' -E '*.pdf' -E '*.aux' -E '*.doc*' -E '*.out' -E '*.mkv' | fzf --height 50% --reverse --border --inline-info)" 
+} 
 
