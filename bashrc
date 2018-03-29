@@ -36,8 +36,6 @@ export BC_ENV_ARGS=$HOME/.bc
 TERM=xterm-256color
 TERMINAL=xfce4-terminal
 
-# neofetch
-
 # fuzzy finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
