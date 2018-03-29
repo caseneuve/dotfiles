@@ -1,6 +1,6 @@
 # Path:        ~/.dotfiles/fzf/fzf.bash
 # Created:     29.03.18, 11:02    @manjaroi3
-# Last update: 29.03.18, 16:18:56 @manjaroi3
+# Last update: 29.03.18, 16:28:42 @manjaroi3
 
 # Doc: Config & functions for FUZZY FINDER
 
@@ -51,7 +51,8 @@ fe () {
 
 # find object and copy it to clipboard 
 fx () {
-    fzf -m --prompt="  [copy object(s) to xclipboard]: " --header="-------------------------------" | xclip -selection c
+    fzf -m --prompt="  [copy object(s) to Xclipboard]: " --header="<TAB>, C-i → toggle select, C-jk/np → down/up, <RET> → finish
+-------------------------------------------------------------" | xclip -selection c
 }
 
 # kill selected process
