@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 29.03.18, 16:50:10 @x200
+# Last update: 29.03.18, 18:15:30 @x200
 
 ########################
 ########################
@@ -136,7 +136,9 @@ alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percent
 ### SKRYPTY ###
 ###############
 
-alias dmutt=$home/.dotfiles/bin/dmutt.sh
+alias dmo='i3-msg "workspace 8; exec --no-startup-id xfce4-terminal -e mocp"'
+alias rng='i3-msg "workspace 6; exec --no-startup-id xfce4-terminal -e ranger"'
+alias dmutt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh'
 alias wallp='/home/piotr/.dotfiles/bin/walp.sh' 
