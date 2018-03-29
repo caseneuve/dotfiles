@@ -38,3 +38,6 @@ TERMINAL=xfce4-terminal
 
 # neofetch
 
+# fuzzy finder
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
