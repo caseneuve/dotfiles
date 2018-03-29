@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 29.03.18, 00:55:32 @lenovo
+# Last update: 29.03.18, 17:35:33 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -539,7 +539,8 @@ bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
 bindsym $mod+b              exec qutebrowser
-bindsym $mod+d              exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:' 
+bindsym $mod+Shift+d        exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
+bindsym $mod+d              exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -p 'run:'" --term="xfce4-terminal" 
 bindsym $mod+e              exec emacs
 bindsym $mod+g              workspace $ws10; exec --no-startup-id $term -e mutt 
 bindsym $mod+h              bar mode toggle
