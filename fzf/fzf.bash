@@ -1,6 +1,6 @@
 # Path:        ~/.dotfiles/fzf/fzf.bash
 # Created:     29.03.18, 11:02    @manjaroi3
-# Last update: 29.03.18, 16:28:42 @manjaroi3
+# Last update: 29.03.18, 16:47:55 @x200
 
 # Doc: Config & functions for FUZZY FINDER
 
@@ -46,7 +46,7 @@ fm () {
 
 # find file and open it in emacsclient (don't look for multimedia or non textual files)
 fe () {
-    emacsclient -nw "$(fd --type f . ~ -E '*.mp?' -E '*.jpg' -E '*.png' -E '*.pdf' -E '*.aux' -E '*.doc*' -E '*.out' -E '*.mkv' | fzf --height 50% --reverse --border --inline-info --prompt='  [open in EMACSCLIENT]: ' --header='----------------------')" 
+    emacsclient -nw "$(fd --type f . ~ -E '*.mp?' -E '*.jpg' -E '*.png' -E '*.pdf' -E '*.aux' -E '*.doc*' -E '*.out' -E '*.mkv' -E '*.mobi' -E '*.zip' -E '*.p7s' -E '*.pptx' -E '*.wma' -E '*.m4a' -E '*.WMA' -E '*.gz' -E '*.odt' | fzf --height 50% --reverse --border --inline-info --prompt='  [open in EMACSCLIENT]: ' --header='----------------------')" 
 } 
 
 # find object and copy it to clipboard 
