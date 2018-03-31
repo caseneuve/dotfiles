@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 30.03.18, 10:24:43 @x200
+# Last update: 31.03.18, 10:49:20 @lenovo
 
 ########################
 ########################
@@ -63,6 +63,7 @@ mpvplaylist()
 ### POLECENIA ###
 #################
 
+alias sleep='systemctl suspend'
 alias sbr='source ~/.bashrc'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
