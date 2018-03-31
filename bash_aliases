@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 31.03.18, 10:49:20 @lenovo
+# Last update: 31.03.18, 16:18:01 @lenovo
 
 ########################
 ########################
@@ -64,6 +64,7 @@ mpvplaylist()
 #################
 
 alias sleep='systemctl suspend'
+alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
