@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 31.03.18, 16:18:01 @lenovo
+# Last update: 31.03.18, 17:15:02 @lenovo
 
 ########################
 ########################
@@ -138,12 +138,6 @@ alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percent
 ### SKRYPTY ###
 ###############
 
-alias cu='i3-msg "exec --no-startup-id xfce4-terminal -e calcurse"'
-alias dmo='i3-msg "workspace 8; exec --no-startup-id xfce4-terminal -e mocp"'
-alias rng='i3-msg "workspace 6; exec --no-startup-id xfce4-terminal -e ranger"'
-alias dmutt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
-alias dmt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
-alias dmu='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh'
 alias wallp='/home/piotr/.dotfiles/bin/walp.sh' 
@@ -168,6 +162,18 @@ alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
 alias notes='/home/piotr/.dotfiles/bin/notes.sh'
 alias nt='/home/piotr/.dotfiles/bin/notes.sh'
 alias updt='/home/piotr/.dotfiles/bin/update-local.sh'
+
+##############
+#    DMENU   #
+##############
+
+alias ema='i3-msg "workspace 1; exec --no-startup-id emacs"'
+alias cu='i3-msg "exec --no-startup-id xfce4-terminal -e calcurse"'
+alias dmo='i3-msg "workspace 8; exec --no-startup-id xfce4-terminal -e mocp"'
+alias rng='i3-msg "workspace 6; exec --no-startup-id xfce4-terminal -e ranger"'
+alias dmutt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
+alias dmt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
+alias dmu='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
 
 ###############
 ### ZMIENNE ###
