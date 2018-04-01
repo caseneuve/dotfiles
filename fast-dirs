@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 31.03.18, 21:30:00 @lenovo
+# Last update: 01.04.18, 11:29:47 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -65,7 +65,6 @@ gg     /home/piotr/gitlab
 ggg    /home/piotr/gitlab
 ggl    /home/piotr/gitlab/liberal_artist_org
 
-gl     /home/piotr/pcloud
 
 # Local variables:
 # eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")

@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 31.03.18, 17:18:27 @lenovo
+# Last update: 01.04.18, 11:30:27 @x200
 
 ########################
 ########################
@@ -198,6 +198,9 @@ alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
 alias gta='git add'
 alias gtc='git commit -m'
 
+alias ggl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
+alias gl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
+
 # fast dirs start
 
 alias gh='cd /home/piotr'
@@ -248,7 +251,6 @@ alias gR='cd /root'
 alias gg='cd /home/piotr/gitlab'
 alias ggg='cd /home/piotr/gitlab'
 alias ggl='cd /home/piotr/gitlab/liberal_artist_org'
-alias gl='cd /home/piotr/pcloud'
 
 # fast dirs end
 
