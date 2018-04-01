@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 01.04.18, 11:30:27 @x200
+# Last update: 01.04.18, 11:34:29 @x200
 
 ########################
 ########################
@@ -171,6 +171,7 @@ alias emm='i3-msg "workspace 1; exec --no-startup-id emacs"'
 alias cu='i3-msg "exec --no-startup-id xfce4-terminal -e calcurse"'
 alias dmo='i3-msg "workspace 8; exec --no-startup-id xfce4-terminal -e mocp"'
 alias rng='i3-msg "workspace 6; exec --no-startup-id xfce4-terminal -e ranger"'
+alias rr='i3-msg "workspace 6; exec --no-startup-id xfce4-terminal -e ranger"'
 alias dmutt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
 alias dmt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
 alias dmu='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
