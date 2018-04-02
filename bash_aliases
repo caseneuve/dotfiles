@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 01.04.18, 11:34:29 @x200
+# Last update: 02.04.18, 11:05:34 @lenovo
 
 ########################
 ########################
@@ -98,6 +98,7 @@ alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 ### PROGRAMY ###
 ################
 
+alias tt=termite
 alias ff=fzf
 alias e="emacsclient -nw -c $1"
 alias r=ranger
@@ -168,13 +169,13 @@ alias updt='/home/piotr/.dotfiles/bin/update-local.sh'
 ##############
 
 alias emm='i3-msg "workspace 1; exec --no-startup-id emacs"'
-alias cu='i3-msg "exec --no-startup-id xfce4-terminal -e calcurse"'
-alias dmo='i3-msg "workspace 8; exec --no-startup-id xfce4-terminal -e mocp"'
-alias rng='i3-msg "workspace 6; exec --no-startup-id xfce4-terminal -e ranger"'
-alias rr='i3-msg "workspace 6; exec --no-startup-id xfce4-terminal -e ranger"'
-alias dmutt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
-alias dmt='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
-alias dmu='i3-msg "workspace 10; exec --no-startup-id xfce4-terminal -e mutt"'
+alias cu='i3-msg "exec --no-startup-id $TERMINAL -e calcurse"'
+alias dmo='i3-msg "workspace 8; exec --no-startup-id $TERMINAL -e mocp"'
+alias rng='i3-msg "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
+alias rr='i3-msg "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
+alias dmutt='i3-msg "workspace 10; exec --no-startup-id $TERMINAL -e mutt"'
+alias dmt='i3-msg "workspace 10; exec --no-startup-id $TERMINAL -e mutt"'
+alias dmu='i3-msg "workspace 10; exec --no-startup-id $TERMINAL -e mutt"'
 
 ###############
 ### ZMIENNE ###

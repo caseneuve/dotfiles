@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 29.03.18, 18:35:06 @x200
+# Last update: 02.04.18, 20:33:56 @lenovo
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -40,7 +40,7 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf -b
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id pamac-tray start
 exec        --no-startup-id mocp -S
-exec        --no-startup-id emacs --daemon 
+exec        --no-startup-id emacs --daemon --background-color=""
 exec        --no-startup-id xfce4-power-manager
 
 #exec        --no-startup-id emacs

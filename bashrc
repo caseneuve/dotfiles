@@ -21,7 +21,8 @@ shopt -s autocd
 # VARIABLES:
 
 BROWSER=/usr/bin/firefox
-# EDITOR=/usr/bin/nano
+# export ALTERNATE_EDITOR="nano"
+# export EDITOR="emacsclient -nw"
 
 export PATH=$PATH:~/.bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
@@ -34,7 +35,8 @@ COLORFGBG="default;default"
 export BC_ENV_ARGS=$HOME/.bc
 
 TERM=xterm-256color
-TERMINAL=xfce4-terminal
+#TERMINAL=xfce4-terminal
+TERMINAL=st
 
 # fuzzy finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
