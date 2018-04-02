@@ -1,6 +1,5 @@
-#
 # ~/.bashrc
-#
+# Last update: 02.04.18, 20:51:12 @lenovo
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
