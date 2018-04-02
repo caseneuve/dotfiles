@@ -22,7 +22,7 @@ shopt -s autocd
 
 BROWSER=/usr/bin/firefox
 # export ALTERNATE_EDITOR="nano"
-# export EDITOR="emacsclient -nw"
+export EDITOR="emacsclient -nw"
 
 export PATH=$PATH:~/.bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
