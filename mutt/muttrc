@@ -3,7 +3,7 @@ source ~/Dropbox/config/.mutt_aliases
 set mailcap_path=~/.mutt/mailcap
 
 # kolory
-source ~/.mutt/schemes/manjaro-color
+source ~/.mutt/schemes/mutt-color
 
 # set move = no 
 set imap_keepalive = 900
@@ -32,8 +32,10 @@ alternative_order text/plain text/enriched text/html
 #set sidebar_visible=yes
 
 # index format (http://www.mutt.org/doc/manual/#index-format)
-#                num  flag  att.      from     subj      date             size       label#
-set index_format="%4C %S %?X?A& ? %?M?[%M]&   ? %-25.25L %-50.50s  %{%d/%m/%y}     (%4.4c)     %> %B"
-
+#                num  flag  att.      from     subj                date            size       label#
+#set index_format="%4C %S %?X?A& ? %?M?[%M]&   ? %-25.25L %-50.50s  %{%d/%m/%y}     (%4.4c)     %> %B"
+#set index_format="%4C %S %?X?A&?  %{%d/%m/%y}  ? %?M?[%M]&   ? %-25.25L %-75.75s  (%4.4c)"     
+set date_format="%m %b %Y"
+set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-100.100s        %> %c"
 set record="$HOME/.mail/sent"
 
