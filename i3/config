@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 03.04.18, 22:46:14 @manjaroi3
+# Last update: 04.04.18, 00:00:54 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -447,10 +447,10 @@ set $bgur #e74c3c
 set $brur #c0392b
 
 # class                   border  backgr. text   
-client.focused            #bdc3c7 #bdc3c7 #000000 
-client.focused_inactive   #000000 #34495e #ffffff 
+client.focused            #ffffff #ffffff #000000 
+client.focused_inactive   #000000 #000000 #ffffff 
 client.unfocused          #000000 #000000 #7f8c8d 
-client.urgent             #ffffff #ffffff #c0392b
+client.urgent             #c0392b #c0392b #ffffff 
 
 # archive --------------------------------------#
 # client.focused          #2980b9 #2980b9 #ffffff 
