@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 08.02.18, 01:42:08 @lenovo
+# Last update: 03.04.18, 20:43:23 @x200
 
 # Doc:
 #
@@ -53,6 +53,22 @@ if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
     cd /home/piotr/gitlab/liberal_artist_org
     # ustaw cache na 30 min. (timeout=sec.), exit: "git credential-cache exit"
     git config credential.helper 'cache --timeout=1800'
+    if [ -z "$(git status --porcelain)" ]; then
+        echo "Git jest aktualny.";
+    else
+        git add . && \
+            git add -u && \
+            read -p "${cyan}${bold}Opis commita: ${reset}" opis && \
+            git commit -m "$opis" && \
+            git push
+    fi
+fi
+
+# repo st @gitlab
+if [ -d "/home/piotr/suckless/st" ]; then
+    echo "Aktualizuję repo SUCKLESS TERMINAL:"
+    echo "==================================="
+    cd /home/piotr/suckless/st
     if [ -z "$(git status --porcelain)" ]; then
         echo "Git jest aktualny.";
     else

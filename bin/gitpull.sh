@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 08.02.18, 00:50:41 @lenovo
+# Last update: 03.04.18, 20:41:32 @x200
 
 # Doc:
 #
@@ -23,6 +23,13 @@ printf "\n"
 if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
     echo "Aktualizuję repo LIBERAL ARTIST:"
     cd /home/piotr/gitlab/liberal_artist_org 
+    git pull
+    echo "... ok!"
+fi
+
+if [ -d "/home/piotr/suckless/st" ]; then
+    echo "Aktualizuję repo SUCKLESS TERMINAL:"
+    cd /home/piotr/suckless/st 
     git pull
     echo "... ok!"
 fi
