@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 03.04.18, 10:57:44 @lenovo
+# Last update: 03.04.18, 17:10:07 @lenovo
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -473,15 +473,17 @@ bar {
                statusline #ffffff
                #separator #666666
 
-                              # colorclass       border   backgro    text
-               focused_workspace  #2c3e50  #2980b9  #bdc3c7
+               # colorclass       border   backgro    text
+               focused_workspace  #000000  #2c3e50  #bdc3c7
                active_workspace   #000000  #000000  #696969
                inactive_workspace #000000  #000000  #696969
-               urgent_workspace   #c0392b  #e74c3c  #bdc3c7
+               urgent_workspace   #000000  #bdc3c7  #000000
                #binding_mode      #2f343a  #900000  #ffffff
+               #urgent_workspace   #c0392b  #e74c3c  #bdc3c7
                }
 }
 
+# focused backgrou:  #2980b9
 
 ##################################################
 ###                  CONTROLS                  ###
