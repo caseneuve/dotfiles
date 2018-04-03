@@ -2,11 +2,7 @@
 
 # x200 local settings:
 # ===================
-<<<<<<< HEAD
-# Last update: 27.03.18, 21:13:10 @x200
-=======
-# Last update: 29.03.18, 00:10:19 @lenovo
->>>>>>> 47088dfd6eb49ca628d1914de24afaa5397ea90b
+# Last update: 03.04.18, 19:57:49 @x200
 
 # bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
 
@@ -16,10 +12,7 @@ bindsym $mod+Shift+Pause         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock
 bindsym $mod+Pause               exec systemctl suspend
 bindsym Pause               exec systemctl suspend
 
-<<<<<<< HEAD
-=======
 # zmienne dla hangoutów
 set $right 990
 set $down 505
 
->>>>>>> 47088dfd6eb49ca628d1914de24afaa5397ea90b
