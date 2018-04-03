@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 04.04.18, 00:00:54 @manjaroi3
+# Last update: 04.04.18, 00:05:21 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -151,8 +151,8 @@ for_window [title="math"] move position center
 for_window [title="math"] border pixel 3
 for_window [title="math"] move scratchpad
 
-exec termite -t math -e 'R -q'
-bindsym $mod+Shift+c    exec $term -t math -e 'R -q' 
+exec $term -t math -e 'R -q'
+bindsym $mod+Shift+c    exec $term -t math -e R -q 
 bindsym $mod+c          [title="math"] scratchpad show 
 
 
