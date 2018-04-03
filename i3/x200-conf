@@ -2,7 +2,7 @@
 
 # x200 local settings:
 # ===================
-# Last update: 03.04.18, 19:57:49 @x200
+# Last update: 03.04.18, 20:38:46 @x200
 
 # bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
 
@@ -16,3 +16,4 @@ bindsym Pause               exec systemctl suspend
 set $right 990
 set $down 505
 
+set $term st
