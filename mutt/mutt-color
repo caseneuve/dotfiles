@@ -1,0 +1,82 @@
+# kolory manjaroi3
+# ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
+
+# Last update: 03.04.18, 15:35:59 @lenovo
+
+color    quoted        cyan            default
+color    quoted1       blue            default
+color    quoted2       magenta         default
+color    signature     blue            default
+color    attachment    yellow          default
+color    prompt        brightblack     yellow
+color    message       brightwhite     default
+color    error         brightblack     yellow
+#color    indicator     brightblack     brightyellow
+color    indicator     brightgreen     default 
+color    status        brightgreen     default
+color    tree          brightwhite     default
+color    normal        white           default
+color    markers       red             default
+color    search        white           blue
+color    tilde         brightmagenta   default
+
+# color body brightwhite black '\*+[^*]+\*+'
+# color body brightwhite black '_+[^_]+_+'
+
+# message headers
+# ---------------
+#color   header        brightgreen     default     "^"
+color    hdrdefault    cyan            black         
+color    header        brightyellow    black       "^(From)"
+color    header        brightblue      black       "^(Subject)"
+color    header        blue            black       "^(To)"
+color    header        brightmagenta   black       "^(Date)"
+
+# index
+# -----
+# Default index colors:
+#color    index          red             default '[0-9]*'
+color    index_author   green           default '.*'
+color    index_number   red             default
+color    index_subject  blue            default '.*'
+
+color    index         brightgreen     default         "~Q"                       # messages that have been replied to
+#color   index         white           default         "~X 1-"                    # has attachement
+color    index         brightred       default         "~U~$"                     # unread, unreferenced messages
+color    index         white           default         "~v"                       # messages part of a collapsed thread
+color    index         brightblack     default         "~D"                       # deleted messages
+color  index          brightcyan      default         "~v~(!~N)"                  # collapsed thread with no unread
+color  index          yellow          default         "~v~(~N)"                   # collapsed thread with some unread
+color  index          green           default         "~N~v~(~N)"                 # collapsed thread with unread parent
+
+# statusbg used to indicated flagged when foreground color shows other status for collapsed thread
+# color index         red             black           "~v~(~F)!~N"                # collapsed thread with flagged, no unread
+# color index         yellow          black           "~v~(~F~N)"                 # collapsed thread with some unread & flagged
+# color index         green           black           "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
+# color index         green           black           "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
+# color index         cyan            black           "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
+# color index         yellow          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
+# color index         yellow          default         "~(~N)"                    # messages in threads with some unread
+# color index         green           default         "~S"                       # superseded messages
+# color index brightred red "~=" # duplicated messages
+
+# body > links & addresses
+color body brightblue default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+# listy mejlingowe
+
+color    index        yellow          default   "Michał Mrozek|Agata Wicik|Instytut Tomistyczny"
+color    index        green           default   "jmdi.pl|plus.pl"
+color    index        magenta         default   "dotpay.pl|gry-online.pl|platnosci.pl|groupon.com|Groupon|Allegro.pl"
+#color index   brightwhite    black      "~X 1- ~f sabina\|greckiartur\|gorecki\|akwinata.edu.pl\|grzegorek@yahoo"
+color    index        red             default     "Sabina Bańka|Górecki|Dagome|akwinata.edu.pl|Konstantyn Najmowicz|grzegorek@yahoo|anholo|agkantorowicz|cieslinska@gmail|Tess Mielcarek|tryburcy@|e-Dziennik|Kuran|marta.mackiewicz|oleksy.mail|paterbanka|kstokrotka13"
+color    index        blue            default   "milcarek@gmail|christianitas@|Lajszczak|Rowiński|Barcikowski|Gołębiowski|Holvoote|tonisia0"
+color    index        magenta         default   "youtube.com|dropbox.com|tumblr.com|academia-mail.com|github.com|codecademy.com|google.com|pinterest.com|facebookmail|GitLab"
+
+# don't overwrite those:
+color    index        brightwhite    default      "~U"                       # unread messages
+color    index        brightwhite    default      "~N|~O"                    # unread?
+color    index        brightyellow   default      "~F"                       # flagged
+color    index        black          white         "~T"                       # tagged messages
+

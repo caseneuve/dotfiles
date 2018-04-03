@@ -2,38 +2,42 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 29.03.18, 12:05:23 @manjaroi3
+# Last update: 03.04.18, 15:46:24 @lenovo
 
 # Doc: tymczasowe apdejty
 
-package1=fzf
-package2=fd
+ln -s ~/.dotfiles/mutt/mutt-colors ~/.mutt/schemes/mutt-colors
 
-if [ -f ~/.fzf.bash -o -L ~/.fzf.bash ]; then
-    echo "Paczka $(pacman -Q $package1) jest zainstalowana, znajdziesz ją tu: $(which $package1) (??), sprawdź też katalog ~/.fzf ." 
-else
-    echo "Instaluję FUZZY FINDERA."
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf &&\
-        ~/.fzf/install
-    echo "Usuwam defoltowy plik .fzf.bash i tworzę symlinka do .dotfiles/fzf/fzf.bash ."
-    rm ~/.fzf.bash
-    ln -s ~/.dotfiles/fzf/fzf.bash ~/.fzf.bash
-    . ~/.bashrc
-fi
+# ==================================================
+# archiwizuję: 03/04/2018
+# package1=fzf
+# package2=fd
 
-if pacman -Qi $package2 &> /dev/null ; then
-    echo "Paczka $(pacman -Q $package2) jest zainstalowana, znajdziesz ją tu: $(which $package2)."
-else
-    echo "Instaluję $package2."
-    sudo pacman -S $package2
-    if pacman -Qi $package2 &> /dev/null ; then
-        echo "Paczka $(pacman -Q $package2) została zainstalowana, znajdziesz ją tu: $(which $package2)."
-    else
-        echo "Nie udało się zainstalować $package2."
-    fi
-fi
+# if [ -f ~/.fzf.bash -o -L ~/.fzf.bash ]; then
+#     echo "Paczka $(pacman -Q $package1) jest zainstalowana, znajdziesz ją tu: $(which $package1) (??), sprawdź też katalog ~/.fzf ." 
+# else
+#     echo "Instaluję FUZZY FINDERA."
+#     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf &&\
+#         ~/.fzf/install
+#     echo "Usuwam defoltowy plik .fzf.bash i tworzę symlinka do .dotfiles/fzf/fzf.bash ."
+#     rm ~/.fzf.bash
+#     ln -s ~/.dotfiles/fzf/fzf.bash ~/.fzf.bash
+#     . ~/.bashrc
+# fi
 
+# if pacman -Qi $package2 &> /dev/null ; then
+#     echo "Paczka $(pacman -Q $package2) jest zainstalowana, znajdziesz ją tu: $(which $package2)."
+# else
+#     echo "Instaluję $package2."
+#     sudo pacman -S $package2
+#     if pacman -Qi $package2 &> /dev/null ; then
+#         echo "Paczka $(pacman -Q $package2) została zainstalowana, znajdziesz ją tu: $(which $package2)."
+#     else
+#         echo "Nie udało się zainstalować $package2."
+#     fi
+# fi
 
+# ==================================================
 # archiwizuję: 29/03/2018
 # file8=$HOME/.config/hangups/hangups.conf
 # sym8=$HOME/.dotfiles/hangups.conf
