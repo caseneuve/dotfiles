@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 03.04.18, 20:43:23 @x200
+# Last update: 03.04.18, 20:47:43 @x200
 
 # Doc:
 #
@@ -63,6 +63,7 @@ if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
             git push
     fi
 fi
+printf "\n"
 
 # repo st @gitlab
 if [ -d "/home/piotr/suckless/st" ]; then
