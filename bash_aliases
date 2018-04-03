@@ -234,6 +234,7 @@ alias gdi='cd /home/piotr/.dotfiles/i3'
 alias gdr='cd /home/piotr/.dotfiles/ranger'
 alias gdc='cd /home/piotr/.dotfiles/calcurse'
 alias gdB='cd /home/piotr/.dotfiles/Boot-ex'
+alias gdq='cd /home/piotr/.dotfiles/qtbro'
 alias gx='cd /home/piotr/Dropbox'
 alias gxx='cd /home/piotr/Dropbox'
 alias gxc='cd /home/piotr/Dropbox/config'
@@ -253,6 +254,7 @@ alias gR='cd /root'
 alias gg='cd /home/piotr/gitlab'
 alias ggg='cd /home/piotr/gitlab'
 alias ggl='cd /home/piotr/gitlab/liberal_artist_org'
+alias gcs='cd /home/piotr/suckless/st'
 
 # fast dirs end
 
