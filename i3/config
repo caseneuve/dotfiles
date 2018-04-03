@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 03.04.18, 20:02:18 @x200
+# Last update: 03.04.18, 21:40:47 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -408,7 +408,7 @@ for_window [title="mutt-audio"] floating enable
 ###                    GAPS                    ###
 ##################################################
 smart_gaps on
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 
 # zmieniłem liczby z 10/10, bo wychodziły bardzo nierówne przerwy (???)
@@ -447,12 +447,18 @@ set $bgur #e74c3c
 set $brur #c0392b
 
 # class                 border  backgr. text   
-client.focused          #2980b9 #2980b9 #ffffff 
-client.focused_inactive #466380 #466380 #ffffff 
-client.unfocused        #34495e #34495e #bdc3c7 
-client.urgent           #c0392b #e74c3c #ffffff 
+# client.focused          #2980b9 #2980b9 #ffffff 
+# client.focused_inactive #466380 #466380 #ffffff 
+# client.unfocused        #34495e #34495e #bdc3c7 
+# client.urgent           #c0392b #e74c3c #ffffff 
 # former inact. #2c3e50
 # former client.focused #f1c40f
+
+client.focused          #bdc3c7 #bdc3c7 #000000 
+client.focused_inactive #000000 #34495e #ffffff 
+client.unfocused        #000000 #000000 #bdc3c7 
+client.urgent           #ffffff #ffffff #c0392b
+
 
 ##################################################
 ###                     BAR                    ###
