@@ -4,14 +4,14 @@
 ###                                            ###
 ##################################################
 
-# Last update: 03.04.18, 21:40:47 @x200
+# Last update: 03.04.18, 22:46:14 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
 ##################################################
 
 set $mod Mod4
-set $term xfce4-terminal
+set $term st
 
 set $scr1 eDP1
 set $scr2 VGA1
@@ -140,8 +140,8 @@ for_window [title="dropdown"] border pixel 3
 for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 
-exec    termite -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh 
-bindsym $mod+Shift+u               exec termite -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh      
+exec    $term -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh 
+bindsym $mod+Shift+u               exec $term -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh      
 bindsym $mod+u                     [title="dropdown"] scratchpad show 
 
 # math
@@ -152,7 +152,7 @@ for_window [title="math"] border pixel 3
 for_window [title="math"] move scratchpad
 
 exec termite -t math -e 'R -q'
-bindsym $mod+Shift+c    exec termite -t math -e 'R -q' 
+bindsym $mod+Shift+c    exec $term -t math -e 'R -q' 
 bindsym $mod+c          [title="math"] scratchpad show 
 
 
@@ -446,18 +446,19 @@ set $bru  #34495e
 set $bgur #e74c3c
 set $brur #c0392b
 
-# class                 border  backgr. text   
+# class                   border  backgr. text   
+client.focused            #bdc3c7 #bdc3c7 #000000 
+client.focused_inactive   #000000 #34495e #ffffff 
+client.unfocused          #000000 #000000 #7f8c8d 
+client.urgent             #ffffff #ffffff #c0392b
+
+# archive --------------------------------------#
 # client.focused          #2980b9 #2980b9 #ffffff 
 # client.focused_inactive #466380 #466380 #ffffff 
 # client.unfocused        #34495e #34495e #bdc3c7 
 # client.urgent           #c0392b #e74c3c #ffffff 
 # former inact. #2c3e50
 # former client.focused #f1c40f
-
-client.focused          #bdc3c7 #bdc3c7 #000000 
-client.focused_inactive #000000 #34495e #ffffff 
-client.unfocused        #000000 #000000 #bdc3c7 
-client.urgent           #ffffff #ffffff #c0392b
 
 
 ##################################################
