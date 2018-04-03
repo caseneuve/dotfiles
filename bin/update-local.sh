@@ -2,11 +2,13 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 03.04.18, 15:46:24 @lenovo
+# Last update: 03.04.18, 16:43:51 @lenovo
 
 # Doc: tymczasowe apdejty
 
-ln -s ~/.dotfiles/mutt/mutt-colors ~/.mutt/schemes/mutt-colors
+echo "Tworzę symlinlik dla mutt_color"
+ln -s ~/.dotfiles/mutt/mutt_color ~/.mutt/schemes/mutt_color
+echo "$(ls -l ~/.mutt/schemes)"
 
 # ==================================================
 # archiwizuję: 03/04/2018

@@ -3,7 +3,7 @@ source ~/Dropbox/config/.mutt_aliases
 set mailcap_path=~/.mutt/mailcap
 
 # kolory
-source ~/.mutt/schemes/mutt-color
+source ~/.mutt/schemes/mutt_color
 
 # set move = no 
 set imap_keepalive = 900
@@ -28,8 +28,8 @@ set arrow_cursor
 auto_view text/html                                  
 alternative_order text/plain text/enriched text/html 
 
-# sidebar
-#set sidebar_visible=yes
+# sidebar (neomutt)
+# set sidebar_visible=yes
 
 # index format (http://www.mutt.org/doc/manual/#index-format)
 #                num  flag  att.      from     subj                date            size       label#
