@@ -2,13 +2,23 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 03.04.18, 16:43:51 @lenovo
+# Last update: 04.04.18, 12:43:54 @x200
 
 # Doc: tymczasowe apdejty
 
-echo "Tworzę symlinlik dla mutt_color"
-ln -s ~/.dotfiles/mutt/mutt_color ~/.mutt/schemes/mutt_color
-echo "$(ls -l ~/.mutt/schemes)"
+if [ -f ~/.urlview ]; then
+    rm ~/.urlview
+    echo "Tworzę symlink dla .urlview"
+    ln -s ~/.dotfiles/urlview ~/.urlview
+else
+    echo "Tworzę symlink dla .urlview"
+    ln -s ~/.dotfiles/urlview ~/.urlview
+fi
+
+# archiwizuję: 04/04/2018
+# echo "Tworzę symlinlik dla mutt_color"
+# ln -s ~/.dotfiles/mutt/mutt_color ~/.mutt/schemes/mutt_color
+# echo "$(ls -l ~/.mutt/schemes)"
 
 # ==================================================
 # archiwizuję: 03/04/2018
