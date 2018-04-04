@@ -444,7 +444,7 @@ c.colors.tabs.selected.odd.fg = 'black'
 ##   - multiple-tabs: Show a confirmation if multiple tabs are opened.
 ##   - downloads: Show a confirmation if downloads are running
 ##   - never: Never show a confirmation.
-# c.confirm_quit = ['never']
+c.confirm_quit = ['always']
 
 ## Enable support for the HTML 5 web application cache feature. An
 ## application cache acts like an HTTP cache in some sense. For documents
@@ -1339,9 +1339,17 @@ c.url.searchengines = {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
     'lib': 'http://gen.lib.rus.ec/search.php?req={}',
     'ww': 'archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}',
+    'lat': 'archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}',
     'al': 'https://wiki.archlinux.org/index.php/{}',
     'yt': 'https://www.youtube.com/results?search_query={}&page=&utm_source=opensearch',
-    'img': 'https://www.google.com/search?tbm=isch&source=hp&biw=1366&bih=688&ei=O4fEWo2xLYuQkwWI_q3gDA&q={}'
+    'img': 'https://www.google.com/search?tbm=isch&source=hp&biw=1366&bih=688&ei=O4fEWo2xLYuQkwWI_q3gDA&q={}',
+    'we': 'https://en.wikipedia.org/wiki/{}',
+    'wp': 'https://pl.wikipedia.org/wiki/{}',
+    'wl': 'https://en.wiktionary.org/wiki/{}',
+    'pers': 'http://www.perseus.tufts.edu/hopper/searchresults?q={}',
+    'sx': 'https://emacs.stackexchange.com/search?q={}',
+    'gg': 'https://www.google.pl/search?dcr=0&source=hp&ei=_b_EWsi2DoHpsQG_t4-gBw&q={}',
+    'aa': 'https://allegro.pl/listing?string={}&order=d&bmatch=ss-base-relevance-floki-5-nga-hcp-wp-ele-1-1-0328'
 }
 
 ## Page(s) to open at the start.
