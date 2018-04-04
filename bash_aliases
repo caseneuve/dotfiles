@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 04.04.18, 12:25:45 @x200
+# Last update: 04.04.18, 15:52:54 @x200
 
 ########################
 ########################
@@ -116,6 +116,9 @@ alias qb=qutebrowser
 alias v=mpv
 alias mpva='mpv --no-video'
 alias va='mpv --no-video'
+alias Mpva='mpv --no-video --input-ipc-server=/tmp/mpvsocket'
+alias Mpvp="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket"
+alias Mpause="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket"
 #alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
 #alias vp='mpv --playlist=playlist &'
 alias vp=mpvplaylist
