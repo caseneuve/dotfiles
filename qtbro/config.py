@@ -10,7 +10,7 @@
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
-# c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
+c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
@@ -19,7 +19,7 @@
 
 ## Always restore open sites when qutebrowser is reopened.
 ## Type: Bool
-# c.auto_save.session = False
+# c.auto_save.session = True
 
 ## Backend to use to display websites. qutebrowser supports two different
 ## web rendering engines / backends, QtWebKit and QtWebEngine. QtWebKit
@@ -1335,7 +1335,14 @@ c.url.default_page = 'about:blank'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'lib': 'http://gen.lib.rus.ec/search.php?req={}',
+    'ww': 'archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}',
+    'al': 'https://wiki.archlinux.org/index.php/{}',
+    'yt': 'https://www.youtube.com/results?search_query={}&page=&utm_source=opensearch',
+    'img': 'https://www.google.com/search?tbm=isch&source=hp&biw=1366&bih=688&ei=O4fEWo2xLYuQkwWI_q3gDA&q={}'
+}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
@@ -1369,6 +1376,14 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 ## Apply the zoom factor on a frame only to the text or to all content.
 ## Type: Bool
 # c.zoom.text_only = False
+
+## General bindings
+config.bind('<Ctrl-G>', 'leave-mode', mode='insert')
+config.bind('<Ctrl-G>', 'leave-mode', mode='hint')
+config.bind('<Ctrl-G>', 'leave-mode', mode='passthrough')
+config.bind('<Ctrl-G>', 'leave-mode', mode='caret')
+config.bind('<Ctrl-G>', 'leave-mode', mode='prompt')
+config.bind('<Ctrl-G>', 'leave-mode', mode='command')
 
 ## Bindings for normal mode
 # config.bind("'", 'enter-mode jump_mark')
