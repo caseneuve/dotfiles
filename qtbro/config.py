@@ -739,7 +739,7 @@ config.load_autoconfig()
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1312,7 +1312,8 @@ config.load_autoconfig()
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-# c.url.default_page = 'https://start.duckduckgo.com/'
+c.url.default_page = 'about:blank'
+#'https://start.duckduckgo.com/'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.

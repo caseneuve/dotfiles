@@ -22,6 +22,7 @@ settings:
         k: move-to-next-line
         l: move-to-next-char
       normal:
+        <Ctrl+e>: open-editor
         <Ctrl+g>: clear-keychain
         I: enter-mode insert
         J: tab-prev
@@ -65,12 +66,6 @@ settings:
     global: false
   downloads.position:
     global: bottom
-  editor.command:
-    global:
-    - emacsclient
-    - -c
-    - -nw
-    - '{}'
   editor.encoding:
     global: utf-8
   fonts.downloads:
