@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 03.04.18, 20:41:32 @x200
+# Last update: 04.04.18, 03:13:42 @x200
 
 # Doc:
 #
@@ -26,6 +26,7 @@ if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
     git pull
     echo "... ok!"
 fi
+printf "\n"
 
 if [ -d "/home/piotr/suckless/st" ]; then
     echo "Aktualizuję repo SUCKLESS TERMINAL:"
