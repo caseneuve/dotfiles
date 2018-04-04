@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 04.04.18, 12:43:54 @x200
+# Last update: 04.04.18, 12:50:42 @x200
 
 # Doc: tymczasowe apdejty
 
@@ -14,6 +14,16 @@ else
     echo "Tworzę symlink dla .urlview"
     ln -s ~/.dotfiles/urlview ~/.urlview
 fi
+printf "\n"
+
+if pacman -Qi weechat &> /dev/null ; then
+    echo "Usuwam paczkę: weechat"
+    sudo pacman -R weechat
+    if [ -d ~/.weechat ]; then
+        rm -rf ~/.weechat
+    fi
+fi
+printf "\n"
 
 # archiwizuję: 04/04/2018
 # echo "Tworzę symlinlik dla mutt_color"
