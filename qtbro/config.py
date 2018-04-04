@@ -5,7 +5,7 @@
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
-config.load_autoconfig()
+#config.load_autoconfig()
 
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
@@ -695,7 +695,7 @@ c.colors.tabs.selected.odd.fg = 'black'
 ## Directory to save downloads to. If unset, a sensible OS-specific
 ## default is used.
 ## Type: Directory
-# c.downloads.location.directory = None
+c.downloads.location.directory = '~/Pobrane'
 
 ## Prompt the user for the download location. If set to false,
 ## `downloads.location.directory` will be used.
@@ -1039,7 +1039,7 @@ c.hints.min_chars = 1
 
 ## Show a scrollbar.
 ## Type: Bool
-# c.scrolling.bar = False
+c.scrolling.bar = False
 
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
@@ -1052,7 +1052,7 @@ c.hints.min_chars = 1
 ##   - always: Search case-insensitively.
 ##   - never: Search case-sensitively.
 ##   - smart: Search case-sensitively if there are capital characters.
-# c.search.ignore_case = 'smart'
+c.search.ignore_case = 'always'
 
 ## Find text on a page incrementally, renewing the search for each typed
 ## character.
@@ -1062,7 +1062,7 @@ c.hints.min_chars = 1
 ## Name of the session to save by default. If this is set to null, the
 ## session which was last loaded is saved.
 ## Type: SessionName
-# c.session.default_name = None
+c.session.default_name = None
 
 ## Load a restored tab as soon as it takes focus.
 ## Type: Bool
@@ -1191,7 +1191,7 @@ c.statusbar.hide = True
 ##   - startpage: Load the start page.
 ##   - default-page: Load the default page.
 ##   - close: Close the window.
-# c.tabs.last_close = 'ignore'
+c.tabs.last_close = 'close'
 
 ## When switching tabs, what input mode is applied.
 ## Type: String
@@ -1307,7 +1307,7 @@ c.tabs.show = 'multiple'
 ##   - naive: Use simple/naive check.
 ##   - dns: Use DNS requests (might be slow!).
 ##   - never: Never search automatically.
-# c.url.auto_search = 'naive'
+c.url.auto_search = 'naive'
 
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
@@ -1335,7 +1335,7 @@ c.url.default_page = 'about:blank'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
