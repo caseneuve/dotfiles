@@ -1,5 +1,5 @@
 # ~/.bashrc
-# Last update: 04.04.18, 00:10:12 @manjaroi3
+# Last update: 04.04.18, 09:09:06 @lenovo
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -21,7 +21,7 @@ shopt -s autocd
 
 BROWSER=/usr/bin/firefox
 # export ALTERNATE_EDITOR="nano"
-export EDITOR=emacsclient
+export EDITOR='emacsclient -nw'
 
 export PATH=$PATH:~/.bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
