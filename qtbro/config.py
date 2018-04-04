@@ -33,7 +33,7 @@ config.load_autoconfig()
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-# c.backend = 'webengine'
+c.backend = 'webengine'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
@@ -324,23 +324,23 @@ config.load_autoconfig()
 
 ## Background color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.bg = 'darkgrey'
+c.colors.tabs.even.bg = 'black'
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.fg = 'white'
+c.colors.tabs.even.fg = '#bdc3c7'
 
 ## Color for the tab indicator on errors.
 ## Type: QtColor
-# c.colors.tabs.indicator.error = '#ff0000'
+#c.colors.tabs.indicator.error = 'black'
 
 ## Color gradient start for the tab indicator.
 ## Type: QtColor
-# c.colors.tabs.indicator.start = '#0000aa'
+c.colors.tabs.indicator.start = 'black'
 
 ## Color gradient end for the tab indicator.
 ## Type: QtColor
-# c.colors.tabs.indicator.stop = '#00aa00'
+c.colors.tabs.indicator.stop = 'black'
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -353,27 +353,27 @@ config.load_autoconfig()
 
 ## Background color of unselected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.odd.bg = 'grey'
+c.colors.tabs.odd.bg = 'black'
 
 ## Foreground color of unselected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.odd.fg = 'white'
+c.colors.tabs.odd.fg = '#F7F7F7'
 
 ## Background color of selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.even.bg = 'black'
+c.colors.tabs.selected.even.bg = '#F7F7F7'
 
 ## Foreground color of selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.even.fg = 'white'
+c.colors.tabs.selected.even.fg = 'black'
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.bg = 'black'
+c.colors.tabs.selected.odd.bg = '#F7F7F7'
 
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.fg = 'white'
+c.colors.tabs.selected.odd.fg = 'black'
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
@@ -725,7 +725,7 @@ config.load_autoconfig()
 ## Valid values:
 ##   - top
 ##   - bottom
-# c.downloads.position = 'top'
+c.downloads.position = 'bottom'
 
 ## Duration (in milliseconds) to wait before removing finished downloads.
 ## If set to -1, downloads are never removed.
@@ -747,39 +747,39 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 
 ## Font used in the completion categories.
 ## Type: Font
-# c.fonts.completion.category = 'bold 10pt monospace'
+c.fonts.completion.category = '10pt Meslo LG M'
 
 ## Font used in the completion widget.
 ## Type: Font
-# c.fonts.completion.entry = '10pt monospace'
+c.fonts.completion.entry = '10pt Meslo LG M'
 
 ## Font used for the debugging console.
 ## Type: QtFont
-# c.fonts.debug_console = '10pt monospace'
+c.fonts.debug_console = '10pt Meslo LG M'
 
 ## Font used for the downloadbar.
 ## Type: Font
-# c.fonts.downloads = '10pt monospace'
+c.fonts.downloads = '9pt Meslo LG M'
 
 ## Font used for the hints.
 ## Type: Font
-# c.fonts.hints = 'bold 10pt monospace'
+c.fonts.hints = '9pt Meslo LG M'
 
 ## Font used in the keyhint widget.
 ## Type: Font
-# c.fonts.keyhint = '10pt monospace'
+c.fonts.keyhint = '10pt Meslo LG M'
 
 ## Font used for error messages.
 ## Type: Font
-# c.fonts.messages.error = '10pt monospace'
+c.fonts.messages.error = '10pt Meslo LG M'
 
 ## Font used for info messages.
 ## Type: Font
-# c.fonts.messages.info = '10pt monospace'
+c.fonts.messages.info = '10pt Meslo LG M'
 
 ## Font used for warning messages.
 ## Type: Font
-# c.fonts.messages.warning = '10pt monospace'
+c.fonts.messages.warning = '10pt Meslo LG M'
 
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
@@ -788,15 +788,15 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 
 ## Font used for prompts.
 ## Type: Font
-# c.fonts.prompts = '10pt sans-serif'
+c.fonts.prompts = '10pt Meslo LG M'
 
 ## Font used in the statusbar.
 ## Type: Font
-# c.fonts.statusbar = '10pt monospace'
+c.fonts.statusbar = '10pt Meslo LG M'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-# c.fonts.tabs = '10pt monospace'
+c.fonts.tabs = '9pt Meslo LG M'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -855,15 +855,15 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 
 ## CSS border value for hints.
 ## Type: String
-# c.hints.border = '1px solid #E3BE23'
+c.hints.border = '1px solid #E3BE23'
 
 ## Characters used for hint strings.
 ## Type: UniqueCharString
-# c.hints.chars = 'asdfghjkl'
+c.hints.chars = 'asdfghjkl'
 
 ## Dictionary file to be used by the word hints.
 ## Type: File
-# c.hints.dictionary = '/usr/share/dict/words'
+c.hints.dictionary = '/usr/share/dict/words'
 
 ## Which implementation to use to find elements to hint.
 ## Type: String
@@ -874,11 +874,11 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 
 ## Hide unmatched hints in rapid mode.
 ## Type: Bool
-# c.hints.hide_unmatched_rapid_hints = True
+c.hints.hide_unmatched_rapid_hints = True
 
 ## Minimum number of characters used for hint strings.
 ## Type: Int
-# c.hints.min_chars = 1
+c.hints.min_chars = 1
 
 ## Mode to use for hints.
 ## Type: String
@@ -1120,7 +1120,7 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 
 ## Hide the statusbar unless a message is shown.
 ## Type: Bool
-# c.statusbar.hide = False
+c.statusbar.hide = True
 
 ## Padding (in pixels) for the statusbar.
 ## Type: Padding
@@ -1255,7 +1255,7 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 ##   - never: Always hide the tab bar.
 ##   - multiple: Hide the tab bar if only one tab is open.
 ##   - switching: Show the tab bar when switching tabs.
-# c.tabs.show = 'always'
+c.tabs.show = 'multiple'
 
 ## Duration (in milliseconds) to show the tab bar before hiding it when
 ## tabs.show is set to 'switching'.
@@ -1422,7 +1422,9 @@ c.url.default_page = 'about:blank'
 # config.bind('<Ctrl-^>', 'tab-focus last')
 # config.bind('<Ctrl-h>', 'home')
 # config.bind('<Ctrl-p>', 'tab-pin')
+config.bind('<Ctrl-r>', 'config-source')
 # config.bind('<Ctrl-s>', 'stop')
+config.bind('<Ctrl-e>', 'open-editor')
 # config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 # config.bind('<F11>', 'fullscreen')
 # config.bind('<F5>', 'reload')
@@ -1432,15 +1434,16 @@ c.url.default_page = 'about:blank'
 # config.bind('=', 'zoom')
 # config.bind('?', 'set-cmd-text ?')
 # config.bind('@', 'run-macro')
-# config.bind('B', 'set-cmd-text -s :quickmark-load -t')
+config.bind('m', 'set-cmd-text -s :quickmark-load -t')
+config.bind('M', 'set-cmd-text -s :bookmark-load -t')
 # config.bind('D', 'tab-close -o')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
-# config.bind('H', 'back')
-# config.bind('J', 'tab-next')
-# config.bind('K', 'tab-prev')
-# config.bind('L', 'forward')
-# config.bind('M', 'bookmark-add')
+config.bind('H', 'back')
+config.bind('K', 'tab-next')
+config.bind('J', 'tab-prev')
+config.bind('L', 'forward')
+config.bind('A', 'bookmark-add')
 # config.bind('N', 'search-prev')
 # config.bind('O', 'set-cmd-text -s :open -t')
 # config.bind('PP', 'open -t -- {primary}')
@@ -1485,7 +1488,7 @@ c.url.default_page = 'about:blank'
 # config.bind('j', 'scroll down')
 # config.bind('k', 'scroll up')
 # config.bind('l', 'scroll right')
-# config.bind('m', 'quickmark-save')
+config.bind('a', 'quickmark-save')
 # config.bind('n', 'search-next')
 # config.bind('o', 'set-cmd-text -s :open')
 # config.bind('pP', 'open -- {primary}')
@@ -1554,10 +1557,10 @@ c.url.default_page = 'about:blank'
 # config.bind('c', 'enter-mode normal', mode='caret')
 # config.bind('e', 'move-to-end-of-word', mode='caret')
 # config.bind('gg', 'move-to-start-of-document', mode='caret')
-# config.bind('h', 'move-to-prev-char', mode='caret')
-# config.bind('j', 'move-to-next-line', mode='caret')
-# config.bind('k', 'move-to-prev-line', mode='caret')
-# config.bind('l', 'move-to-next-char', mode='caret')
+config.bind('j', 'move-to-prev-char', mode='caret')
+config.bind('k', 'move-to-next-line', mode='caret')
+config.bind('i', 'move-to-prev-line', mode='caret')
+config.bind('l', 'move-to-next-char', mode='caret')
 # config.bind('v', 'toggle-selection', mode='caret')
 # config.bind('w', 'move-to-next-word', mode='caret')
 # config.bind('y', 'yank selection', mode='caret')
