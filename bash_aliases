@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 04.04.18, 02:09:21 @manjaroi3
+# Last update: 04.04.18, 09:16:56 @lenovo
 
 ########################
 ########################
@@ -107,7 +107,7 @@ alias ms="mocp -s"
 alias mp="mocp -G"
 alias mn="mocp -f"
 alias mN="mocp -r"
-alias mR="mocp -t r"
+alias mr="mocp -o r"
 alias mq="mocp -q"
 alias f='feh -B black'
 alias n='nano --nohelp'
