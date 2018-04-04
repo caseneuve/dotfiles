@@ -38,4 +38,3 @@ alternative_order text/plain text/enriched text/html
 set date_format="%m %b %Y"
 set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-100.100s        %> %c"
 set record="$HOME/.mail/sent"
-
