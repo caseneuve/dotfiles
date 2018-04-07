@@ -47,6 +47,8 @@ c.backend = 'webengine'
 ## Background color of the completion widget category headers.
 ## Type: QssColor
 # c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #888888, stop:1 #505050)'
+#c.colors.completion.category.bg = '#444444'
+c.colors.completion.category.bg = '#888888'
 
 ## Bottom border color of the completion widget category headers.
 ## Type: QssColor
@@ -62,7 +64,8 @@ c.backend = 'webengine'
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
-# c.colors.completion.even.bg = '#333333'
+# c.colors.completion.even.bg = '#333333' 505050
+c.colors.completion.even.bg = '#505050'
 
 ## Text color of the completion widget. May be a single color to use for
 ## all columns or a list of three colors, one for each column.
@@ -92,6 +95,7 @@ c.backend = 'webengine'
 ## Background color of the completion widget for odd rows.
 ## Type: QssColor
 # c.colors.completion.odd.bg = '#444444'
+c.colors.completion.odd.bg = '#505050'
 
 ## Color of the scrollbar in the completion view.
 ## Type: QssColor
@@ -406,10 +410,12 @@ c.colors.tabs.selected.odd.fg = 'black'
 ## Padding (in pixels) of the scrollbar handle in the completion window.
 ## Type: Int
 # c.completion.scrollbar.padding = 2
+c.completion.scrollbar.padding = 0
 
 ## Width (in pixels) of the scrollbar in the completion window.
 ## Type: Int
 # c.completion.scrollbar.width = 12
+c.completion.scrollbar.width = 0
 
 ## When to show the autocompletion window.
 ## Type: String
@@ -418,6 +424,7 @@ c.colors.tabs.selected.odd.fg = 'black'
 ##   - auto: Whenever a completion is requested.
 ##   - never: Never.
 # c.completion.show = 'always'
+c.completion.show = 'auto'
 
 ## Shrink the completion to be smaller than the configured size if there
 ## are no scrollbars.
