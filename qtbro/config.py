@@ -172,6 +172,7 @@ c.colors.completion.odd.bg = '#505050'
 ## Type: QssColor
 # c.colors.keyhint.fg = '#FFFFFF'
 
+
 ## Highlight color for keys to complete the current keychain.
 ## Type: QssColor
 # c.colors.keyhint.suffix.fg = '#FFFF00'
@@ -179,6 +180,7 @@ c.colors.completion.odd.bg = '#505050'
 ## Background color of an error message.
 ## Type: QssColor
 # c.colors.messages.error.bg = 'red'
+c.colors.messages.error.bg = '#c0392b'
 
 ## Border color of an error message.
 ## Type: QssColor
@@ -190,7 +192,8 @@ c.colors.completion.odd.bg = '#505050'
 
 ## Background color of an info message.
 ## Type: QssColor
-# c.colors.messages.info.bg = 'black'
+c.colors.messages.info.bg = 'green'
+# black
 
 ## Border color of an info message.
 ## Type: QssColor
@@ -246,15 +249,19 @@ c.colors.completion.odd.bg = '#505050'
 
 ## Background color of the statusbar in command mode.
 ## Type: QssColor
-# c.colors.statusbar.command.bg = 'black'
+c.colors.statusbar.command.bg = '#2c3e50' 
+# c.colors.statusbar.command.bg = 'grey'
+# 2d3743
 
 ## Foreground color of the statusbar in command mode.
 ## Type: QssColor
-# c.colors.statusbar.command.fg = 'white'
+c.colors.statusbar.command.fg = 'white'
+# c.colors.statusbar.command.fg = '#2980b9'
 
 ## Background color of the statusbar in private browsing + command mode.
 ## Type: QssColor
 # c.colors.statusbar.command.private.bg = 'grey'
+c.colors.statusbar.command.private.bg = 'purple'
 
 ## Foreground color of the statusbar in private browsing + command mode.
 ## Type: QssColor
@@ -294,7 +301,8 @@ c.colors.completion.odd.bg = '#505050'
 
 ## Background color of the progress bar.
 ## Type: QssColor
-# c.colors.statusbar.progress.bg = 'white'
+# c.colors.statusbar.progress.bg = 'white' #2980b9
+c.colors.statusbar.progress.bg = '#2980b9'
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
@@ -303,10 +311,12 @@ c.colors.completion.odd.bg = '#505050'
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
 # c.colors.statusbar.url.fg = 'white'
+c.colors.statusbar.url.fg = 'white'
 
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
 # c.colors.statusbar.url.hover.fg = 'aqua'
+c.colors.statusbar.url.hover.fg = 'cyan'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
@@ -317,6 +327,7 @@ c.colors.completion.odd.bg = '#505050'
 ## (https).
 ## Type: QssColor
 # c.colors.statusbar.url.success.https.fg = 'lime'
+c.colors.statusbar.url.success.https.fg = 'yellow'
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
@@ -383,6 +394,7 @@ c.colors.tabs.selected.odd.fg = 'black'
 ## color).
 ## Type: QtColor
 # c.colors.webpage.bg = 'white'
+# c.colors.webpage.bg = ''
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -778,15 +790,15 @@ c.fonts.keyhint = '10pt Meslo LG M'
 
 ## Font used for error messages.
 ## Type: Font
-c.fonts.messages.error = '10pt Meslo LG M'
+c.fonts.messages.error = '9pt Meslo LG M'
 
 ## Font used for info messages.
 ## Type: Font
-c.fonts.messages.info = '10pt Meslo LG M'
+c.fonts.messages.info = '9pt Meslo LG M'
 
 ## Font used for warning messages.
 ## Type: Font
-c.fonts.messages.warning = '10pt Meslo LG M'
+c.fonts.messages.warning = '9pt Meslo LG M'
 
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
@@ -1155,7 +1167,7 @@ c.statusbar.position = 'top'
 
 ## Open new tabs (middleclick/ctrl+click) in the background.
 ## Type: Bool
-# c.tabs.background = False
+c.tabs.background = True
 
 ## Mouse button with which to close tabs.
 ## Type: String
@@ -1163,7 +1175,7 @@ c.statusbar.position = 'top'
 ##   - right: Close tabs on right-click.
 ##   - middle: Close tabs on middle-click.
 ##   - none: Don't close tabs using the mouse.
-# c.tabs.close_mouse_button = 'middle'
+c.tabs.close_mouse_button = 'middle'
 
 ## How to behave when the close mouse button is pressed on the tab bar.
 ## Type: String
@@ -1181,7 +1193,7 @@ c.statusbar.position = 'top'
 
 ## Show favicons in the tab bar.
 ## Type: Bool
-# c.tabs.favicons.show = True
+c.tabs.favicons.show = True
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
@@ -1445,13 +1457,14 @@ config.bind('<Ctrl-G>', 'leave-mode', mode='command')
 # config.bind('<Ctrl-Shift-T>', 'undo')
 # config.bind('<Ctrl-Shift-W>', 'close')
 # config.bind('<Ctrl-T>', 'open -t')
+config.bind('<Ctrl-T>', 'open -t ;; set-cmd-text -s :open')
 # config.bind('<Ctrl-Tab>', 'tab-focus last')
 # config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
-# config.bind('<Ctrl-V>', 'enter-mode passthrough')
+config.bind('<Ctrl-V>', 'enter-mode passthrough')
 # config.bind('<Ctrl-W>', 'tab-close')
 # config.bind('<Ctrl-X>', 'navigate decrement')
 # config.bind('<Ctrl-^>', 'tab-focus last')
-# config.bind('<Ctrl-h>', 'home')
+config.bind('<Ctrl-h>', 'open qute://history')
 # config.bind('<Ctrl-p>', 'tab-pin')
 config.bind('<Ctrl-r>', 'config-source')
 # config.bind('<Ctrl-s>', 'stop')
@@ -1464,7 +1477,7 @@ config.bind('<Ctrl-e>', 'open-editor')
 # config.bind('<forward>', 'forward')
 # config.bind('=', 'zoom')
 # config.bind('?', 'set-cmd-text ?')
-# config.bind('@', 'run-macro')
+config.bind('@', 'run-macro')
 config.bind('m', 'set-cmd-text -s :quickmark-load -t')
 config.bind('M', 'set-cmd-text -s :bookmark-load -t')
 # config.bind('D', 'tab-close -o')
@@ -1479,6 +1492,7 @@ config.bind('A', 'bookmark-add')
 # config.bind('O', 'set-cmd-text -s :open -t')
 # config.bind('PP', 'open -t -- {primary}')
 # config.bind('Pp', 'open -t -- {clipboard}')
+config.bind('P', 'open -p')
 # config.bind('R', 'reload -f')
 # config.bind('Sb', 'open qute://bookmarks#bookmarks')
 # config.bind('Sh', 'open qute://history')
@@ -1495,6 +1509,7 @@ config.bind('A', 'bookmark-add')
 # config.bind('cd', 'download-clear')
 # config.bind('co', 'tab-only')
 # config.bind('d', 'tab-close')
+config.bind('q', 'tab-close')
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
 # config.bind('g0', 'tab-focus 1')
@@ -1525,6 +1540,7 @@ config.bind('a', 'quickmark-save')
 # config.bind('pP', 'open -- {primary}')
 # config.bind('pp', 'open -- {clipboard}')
 # config.bind('q', 'record-macro')
+config.bind('<F3>', 'record-macro')
 # config.bind('r', 'reload')
 # config.bind('sf', 'save')
 # config.bind('sk', 'set-cmd-text -s :bind')
