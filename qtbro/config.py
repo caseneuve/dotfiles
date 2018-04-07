@@ -1132,6 +1132,7 @@ c.statusbar.hide = True
 ##   - top
 ##   - bottom
 # c.statusbar.position = 'bottom'
+c.statusbar.position = 'top'
 
 ## List of widgets displayed in the statusbar.
 ## Type: List of String
