@@ -1,12 +1,7 @@
 #!/bin/bash
+# Last update: 08.04.18, 15:09:21 @x200
+# Doc: dodaje wpis do notesu z dp, który jest symlinkowany do każdej maszyny
 
-# Last update: 08.04.18, 12:52:46 @manjaroi3
-
-# Doc:
-# kasuje stary notes i otwiera czysty do nadpisania, który będzie 
-# istniał (jeśli zapisany) do następnego wywołania komendy
-
-#rm ~/notes.txt
-printf "* $(date) @$HOSTNAME\n" >> ~/notes.txt
+printf "* $(date) @$HOSTNAME -- " >> ~/notes.txt
 emacsclient -nw +1000 ~/notes.txt
 
