@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 08.04.18, 12:20:02 @manjaroi3
+# Last update: 08.04.18, 22:59:01 @x200
 
 ########################
 ########################
@@ -99,6 +99,8 @@ alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 ### PROGRAMY ###
 ################
 
+alias t=trans
+alias tb='trans $1 -b'
 alias tt=termite
 alias ff=fzf
 alias e="emacsclient -nw -c $1"
