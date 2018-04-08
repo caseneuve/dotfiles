@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 04.04.18, 15:52:54 @x200
+# Last update: 08.04.18, 04:08:13 @manjaroi3
 
 ########################
 ########################
@@ -64,6 +64,7 @@ mpvplaylist()
 #################
 
 alias sleep='systemctl suspend'
+alias sle='systemctl suspend'
 alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
 alias nba='nano --nohelp ~/.bash_aliases'
