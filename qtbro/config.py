@@ -317,12 +317,12 @@ c.colors.statusbar.url.fg = 'black'
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
 # c.colors.statusbar.url.hover.fg = 'aqua'
-c.colors.statusbar.url.hover.fg = 'cyan'
+c.colors.statusbar.url.hover.fg = 'blue'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
 ## Type: QssColor
-# c.colors.statusbar.url.success.http.fg = 'white'
+c.colors.statusbar.url.success.http.fg = 'green'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (https).
