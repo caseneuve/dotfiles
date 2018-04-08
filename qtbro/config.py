@@ -1395,7 +1395,7 @@ c.url.start_pages = ['https://feedly.com/i/my']
 
 ## Available zoom levels.
 ## Type: List of Perc
-# c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
+c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
 ## Number of zoom increments to divide the mouse wheel movements to.
 ## Type: Int
@@ -1415,7 +1415,7 @@ config.bind('<Ctrl-G>', 'leave-mode', mode='command')
 
 ## Bindings for normal mode
 # config.bind("'", 'enter-mode jump_mark')
-# config.bind('+', 'zoom-in')
+config.bind('+', 'zoom-in')
 # config.bind('-', 'zoom-out')
 # config.bind('.', 'repeat-command')
 # config.bind('/', 'set-cmd-text /')
@@ -1475,7 +1475,7 @@ config.bind('<Ctrl-e>', 'open-editor')
 # config.bind('<Return>', 'follow-selected')
 # config.bind('<back>', 'back')
 # config.bind('<forward>', 'forward')
-# config.bind('=', 'zoom')
+config.bind('=', 'zoom')
 # config.bind('?', 'set-cmd-text ?')
 config.bind('@', 'run-macro')
 config.bind('m', 'set-cmd-text -s :quickmark-load -t')
@@ -1526,6 +1526,7 @@ config.bind('q', 'tab-close')
 # config.bind('gl', 'tab-move -')
 # config.bind('gm', 'tab-move')
 # config.bind('go', 'set-cmd-text :open {url:pretty}')
+config.bind('gp', 'set-cmd-text :open -t https://getpocket.com/edit?url={url}')
 # config.bind('gr', 'tab-move +')
 # config.bind('gt', 'set-cmd-text -s :buffer')
 # config.bind('gu', 'navigate up')
