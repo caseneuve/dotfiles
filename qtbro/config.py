@@ -812,7 +812,7 @@ c.fonts.prompts = '10pt Meslo LG M'
 
 ## Font used in the statusbar.
 ## Type: Font
-c.fonts.statusbar = '11pt Meslo LG M'
+c.fonts.statusbar = '10pt Meslo LG M'
 
 ## Font used in the tab bar.
 ## Type: QtFont
@@ -1259,7 +1259,7 @@ c.tabs.last_close = 'close'
 ##   - bottom
 ##   - left
 ##   - right
-# c.tabs.position = 'top'
+c.tabs.position = 'top'
 
 ## Which tab to select when the focused tab is removed.
 ## Type: SelectOnRemove
