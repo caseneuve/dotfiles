@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.04.18, 01:17:56 @x200
+# Last update: 09.04.18, 01:51:11 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -482,10 +482,10 @@ bar {
                #separator #666666
 
                # colorclass       border   backgro    text
-               focused_workspace  #00000000  #ffffff  #002d2c37
+               focused_workspace  #00000000  #999999  #00000000
                active_workspace   #00000000  #00000000  #7f8c8d
                inactive_workspace #00000000  #00000000  #7f8c8d
-               urgent_workspace   #2d2c37  #bdc3c7  #2d2c37
+               urgent_workspace   #00000000  #ffffff  #002d2c37
 
                # focused_workspace  #bdc3c7  #000000  #bdc3c7
                # active_workspace   #000000  #000000  #696969
