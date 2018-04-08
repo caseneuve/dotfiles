@@ -1,5 +1,5 @@
 # ~/.bashrc
-# Last update: 04.04.18, 09:09:06 @lenovo
+# Last update: 08.04.18, 02:15:32 @manjaroi3
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -19,7 +19,8 @@ shopt -s autocd
 
 # VARIABLES:
 
-BROWSER=/usr/bin/firefox
+# BROWSER=/usr/bin/firefox
+BROWSER=/usr/bin/qutebrowser
 # export ALTERNATE_EDITOR="nano"
 export EDITOR='emacsclient -nw'
 
