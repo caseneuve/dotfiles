@@ -249,14 +249,15 @@ c.colors.messages.info.bg = 'green'
 
 ## Background color of the statusbar in command mode.
 ## Type: QssColor
-c.colors.statusbar.command.bg = '#2c3e50' 
+# c.colors.statusbar.command.bg = '#2c3e50' 
 # c.colors.statusbar.command.bg = 'grey'
-# 2d3743
+c.colors.statusbar.command.bg = '#F7F7F7'
 
 ## Foreground color of the statusbar in command mode.
 ## Type: QssColor
-c.colors.statusbar.command.fg = 'white'
+# c.colors.statusbar.command.fg = 'white'
 # c.colors.statusbar.command.fg = '#2980b9'
+c.colors.statusbar.command.fg = '#104e8b'
 
 ## Background color of the statusbar in private browsing + command mode.
 ## Type: QssColor
@@ -302,7 +303,7 @@ c.colors.statusbar.command.private.bg = 'purple'
 ## Background color of the progress bar.
 ## Type: QssColor
 # c.colors.statusbar.progress.bg = 'white' #2980b9
-c.colors.statusbar.progress.bg = '#2980b9'
+c.colors.statusbar.progress.bg = '#104e8b'
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
@@ -311,7 +312,7 @@ c.colors.statusbar.progress.bg = '#2980b9'
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
 # c.colors.statusbar.url.fg = 'white'
-c.colors.statusbar.url.fg = 'white'
+c.colors.statusbar.url.fg = 'black'
 
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
@@ -327,7 +328,7 @@ c.colors.statusbar.url.hover.fg = 'cyan'
 ## (https).
 ## Type: QssColor
 # c.colors.statusbar.url.success.https.fg = 'lime'
-c.colors.statusbar.url.success.https.fg = 'yellow'
+c.colors.statusbar.url.success.https.fg = 'green'
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
