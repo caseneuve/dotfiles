@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 04.04.18, 12:50:42 @x200
+# Last update: 08.04.18, 14:29:16 @manjaroi3
 
 # Doc: tymczasowe apdejty
 
@@ -24,6 +24,17 @@ if pacman -Qi weechat &> /dev/null ; then
     fi
 fi
 printf "\n"
+
+# 08/04/2018
+# mkdir qtb (for qutebrowser)
+dirs="/home/piotr/Wideo/qtb /home/piotr/Muzyka/qtb"
+
+for dir in $dirs
+do
+    if ! [ -d "$dir" ]; then
+        mkdir -p $dir
+    fi
+done
 
 # archiwizuję: 04/04/2018
 # echo "Tworzę symlinlik dla mutt_color"
