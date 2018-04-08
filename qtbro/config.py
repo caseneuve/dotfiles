@@ -812,7 +812,7 @@ c.fonts.prompts = '10pt Meslo LG M'
 
 ## Font used in the statusbar.
 ## Type: Font
-c.fonts.statusbar = '10pt Meslo LG M'
+c.fonts.statusbar = '11pt Meslo LG M'
 
 ## Font used in the tab bar.
 ## Type: QtFont
@@ -1358,7 +1358,7 @@ c.url.default_page = 'about:blank'
 ## Type: Dict
 c.url.searchengines = {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
-    'lib': 'http://gen.lib.rus.ec/search.php?req={}',
+    'gen': 'http://gen.lib.rus.ec/search.php?req={}',
     'ww': 'archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}',
     'lat': 'archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}',
     'al': 'https://wiki.archlinux.org/index.php/{}',
