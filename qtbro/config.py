@@ -1357,7 +1357,7 @@ c.url.default_page = 'about:blank'
 ## Type: Dict
 c.url.searchengines = {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
-    'lib': 'http://gen.lib.rus.ec/search.php?req={}',
+    'gen': 'http://gen.lib.rus.ec/search.php?req={}',
     'ww': 'archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}',
     'lat': 'archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}',
     'al': 'https://wiki.archlinux.org/index.php/{}',
