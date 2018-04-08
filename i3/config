@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 08.04.18, 03:57:31 @manjaroi3
+# Last update: 09.04.18, 01:17:56 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -407,7 +407,7 @@ for_window [title="mutt-audio"] floating enable
 ##################################################
 ###                    GAPS                    ###
 ##################################################
-smart_gaps on
+# smart_gaps on 
 for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 
@@ -470,21 +470,27 @@ font pango:DejaVu Sans Book 8
 
 bar {
         modifier $mod 
-        # status_command i3status 
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
+        i3bar_command i3bar -t 
         position top
         height 18
+        # status_command i3status 
 
         colors {
-               background #000000
+               background #00000000
                statusline #ffffff
                #separator #666666
 
                # colorclass       border   backgro    text
-               focused_workspace  #bdc3c7  #000000  #bdc3c7
-               active_workspace   #000000  #000000  #696969
-               inactive_workspace #000000  #000000  #696969
-               urgent_workspace   #000000  #bdc3c7  #000000
+               focused_workspace  #00000000  #ffffff  #002d2c37
+               active_workspace   #00000000  #00000000  #7f8c8d
+               inactive_workspace #00000000  #00000000  #7f8c8d
+               urgent_workspace   #2d2c37  #bdc3c7  #2d2c37
+
+               # focused_workspace  #bdc3c7  #000000  #bdc3c7
+               # active_workspace   #000000  #000000  #696969
+               # inactive_workspace #000000  #000000  #696969
+               # urgent_workspace   #000000  #bdc3c7  #000000
                #binding_mode      #2f343a  #900000  #ffffff
                #urgent_workspace   #c0392b  #e74c3c  #bdc3c7
                }
