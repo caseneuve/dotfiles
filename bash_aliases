@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 08.04.18, 22:59:01 @x200
+# Last update: 09.04.18, 00:05:26 @x200
 
 ########################
 ########################
@@ -113,6 +113,7 @@ alias mN="mocp -r"
 alias mr="mocp -o r"
 alias mq="mocp -q"
 alias mS="mocp -S"
+alias m3='i3-msg "workspace 8; exec --no-startup-id st -e mocp"'
 alias f='feh -B black'
 alias n='nano --nohelp'
 alias nl='nano -l --nohelp'
