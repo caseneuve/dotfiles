@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 08.04.18, 12:04:35 @manjaroi3
+# Last update: 08.04.18, 12:20:02 @manjaroi3
 
 ########################
 ########################
@@ -115,6 +115,7 @@ alias f='feh -B black'
 alias n='nano --nohelp'
 alias nl='nano -l --nohelp'
 alias qb=qutebrowser
+alias qtb='i3-msg "workspace 2; exec --no-startup-id qutebrowser"'
 alias v=mpv
 alias mpva='mpv --no-video'
 alias va='mpv --no-video'
