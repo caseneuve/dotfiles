@@ -123,8 +123,10 @@ alias v=mpv
 alias mpva='mpv --no-video'
 alias va='mpv --no-video'
 alias Mpva='mpv --no-video --input-ipc-server=/tmp/mpvsocket'
-alias Mpvp="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket"
-alias Mpause="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket"
+alias Ma='mpv --no-video --input-ipc-server=/tmp/mpvsocket'
+alias Mpvp="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket &>/dev/null"
+alias Mp="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket &>/dev/null"
+alias Mpause="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket &>/dev/null"
 #alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
 #alias vp='mpv --playlist=playlist &'
 alias vp=mpvplaylist
