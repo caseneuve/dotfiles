@@ -721,11 +721,11 @@ c.downloads.location.directory = '~/Pobrane'
 ## Prompt the user for the download location. If set to false,
 ## `downloads.location.directory` will be used.
 ## Type: Bool
-# c.downloads.location.prompt = True
+c.downloads.location.prompt = True
 
 ## Remember the last used download directory.
 ## Type: Bool
-# c.downloads.location.remember = True
+c.downloads.location.remember = True
 
 ## What to display in the download filename input.
 ## Type: String
@@ -733,13 +733,13 @@ c.downloads.location.directory = '~/Pobrane'
 ##   - path: Show only the download path.
 ##   - filename: Show only download filename.
 ##   - both: Show download path and filename.
-# c.downloads.location.suggestion = 'path'
+c.downloads.location.suggestion = 'path'
 
 ## Default program used to open downloads. If null, the default internal
 ## handler is used. Any `{}` in the string will be expanded to the
 ## filename, else the filename will be appended.
 ## Type: String
-# c.downloads.open_dispatcher = None
+c.downloads.open_dispatcher = None
 
 ## Where to show the downloaded files.
 ## Type: VerticalPosition
@@ -1027,7 +1027,7 @@ c.hints.min_chars = 1
 
 ## Show a filebrowser in upload/download prompts.
 ## Type: Bool
-# c.prompt.filebrowser = True
+c.prompt.filebrowser = True
 
 ## Rounding radius (in pixels) for the edges of prompts.
 ## Type: Int
@@ -1440,8 +1440,8 @@ config.bind(';o', 'hint links fill :open -t {hint-url}')
 config.bind(';V', 'hint links fill :spawn mpv {hint-url}')
 
 # d → DOWNLOAD
-config.bind('dV', 'spawn st -e youtube-dl --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
-config.bind('dA', 'hint links fill :spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "home/piotr/Muzyka/qtb/%(title)s.%(ext)s" {hint-url}')
+config.bind('dv', 'spawn st -e youtube-dl --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
+config.bind('da', 'hint links fill :spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "home/piotr/Muzyka/qtb/%(title)s.%(ext)s" {hint-url}')
 
 # config.bind('<Alt-1>', 'tab-focus 1')
 # config.bind('<Alt-2>', 'tab-focus 2')
