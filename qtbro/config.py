@@ -1366,7 +1366,7 @@ c.url.searchengines = {
     'yt': 'https://www.youtube.com/results?search_query={}&page=&utm_source=opensearch',
     'img': 'https://www.google.com/search?tbm=isch&source=hp&biw=1366&bih=688&ei=O4fEWo2xLYuQkwWI_q3gDA&q={}',
     'we': 'https://en.wikipedia.org/wiki/{}',
-    'wp': 'https://pl.wikipedia.org/wiki/{}',
+    'wi': 'https://pl.wikipedia.org/wiki/{}',
     'wl': 'https://en.wiktionary.org/wiki/{}',
     'pers': 'http://www.perseus.tufts.edu/hopper/searchresults?q={}',
     'sx': 'https://emacs.stackexchange.com/search?q={}',
