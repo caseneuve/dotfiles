@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.04.18, 11:22:37 @x200
+# Last update: 09.04.18, 21:46:57 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -186,7 +186,8 @@ bindsym $mod+5          workspace $ws5; layout tabbed
 bindsym $mod+6          workspace $ws6; 
 bindsym $mod+7          workspace $ws7; 
 bindsym $mod+8          workspace $ws8; 
-bindsym $mod+9          workspace $ws9; layout stacking
+#layout stacking dla 9?
+bindsym $mod+9          workspace $ws9; 
 bindsym $mod+0          workspace $ws10;
 
 bindsym Control+1       workspace $ws1; 
@@ -197,7 +198,8 @@ bindsym Control+5       workspace $ws5; layout tabbed
 bindsym Control+6       workspace $ws6; 
 bindsym Control+7       workspace $ws7; 
 bindsym Control+8       workspace $ws8; 
-bindsym Control+9       workspace $ws9; layout stacking
+# layout stacking dla 9?
+bindsym Control+9       workspace $ws9; 
 # bindsym Control+0 workspace $ws10
 
 # =============================
