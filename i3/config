@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.04.18, 01:51:11 @x200
+# Last update: 09.04.18, 01:59:33 @x200
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -408,12 +408,14 @@ for_window [title="mutt-audio"] floating enable
 ###                    GAPS                    ###
 ##################################################
 # smart_gaps on 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 hide_edge_borders smart
 
+set $gin 20
+set $gou 12
 # zmieniłem liczby z 10/10, bo wychodziły bardzo nierówne przerwy (???)
-gaps inner 12
-gaps outer 2
+gaps inner $gin
+gaps outer $gou
 
 # no title bar:
 #new_window border pixel 10
@@ -429,7 +431,7 @@ bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300;
 # =======================
 # toggle gaps 0 / default:
 # =======================
-bindsym $mod+Shift+m    gaps inner current set 12; gaps outer current set 2
+bindsym $mod+Shift+m    gaps inner current set $gin; gaps outer current set $gou
 bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
 
 
