@@ -396,7 +396,7 @@ c.colors.tabs.selected.odd.fg = 'black'
 ## color).
 ## Type: QtColor
 # c.colors.webpage.bg = 'white'
-# c.colors.webpage.bg = ''
+c.colors.webpage.bg = '#F7F7F7'
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
