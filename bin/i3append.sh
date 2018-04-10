@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asfddsf.sh
 # Created:     04.01.18, 18:43    @x200
-# Last update: 04.01.18, 19:09:14 @x200
+# Last update: 10.04.18, 22:52:44 @manjaroi3
 
 # Doc:  Appends  i3config  file  (main) with  local  files  containing
 # different settings  for different machines, then  executes i3 reload
@@ -27,4 +27,5 @@ esac
 
 rm "$ap"
 
-i3-msg reload
+i3-msg -q reload
+

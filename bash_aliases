@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 10.04.18, 22:40:37 @manjaroi3
+# Last update: 10.04.18, 22:51:18 @manjaroi3
 
 ########################
 ########################
@@ -113,14 +113,14 @@ alias mN="mocp -r"
 alias mr="mocp -o r"
 alias mq="mocp -q"
 alias mS="mocp -S"
-alias m3='i3-msg "workspace 8; exec --no-startup-id st -e mocp"'
+alias m3='i3-msg -q "workspace 8; exec --no-startup-id st -e mocp"'
 alias f='feh -B black'
 alias n='nano --nohelp'
 alias nl='nano -l --nohelp'
 alias qb=qutebrowser
-alias qtb='i3-msg "workspace 2; exec --no-startup-id qutebrowser"'
-alias qb='i3-msg "workspace 2; exec --no-startup-id qutebrowser"'
-alias qp='i3-msg "workspace 7; exec --no-startup-id qutebrowser :command \":open -p\""'
+alias qtb='i3-msg -q "workspace 2; exec --no-startup-id qutebrowser"'
+alias qb='i3-msg -q "workspace 2; exec --no-startup-id qutebrowser"'
+alias qp='i3-msg -q "workspace 7; exec --no-startup-id qutebrowser :command \":open -p\""'
 alias v=mpv
 alias mpva='mpv --no-video'
 alias va='mpv --no-video'
@@ -135,7 +135,7 @@ alias vp=mpvplaylist
 alias mpvp=mpvplaylist
 #alias mpvp=mpvopenplaylist
 alias c=calcurse
-alias caa='i3-msg "exec --no-startup-id st -e calcurse"'
+alias caa='i3-msg -q "exec --no-startup-id st -e calcurse"'
 alias clc='clear; bc -q'
 alias kal='cal -s --color'
 alias hg=hangups 
@@ -182,14 +182,14 @@ alias updt='/home/piotr/.dotfiles/bin/update-local.sh'
 #    DMENU   #
 ##############
 
-alias emm='i3-msg "workspace 1; exec --no-startup-id emacs"'
-alias cu='i3-msg "exec --no-startup-id $TERMINAL -e calcurse"'
-alias dmo='i3-msg "workspace 8; exec --no-startup-id $TERMINAL -e mocp"'
-alias rng='i3-msg "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
-alias rrr='i3-msg "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
-alias dmutt='i3-msg "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
-alias dmt='i3-msg "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
-alias dmu='i3-msg "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
+alias emm='i3-msg -q "workspace 1; exec --no-startup-id emacs"'
+alias cu='i3-msg -q "exec --no-startup-id $TERMINAL -e calcurse"'
+alias dmo='i3-msg -q "workspace 8; exec --no-startup-id $TERMINAL -e mocp"'
+alias rng='i3-msg -q "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
+alias rrr='i3-msg -q "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
+alias dmutt='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
+alias dmt='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
+alias dmu='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
 
 ###############
 ### ZMIENNE ###
