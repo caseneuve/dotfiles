@@ -322,7 +322,7 @@ c.colors.statusbar.url.hover.fg = 'blue'
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
 ## Type: QssColor
-c.colors.statusbar.url.success.http.fg = 'green'
+c.colors.statusbar.url.success.http.fg = 'orange'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (https).
