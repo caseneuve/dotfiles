@@ -4,7 +4,7 @@
 ###                                            ###
 ##################################################
 
-# Last update: 09.04.18, 21:46:57 @manjaroi3
+# Last update: 10.04.18, 23:16:54 @manjaroi3
 
 ##################################################
 ###        VARIABLES & general SETTINGS        ###
@@ -478,6 +478,7 @@ bar {
         i3bar_command i3bar -t 
         position top
         height 18
+        tray_output primary
         # status_command i3status 
 
         colors {
