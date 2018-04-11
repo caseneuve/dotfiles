@@ -2,9 +2,17 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 08.04.18, 14:29:16 @manjaroi3
+# Last update: 11.04.18, 20:46:45 @manjaroi3
 
 # Doc: tymczasowe apdejty
+
+# 11/04/2018
+echo "Tworzę symlink dla commands.py (ranger)"
+rm ~/.config/ranger/commands.py
+ln -s ~/.dotfiles/ranger/commands.py ~/.config/ranger/commands.py
+echo -e "Zrobione.\n"
+
+# 08/04/2018 ?
 
 if [ -f ~/.urlview ]; then
     rm ~/.urlview
