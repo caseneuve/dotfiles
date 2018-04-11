@@ -2,36 +2,87 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 11.04.18, 20:46:45 @manjaroi3
+# Last update: 11.04.18, 22:22:38 @manjaroi3
 
 # Doc: tymczasowe apdejty
+# general settings (do not delete me)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
+BOLD=$(tput bold)
+YEL=$(tput setaf 3)
+echo "${BOLD}${RED}### Running Update... ###${RESET}"
 
 # 11/04/2018
-echo "Tworzę symlink dla commands.py (ranger)"
+# ranger
+echo "${YEL}Tworzę symlink dla commands.py (ranger)${RESET}"
 rm ~/.config/ranger/commands.py
 ln -s ~/.dotfiles/ranger/commands.py ~/.config/ranger/commands.py
-echo -e "Zrobione.\n"
+if [ -L ~/.config/ranger/commands.py ]; then
+    echo -e "Zrobione.\n"
+    echo "$(date) >> Utworzyłem symlink dla ~/.config/ranger/commands.py" >> .update-log
+else
+    echo "$(date) >> ERROR: nie utworzyłem symlinka dla ~/.config/ranger/commands.py" >> ~/.update-log
+    echo -e "Błąd.\n"
+fi
+
+
+# newsboat
+packagenb=newsboat
+echo "${YEL}Sprawdzam, czy mam $packagenb${RESET}"
+if pacman -Qi $packagenb &> /dev/null ; then
+  echo -e "Paczka $(pacman -Q $packagenb) jest zainstalowana, znajdziesz ją tu: $(which $packagenb)\n" 
+else
+    sudo pacman -S --no-confirm $packagenb;
+    echo -e "Zainstalowałem $packagenb\n"
+    echo "$(date) >> Zainstalowałem $packagenb" >> ~/.update-log
+fi
+
+echo "${YEL}Tworzę symlink dla newsboat${RESET}"
+filenb=~/.newsboat/config
+cd ~/.newsboat
+if [ -f ~/.newsboat/config ]; then
+    rm $filenb
+    ln -s ~/.dotfiles/newsboat/config ~/.newsboat
+    echo -e "Zrobione\n"
+else
+    if ! [ -d ~/.newsboat ]; then
+        mkdir ~/.newsboat
+    fi
+    ln -s ~/.dotfiles/newsboat/config ~/.newsboat
+    echo -e "Zrobione\n"
+fi
+if [ -L ~/.newsboat/config ]; then
+    echo "$(date) >> Utworzyłem symlink dla ~/.newsboat/config" >> ~/.update-log
+else
+    echo "$(date) >> ERROR: nie utworzyłem symlinka dla ~/.newsboat/config" >> ~/.update-log
+    echo -e "Błąd.\n"
+fi
+
 
 # 08/04/2018 ?
-
-if [ -f ~/.urlview ]; then
-    rm ~/.urlview
-    echo "Tworzę symlink dla .urlview"
-    ln -s ~/.dotfiles/urlview ~/.urlview
-else
-    echo "Tworzę symlink dla .urlview"
-    ln -s ~/.dotfiles/urlview ~/.urlview
-fi
-printf "\n"
+# if [ -f ~/.urlview ]; then
+#     rm ~/.urlview
+#     echo "${YEL}Tworzę symlink dla .urlview${RESET}"
+#     ln -s ~/.dotfiles/urlview ~/.urlview
+# else
+#     echo "Tworzę symlink dla .urlview"
+#     ln -s ~/.dotfiles/urlview ~/.urlview
+# fi
+# if [ -L ~/.urlview ]; then
+#     echo -e "Zrobione\n"
+# else
+#     echo "Błąd.\n"
+# fi
 
 if pacman -Qi weechat &> /dev/null ; then
-    echo "Usuwam paczkę: weechat"
+    echo "${YEL}Usuwam paczkę: weechat${RESET}"
     sudo pacman -R weechat
     if [ -d ~/.weechat ]; then
         rm -rf ~/.weechat
     fi
+    echo "Usunąłem weechat"
+    echo "$(date)Usunąłem weechat" >> ~/.update-log
 fi
-printf "\n"
 
 # 08/04/2018
 # mkdir qtb (for qutebrowser)
@@ -43,6 +94,8 @@ do
         mkdir -p $dir
     fi
 done
+
+echo -e "\n" >> ~/.update-log
 
 # archiwizuję: 04/04/2018
 # echo "Tworzę symlinlik dla mutt_color"
