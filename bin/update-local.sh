@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/update-local.sh
 # Created:     22.03.18, 23:21    @manjaroi3
-# Last update: 11.04.18, 22:22:38 @manjaroi3
+# Last update: 11.04.18, 23:06:59 @x200
 
 # Doc: tymczasowe apdejty
 # general settings (do not delete me)
@@ -37,7 +37,7 @@ else
     echo "$(date) >> Zainstalowałem $packagenb" >> ~/.update-log
 fi
 
-echo "${YEL}Tworzę symlink dla newsboat${RESET}"
+echo "${YEL}Tworzę symlinki dla newsboat${RESET}"
 filenb=~/.newsboat/config
 cd ~/.newsboat
 if [ -f ~/.newsboat/config ]; then
@@ -57,7 +57,7 @@ else
     echo "$(date) >> ERROR: nie utworzyłem symlinka dla ~/.newsboat/config" >> ~/.update-log
     echo -e "Błąd.\n"
 fi
-
+cd ~
 
 # 08/04/2018 ?
 # if [ -f ~/.urlview ]; then
