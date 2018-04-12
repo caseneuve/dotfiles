@@ -22,6 +22,7 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 bind-key O open-in-browser
+bind-key C mark-feed-read
 
 #articlelist-title-format "Articles in feed %T (%u unread)"
 color listnormal cyan default
