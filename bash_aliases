@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 11.04.18, 23:08:32 @x200
+# Last update: 12.04.18, 23:48:06 @lenovo
 
 ########################
 ########################
@@ -188,8 +188,9 @@ alias dmo='i3-msg -q "workspace 8; exec --no-startup-id $TERMINAL -e mocp"'
 alias rng='i3-msg -q "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
 alias rrr='i3-msg -q "workspace 6; exec --no-startup-id $TERMINAL -e ranger"'
 alias dmutt='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
-alias dmt='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
+#alias dmt='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
 alias dmu='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
+alias neo='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
 alias nbb='i3-msg -q "exec --no-startup-id $TERMINAL -e newsboat"'
 alias nb='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 
