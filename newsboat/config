@@ -24,12 +24,13 @@ bind-key x pb-delete
 bind-key O open-in-browser
 bind-key C mark-feed-read
 
-#articlelist-title-format "Articles in feed %T (%u unread)"
+articlelist-title-format "%T (%u nieprzeczytane)"
+
 color listnormal cyan default
 color listfocus black yellow standout bold
 color listnormal_unread blue default
 color listfocus_unread yellow default bold
-color info red black bold
+color info black green bold
 color article cyan default
 
 #browser linkhandler
