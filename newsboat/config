@@ -1,11 +1,11 @@
 #############################################
 ###            NEWSBOAT CONFIG            ###
 #############################################
-# Last update: 13.04.18, 22:31:49 @manjaroi3
+# Last update: 13.04.18, 23:18:24 @manjaroi3
 #############################################
 
 # {general}
-#auto-reload yes
+auto-reload yes
 external-url-viewer "urlview"
 browser qutebrowser
 
