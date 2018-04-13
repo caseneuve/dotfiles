@@ -1,7 +1,7 @@
 #############################################
 ###            NEWSBOAT CONFIG            ###
 #############################################
-# Last update: 13.04.18, 21:20:52 @manjaroi3
+# Last update: 13.04.18, 22:31:49 @manjaroi3
 #############################################
 
 # {general}
@@ -32,6 +32,7 @@ bind-key U show-urls
 bind-key x pb-delete
 bind-key O open-in-browser
 bind-key C mark-feed-read
+bind-key f edit-flags
 
 # {string format}
 articlelist-title-format "%T (%u nieprzeczytane)"
@@ -54,8 +55,9 @@ highlight article "^Tytuł:.*" yellow color237 bold
 highlight article "^Autor:.*" green color237 bold
 highlight article "^Odsyłacz:.*" blue color237 bold
 highlight article "^Data:.*" cyan color237 bold
+highlight article "^Flagi:.*" magenta color237 bold
 highlight article "\\[[0-9][0-9]*\\]" color203 default #bold #66 # odsyłacze w tekście
-highlight article "http.[a-zA-A0-9\./:=?-]*" blue color237 underline
+highlight article "http.[a-zA-A0-9\.#/:=?-]*" blue color237 underline
 highlight article "^Odsyłacze:.$" white color237 underline bold
 # highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
 # highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold﻿
