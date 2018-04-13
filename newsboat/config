@@ -1,6 +1,15 @@
+#############################################
+###            NEWSBOAT CONFIG            ###
+#############################################
+# Last update: 13.04.18, 20:41:33 @manjaroi3
+#############################################
+
+# {general}
 #auto-reload yes
 external-url-viewer "urlview"
+browser qutebrowser
 
+# {bindings}
 bind-key k down
 bind-key i up
 bind-key k next articlelist
@@ -24,9 +33,12 @@ bind-key x pb-delete
 bind-key O open-in-browser
 bind-key C mark-feed-read
 
+# {string format}
 articlelist-title-format "%T (%u nieprzeczytane)"
 feedlist-title-format "RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
 
+# {colors}
+# {{main}}
 color listnormal cyan default
 color listfocus black yellow standout bold
 color listnormal_unread blue default
@@ -35,8 +47,21 @@ color info black green bold
 #color article cyan default
 color article white default
 
+# {{highligh text}}
+highlight article "^Kanał:.*" color174 black bold
+highlight article "^Tytuł:.*" color223 black bold
+highlight article "^Autor:.*" color114 black
+highlight article "^Odsyłacz:.*" color116 black
+highlight article "^Data:.*" color223 black
+highlight article "\\[[0-9][0-9]*\\]" color203 default #bold #66 # odsyłacze w tekście
+highlight article "http.[a-zA-A0-9\./=?]*" blue default underline
+highlight article "^Odsyłacze:.$" white black underline bold
+# highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
+# highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold﻿
+# {{{ https://newsboat.org/releases/2.10.2/docs/newsboat.html#_highlighting_text }}}
+
+# {macros [off]}
 #browser linkhandler
-browser qutebrowser
 # macro , open-in-browser
 # macro v set browser "i3 exec mpv"; open-in-browser ; set browser linkhandler
 # macro y set browser "spawndl"; open-in-browser ; set browser linkhandler
