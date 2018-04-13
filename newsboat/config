@@ -25,13 +25,15 @@ bind-key O open-in-browser
 bind-key C mark-feed-read
 
 articlelist-title-format "%T (%u nieprzeczytane)"
+feedlist-title-format "RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
 
 color listnormal cyan default
 color listfocus black yellow standout bold
 color listnormal_unread blue default
 color listfocus_unread yellow default bold
 color info black green bold
-color article cyan default
+#color article cyan default
+color article white default
 
 #browser linkhandler
 browser qutebrowser
