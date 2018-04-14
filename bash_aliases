@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 13.04.18, 08:06:43 @manjaroi3
+# Last update: 14.04.18, 00:47:30 @manjaroi3
 
 ########################
 ########################
@@ -57,6 +57,11 @@ mpvplaylist()
             mpv --playlist="$1"
         fi
     fi
+}
+
+cmdhelp()
+{
+    curl cheat.sh/"$1"
 }
 
 #################
@@ -142,6 +147,7 @@ alias hg=hangups
 alias mu=mupdf
 alias mt='cd ~/Pobrane; mutt'
 alias nf='clear; neofetch'
+alias h=cmdhelp
 
 ###################
 ### SYSTEM INFO ###
