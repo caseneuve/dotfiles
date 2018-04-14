@@ -1432,7 +1432,7 @@ config.bind('0', 'zoom')
 # config.bind(';I', 'hint images tab')
 
 # zmieniam flagę -r na -b żeby otwierał w tle
-config.bind(';O', 'hint links fill :open -b {hint-url}')
+config.bind(';O', 'hint links fill :open -t -r {hint-url}')
 
 # config.bind(';R', 'hint --rapid links window')
 # config.bind(';Y', 'hint links yank-primary')
@@ -1445,7 +1445,7 @@ config.bind(';o', 'hint links fill :open -t {hint-url}')
 # config.bind(';r', 'hint --rapid links tab-bg')
 # config.bind(';t', 'hint inputs')
 # config.bind(';y', 'hint links yank')
-config.bind(';V', 'hint links fill :spawn mpv {hint-url}')
+config.bind(';v', 'hint links fill :spawn mpv {hint-url}')
 
 # d → DOWNLOAD
 config.bind('dv', 'spawn st -e youtube-dl --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
@@ -1498,7 +1498,7 @@ config.bind('@', 'run-macro')
 config.bind('m', 'set-cmd-text -s :quickmark-load -t')
 config.bind('M', 'set-cmd-text -s :bookmark-load -t')
 # config.bind('D', 'tab-close -o')
-# config.bind('F', 'hint all tab')
+config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
 config.bind('J', 'back')
 config.bind('h', 'back')
