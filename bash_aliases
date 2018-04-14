@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 14.04.18, 00:47:30 @manjaroi3
+# Last update: 14.04.18, 22:09:41 @manjaroi3
 
 ########################
 ########################
@@ -200,6 +200,7 @@ alias neo='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e neomutt"'
 alias nbb='i3-msg -q "exec --no-startup-id $TERMINAL -e newsboat"'
 alias nb='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 alias rss='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
+alias news='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 
 ###############
 ### ZMIENNE ###
