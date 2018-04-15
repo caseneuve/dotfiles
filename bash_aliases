@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 15.04.18, 21:20:27 @lenovo
+# Last update: 15.04.18, 23:06:46 @lenovo
 
 ########################
 ########################
@@ -67,7 +67,7 @@ cmdhelp()
 # uses William Whitaker Words (online) to translate a word given as the function argument 
 translate_ww()
 {
-    curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</'
+    curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</' | GREP_COLOR="1;32" egrep --color "$1|$"
 }
 
 
