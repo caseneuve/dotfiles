@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 14.04.18, 22:09:41 @manjaroi3
+# Last update: 15.04.18, 21:20:27 @lenovo
 
 ########################
 ########################
@@ -64,6 +64,13 @@ cmdhelp()
     curl cheat.sh/"$1"
 }
 
+# uses William Whitaker Words (online) to translate a word given as the function argument 
+translate_ww()
+{
+    curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</'
+}
+
+
 #################
 ### POLECENIA ###
 #################
@@ -104,6 +111,7 @@ alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 ### PROGRAMY ###
 ################
 
+alias tl=translate_ww
 alias t=trans
 alias tb='trans $1 -b'
 alias tt=termite
