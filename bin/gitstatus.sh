@@ -1,6 +1,6 @@
 # ~/.dotfiles/bin/asdf.sh
 # Created:     27.12.17           ?
-# Last update: 03.04.18, 20:46:25 @x200
+# Last update: 16.04.18, 23:07:02 @x200
 
 # Doc:
 #
@@ -60,5 +60,5 @@ if [ -d "/home/piotr/suckless/st" ]; then
     fi
 fi
 
-echo "...zrobione!"
+echo -e "...zrobione!\n"
 
