@@ -21,4 +21,5 @@ fi
 
 shopt -s autocd
 
-export EDITOR=nano
+export EDITOR='/usr/bin/emacsclient -nw'
+
