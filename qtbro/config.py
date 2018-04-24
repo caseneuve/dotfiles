@@ -1335,10 +1335,17 @@ c.tabs.show = 'multiple'
 ##   - never: Never search automatically.
 c.url.auto_search = 'naive'
 
+## Page(s) to open at the start.
+## Type: List of FuzzyUrl, or FuzzyUrl
+#c.url.start_pages = ['https://feedly.com/i/my']
+#c.url.start_pages = ['file:///home/piotr/.dotfiles/qtbro/startpage.html']
+c.url.start_pages = 'file:///home/piotr/.dotfiles/qtbro/startpage.html'
+
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-c.url.default_page = 'about:blank'
+c.url.default_page = 'file:///home/piotr/.dotfiles/qtbro/newtab.html'
+#c.url.default_page = 'about:blank'
 #'https://start.duckduckgo.com/'
 
 ## URL segments where `:navigate increment/decrement` will search for a
@@ -1379,11 +1386,6 @@ c.url.searchengines = {
     'q': 'https://duckduckgo.com/?q=qutebrowser+{}&ia=webqutebrowser+',
     'et': 'https://www.etymonline.com/word/{}'
 }
-
-## Page(s) to open at the start.
-## Type: List of FuzzyUrl, or FuzzyUrl
-#c.url.start_pages = ['https://feedly.com/i/my']
-c.url.start_pages = ['file:///home/piotr/.dotfiles/qtbro/startpage.html']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String

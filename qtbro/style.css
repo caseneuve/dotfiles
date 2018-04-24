@@ -1,26 +1,37 @@
 /* style for qtb start page */
 
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
 body {
-	color: #ddd;
-	background: url("/home/piotr/.i3/wall.jpg") no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+    color: #ddd;
+    background: url("/home/piotr/.i3/wall.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #middle{
-	border-radius: 10px;
-	float: left;
-	display: inline-block;
-	width: 260px;
-	height: 90px;
-	position: absolute;
-	top: 50%;
-	bottom: 50%;
-	left: 0;
-	right: 0;
-	margin: auto;
-	text-align: center;
-	background-color: rgba(20, 20, 20, 0.9);
+    border-radius: 10px;
+    float: left;
+    display: inline-block;
+    width: 260px;
+    height: 90px;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    /* opacity: 0.5 */
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+div.board {
+    /* font-family: 'Quicksand', sans-serif; */
+    padding: 1px;
+    margin: 5px;
 }
