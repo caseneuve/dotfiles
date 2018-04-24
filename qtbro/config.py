@@ -1382,7 +1382,8 @@ c.url.searchengines = {
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ['https://feedly.com/i/my']
+#c.url.start_pages = ['https://feedly.com/i/my']
+c.url.start_pages = ['file:///home/piotr/.dotfiles/qtbro/startpage.html']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
