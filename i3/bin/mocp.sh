@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 25.04.18, 12:05:44 @manjaroi3
+# Last update: 25.04.18, 13:39:23 @manjaroi3
 
 # Doc:
 # script to show track currently playing on i3 status bar (i3blocks)
@@ -40,6 +40,6 @@ if [ "$STATUS" != "STOP" ]; then
         esac
         exit 0
 else
-    echo -e " "
+    echo -e ""
 fi
 
