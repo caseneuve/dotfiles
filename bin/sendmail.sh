@@ -1,4 +1,4 @@
-# Last update: 13.01.18, 15:42:01 @x200
+# Last update: 25.04.18, 22:03:56 @x200
 
 #!/bin/bash
 
@@ -9,7 +9,8 @@ read -p "Temat wiadomości: " subject
 read -p "Treść wiadomości: " body
 
 if [ -z "$1" ]; then
-echo "$body" | mutt -s "$subject" $mailaddress;
+echo "$body" | mutt -s "$subject" $mailaddress > /dev/null 2>&1 
 else
-echo "$body" | mutt -s "$subject" $mailaddress -a "$@";
+echo "$body" | mutt -s "$subject" $mailaddress -a "$@" > /dev/null 2>&1 
 fi
+
