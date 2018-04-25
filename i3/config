@@ -4,12 +4,11 @@
 ###                                            ###
 ##################################################
 
-# Last update: 24.04.18, 22:45:48 @manjaroi3
+#   {STATUS}
+# Last update: 25.04.18, 11:33:08 @manjaroi3
+# todo: kbd
 
-##################################################
-###        VARIABLES & general SETTINGS        ###
-##################################################
-
+##  {VARIABLES & general SETTINGS}       
 set $mod Mod4
 set $term st
 
@@ -21,19 +20,11 @@ set $browser firefox
 
 bindsym $mod+q                   kill
 
-# ================
-# power management:
-# ================
+#    {{power management:}}
 bindsym $mod+Shift+BackSpace     exec i3-msg exit
 
-##################################################
-###             STARTUP & PROGRAMS             ###
-##################################################
-
-# ===========
-# starup apps:
-# ===========
-
+##  {STARTUP & PROGRAMS}
+#    {{starup apps}}:
 exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 exec_always --no-startup-id dropbox start 
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
@@ -47,21 +38,14 @@ exec        --no-startup-id xfce4-power-manager
 #exec        --no-startup-id slack
 #exec        --no-startup-id firefox
 
-# ===============
-# monitory & wall 
-# ===============
+# ===================
+#    {{monitory & wall}} 
 # lenovo
 # exec_always ~/.i3/bin/monitory.sh
 exec_always --no-startup-id ~/.fehbg
 
-##################################################
-###                    NAVIG                   ###
-##################################################
-
-# ============
-# change focus:
-# ============
-
+##  {NAVIG}                  
+#    {{change focus:}}
 bindsym $mod+j                  focus left
 bindsym $mod+k                  focus down
 bindsym $mod+i                  focus up
@@ -72,10 +56,8 @@ bindsym $mod+Down               focus down
 bindsym $mod+Up                 focus up
 bindsym $mod+Right              focus right
 
-# ==============
-# moving windows:
-# ==============
-
+# ===================
+#    {{moving windows:}}
 bindsym $mod+Shift+j            move left
 bindsym $mod+Shift+k            move down
 bindsym $mod+Shift+i            move up
@@ -86,39 +68,29 @@ bindsym $mod+Shift+Down         move down
 bindsym $mod+Shift+Up           move up
 bindsym $mod+Shift+Right        move right
 
-# ===============================================
-# enter fullscreen mode for the focused container:
-# ===============================================
+# ====================================================
+#    {{enter fullscreen mode for the focused container:}}
 bindsym $mod+f                  fullscreen toggle
 
-# =======
-# layouts:
-# =======
+#    {{layouts:}}
 bindsym $mod+y                  layout tabbed
 bindsym $mod+Ctrl+y             layout stacking
 bindsym $mod+Shift+y            layout toggle split
 
-# ========================
-# toggle tiling / floating:
-# ========================
+#    {{toggle tiling / floating:}}
 bindsym $mod+Shift+space        floating toggle
 bindsym $mod+space              focus mode_toggle
 
-# ================
-# resizing windows:
-# ================
+#    {{resizing windows:}}
 bindsym $mod+Ctrl+j     resize shrink width 10 px or 10 ppt
 bindsym $mod+Ctrl+i     resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+k     resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l     resize grow width 10 px or 10 ppt
 
-# flash active window (za: Luke Smith) / jeśli compton jest włączony
+#    {{flash active window (za: Luke Smith) / jeśli compton jest włączony}}
 bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 
-# =======
-# orphans:
-# =======
-
+#    {{orphans:}}
 # focus the parent container
 # bindsym $mod+a focus parent
 # focus the child container
@@ -128,11 +100,8 @@ bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 # split in vertical orientation
 # bindsym $mod+v split v
 
-
-##################################################
-###                SCRATCHPADS                 ###
-##################################################
-# dropdown → tmux:
+##  {SCRATCHPADS}
+#    {{dropdown → tmux:}}
 # exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] resize set 1000 600
@@ -144,7 +113,7 @@ exec    $term -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh
 bindsym $mod+Shift+u               exec $term -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh      
 bindsym $mod+u                     [title="dropdown"] scratchpad show 
 
-# math
+#    {{math}}
 for_window [title="math"] floating enable
 for_window [title="math"] resize set 600 200
 for_window [title="math"] move position center
@@ -156,12 +125,8 @@ bindsym $mod+Shift+c    exec $term -t math -e R -q
 bindsym $mod+c          [title="math"] scratchpad show 
 
 
-##################################################
-###                 WORKSPACES                 ###
-##################################################
-
+##  {WORKSPACES}                ###
 # workspace_auto_back_and_forth yes
-
 set $ws1 "1"
 set $ws2 "2" 
 set $ws3 "3"
@@ -173,11 +138,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-
-# ===================
-# switch to workspace:
-# ===================
-
+#    {{switch to workspace:}}
 bindsym $mod+1          workspace $ws1; 
 bindsym $mod+2          workspace $ws2; 
 bindsym $mod+3          workspace $ws3; 
@@ -202,10 +163,7 @@ bindsym Control+8       workspace $ws8;
 bindsym Control+9       workspace $ws9; 
 # bindsym Control+0 workspace $ws10
 
-# =============================
-# move focused container to $ws:
-# =============================
-
+#    {{move focused container to $ws:}}
 bindsym $mod+Shift+1    move container to workspace $ws1
 bindsym $mod+Shift+2    move container to workspace $ws2
 bindsym $mod+Shift+3    move container to workspace $ws3
@@ -217,9 +175,9 @@ bindsym $mod+Shift+8    move container to workspace $ws8
 bindsym $mod+Shift+9    move container to workspace $ws9
 bindsym $mod+Shift+0    move container to workspace $ws10
 
-# =================================
-# move workspace to another monitor:
-# =================================
+# ======================================
+#    {{move workspace to another monitor:}}
+# ======================================
 
 bindsym $mod+Control+h           move workspace to output left
 bindsym $mod+Shift+h             move workspace to output left
@@ -228,18 +186,12 @@ bindsym $mod+Shift+semicolon     move workspace to output right
 # bindsym $mod+Shift+Tab           focus output left 
 bindsym $mod+Control+Tab         focus output right
 
-# ============================
-# pk: cycle through workspaces:
-# ============================
-
+#    {{pk: cycle through workspaces:}}
 bindsym Mod1+Tab                workspace next
 bindsym Mod1+Shift+Tab          workspace prev
 bindsym $mod+Tab                workspace back_and_forth
 
-# ====================
-# reguły dla aplikacji:
-# ====================
-
+#    {{reguły dla aplikacji:}}
 assign [class="Slack"]                 $ws9
 assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
@@ -256,10 +208,7 @@ for_window [class="Gpick"]                    resize set 1000 600
 # wartości zmiennych $right i $down podane w plikach lokalnych!
 for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
 
-# =======
-# orphans:
-# =======
-
+#    {{orphans:}}
 # for_window [title="GIMP Startup"] move workspace $ws6
 # for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
@@ -268,10 +217,7 @@ for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 26
 for_window [title=".*Private.Browsing.*"] move to workspace $ws7
 # for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
 
-# =======================================
-# przejdź do workspace i otwórz aplikację:
-# =======================================
-
+#    {{przejdź do workspace i otwórz aplikację:}}
 bindsym $mod+Control+1          workspace $ws1; exec emacs
 bindsym $mod+Control+2          workspace $ws2; exec $browser
 bindsym $mod+Control+3          workspace $ws3; exec $term
@@ -282,30 +228,23 @@ bindsym $mod+Control+7          workspace $ws7; exec gimp
 bindsym $mod+Control+8          workspace $ws8; exec $term -e mocp
 bindsym $mod+Control+9          workspace $ws9; exec --no-startup-id slack
 
-# =============================
-# reload the configuration file:
-# =============================
+#    {{reload the configuration file:}}
 bindsym $mod+Escape             reload
 
-# =============================================================================
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3):
-# =============================================================================
+#    {{restart i3 inplace (preserves your layout/session, can be used to upgrade i3):}}
+# ==================================================================================
 bindsym $mod+Shift+Escape       restart
 
-# ========================================
-# exit i3 (logs you out of your X session):
-# ========================================
+# =============================================
+#    {{exit i3 (logs you out of your X session):}}
+# =============================================
 bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
 ##################################################
-###                    MODES                   ###
-##################################################
 
-# ===========================================================
-# resize window (you can also use the mouse for that) (mod+R):
-# ===========================================================
-
+##  {{MODES}}                  
+#    {{resize window (you can also use the mouse for that) (mod+R):}}
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -334,10 +273,8 @@ bindsym $mod+Shift+r    mode "resize"
 bindsym $mod+Shift+f    floating enable; resize set 1280 820; move position center
 bindsym $mod+Control+f  floating disable
 
-# ============================
-# move floating window (mod+W):
-# ============================
-
+# =================================
+#    {{move floating window (mod+W):}}
 mode "moveit" {
     bindsym i           move up 20px
     bindsym j           move left 20px
@@ -353,9 +290,8 @@ mode "moveit" {
 
 bindsym $mod+Shift+w    focus floating; mode "moveit"
 
-# ===================
-# modify gaps (mod+S):
-# ===================
+# ========================
+# {{modify gaps (mod+S):}}
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: ikjl|0 (local), IK|Shift+0 (global)
 set $mode_gaps_inner Inner Gaps: ikjl+| (local), IK|Shift+0 (global)
@@ -400,15 +336,13 @@ mode "$mode_gaps_outer" {
 
 
 ##################################################
-###                  FLOATING                  ###
-##################################################
+
+##  {FLOATING}
 for_window [class="Catfish"]    floating enable
 for_window [class="Gpick"]      floating enable
 for_window [title="mutt-audio"] floating enable
 
-##################################################
-###                    GAPS                    ###
-##################################################
+##  {GAPS}  
 # smart_gaps on 
 for_window [class="^.*"] border pixel 0
 hide_edge_borders smart
@@ -423,23 +357,16 @@ gaps outer $gou
 #new_window border pixel 10
 smart_borders on
 
-# ==============
-# sticky windows:
-# ==============
+#    {{sticky windows:}}
 for_window [class=mpv]  sticky enable
 bindsym $mod+v          sticky toggle
 bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 850 30
 
-# =======================
-# toggle gaps 0 / default:
-# =======================
+#    {{toggle gaps 0 / default:}}
 bindsym $mod+Shift+m    gaps inner current set $gin; gaps outer current set $gou
 bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
 
-
-##################################################
-###                   COLORS                   ###
-##################################################
+##  {COLORS}
 # → http://flatuicolors.com/
 # emacs (rainbow-mode 1)
 set $text #bdc3c7
@@ -464,14 +391,11 @@ client.urgent             #c0392b #c0392b #ffffff
 # former inact. #2c3e50
 # former client.focused #f1c40f
 
-
-##################################################
-###                     BAR                    ###
-##################################################
+##  {BAR}
 font pango:DejaVu Sans Book 8
 #font pango:xos4 Terminus Regular 8
 #font pango:Meslo LG M Regular 8
-
+#    {{color variables}}
 # bar background
 set $sbbg   #00000000
 # bar status line?
@@ -483,9 +407,9 @@ set $sbwfbg #ececec
 # bar focused workspace text     
 set $sbwtx  #00191f26
 # bar urgent workspace background     
-set $sbwu   #ff1493
-# bar urgent workspace border     
-set $sbwubr #b03060
+set $sbwu   #ff6347
+# bar urgent workspace border
+set $sbwubr #a52a2a
 # bar active workspace background     
 set $sbwabg #00001f26
 
@@ -507,7 +431,7 @@ bar {
                focused_workspace    $sbwabg    $sbwfbg    $sbwtx
                active_workspace     $sbwbr     $sbwabg    $sbwfbg
                inactive_workspace   $sbwbr     $sbwabg    $sbwfbg
-               urgent_workspace     $sbwubr    $sbwu      $sbwfbg 
+               urgent_workspace     $brur      $bgur      $sbwfbg 
 
                #binding_mode        #2f343a    #900000    #ffffff
                #urgent_workspace    #c0392b    #e74c3c    #bdc3c7
@@ -515,18 +439,13 @@ bar {
 }
 
 ##################################################
-###                  CONTROLS                  ###
-##################################################
 
-# =========================
-# Sreen brightness controls:
-# =========================
+##  {CONTROLS}                ###
+#    {{Sreen brightness controls:}}
 bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15 # increase screen brightness
 bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15 # decrease screen brightness
 
-# ===================
-# regulacja głośności:
-# ===================
+#    {{regulacja głośności:}}
 bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5% # && killall -USR1 i3status
 bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5% # && killall -USR1 i3status
 bindsym $mod+Shift+plus      exec --no-startup-id pactl set-sink-volume 0 +10% # && killall -USR1 i3status
@@ -545,28 +464,17 @@ bindsym XF86AudioStop        exec --no-startup-id mocp -s
 bindsym XF86AudioNext        exec --no-startup-id mocp -f
 bindsym XF86AudioPrev        exec --no-startup-id mocp -r
 
-# ============
-# zrzut ekranu:
-# ============
+#    {{zrzut ekranu:}}
 # zrzut calego ekranu
 bindsym Print            exec --no-startup-id scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 # zrzut tylko aktywnego okna
 bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 
-# ===============
-# touchpad OFF/ON:
-# ===============
+#    {{touchpad OFF/ON:}}
 bindsym $mod+z           exec synclient TouchpadOff=1
 bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 
-
-##################################################
-###                  APPS KBD                  ###
-##################################################
-
-# ================
-# start a terminal:
-# ================
+##  {APPS KBD}
 bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
 bindsym $mod+b              exec qutebrowser
@@ -587,28 +495,19 @@ bindsym $mod+F2             exec pkill compton
 #bindsym $mod+w              exec firefox
 #bindsym $mod+F8             exec --no-startup-id mocp -p
 
-##################################################
-###             NARZĘDZIA SYSTEMOWE            ###
-##################################################
+##  {NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
 # bindsym $mod+F10	exec --no-startup-id sudo bash ~/.i3/bin/unmount.sh
 
-# =============
-# screencasting:
-# =============
+# {{screencasting:}}
 bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
-# ===============
-# append & reload:
-# ===============
+# {{append & reload:}}
 bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 
-
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-#                     SPADY!                     #
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+##                   {{SPADY!}}                    
 # bindsym $mod+Shift+s    move scratchpad 
 # bindsym $mod+Shift+q             kill
 # bindsym $mod+F11                fullscreen toggle
@@ -629,7 +528,6 @@ bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 # bindsym $mod+Shift+n   split v exec --no-startup-id $term -e nano
 # bindsym $mod+Control+n exec --no-startup-id $term -e ~/.dotfiles/bin/notes.sh
 #bindsym F8             workspace $ws8; exec --no-startup-id $term -e mocp
-
 
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
