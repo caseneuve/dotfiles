@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 25.04.18, 13:39:23 @manjaroi3
+# Last update: 25.04.18, 18:29:33 @manjaroi3
 
 # Doc:
 # script to show track currently playing on i3 status bar (i3blocks)
@@ -14,7 +14,7 @@ SONGTITLE=$(mocp -i | grep "SongTitle:" | sed -e "s/^.*: //")
 FILE=$(mocp -i | grep "File:" | sed -e "s/^.*: //")
 STATUS=$(mocp -i | grep "State:" | sed -e "s/^.*: //")
 
-if [ "$STATUS" != "STOP" ]; then
+if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     if [ "$TITLE" != "" ]; then
         if [ "$ARTIST" != "" ]; then
             ARTIST="$ARTIST -";
