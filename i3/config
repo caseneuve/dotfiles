@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 25.04.18, 11:33:08 @manjaroi3
+# Last update: 25.04.18, 11:57:44 @manjaroi3
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -367,21 +367,26 @@ bindsym $mod+Shift+m    gaps inner current set $gin; gaps outer current set $gou
 bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
 
 ##  {COLORS}
-# → http://flatuicolors.com/
-# emacs (rainbow-mode 1)
-set $text #bdc3c7
-set $bga  #2980b9
-set $bgi  #2c3e50
-set $brf  #2c3e50
-set $bru  #34495e
-set $bgur #e74c3c
-set $brur #c0392b
+# borders
+set $bra   #ffffff
+set $bri   #00000000
+set $bru   #00000000
+set $brur  #c0392b
+# background
+set $bgf   #ffffff
+set $bgi   #000000
+set $bgur  #e74c3c
+# text
+set $txtf  #000000
+set $txti  #ffffff
+set $txtu  #7f8c8d
+set $txtur #ffffff
 
-# class                   border  backgr. text   
-client.focused            #ffffff #ffffff #000000 
-client.focused_inactive   #000000 #000000 #ffffff 
-client.unfocused          #000000 #000000 #7f8c8d 
-client.urgent             #c0392b #c0392b #ffffff 
+# class                   border  bg     text   
+client.focused            $bra    $bgf   $txtf
+client.focused_inactive   $bri    $bgi   $txti
+client.unfocused          $bru    $bgi   $txtu 
+client.urgent             $bru    $bgur  $txtur 
 
 # archive --------------------------------------#
 # client.focused          #2980b9 #2980b9 #ffffff 
