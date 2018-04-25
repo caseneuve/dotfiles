@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 16.04.18, 15:18:53 @x200
+# Last update: 25.04.18, 21:45:51 @x200
 
 ########################
 ########################
@@ -68,6 +68,16 @@ cmdhelp()
 translate_ww()
 {
     clear; curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</' | GREP_COLOR="0;34" egrep --color=always ".*XXX.*|$" | GREP_COLOR="0;92" egrep --color=always "$1|$" | GREP_COLOR="0;93" egrep --color=always ".*;.*|$"
+}
+
+
+# mupdf restore session
+mupdf_restore()
+{
+    sed '/^$/d; /#/d' $1 | while read line ;
+    do
+        [[ -f $line ]] && mupdf "$line" > /dev/null 2>&1 &
+    done 
 }
 
 
@@ -191,6 +201,9 @@ alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
 alias notes='/home/piotr/.dotfiles/bin/notes.sh'
 alias nt='/home/piotr/.dotfiles/bin/notes.sh'
 alias updt='/home/piotr/.dotfiles/bin/update-local.sh'
+alias pdfs='/home/piotr/.dotfiles/bin/mupdf-cache.sh'
+alias pdfr='/home/piotr/.dotfiles/bin/mupdf-restore-session.sh'
+alias pdfrs='/home/piotr/.dotfiles/bin/mupdf_restore.sh'
 
 ##############
 #    DMENU   #
