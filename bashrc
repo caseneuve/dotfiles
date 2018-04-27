@@ -1,5 +1,5 @@
 # ~/.bashrc
-# Last update: 12.04.18, 23:59:14 @lenovo
+# Last update: 27.04.18, 17:55:50 @manjaroi3
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -36,7 +36,7 @@ export BC_ENV_ARGS=$HOME/.bc
 
 TERM=xterm-256color
 #TERMINAL=xfce4-terminal
-TERMINAL=st
+export TERMINAL=st
 
 # fuzzy finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
