@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 27.04.18, 18:50:39 @manjaroi3
+# Last update: 27.04.18, 22:35:00 @manjaroi3
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -125,7 +125,7 @@ bindsym $mod+Shift+c    exec $term -t math -e R -q
 bindsym $mod+c          [title="math"] scratchpad show 
 
 
-##  {WORKSPACES}                ###
+##  {WORKSPACES}                
 # workspace_auto_back_and_forth yes
 set $ws1 "1"
 set $ws2 "2" 
@@ -500,7 +500,8 @@ bindsym $mod+F2             exec pkill compton
 #bindsym $mod+w              exec firefox
 #bindsym $mod+F8             exec --no-startup-id mocp -p
 #    {{dmenu scpripts}}
-bindsym $mod+semicolon              exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
+#bindsym $mod+semicolon              exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
+bindsym $mod+semicolon               exec --no-startup-id rofi -show window
 ##  {NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
