@@ -1,6 +1,6 @@
 #rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
 rofi.combi-modi:    window,drun,run
-rofi.modi:          combi,window
+rofi.modi:          drun,window,run
 
 #! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 # rofi.color-normal: #586e75,  #fdf6e3,  #191f26,  #586e75,  #eee8d5
@@ -24,6 +24,8 @@ rofi.opacity:           50
 
 rofi.matching: fuzzy
 
-rofi.kb-row-up: Alt-i
+rofi.kb-row-up: Alt-i,Shift-Tab
 rofi.kb-row-down: Alt-k
+rofi.kb-delete-entry: Alt-d
+rofi.kb-accept-entry: Alt-l,Return
 
