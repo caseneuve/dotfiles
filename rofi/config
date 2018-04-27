@@ -1,6 +1,6 @@
 #rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
 rofi.combi-modi:    window,drun,run
-rofi.modi:          drun,window,run
+rofi.modi:          drun,window
 
 #! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 # rofi.color-normal: #586e75,  #fdf6e3,  #191f26,  #586e75,  #eee8d5
