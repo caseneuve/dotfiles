@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 25.04.18, 15:55:20 @manjaroi3
+# Last update: 27.04.18, 18:50:39 @manjaroi3
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -499,20 +499,21 @@ bindsym $mod+F2             exec pkill compton
 #bindsym $mod+t              exec --no-startup-id thunar
 #bindsym $mod+w              exec firefox
 #bindsym $mod+F8             exec --no-startup-id mocp -p
-
+#    {{dmenu scpripts}}
+bindsym $mod+semicolon              exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
 ##  {NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
 # bindsym $mod+F10	exec --no-startup-id sudo bash ~/.i3/bin/unmount.sh
 
-# {{screencasting:}}
+#    {{screencasting:}}
 bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
-# {{append & reload:}}
+#    {{append & reload:}}
 bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 
-##                   {{SPADY!}}                    
+##  {{SPADY!}}                    
 # bindsym $mod+Shift+s    move scratchpad 
 # bindsym $mod+Shift+q             kill
 # bindsym $mod+F11                fullscreen toggle
