@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 27.04.18, 22:35:00 @manjaroi3
+# Last update: 29.04.18, 11:08:10 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -485,7 +485,7 @@ bindsym $mod+Shift+Return   split v exec $term
 bindsym $mod+b              exec qutebrowser
 #bindsym $mod+Shift+d        exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
 bindsym $mod+d              exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -nf '#2980b9' -p 'run:'" --term="st"
-bindsym $mod+Shift+d        exec --no-startup-id rofi -show combi 
+bindsym $mod+Shift+d        exec --no-startup-id rofi -show run 
 bindsym $mod+h              bar mode toggle
 bindsym Scroll_Lock         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
 bindsym $mod+x              exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
