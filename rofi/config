@@ -1,9 +1,9 @@
 # MY ROFI CONFIG
-# Last update: 30.04.18, 10:22:58 @x200
+# Last update: 30.04.18, 11:13:21 @x200
 
 # {MODES}
 rofi.combi-modi:    window,drun,run
-rofi.modi:          drun,window
+rofi.modi:          window
 
 # {COLORS}
 #! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'

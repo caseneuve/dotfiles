@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 30.04.18, 09:01:41 @x200
+# Last update: 30.04.18, 11:10:54 @x200
 
 # Doc:
 
@@ -12,7 +12,7 @@ list="newsboat (rss)\nneomutt (mail)\nranger\nqutebrowser-private\nmocp\ncalcurs
 echo -e $list
 
 case $1 in
-    'newsboat (rss)'|'rss')
+    'newsboat (rss)')
         i3-msg "workspace 10; exec --no-startup-id st -e newsboat" >/dev/null && pkill rofi ;;
     'neomutt (mail)'|mmm)
         i3-msg "workspace 10; exec --no-startup-id st -e neomutt" && pkill rofi ;;
