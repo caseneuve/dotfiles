@@ -1,7 +1,11 @@
-#rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
+# MY ROFI CONFIG
+# Last update: 30.04.18, 10:22:58 @x200
+
+# {MODES}
 rofi.combi-modi:    window,drun,run
 rofi.modi:          drun,window
 
+# {COLORS}
 #! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 # rofi.color-normal: #586e75,  #fdf6e3,  #191f26,  #586e75,  #eee8d5
 # rofi.color-urgent: #586e75,  #dc322f,  #191f26,  #dc322f,  #fdf6e3
@@ -14,18 +18,23 @@ rofi.color-active: #000000,  #268bd2,  #000000,  #268bd2,  #fdf6e3
 #!                  'background', 'border', 'separator'
 #rofi.color-window:   #191f26,      #191f26,  #191f26
 rofi.color-window:   #000000,     #000000,  #000000
-# 00fdf6e3,      
-# 191f26
+
+# {APPEARANCE}
+#rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
 rofi.hide-scrollbar:    true
 #rofi.fake-transparency: true
 rofi.lines:             10
 #rofi.bw:                0
 rofi.opacity:           50
 
+# {MATCHING}
 rofi.matching: fuzzy
 
+# {KBD}
 rofi.kb-row-up: Alt-i,Shift-Tab
 rofi.kb-row-down: Alt-k
 rofi.kb-delete-entry: Alt-d
 rofi.kb-accept-entry: Alt-l,Return
+rofi.kb-mode-next: Alt-o,Control-Tab
+rofi.kb-mode-previous: Alt-u
 
