@@ -2,7 +2,6 @@
 ###   QUTEBROWSER CONFIG   ###
 ##############################
 
-
 ## Documentation
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
@@ -1384,7 +1383,8 @@ c.url.searchengines = {
     'gg': 'https://www.google.pl/search?dcr=0&source=hp&ei=_b_EWsi2DoHpsQG_t4-gBw&q={}',
     'aa': 'https://allegro.pl/listing?string={}&order=d&bmatch=ss-base-relevance-floki-5-nga-hcp-wp-ele-1-1-0328',
     'q': 'https://duckduckgo.com/?q=qutebrowser+{}&ia=webqutebrowser+',
-    'et': 'https://www.etymonline.com/word/{}'
+    'et': 'https://www.etymonline.com/word/{}',
+    'bib': 'http://katalogi.bn.org.pl/iii/encore/search/C__S{}__U?lang=pol&suite=cobalt'
 }
 
 ## URL parameters to strip with `:yank url`.
