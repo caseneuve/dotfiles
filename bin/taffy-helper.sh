@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/taffy.sh
 # Created:     01.05.18, 12:06    @x200
-# Last update: 01.05.18, 13:20:21 @x200
+# Last update: 01.05.18, 13:23:47 @x200
 
 # Doc: script to facilitate using of taffy (tagging cli app for audio files)
 
@@ -18,12 +18,12 @@ if [ -f "$file" ]; then
     echo "### Value 'nil' clears the tag, empty value does nothing"
     echo
     taffy "$file"
-    read -p "${bold} →  What is the ALBUM name?${normal}         " album
-    read -p "${bold} →  What is the ARTIST name?${normal}        " artist
-    read -p "${bold} →  Do you have any COMMENTS?${normal}       " comment
-    read -p "${bold} →  Specify GENRE:           ${normal}       " genre
+    read -p "${bold} →  What is the ALBUM name?${normal} ....... " album
+    read -p "${bold} →  What is the ARTIST name?${normal} ...... " artist
+    read -p "${bold} →  Do you have any COMMENTS?${normal} ..... " comment
+    read -p "${bold} →  Specify GENRE:${normal} ................ " genre
     read -p "${bold} →  What is the TITLE of the track?${normal} " title
-    read -p "${bold} →  What is the TRACK number?${normal}       " number
+    read -p "${bold} →  What is the TRACK number?${normal} ..... " number
 
     # album tag
     if ! [ -z "$album" ]; then
