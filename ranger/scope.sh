@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# Last update: 22.01.18, 21:27:54 @x200
+# Last update: 01.05.18, 17:14:35 @x200
 
 # ranger supports enhanced previews.  If the option "use_preview_script"
 # is set to True and this file exists, this script will be called and its
@@ -125,7 +125,8 @@ case "$mimetype" in
     video/* | audio/*)
         exiftool "$path" && exit 5
         # Use sed to remove spaces so the output fits into the narrow window
-        try mediainfo "$path" && { dump | trim | sed 's/  \+:/: /;';  exit 5; } || exit 1;;
+        # try mediainfo "$path" && { dump | trim | sed 's/  \+:/: /;';  exit 5; }
+        taffy "$path" | tail -n +2 && exit 5 || exit 1;;
 esac
 
 exit 1
