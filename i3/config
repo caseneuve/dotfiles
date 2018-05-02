@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 01.05.18, 11:40:29 @x200
+# Last update: 02.05.18, 11:48:43 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -504,6 +504,7 @@ bindsym $mod+F2             exec pkill compton
 #    {{dmenu scpripts}}
 #bindsym $mod+semicolon              exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
 bindsym $mod+semicolon               exec --no-startup-id rofi -show window
+bindsym $mod+apostrophe              exec --no-startup-id ~/.bin/rofi-media.sh
 ##  {NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
