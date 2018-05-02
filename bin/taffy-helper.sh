@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/taffy.sh
 # Created:     01.05.18, 12:06    @x200
-# Last update: 01.05.18, 18:36:36 @x200
+# Last update: 02.05.18, 16:19:20 @x200
 
 # Doc: script to facilitate using of taffy (tagging cli app for audio files)
 
@@ -34,8 +34,8 @@ if [ -f "$file" ]; then
 
     # album tag
     if ! [ -z "$album" ]; then
-        if [ $album == "nil" ]; then
-            taffy --no-album "$title"
+        if [ "$album" == "nil" ]; then
+            taffy --no-album "$file"
         else
             taffy -l "$album" "$file"
         fi
@@ -43,7 +43,7 @@ if [ -f "$file" ]; then
 
     # artist tag
     if ! [ -z "$artist" ]; then
-        if [ $artist == "nil" ]; then
+        if [ "$artist" == "nil" ]; then
             taffy --no-artist "$file"
         else
             taffy -r "$artist" "$file"
@@ -52,7 +52,7 @@ if [ -f "$file" ]; then
 
     # comment tag
     if ! [ -z "$comment" ]; then
-        if [ $comment == "nil" ]; then
+        if [ "$comment" == "nil" ]; then
             taffy --no-comment "$file"
         else
             taffy -c "$comment" "$file"
@@ -61,7 +61,7 @@ if [ -f "$file" ]; then
 
     # genre tag
     if ! [ -z "$genre" ]; then
-        if [ $genre == "nil" ]; then
+        if [ "$genre" == "nil" ]; then
             taffy --no-genre "$file"
         else
             taffy -g "$genre" "$file"
