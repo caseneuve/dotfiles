@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/taffy.sh
 # Created:     01.05.18, 12:06    @x200
-# Last update: 02.05.18, 16:19:20 @x200
+# Last update: 03.05.18, 11:51:18 @x200
 
 # Doc: script to facilitate using of taffy (tagging cli app for audio files)
 
@@ -90,7 +90,7 @@ if [ -f "$file" ]; then
     echo
     echo "file:    ${bold}${yel}$(basename "$file")${normal}"
     taffy "$file" | tail -n +2
-    sleep 2s
+    sleep 1.5s
 else
     echo "File was not specified"
 fi
