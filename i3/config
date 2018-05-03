@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 02.05.18, 11:48:43 @x200
+# Last update: 03.05.18, 11:27:10 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -341,6 +341,10 @@ mode "$mode_gaps_outer" {
 for_window [class="Catfish"]    floating enable
 for_window [class="Gpick"]      floating enable
 for_window [title="mutt-audio"] floating enable
+# dialog window for qutebrowser downloads via youtube-dl
+for_window [title="youtube-dl"] floating enable 
+for_window [title="youtube-dl"] resize set 500 300
+for_window [title="youtube-dl"] move window to position 770 10
 
 ##  {GAPS}  
 # smart_gaps on 
@@ -483,11 +487,6 @@ bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
 bindsym $mod+b              exec qutebrowser
-#bindsym $mod+Shift+d        exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
-bindsym $mod+Shift+d              exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -nf '#2980b9' -p 'run:'" --term="st"
-#bindsym $mod+Shift+d        exec --no-startup-id rofi -show drun
-#bindsym $mod+Shift+d        exec --no-startup-id rofi -combi-modi cli#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun
-bindsym $mod+d              exec --no-startup-id rofi -combi-modi cli#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun 
 bindsym $mod+h              bar mode toggle
 bindsym Scroll_Lock         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
 bindsym $mod+x              exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
@@ -502,9 +501,13 @@ bindsym $mod+F2             exec pkill compton
 #bindsym $mod+w              exec firefox
 #bindsym $mod+F8             exec --no-startup-id mocp -p
 #    {{dmenu scpripts}}
-#bindsym $mod+semicolon              exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
-bindsym $mod+semicolon               exec --no-startup-id rofi -show window
-bindsym $mod+apostrophe              exec --no-startup-id ~/.bin/rofi-media.sh
+#bindsym $mod+semicolon      exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
+bindsym $mod+semicolon      exec --no-startup-id rofi -show window
+bindsym $mod+apostrophe     exec --no-startup-id ~/.bin/rofi-media.sh
+#bindsym $mod+Shift+d        exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
+bindsym $mod+Shift+d        exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -nf '#2980b9' -p 'run:'" --term="st"
+bindsym $mod+d              exec --no-startup-id rofi -combi-modi cli#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun 
+
 ##  {NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
