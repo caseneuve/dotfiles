@@ -1453,7 +1453,7 @@ config.bind(';v', 'hint links fill :spawn mpv {hint-url}')
 config.bind(';a', 'hint links fill :spawn mpv --no-video --input-ipc-server=/tmp/mpvsocket {hint-url}')
 # d → DOWNLOAD
 config.bind('dv', 'spawn st -e youtube-dl --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
-config.bind('da', 'hint links fill :spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "home/piotr/Muzyka/qtb/%(title)s.%(ext)s" {hint-url}')
+config.bind('da', 'hint links fill :spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "Muzyka/qtb/%(title)s.%(ext)s" {hint-url}')
 
 # config.bind('<Alt-1>', 'tab-focus 1')
 # config.bind('<Alt-2>', 'tab-focus 2')
