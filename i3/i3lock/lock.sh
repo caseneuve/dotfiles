@@ -1,9 +1,10 @@
 #!/bin/bash
 
-scrot /tmp/screen.png
+[[ $(ps aux | grep -v grep | grep rofi) ]] && pkill rofi
 
-#convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
-#convert /tmp/screen.png -paint 3 -modulate 80 /tmp/screen.png
+sleep 0.2s
+
+scrot /tmp/screen.png
 
 convert /tmp/screen.png -paint 1.5 /tmp/screen.png
 
@@ -12,3 +13,4 @@ convert /tmp/screen.png -paint 1.5 /tmp/screen.png
 mocp -P
 
 i3lock -u -e -i /tmp/screen.png
+
