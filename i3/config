@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 03.05.18, 11:27:10 @x200
+# Last update: 04.05.18, 09:29:24 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -502,11 +502,11 @@ bindsym $mod+F2             exec pkill compton
 #bindsym $mod+F8             exec --no-startup-id mocp -p
 #    {{dmenu scpripts}}
 #bindsym $mod+semicolon      exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
-bindsym $mod+semicolon      exec --no-startup-id rofi -show window
+bindsym $mod+semicolon      exec --no-startup-id rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 bindsym $mod+apostrophe     exec --no-startup-id ~/.bin/rofi-media.sh
 #bindsym $mod+Shift+d        exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
 bindsym $mod+Shift+d        exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -nf '#2980b9' -p 'run:'" --term="st"
-bindsym $mod+d              exec --no-startup-id rofi -combi-modi cli#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun 
+bindsym $mod+d              exec --no-startup-id rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
 
 ##  {NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
