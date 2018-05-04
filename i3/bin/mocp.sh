@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 25.04.18, 18:29:33 @manjaroi3
+# Last update: 04.05.18, 10:54:30 @x200
 
 # Doc:
 # script to show track currently playing on i3 status bar (i3blocks)
@@ -13,6 +13,7 @@ ARTIST=$(mocp -i | grep "Artist:" | sed -e "s/^.*: //")
 SONGTITLE=$(mocp -i | grep "SongTitle:" | sed -e "s/^.*: //")
 FILE=$(mocp -i | grep "File:" | sed -e "s/^.*: //")
 STATUS=$(mocp -i | grep "State:" | sed -e "s/^.*: //")
+TIME=$(mocp -i | grep "CurrentTime:" | sed -e "s/^[A-Za-z]*://")
 
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     if [ "$TITLE" != "" ]; then
@@ -20,15 +21,15 @@ if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
             ARTIST="$ARTIST -";
         fi
         if [ "$STATUS" = "PLAY" ]; then
-            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $ARTIST $SONGTITLE </span>"
+            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $ARTIST $SONGTITLE -- $TIME ♫ </span>"
         else
-            echo -e "[[ ♫ $ARTIST $SONGTITLE ]]"
+            echo -e "♫ $ARTIST $SONGTITLE -- $TIME ♫"
         fi
     else
         if [ "$STATUS" = "PLAY" ]; then
-            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $FILE </span>"
+            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $FILE -- $TIME </span>"
         else
-            echo -e "[[ ♫ $FILE ]]"
+            echo -e "♫ $FILE -- $TIME ♫"
         fi
     fi
     case $BLOCK_BUTTON in
