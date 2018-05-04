@@ -1,7 +1,7 @@
 #############################################
-###            NEWSBOAT CONFIG            ###
+#              NEWSBOAT CONFIG            
 #############################################
-# Last update: 03.05.18, 11:17:14 @x200
+# Last update: 04.05.18, 11:16:33 @x200
 #############################################
 
 # {general}
@@ -25,8 +25,10 @@ bind-key j quit articlelist
 bind-key j quit article
 bind-key q quit 
 bind-key a toggle-article-read
-bind-key n next-unread
-bind-key p prev-unread
+bind-key L next-unread article
+bind-key J prev-unread article
+bind-key K next article
+bind-key I prev article
 bind-key D pb-download
 bind-key u show-urls
 bind-key x pb-delete
