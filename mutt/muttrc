@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 05.05.18, 16:53:13 @manjaroi3
+# Last update: 05.05.18, 17:08:46 @manjaroi3
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -27,6 +27,10 @@ set imap_keepalive = 900
 #   {{open html messages}}
 auto_view text/html                                  
 alternative_order text/plain text/enriched text/html 
+
+#   {{reply immediately}}
+set fast_reply=yes
+set include=yes
 
 ## {WRITING MESSAGES}
 set editor="emacsclient -a \"\" -t"
