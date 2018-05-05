@@ -1,6 +1,9 @@
-# Last update: 04.04.18, 12:31:52 @x200
+############################################
+#              URLVIEW CONFIG
+############################################
+# Last update: 05.05.18, 19:43:46 @manjaroi3
 
-###############################################################################
+#########################################################################
 # Urlview configuration file.
 # man urlview  <Man page>
 #
@@ -15,10 +18,10 @@
 #
 # You can call 'urlview' while in 'tin' by pressing | then a for article,
 # put urlview as the pipe command.
-# 
-# Regular expression to use to match URLs.
+#########################################################################
 
-#REGEXP (((http|https|ftp|gopher)|mailto):(//)?[^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]
+# Regular expression to use to match URLs.
+#REGEXP (((http|https|ftp|gopher)|mailto):(//)?[^ >"\t]*|www\.[-a-zA-Z0-9]+)[^ .,;\t>">\):]
 REGEXP (((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]
 
 # Command to invoke for selected URL.  Use lynx, netscape, or url_handler.sh
