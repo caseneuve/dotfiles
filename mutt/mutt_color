@@ -1,8 +1,12 @@
-# kolory manjaroi3
+############################################
+###               MUTT: COLORS
+############################################
+# Last update: 05.05.18, 16:58:59 @manjaroi3
+
+# Doc:
 # ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
 
-# Last update: 03.04.18, 15:35:59 @lenovo
-
+## {MAIN}
 color    quoted        cyan            default
 color    quoted1       blue            default
 color    quoted2       magenta         default
@@ -11,9 +15,8 @@ color    attachment    yellow          default
 color    prompt        brightblack     yellow
 color    message       brightwhite     default
 color    error         brightblack     yellow
-#color    indicator     brightblack     brightyellow
 color    indicator     brightgreen     default 
-color    status        brightgreen     default
+color    status        brightblack     white
 color    tree          brightwhite     default
 color    normal        white           default
 color    markers       red             default
@@ -23,7 +26,7 @@ color    tilde         brightmagenta   default
 # color body brightwhite black '\*+[^*]+\*+'
 # color body brightwhite black '_+[^_]+_+'
 
-# message headers
+# {{message headers}}
 # ---------------
 #color   header        brightgreen     default     "^"
 color    hdrdefault    cyan            black         
@@ -32,7 +35,7 @@ color    header        brightblue      black       "^(Subject)"
 color    header        blue            black       "^(To)"
 color    header        brightmagenta   black       "^(Date)"
 
-# index
+# {{index}}
 # -----
 # Default index colors:
 #color    index          red             default '[0-9]*'
@@ -60,11 +63,11 @@ color  index          green           default         "~N~v~(~N)"               
 # color index         green           default         "~S"                       # superseded messages
 # color index brightred red "~=" # duplicated messages
 
-# body > links & addresses
+# {{body > links & addresses}}
 color body brightblue default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
-# listy mejlingowe
+# {{listy mejlingowe}}
 
 color    index        yellow          default   "Michał Mrozek|Agata Wicik|Instytut Tomistyczny"
 color    index        green           default   "jmdi.pl|plus.pl"
@@ -74,7 +77,7 @@ color    index        red             default     "Sabina Bańka|Górecki|Dagome
 color    index        blue            default   "milcarek@gmail|christianitas@|Lajszczak|Rowiński|Barcikowski|Gołębiowski|Holvoote|tonisia0"
 color    index        magenta         default   "youtube.com|dropbox.com|tumblr.com|academia-mail.com|github.com|codecademy.com|google.com|pinterest.com|facebookmail|GitLab"
 
-# don't overwrite those:
+# {{don't overwrite those:}}
 color    index        brightwhite    default      "~U"                       # unread messages
 color    index        brightwhite    default      "~N|~O"                    # unread?
 color    index        brightyellow   default      "~F"                       # flagged

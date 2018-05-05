@@ -1,40 +1,62 @@
-source ~/Dropbox/config/.muttmail
-source ~/Dropbox/config/.mutt_aliases
-set mailcap_path=~/.mutt/mailcap
+############################################
+###               MY MUTTRC
+############################################
+# Last update: 05.05.18, 16:53:13 @manjaroi3
 
+# Doc: (browse-url "http://www.mutt.org/doc/manual")
+
+## {GENERAL}
+#   {{source}}
+# my mail
+source ~/Dropbox/config/.muttmail
+# aliasy
+source ~/Dropbox/config/.mutt_aliases
 # kolory
 source ~/.mutt/schemes/mutt_color
-
-# set move = no 
-set imap_keepalive = 900
-
-# sortowanie 
-set sort=threads
-set sort_browser=date
-set sort_aux=reverse-last-date-received
-
-# editor
-#set editor="nano --fill=80"
-#set editor="emacsclient -nw"
-set editor="emacsclient -a \"\" -t"
-
 # kbd
 source ~/.mutt/kbd.conf
+# mailcap: how to open attachements
+set mailcap_path=~/.mutt/mailcap
+#   {record sent messages}
+set record="$HOME/.mail/sent"
 
-# nie podświetlaj całej linii
-set arrow_cursor 
+#   {imap}
+set imap_keepalive = 900
 
-# open html messages
+## {BEHAVIOUR} 
+#   {{open html messages}}
 auto_view text/html                                  
 alternative_order text/plain text/enriched text/html 
 
-# sidebar (neomutt)
-# set sidebar_visible=yes
+## {WRITING MESSAGES}
+set editor="emacsclient -a \"\" -t"
+#set editor="nano --fill=80"
+#set editor="emacsclient -nw"
 
-# index format (http://www.mutt.org/doc/manual/#index-format)
+## {APPEARANCE}
+#   {{nie podświetlaj całej linii}}
+set arrow_cursor 
+#   {{sortowanie} }
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+#   {{index format}}
+# http://www.mutt.org/doc/manual/#index-format
 #                num  flag  att.      from     subj                date            size       label#
-#set index_format="%4C %S %?X?A& ? %?M?[%M]&   ? %-25.25L %-50.50s  %{%d/%m/%y}     (%4.4c)     %> %B"
-#set index_format="%4C %S %?X?A&?  %{%d/%m/%y}  ? %?M?[%M]&   ? %-25.25L %-75.75s  (%4.4c)"     
 set date_format="%m %b %Y"
 set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-100.100s        %> %c"
-set record="$HOME/.mail/sent"
+# don't show help line
+set help=no
+#   {{status line format}}
+set status_on_top=yes
+set status_format="  %f(%m)   NEW: %n   UNREAD: %u   [SHOWING: %M%?V? :: FILTER: %V?]"
+#   {{pager format}}
+# Default: “-%Z- %C/%m: %-20.20n   %s%*  -- (%P)”
+set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%m, sent: %D]"
+
+## {INACTIVE}
+#   {{sidebar (neomutt)}}
+# set sidebar_visible=yes
+#   {{other}}
+# set move = no 
+
