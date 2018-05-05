@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 04.05.18, 09:29:24 @x200
+# Last update: 05.05.18, 10:49:42 @manjaroi3
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -105,7 +105,7 @@ bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 # exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] resize set 1000 600
-for_window [title="dropdown"] border pixel 3
+#for_window [title="dropdown"] border pixel 3
 for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 
@@ -117,11 +117,11 @@ bindsym $mod+u                     [title="dropdown"] scratchpad show
 for_window [title="math"] floating enable
 for_window [title="math"] resize set 600 200
 for_window [title="math"] move position center
-for_window [title="math"] border pixel 3
+#for_window [title="math"] border pixel 3
 for_window [title="math"] move scratchpad
 
 exec $term -t math -e 'R -q'
-bindsym $mod+Shift+c    exec $term -t math -e R -q 
+bindsym $mod+Shift+c    exec --no-startup-id $term -t math -e R -q 
 bindsym $mod+c          [title="math"] scratchpad show 
 
 
