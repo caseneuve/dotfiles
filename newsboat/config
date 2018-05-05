@@ -1,15 +1,18 @@
 #############################################
 #              NEWSBOAT CONFIG            
 #############################################
-# Last update: 04.05.18, 11:16:33 @x200
+# Last update: 05.05.18, 17:49:43 @manjaroi3
 #############################################
 
-# {general}
+# Doc: (browse-url "https://newsboat.org/releases/2.11.1/docs/newsboat.html")
+
+## {GENERAL}
 auto-reload yes
 external-url-viewer "urlview"
 browser qutebrowser
+show-keymap-hint no
 
-# {bindings}
+## {BINDINGS}
 bind-key k down
 bind-key i up
 bind-key k next articlelist
@@ -36,22 +39,22 @@ bind-key O open-in-browser
 bind-key C mark-feed-read
 bind-key f edit-flags
 
-# {string format}
-articlelist-title-format "%T (%u nieprzeczytane)"
+## {STRING FORMAT}
+articlelist-title-format "  %T (%u nieprzeczytane)"
 itemview-title-format "%F: %T"
-feedlist-title-format "RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
+feedlist-title-format "  RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
 
-# {colors}
-# {{main}}
-color listnormal cyan default
-color listfocus black yellow standout bold
-color listnormal_unread blue default
-color listfocus_unread yellow default bold
-color info black green bold
+## {COLORS}
+#  {{main}}
+color listnormal        cyan   default
+color listfocus         black  yellow   standout bold
+color listnormal_unread blue   default
+color listfocus_unread  yellow default  bold
+color info              black  white    bold
 #color article cyan default
-color article white default
+color article           white default
 
-# {{highligh text}}
+#  {{highligh text}}
 highlight article "^Kanał:.*" red color237 bold
 highlight article "^Tytuł:.*" yellow color237 bold
 highlight article "^Autor:.*" green color237 bold
