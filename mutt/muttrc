@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 05.05.18, 19:58:34 @manjaroi3
+# Last update: 06.05.18, 11:54:39 @manjaroi3
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -46,6 +46,10 @@ set arrow_cursor
 set sort=threads
 set sort_browser=date
 set sort_aux=reverse-last-date-received
+
+#   {{status chars}}
+set status_chars=" #%A"
+
 #   {{index format}}
 # http://www.mutt.org/doc/manual/#index-format
 #                num  flag  att.      from     subj                date            size       label#
@@ -55,7 +59,7 @@ set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-100.100s        %> %c"
 set help=no
 #   {{status line format}}
 set status_on_top=yes
-set status_format="  %f(%m)   NEW: %n   UNREAD: %u   [SHOWING: %M%?V? :: FILTER: %V?]"
+set status_format="%rNeoMutt: %-34.34f   new: %n   unread: %u   index%?V?(%V)?: %M %?t?  tagged: %t?%?d?  deleted: %d? %* all: %m "
 #   {{pager format}}
 # Default: “-%Z- %C/%m: %-20.20n   %s%*  -- (%P)”
 set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%m, sent: %D]"
