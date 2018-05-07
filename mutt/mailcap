@@ -1,7 +1,7 @@
 ############################################
 ###            MUTT: MY MAILCAP
 ############################################
-# Last update: 05.05.18, 19:33:19 @manjaroi3
+# Last update: 07.05.18, 12:53:50 @x200
 
 # Doc: Tells mutt how to open/view attachements
 
@@ -14,8 +14,9 @@ application/pdf; ~/.mutt/viewpdf.sh %s
 application/x-pdf; ~/.mutt/viewpdf.sh %s
 
 # {view html messages}
-#text/html; w3m -I %{charset} -T text/html; copiousoutput;
-text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+# lynx źle renderuje polskie znaki
+#text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput 
 
 # {open office}
 application/vnd.oasis.opendocument.text; odt2txt '%s' | less
