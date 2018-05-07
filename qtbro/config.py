@@ -1,5 +1,5 @@
 ##############################
-###   QUTEBROWSER CONFIG   ###
+###   QUTEBROWSER CONFIG
 ##############################
 
 ## Documentation
