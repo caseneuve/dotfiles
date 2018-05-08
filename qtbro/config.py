@@ -1384,7 +1384,8 @@ c.url.searchengines = {
     'aa': 'https://allegro.pl/listing?string={}&order=d&bmatch=ss-base-relevance-floki-5-nga-hcp-wp-ele-1-1-0328',
     'q': 'https://duckduckgo.com/?q=qutebrowser+{}&ia=webqutebrowser+',
     'et': 'https://www.etymonline.com/word/{}',
-    'bib': 'http://katalogi.bn.org.pl/iii/encore/search/C__S{}__U?lang=pol&suite=cobalt'
+    'bib': 'http://katalogi.bn.org.pl/iii/encore/search/C__S{}__U?lang=pol&suite=cobalt',
+    'sjp': 'https://sjp.pl/{}'
 }
 
 ## URL parameters to strip with `:yank url`.
