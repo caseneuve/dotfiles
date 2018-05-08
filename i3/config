@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 08.05.18, 20:20:49 @manjaroi3
+# Last update: 08.05.18, 21:36:02 @manjaroi3
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -120,7 +120,7 @@ for_window [title="math"] move position center
 #for_window [title="math"] border pixel 3
 for_window [title="math"] move scratchpad
 
-exec $term -t math -e 'R -q'
+exec $term -t math -e R -q
 bindsym $mod+Shift+c    exec --no-startup-id $term -t math -e R -q 
 bindsym $mod+c          [title="math"] scratchpad show 
 
