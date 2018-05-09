@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 25.04.18, 21:45:51 @x200
+# Last update: 09.05.18, 21:45:11 @lenovo
 
 ########################
 ########################
@@ -23,6 +23,7 @@ alias '..'='cd ..'
 alias lg='ls --group-directories-first'
 alias lag='ls -a --group-directories-first'
 alias kl=pkill
+alias grep='grep --color=auto'
 
 ##############
 ## FUNKCJE ###
