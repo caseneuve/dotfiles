@@ -1,16 +1,42 @@
-# Last update: 25.04.18, 22:03:56 @x200
-
 #!/bin/bash
+# Last update: 09.05.18, 11:52:19 @manjaroi3
 
+# Doc:
+
+## variables:
+bold=$(tput bold)
+normal=$(tput sgr0)
+yel=$(tput setaf 11)
+gre=$(tput setaf 10)
+red=$(tput setaf 1)
+blu=$(tput setaf 4)
+
+## code:
 clear
 
-read -p "Do kogo chcesz wysłać wiadomość? " mailaddress
-read -p "Temat wiadomości: " subject
-read -p "Treść wiadomości: " body
+echo "${yel}${bold}### Executing _tnijpdf_ script ${normal}"
+echo "##  Multiline in body: \\\n"
+echo
+## read:
+read -p "${bold}Do kogo chcesz wysłać wiadomość?${normal}${blu} " mailaddress
+read -p "${normal}${bold}Temat wiadomości:${normal}${blu}                " subject
+read -p "${normal}${bold}Treść wiadomości:${normal}${blu}                " body
 
+## save mail in ~/.mail/...
 if [ -z "$1" ]; then
-echo "$body" | mutt -s "$subject" $mailaddress > /dev/null 2>&1 
+    echo -e "Mail sent via RANGER, $(date '+%d/%m/%Y, %H:%M:%S')\nDo: $mailaddress\nTemat: $subject\nAtt: - \nTreść:\n<<\n$body\n>>\n" > ~/.mail/ranger_sent-$(date +%y%m%dT%H%M%S)
 else
-echo "$body" | mutt -s "$subject" $mailaddress -a "$@" > /dev/null 2>&1 
+    echo -e "Mail sent via RANGER, $(date '+%d/%m/%Y, %H:%M:%S')\nDo: $mailaddress\nTemat: $subject\nAtt: $@\nTreść:\n<<\n$body\n>>\n" > ~/.mail/ranger_sent-$(date +%y%m%dT%H%M%S)
 fi
+
+## send mail via mutt:
+if [ -z "$1" ]; then
+    echo -e "${normal}\n...wysyłam"; echo -e "$body" | mutt -s "$subject" $mailaddress > /dev/null 2>&1 &&\
+        echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailaddress${normal}${gre} (bez załączników)$1${normal}\n"
+else
+    echo -e "${normal}\n...wysyłam"; echo -e "$body" | mutt -s "$subject" $mailaddress -a "$@" > /dev/null 2>&1 &&\
+        echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailaddress${normal}${gre} z następującymi załącznikami:\n$@${normal}\n"
+fi
+
+sleep 3s
 
