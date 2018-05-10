@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 04.05.18, 10:19:37 @x200
+# Last update: 11.05.18, 00:36:49 @lenovo
 
 # Doc:
 
@@ -30,6 +30,6 @@ case $1 in
         i3-msg -q "workspace 10; exec --no-startup-id st -e neomutt" && pkill rofi ;;
     'calcurse (kal)')
         i3-msg -q "exec --no-startup-id st -e calcurse"; pkill rofi ;;
-    *) ;;
+    *) eval "$1" ;;
 esac
 

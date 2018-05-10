@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 # Created:     03.05.18, 14:11    @x200
-# Last update: 03.05.18, 20:18:46 @x200
+# Last update: 11.05.18, 00:38:02 @lenovo
 
 # Doc: List of system commands passed to rofi (shutdown, exit etc.)
 
@@ -24,6 +24,6 @@ case $1 in
         i3-msg reload ;;
     '[1] screen lock')
         i3-msg "exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh"; pkill rofi ;;
-    *) ;;
+    *) eval "$1" ;;
 esac
 
