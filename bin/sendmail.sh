@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 09.05.18, 11:52:19 @manjaroi3
+# Last update: 10.05.18, 18:35:36 @lenovo
 
 # Doc:
 
@@ -14,7 +14,7 @@ blu=$(tput setaf 4)
 ## code:
 clear
 
-echo "${yel}${bold}### Executing _tnijpdf_ script ${normal}"
+echo "${yel}${bold}### Executing _send mail_ script ${normal}"
 echo "##  Multiline in body: \\\n"
 echo
 ## read:
