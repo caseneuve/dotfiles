@@ -1,7 +1,7 @@
 ############################################
 ###               MUTT: COLORS
 ############################################
-# Last update: 05.05.18, 16:58:59 @manjaroi3
+# Last update: 13.05.18, 11:31:30 @x200
 
 # Doc:
 # ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
@@ -27,7 +27,6 @@ color    tilde         brightmagenta   default
 # color body brightwhite black '_+[^_]+_+'
 
 # {{message headers}}
-# ---------------
 #color   header        brightgreen     default     "^"
 color    hdrdefault    cyan            black         
 color    header        brightyellow    black       "^(From)"
@@ -36,21 +35,20 @@ color    header        blue            black       "^(To)"
 color    header        brightmagenta   black       "^(Date)"
 
 # {{index}}
-# -----
 # Default index colors:
 #color    index          red             default '[0-9]*'
 color    index_author   green           default '.*'
 color    index_number   red             default
 color    index_subject  blue            default '.*'
 
-color    index         brightgreen     default         "~Q"                       # messages that have been replied to
+color    index         green     default         "~Q"                       # messages that have been replied to
 #color   index         white           default         "~X 1-"                    # has attachement
 color    index         brightred       default         "~U~$"                     # unread, unreferenced messages
 color    index         white           default         "~v"                       # messages part of a collapsed thread
 color    index         brightblack     default         "~D"                       # deleted messages
-color  index          brightcyan      default         "~v~(!~N)"                  # collapsed thread with no unread
-color  index          yellow          default         "~v~(~N)"                   # collapsed thread with some unread
-color  index          green           default         "~N~v~(~N)"                 # collapsed thread with unread parent
+color    index         brightcyan      default         "~v~(!~N)"                 # collapsed thread with no unread
+color    index         yellow          default         "~v~(~N)"                  # collapsed thread with some unread
+color    index         green           default         "~N~v~(~N)"                # collapsed thread with unread parent
 
 # statusbg used to indicated flagged when foreground color shows other status for collapsed thread
 # color index         red             black           "~v~(~F)!~N"                # collapsed thread with flagged, no unread
@@ -68,7 +66,6 @@ color body brightblue default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 # {{listy mejlingowe}}
-
 color    index        yellow          default   "Michał Mrozek|Agata Wicik|Instytut Tomistyczny"
 color    index        green           default   "jmdi.pl|plus.pl"
 color    index        magenta         default   "dotpay.pl|gry-online.pl|platnosci.pl|groupon.com|Groupon|Allegro.pl"
