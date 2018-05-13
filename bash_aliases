@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 13.05.18, 22:42:50 @x200
+# Last update: 13.05.18, 23:37:39 @x200
 
 
 #####################
@@ -174,6 +174,7 @@ alias mpvp=mpvplaylist
 alias c=calcurse
 alias caa='i3-msg -q "exec --no-startup-id st -e calcurse"'
 alias clc='clear; bc -q'
+alias calt='echo -e "TODO:\n$(calcurse -t --format-todo "(%p) %m\t>> %N" | tail -n +2 | sed '/^\s*$/d')"'
 alias kal='cal --color=always -n 3'
 alias hg=hangups 
 alias mu=mupdf
