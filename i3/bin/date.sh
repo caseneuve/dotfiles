@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/date.sh
 # Created:     13.05.18, 18:16    @x200
-# Last update: 13.05.18, 19:16:32 @x200
+# Last update: 13.05.18, 19:31:25 @x200
 
 # Doc: script to display date in i3 blocks and send notifications via CALCURSE about coming calendar events
 
@@ -22,7 +22,7 @@ case $BLOCK_BUTTON in
     # right click
     3) if [ "$(calcurse -s$(date --date=tomorrow +%m/%d/%Y))" ];
        then
-           notify-send "Calendar $(date --date=tomorrow +%d/%m):" "$(calcurse -s$(date --date=tomorrow +%m/%d/%Y) --format-recur-apt='%m (%S-%E)\n' --format-apt='%m (%S-%E)\n' | sed -n 2p)" -i ~/.dotfiles/i3/bin/calendar-icon.png;
+           notify-send "Calendar $(date --date=tomorrow +%d/%m):" "$(calcurse -s$(date --date=tomorrow +%m/%d/%Y) --format-recur-apt='* %m (%S-%E)\n' --format-apt='* %m (%S-%E)\n' | tail -n +2)" -i ~/.dotfiles/i3/bin/calendar-icon.png;
        else
            notify-send "No events tomorrow" -i ~/.dotfiles/i3/bin/calendar-icon.png;
        fi ;; 
