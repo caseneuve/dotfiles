@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 13.05.18, 09:50:52 @x200
+# Last update: 13.05.18, 13:12:10 @x200
 
 ########################
 ########################
@@ -60,6 +60,7 @@ mpvplaylist()
     fi
 }
 
+# cmd help FIXME: poprawić czitsity
 cmdhelp()
 {
     curl cheat.sh/"$1"
@@ -71,7 +72,6 @@ translate_ww()
     clear; curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</' | GREP_COLOR="0;34" egrep --color=always ".*XXX.*|$" | GREP_COLOR="0;92" egrep --color=always "$1|$" | GREP_COLOR="0;93" egrep --color=always ".*;.*|$"
 }
 
-
 # mupdf restore session
 mupdf_restore()
 {
@@ -81,6 +81,20 @@ mupdf_restore()
     done 
 }
 
+# calcurse search
+calcurse_search()
+{
+    calcurse -s01/01$(date +/%Y) -d365 --search=$1 --format-apt='- %m (%S-%E)\n' --format-recur-apt='- %m (%S-%E)\n'
+}
+
+alias cals=calcurse_search
+
+calcurse_search_future()
+{
+    calcurse -d365 --search=$1 --format-apt='- %m (%S-%E)\n' --format-recur-apt='- %m (%S-%E)\n'
+}
+
+alias calS=calcurse_search_future
 
 #################
 ### POLECENIA ###
