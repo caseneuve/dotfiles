@@ -1,15 +1,14 @@
-# ~/.dotfiles/bash_aliases
-# Last update: 13.05.18, 13:12:10 @x200
-
-########################
 ########################
 ###   BASH ALIASES   ###
 ########################
-########################
 
-#########################
-### KOMENDY TERMINALA ###
-#########################
+# Doc: # ~/.dotfiles/bash_aliases
+# Last update: 13.05.18, 22:42:50 @x200
+
+
+#####################
+## KOMENDY TERMINALA 
+#####################
 
 alias q=exit
 alias cl=clear
@@ -25,9 +24,9 @@ alias lag='ls -a --group-directories-first'
 alias kl=pkill
 alias grep='grep --color=auto'
 
-##############
-## FUNKCJE ###
-##############
+###########
+## FUNKCJE 
+###########
 
 # wejdź do katalogu i wyświetl zawartość
 cdls() { cd "$@" && ls; }
@@ -96,9 +95,9 @@ calcurse_search_future()
 
 alias calS=calcurse_search_future
 
-#################
-### POLECENIA ###
-#################
+##############
+### POLECENIA 
+##############
 
 alias sleep='systemctl suspend'
 alias sle='systemctl suspend'
@@ -132,9 +131,9 @@ alias etx='emacsclient -nw ~/.tmux.conf'
 alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
 alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 
-################
-### PROGRAMY ###
-################
+############
+## PROGRAMY 
+############
 
 alias tl=translate_ww
 alias t=trans
@@ -182,15 +181,15 @@ alias mt='cd ~/Pobrane; mutt'
 alias nf='clear; neofetch'
 alias h=cmdhelp
 
-###################
-### SYSTEM INFO ###
-###################
+###############
+## SYSTEM INFO 
+###############
 
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
-###############
-### SKRYPTY ###
-###############
+###########
+## SKRYPTY 
+###########
 
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh'
@@ -220,9 +219,9 @@ alias pdfs='/home/piotr/.dotfiles/bin/mupdf-cache.sh'
 alias pdfr='/home/piotr/.dotfiles/bin/mupdf-restore-session.sh'
 alias pdfrs='/home/piotr/.dotfiles/bin/mupdf_restore.sh'
 
-##############
-#    DMENU   #
-##############
+##########
+##  DMENU 
+##########
 
 alias emm='i3-msg -q "workspace 1; exec --no-startup-id emacs"'
 alias cu='i3-msg -q "exec --no-startup-id $TERMINAL -e calcurse"'
@@ -238,9 +237,9 @@ alias nb='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 alias rss='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 alias news='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 
-###############
-### ZMIENNE ###
-###############
+###########
+## ZMIENNE 
+###########
 
 home=/home/piotr
 muz=/home/piotr/Muzyka
@@ -251,9 +250,9 @@ pob=/home/piotr/Pobrane
 obr=/home/piotr/Obrazy
 wid=/home/piotr/Wideo
 
-###########
-### GIT ###
-###########
+#######
+## GIT 
+#######
 
 alias gts='/home/piotr/.dotfiles/bin/gitstatus.sh'
 alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
