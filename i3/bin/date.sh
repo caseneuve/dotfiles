@@ -2,9 +2,10 @@
 
 # Path:        ~/.dotfiles/i3/bin/date.sh
 # Created:     13.05.18, 18:16    @x200
-# Last update: 13.05.18, 19:31:25 @x200
+# Last update: 13.05.18, 19:34:08 @x200
 
 # Doc: script to display date in i3 blocks and send notifications via CALCURSE about coming calendar events
+# TODO: scroll up/down (events yesterday, today all)
 
 tod=$(date +%)
 echo $(date '+%a, %d %b')
