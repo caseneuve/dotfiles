@@ -1,5 +1,5 @@
 # ~/.dotfiles/bash_aliases
-# Last update: 09.05.18, 21:45:11 @lenovo
+# Last update: 13.05.18, 09:50:52 @x200
 
 ########################
 ########################
@@ -161,7 +161,7 @@ alias mpvp=mpvplaylist
 alias c=calcurse
 alias caa='i3-msg -q "exec --no-startup-id st -e calcurse"'
 alias clc='clear; bc -q'
-alias kal='cal -s --color'
+alias kal='cal --color=always -n 3'
 alias hg=hangups 
 alias mu=mupdf
 alias mt='cd ~/Pobrane; mutt'
