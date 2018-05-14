@@ -2,11 +2,13 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 14.05.18, 10:57:48 @x200
+# Last update: 15.05.18, 00:16:55 @x200
 
 # Doc:
 
-list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point"
+list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\nuedder"
+location=Falenica
+icon=/home/piotr/.dotfiles/i3/bin/weather-icon.png
 
 #x=$(echo -e $list | rofi -dmenu -p "START CLI APP")
 echo -e $list
@@ -32,6 +34,24 @@ case $1 in
         i3-msg -q "exec --no-startup-id st -e calcurse"; pkill rofi ;;
     'ranger @point')
         i3-msg -q "exec --no-startup-id st -e ranger"; pkill rofi ;;
+    'calendar next')
+        if [ "$(calcurse -n)" ]; then
+            notify-send "Calendar $(date +%d/%m):" "$(calcurse -n | tail -n 1 | sed 's/   //g')" -i ~/.dotfiles/i3/bin/calendar-icon.png;
+        else
+            notify-send "No events today" -i ~/.dotfiles/i3/bin/calendar-icon.png;
+        fi; pkill rofi ;;
+    'calendar tomorrow')
+        if [ "$(calcurse -s$(date --date=tomorrow +%m/%d/%Y))" ]; then
+            notify-send "Calendar $(date --date=tomorrow +%d/%m):" "$(calcurse -s$(date --date=tomorrow +%m/%d/%Y) --format-recur-apt='* %m (%S-%E)\n' --format-apt='* %m (%S-%E)\n' | tail -n +2)" -i ~/.dotfiles/i3/bin/calendar-icon.png;
+        else
+            notify-send "No events tomorrow" -i ~/.dotfiles/i3/bin/calendar-icon.png;
+        fi; pkill rofi ;;
+    'uedder')
+        if [ "$(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`)" ]; then
+            curl wttr.in/$location > ~/.weatherreport && notify-send "METEO @$location" "$(cat .weatherreport | sed '3q;d' | sed 's/.*0m //') ☀️ $(cat .weatherreport | sed '4q;d' | grep -o 'm[0-9]*' | grep -o '[0-9]*' | tr '\n' '-' | sed -r 's/(.*)-/\1/')°C ☂ $(cat .weatherreport | sed '7q;d' | grep -o '0m.* mm' | sed 's/0m //')" -i $icon;
+        else
+            notify-send "METEO" "Check internet connection!" -i $icon;
+        fi; pkill rofi ;;
     *) eval "$1" ;;
 esac
 
