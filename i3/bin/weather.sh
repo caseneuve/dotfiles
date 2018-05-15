@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/weather.sh
 # Created:     14.05.18, 19:06    @x200
-# Last update: 15.05.18, 00:12:33 @x200
+# Last update: 15.05.18, 07:29:59 @x200
 
 # Doc: Script to show weather, temperature and rainfall for current location and time
 
@@ -16,8 +16,7 @@ echo $(date '+%H:%M')
 case $BLOCK_BUTTON in
     1) if [ "$(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`)" ];
        then
-           curl wttr.in/$location > ~/.weatherreport && notify-send "METEO @$location" "$(cat .weatherreport | sed '3q;d' | sed 's/.*0m //') \
-☀️ $(cat .weatherreport | sed '4q;d' | grep -o 'm[0-9]*' | grep -o '[0-9]*' | tr '\n' '-' | sed -r 's/(.*)-/\1/')°C ☂ $(cat .weatherreport | sed '7q;d' | grep -o '0m.* mm' | sed 's/0m //')" -i $icon;
+           curl wttr.in/$location > ~/.weatherreport && notify-send "METEO @$location" "$(cat .weatherreport | sed '3q;d' | sed 's/.*0m //' | sed 's/[ \t]*//') ☀️ $(cat .weatherreport | sed '4q;d' | grep -o 'm[0-9]*' | grep -o '[0-9]*' | tr '\n' '-' | sed -r 's/(.*)-/\1/')°C ☂ $(cat .weatherreport | sed '7q;d' | grep -o '[0-9\.]* mm' | sed 's/0m //')" -i $icon;
        else
            notify-send "METEO" "Check internet connection!" -i $icon;
        fi ;;

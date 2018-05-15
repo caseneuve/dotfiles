@@ -2,9 +2,10 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 15.05.18, 00:16:55 @x200
+# Last update: 15.05.18, 07:39:27 @x200
 
 # Doc:
+# todo: rozbić na małe skrypty (np. uedder)
 
 list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\nuedder"
 location=Falenica
