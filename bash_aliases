@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 15.05.18, 10:46:15 @x200
+# Last update: 15.05.18, 23:05:47 @lenovo
 
 
 #####################
@@ -68,7 +68,9 @@ cmdhelp()
 # uses William Whitaker Words (online) to translate a word given as the function argument 
 translate_ww()
 {
-    clear; curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</' | GREP_COLOR="0;34" egrep --color=always ".*XXX.*|$" | GREP_COLOR="0;92" egrep --color=always "$1|$" | GREP_COLOR="0;93" egrep --color=always ".*;.*|$"
+    clear;
+    echo -e "$(tput bold)### William Whitaker Words: ###$(tput sgr0)\n"
+    curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</' | GREP_COLOR="0;34" egrep --color=always ".*XXX.*|$" | GREP_COLOR="0;92" egrep --color=always "$1|$" | GREP_COLOR="0;93" egrep --color=always ".*;.*|$"
 }
 
 # mupdf restore session
