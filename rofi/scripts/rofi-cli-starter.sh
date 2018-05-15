@@ -2,14 +2,12 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 15.05.18, 07:39:27 @x200
+# Last update: 15.05.18, 13:34:03 @x200
 
 # Doc:
 # todo: rozbić na małe skrypty (np. uedder)
 
 list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\nuedder"
-location=Falenica
-icon=/home/piotr/.dotfiles/i3/bin/weather-icon.png
 
 #x=$(echo -e $list | rofi -dmenu -p "START CLI APP")
 echo -e $list
@@ -47,12 +45,7 @@ case $1 in
         else
             notify-send "No events tomorrow" -i ~/.dotfiles/i3/bin/calendar-icon.png;
         fi; pkill rofi ;;
-    'uedder')
-        if [ "$(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`)" ]; then
-            curl wttr.in/$location > ~/.weatherreport && notify-send "METEO @$location" "$(cat .weatherreport | sed '3q;d' | sed 's/.*0m //') ☀️ $(cat .weatherreport | sed '4q;d' | grep -o 'm[0-9]*' | grep -o '[0-9]*' | tr '\n' '-' | sed -r 's/(.*)-/\1/')°C ☂ $(cat .weatherreport | sed '7q;d' | grep -o '0m.* mm' | sed 's/0m //')" -i $icon;
-        else
-            notify-send "METEO" "Check internet connection!" -i $icon;
-        fi; pkill rofi ;;
+    'uedder') ~/.dotfiles/bin/notify-weather.sh; pkill-rofi ;;
     *) eval "$1" ;;
 esac
 
