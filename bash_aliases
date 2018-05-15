@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 13.05.18, 23:37:39 @x200
+# Last update: 15.05.18, 10:46:15 @x200
 
 
 #####################
@@ -110,6 +110,7 @@ alias PSyyu='sudo pacman -Syyu'
 alias sp='sudo pacman -S'
 alias spR='sudo pacman -Rs'
 alias ya='yaourt --noconfirm'
+alias yaup='yaourt --noconfirm -Syu --aur'
 alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
 alias yt=youtube-dl
