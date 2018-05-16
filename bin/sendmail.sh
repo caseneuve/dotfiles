@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 16.05.18, 22:05:44 @manjaroi3
+# Last update: 16.05.18, 22:11:34 @manjaroi3
 
 # Doc:
 
@@ -11,7 +11,7 @@ gre=$(tput setaf 10)
 red=$(tput setaf 1)
 blu=$(tput setaf 4)
 adbook='/home/piotr/Dropbox/config/.mutt_aliases'
-
+MAILDIR='/home/piotr/Dropbox/config/mutt/.sent'
 ## code:
 clear
 
@@ -32,9 +32,9 @@ fi
 
 ## save mail in ~/.mail/...
 if [ -z "$1" ]; then
-    echo -e "Mail sent via RANGER, $(date '+%d/%m/%Y, %H:%M:%S')\n------------------------------------------\nDo:    $mailddrs\nTemat: $subject\nAtt:   - \n<-----------------------------------------\n\n$body\n\n----------------------------------------->\n" > ~/.mail/ranger_sent-$(date +%y%m%dT%H%M%S)
+    echo -e "Mail sent via RANGER, $(date '+%d/%m/%Y, %H:%M:%S')\n------------------------------------------\nDo:    $mailddrs\nTemat: $subject\nAtt:   - \n<-----------------------------------------\n\n$body\n\n----------------------------------------->\n" > $MAILDIR/ranger_sent-$(date +%y%m%dT%H%M%S)
 else
-    echo -e "Mail sent via RANGER, $(date '+%d/%m/%Y, %H:%M:%S')\n------------------------------------------\nDo:    $mailddrs\nTemat: $subject\nAtt:   $@\n<-----------------------------------------\n\n$body\n\n----------------------------------------->" > ~/.mail/ranger_sent-$(date +%y%m%dT%H%M%S)
+    echo -e "Mail sent via RANGER, $(date '+%d/%m/%Y, %H:%M:%S')\n------------------------------------------\nDo:    $mailddrs\nTemat: $subject\nAtt:   $@\n<-----------------------------------------\n\n$body\n\n----------------------------------------->" > $MAILDIR/ranger_sent-$(date +%y%m%dT%H%M%S)
 fi
 
 ## send mail via mutt:
