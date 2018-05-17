@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 16.05.18, 22:11:34 @manjaroi3
+# Last update: 17.05.18, 07:32:31 @manjaroi3
 
 # Doc:
 
@@ -12,6 +12,9 @@ red=$(tput setaf 1)
 blu=$(tput setaf 4)
 adbook='/home/piotr/Dropbox/config/.mutt_aliases'
 MAILDIR='/home/piotr/Dropbox/config/mutt/.sent'
+
+[[ -d $MAILDIR ]] || mkdir $MAILDIR
+
 ## code:
 clear
 
