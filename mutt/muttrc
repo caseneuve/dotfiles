@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 06.05.18, 11:54:39 @manjaroi3
+# Last update: 17.05.18, 07:35:45 @manjaroi3
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -18,7 +18,7 @@ source ~/.mutt/kbd.conf
 # mailcap: how to open attachements
 set mailcap_path=~/.mutt/mailcap
 #   {record sent messages}
-set record="$HOME/.mail/sent"
+#set record="$HOME/.mail/sent"
 
 #   {{imap}}
 set imap_keepalive = 900
