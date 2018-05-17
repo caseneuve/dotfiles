@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 15.05.18, 19:24:07 @lenovo
+# Last update: 17.05.18, 12:01:10 @manjaroi3
 
 # Doc:
 # todo: rozbić na małe skrypty (np. uedder)
@@ -45,7 +45,9 @@ case $1 in
         else
             notify-send "No events tomorrow" -i ~/.dotfiles/i3/bin/calendar-icon.png;
         fi; pkill rofi ;;
-    'uedder') ~/.dotfiles/bin/notify-weather.sh; pkill rofi ;;
+    'uedder')
+        #~/.dotfiles/bin/notify-weather.sh; pkill rofi ;;
+        ~/.dotfiles/bin/notify-uedder-new.sh; pkill rofi ;;
     *) eval "$1" ;;
 esac
 
