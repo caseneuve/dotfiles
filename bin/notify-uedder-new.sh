@@ -2,13 +2,15 @@
 
 # Path:        ~/.dotfiles/bin/notify-uedder-new.sh
 # Created:     17.05.18, 09:49    @manjaroi3
-# Last update: 17.05.18, 12:04:59 @manjaroi3
+# Last update: 18.05.18, 22:20:35 @x200
 
 # Doc: Send notification about current weather according to day time via wttr.in web site
 # FIXME: how to nest variable in a command? (to avoid copying many times the same code...)
 # e.g. in this command __ awk '/two/{i++}i==n' __  to expand n
+# BUG: godziny z zerem wywalają błąd, np 08 >= 5
+# done: with sed ↓
 
-h=`date +%H`
+h=$(echo $(date +%H) | sed 's/^0//')
 location=Warszawa
 icon=/home/piotr/.dotfiles/i3/bin/weather-icon.png
 WEATHERFILE=/home/piotr/.uedder
@@ -40,7 +42,7 @@ elif (( 15 <= $h )) && (( $h <= 20 )); then
     fi
 
     #night
-elif (( $h <= 4 )) && (( $h >= 21 )) ; then
+elif (( $h <= 4 )) || (( $h >= 21 )) ; then
     if [ "$(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`)" ]; then
         curl wttr.in/$location > $WEATHERFILE && notify-send "METEO @$location -- $(cat $WEATHERFILE | sed '10q;d' | grep -o '[A-Za-z]*' | awk '/[A-Za-z]*/{i++}i==4' | tr '[:upper:]' '[:lower:]'):" "$(cat $WEATHERFILE | sed '12q;d' | grep -Eo '[^m ]* [A-Za-z ]*' | grep '[A-Z]' | awk '{print $1 " " $2}' | awk '/[a-z]/{i++}i==4')  ☀ $(cat $WEATHERFILE | sed '13q;d' | grep -o 'm[0-9]*' | grep -o '[0-9]*' | awk '/[0-9]*/{i++}i==4')°C  ☂ $(cat $WEATHERFILE | sed '16q;d' | grep -o '[0-9\.]* mm . [0-9]*%' | awk '/[0-9\.]* mm/{i++}i==4')" -i $icon
     else
