@@ -1,7 +1,7 @@
 ######################################################
 ###                My MOCP theme PK
 ######################################################
-# Last update: 19.05.18, 16:27:06 @x200
+# Last update: 19.05.18, 22:21:31 @x200
 
 # variable                #fg      #bg      #weight
 background		= default  default
@@ -16,6 +16,9 @@ selected_file		= black    white
 marked_file		= yellow   blue      bold 
 marked_selected_file	= black    yellow    bold
 info			= blue     default   bold
+selected_info           = black    white     bold
+marked_info		= yellow   blue      bold
+marked_selected_info	= black    yellow    bold
 status			= white    default 
 title			= white    default   bold	
 state			= white    red       bold
@@ -31,7 +34,7 @@ empty_mixer_bar		= white    default
 filled_mixer_bar	= default  blue
 empty_time_bar		= white    default
 filled_time_bar		= black    blue
-entry			= white    default
+entry			= green    default   bold
 entry_title		= white    green     bold
 error			= red      default   bold
 message			= green    default   bold
