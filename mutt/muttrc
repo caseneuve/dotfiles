@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 17.05.18, 07:35:45 @manjaroi3
+# Last update: 19.05.18, 22:26:40 @x200
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -19,6 +19,7 @@ source ~/.mutt/kbd.conf
 set mailcap_path=~/.mutt/mailcap
 #   {record sent messages}
 #set record="$HOME/.mail/sent"
+set record=""
 
 #   {{imap}}
 set imap_keepalive = 900
