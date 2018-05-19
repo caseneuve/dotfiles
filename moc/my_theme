@@ -1,34 +1,38 @@
-# Transparent background theme by Marcin Michałowski
-# variable                #fg           #bg    #weight
-background		= default       default
-frame			= white		default
-window_title		= white		default
-directory		= blue		default	bold
-selected_directory	= white		blue	bold
-playlist		= magenta       default	
-selected_playlist	= white		magenta	
-file			= white		default
-selected_file		= black         white
-marked_file		= yellow        blue	bold 
-marked_selected_file	= black		yellow	bold
-info			= blue		default	bold
-status			= white         default 
-title			= white         default bold	
-state			= white         red     bold
-current_time		= white         default bold	
-total_time		= white         default	
-time_left		= white		default	
-time_total_frames	= white		default
-sound_parameters	= white		default	bold
-legend			= white		default
-disabled		= white		default	
-enabled			= blue          black	bold
-empty_mixer_bar		= white		default
-filled_mixer_bar	= default	blue
-empty_time_bar		= white		default
-filled_time_bar		= black		blue
-entry			= white		default
-entry_title		= white		green bold
-error			= red		default	bold
-message			= green         default	bold
-plist_time		= white		default	bold
+######################################################
+###                My MOCP theme PK
+######################################################
+# Last update: 19.05.18, 16:13:54 @x200
+
+# variable                #fg      #bg      #weight
+background		= default  default
+frame			= white	   default
+window_title		= white	   default
+directory		= blue     default   bold
+selected_directory	= white    blue      bold
+playlist		= magenta  default	
+selected_playlist	= white    magenta	
+file			= white    default
+selected_file		= black    white
+marked_file		= yellow   blue      bold 
+marked_selected_file	= black    yellow    bold
+info			= blue     default   bold
+status			= white    default 
+title			= white    default   bold	
+state			= white    red       bold
+current_time		= white    default   bold	
+total_time		= white    default	
+time_left		= white    default	
+time_total_frames	= white    default
+sound_parameters	= white    default   bold
+legend			= white    default
+disabled		= white    default	
+enabled			= blue     black     bold
+empty_mixer_bar		= white    default
+filled_mixer_bar	= default  blue
+empty_time_bar		= white    default
+filled_time_bar		= black    blue
+entry			= white    default
+entry_title		= white    green     bold
+error			= red      default   bold
+message			= green    default   bold
+plist_time		= white    default   bold
