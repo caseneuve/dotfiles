@@ -1,12 +1,12 @@
 ######################################################
 ###                My MOCP theme PK
 ######################################################
-# Last update: 19.05.18, 16:13:54 @x200
+# Last update: 19.05.18, 16:27:06 @x200
 
 # variable                #fg      #bg      #weight
 background		= default  default
 frame			= white	   default
-window_title		= white	   default
+window_title		= white	   default   bold
 directory		= blue     default   bold
 selected_directory	= white    blue      bold
 playlist		= magenta  default	

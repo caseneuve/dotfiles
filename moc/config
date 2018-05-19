@@ -1,7 +1,7 @@
 ########################
 ###   MY MOCP CONFIG
 ########################
-# Last update: 19.05.18, 16:00:56 @x200
+# Last update: 19.05.18, 16:25:49 @x200
 
 # {INTRO}
 # This is a configuration file for the MOC player.  It should be named
@@ -211,7 +211,7 @@ ShowFormat = no
 # ~/.moc/themes/ .
 # Example:    Theme = laras_theme
 # Theme = transparent-background
-Theme = /home/piotr/.moc/my_theme
+Theme = my_theme
 
 # The theme used when running on an xterm.
 # Example:    XTermTheme = transparent-background
