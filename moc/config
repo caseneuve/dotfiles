@@ -1,7 +1,7 @@
 ########################
 ###   MY MOCP CONFIG
 ########################
-# Last update: 19.05.18, 16:25:49 @x200
+# Last update: 19.05.18, 17:26:57 @x200
 
 # {INTRO}
 # This is a configuration file for the MOC player.  It should be named
@@ -433,12 +433,14 @@ Keymap = keymap
 # currently in the cache, the number will not decrease immediately (if at
 # all).
 #TagsCacheSize = 256
+TagsCacheSize = 2048
 
 # { NUMBERING ITEMS ON PLAYLIST }
 # Number items in the playlist.
 #PlaylistNumbering = yes
 
 # { WINDOW LAYOUTS }
+# {{ intro }}
 # Main window layouts can be configured.  You can change the position and
 # size of the menus (directory and playlist).  You have three layouts and
 # can switch between then using the 'l' key (standard mapping).  By default,
