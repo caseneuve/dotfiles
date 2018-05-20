@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 20.05.18, 10:53:50 @lenovo
+# Last update: 20.05.18, 11:13:13 @lenovo
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -498,6 +498,8 @@ bindsym $mod+Control+e      exec --no-startup-id $term -e ~/.dotfiles/bin/notes.
 # mail & feed
 bindsym $mod+n              workspace 10; exec --no-startup-id $term -e newsboat
 bindsym $mod+m              exec --no-startup-id ~/.dotfiles/bin/neomutt-i3launcher.sh
+# calcurse todo: napisać skrypt, który będzie otwierał scratchpad, jeśli calc już jest włączone 
+# bindsym $mod+Shift+c        exec --no-startup-id $term -e calcurse
 # mocp
 bindsym $mod+Shift+m        exec --no-startup-id $term -e mocp
 # ranger & thunar
