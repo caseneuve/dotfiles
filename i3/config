@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 20.05.18, 22:29:56 @x200
+# Last update: 20.05.18, 22:49:58 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -109,8 +109,8 @@ for_window [title="dropdown"] resize set 1000 600
 for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 
-exec    $term -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh 
-bindsym $mod+Shift+u               exec $term -t dropdown -e ~/.dotfiles/bin/tmux-hg.sh      
+exec    $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh 
+bindsym $mod+Shift+u               exec $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh      
 bindsym $mod+u                     [title="dropdown"] scratchpad show 
 
 #    {{math}}
