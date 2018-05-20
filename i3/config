@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 08.05.18, 21:36:02 @manjaroi3
+# Last update: 20.05.18, 10:53:50 @lenovo
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -238,7 +238,7 @@ bindsym $mod+Shift+Escape       restart
 # =============================================
 #    {{exit i3 (logs you out of your X session):}}
 # =============================================
-bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
 ##################################################
@@ -367,8 +367,8 @@ bindsym $mod+v          sticky toggle
 bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 850 30
 
 #    {{toggle gaps 0 / default:}}
-bindsym $mod+Shift+m    gaps inner current set $gin; gaps outer current set $gou
-bindsym $mod+m          gaps inner current set 0; gaps outer current set 0
+bindsym $mod+Shift+G    gaps inner current set $gin; gaps outer current set $gou
+bindsym $mod+g          gaps inner current set 0; gaps outer current set 0
 
 ##  {COLORS}
 # borders
@@ -483,15 +483,36 @@ bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%d%b%y_%H.%M.%S.scr
 bindsym $mod+z           exec synclient TouchpadOff=1
 bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 
-##  {APPS KBD}
+##  { KBD }
+# term
 bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
-bindsym $mod+b              exec qutebrowser
+# qutebrowser
+bindsym $mod+b              workspace 2; exec --no-startup-id qutebrowser
+bindsym $mod+Shift+b        exec --no-startup-id qutebrowser
+bindsym $mod+p              workspace 7; exec --no-startup-id qutebrowser :command ":open -p"
+# emacs
+bindsym $mod+e              workspace 1; exec --no-startup-id emacs
+bindsym $mod+Shift+e        exec --no-startup-id $term -e emacsclient -nw
+bindsym $mod+Control+e      exec --no-startup-id $term -e ~/.dotfiles/bin/notes.sh 
+# mail & feed
+bindsym $mod+n              workspace 10; exec --no-startup-id $term -e newsboat
+bindsym $mod+m              exec --no-startup-id ~/.dotfiles/bin/neomutt-i3launcher.sh
+# mocp
+bindsym $mod+Shift+m        exec --no-startup-id $term -e mocp
+# ranger & thunar
+bindsym $mod+r              exec --no-startup-id $term -e ranger
+bindsym $mod+t              exec --no-startup-id thunar
+# sys + appearance
 bindsym $mod+h              bar mode toggle
 bindsym Scroll_Lock         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
-bindsym $mod+x              exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
+bindsym $mod+Shift+x        exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
+bindsym $mod+x              exec systemctl suspend      
+# compton ?
 bindsym $mod+Ctrl+F2        exec --no-startup-id compton
 bindsym $mod+F2             exec pkill compton
+# HELP
+bindsym F1                  exec --no-startup-id ~/.dotfiles/bin/i3quick-help.sh              
 
 #bindsym $mod+e              exec emacs
 #bindsym $mod+g              workspace $ws10; exec --no-startup-id $term -e mutt 
