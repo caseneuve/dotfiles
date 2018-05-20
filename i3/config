@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 20.05.18, 11:13:13 @lenovo
+# Last update: 20.05.18, 22:29:56 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -514,7 +514,7 @@ bindsym $mod+x              exec systemctl suspend
 bindsym $mod+Ctrl+F2        exec --no-startup-id compton
 bindsym $mod+F2             exec pkill compton
 # HELP
-bindsym F1                  exec --no-startup-id ~/.dotfiles/bin/i3quick-help.sh              
+bindsym $mod+F1                  exec --no-startup-id ~/.dotfiles/bin/i3quick-help.sh              
 
 #bindsym $mod+e              exec emacs
 #bindsym $mod+g              workspace $ws10; exec --no-startup-id $term -e mutt 
