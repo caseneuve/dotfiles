@@ -2,12 +2,12 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 17.05.18, 12:01:10 @manjaroi3
+# Last update: 23.05.18, 21:32:27 @manjaroi3
 
 # Doc:
 # todo: rozbić na małe skrypty (np. uedder)
 
-list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\nuedder"
+list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\ncalendar today\nuedder"
 
 #x=$(echo -e $list | rofi -dmenu -p "START CLI APP")
 echo -e $list
@@ -42,6 +42,12 @@ case $1 in
     'calendar tomorrow')
         if [ "$(calcurse -s$(date --date=tomorrow +%m/%d/%Y))" ]; then
             notify-send "Calendar $(date --date=tomorrow +%d/%m):" "$(calcurse -s$(date --date=tomorrow +%m/%d/%Y) --format-recur-apt='* %m (%S-%E)\n' --format-apt='* %m (%S-%E)\n' | tail -n +2)" -i ~/.dotfiles/i3/bin/calendar-icon.png;
+        else
+            notify-send "No events tomorrow" -i ~/.dotfiles/i3/bin/calendar-icon.png;
+        fi; pkill rofi ;;
+    'calendar today')
+        if [ "$(calcurse -a)" ]; then
+            notify-send "Calendar $(date --date=today +%d/%m)" "$(calcurse -a --format-recur-apt='* %m (%S-%E)\n' --format-apt='* %m (%S-%E)\n\t→ %N' | tail -n +2 | grep -v 'No note')" -i ~/.dotfiles/i3/bin/calendar-icon.png;
         else
             notify-send "No events tomorrow" -i ~/.dotfiles/i3/bin/calendar-icon.png;
         fi; pkill rofi ;;
