@@ -2,9 +2,10 @@
 
 # Path:        ~/.dotfiles/bin/taffy-multifile.sh
 # Created:     15.05.18, 16:08    @lenovo
-# Last update: 15.05.18, 16:55:02 @lenovo
+# Last update: 23.05.18, 13:37:35 @x200
 
 # Doc:
+# BUG: źle czyta nazwy plików w rangerze... (rozbija je na części, jeśli są spacje)
 
 package=taffy
 n=1
