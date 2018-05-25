@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/notify-uedder-new.sh
 # Created:     17.05.18, 09:49    @manjaroi3
-# Last update: 18.05.18, 22:20:35 @x200
+# Last update: 25.05.18, 22:42:00 @x200
 
 # Doc: Send notification about current weather according to day time via wttr.in web site
 # FIXME: how to nest variable in a command? (to avoid copying many times the same code...)
@@ -11,7 +11,8 @@
 # done: with sed ↓
 
 h=$(echo $(date +%H) | sed 's/^0//')
-location=Warszawa
+#location=Warszawa
+location=Falenica
 icon=/home/piotr/.dotfiles/i3/bin/weather-icon.png
 WEATHERFILE=/home/piotr/.uedder
 
