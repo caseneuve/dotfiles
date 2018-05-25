@@ -271,6 +271,8 @@ alias gl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "N
 
 alias gh='cd /home/piotr'
 alias ga='cd /home/piotr/Pobrane'
+alias gaa='cd /home/piotr/Pobrane'
+alias gag='cd /home/piotr/attachments'
 alias go='cd /home/piotr/Obrazy'
 alias gw='cd /home/piotr/Wideo'
 alias gm='cd /home/piotr/Muzyka'
