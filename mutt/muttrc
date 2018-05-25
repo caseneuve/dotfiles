@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 19.05.18, 22:26:40 @x200
+# Last update: 25.05.18, 20:25:15 @x200
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -10,7 +10,11 @@
 # my mail
 source ~/Dropbox/config/.muttmail
 # aliasy
-source ~/Dropbox/config/.mutt_aliases
+set alias_file = "~/Dropbox/config/.mutt_aliases"
+source $alias_file
+#set sort_alias = alias
+#set reverse_alias = yes
+
 # kolory
 source ~/.mutt/schemes/mutt_color
 # kbd
@@ -23,6 +27,8 @@ set record=""
 
 #   {{imap}}
 set imap_keepalive = 900
+
+
 ## {BEHAVIOUR} 
 #   {{open html messages}}
 auto_view text/html                                  
