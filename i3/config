@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 25.05.18, 08:59:02 @x200
+# Last update: 25.05.18, 22:19:02 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -124,6 +124,14 @@ exec $term -t math -e R -q
 bindsym $mod+Shift+c    exec --no-startup-id $term -t math -e R -q 
 bindsym $mod+c          [title="math"] scratchpad show 
 
+#    {{whitaker words}}
+for_window [title="words"] move scratchpad
+for_window [title="words"] resize set 500 300
+for_window [title="words"] move position $wright $top 
+
+exec $term -t words -e words
+bindsym $mod+Shift+o    exec --no-startup-id $term -t words -e words
+bindsym $mod+o          [title="words"] scratchpad show
 
 ##  {WORKSPACES}                
 # workspace_auto_back_and_forth yes

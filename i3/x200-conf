@@ -2,7 +2,7 @@
 
 # x200 local settings:
 # ===================
-# Last update: 03.04.18, 20:38:46 @x200
+# Last update: 25.05.18, 22:18:34 @x200
 
 # bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
 
@@ -15,5 +15,8 @@ bindsym Pause               exec systemctl suspend
 # zmienne dla hangoutów
 set $right 990
 set $down 505
+# zmienne dla okienek w prawym górnym
+set $top 10
+set $wright 770
 
 set $term st
