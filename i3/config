@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 20.05.18, 22:49:58 @x200
+# Last update: 25.05.18, 08:59:02 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -207,6 +207,7 @@ for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
 for_window [class="Gpick"]                    resize set 1000 600
 # wartości zmiennych $right i $down podane w plikach lokalnych!
 for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
+for_window [title="nmtui"]                    floating enable
 
 #    {{orphans:}}
 # for_window [title="GIMP Startup"] move workspace $ws6
@@ -514,7 +515,9 @@ bindsym $mod+x              exec systemctl suspend
 bindsym $mod+Ctrl+F2        exec --no-startup-id compton
 bindsym $mod+F2             exec pkill compton
 # HELP
-bindsym $mod+F1                  exec --no-startup-id ~/.dotfiles/bin/i3quick-help.sh              
+bindsym $mod+F1             exec --no-startup-id ~/.dotfiles/bin/i3quick-help.sh
+# network manager
+bindsym $mod+Shift+n        exec --no-startup-id $term -e nmtui
 
 #bindsym $mod+e              exec emacs
 #bindsym $mod+g              workspace $ws10; exec --no-startup-id $term -e mutt 
