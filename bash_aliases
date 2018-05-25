@@ -3,8 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 25.05.18, 20:12:05 @x200
-
+# Last update: 25.05.18, 21:37:03 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -267,6 +266,21 @@ alias gtc='git commit -m'
 
 alias ggl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
 alias gl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
+
+#######
+## GREP
+#######
+mal=~/Dropbox/config/.mutt_aliases
+malias_func(){
+    if [ "$(cat $mal | grep -i "$1")" ]; then
+        echo
+        echo $(cat $mal | grep -i "$1" | sed 's/alias//' | awk -v on="$(tput setab 4)" -v off="$(tput sgr0)" '{ $1=on $1 off }; 1')
+        echo
+    else
+        echo "No alias found in $mal"
+    fi
+    }
+alias malias=malias_func
 
 # fast dirs start
 
