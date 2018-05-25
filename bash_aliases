@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 15.05.18, 23:05:47 @lenovo
+# Last update: 25.05.18, 20:12:05 @x200
 
 
 #####################
@@ -138,8 +138,9 @@ alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 ## PROGRAMY 
 ############
 
-alias tl=translate_ww
 alias t=trans
+alias tl=translate_ww
+alias tll='trans -s lat'
 alias tb='trans $1 -b'
 alias tt=termite
 alias ff=fzf
