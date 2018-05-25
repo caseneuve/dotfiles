@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 25.05.18, 21:37:03 @x200
+# Last update: 25.05.18, 22:33:15 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -281,6 +281,7 @@ malias_func(){
     fi
     }
 alias malias=malias_func
+alias mal=malias_func
 
 # fast dirs start
 
