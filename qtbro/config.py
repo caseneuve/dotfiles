@@ -1198,7 +1198,7 @@ c.tabs.close_mouse_button = 'middle'
 
 ## Show favicons in the tab bar.
 ## Type: Bool
-c.tabs.favicons.show = True
+#c.tabs.favicons.show = True
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
