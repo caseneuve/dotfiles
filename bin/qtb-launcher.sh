@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Path:        ~/.bin/qtb-launcher.sh
+# Path:        ~/.dotfiles/bin/qtb-launcher.sh
 # Created:     26.05.18, 23:42    @x200
-# Last update: 26.05.18, 23:46:02 @x200
+# Last update: 26.05.18, 23:47:08 @x200
 
 # Doc: If qutebrowser is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 2
 
