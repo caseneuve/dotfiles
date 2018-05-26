@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 26.05.18, 08:32:31 @x200
+# Last update: 26.05.18, 08:34:49 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -120,8 +120,8 @@ for_window [title="math"] move position center
 #for_window [title="math"] border pixel 3
 for_window [title="math"] move scratchpad
 
-exec $term -t math -e R -q
-bindsym $mod+Shift+c    exec --no-startup-id $term -t math -e R -q 
+#exec $term -t math -e R -q
+bindsym $mod+Shift+c    exec --no-startup-id $term -t math -e R -q; [title="math"] scratchpad show 
 bindsym $mod+c          [title="math"] scratchpad show 
 
 #    {{whitaker words}}
@@ -130,7 +130,7 @@ for_window [title="words"] resize set 500 300
 for_window [title="words"] move position $wright $top 
 
 #exec $term -t words -e words
-bindsym $mod+Shift+o    exec --no-startup-id $term -t words -e words
+bindsym $mod+Shift+o    exec --no-startup-id $term -t words -e words; [title="words"] scratchpad show
 bindsym $mod+o          [title="words"] scratchpad show
 
 ##  {WORKSPACES}                
