@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 26.05.18, 08:34:49 @x200
+# Last update: 26.05.18, 23:48:13 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -497,7 +497,8 @@ bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
 # qutebrowser
-bindsym $mod+b              workspace 2; exec --no-startup-id qutebrowser
+#bindsym $mod+b              workspace 2; exec --no-startup-id qutebrowser
+bindsym $mod+b              exec --no-startup-id ~/.dotfiles/bin/qtb-launcher.sh 
 bindsym $mod+Shift+b        exec --no-startup-id qutebrowser
 bindsym $mod+p              workspace 7; exec --no-startup-id qutebrowser :command ":open -p"
 # emacs
