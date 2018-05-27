@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 26.05.18, 23:48:13 @x200
+# Last update: 27.05.18, 09:18:16 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -498,11 +498,12 @@ bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
 # qutebrowser
 #bindsym $mod+b              workspace 2; exec --no-startup-id qutebrowser
-bindsym $mod+b              exec --no-startup-id ~/.dotfiles/bin/qtb-launcher.sh 
+bindsym $mod+b              exec --no-startup-id ~/.dotfiles/bin/i3-qtb-launcher.sh 
 bindsym $mod+Shift+b        exec --no-startup-id qutebrowser
 bindsym $mod+p              workspace 7; exec --no-startup-id qutebrowser :command ":open -p"
 # emacs
-bindsym $mod+e              workspace 1; exec --no-startup-id emacs
+#bindsym $mod+e              workspace 1; exec --no-startup-id emacs
+bindsym $mod+e              exec --no-startup-id ~/.dotfiles/bin/i3-emacs-launcher.sh 
 bindsym $mod+Shift+e        exec --no-startup-id $term -e emacsclient -nw
 bindsym $mod+Control+e      exec --no-startup-id $term -e ~/.dotfiles/bin/notes.sh 
 # mail & feed
