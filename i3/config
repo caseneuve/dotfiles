@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 29.05.18, 14:08:33 @x200
+# Last update: 29.05.18, 14:26:58 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -103,15 +103,15 @@ bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 ##  {SCRATCHPADS}
 #    {{dropdown → tmux:}}
 # exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
-for_window [title="dr0pdown"] floating enable
-for_window [title="dr0pdown"] resize set 1000 600
-#for_window [title="dr0pdown"] border pixel 3
-for_window [title="dr0pdown"] move position center
-for_window [title="dr0pdown"] move scratchpad
+for_window [title="dropdown"] floating enable
+for_window [title="dropdown"] resize set 1000 600
+#for_window [title="dropdown"] border pixel 3
+for_window [title="dropdown"] move position center
+for_window [title="dropdown"] move scratchpad
 
-exec    $term -t dr0pdown -e ~/.dotfiles/bin/tmux-starter.sh 
-bindsym $mod+Shift+u               exec $term -t dr0pdown -e ~/.dotfiles/bin/tmux-starter.sh      
-bindsym $mod+u                     [title="dr0pdown"] scratchpad show 
+exec    $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh 
+bindsym $mod+Shift+u               exec $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh      
+bindsym $mod+u                     [title="dropdown"] scratchpad show 
 
 #    {{math}}
 for_window [title="m4ath"] floating enable
