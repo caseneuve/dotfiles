@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 25.05.18, 22:33:15 @x200
+# Last update: 29.05.18, 22:27:36 @x200
 
 #####################
 ## KOMENDY TERMINALA 
