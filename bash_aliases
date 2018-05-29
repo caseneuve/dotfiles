@@ -195,6 +195,7 @@ alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percent
 ## SKRYPTY 
 ###########
 
+alias check=checkupdates # from pacman-contrib
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh'
 alias wallp='/home/piotr/.dotfiles/bin/walp.sh' 
