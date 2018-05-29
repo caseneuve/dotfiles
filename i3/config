@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 29.05.18, 14:26:58 @x200
+# Last update: 29.05.18, 15:15:32 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -528,6 +528,8 @@ bindsym $mod+F2             exec pkill compton
 bindsym $mod+F1             exec --no-startup-id ~/.dotfiles/bin/i3quick-help.sh
 # network manager
 bindsym $mod+Shift+n        exec --no-startup-id $term -e nmtui
+# move scratchpad
+bindsym $mod+Shift+s    move scratchpad
 
 #bindsym $mod+e              exec emacs
 #bindsym $mod+g              workspace $ws10; exec --no-startup-id $term -e mutt 
@@ -557,7 +559,6 @@ bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 
 ##  {{SPADY!}}                    
-# bindsym $mod+Shift+s    move scratchpad 
 # bindsym $mod+Shift+q             kill
 # bindsym $mod+F11                fullscreen toggle
 # bindsym $mod+Control+e          workspace $ws1; exec emacs
