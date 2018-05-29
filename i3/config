@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 27.05.18, 09:18:16 @x200
+# Last update: 29.05.18, 10:40:40 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -114,15 +114,15 @@ bindsym $mod+Shift+u               exec $term -t dropdown -e ~/.dotfiles/bin/tmu
 bindsym $mod+u                     [title="dropdown"] scratchpad show 
 
 #    {{math}}
-for_window [title="math"] floating enable
-for_window [title="math"] resize set 600 200
-for_window [title="math"] move position center
-#for_window [title="math"] border pixel 3
-for_window [title="math"] move scratchpad
+for_window [title="m4ath"] floating enable
+for_window [title="m4ath"] resize set 600 200
+for_window [title="m4ath"] move position center
+#for_window [title="m4ath"] border pixel 3
+for_window [title="m4ath"] move scratchpad
 
-#exec $term -t math -e R -q
-bindsym $mod+Shift+c    exec --no-startup-id $term -t math -e R -q; [title="math"] scratchpad show 
-bindsym $mod+c          [title="math"] scratchpad show 
+#exec $term -t m4ath -e R -q
+bindsym $mod+Shift+c    exec --no-startup-id $term -t m4ath -e R -q; [title="m4ath"] scratchpad show 
+bindsym $mod+c          [title="m4ath"] scratchpad show 
 
 #    {{whitaker words}}
 for_window [title="words"] move scratchpad
