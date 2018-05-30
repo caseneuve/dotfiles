@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 30.05.18, 19:56:03 @x200
+# Last update: 30.05.18, 21:40:01 @x200
 
 # Doc: Primitive pamac-tray replacement
 
@@ -13,7 +13,7 @@ nor=`tput sgr0`
 
 if ! [ -z "$check" ]; then
 #    echo -e "<span bgcolor=\"#e74c3c\"> ♻ </span>"
-    echo " ♻ "
+    echo -e "<span bgcolor=\"#ececec\">♻</span>"
 fi
 
 case $BLOCK_BUTTON in
