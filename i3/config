@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 29.05.18, 15:15:32 @x200
+# Last update: 30.05.18, 17:16:51 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -132,6 +132,11 @@ for_window [title="words"] move position $wright $top
 #exec $term -t words -e words
 bindsym $mod+Shift+o    exec --no-startup-id $term -t words -e words; [title="words"] scratchpad show
 bindsym $mod+o          [title="words"] scratchpad show
+
+#    {{system update}}
+for_window [title="sysupdt"] floating enable
+for_window [title="sysupdt"] resize set 600 300
+for_window [title="sysupdt"] move position $sright $top 
 
 ##  {WORKSPACES}                
 # workspace_auto_back_and_forth yes
