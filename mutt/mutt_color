@@ -1,7 +1,7 @@
 ############################################
 ###               MUTT: COLORS
 ############################################
-# Last update: 30.05.18, 10:22:31 @manjaroi3
+# Last update: 30.05.18, 21:18:55 @x200
 
 # Doc:
 # ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
@@ -77,6 +77,6 @@ color    index        magenta         default   "youtube.com|dropbox.com|tumblr.
 # {{don't overwrite those:}}
 color    index        brightwhite    black      "~U"                       # unread messages
 color    index        brightwhite    red        "~N|~O"                    # unread?
-color    index        brightblack    green      "~F"                       # flagged
+color    index        brightwhite    blue       "~F"                       # flagged
 color    index        black          white      "~T"                       # tagged messages
 
