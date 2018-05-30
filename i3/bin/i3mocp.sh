@@ -2,10 +2,10 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 04.05.18, 10:54:30 @x200
+# Last update: 30.05.18, 19:55:09 @x200
 
 # Doc:
-# script to show track currently playing on i3 status bar (i3blocks)
+# script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
 # <span> markup is used for pango markup
 
 TITLE=$(mocp -i | grep "^Title:" | sed -e "s/^.*: //")
