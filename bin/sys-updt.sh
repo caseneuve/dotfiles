@@ -2,9 +2,10 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 30.05.18, 17:44:41 @x200
+# Last update: 30.05.18, 19:56:03 @x200
 
-# Doc: Primitive pamac tray replacement
+# Doc: Primitive pamac-tray replacement
+
 dir=~/.dotfiles/i3/bin
 check=`checkupdates`
 redbg=`tput setab 1`
