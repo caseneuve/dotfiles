@@ -1,7 +1,7 @@
 ############################################
 ###               MUTT: COLORS
 ############################################
-# Last update: 13.05.18, 11:31:30 @x200
+# Last update: 30.05.18, 10:22:31 @manjaroi3
 
 # Doc:
 # ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
@@ -75,8 +75,8 @@ color    index        blue            default   "milcarek@gmail|christianitas@|L
 color    index        magenta         default   "youtube.com|dropbox.com|tumblr.com|academia-mail.com|github.com|codecademy.com|google.com|pinterest.com|facebookmail|GitLab"
 
 # {{don't overwrite those:}}
-color    index        brightwhite    default      "~U"                       # unread messages
-color    index        brightwhite    default      "~N|~O"                    # unread?
-color    index        brightyellow   default      "~F"                       # flagged
-color    index        black          white         "~T"                       # tagged messages
+color    index        brightwhite    black      "~U"                       # unread messages
+color    index        brightwhite    red        "~N|~O"                    # unread?
+color    index        brightblack    green      "~F"                       # flagged
+color    index        black          white      "~T"                       # tagged messages
 
