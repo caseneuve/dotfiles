@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Path:        ~/.bin/sys-updt.sh
+# Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 30.05.18, 17:29:04 @x200
+# Last update: 30.05.18, 17:44:41 @x200
 
 # Doc: Primitive pamac tray replacement
 dir=~/.dotfiles/i3/bin
@@ -11,7 +11,8 @@ redbg=`tput setab 1`
 nor=`tput sgr0`
 
 if ! [ -z "$check" ]; then
-    echo -e "<span bgcolor=\"#e74c3c\"> ♻ </span>"
+#    echo -e "<span bgcolor=\"#e74c3c\"> ♻ </span>"
+    echo " ♻ "
 fi
 
 case $BLOCK_BUTTON in
