@@ -1,7 +1,7 @@
 ######################################################
 ###                My MOCP theme PK
 ######################################################
-# Last update: 19.05.18, 22:21:31 @x200
+# Last update: 30.05.18, 19:53:32 @x200
 
 # variable                #fg      #bg      #weight
 background		= default  default
@@ -13,11 +13,11 @@ playlist		= magenta  default
 selected_playlist	= white    magenta	
 file			= white    default
 selected_file		= black    white
-marked_file		= yellow   blue      bold 
+marked_file		= black    blue      bold 
 marked_selected_file	= black    yellow    bold
 info			= blue     default   bold
 selected_info           = black    white     bold
-marked_info		= yellow   blue      bold
+marked_info		= black    blue      bold
 marked_selected_info	= black    yellow    bold
 status			= white    default 
 title			= white    default   bold	
