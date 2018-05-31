@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 29.05.18, 22:27:36 @x200
+# Last update: 31.05.18, 17:53:04 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -22,6 +22,7 @@ alias lg='ls --group-directories-first'
 alias lag='ls -a --group-directories-first'
 alias kl=pkill
 alias grep='grep --color=auto'
+alias thg='tmux new-window -n "hg" "hangups"'
 
 ###########
 ## FUNKCJE 
