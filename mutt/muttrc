@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 30.05.18, 21:17:22 @x200
+# Last update: 30.05.18, 22:31:14 @manjaroi3
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -62,7 +62,7 @@ set status_chars=" #%A"
 #                num  flag  att.      from     subj                date            size       label#
 set date_format="%m %b %Y"
 #                                                 value adjusted to x200
-set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-93.93s        %> %c"
+set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
 # don't show help line
 set help=no
 #   {{status line format}}

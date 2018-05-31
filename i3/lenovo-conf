@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 10.05.18, 17:35:47 @lenovo
+# Last update: 31.05.18, 02:32:26 @lenovo
 
 # exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
 
@@ -16,6 +16,8 @@ bindsym Pause                   exec systemctl suspend
 # zmienne dla hangoutów
 set $right 990
 set $down 505
+set $top 10
+set $sright 755
 
 #
 set $term st
