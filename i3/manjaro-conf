@@ -1,7 +1,7 @@
 
 # manjaro local settings:
 # ======================
-# Last update: 29.03.18, 00:10:04 @lenovo
+# Last update: 04.06.18, 19:05:23 @manjaroi3
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -13,4 +13,5 @@ bindsym shift+F12                exec lk4b
 # zmienne dla hangoutów
 set $right 990
 set $down 505
+set $sright 750
 
