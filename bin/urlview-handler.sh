@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 06.04.18, 01:44:40 @x200
+# Last update: 04.06.18, 21:38:02 @manjaroi3
 
 # Doc: via Luke Smith github
 
@@ -28,6 +28,7 @@ elif echo $1 | grep youtu.be > /dev/null; then
 elif echo $1 | grep vimeo > /dev/null; then
 	nohup mpv "$1" > /dev/null &
 else
-    	nohup qutebrowser --target window "$1" >/dev/null &
+    #nohup qutebrowser --target window "$1" >/dev/null &
+    nohup qutebrowser "$1" >/dev/null &
 fi
 
