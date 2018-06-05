@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/taffy.sh
 # Created:     01.05.18, 12:06    @x200
-# Last update: 15.05.18, 16:22:10 @lenovo
+# Last update: 05.06.18, 10:34:12 @manjaroi3
 
 # Doc: script to facilitate using of taffy (tagging cli app for audio files)
 
@@ -25,12 +25,12 @@ if [ -f "$file" ]; then
     echo
     echo "file:    ${bold}${gre}$(basename "$file")${normal}"
     taffy "$file" | tail -n +2
-    read -p "${bold}${red} →  What is the ALBUM name?${normal} ....... " album
+    read -p "${bold}${red} →  What is the ${yel}ALBUM${red} name?${normal} ....... " album
     read -p "${bold}${red} →  What is the ${yel}ARTIST ${red}name?${normal} ...... " artist
-    read -p "${bold}${red} →  Do you have any COMMENTS?${normal} ..... " comment
-    read -p "${bold}${red} →  Specify GENRE:${normal} ................ " genre
-    read -p "${bold}${red} →  What is the TITLE of the track?${normal} " title
-    read -p "${bold}${red} →  What is the TRACK number?${normal} ..... " track
+    read -p "${bold}${red} →  Do you have any ${yel}COMMENTS?${normal} ..... " comment
+    read -p "${bold}${red} →  Specify ${yel}GENRE:${normal} ................ " genre
+    read -p "${bold}${red} →  What is the ${yel}TITLE${red} of the track?${normal} " title
+    read -p "${bold}${red} →  What is the ${yel}TRACK${red} number?${normal} ..... " track
 
     # album tag
     if ! [ -z "$album" ]; then
