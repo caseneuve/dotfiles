@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 04.06.18, 18:55:04 @manjaroi3
+# Last update: 05.06.18, 22:40:58 @lenovo
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -29,7 +29,7 @@ exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 exec_always --no-startup-id dropbox start 
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id pamac-tray start
+# exec_always --no-startup-id pamac-tray start
 exec        --no-startup-id mocp -S
 exec        --no-startup-id emacs --daemon 
 exec        --no-startup-id xfce4-power-manager
@@ -378,7 +378,7 @@ smart_borders on
 #    {{sticky windows:}}
 for_window [class=mpv]  sticky enable
 bindsym $mod+v          sticky toggle
-bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 850 30
+bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position $vright $vtop
 
 #    {{toggle gaps 0 / default:}}
 bindsym $mod+Shift+G    gaps inner current set $gin; gaps outer current set $gou

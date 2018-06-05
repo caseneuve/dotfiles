@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 31.05.18, 02:32:26 @lenovo
+# Last update: 05.06.18, 22:42:06 @lenovo
 
 # exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
 
@@ -17,7 +17,11 @@ bindsym Pause                   exec systemctl suspend
 set $right 990
 set $down 505
 set $top 10
+# sys-updt window
 set $sright 755
+# video mode
+set $vright 950
+set $vtop 30
 
 #
 set $term st
