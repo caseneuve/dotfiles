@@ -1,7 +1,7 @@
 
 # manjaro local settings:
 # ======================
-# Last update: 04.06.18, 19:05:23 @manjaroi3
+# Last update: 06.06.18, 07:31:58 @manjaroi3
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -13,5 +13,9 @@ bindsym shift+F12                exec lk4b
 # zmienne dla hangoutów
 set $right 990
 set $down 505
+# sys updt window
 set $sright 750
+# video mode
+set $vright 950
+set $vtop 30
 
