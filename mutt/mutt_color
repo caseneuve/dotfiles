@@ -1,7 +1,7 @@
 ############################################
 ###               MUTT: COLORS
 ############################################
-# Last update: 30.05.18, 21:18:55 @x200
+# Last update: 08.06.18, 19:46:04 @manjaroi3
 
 # Doc:
 # ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
@@ -16,7 +16,7 @@ color    prompt        brightblack     yellow
 color    message       brightwhite     default
 color    error         brightblack     yellow
 color    indicator     brightgreen     default 
-color    status        brightblack     white
+#color    status        brightblack     white
 color    tree          brightwhite     default
 color    normal        white           default
 color    markers       red             default

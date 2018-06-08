@@ -1,16 +1,28 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 30.05.18, 22:31:14 @manjaroi3
+# Last update: 08.06.18, 20:53:46 @manjaroi3
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
-## {GENERAL}
-#   {{source}}
-# my mail
-source ~/Dropbox/config/.muttmail
-# aliasy
-set alias_file = "~/Dropbox/config/.mutt_aliases"
+## { GENERAL }
+#   {{ ACCOUNTS }}
+#    {{{ Akwinata }}}
+source ~/Dropbox/config/mutt/.muttakwinata
+folder-hook $folder 'source ~/Dropbox/config/mutt/.muttakwinata'
+#    {{{ Gmail }}}
+source ~/Dropbox/config/mutt/.muttgmail
+folder-hook $folder 'source ~/Dropbox/config/mutt/.muttgmail'
+#    {{{ hooks }}}
+folder-hook Akwinata]/*   source ~/Dropbox/config/mutt/.muttakwinata
+folder-hook Gmail]/*     source ~/Dropbox/config/mutt/.muttgmail
+
+#    {{{ kbd }}}
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/Dropbox/config/mutt/.muttgmail<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/Dropbox/config/mutt/.muttakwinata<enter><change-folder>!<enter>'
+
+#   {{ aliasy}}
+set alias_file = "~/Dropbox/config/mutt/.mutt_aliases"
 source $alias_file
 #set sort_alias = alias
 #set reverse_alias = yes
@@ -21,43 +33,41 @@ source ~/.mutt/schemes/mutt_color
 source ~/.mutt/kbd.conf
 # mailcap: how to open attachements
 set mailcap_path=~/.mutt/mailcap
-#   {record sent messages}
+#   {{ record sent messages }}
 #set record="$HOME/.mail/sent"
 set record=""
 
-#   {{imap}}
+#   {{ imap }}
 set imap_keepalive = 900
 
-
-## {BEHAVIOUR} 
-#   {{open html messages}}
+## { BEHAVIOUR } 
+#   {{ open html messages }}
 auto_view text/html                                  
 alternative_order text/plain text/enriched text/html 
 
-#   {{reply immediately}}
+#   {{ reply immediately }}
 set fast_reply=yes
 set include=yes
-#   {{pager}}
+
+#   {{ pager }}
 set pager_context=3
 set pager_stop=yes
 
-## {WRITING MESSAGES}
+## { WRITING MESSAGES }
 set editor="emacsclient -a \"\" -t"
 #set editor="nano --fill=80"
 #set editor="emacsclient -nw"
 
-## {APPEARANCE}
-#   {{nie podświetlaj całej linii}}
+## { APPEARANCE }
+#   {{ nie podświetlaj całej linii }}
 set arrow_cursor 
-#   {{sortowanie} }
+#   {{ sortowanie }}
 set sort=threads
 set sort_browser=date
 set sort_aux=reverse-last-date-received
-
-#   {{status chars}}
+#   {{ status chars }}
 set status_chars=" #%A"
-
-#   {{index format}}
+#   {{ index format }}
 # http://www.mutt.org/doc/manual/#index-format
 #                num  flag  att.      from     subj                date            size       label#
 set date_format="%m %b %Y"
@@ -65,16 +75,26 @@ set date_format="%m %b %Y"
 set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
 # don't show help line
 set help=no
-#   {{status line format}}
+#   {{ status line format }}
 set status_on_top=yes
 set status_format="%rNeoMutt: %-34.34f   new: %n   unread: %u   index%?V?(%V)?: %M %?t?  tagged: %t?%?d?  deleted: %d? %* all: %m "
-#   {{pager format}}
+#   {{ pager format }}
 # Default: “-%Z- %C/%m: %-20.20n   %s%*  -- (%P)”
 set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%m, sent: %D]"
 
-## {INACTIVE}
-#   {{sidebar (neomutt)}}
-# set sidebar_visible=yes
-#   {{other}}
+## { INACTIVE }
+#   {{ sidebar (neomutt) }}
+set sidebar_visible=yes
+set sidebar_delim_chars='/'
+set sidebar_width = 10
+set sidebar_on_right = yes
+set sidebar_short_path = yes
+#set sidebar_component_depth = 0
+set sidebar_format = '%B %N'
+#   {{ other }}
 # set move = no 
+
+mailboxes imaps://akwinata.edu.pl/INBOX imaps://imap.gmail.com/INBOX
+
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
