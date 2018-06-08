@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3temp-warning.sh
 # Created:     07.06.18, 18:11    @manjaroi3
-# Last update: 08.06.18, 11:49:18 @x200
+# Last update: 08.06.18, 17:10:22 @manjaroi3
 
 # DOC: Script used to inform about high core's temperature in i3blocks
 
@@ -44,3 +44,7 @@ elif (( $TEMP >= $HIGH )); then
     echo -e "<span bgcolor=\"#adff2f\" fgcolor=\"#34495e\"> $TEMP°C </span>"
 fi
     
+# echo $TEMP
+# echo $HIGH
+# echo $CRITIC
+
