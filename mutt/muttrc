@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 08.06.18, 20:53:46 @manjaroi3
+# Last update: 08.06.18, 21:39:07 @manjaroi3
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -91,10 +91,11 @@ set sidebar_on_right = yes
 set sidebar_short_path = yes
 #set sidebar_component_depth = 0
 set sidebar_format = '%B %N'
-#   {{ other }}
-# set move = no 
+set mail_check_stats
 
 mailboxes imaps://akwinata.edu.pl/INBOX imaps://imap.gmail.com/INBOX
 
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
-
+bind index,pager <Esc>i sidebar-prev
+bind index,pager <Esc>k sidebar-next
+bind index,pager <Esc>o sidebar-open
