@@ -2,18 +2,45 @@
 
 # Path:        ~/.dotfiles/bin/i3temp-warning.sh
 # Created:     07.06.18, 18:11    @manjaroi3
-# Last update: 08.06.18, 02:20:09 @manjaroi3
+# Last update: 08.06.18, 11:49:18 @x200
 
-# Doc: Script used to inform about high core's temperature in i3blocks
+# DOC: Script used to inform about high core's temperature in i3blocks
 
+# STATUS:
+# todo: sprawdzić jak wygląda to na lenovo; czy da się to uspójnić?
+
+# PER MACHINE VARIABLES:
+
+# manjaro
 temp=`sensors | grep Physical | awk '{print $4}' | grep -o [0-9]* | head -n 1`
 high=`sensors | grep Physical | awk '{print $7}' | grep -o [0-9]* | head -n 1`
 crit=`sensors | grep Physical | awk '{print $10}'| grep -o [0-9]* | head -n 1`
 CRIT=$(( $crit - 5 ))
 
-if (( $temp >= $CRIT )); then
-    echo -e "<span bgcolor=\"#E74C3C\"> $temp°C! </span>"
-elif (( $temp >= $high )); then
-    echo -e "<span bgcolor=\"#adff2f\" fgcolor=\"#34495e\"> $temp°C </span>"
+# x300
+tempx=`sensors | grep Core | awk '{print $3}' | grep -o [0-9]* | head -n 1`
+highx=85
+critx=`sensors | grep Core | awk '{print $9}'| grep -o [0-9]* | head -n 1`
+CRITX=$(( $critx - 5 ))
+
+# CODE:
+
+# set proper variables
+if (( $HOSTNAME == "x200" )); then
+    TEMP=$tempx
+    CRITIC=$critx
+    HIGH=$highx
+else
+    TEMP=$temp
+    CRITIC=$crit
+    HIGH=$high
 fi
 
+# return info
+
+if (( $TEMP >= $CRITIC )); then
+    echo -e "<span bgcolor=\"#E74C3C\"> $TEMP°C! </span>"
+elif (( $TEMP >= $HIGH )); then
+    echo -e "<span bgcolor=\"#adff2f\" fgcolor=\"#34495e\"> $TEMP°C </span>"
+fi
+    
