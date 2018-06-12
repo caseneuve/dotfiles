@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 06.06.18, 21:21:48 @manjaroi3
+# Last update: 12.06.18, 21:49:46 @lenovo
 
 # Doc:
 
@@ -13,7 +13,7 @@ blu=$(tput setaf 4)
 whibg=$(tput setab 15)
 blafg=$(tput setaf 0)
 
-adbook='/home/piotr/Dropbox/config/.mutt_aliases'
+adbook='/home/piotr/Dropbox/config/mutt/.mutt_aliases'
 MAILDIR='/home/piotr/Dropbox/config/mutt/.sent'
 
 [[ -d $MAILDIR ]] || mkdir $MAILDIR
