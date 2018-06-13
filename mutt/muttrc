@@ -1,7 +1,7 @@
 ############################################
 ###               MY MUTTRC
 ############################################
-# Last update: 08.06.18, 21:39:07 @manjaroi3
+# Last update: 13.06.18, 08:54:59 @lenovo
 
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
@@ -72,7 +72,8 @@ set status_chars=" #%A"
 #                num  flag  att.      from     subj                date            size       label#
 set date_format="%m %b %Y"
 #                                                 value adjusted to x200
-set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
+#set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
+set index_format="%2C %S %?X?A& ? %D %-25.25F%-100.100s%> %c"
 # don't show help line
 set help=no
 #   {{ status line format }}
@@ -82,7 +83,7 @@ set status_format="%rNeoMutt: %-34.34f   new: %n   unread: %u   index%?V?(%V)?: 
 # Default: “-%Z- %C/%m: %-20.20n   %s%*  -- (%P)”
 set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%m, sent: %D]"
 
-## { INACTIVE }
+## { SIDEBAR }
 #   {{ sidebar (neomutt) }}
 set sidebar_visible=yes
 set sidebar_delim_chars='/'
@@ -93,6 +94,7 @@ set sidebar_short_path = yes
 set sidebar_format = '%B %N'
 set mail_check_stats
 
+## { MAILBOXES}
 mailboxes imaps://akwinata.edu.pl/INBOX imaps://imap.gmail.com/INBOX
 
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
