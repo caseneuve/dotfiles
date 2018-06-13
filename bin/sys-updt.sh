@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 30.05.18, 21:40:01 @x200
+# Last update: 13.06.18, 10:10:45 @x200
 
 # Doc: Primitive pamac-tray replacement
 
@@ -26,7 +26,7 @@ case $BLOCK_BUTTON in
        fi ;;
     # right click
     3) if ! [ -z "$check" ]; then
-           i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman -Syyu" && exit 0
+           i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu" && exit 0
        else
            exit 0
        fi;;
