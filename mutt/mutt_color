@@ -1,7 +1,7 @@
 ############################################
 ###               MUTT: COLORS
 ############################################
-# Last update: 13.06.18, 17:32:43 @x200
+# Last update: 13.06.18, 17:53:12 @x200
 
 # Doc:
 # ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
@@ -80,9 +80,10 @@ color    index        brightwhite    red        "~N|~O"                    # unr
 color    index        brightwhite    blue       "~F"                       # flagged
 color    index        black          white      "~T"                       # tagged messages
 
-# { SIDEBAR }
+## {SIDEBAR}
 color sidebar_indicator brightyellow default
-color sidebar_highlight brightblack yellow
+color sidebar_highlight brightblack  yellow
+color sidebar_new       brightwhite  red
 #color sidebar_ordinary  default default
 #color sidebar_spoolfile yellow  default
 
