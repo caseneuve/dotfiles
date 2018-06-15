@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 12.06.18, 21:49:46 @lenovo
+# Last update: 15.06.18, 20:30:27 @lenovo
 
 # Doc:
 
@@ -12,6 +12,7 @@ red=$(tput setaf 1)
 blu=$(tput setaf 4)
 whibg=$(tput setab 15)
 blafg=$(tput setaf 0)
+redbg=$(tput setab 1)
 
 adbook='/home/piotr/Dropbox/config/mutt/.mutt_aliases'
 MAILDIR='/home/piotr/Dropbox/config/mutt/.sent'
@@ -49,7 +50,7 @@ if [ -z "$1" ]; then
             echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailddrs${normal}${gre} (bez załączników)$1${normal}\n"
 else
     echo -e "${normal}\n...wysyłam"; echo -e "$body" | mutt -s "$subject" $mailddrs -a "$@" > /dev/null 2>&1 &&\
-        echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailddrs${normal}${gre} z następującymi załącznikami:\n${whibg}${blafg}${bold}$@${normal}\n"
+        echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailddrs${normal}${gre} z następującymi załącznikami:\n${redbg}${blafg}${bold}$@${normal}\n"
 fi
 
 sleep 3s
