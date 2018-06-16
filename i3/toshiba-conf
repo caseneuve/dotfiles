@@ -1,7 +1,7 @@
 
-# manjaro local settings:
+# toshiba (aka manjaro) local settings:
 # ======================
-# Last update: 07.06.18, 21:11:37 @manjaroi3
+# Last update: 16.06.18, 20:53:21 @lenovo
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate

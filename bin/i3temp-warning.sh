@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3temp-warning.sh
 # Created:     07.06.18, 18:11    @manjaroi3
-# Last update: 08.06.18, 17:10:22 @manjaroi3
+# Last update: 16.06.18, 20:59:58 @lenovo
 
 # DOC: Script used to inform about high core's temperature in i3blocks
 
@@ -11,7 +11,7 @@
 
 # PER MACHINE VARIABLES:
 
-# manjaro
+# toshiba (manjaro)
 temp=`sensors | grep Physical | awk '{print $4}' | grep -o [0-9]* | head -n 1`
 high=`sensors | grep Physical | awk '{print $7}' | grep -o [0-9]* | head -n 1`
 crit=`sensors | grep Physical | awk '{print $10}'| grep -o [0-9]* | head -n 1`
