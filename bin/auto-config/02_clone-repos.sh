@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/auto-config/clone-repos.sh
 # Created:     16.06.18, 22:21    @lenovo
-# Last update: 17.06.18, 00:09:52 @lenovo
+# Last update: 17.06.18, 00:15:08 @lenovo
 
 # Doc: After cloning /dotfiles repo, execute this script to clone other repositories; NOTE: ~git~ package has to be installed 
 
@@ -18,5 +18,5 @@ cd /home/piotr/.emacs.d
 touch custom.el
 ln -s /home/piotr/Dropbox/EMACS/.load/misterioso-deluxe-theme.el .
 ln -s /home/piotr/Dropbox/EMACS/.load/leuven-deluxe-theme.el .
-ln -s /home/piotr/Dropbox/EMACS/.load/clien-dark-theme.el .
+ln -s /home/piotr/Dropbox/EMACS/.load/client-dark-theme.el .
 
