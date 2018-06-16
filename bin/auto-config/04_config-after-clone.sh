@@ -2,7 +2,7 @@
 
 # Path:        $dotbin/config-after-clone.sh
 # Created:     16.06.18, 21:07    @lenovo
-# Last update: 16.06.18, 23:50:54 @lenovo
+# Last update: 16.06.18, 23:59:02 @lenovo
 
 # Doc: After cloning repo /dotfiles, set all necessary symlinks for the system to work properly
 
@@ -64,6 +64,9 @@ muttfiles="goobook.sh kbd.conf listenaudio.sh mailcap viewimagefeh.sh viewpdf.sh
 for x in $muttfiles; do
     ln -s $dot/mutt/$x .
 done
+
+cd /home/piotr/.mutt/schemes
+ln -s $dot/mutt/mutt_color .
 
 # tmux
 ln -s $dot/tmux.conf /home/piotr/.tmux.conf
