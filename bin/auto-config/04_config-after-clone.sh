@@ -2,7 +2,7 @@
 
 # Path:        $dotbin/config-after-clone.sh
 # Created:     16.06.18, 21:07    @lenovo
-# Last update: 16.06.18, 23:59:02 @lenovo
+# Last update: 17.06.18, 00:52:17 @lenovo
 
 # Doc: After cloning repo /dotfiles, set all necessary symlinks for the system to work properly
 
@@ -11,7 +11,7 @@
 dot="/home/piotr/.dotfiles"
 
 # list of dirs to make
-dirs="/.i3 /.config /.config/rofi /.config/qutebrowser /.config/hangups /.config/ranger /.config/neofetch /.config/feh /attachments /pdf /.mutt /.mutt/schemes /.bin /.tmux /.tmux/plugins /.fzf /suckcless /.newsboat /.calcurse /.moc /.moc/themes /Szkoła /Wideo/qtb /Muzyka/qtb"
+dirs="/.i3 /.config /.config/rofi /.config/qutebrowser /.config/qutebrowser/bookmarks /.config/hangups /.config/ranger /.config/neofetch /.config/feh /attachments /pdf /.mutt /.mutt/schemes /.bin /.tmux /.tmux/plugins /.fzf /suckcless /.newsboat /.calcurse /.moc /.moc/themes /Szkoła /Wideo/qtb /Muzyka/qtb"
 
 # make sure this will be logged
 logf=/home/piotr/.config-after-clone-log.txt
@@ -100,4 +100,5 @@ ln -s $dot/feh/keys .
 cd /home/piotr/.config/qutebrowser
 ln -s $dot/qtbro/config.py .
 ln -s /home/piotr/Dropbox/config/qutebrowser/quickmarks .
+touch ./bookmarks/urls
 
