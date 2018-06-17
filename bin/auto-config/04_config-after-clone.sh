@@ -2,7 +2,7 @@
 
 # Path:        $dotbin/config-after-clone.sh
 # Created:     16.06.18, 21:07    @lenovo
-# Last update: 17.06.18, 00:52:17 @lenovo
+# Last update: 17.06.18, 01:22:17 @lenovo
 
 # Doc: After cloning repo /dotfiles, set all necessary symlinks for the system to work properly
 
@@ -101,4 +101,15 @@ cd /home/piotr/.config/qutebrowser
 ln -s $dot/qtbro/config.py .
 ln -s /home/piotr/Dropbox/config/qutebrowser/quickmarks .
 touch ./bookmarks/urls
+
+# rofi
+cd /home/piotr/.config/rofi
+ln -s $dot/rofi/config .
+
+# compton
+cd /home/piotr/.config
+if [ -f compton.conf ] ; then
+    rm compton.conf
+fi
+ln -s /home/piotr/.dotfiles/compton.conf .
 
