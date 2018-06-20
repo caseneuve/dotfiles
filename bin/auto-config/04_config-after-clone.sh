@@ -2,7 +2,7 @@
 
 # Path:        $dotbin/config-after-clone.sh
 # Created:     16.06.18, 21:07    @lenovo
-# Last update: 17.06.18, 01:22:17 @lenovo
+# Last update: 17.06.18, 18:59:48 @lenovo
 
 # Doc: After cloning repo /dotfiles, set all necessary symlinks for the system to work properly
 
@@ -11,7 +11,7 @@
 dot="/home/piotr/.dotfiles"
 
 # list of dirs to make
-dirs="/.i3 /.config /.config/rofi /.config/qutebrowser /.config/qutebrowser/bookmarks /.config/hangups /.config/ranger /.config/neofetch /.config/feh /attachments /pdf /.mutt /.mutt/schemes /.bin /.tmux /.tmux/plugins /.fzf /suckcless /.newsboat /.calcurse /.moc /.moc/themes /Szkoła /Wideo/qtb /Muzyka/qtb"
+dirs="/.i3 /.config/rofi /.config/qutebrowser/bookmarks /.config/hangups /.config/ranger /.config/neofetch /.config/feh /attachments /pdf /.mutt /.mutt/schemes /.bin /.tmux/plugins /.fzf /suckcless /.newsboat /.calcurse /.moc/themes /Szkoła /Wideo/qtb /Muzyka/qtb"
 
 # make sure this will be logged
 logf=/home/piotr/.config-after-clone-log.txt
@@ -24,7 +24,8 @@ fi
 # make the directories 
 for x in $dirs; do
     if [ ! -d "/home/piotr$x" ]; then
-        mkdir /home/piotr$x && echo "Tworzę /home/piotr$x" >> $logf
+        mkdir -p /home/piotr$x && echo "Tworzę /home/piotr$x" >> $logf
+        chown -R piotr /home/piotr$x
     else
         echo "/home/piotr$x już istnieje" >> $logf
     fi
