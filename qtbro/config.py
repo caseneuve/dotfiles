@@ -1562,6 +1562,8 @@ config.bind('go', 'set-cmd-text :open {url:pretty}')
 config.bind('ap', 'set-cmd-text :open -t https://getpocket.com/edit?url={url}')
 config.bind('gt', 'set-cmd-text -s :buffer')
 config.bind('gu', 'navigate up')
+config.bind('<Alt-h>', 'tab-focus 1')
+config.bind('<Alt-;>', 'tab-focus -1')
 
 # NAVIG
 config.bind(',', 'enter-mode insert')
