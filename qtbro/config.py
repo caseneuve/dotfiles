@@ -1564,7 +1564,7 @@ config.bind('gt', 'set-cmd-text -s :buffer')
 config.bind('gu', 'navigate up')
 
 # NAVIG
-config.bind('I', 'enter-mode insert')
+config.bind(',', 'enter-mode insert')
 config.bind('k', 'scroll down')
 config.bind('i', 'scroll up')
 config.bind('l', 'scroll right')
