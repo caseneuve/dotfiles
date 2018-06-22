@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 22.06.18, 17:48:41 @toshiba
+# Last update: 22.06.18, 21:03:29 @lenovo
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -221,14 +221,13 @@ for_window [class="Gpick"]                    resize set 1000 600
 # wartości zmiennych $right i $down podane w plikach lokalnych!
 for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
 for_window [title="nmtui"]                    floating enable
-
-#    {{orphans:}}
-for_window [title="Edytor obrazów GIMP"] move workspace $ws6
-for_window [title="Edytor obrazów GIMP"] gaps inner current set 0; gaps outer current set 0
-#for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
-#for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-for_window [window_role="gimp-toolbox"] floating enable
-for_window [window_role="gimp-dock"] floating enable
+for_window [class="Shotcut"]                  gaps inner current set 0; gaps outer current set 0
+for_window [title="Edytor obrazów GIMP"]      move workspace $ws6
+#for_window [title="Edytor obrazów GIMP"]      gaps inner current set 0; gaps outer current set 0
+#for_window [window_role="gimp-dock"]          floating disable; move left; resize shrink width 50 px or 50ppt
+#for_window [window_role="gimp-toolbox"]       floating disable; move right; resize grow width 30 px or 30ppt
+for_window [window_role="gimp-toolbox"]       floating enable
+for_window [window_role="gimp-dock"]          floating enable
 
 # for_window [title=".*Private.*"] move to workspace $ws7 
 for_window [title=".*Private.Browsing.*"] move to workspace $ws7
