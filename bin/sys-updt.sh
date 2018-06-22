@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 22.06.18, 16:02:25 @toshiba
+# Last update: 22.06.18, 16:11:06 @toshiba
 
 # Doc: Primitive pamac-tray replacement
 # note: uses pacman-contrib package
@@ -11,7 +11,7 @@ dir=~/.dotfiles/i3/bin
 check=`checkupdates`
 redbg=`tput setab 1`
 nor=`tput sgr0`
-DISTRO=antergos
+DISTRO=`cat /etc/*-release | grep ID= | sed 's/ID=\"\|\"//g'`
 
 if ! [ -z "$check" ]; then
 #    echo -e "<span bgcolor=\"#e74c3c\"> ♻ </span>"
