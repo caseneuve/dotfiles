@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 17.06.18, 02:23:22 @toshiba
+# Last update: 22.06.18, 15:47:00 @toshiba
 
 # Doc: Primitive pamac-tray replacement
 # note: uses pacman-contrib package
@@ -21,7 +21,7 @@ case $BLOCK_BUTTON in
     # left click = previous song
     1) if ! [ -z "$check" ]; then
            notify-send "System update:
---------------" "echo $check" -i $dir/$HOSTNAME-logo.png && exit 0;
+--------------" "$check" -i $dir/$HOSTNAME-logo.png && exit 0;
        else
            notify-send "No updates" -i $dir/$HOSTNAME-logo.png && exit 0;
        fi ;;
