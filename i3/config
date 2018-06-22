@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 22.06.18, 21:03:29 @lenovo
+# Last update: 22.06.18, 21:12:17 @lenovo
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -223,7 +223,6 @@ for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 26
 for_window [title="nmtui"]                    floating enable
 for_window [class="Shotcut"]                  gaps inner current set 0; gaps outer current set 0
 for_window [title="Edytor obrazów GIMP"]      move workspace $ws6
-#for_window [title="Edytor obrazów GIMP"]      gaps inner current set 0; gaps outer current set 0
 #for_window [window_role="gimp-dock"]          floating disable; move left; resize shrink width 50 px or 50ppt
 #for_window [window_role="gimp-toolbox"]       floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"]       floating enable
