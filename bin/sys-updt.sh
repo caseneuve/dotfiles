@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 22.06.18, 15:47:00 @toshiba
+# Last update: 22.06.18, 16:02:25 @toshiba
 
 # Doc: Primitive pamac-tray replacement
 # note: uses pacman-contrib package
@@ -11,6 +11,7 @@ dir=~/.dotfiles/i3/bin
 check=`checkupdates`
 redbg=`tput setab 1`
 nor=`tput sgr0`
+DISTRO=antergos
 
 if ! [ -z "$check" ]; then
 #    echo -e "<span bgcolor=\"#e74c3c\"> ♻ </span>"
@@ -21,9 +22,9 @@ case $BLOCK_BUTTON in
     # left click = previous song
     1) if ! [ -z "$check" ]; then
            notify-send "System update:
---------------" "$check" -i $dir/$HOSTNAME-logo.png && exit 0;
+--------------" "$check" -i $dir/$DISTRO-logo.png && exit 0;
        else
-           notify-send "No updates" -i $dir/$HOSTNAME-logo.png && exit 0;
+           notify-send "No updates" -i $dir/$DISTRO-logo.png && exit 0;
        fi ;;
     # right click
     3) if ! [ -z "$check" ]; then
