@@ -2,10 +2,10 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 22.06.18, 16:11:06 @toshiba
+# Last update: 22.06.18, 16:28:56 @toshiba
 
 # Doc: Primitive pamac-tray replacement
-# note: uses pacman-contrib package
+# NOTE: uses pacman-contrib package!
 
 dir=~/.dotfiles/i3/bin
 check=`checkupdates`
