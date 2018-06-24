@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 24.06.18, 12:06:26 @toshiba
+# Last update: 24.06.18, 13:17:39 @toshiba
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -125,13 +125,13 @@ bindsym $mod+Shift+c    exec --no-startup-id $term -t m4ath -e R -q; [title="m4a
 bindsym $mod+c          [title="m4ath"] scratchpad show 
 
 #    {{whitaker words}}
-for_window [title="words"] move scratchpad
-for_window [title="words"] resize set 500 300
-for_window [title="words"] move position $wright $top 
+for_window [title="w0rds"] move scratchpad
+for_window [title="w0rds"] resize set 500 300
+for_window [title="w0rds"] move position $wright $top 
 
 #exec $term -t words -e words
-bindsym $mod+Shift+o    exec --no-startup-id $term -t words -e words; [title="words"] scratchpad show
-bindsym $mod+o          [title="words"] scratchpad show
+bindsym $mod+Shift+o    exec --no-startup-id $term -t w0rds -e words; [title="w0rds"] scratchpad show
+bindsym $mod+o          [title="w0rds"] scratchpad show
 
 #    {{system update}}
 for_window [title="sysupdt"] floating enable
