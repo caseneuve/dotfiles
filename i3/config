@@ -5,7 +5,7 @@
 ##################################################
 
 #   {STATUS}
-# Last update: 22.06.18, 21:12:17 @lenovo
+# Last update: 24.06.18, 12:06:26 @toshiba
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -213,6 +213,7 @@ assign [class="Messenger for Desktop"] $ws9
 assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
 assign [class="libreoffice-writer"]    $ws5
 assign [class="libreoffice"]           $ws5
+assign [class="libreoffice-calc"]      $ws5
 assign [class="Vlc"]                   $ws7
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
