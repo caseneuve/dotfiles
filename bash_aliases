@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 31.05.18, 17:53:04 @x200
+# Last update: 25.06.18, 23:23:46 @toshiba
 
 #####################
 ## KOMENDY TERMINALA 
@@ -13,13 +13,14 @@ alias q=exit
 alias cl=clear
 alias cls=clear
 alias klr=clear
-alias la='ls -a'
+alias la='ls -a1'
 alias ll='ls -l'
 alias cdl='cd $1;ls'
 alias 'cd.'='cd ..'
 alias '..'='cd ..'
 alias lg='ls --group-directories-first'
 alias lag='ls -a --group-directories-first'
+alias lal='ls -al --group-directories-first'
 alias kl=pkill
 alias grep='grep --color=auto'
 alias thg='tmux new-window -n "hg" "hangups"'
