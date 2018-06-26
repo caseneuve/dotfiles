@@ -2,13 +2,11 @@
 ###   MY BASHRC FOR ROOT   ###
 ##############################
 
-# Last update: 26.06.18, 14:49:02 @lenovo
+# Last update: 26.06.18, 15:06:29 @toshiba
 # Doc: symlinked to /root/.bashrc
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
 
 # BASH PROMPT
 # → colors
@@ -21,7 +19,7 @@ BLACK=$(tput setaf 8)
 RESET=$(tput sgr0)
 
 # → string format
-PS1='\[${BOLD}\]\[${REDBG}\] \u \[${RESET}\]\[${GREENBG}\]\[${WHITE}\] \w \[${RESET}\]\[${CYAN}\]\[${BOLD}\] \$${RESET} '
+PS1='\[${BOLD}\]\[${REDBG}\] \u \[${RESET}\]\[${GREENBG}\]\[${WHITE}\] \w \[${RESET}\]\[${CYAN}\]\[${BOLD}\] \$\[${RESET}\] '
 
 # → old
 #PS1='[\u@\h \W]\$ '
@@ -38,4 +36,10 @@ fi
 
 # VARIABLES
 export EDITOR='/usr/bin/emacsclient -nw'
+export QT_STYLE_OVERRIDE=gtk
+export QT_SELECT=qt5
+
+if [[ $LANG = '' ]]; then
+	export LANG=en_US.UTF-8
+fi
 

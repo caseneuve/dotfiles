@@ -1,0 +1,68 @@
+####################################
+###   MY BASH ALIASES FOR ROOT   ###
+####################################
+
+# Last update: 26.06.18, 15:13:45 @toshiba
+# Doc: symlinked to /root/.bash_aliases
+
+alias ls='ls --color=auto'
+
+alias q=exit
+alias cl=clear
+alias cls=clear
+alias klr=clear
+alias la='ls -a1'
+alias ll='ls -l'
+alias cdl='cd $1;ls'
+alias 'cd.'='cd ..'
+alias '..'='cd ..'
+alias lg='ls --group-directories-first'
+alias lg1='ls -1 --group-directories-first'
+alias lag='ls -a --group-directories-first'
+alias lal='ls -al --group-directories-first'
+alias kl=pkill
+alias grep='grep --color=auto'
+
+# polecenia
+alias sleep='systemctl suspend'
+alias sle='systemctl suspend'
+alias Reboot='systemctl reboot -i'
+alias sbr='source ~/.bashrc'
+alias nba='nano --nohelp ~/.bash_aliases'
+alias nbr='nano --nohelp ~/.bashrc'
+alias nco='nano --nohelp ~/.compton.conf'
+alias PSyyu='sudo pacman -Syyu'
+alias sp='sudo pacman -S'
+alias spR='sudo pacman -Rs'
+alias ya='yaourt --noconfirm'
+alias yaup='yaourt --noconfirm -Syu --aur'
+alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
+alias yta='youtube-dl --extract-audio --audio-format mp3'
+alias yt=youtube-dl
+alias nmt='nano ~/.muttrc'
+alias ntm='nano ~/.config/termite/config'
+alias ntx='nano ~/.tmux.conf'
+alias ch7='chmod 750 $1'
+alias mejk='make && sudo make install'
+
+# emacsclient
+alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
+alias eba='emacsclient -nw  ~/.bash_aliases'
+alias ebr='emacsclient -nw  ~/.bashrc'
+alias eco='emacsclient -nw  ~/.compton.conf'
+alias elog='date >> /home/piotr/.log-antergos; emacsclient -nw  /home/piotr/.log-antergos'
+alias emt='emacsclient -nw ~/.muttrc'
+alias etm='emacsclient -nw ~/.config/termite/config'
+alias etx='emacsclient -nw ~/.tmux.conf'
+alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
+alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
+
+# antergos defaults:
+alias pacrepo='sudo reflector -l 20 -f 10 --save /etc/pacman.d/mirrorlist'
+alias pacman='sudo pacman'
+alias journalctl='sudo journalctl'
+#alias pacu='sudo pacman -Syu --noconfirm'
+#alias auru='yaourt -Syua --noconfirm'
+alias systemctl='sudo systemctl'
+alias se='ls /usr/bin | grep'
+
