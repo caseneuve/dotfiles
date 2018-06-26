@@ -1,9 +1,14 @@
-#####################
-###   MY BASHRC   ### 
-#####################
+############################################
+###    _               _                 ###
+###   | |__   __ _ ___| |__  _ __ ___    ###
+###   | '_ \ / _` / __| '_ \| '__/ __|   ###
+###   | |_) | (_| \__ \ | | | | | (__    ###
+###   |_.__/ \__,_|___/_| |_|_|  \___|   ###
+###                                      ###
+############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 26.06.18, 13:27:02 @lenovo
+# Last update: 26.06.18, 19:59:47 @lenovo
 
 # Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
