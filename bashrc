@@ -3,10 +3,11 @@
 #####################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 26.06.18, 13:21:12 @lenovo
+# Last update: 26.06.18, 13:27:02 @lenovo
 
 # Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
+# note: lack of escape characters results in strange behaviour, e.g. not going to next line with input etc.
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
