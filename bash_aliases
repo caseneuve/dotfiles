@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 26.06.18, 16:35:26 @lenovo
+# Last update: 26.06.18, 18:21:50 @lenovo
 
 #####################
 ## KOMENDY TERMINALA 
@@ -115,7 +115,6 @@ alias calS=calcurse_search_future
 ### POLECENIA 
 ##############
 
-alias sleep='systemctl suspend'
 alias sle='systemctl suspend'
 alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
