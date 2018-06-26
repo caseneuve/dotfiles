@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 26.06.18, 14:07:01 @lenovo
+# Last update: 26.06.18, 14:09:20 @lenovo
 
 # Doc: Primitive pamac-tray replacement
 # NOTE: uses pacman-contrib package!
@@ -14,7 +14,7 @@ check=`checkupdates`
 redbg=`tput setab 1`
 nor=`tput sgr0`
 #DISTRO=`cat /etc/*-release | grep ^ID= | sed 's/^ID=\"\|\"\|ID=//g'`
-#DISTRO=`cat /etc/issue | awk '{print $1}' | tr '[:upper:]' '[:lower:]' | head -n 1`
+#DISTRO=`cat /etc/issue | awk '{print tolower($1)}' | head -n 1`
 DISTRO=antergos
 
 if ! [ -z "$check" ]; then
