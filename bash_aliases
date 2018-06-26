@@ -3,12 +3,13 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 25.06.18, 23:23:46 @toshiba
+# Last update: 26.06.18, 13:14:27 @lenovo
 
 #####################
 ## KOMENDY TERMINALA 
 #####################
 
+alias ls='ls --color=auto'
 alias q=exit
 alias cl=clear
 alias cls=clear
@@ -19,6 +20,7 @@ alias cdl='cd $1;ls'
 alias 'cd.'='cd ..'
 alias '..'='cd ..'
 alias lg='ls --group-directories-first'
+alias lg1='ls -1 --group-directories-first'
 alias lag='ls -a --group-directories-first'
 alias lal='ls -al --group-directories-first'
 alias kl=pkill
@@ -28,6 +30,17 @@ alias thg='tmux new-window -n "hg" "hangups"'
 ###########
 ## FUNKCJE 
 ###########
+
+# wyświetl kolory
+colors(){
+    clear
+    for C in {0..255}; do
+        tput setab $C
+        echo -n "$C "
+    done
+    tput sgr0
+    echo -e "\n"
+}
 
 # wejdź do katalogu i wyświetl zawartość
 cdls() { cd "$@" && ls; }
