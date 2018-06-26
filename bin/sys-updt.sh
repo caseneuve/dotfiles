@@ -2,16 +2,17 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 22.06.18, 16:28:56 @toshiba
+# Last update: 26.06.18, 13:36:35 @lenovo
 
 # Doc: Primitive pamac-tray replacement
 # NOTE: uses pacman-contrib package!
+# bug: ? spr. czy $DISTRO działa na wszystkich maszynach 
 
 dir=~/.dotfiles/i3/bin
 check=`checkupdates`
 redbg=`tput setab 1`
 nor=`tput sgr0`
-DISTRO=`cat /etc/*-release | grep ID= | sed 's/ID=\"\|\"//g'`
+DISTRO=`cat /etc/*-release | grep ^ID= | sed 's/^ID=\"\|\"\|ID=//g'`
 
 if ! [ -z "$check" ]; then
 #    echo -e "<span bgcolor=\"#e74c3c\"> ♻ </span>"
