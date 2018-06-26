@@ -1,25 +1,41 @@
-#
-# ~/.bashrc
-#
+##############################
+###   MY BASHRC FOR ROOT   ###
+##############################
+
+# Last update: 26.06.18, 14:49:02 @lenovo
+# Doc: symlinked to /root/.bashrc
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
 
-bold=$(tput bold)
-RED=$(tput setaf 1)
+# BASH PROMPT
+# → colors
+BOLD=$(tput bold)
+CYAN=$(tput setaf 14)
+REDBG=$(tput setab 9)
 GREEN=$(tput setaf 2)
+GREENBG=$(tput setab 13)
+BLACK=$(tput setaf 8)
 RESET=$(tput sgr0)
 
-#PS1='[\u@\h \W]\$ '
-PS1='${bold}${RED}[\u${RESET} ${GREEN}\w${bold}${RED}]\$${RESET} '
+# → string format
+PS1='\[${BOLD}\]\[${REDBG}\] \u \[${RESET}\]\[${GREENBG}\]\[${WHITE}\] \w \[${RESET}\]\[${CYAN}\]\[${BOLD}\] \$${RESET} '
 
+# → old
+#PS1='[\u@\h \W]\$ '
+#PS1='${bold}${RED}[\u${RESET} ${GREEN}\w${BOLD}${RED}]\$${RESET} '
+
+# auto CD
+shopt -s autocd
+
+# SOURCE:
+# → aliasy
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-shopt -s autocd
-
+# VARIABLES
 export EDITOR='/usr/bin/emacsclient -nw'
 
