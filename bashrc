@@ -1,36 +1,48 @@
-# ~/.bashrc
-# Last update: 25.06.18, 23:31:56 @toshiba
+#####################
+###   MY BASHRC   ### 
+#####################
+
+# Created:     26.06.18, 13:16    @lenovo
+# Last update: 26.06.18, 13:21:12 @lenovo
+
+# Doc:
+# note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+# COMMAND PROMPT
+# → colors
+BLUE="$(tput setaf 4)"
+BLUEBG="$(tput setab 4)"
+GREEN="$(tput setaf 2)"
+GREENBG="$(tput setab 2)"
+ORANGE="$(tput setaf 3)"
+BRORANGE="$(tput setaf 11)"
+ORANGEBG="$(tput setab 3)"
+RED="$(tput setaf 9)"
+REDBG="$(tput setab 9)"
+WHITE="$(tput setaf 15)"
+WHITEBG="$(tput setab 15)"
+BOLD="$(tput bold)"
+RESET="$(tput sgr0)"
 
-# PS1='[\u@\h \W]\$ '
+# → string format
+export PS1='\[${BLUEBG}\]\[${WHITE}\]\A \[${GREENBG}\]\[${WHITE}\] \w \[${REDBG}\]\[${WHIFG}\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[${RESET}\] \[${ORANGE}\]\[${BOLD}\]\$\[${RESET}\] '
 
-# PS1='\[\e[33m\][\[\e[36m\]\A \[\e[32m\]\w\[\e[m\e[33m\]]\[\e[33m\]$\[\e[0m\] '
-#    | orange |[| cyan   |tim| green  | dir| pink  |  git branch                                    | orange      |]$| reset |
-
-# PS1='\[\e[33m\][\[\e[1;36m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\]]$\[\e[0m\] '
-
-# wersja z żółtym tłem
-PS1='\e[1;33m\] \e[34m\]\e[43m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[1;33m\] $\[\e[0m\] '
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+# → old
+#PS1='[\u@\h \W]\$ '
+#PS1='\[\e[33m\][\[\e[36m\]\A \[\e[32m\]\w\[\e[m\e[33m\]]\[\e[33m\]$\[\e[0m\] '
+#PS1='\[\e[33m\][\[\e[1;36m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\]]$\[\e[0m\] '
+#PS1='\e[33m\] \e[34m\]\e[1;43m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\] $\[\e[0m\]\e[m '
 
 shopt -s autocd
 
 # VARIABLES:
-
-# BROWSER=/usr/bin/firefox
 export BROWSER=/usr/bin/qutebrowser
 export VISUAL=""
 export EDITOR='emacsclient -nw'
 export ALTERNATE_EDITOR="nano"
-
-
 export PATH=$PATH:~/.bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
 # export TERM=xterm-xfree86
@@ -42,9 +54,14 @@ COLORFGBG="default;default"
 export BC_ENV_ARGS=$HOME/.bc
 
 TERM=xterm-256color
-#TERMINAL=xfce4-terminal
 export TERMINAL=st
 
-# fuzzy finder
+# SOURCE:
+# → aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# → fuzzy finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
