@@ -3,7 +3,7 @@
 ########################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 26.06.18, 13:14:27 @lenovo
+# Last update: 26.06.18, 16:35:26 @lenovo
 
 #####################
 ## KOMENDY TERMINALA 
@@ -158,7 +158,7 @@ alias tll='trans -s lat'
 alias tb='trans $1 -b'
 alias tt=termite
 alias ff=fzf
-alias e="emacsclient -nw -c $1"
+alias e="emacsclient -nw -c"
 alias r=ranger
 alias m="mocp -l"
 alias ms="mocp -s"
