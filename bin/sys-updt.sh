@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 26.06.18, 14:09:20 @lenovo
+# Last update: 29.06.18, 10:16:25 @x200
 
 # Doc: Primitive pamac-tray replacement
 # NOTE: uses pacman-contrib package!
@@ -32,9 +32,10 @@ case $BLOCK_BUTTON in
        fi ;;
     # right click
     3) if ! [ -z "$check" ]; then
-           i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu" && exit 0 
+           i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu" && exit 0
+           exit 0
        else
            exit 0
        fi;;
 esac
-exit 0
+
