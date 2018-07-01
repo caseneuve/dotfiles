@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 26.06.18, 20:07:39 @lenovo
+# Last update: 01.07.18, 21:14:34 @lenovo
 
 #####################
 ## KOMENDY TERMINALA 
@@ -35,6 +35,13 @@ alias thg='tmux new-window -n "hg" "hangups"'
 ###########
 ## FUNKCJE 
 ###########
+
+# alias add
+alias_add(){
+    echo "alias $1='$2'" >> ~/.bash_aliases
+}
+
+alias aa=alias_add
 
 # wyświetl kolory
 colors(){
@@ -361,4 +368,7 @@ alias ggl='cd /home/piotr/gitlab/liberal_artist_org'
 alias gcs='cd /home/piotr/suckless/st'
 
 # fast dirs end
+
+# aliased added by `alias_add' func:
+alias p1='ping 1.1.1.1'
 
