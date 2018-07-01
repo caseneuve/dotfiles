@@ -2,7 +2,7 @@
 
 # x200 local settings:
 # ===================
-# Last update: 05.06.18, 23:19:14 @lenovo
+# Last update: 30.06.18, 09:43:44 @x200
 
 # bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
 
@@ -20,6 +20,6 @@ set $top 10
 set $wright 770
 set $sright 670
 # dla video mode
-set $vtop 30
-set $vright 750
+set $vtop 25
+set $vright 870
 set $term st

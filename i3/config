@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 26.06.18, 20:04:25 @lenovo
+# Last update: 30.06.18, 11:32:21 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -218,6 +218,8 @@ assign [class="libreoffice-writer"]    $ws5
 assign [class="libreoffice"]           $ws5
 assign [class="libreoffice-calc"]      $ws5
 assign [class="Vlc"]                   $ws7
+assign [class="neomutt"]               $ws10
+assign [class="Lxappearance"]          $ws3
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
 for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7

@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 04.06.18, 21:38:02 @manjaroi3
+# Last update: 30.06.18, 09:53:33 @x200
 
 # Doc: via Luke Smith github
 
@@ -20,9 +20,10 @@ elif echo $wgetFiles | grep -w $ext > /dev/null; then
 	nohup wget "$1" >/dev/null &
 elif echo $1 | grep "youtube\." > /dev/null; then
     # that should deal with a bug: in urlview/mutt rendering YT links
-        var="${1//3D/}"
-        var="${var%=}"
-        nohup mpv "$var$em" > /dev/null &
+        # var="${1//3D/}"
+        # var="${var%=}"
+    # nohup mpv "$var$em" > /dev/null &
+    nohup mpv "$1" > /dev/null &
 elif echo $1 | grep youtu.be > /dev/null; then
 	nohup mpv "$1" > /dev/null &
 elif echo $1 | grep vimeo > /dev/null; then
