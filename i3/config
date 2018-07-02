@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 30.06.18, 11:32:21 @x200
+# Last update: 02.07.18, 16:44:38 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -220,6 +220,7 @@ assign [class="libreoffice-calc"]      $ws5
 assign [class="Vlc"]                   $ws7
 assign [class="neomutt"]               $ws10
 assign [class="Lxappearance"]          $ws3
+assign [class="FBReader"]              $ws5
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
 for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
