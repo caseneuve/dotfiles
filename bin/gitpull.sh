@@ -2,11 +2,11 @@
 
 # ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 03.07.18, 03:44:11 @lenovo
+# Last update: 03.07.18, 17:14:59 @x200
 
 # Doc:
-#
 # Aktualizuje repozytoria 'dotfiles', 'emacs/load' oraz wspólny projekt z gitlaba  na lokalnym komputerze
+# TODO: loop?
 
 # colors
 BLU="$(tput setab 4)"
@@ -42,6 +42,13 @@ if [ -d "/home/piotr/gitlab/py-exercises" ]; then
 if [ -d "/home/piotr/suckless/st" ]; then
     echo "${BLU} Aktualizuję repo ${RED}${BOLD} SUCKLESS TERMINAL ${RESET}"
     cd /home/piotr/suckless/st
+    git pull
+    echo
+    fi
+
+if [ -d "/home/piotr/github/emacs-htmlize" ]; then
+    echo "${BLU} Aktualizuję repo ${RED}${BOLD} EMACS: htmlize ${RESET}"
+    cd /home/piotr/github/emacs-htmlize
     git pull
     echo
     fi
