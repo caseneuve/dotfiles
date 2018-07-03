@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitstatus.sh
 # Created:     27.12.17           ?
-# Last update: 03.07.18, 03:07:43 @lenovo
+# Last update: 03.07.18, 03:37:34 @lenovo
 
 # Doc:
 # Podaje status repozytoriów 'dotfiles' i 'emacs' na lokalnym komputerze
@@ -32,7 +32,7 @@ cd /home/piotr/.emacs.git
 if [[ `git status --porcelain` ]]; then
     echo -e "${YELb}${BOLD} >>$(git status --porcelain) ${RESET}"
 else
-    echo " $(git status | sed -n '2p')"
+    echo " $(git status | sed -n '2p')\n"
 fi
 
 # liberal artist
