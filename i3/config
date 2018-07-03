@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 02.07.18, 16:44:38 @x200
+# Last update: 03.07.18, 02:01:04 @x200
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -221,6 +221,7 @@ assign [class="Vlc"]                   $ws7
 assign [class="neomutt"]               $ws10
 assign [class="Lxappearance"]          $ws3
 assign [class="FBReader"]              $ws5
+assign [class="Steam"]                 $ws8
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
 for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
