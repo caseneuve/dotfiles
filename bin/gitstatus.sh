@@ -1,64 +1,74 @@
-# ~/.dotfiles/bin/asdf.sh
-# Created:     27.12.17           ?
-# Last update: 16.04.18, 23:07:02 @x200
-
-# Doc:
-#
-# Podaje status repozytoriów 'dotfiles' i 'emacs' na lokalnym komputerze
-
 #!/bin/bash
 
-# variables
-YEL=$(tput setaf 3)
-RED=$(tput setaf 1)
-RESET=$(tput sgr0)
-bold=$(tput bold)
+# ~/.dotfiles/bin/gitstatus.sh
+# Created:     27.12.17           ?
+# Last update: 03.07.18, 03:07:43 @lenovo
 
-echo "Sprawdzam status repo DOTFILES:"
-echo "==============================="
+# Doc:
+# Podaje status repozytoriów 'dotfiles' i 'emacs' na lokalnym komputerze
+
+# colors
+YELb=$(tput setab 3)
+REDb=$(tput setab 1)
+CYAN=$(tput setab 6)
+RESET=$(tput sgr0)
+BOLD=$(tput bold)
+
+clear
+
+# .dotfiles
+echo "${CYAN} Sprawdzam status repo ${RESET}${BOLD}${REDb} DOTFILES ${RESET}"
 cd /home/piotr/.dotfiles/
 if [[ `git status --porcelain` ]]; then
-    printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
-#-----------------------------------------------------\n\n$(git diff --cached)\n" 
+    echo -e "${YELb}${BOLD} >>$(git status --porcelain) ${RESET}"
 else
-    git status
+    echo " $(git status | sed -n '2p')"
 fi
-printf "\n"
+echo 
 
-echo "Sprawdzam status repo EMACS:"
-echo "============================"
+# .emacs.git
+echo "${CYAN} Sprawdzam status repo ${RESET}${BOLD}${REDb} EMACS ${RESET}"
 cd /home/piotr/.emacs.git
 if [[ `git status --porcelain` ]]; then
-    printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
-#-----------------------------------------------------\n\n$(git diff --cached)\n" 
+    echo -e "${YELb}${BOLD} >>$(git status --porcelain) ${RESET}"
 else
-    git status
+    echo " $(git status | sed -n '2p')"
 fi
-printf "\n"
 
+# liberal artist
 if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
-    echo "Sprawdzam status repo LIBERAL ARTIST:"
-    echo "====================================="
+    echo "${CYAN} Sprawdzam status repo ${RESET}${BOLD}${REDb} LIBERAL ARTIST: ${RESET}" 
     cd /home/piotr/gitlab/liberal_artist_org
     if [[ `git status --porcelain` ]]; then
-        printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
-        #-----------------------------------------------------\n\n$(git diff --cached)\n" 
+        echo -e "${YELb}${BOLD} >>$(git status --porcelain) ${RESET}"
     else
-        git status
+    echo " $(git status | sed -n '2p')"
     fi
 fi
+echo
 
-# repo st @gitlab
+# py exercises
+if [ -d "/home/piotr/gitlab/py-exercises" ]; then
+    echo "${CYAN} Sprawdzam status repo ${RESET}${BOLD}${REDb} PY-EXERCISES ${RESET}" 
+    cd /home/piotr/gitlab/py-exercises
+    if [[ `git status --porcelain` ]]; then
+        echo -e "${YELb}${BOLD} >>$(git status --porcelain) ${RESET}"
+    else
+        echo " $(git status | sed -n '2p')"
+    fi
+fi
+echo
+
+# repo st 
 if [ -d "/home/piotr/suckless/st" ]; then
-    echo "Sprawdzam status repo SUCKLESS TERMINAL:"
-    echo "========================================"
+    echo "${CYAN} Sprawdzam status repo ${RESET}${BOLD}${REDb} SUCKLESS TERMINAL ${RESET}"
     cd /home/piotr/suckless/st
     if [[ `git status --porcelain` ]]; then
-        printf "${YEL}${bold}Git status - masz do opublikowania następujące zmiany:${RESET}\n$(git status --porcelain)\n"
+        echo -e "${YELb}${BOLD} >>$(git status --porcelain) ${RESET}"
     else
-        git status
+        echo " $(git status | sed -n '2p')"
     fi
 fi
 
-echo -e "...zrobione!\n"
+echo -e "\n...zrobione!\n"
 
