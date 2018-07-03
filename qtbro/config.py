@@ -1385,7 +1385,8 @@ c.url.searchengines = {
     'q': 'https://duckduckgo.com/?q=qutebrowser+{}&ia=webqutebrowser+',
     'et': 'https://www.etymonline.com/word/{}',
     'bib': 'http://katalogi.bn.org.pl/iii/encore/search/C__S{}__U?lang=pol&suite=cobalt',
-    'sjp': 'https://sjp.pl/{}'
+    'sjp': 'https://sjp.pl/{}',
+    'gm': 'https://www.google.com/maps/place/{}'
 }
 
 ## URL parameters to strip with `:yank url`.
