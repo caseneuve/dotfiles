@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitstatus.sh
 # Created:     27.12.17           ?
-# Last update: 03.07.18, 03:40:57 @x200
+# Last update: 03.07.18, 03:45:16 @lenovo
 
 # Doc:
 # Podaje status repozytoriów 'dotfiles' i 'emacs' na lokalnym komputerze
@@ -67,5 +67,5 @@ if [ -d "/home/piotr/suckless/st" ]; then
     fi
 fi
 
-echo -e "\n...zrobione!\n"
+echo -e " ...zrobione!\n"
 
