@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 15.06.18, 20:30:27 @lenovo
+# Last update: 05.07.18, 14:28:40 @toshiba
 
 # Doc:
 
@@ -46,10 +46,10 @@ fi
 
 ## send mail via mutt:
 if [ -z "$1" ]; then
-        echo -e "${normal}\n...wysyłam"; echo -e "$body" | mutt -s "$subject" $mailddrs > /dev/null 2>&1 &&\
+        echo -e "${normal}\n...wysyłam"; echo -e "$body" | neomutt -s "$subject" $mailddrs > /dev/null 2>&1 &&\
             echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailddrs${normal}${gre} (bez załączników)$1${normal}\n"
 else
-    echo -e "${normal}\n...wysyłam"; echo -e "$body" | mutt -s "$subject" $mailddrs -a "$@" > /dev/null 2>&1 &&\
+    echo -e "${normal}\n...wysyłam"; echo -e "$body" | neomutt -s "$subject" $mailddrs -a "$@" > /dev/null 2>&1 &&\
         echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailddrs${normal}${gre} z następującymi załącznikami:\n${redbg}${blafg}${bold}$@${normal}\n"
 fi
 

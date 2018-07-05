@@ -10,7 +10,7 @@ blu=$(tput setaf 4)
 whibg=$(tput setab 15)
 blafg=$(tput setaf 0)
 
-adbook='/home/piotr/Dropbox/config/.mutt_aliases'
+adbook='/home/piotr/Dropbox/config/mutt/.mutt_aliases'
 MAILDIR='/home/piotr/Dropbox/config/mutt/.sent'
 
 [[ -d $MAILDIR ]] || mkdir $MAILDIR
@@ -36,7 +36,7 @@ if [ -z "$1" ]; then
     echo "${red}${bold}Nie zaznaczyłeś załączników!${normal}";
 else
     echo -e "Quickmail sent via RANGER, $(date '+%d/%m/%Y, %H:%M:%S')\n-----------------------------------------------\nDo:     $mailddrs\nAtt:    $@\n" > $MAILDIR/ranger_quicksent-$(date +%y%m%dT%H%M)
-    echo -e "Wiadomość wysłana automatycznie $(date '+%d/%m o %H:%M'), zawiera następujące pliki\n<< $@ >> \n\n" | mutt -s "ranger" $mailddrs -a "$@" > /dev/null 2>&1 &&\
+    echo -e "Wiadomość wysłana automatycznie $(date '+%d/%m o %H:%M'), zawiera następujące pliki\n<< $@ >> \n\n" | neomutt -s "ranger" $mailddrs -a "$@" > /dev/null 2>&1 &&\
         echo -e "\n${gre}Wysłałem wiadomość do ${normal}${bold}$mailddrs${normal}${gre} z następującymi załącznikami:\n${whibg}${blafg}${bold}'$@'${normal}\n"
 fi
 
