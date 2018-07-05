@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 03.07.18, 02:01:04 @x200
+# Last update: 05.07.18, 13:35:19 @toshiba
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -222,6 +222,8 @@ assign [class="neomutt"]               $ws10
 assign [class="Lxappearance"]          $ws3
 assign [class="FBReader"]              $ws5
 assign [class="Steam"]                 $ws8
+assign [class="MyPaint"]               $ws8
+assign [title=".*Edytor obrazów GIMP.*"]   $ws6
 
 for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
 for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
@@ -230,7 +232,7 @@ for_window [class="Gpick"]                    resize set 1000 600
 for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
 for_window [title="nmtui"]                    floating enable
 for_window [class="Shotcut"]                  gaps inner current set 0; gaps outer current set 0
-for_window [title="Edytor obrazów GIMP"]      move workspace $ws6
+#for_window [title="Edytor obrazów GIMP"]      move workspace $ws6
 #for_window [window_role="gimp-dock"]          floating disable; move left; resize shrink width 50 px or 50ppt
 #for_window [window_role="gimp-toolbox"]       floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"]       floating enable
