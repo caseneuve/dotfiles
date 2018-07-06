@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 06.07.18, 09:30:10 @toshiba
+# Last update: 06.07.18, 20:52:29 @toshiba
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -41,11 +41,10 @@ exec        --no-startup-id xfce4-power-manager
 #exec        --no-startup-id slack
 #exec        --no-startup-id firefox
 
-# ===================
-#    {{monitory & wall}} 
-# lenovo
+#    {{monitory & wall}}
+exec --no-startup-id ~/.dotfiles/bin/monitoryUP.sh
 # exec_always ~/.i3/bin/monitory.sh
-exec_always --no-startup-id ~/.fehbg
+#exec_always --no-startup-id ~/.fehbg
 
 ##  {NAVIG}                  
 #    {{change focus:}}
@@ -191,9 +190,7 @@ bindsym $mod+Shift+8    move container to workspace $ws8
 bindsym $mod+Shift+9    move container to workspace $ws9
 bindsym $mod+Shift+0    move container to workspace $ws10
 
-# ======================================
 #    {{move workspace to another monitor:}}
-# ======================================
 
 bindsym $mod+Control+h           move workspace to output left
 bindsym $mod+Shift+h             move workspace to output left
@@ -209,6 +206,17 @@ bindsym $mod+Mod1+k              focus output down
 bindsym Mod1+Tab                workspace next
 bindsym Mod1+Shift+Tab          workspace prev
 bindsym $mod+Tab                workspace back_and_forth
+
+#    {{reguły dla monitorów:}}
+workspace $ws1 output VGA1
+workspace $ws5 output VGA1
+workspace $ws6 output VGA1
+workspace $ws7 output VGA1
+workspace $ws8 output VGA1
+
+workspace $ws2 output LVDS1
+workspace $ws9 output LVDS1
+workspace $ws10 output LVDS1
 
 #    {{reguły dla aplikacji:}}
 assign [class="Slack"]                 $ws9
@@ -253,7 +261,7 @@ bindsym $mod+Control+4          workspace $ws4; exec $term -e 'emacsclient ~/.i3
 bindsym $mod+Control+5          workspace $ws5; exec thunar
 bindsym $mod+Control+6          workspace $ws6; exec $term -e ranger
 bindsym $mod+Control+7          workspace $ws7; exec gimp
-bindsym $mod+Control+8          workspace $ws8; exec $term -e mocp
+#bindsym $mod+Control+8          workspace $ws8; exec $term -e mocp
 bindsym $mod+Control+9          workspace $ws9; exec --no-startup-id slack
 
 #    {{reload the configuration file:}}
@@ -450,13 +458,15 @@ set $sbwubr #a52a2a
 # bar active workspace background     
 set $sbwabg #00001f26
 
+#    {{ bar: primary }} 
 bar {
+        output primary
+        tray_output primary
         modifier $mod 
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
         i3bar_command i3bar -t 
         position top
         height 18
-        tray_output primary
         # status_command i3status 
 
         colors {
@@ -475,7 +485,32 @@ bar {
                }
 }
 
-##################################################
+## {{ bar: secondary}}
+
+bar {
+        output VGA1
+        tray_output primary     
+        modifier $mod 
+        status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
+        i3bar_command i3bar -t 
+        position bottom
+        height 20
+
+        colors {
+               background $sbbg
+               statusline $sbsl
+               separator  $sbwabg
+
+               # colorclass         border     backgro    text
+               focused_workspace    $sbwabg    $sbwfbg    $sbwtx
+               active_workspace     $sbwbr     $sbwabg    $sbwfbg
+               inactive_workspace   $sbwbr     $sbwabg    $sbwfbg
+               urgent_workspace     $brur      $bgur      $sbwfbg 
+
+               #binding_mode        #2f343a    #900000    #ffffff
+               #urgent_workspace    #c0392b    #e74c3c    #bdc3c7
+               }
+}
 
 ##  {CONTROLS}                ###
 #    {{Sreen brightness controls:}}
@@ -483,10 +518,10 @@ bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15 # increa
 bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15 # decrease screen brightness
 
 #    {{regulacja głośności:}}
-bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5% # && killall -USR1 i3status
-bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5% # && killall -USR1 i3status
-bindsym $mod+Shift+plus      exec --no-startup-id pactl set-sink-volume 0 +10% # && killall -USR1 i3status
-bindsym $mod+Shift+minus     exec --no-startup-id pactl set-sink-volume 0 -10% # && killall -USR1 i3status
+bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5%  && pkill -RTMIN+1 i3blocks
+bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5%  && pkill -RTMIN+1 i3blocks
+bindsym $mod+Shift+plus      exec --no-startup-id pactl set-sink-volume 0 +10% && pkill -RTMIN+1 i3blocks
+bindsym $mod+Shift+minus     exec --no-startup-id pactl set-sink-volume 0 -10% && pkill -RTMIN+1 i3blocks
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% 
