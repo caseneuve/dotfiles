@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/monitory.sh
 # Created:     ?
-# Last update: 26.01.18, 13:38:45 @x200
+# Last update: 06.07.18, 11:35:40 @toshiba
 
 # Doc: Sprawdza czy są podłączone inne monitory i ustawia zewnętrzny po lewej
 
@@ -15,7 +15,7 @@ else
     xrandr --output "$intern" --auto --output "$extern" --auto --left-of "$intern"
 fi
 
-feh --bg-fill ~/.i3/wall.jpg
+~/.fehbg
 
 # if [ "$(xrandr --screen 0 | grep -i 'vga1 connected')" ]
 # then
