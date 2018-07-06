@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 05.07.18, 13:35:19 @toshiba
+# Last update: 06.07.18, 09:30:10 @toshiba
 # todo: kbd
 
 ##  {VARIABLES & general SETTINGS}       
@@ -199,8 +199,11 @@ bindsym $mod+Control+h           move workspace to output left
 bindsym $mod+Shift+h             move workspace to output left
 bindsym $mod+Control+semicolon   move workspace to output right
 bindsym $mod+Shift+semicolon     move workspace to output right
-# bindsym $mod+Shift+Tab           focus output left 
+bindsym $mod+Control+comma       move workspace to output down
+bindsym $mod+Control+8           move workspace to output up
 bindsym $mod+Control+Tab         focus output right
+bindsym $mod+Mod1+i              focus output up
+bindsym $mod+Mod1+k              focus output down
 
 #    {{pk: cycle through workspaces:}}
 bindsym Mod1+Tab                workspace next
