@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3currentapp.sh
 # Created:     06.07.18, 20:24    @toshiba
-# Last update: 06.07.18, 20:36:37 @toshiba
+# Last update: 06.07.18, 21:46:35 @toshiba
 
 # Doc:
 
@@ -27,11 +27,14 @@ if [ "$(xrandr | grep -o 'VGA1 connected')" ]; then
         name=$(echo $name | sed 's/- mpv//g')
     elif [ "$app" == "SLACK" ]; then
         name=$(echo $name | sed 's/Slack -//g')
+    elif [[ "$app" = "ST-256COLOR" ]]; then
+        app="TERM";
+        colon=""
     elif [[ "$app" == "ST-256COLOR" && "$name" == "  dropdown" ]]; then
         app="TMUX";
         colon=" "
         name="$(tmux list-windows | grep "\*" | awk '{print $2}' | sed 's/\*//')"
-    elif [[ "$app" = "ST-256COLOR" && ! "$name" = "  dropdown" ]]; then
+    elif [[ "$app" = "ST-256COLOR" && "$name" = "st" ]]; then
         app="TERM";
         colon=""
         name=""
