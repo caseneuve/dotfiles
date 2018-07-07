@@ -8,8 +8,8 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 07.07.18, 11:28:41 @toshiba
-# todo: kbd
+# Last update: 07.07.18, 12:13:12 @toshiba
+# TODO: [ ] floating windows' position @ 2 screens
 
 ##  {VARIABLES & general SETTINGS}       
 set $mod Mod4
@@ -73,7 +73,6 @@ bindsym $mod+Shift+Down         move down
 bindsym $mod+Shift+Up           move up
 bindsym $mod+Shift+Right        move right
 
-# ====================================================
 #    {{enter fullscreen mode for the focused container:}}
 bindsym $mod+f                  fullscreen toggle
 
@@ -302,6 +301,9 @@ mode "resize" {
         bindsym d        resize set 1000 600; move position center     
         bindsym c        move position center
         bindsym f        resize set 1280 820; move position center
+        bindsym v        resize set 400 225
+        bindsym y        resize set 600 338
+
         # same bindings, but for the arrow keys
         bindsym Left     resize shrink width 10 px or 10 ppt
         bindsym Down     resize grow height 10 px or 10 ppt
@@ -325,7 +327,13 @@ mode "moveit" {
     bindsym l           move right 20px
     bindsym c           move position center
     bindsym m           resize set 600 400
-    bindsym d           resize set 1000 600     
+    bindsym d           resize set 1000 600
+    bindsym v           resize set 400 225
+    bindsym y           resize set 600 338
+    
+    bindsym Shift+i     move container to output VGA1
+    bindsym Shift+k     move container to output primary
+    bindsym Shift+x     move position mouse
 
     bindsym Return      mode "default"
     bindsym Escape      mode "default"
@@ -333,7 +341,6 @@ mode "moveit" {
 
 bindsym $mod+Shift+w    focus floating; mode "moveit"
 
-# ========================
 # {{modify gaps (mod+S):}}
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: ikjl|0 (local), IK|Shift+0 (global)
@@ -407,8 +414,8 @@ smart_borders on
 #    {{sticky windows:}}
 for_window [class=mpv]  sticky enable
 bindsym $mod+v          sticky toggle
-bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move window to position $vright $vtop
-
+#bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move window to position $vright $vtop; move container to output primary
+bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move container to output primary; move right 590 px; move up 120 px 
 #    {{toggle gaps 0 / default:}}
 bindsym $mod+Shift+G    gaps inner current set $gin; gaps outer current set $gou
 bindsym $mod+g          gaps inner current set 0; gaps outer current set 0
