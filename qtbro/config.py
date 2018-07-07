@@ -1566,6 +1566,8 @@ config.bind('gt', 'set-cmd-text -s :buffer')
 config.bind('gu', 'navigate up')
 config.bind('<Alt-h>', 'tab-focus 1')
 config.bind('<Alt-;>', 'tab-focus -1')
+config.bind('<Alt-Shift-L>', 'tab-move +')
+config.bind('<Alt-Shift-J>', 'tab-move -')
 
 # NAVIG
 config.bind(',', 'enter-mode insert')
