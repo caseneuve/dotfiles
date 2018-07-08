@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 07.07.18, 12:13:12 @toshiba
+# Last update: 08.07.18, 22:39:49 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 
 ##  {VARIABLES & general SETTINGS}       
@@ -527,36 +527,36 @@ bar {
 }
 
 ##  {CONTROLS}                ###
-#    {{Sreen brightness controls:}}
+#    {{ SREEN brightness controls:}}
 bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15 # increase screen brightness
 bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15 # decrease screen brightness
 
-#    {{regulacja głośności:}}
+#    {{ VOLUME / regulacja głośności:}}
 bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5%  && pkill -RTMIN+1 i3blocks
 bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5%  && pkill -RTMIN+1 i3blocks
 bindsym $mod+Shift+plus      exec --no-startup-id pactl set-sink-volume 0 +10% && pkill -RTMIN+1 i3blocks
 bindsym $mod+Shift+minus     exec --no-startup-id pactl set-sink-volume 0 -10% && pkill -RTMIN+1 i3blocks
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && pkill -RTMIN+1 i3blocks
 
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 #bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume $sink -- +10%
 #bindsym $mod+minus           exec --no-startEOFup-id pactl set-sink-volume $sink -- -10%
 #bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute $sink toggle
-bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioPlay        exec --no-startup-id mocp -G 
 bindsym XF86AudioStop        exec --no-startup-id mocp -s 
 bindsym XF86AudioNext        exec --no-startup-id mocp -f
 bindsym XF86AudioPrev        exec --no-startup-id mocp -r
 
-#    {{zrzut ekranu:}}
+#    {{ zrzut ekranu:}}
 # zrzut calego ekranu
 bindsym Print            exec --no-startup-id scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 # zrzut tylko aktywnego okna
 bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 
-#    {{touchpad OFF/ON:}}
+#    {{ touchpad OFF/ON:}}
 bindsym $mod+z           exec synclient TouchpadOff=1
 bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 
@@ -606,7 +606,7 @@ bindsym $mod+Shift+s    move scratchpad
 #bindsym $mod+t              exec --no-startup-id thunar
 #bindsym $mod+w              exec firefox
 #bindsym $mod+F8             exec --no-startup-id mocp -p
-#    {{dmenu scpripts}}
+#    {{ dmenu scpripts}}
 #bindsym $mod+semicolon      exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
 bindsym $mod+semicolon      exec --no-startup-id rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 bindsym $mod+a              exec --no-startup-id ~/.dotfiles/bin/rofi-media.sh
@@ -614,19 +614,19 @@ bindsym $mod+a              exec --no-startup-id ~/.dotfiles/bin/rofi-media.sh
 bindsym $mod+Shift+d        exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -nf '#2980b9' -p 'run:'" --term="st"
 bindsym $mod+d              exec --no-startup-id rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
 
-##  {NARZĘDZIA SYSTEMOWE}
+##  { NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
 # bindsym $mod+F10	exec --no-startup-id sudo bash ~/.i3/bin/unmount.sh
 
-#    {{screencasting:}}
+#    {{ screencasting:}}
 bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
-#    {{append & reload:}}
+#    {{ append & reload:}}
 bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 
-##  {{SPADY!}}                    
+##  {{ SPADY!}}                    
 # bindsym $mod+Shift+q             kill
 # bindsym $mod+F11                fullscreen toggle
 # bindsym $mod+Control+e          workspace $ws1; exec emacs
