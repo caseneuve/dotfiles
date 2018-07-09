@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 06.07.18, 21:39:30 @toshiba
+# Last update: 09.07.18, 10:03:38 @x200
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -13,6 +13,7 @@
 
 dir=~/.dotfiles/i3/bin
 check=`checkupdates`
+num=`echo $check | wc -l`
 redbg=`tput setab 1`
 nor=`tput sgr0`
 DISTRO=antergos
@@ -22,7 +23,7 @@ DISTRO=antergos
 
 if ! [ -z "$check" ]; then
 #    echo -e "<span bgcolor=\"#e74c3c\"> ♻ </span>"
-    echo -e "<span bgcolor=\"#ececec\">♻</span>"
+    echo -e "<span bgcolor=\"#ececec\">♻<sup>$num</sup></span>"
 fi
 
 case $BLOCK_BUTTON in
