@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 07.06.18, 21:20:12 @manjaroi3
+# Last update: 10.07.18, 21:18:10 @x200
 
 # Doc:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -10,29 +10,41 @@
 
 TITLE=$(mocp -i | grep "^Title:" | sed -e "s/^.*: //")
 ARTIST=$(mocp -i | grep "Artist:" | sed -e "s/^.*: //")
+ARTIST_LEN=`echo ${#ARTIST}`
 SONGTITLE=$(mocp -i | grep "SongTitle:" | sed -e "s/^.*: //")
 FILE=$(mocp -i | grep "File:" | sed -e "s/^.*: //")
 STATUS=$(mocp -i | grep "State:" | sed -e "s/^.*: //")
 TIME=$(mocp -i | grep "CurrentTime:" | sed -e "s/^[A-Za-z]*://")
-LEFT=$(mocp -i | grep "TimeLeft:" | sed -e "s/^[A-Za-z]*://")
+LEFT=$(mocp -i | grep "TimeLeft:" | sed -e "s/^[A-Za-z]*: //")
+MAXA=13
+MAXT=13
 
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     if [ "$TITLE" != "" ]; then
+        if (( $TITLE_LEN > $MAXT )); then
+            let x=$TITLE_LEN-$MAXT
+            TITLE=`echo ${TITLE::-$X}…`;
+        fi
         if [ "$ARTIST" != "" ]; then
-            ARTIST="$ARTIST -";
+            if (( $ARTIST_LEN > $MAXA )); then
+                let x=$ARTIST_LEN-$MAXA
+                ARTIST=`echo ${ARTIST::-$x}.:`;
+            else
+                ARTIST="$ARTIST:";
+            fi
         fi
         if [ "$STATUS" = "PLAY" ]; then
 #            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $ARTIST $SONGTITLE -- $TIME ♫ </span>"
-            echo -e "<span bgcolor=\"#2980b9\"> ♫ $ARTIST $SONGTITLE -- $TIME [-$LEFT] ♫ </span>"
+            echo -e "<span bgcolor=\"#4098D6\"> ♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫ </span>"
         else
-            echo -e "♫ $ARTIST $SONGTITLE -- $TIME [-$LEFT] ♫"
+            echo -e "♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫"
         fi
     else
         if [ "$STATUS" = "PLAY" ]; then
 #            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $FILE -- $TIME </span>"
-            echo -e "<span bgcolor=\"#2980b9\"> ♫ $FILE -- $TIME [-$LEFT] ♫ </span>"
+            echo -e "<span bgcolor=\"#34495E\"> ♫ $FILE :: $TIME [-$LEFT] ♫ </span>"
         else
-            echo -e "♫ $FILE -- $TIME [-$LEFT] ♫"
+            echo -e "♫ $FILE :: $TIME [-$LEFT] ♫"
         fi
     fi
     case $BLOCK_BUTTON in
