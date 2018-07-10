@@ -8,7 +8,7 @@
 ####################################################
 
 #   {STATUS}
-# Last update: 08.07.18, 22:39:49 @x200
+# Last update: 09.07.18, 20:51:49 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 
 ##  {VARIABLES & general SETTINGS}       
@@ -19,7 +19,8 @@ set $scr1 eDP1
 set $scr2 VGA1
 floating_modifier $mod
 
-set $browser firefox
+set $exe exec --no-startup-id
+set $browser qutebrowser
 
 bindsym $mod+q                   kill
 
@@ -27,7 +28,7 @@ bindsym $mod+q                   kill
 bindsym $mod+Shift+BackSpace     exec tmux kill-session -t tmux; exec i3-msg exit
 
 ##  {STARTUP & PROGRAMS}
-#    {{starup apps}}:
+#    {{starup apps}
 exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 exec_always --no-startup-id dropbox start 
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
@@ -42,7 +43,7 @@ exec        --no-startup-id xfce4-power-manager
 #exec        --no-startup-id firefox
 
 #    {{monitory & wall}}
-exec --no-startup-id ~/.dotfiles/bin/monitoryUP.sh
+$exe ~/.dotfiles/bin/monitoryUP.sh
 # exec_always ~/.i3/bin/monitory.sh
 #exec_always --no-startup-id ~/.fehbg
 
@@ -92,7 +93,7 @@ bindsym $mod+Ctrl+k     resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l     resize grow width 10 px or 10 ppt
 
 #    {{flash active window (za: Luke Smith) / jeśli compton jest włączony}}
-bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
+bindsym $mod+grave      $exe bash ~/.dotfiles/i3/bin/flash.sh
 
 #    {{orphans:}}
 # focus the parent container
@@ -106,7 +107,7 @@ bindsym $mod+grave      exec --no-startup-id bash ~/.dotfiles/i3/bin/flash.sh
 
 ##  {SCRATCHPADS}
 #    {{dropdown → tmux:}}
-# exec --no-startup-id bash ~/.dotfiles/bin/dropdown.sh
+# $exe bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] resize set 1000 600
 #for_window [title="dropdown"] border pixel 3
@@ -125,7 +126,7 @@ for_window [title="m4ath"] move position center
 for_window [title="m4ath"] move scratchpad
 
 #exec $term -t m4ath -e R -q
-bindsym $mod+Shift+c    exec --no-startup-id $term -t m4ath -e R -q; [title="m4ath"] scratchpad show 
+bindsym $mod+Shift+c    $exe $term -t m4ath -e R -q; [title="m4ath"] scratchpad show 
 bindsym $mod+c          [title="m4ath"] scratchpad show 
 
 #    {{whitaker words}}
@@ -134,7 +135,7 @@ for_window [title="w0rds"] resize set 500 300
 for_window [title="w0rds"] move position $wright $top 
 
 #exec $term -t words -e words
-bindsym $mod+Shift+o    exec --no-startup-id $term -t w0rds -e words; [title="w0rds"] scratchpad show
+bindsym $mod+Shift+o    $exe $term -t w0rds -e words; [title="w0rds"] scratchpad show
 bindsym $mod+o          [title="w0rds"] scratchpad show
 
 #    {{system update}}
@@ -268,7 +269,7 @@ bindsym $mod+Control+5          workspace $ws5; exec thunar
 bindsym $mod+Control+6          workspace $ws6; exec $term -e ranger
 bindsym $mod+Control+7          workspace $ws7; exec gimp
 #bindsym $mod+Control+8          workspace $ws8; exec $term -e mocp
-bindsym $mod+Control+9          workspace $ws9; exec --no-startup-id slack
+bindsym $mod+Control+9          workspace $ws9; $exe slack
 
 #    {{reload the configuration file:}}
 bindsym $mod+Escape             reload
@@ -318,8 +319,7 @@ bindsym $mod+Shift+r    mode "resize"
 bindsym $mod+Shift+f    floating enable; resize set 1280 820; move position center
 bindsym $mod+Control+f  floating disable
 
-# =================================
-#    {{move floating window (mod+W):}}
+#    {{ move floating window (mod+W): }}
 mode "moveit" {
     bindsym i           move up 20px
     bindsym j           move left 20px
@@ -341,7 +341,7 @@ mode "moveit" {
 
 bindsym $mod+Shift+w    focus floating; mode "moveit"
 
-# {{modify gaps (mod+S):}}
+# {{ modify gaps (mod+S): }}
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: ikjl|0 (local), IK|Shift+0 (global)
 set $mode_gaps_inner Inner Gaps: ikjl+| (local), IK|Shift+0 (global)
@@ -384,19 +384,18 @@ mode "$mode_gaps_outer" {
         bindsym Escape   mode "default"
 }
 
+##  { FLOATING }
 
-##################################################
-
-##  {FLOATING}
 for_window [class="Catfish"]    floating enable
 for_window [class="Gpick"]      floating enable
 for_window [title="mutt-audio"] floating enable
+
 # dialog window for qutebrowser downloads via youtube-dl
 for_window [title="youtube-dl"] floating enable 
 for_window [title="youtube-dl"] resize set 500 300
 for_window [title="youtube-dl"] move window to position $yright 10
 
-##  {GAPS}  
+##  { GAPS }
 # smart_gaps on 
 for_window [class="^.*"] border pixel 0
 hide_edge_borders smart
@@ -411,7 +410,7 @@ gaps outer $gou
 #new_window border pixel 10
 smart_borders on
 
-#    {{sticky windows:}}
+#    {{ sticky windows: }}
 for_window [class=mpv]  sticky enable
 bindsym $mod+v          sticky toggle
 #bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move window to position $vright $vtop; move container to output primary
@@ -450,7 +449,7 @@ client.urgent             $bru    $bgur  $txtur
 # former inact. #2c3e50
 # former client.focused #f1c40f
 
-##  {BAR}
+##  { BAR }
 font pango:DejaVu Sans Book 8
 #font pango:xos4 Terminus Regular 8
 #font pango:Meslo LG M Regular 8
@@ -526,35 +525,35 @@ bar {
                }
 }
 
-##  {CONTROLS}                ###
-#    {{ SREEN brightness controls:}}
-bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15 # increase screen brightness
-bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15 # decrease screen brightness
+##  { CONTROLS }
+#    {{ SREEN brightness controls: }}
+bindsym XF86MonBrightnessUp     $exe xbacklight -inc 15 # increase screen brightness
+bindsym XF86MonBrightnessDown   $exe xbacklight -dec 15 # decrease screen brightness
 
-#    {{ VOLUME / regulacja głośności:}}
-bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume 0 +5%  && pkill -RTMIN+1 i3blocks
-bindsym $mod+minus           exec --no-startup-id pactl set-sink-volume 0 -5%  && pkill -RTMIN+1 i3blocks
-bindsym $mod+Shift+plus      exec --no-startup-id pactl set-sink-volume 0 +10% && pkill -RTMIN+1 i3blocks
-bindsym $mod+Shift+minus     exec --no-startup-id pactl set-sink-volume 0 -10% && pkill -RTMIN+1 i3blocks
+#    {{ VOLUME / regulacja głośności: }}
+bindsym $mod+plus            $exe pactl set-sink-volume 0 +5%  && pkill -RTMIN+1 i3blocks
+bindsym $mod+minus           $exe pactl set-sink-volume 0 -5%  && pkill -RTMIN+1 i3blocks
+bindsym $mod+Shift+plus      $exe pactl set-sink-volume 0 +10% && pkill -RTMIN+1 i3blocks
+bindsym $mod+Shift+minus     $exe pactl set-sink-volume 0 -10% && pkill -RTMIN+1 i3blocks
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume 0 -- +10% && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -- -10% && pkill -RTMIN+1 i3blocks
 
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
-#bindsym $mod+plus            exec --no-startup-id pactl set-sink-volume $sink -- +10%
+#bindsym $mod+plus            $exe pactl set-sink-volume $sink -- +10%
 #bindsym $mod+minus           exec --no-startEOFup-id pactl set-sink-volume $sink -- -10%
-#bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute $sink toggle
-bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioPlay        exec --no-startup-id mocp -G 
-bindsym XF86AudioStop        exec --no-startup-id mocp -s 
-bindsym XF86AudioNext        exec --no-startup-id mocp -f
-bindsym XF86AudioPrev        exec --no-startup-id mocp -r
+#bindsym XF86AudioMute        $exe pactl set-sink-mute $sink toggle
+bindsym XF86AudioMute        $exe amixer set Master toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioPlay        $exe mocp -G 
+bindsym XF86AudioStop        $exe mocp -s 
+bindsym XF86AudioNext        $exe mocp -f
+bindsym XF86AudioPrev        $exe mocp -r
 
 #    {{ zrzut ekranu:}}
 # zrzut calego ekranu
-bindsym Print            exec --no-startup-id scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
+bindsym Print            $exe scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 # zrzut tylko aktywnego okna
-bindsym $mod+Print       exec --no-startup-id scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
+bindsym $mod+Print       $exe scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 
 #    {{ touchpad OFF/ON:}}
 bindsym $mod+z           exec synclient TouchpadOff=1
@@ -565,66 +564,66 @@ bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
 # qutebrowser
-#bindsym $mod+b              workspace 2; exec --no-startup-id qutebrowser
-bindsym $mod+b              exec --no-startup-id ~/.dotfiles/bin/i3-qtb-launcher.sh 
-bindsym $mod+Shift+b        exec --no-startup-id qutebrowser
-bindsym $mod+p              workspace 7; exec --no-startup-id qutebrowser :command ":open -p"
+#bindsym $mod+b              workspace 2; $exe qutebrowser
+bindsym $mod+b              $exe ~/.dotfiles/bin/i3-qtb-launcher.sh 
+bindsym $mod+Shift+b        $exe qutebrowser
+bindsym $mod+p              workspace 7; $exe qutebrowser :command ":open -p"
 # emacs
-#bindsym $mod+e              workspace 1; exec --no-startup-id emacs
-bindsym $mod+e              exec --no-startup-id ~/.dotfiles/bin/i3-emacs-launcher.sh 
-bindsym $mod+Shift+e        exec --no-startup-id $term -e emacsclient -nw
-bindsym $mod+Control+e      exec --no-startup-id $term -e ~/.dotfiles/bin/notes.sh 
+#bindsym $mod+e              workspace 1; $exe emacs
+bindsym $mod+e              $exe ~/.dotfiles/bin/i3-emacs-launcher.sh 
+bindsym $mod+Shift+e        $exe $term -e emacsclient -nw
+bindsym $mod+Control+e      $exe $term -e ~/.dotfiles/bin/notes.sh 
 # mail & feed
-bindsym $mod+n              workspace 10; exec --no-startup-id $term -e newsboat
-bindsym $mod+m              exec --no-startup-id ~/.dotfiles/bin/neomutt-i3launcher.sh
+bindsym $mod+n              workspace 10; $exe $term -e newsboat
+bindsym $mod+m              $exe ~/.dotfiles/bin/neomutt-i3launcher.sh
 # calcurse todo: napisać skrypt, który będzie otwierał scratchpad, jeśli calc już jest włączone 
-# bindsym $mod+Shift+c        exec --no-startup-id $term -e calcurse
+# bindsym $mod+Shift+c        $exe $term -e calcurse
 # mocp
-bindsym $mod+Shift+m        exec --no-startup-id $term -e mocp
+bindsym $mod+Shift+m        $exe $term -e mocp
 # ranger & thunar
-bindsym $mod+r              exec --no-startup-id $term -e ranger
-bindsym $mod+t              exec --no-startup-id thunar
+bindsym $mod+r              $exe $term -e ranger
+bindsym $mod+t              $exe thunar
 # sys + appearance
 bindsym $mod+h              bar mode toggle
-bindsym Scroll_Lock         exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
-bindsym $mod+Shift+x        exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.sh
+bindsym Scroll_Lock         $exe ~/.dotfiles/i3/i3lock/lock.sh
+bindsym $mod+Shift+x        $exe ~/.dotfiles/i3/i3lock/lock.sh
 bindsym $mod+x              exec systemctl suspend      
 # compton ?
-bindsym $mod+Ctrl+F2        exec --no-startup-id compton
+bindsym $mod+Ctrl+F2        $exe compton
 bindsym $mod+F2             exec pkill compton
 # HELP
-bindsym $mod+F1             exec --no-startup-id ~/.dotfiles/bin/i3quick-help.sh
+bindsym $mod+F1             $exe ~/.dotfiles/bin/i3quick-help.sh
 # network manager
-bindsym $mod+Shift+n        exec --no-startup-id $term -e nmtui
+bindsym $mod+Shift+n        $exe $term -e nmtui
 # move scratchpad
 bindsym $mod+Shift+s    move scratchpad
 
 #bindsym $mod+e              exec emacs
-#bindsym $mod+g              workspace $ws10; exec --no-startup-id $term -e mutt 
-#bindsym $mod+n              exec --no-startup-id $term -e calcurse 
+#bindsym $mod+g              workspace $ws10; $exe $term -e mutt 
+#bindsym $mod+n              $exe $term -e calcurse 
 #bindsym $mod+r              exec $term -e ranger
-#bindsym $mod+t              exec --no-startup-id thunar
+#bindsym $mod+t              $exe thunar
 #bindsym $mod+w              exec firefox
-#bindsym $mod+F8             exec --no-startup-id mocp -p
+#bindsym $mod+F8             $exe mocp -p
 #    {{ dmenu scpripts}}
-#bindsym $mod+semicolon      exec --no-startup-id ~/.dotfiles/dmenu/dmenu-kill.sh
-bindsym $mod+semicolon      exec --no-startup-id rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
-bindsym $mod+a              exec --no-startup-id ~/.dotfiles/bin/rofi-media.sh
-#bindsym $mod+Shift+d        exec --no-startup-id dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
-bindsym $mod+Shift+d        exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -nf '#2980b9' -p 'run:'" --term="st"
-bindsym $mod+d              exec --no-startup-id rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
+#bindsym $mod+semicolon      $exe ~/.dotfiles/dmenu/dmenu-kill.sh
+bindsym $mod+semicolon      $exe rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
+bindsym $mod+a              $exe ~/.dotfiles/bin/rofi-media.sh
+#bindsym $mod+Shift+d        $exe dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
+bindsym $mod+Shift+d        $exe j4-dmenu-desktop --dmenu="dmenu -i -sb '#2980b9' -nb '#000000' -nf '#2980b9' -p 'run:'" --term="st"
+bindsym $mod+d              $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
 
 ##  { NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
-# bindsym $mod+F9		exec --no-startup-id sudo bash ~/.i3/bin/mount.sh
-# bindsym $mod+F10	exec --no-startup-id sudo bash ~/.i3/bin/unmount.sh
+# bindsym $mod+F9		$exe sudo bash ~/.i3/bin/mount.sh
+# bindsym $mod+F10	$exe sudo bash ~/.i3/bin/unmount.sh
 
 #    {{ screencasting:}}
-bindsym $mod+F12        exec --no-startup-id ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
+bindsym $mod+F12        $exe ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
 #    {{ append & reload:}}
-bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
+bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
 
 ##  {{ SPADY!}}                    
 # bindsym $mod+Shift+q             kill
@@ -633,19 +632,19 @@ bindsym $mod+Ctrl+a     exec --no-startup-id ~/.dotfiles/bin/i3append.sh
 # bindsym $mod+Control+r          workspace $ws6; exec $term -e ranger
 # bindsym $mod+Control+t          workspace $ws6; exec thunar
 # bindsym $mod+p                  workspace $ws7; exec mtpaint
-# bindsym $mod+Control+0          workspace $ws10; exec --no-startup-id qutebrowser
-# bindsym $mod+Control+b          workspace $ws10; exec --no-startup-id qutebrowser
+# bindsym $mod+Control+0          workspace $ws10; $exe qutebrowser
+# bindsym $mod+Control+b          workspace $ws10; $exe qutebrowser
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Shift+c   exec $term -e calcurse
 # bindsym $mod+c         exec $term -e 'bc -q'
-#exec --no-startup-id compton --config ~/.config/compton.conf -b
-#bindsym $mod+d         exec --no-startup-id j4-dmenu-desktop #-sb '#b58900'
-#bindsym $mod+d         exec --no-startup-id dmenu_run -sb '#b58900' -p 'run:'
-# bindsym $mod+g         workspace $ws10; exec --no-startup-id ~/.dotfiles/bin/mutt.sh
-# bindsym $mod+n         split h exec --no-startup-id $term -e nano 
-# bindsym $mod+Shift+n   split v exec --no-startup-id $term -e nano
-# bindsym $mod+Control+n exec --no-startup-id $term -e ~/.dotfiles/bin/notes.sh
-#bindsym F8             workspace $ws8; exec --no-startup-id $term -e mocp
+#$exe compton --config ~/.config/compton.conf -b
+#bindsym $mod+d         $exe j4-dmenu-desktop #-sb '#b58900'
+#bindsym $mod+d         $exe dmenu_run -sb '#b58900' -p 'run:'
+# bindsym $mod+g         workspace $ws10; $exe ~/.dotfiles/bin/mutt.sh
+# bindsym $mod+n         split h $exe $term -e nano 
+# bindsym $mod+Shift+n   split v $exe $term -e nano
+# bindsym $mod+Control+n $exe $term -e ~/.dotfiles/bin/notes.sh
+#bindsym F8             workspace $ws8; $exe $term -e mocp
 
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
