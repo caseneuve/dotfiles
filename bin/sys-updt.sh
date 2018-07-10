@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 10.07.18, 11:58:36 @x200
+# Last update: 10.07.18, 23:14:34 @x200
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -24,12 +24,12 @@ DISTRO=antergos
 checkupdates > /tmp/sysupdt
 
 if (( $num > 0 )); then
-    [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span bgcolor=\"#e74c3c\">♻<sup>$num</sup></span>" || echo -e "<span bgcolor=\"#ececec\">♻<sup>$num</sup></span>"
+    [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span bgcolor='#e74c3c'> 𝕌$num </span>" || echo -e "<span bgcolor='#ececec'> 𝕌$num </span>"
 fi
 
 case $BLOCK_BUTTON in
     # left click 
-    1) notify-send "System update:
+    1) notify-send -u critical "System update:
 --------------" "$check" -i $dir/$DISTRO-logo.png;;
     # right click
     3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks";;

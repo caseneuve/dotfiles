@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 10.07.18, 21:18:10 @x200
+# Last update: 10.07.18, 22:09:14 @x200
 
 # Doc:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -34,17 +34,15 @@ if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
             fi
         fi
         if [ "$STATUS" = "PLAY" ]; then
-#            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $ARTIST $SONGTITLE -- $TIME ♫ </span>"
-            echo -e "<span bgcolor=\"#4098D6\"> ♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫ </span>"
+            echo -e "<span bgcolor='#36648b'> ♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫ </span>"
         else
-            echo -e "♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫"
+            echo -e "<span fgcolor='#6F7D91'>♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫</span>"
         fi
     else
         if [ "$STATUS" = "PLAY" ]; then
-#            echo -e "<span bgcolor=\"#00FF007F\"> ♫ $FILE -- $TIME </span>"
-            echo -e "<span bgcolor=\"#34495E\"> ♫ $FILE :: $TIME [-$LEFT] ♫ </span>"
+            echo -e "<span bgcolor=\"#34495E\">♫ $FILE $TIME [-$LEFT] ♫ </span>"
         else
-            echo -e "♫ $FILE :: $TIME [-$LEFT] ♫"
+            echo -e "♫ $FILE $TIME [-$LEFT] ♫"
         fi
     fi
     case $BLOCK_BUTTON in

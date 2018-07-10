@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 01.07.18, 21:14:34 @lenovo
+# Last update: 10.07.18, 22:16:28 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -31,6 +31,7 @@ alias lal='ls -al --group-directories-first'
 alias kl=pkill
 alias grep='grep --color=auto'
 alias thg='tmux new-window -n "hg" "hangups"'
+alias xclip='xclip -selection c'
 
 ###########
 ## FUNKCJE 
