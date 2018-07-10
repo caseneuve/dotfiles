@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 10.07.18, 23:14:34 @x200
+# Last update: 10.07.18, 23:37:20 @lenovo
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -24,7 +24,7 @@ DISTRO=antergos
 checkupdates > /tmp/sysupdt
 
 if (( $num > 0 )); then
-    [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span bgcolor='#e74c3c'> 𝕌$num </span>" || echo -e "<span bgcolor='#ececec'> 𝕌$num </span>"
+    [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span bgcolor='#e74c3c'><span fgcolor='#ececec'> 𝕌$num </span></span>" || echo -e "<span bgcolor='#ececec'> 𝕌$num </span>"
 fi
 
 case $BLOCK_BUTTON in
