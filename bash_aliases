@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 10.07.18, 22:16:28 @x200
+# Last update: 11.07.18, 23:33:47 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -32,10 +32,19 @@ alias kl=pkill
 alias grep='grep --color=auto'
 alias thg='tmux new-window -n "hg" "hangups"'
 alias xclip='xclip -selection c'
+alias cpwd='pwd | xclip -selection c'
 
 ###########
 ## FUNKCJE 
 ###########
+
+# find file
+
+find_file(){
+    find $1 -type f | grep $2
+}
+
+alias fif=find_file
 
 # alias add
 alias_add(){
@@ -314,23 +323,18 @@ alias mal=malias_func
 # fast dirs start
 
 alias gh='cd /home/piotr'
-alias ga='cd /home/piotr/Pobrane'
-alias gaa='cd /home/piotr/Pobrane'
+alias ga='cd /home/piotr/dwl'
+alias gaa='cd /home/piotr/dwl'
 alias gag='cd /home/piotr/attachments'
 alias gab='cd /home/piotr/audiobooks'
-alias go='cd /home/piotr/Obrazy'
-alias gw='cd /home/piotr/Wideo'
-alias gm='cd /home/piotr/Muzyka'
+alias go='cd /home/piotr/obr'
+alias gw='cd /home/piotr/wid'
+alias gm='cd /home/piotr/muz'
 alias gp='cd /home/piotr/pdf'
-alias gb='cd /home/piotr/biurko'
-alias gB='cd /home/piotr/.bin'
-alias gS='cd /home/piotr/Szkoła'
-alias gP='cd /home/piotr/Pulpit'
-alias gkk='cd /home/piotr/Książki'
-alias gkK='cd /home/piotr/Kursy'
-alias gku='cd /home/piotr/Kursy/Udemy-web-developer-bootcamp'
-alias gke='cd /home/piotr/Kursy/Udemy-web-developer-bootcamp/Exercises'
-alias gy='cd /home/piotr/Dokumenty'
+alias gb='cd /home/piotr/biu'
+alias gB='cd /home/piotr/bin'
+alias gS='cd /home/piotr/szk'
+alias gy='cd /home/piotr/dox'
 alias gc='cd /home/piotr/.config'
 alias gcc='cd /home/piotr/.config'
 alias gcr='cd /home/piotr/.config/ranger'
@@ -348,15 +352,10 @@ alias gdr='cd /home/piotr/.dotfiles/ranger'
 alias gdc='cd /home/piotr/.dotfiles/calcurse'
 alias gdB='cd /home/piotr/.dotfiles/Boot-ex'
 alias gdq='cd /home/piotr/.dotfiles/qtbro'
-alias gx='cd /home/piotr/Dropbox'
-alias gxx='cd /home/piotr/Dropbox'
-alias gxc='cd /home/piotr/Dropbox/config'
-alias gxl='cd /home/piotr/Dropbox/linux'
-alias gxp='cd /home/piotr/Dropbox/linux/pdf'
-alias gxs='cd /home/piotr/Dropbox/!szkoła'
-alias ge='cd /home/piotr/Dropbox/EMACS'
-alias gee='cd /home/piotr/Dropbox/EMACS'
-alias gs='cd /home/piotr/Dropbox/EMACS/szkoła'
+alias gx='cd /home/piotr/box/Dropbox'
+alias gxx='cd /home/piotr/box/Dropbox'
+alias gxc='cd /home/piotr/box/Dropbox/.Config'
+alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
 alias geg='cd /home/piotr/.emacs.git'
 alias ged='cd /home/piotr/.emacs.d'
 alias gcm='cd /home/piotr/.mutt'
@@ -364,10 +363,10 @@ alias gdx='cd /home/piotr/.dotfiles/Boot-ex'
 alias gM='cd /media'
 alias gr='cd /'
 alias gR='cd /root'
-alias gg='cd /home/piotr/gitlab'
-alias ggg='cd /home/piotr/gitlab'
-alias ggl='cd /home/piotr/gitlab/liberal_artist_org'
-alias gcs='cd /home/piotr/suckless/st'
+alias gg='cd /home/piotr/git/lab'
+alias ggg='cd /home/piotr/git/lab'
+alias ggl='cd /home/piotr/git/lab/liberal_artist_org'
+alias gcs='cd /home/piotr/git/hub/suckless/st'
 
 # fast dirs end
 
