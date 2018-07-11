@@ -8,7 +8,7 @@
 ####################################################
 
 ## {STATUS}
-# Last update: 10.07.18, 20:40:43 @x200
+# Last update: 11.07.18, 11:28:46 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 
 ## {VARIABLES & general SETTINGS}       
@@ -471,7 +471,7 @@ set $sbwabg #00001f26
 #    {{ bar: primary }} 
 bar {
         output primary
-        tray_output none
+        tray_output primary
         modifier $mod 
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
         i3bar_command i3bar -t
@@ -499,7 +499,7 @@ bar {
 
 bar {
         output VGA1
-        tray_output none     
+        tray_output primary
         modifier $mod 
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
         i3bar_command i3bar -t 

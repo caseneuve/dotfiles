@@ -7,27 +7,27 @@
 ###                               ###
 #####################################
 
-# Last update: 26.06.18, 20:10:15 @lenovo
+# Last update: 11.07.18, 17:31:49 @x200
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
 ## { GENERAL }
 #   {{ ACCOUNTS }}
 #    {{{ Akwinata }}}
-source ~/Dropbox/config/mutt/.muttakwinata
-folder-hook $folder 'source ~/Dropbox/config/mutt/.muttakwinata'
+source ~/box/Dropbox/.Config/Mutt/.muttakwinata
+folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttakwinata'
 #    {{{ Gmail }}}
-source ~/Dropbox/config/mutt/.muttgmail
-folder-hook $folder 'source ~/Dropbox/config/mutt/.muttgmail'
+source ~/box/Dropbox/.Config/Mutt/.muttgmail
+folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
 #    {{{ hooks }}}
-folder-hook Akwinata]/*   source ~/Dropbox/config/mutt/.muttakwinata
-folder-hook Gmail]/*     source ~/Dropbox/config/mutt/.muttgmail
+folder-hook Akwinata]/*   source ~/box/Dropbox/.Config/Mutt/.muttakwinata
+folder-hook Gmail]/*     source ~/box/Dropbox/.Config/Mutt/.muttgmail
 
 #    {{{ kbd }}}
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/Dropbox/config/mutt/.muttgmail<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/Dropbox/config/mutt/.muttakwinata<enter><change-folder>!<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttgmail<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttakwinata<enter><change-folder>!<enter>'
 
 #   {{ aliasy}}
-set alias_file = "~/Dropbox/config/mutt/.mutt_aliases"
+set alias_file = "~/box/Dropbox/.Config/Mutt/.mutt_aliases"
 source $alias_file
 #set sort_alias = alias
 #set reverse_alias = yes

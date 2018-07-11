@@ -6,7 +6,7 @@
 #   {{ Which monitor should the notifications be displayed on. }}
     monitor = 0
 
-# Display notification on focused monitor.  Possible modes are:
+    # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
     #   keyboard: follow window with keyboard focus
     #   none: don't follow anything
@@ -31,13 +31,13 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x5-20+20"
+    geometry = "300x5-20+20"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
 
     # Shrink window if it's smaller than the width.  Will be ignored if width is 0.
-    shrink = no
+    shrink = yes
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -84,8 +84,7 @@
     # Transient notifications ignore this setting.
     idle_threshold = 120
 
-### { Text } ###
-
+    ### { Text } ###
     font = Monospace 10
 
     # The spacing between lines.  If the height is smaller than the
@@ -130,8 +129,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = center
-    #left
+    alignment = left
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -159,7 +157,6 @@
     show_indicators = yes
 
     ### { Icons } ###
-
     # Align icons left/right/off
     icon_position = off
     #left
@@ -169,10 +166,10 @@
     #32
 
     # Paths to default icons.
-    icon_path = /home/piotr/Obrazy/ # /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /home/piotr/Obrazy/
+    # /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### { History } ###
-
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
     sticky_history = yes
@@ -181,13 +178,13 @@
     history_length = 20
 
     ### { Misc/Advanced } ###
-
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox -new-tab
-
+    #browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/qutebrowser
+    
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
 
@@ -203,7 +200,6 @@
     startup_notification = false
 
     ### { Legacy }
-
     # Use the Xinerama extension instead of RandR for multi-monitor support.
     # This setting is provided for compatibility with older nVidia drivers that
     # do not support RandR and using it on systems that support RandR is highly

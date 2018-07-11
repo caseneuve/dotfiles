@@ -1,10 +1,10 @@
 ############################################
 ###               MUTT: COLORS
 ############################################
-# Last update: 13.06.18, 17:53:12 @x200
+# Last update: 11.07.18, 17:35:05 @x200
 
 # Doc:
-# ~/Dropbox/config/mutt/manjaro-color >> symlink >> ~/.mutt/schemes/manjaro-color
+# note: to chyba stary konfig?
 
 ## {MAIN}
 color    quoted        cyan            default

@@ -4,29 +4,24 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 08.07.18, 22:33:23 @x200
+# Last update: 11.07.18, 17:42:12 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
 
 gh     /home/piotr 
-ga     /home/piotr/Pobrane
-gaa    /home/piotr/Pobrane
+ga     /home/piotr/dwl
+gaa    /home/piotr/dwl
 gag    /home/piotr/attachments
 gab    /home/piotr/audiobooks
-go     /home/piotr/Obrazy
-gw     /home/piotr/Wideo
-gm     /home/piotr/Muzyka
+go     /home/piotr/obr
+gw     /home/piotr/wid
+gm     /home/piotr/muz
 gp     /home/piotr/pdf
-gb     /home/piotr/biurko
-gB     /home/piotr/.bin
-gS     /home/piotr/Szkoła
-gP     /home/piotr/Pulpit
-gkk    /home/piotr/Książki
-gkK    /home/piotr/Kursy
-gku    /home/piotr/Kursy/Udemy-web-developer-bootcamp
-gke    /home/piotr/Kursy/Udemy-web-developer-bootcamp/Exercises
-gy     /home/piotr/Dokumenty
+gb     /home/piotr/biu
+gB     /home/piotr/bin
+gS     /home/piotr/szk
+gy     /home/piotr/dox
 
 gc     /home/piotr/.config
 gcc    /home/piotr/.config
@@ -47,16 +42,11 @@ gdc    /home/piotr/.dotfiles/calcurse
 gdB    /home/piotr/.dotfiles/Boot-ex
 gdq    /home/piotr/.dotfiles/qtbro
 
-gx     /home/piotr/Dropbox
-gxx    /home/piotr/Dropbox
-gxc    /home/piotr/Dropbox/config
-gxl    /home/piotr/Dropbox/linux
-gxp    /home/piotr/Dropbox/linux/pdf
-gxs    /home/piotr/Dropbox/!szkoła
+gx     /home/piotr/box/Dropbox
+gxx    /home/piotr/box/Dropbox
+gxc    /home/piotr/box/Dropbox/.Config
+gxs    /home/piotr/box/Dropbox/Szkoła
 
-ge     /home/piotr/Dropbox/EMACS
-gee    /home/piotr/Dropbox/EMACS
-gs     /home/piotr/Dropbox/EMACS/szkoła
 geg    /home/piotr/.emacs.git 
 ged    /home/piotr/.emacs.d 
 
@@ -67,11 +57,11 @@ gM     /media
 gr     /
 gR     /root
 
-gg     /home/piotr/gitlab
-ggg    /home/piotr/gitlab
-ggl    /home/piotr/gitlab/liberal_artist_org
+gg     /home/piotr/git/lab
+ggg    /home/piotr/git/lab
+ggl    /home/piotr/git/lab/liberal_artist_org
 
-gcs    /home/piotr/suckless/st
+gcs    /home/piotr/git/hub/suckless/st
 
 # Local variables:
 # eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")
