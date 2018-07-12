@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/dropupdate.sh
 # Created:     11.07.18, 18:01    @x200
-# Last update: 12.07.18, 19:03:59 @x200
+# Last update: 12.07.18, 19:41:23 @x200
 
 # Doc:
 # todo: zainstalować sysstat @toshiba
@@ -18,7 +18,8 @@ mv ~/Obrazy ~/obr
 mv ~/attachments ~/dwl/att
 
 # make dirs
-mkdir -p box dox/org git/lab git/hub szk szk/2017-2018 bin 
+
+mkdir -p ~/box ~/dox/org ~/git/lab ~/git/hub ~/szk/2017-2018 ~/bin 
 
 # make hard links
 ln /home/piotr/box/Dropbox/.Config/Qutebrowser/urls                 ~/.config/qutebrowser 
