@@ -1,7 +1,7 @@
 ########################
 ###   MY MOCP CONFIG
 ########################
-# Last update: 19.05.18, 17:26:57 @x200
+# Last update: 13.07.18, 01:13:46 @lenovo
 
 # {INTRO}
 # This is a configuration file for the MOC player.  It should be named
@@ -66,7 +66,7 @@ ReadTags = yes
 #
 # Example:    MusicDir = "/home/joe/music"
 #
-MusicDir = "/home/piotr/Muzyka"
+MusicDir = "/home/piotr/muz"
 
 # {{ Where to start mocp? }}
 # Start in the music directory by default?  If set to 'no', start
