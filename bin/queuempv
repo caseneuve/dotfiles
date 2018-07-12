@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Path:        ~/biurko/bash/queuempv.sh
+# Created:     11.07.18, 01:26    @x200
+# Last update: 12.07.18, 00:14:27 @x200
+
+# Doc:
+
+TARGET="$1"
+MOC_STATUS=$(mocp -i | grep "State:" | sed -e "s/^.*: //")
+
+if [ "$MOC_STATUS" = "PLAY" ]; then
+    mocp -P
+fi
+
+if [[ $(xdotool search --class mpv) ]]; then
+    echo "loadfile \"$TARGET\" append-play" > /tmp/mp_pipe
+else
+    [[ -e /tmp/mp_pipe ]] || mkfifo /tmp/mp_pipe
+    mpv --save-position-on-quit --input-file=/tmp/mp_pipe "$TARGET" &
+fi
+
