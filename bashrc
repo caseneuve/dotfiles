@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 26.06.18, 19:59:47 @lenovo
+# Last update: 12.07.18, 14:00:42 @x200
 
 # Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -32,16 +32,30 @@ WHITE="$(tput setaf 15)"
 WHITEBG="$(tput setab 15)"
 BOLD="$(tput bold)"
 RESET="$(tput sgr0)"
+BLACK="$(tput setaf 8)"
+MAGENTA="$(tput setaf 13)"
 
 # → string format
-export PS1='\[${BLUEBG}\]\[${WHITE}\]\A \[${GREENBG}\]\[${WHITE}\] \w \[${REDBG}\]\[${WHIFG}\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[${RESET}\] \[${ORANGE}\]\[${BOLD}\]\$\[${RESET}\] '
+# export PS1='\[${BLUEBG}\]\[${WHITE}\]\A \[${GREENBG}\]\[${WHITE}\] \w \[${REDBG}\]\[${WHIFG}\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[${RESET}\] \[${ORANGE}\]\[${BOLD}\]\$\[${RESET}\] '
 
-# → old
-#PS1='[\u@\h \W]\$ '
-#PS1='\[\e[33m\][\[\e[36m\]\A \[\e[32m\]\w\[\e[m\e[33m\]]\[\e[33m\]$\[\e[0m\] '
-#PS1='\[\e[33m\][\[\e[1;36m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\]]$\[\e[0m\] '
-#PS1='\e[33m\] \e[34m\]\e[1;43m\]\A \[\e[32m\]\w \[\e[31m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[m\e[33m\] $\[\e[0m\]\e[m '
+# rightprompt()
+# {
+#     [[ $? == 0 ]] && printf $BLUE || printf $BOLD$RED
+#     printf "%*s" $COLUMNS "$(date +%H:%M)"
+# }
+#\[$(tput sc; rightprompt; tput rc)\]
 
+exitstatus()
+{
+    if [[ $? == 0 ]]; then
+        echo $BLUE
+    else
+        echo $RED
+    fi
+}
+
+export PS1='\[$(exitstatus)\]\# \[$GREEN\]\w \[$RED\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$ORANGE\]\$\[$RESET\] '
+export PS2="\[$ORANGE\]> \[$RESET\]"
 shopt -s autocd
 
 # VARIABLES:
@@ -49,7 +63,7 @@ export BROWSER=/usr/bin/qutebrowser
 export VISUAL=""
 export EDITOR='emacsclient -nw'
 export ALTERNATE_EDITOR="nano"
-export PATH=$PATH:~/.bin
+export PATH=$PATH:~/bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
 # export TERM=xterm-xfree86
 

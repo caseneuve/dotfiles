@@ -719,7 +719,7 @@ c.confirm_quit = ['always']
 ## Directory to save downloads to. If unset, a sensible OS-specific
 ## default is used.
 ## Type: Directory
-c.downloads.location.directory = '~/Pobrane'
+c.downloads.location.directory = '~/dwl'
 
 ## Prompt the user for the download location. If set to false,
 ## `downloads.location.directory` will be used.

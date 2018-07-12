@@ -8,7 +8,7 @@
 ####################################################
 
 ## {STATUS}
-# Last update: 11.07.18, 11:28:46 @x200
+# Last update: 12.07.18, 17:54:45 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 
 ## {VARIABLES & general SETTINGS}       
@@ -410,8 +410,8 @@ smart_borders on
 #    {{ sticky windows: }}
 for_window [class=mpv]  sticky enable
 bindsym $mod+v          sticky toggle
-#bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move window to position $vright $vtop; move container to output primary
-bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move container to output primary; move right 590 px; move up 120 px 
+bindsym $mod+Shift+v    $exe ~/.dotfiles/bin/i3video
+# bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move container to output primary; move right 590 px; move up 120 px 
 #    {{toggle gaps 0 / default:}}
 bindsym $mod+Shift+G    gaps inner current set $gin; gaps outer current set $gou
 bindsym $mod+g          gaps inner current set 0; gaps outer current set 0

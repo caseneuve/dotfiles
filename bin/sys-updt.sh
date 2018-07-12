@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 10.07.18, 23:37:20 @lenovo
+# Last update: 12.07.18, 14:46:35 @x200
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -18,8 +18,8 @@ num=`cat $file | wc -l`
 redbg=`tput setab 1`
 nor=`tput sgr0`
 DISTRO=antergos
-#DISTRO=`cat /etc/*-release | grep ^ID= | sed 's/^ID=\"\|\"\|ID=//g'`
-#DISTRO=`cat /etc/issue | awk '{print tolower($1)}' | head -n 1`
+# DISTRO=`cat /etc/*-release | grep ^ID= | sed 's/^ID=\"\|\"\|ID=//g'`
+# DISTRO=`cat /etc/issue | awk '{print tolower($1)}' | head -n 1`
 
 checkupdates > /tmp/sysupdt
 
@@ -30,8 +30,9 @@ fi
 case $BLOCK_BUTTON in
     # left click 
     1) notify-send -u critical "System update:
---------------" "$check" -i $dir/$DISTRO-logo.png;;
+--------------" "$check" -i $dir/$DISTRO-logo.png && exit 0;;
     # right click
-    3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks";;
+    3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu"
+       pkill -RTMIN+12 i3blocks && exit 0;;
 esac
 

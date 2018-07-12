@@ -2,7 +2,7 @@
 ###   MY BASHRC FOR ROOT   ###
 ##############################
 
-# Last update: 26.06.18, 15:06:29 @toshiba
+# Last update: 12.07.18, 13:07:30 @x200
 # Doc: symlinked to /root/.bashrc
 
 # If not running interactively, don't do anything
@@ -12,18 +12,26 @@
 # → colors
 BOLD=$(tput bold)
 CYAN=$(tput setaf 14)
+BLUE="$(tput setaf 4)"
+RED=$(tput setaf 9)
+ORANGE="$(tput setaf 3)"
 REDBG=$(tput setab 9)
 GREEN=$(tput setaf 2)
 GREENBG=$(tput setab 13)
 BLACK=$(tput setaf 8)
+MAGENTA="$(tput setaf 13)"
 RESET=$(tput sgr0)
 
 # → string format
-PS1='\[${BOLD}\]\[${REDBG}\] \u \[${RESET}\]\[${GREENBG}\]\[${WHITE}\] \w \[${RESET}\]\[${CYAN}\]\[${BOLD}\] \$\[${RESET}\] '
+# PS1='\[${BOLD}\]\[${REDBG}\] \u \[${RESET}\]\[${GREENBG}\]\[${WHITE}\] \w \[${RESET}\]\[${CYAN}\]\[${BOLD}\] \$\[${RESET}\] '
 
-# → old
-#PS1='[\u@\h \W]\$ '
-#PS1='${bold}${RED}[\u${RESET} ${GREEN}\w${BOLD}${RED}]\$${RESET} '
+rightprompt()
+{
+    [[ $? == 0 ]] && printf $RED || printf $BOLD$BLUE
+    printf "%*s" $COLUMNS "$(date +%H:%M)"
+}
+
+export PS1='\[$(tput sc; rightprompt; tput rc)\]\[$RED\]\# \[$CYAN\]\w \[$MAGENTA\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$RED\]\$\[$RESET\] '
 
 # auto CD
 shopt -s autocd
