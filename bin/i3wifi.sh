@@ -2,16 +2,12 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 10.07.18, 16:41:19 @x200
+# Last update: 12.07.18, 20:44:43 @toshiba
 
 # Doc:
-# if [[ -n $BLOCK_INSTANCE ]]; then
-#   IF=$BLOCK_INSTANCE
-# else
-#   IF=$(ip route | awk '/^default/ { print $5 ; exit }')
-# fi
 
-IF=wls1
+IF=$(ip route | awk '/^default/ { print $5 ; exit }')
+
 CONN=`ping -c 1 1.1.1.1 2>/dev/null`
 QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
