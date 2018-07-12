@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 12.07.18, 20:44:43 @toshiba
+# Last update: 13.07.18, 01:23:06 @lenovo
 
 # Doc:
 
@@ -32,3 +32,9 @@ fi
 
 #if [ ! `echo $CONN` = "" ]; then echo "zero"; fi
 # ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo ok || echo error
+
+case $BLOCK_BUTTON in
+    # left click 
+    1) notify-send -u low "Dropbox status:
+--------------" "$(dropbox-cli status)" -i ~/box/Dropbox/.Config/dropbox-logo.png && exit 0;;
+esac
