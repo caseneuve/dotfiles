@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/dropupdate.sh
 # Created:     11.07.18, 18:01    @x200
-# Last update: 12.07.18, 15:26:23 @x200
+# Last update: 12.07.18, 19:03:59 @x200
 
 # Doc:
 # todo: zainstalować sysstat @toshiba
@@ -31,6 +31,8 @@ ln /home/piotr/box/Dropbox/.Config/Emacs/bookmarks                  ~/.emacs.d
 ln /home/piotr/box/Dropbox/.Config/Emacs/client-dark-theme.el       ~/.emacs.d
 ln /home/piotr/box/Dropbox/.Config/Emacs/leuven-deluxe-theme.el     ~/.emacs.d
 ln /home/piotr/box/Dropbox/.Config/Emacs/misterioso-deluxe-theme.el ~/.emacs.d
+ln /home/piotr/box/Dropbox/.Config/Emacs/init.el                    ~/.emacs.d
+ln /home/piotr/box/Dropbox/.Config/Emacs/init.org                   ~/.emacs.d
 ln ~/box/Dropbox/Szkoła/2017-2018/lekcje/dialektyka17-18.org        ~/szk/dialektyka.org 
 ln ~/box/Dropbox/Szkoła/2017-2018/lekcje/retoryka17-18.org          ~/szk/retoryka.org  
 ln ~/box/Dropbox/Szkoła/2017-2018/lekcje/filozofia17-18.org         ~/szk/filozofia.org 
