@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 11.07.18, 23:33:47 @x200
+# Last update: 12.07.18, 18:21:31 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -26,6 +26,7 @@ alias 'cd.'='cd ..'
 alias '..'='cd ..'
 alias lg='ls --group-directories-first'
 alias lg1='ls -1 --group-directories-first'
+alias ls1='ls -1'
 alias lag='ls -a --group-directories-first'
 alias lal='ls -al --group-directories-first'
 alias kl=pkill
