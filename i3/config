@@ -8,7 +8,7 @@
 ####################################################
 
 ## {STATUS}
-# Last update: 13.07.18, 01:25:31 @lenovo
+# Last update: 13.07.18, 15:15:54 @lenovo
 # TODO: [ ] floating windows' position @ 2 screens
 
 ## {VARIABLES & general SETTINGS}       
@@ -642,6 +642,8 @@ bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
 # bindsym $mod+Shift+n   split v $exe $term -e nano
 # bindsym $mod+Control+n $exe $term -e ~/.dotfiles/bin/notes.sh
 #bindsym F8             workspace $ws8; $exe $term -e mocp
+
+bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-dispatcher
 
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #

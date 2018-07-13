@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Path:        ~/scr/rchoose.sh
+# Created:     13.07.18, 13:55    @lenovo
+# Last update: 13.07.18, 15:40:35 @lenovo
+
+# Doc:
+
+selected=$(ls ~/bin | rofi -i -theme mytheme -dmenu -p "choose script to edit: ")
+[[ -z "$selected" ]] && exit 1
+i3-msg "exec --no-startup-id st -t emacsclient -e emacsclient -nw ~/bin/$selected" 

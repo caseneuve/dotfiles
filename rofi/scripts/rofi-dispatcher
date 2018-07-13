@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Path:        ~/scr/rofi-dispatcher.sh
+# Created:     13.07.18, 15:12    @lenovo
+# Last update: 13.07.18, 15:24:15 @lenovo
+
+# Doc:
+
+selected=$(ls ~/.dotfiles/rofi/scripts | grep -v "rofi-dispatcher\|rofi-cli-starter\|rofi-sys-dispatcher" | rofi -theme mytheme -dmenu -p "choose the script to run: ")
+[[ -z "$selected" ]] && exit
+~/.dotfiles/rofi/scripts/$selected
