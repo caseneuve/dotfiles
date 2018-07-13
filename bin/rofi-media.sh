@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/rofi-media.sh
 # Created:     02.05.18, 10:41    @x200
-# Last update: 12.07.18, 00:00:01 @x200
+# Last update: 13.07.18, 10:18:54 @toshiba
 
 # Doc: Script used for rofi to control media players 
 # TODO: dokończyć funkcje dla MPV i uzgodnić to z MOC
@@ -47,9 +47,11 @@ case $x in
     # fixme: trzeba tu dodać skrypt (~/biurko/bash/quueuempv2.sh)
     s) echo "loadfile \"$CLIP\" append-play" > $MPV_PIPE2;;
         # mpv --no-video --save-position-on-quit --input-file=$MPV_PIPE2 "$CLIP" &
-    v) ~/biu/bash/queuempv.sh "$CLIP" &&
-       notify-send -u low "Rofi-media:
------------" "Video is loading, please wait...";;
+    v) ~/bin/queuempv "$CLIP"
+        # &&
+        # notify-send -u low "Rofi-media:
+        # -----------" "Video is loading, please wait..."
+        ;;
     d) echo "write-watch-later-config; stop" > $MPV_PIPE;;
     D) echo "quit" > $MPV_PIPE2;;
     u) echo "write-watch-later-config; playlist-prev" > $MPV_PIPE;;

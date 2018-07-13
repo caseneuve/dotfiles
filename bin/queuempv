@@ -2,7 +2,7 @@
 
 # Path:        ~/biurko/bash/queuempv.sh
 # Created:     11.07.18, 01:26    @x200
-# Last update: 12.07.18, 00:14:27 @x200
+# Last update: 13.07.18, 10:29:25 @toshiba
 
 # Doc:
 
@@ -14,9 +14,11 @@ if [ "$MOC_STATUS" = "PLAY" ]; then
 fi
 
 if [[ $(xdotool search --class mpv) ]]; then
-    echo "loadfile \"$TARGET\" append-play" > /tmp/mp_pipe
+    echo "loadfile \"$TARGET\" append-play" > /tmp/mp_pipe && notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
 else
     [[ -e /tmp/mp_pipe ]] || mkfifo /tmp/mp_pipe
     mpv --save-position-on-quit --input-file=/tmp/mp_pipe "$TARGET" &
+    notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
 fi
 
+    
