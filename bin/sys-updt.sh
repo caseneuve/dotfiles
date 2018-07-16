@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 13.07.18, 22:16:43 @x200
+# Last update: 16.07.18, 19:23:56 @x200
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -23,29 +23,27 @@ DISTRO=antergos
 
 checkupdates > /tmp/sysupdt
 
-while getopts 'nry' flag; do
-    case "${flag}" in
-        n) [[ -z "$check" ]] && notify-send -u low "System update:
---------------" "System is up to date :-)" -i $dir/$DISTRO-logo.png || notify-send -u critical "System update:
---------------" "$check" -i $dir/$DISTRO-logo.png && exit 0;;
-        r) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu"
-           pkill -RTMIN+12 i3blocks && exit 0;;
-        y) i3-msg -q "exec --no-startup-id st -t sysupdt -e yaourt --noconfirm -Syu --aur" && exit 0;;
-        # h) print_help;;
-        *) main;;
-    esac
-done
+# while getopts 'nry' flag; do
+#     case "${flag}" in
+#         n) [[ -z "$check" ]] && notify-send -u low "System update:
+# --------------" "System is up to date :-)" -i $dir/$DISTRO-logo.png || notify-send -u critical "System update:
+# --------------" "$check" -i $dir/$DISTRO-logo.png && exit 0;;
+#         r) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu"
+#            pkill -RTMIN+12 i3blocks && exit 0;;
+#         y) i3-msg -q "exec --no-startup-id st -t sysupdt -e yaourt --noconfirm -Syu --aur" && exit 0;;
+#         # h) print_help;;
+#         *) main;;
+#     esac
+# done
            
 # print_help(){
 # printf "sys-updt = system update script
 #  -n              outpusend notification"
 # }
-           
-main(){
-    if (( $num > 0 )); then
-        [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span bgcolor='#e74c3c'><span fgcolor='#ececec'> 𝕌$num </span></span>" || echo -e "<span bgcolor='#ececec'> 𝕌$num </span>"
+
+if (( $num > 0 )); then
+    [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span bgcolor='#00001f26'><span color='#C0392B'><span weight='bold'>  $num</span></span></span>" || echo -e "  $num"
 fi
-}
 
 case $BLOCK_BUTTON in
     # left click 
