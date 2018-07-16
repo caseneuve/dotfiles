@@ -2,18 +2,13 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 16.07.18, 09:58:07 @x200
+# Last update: 16.07.18, 17:39:23 @x200
 
 ## Doc:
 # TODO: check if file is a socket → [[ -S file ]]
 # DONE: i3bloki nie resetują się po komendzie "stop"
 # TODO: -p (playlist) → show real number, track title (not filename), and * for currenlty playing, status (play/pause)
 # TODO: zamienić preambułę na funkcje, żeby program nie wychodził bez podania usage (gdy nic nie gra)
-
-NAME="mpv-socket"
-AUTHOR="caseneuve"
-CREATED="2018-07-14"
-UPDATED=""
 
 SOC=/tmp/mpv
 if [[ ! -S $SOC ]]; then
@@ -22,10 +17,6 @@ if [[ ! -S $SOC ]]; then
 fi
 
 POSITION=`echo '{ "command": ["get_property_string", "time-pos"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1`
-
-if [[ -z $POSITION ]]; then
-    exit 0
-fi
 
 REMAINING=`echo '{ "command": ["get_property_string", "time-remaining"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1`
 
@@ -53,6 +44,7 @@ STATUS=`echo '{ "command": ["get_property", "pause"] }' | socat - $SOC 2>/dev/nu
 [[ "$STATUS" = "false" ]] && STATUS="PLAY" || STATUS="PAUSE"
 
 i3mpvstat(){
+    [[ -z $POSITION ]] && exit
     [[ -z $ARTIST ]] && ARTIST="" || ARTIST="$ARTIST: "
     LIST="[$PLAYPOS/$PLAYTOT] "
     if [[ "$STATUS" = "PLAY" ]]; then
@@ -79,6 +71,7 @@ i3mpvstat(){
 }
 
 full(){
+    [[ -z $POSITION ]] && echo "mpv-socket: no mpv instance is running" && exit
     printf "Mpv Socket Status:\n-----------------\n"
     printf 'Status:      %s\n' $STATUS
     [[ $SOURCE =~ "http" ]] && printf 'Source:      %s\n' "$SOURCE" || printf 'Source:      %s\n' "$FILENAME"
@@ -98,12 +91,15 @@ full(){
 }
 
 usage(){
-    echo "Usage:    mpv-socket [-iapf]
+    echo "Usage:    mpv-socket [-ipf] [-l <url|path>] [-P <property>] [-c <command>]
 
 Options:
- -f       print full stats
- -p       print current playlist
- -i       display message formatted for i3BLOCKS status message
+ -f              print full stats
+ -p              print current playlist
+ -i              display message formatted for i3BLOCKS status message
+ -l <url|path>   load file form URL/PATH to current playlist (use full path)
+ -P <property>   get value of PROPERTY 
+ -c <command>    send COMMAND to mpv socket 
 "
 }
 
@@ -114,7 +110,11 @@ main(){
                ;;
             # a) [[ $ALBUM ]] && echo $ALBUM
             #    ;;
-            p) echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/dev/null | jq .data[].filename | sed 's/\"//g'
+            p) if [[ $POSITION ]]; then
+                   echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/dev/null | jq .data[].filename | sed 's/\"//g'
+               else
+                   echo "mpv-socket: no mpv instance is running"
+               fi
                ;;
             f) full
                ;;
