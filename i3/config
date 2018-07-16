@@ -8,7 +8,7 @@
 ####################################################
 
 ## {STATUS}
-# Last update: 14.07.18, 22:53:16 @x200
+# Last update: 17.07.18, 00:44:17 @lenovo
 # TODO: [ ] floating windows' position @ 2 screens
 
 ## {VARIABLES & general SETTINGS}       
@@ -19,10 +19,11 @@ set $scr1 eDP1
 set $scr2 VGA1
 floating_modifier $mod
 
-set $exe exec --no-startup-id
+set $exe     exec --no-startup-id
 set $browser qutebrowser
+set $i3scr   ~/.dotfiles/i3/scripts
 
-bindsym $mod+q                   kill
+bindsym $mod+q   kill
 
 #    {{power management:}}
 bindsym $mod+Shift+BackSpace     exec tmux kill-session -t tmux; exec i3-msg exit
@@ -93,7 +94,7 @@ bindsym $mod+Ctrl+k     resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l     resize grow width 10 px or 10 ppt
 
 #    {{flash active window (za: Luke Smith) / jeśli compton jest włączony}}
-bindsym $mod+grave      $exe bash ~/.dotfiles/i3/bin/flash.sh
+bindsym $mod+grave      $exe bash $i3scr/flash.sh
 
 #    {{orphans:}}
 # focus the parent container
