@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 16.07.18, 17:39:23 @x200
+# Last update: 16.07.18, 20:55:18 @toshiba
 
 ## Doc:
 # TODO: check if file is a socket → [[ -S file ]]
@@ -11,10 +11,6 @@
 # TODO: zamienić preambułę na funkcje, żeby program nie wychodził bez podania usage (gdy nic nie gra)
 
 SOC=/tmp/mpv
-if [[ ! -S $SOC ]]; then
-    echo ">> $SOC does't exist."
-    exit 0
-fi
 
 POSITION=`echo '{ "command": ["get_property_string", "time-pos"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1`
 
@@ -71,6 +67,7 @@ i3mpvstat(){
 }
 
 full(){
+    [[ ! -S $SOC ]] && echo  "mpv-socket: $SOC does't exist" && exit 0
     [[ -z $POSITION ]] && echo "mpv-socket: no mpv instance is running" && exit
     printf "Mpv Socket Status:\n-----------------\n"
     printf 'Status:      %s\n' $STATUS
