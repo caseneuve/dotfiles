@@ -2,11 +2,12 @@
 
 # Path:        ~/biurko/bash/queuempv.sh
 # Created:     11.07.18, 01:26    @x200
-# Last update: 13.07.18, 10:29:25 @toshiba
+# Last update: 17.07.18, 00:39:24 @lenovo
 
 # Doc:
 
 TARGET="$1"
+SOC=/tmp/mpv
 MOC_STATUS=$(mocp -i | grep "State:" | sed -e "s/^.*: //")
 
 if [ "$MOC_STATUS" = "PLAY" ]; then
@@ -14,11 +15,14 @@ if [ "$MOC_STATUS" = "PLAY" ]; then
 fi
 
 if [[ $(xdotool search --class mpv) ]]; then
-    echo "loadfile \"$TARGET\" append-play" > /tmp/mp_pipe && notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
+    echo "{ \"command\": [ \"loadfile\", \"$TARGET\", \"append-play\" ] }" | socat - $SOC & 
+        # echo "loadfile \"$TARGET\" append-play" > /tmp/mp_pipe
+        # notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
 else
-    [[ -e /tmp/mp_pipe ]] || mkfifo /tmp/mp_pipe
-    mpv --save-position-on-quit --input-file=/tmp/mp_pipe "$TARGET" &
-    notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
+    mpv --save-position-on-quit --input-ipc-server=$SOC "$TARGET" &
+    # [[ -e /tmp/mp_pipe ]] || mkfifo /tmp/mp_pipe
+    # --input-file=/tmp/mp_pipe "$TARGET" &
+    # notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
 fi
 
     
