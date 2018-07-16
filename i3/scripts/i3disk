@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Path:        ~/.dotfiles/i3/scripts/i3disk.sh
+# Created:     16.07.18, 16:53    @x200
+# Last update: 16.07.18, 17:11:45 @x200
+
+# Doc:
+
+DIR=$HOME
+AVAIL=`df -h -P -l $DIR | awk 'NR==2 {print $4}'`
+
+(( ${AVAIL%G} <= 2 )) && echo "<span bgcolor='#00001f26'><span color='#C0392B'>  $AVAIL</span></span>" || echo "  $AVAIL"
+
