@@ -8,7 +8,7 @@
 ####################################################
 
 ## {STATUS}
-# Last update: 17.07.18, 00:44:17 @lenovo
+# Last update: 17.07.18, 01:39:52 @toshiba
 # TODO: [ ] floating windows' position @ 2 screens
 
 ## {VARIABLES & general SETTINGS}       
@@ -569,7 +569,7 @@ bindsym $mod+p              workspace 7; $exe qutebrowser :command ":open -p"
 # emacs
 #bindsym $mod+e              workspace 1; $exe emacs
 bindsym $mod+e              $exe ~/.dotfiles/bin/i3-emacs-launcher.sh 
-bindsym $mod+Shift+e        $exe $term -e emacsclient -nw
+#bindsym $mod+Shift+e        $exe $term -e emacsclient -nw
 bindsym $mod+Control+e      $exe $term -e ~/.dotfiles/bin/notes.sh 
 # mail & feed
 bindsym $mod+n              workspace 10; $exe $term -e newsboat
@@ -644,8 +644,9 @@ bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
 # bindsym $mod+Control+n $exe $term -e ~/.dotfiles/bin/notes.sh
 #bindsym F8             workspace $ws8; $exe $term -e mocp
 
-bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-dispatcher
+bindsym $mod+bracketleft  $exe ~/.dotfiles/rofi/scripts/rofi-dispatcher
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/mpv-commands.sh
+bindsym $mod+Shift+a      $exe ~/.dotfiles/bin/agenda
 
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
