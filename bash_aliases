@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 12.07.18, 18:21:31 @x200
+# Last update: 16.07.18, 18:08:41 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -29,6 +29,8 @@ alias lg1='ls -1 --group-directories-first'
 alias ls1='ls -1'
 alias lag='ls -a --group-directories-first'
 alias lal='ls -al --group-directories-first'
+alias lal1='ls -al --group-directories-first'
+alias la1='ls -a1 --group-directories-first'
 alias kl=pkill
 alias grep='grep --color=auto'
 alias thg='tmux new-window -n "hg" "hangups"'
@@ -326,16 +328,17 @@ alias mal=malias_func
 alias gh='cd /home/piotr'
 alias ga='cd /home/piotr/dwl'
 alias gaa='cd /home/piotr/dwl'
-alias gag='cd /home/piotr/attachments'
-alias gab='cd /home/piotr/audiobooks'
+alias gag='cd /home/piotr/dwl/att'
 alias go='cd /home/piotr/obr'
 alias gob='cd /home/piotr/obr'
-alias goo='cd /home/piotr/dox/org'
+alias goo='cd /home/piotr/org'
+alias gss='cd /home/piotr/scr'
 alias gw='cd /home/piotr/wid'
 alias gm='cd /home/piotr/muz'
 alias gp='cd /home/piotr/pdf'
 alias gb='cd /home/piotr/biu'
 alias gB='cd /home/piotr/bin'
+alias gbi='cd /home/piotr/bin'
 alias gS='cd /home/piotr/szk'
 alias gy='cd /home/piotr/dox'
 alias gc='cd /home/piotr/.config'
@@ -347,6 +350,8 @@ alias gcb='cd /home/piotr/.bak'
 alias gcq='cd /home/piotr/.config/qutebrowser'
 alias gC='cd /home/piotr/.calcurse'
 alias gcn='cd /home/piotr/.newsboat'
+alias gcm='cd /home/piotr/.mutt'
+alias gcs='cd /home/piotr/git/hub/suckless/st'
 alias gd='cd /home/piotr/.dotfiles'
 alias gdd='cd /home/piotr/.dotfiles'
 alias gdb='cd /home/piotr/.dotfiles/bin'
@@ -362,15 +367,11 @@ alias gxc='cd /home/piotr/box/Dropbox/.Config'
 alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
 alias geg='cd /home/piotr/.emacs.git'
 alias ged='cd /home/piotr/.emacs.d'
-alias gcm='cd /home/piotr/.mutt'
-alias gdx='cd /home/piotr/.dotfiles/Boot-ex'
 alias gM='cd /media'
 alias gr='cd /'
 alias gR='cd /root'
 alias gg='cd /home/piotr/git/lab'
 alias ggg='cd /home/piotr/git/lab'
-alias ggl='cd /home/piotr/git/lab/liberal_artist_org'
-alias gcs='cd /home/piotr/git/hub/suckless/st'
 
 # fast dirs end
 

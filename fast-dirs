@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 12.07.18, 01:08:19 @x200
+# Last update: 16.07.18, 18:06:27 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -12,17 +12,18 @@
 gh     /home/piotr 
 ga     /home/piotr/dwl
 gaa    /home/piotr/dwl
-gag    /home/piotr/attachments
-gab    /home/piotr/audiobooks
+gag    /home/piotr/dwl/att
 go     /home/piotr/obr
 gob    /home/piotr/obr
-goo    /home/piotr/dox/org
+goo    /home/piotr/org
+gss    /home/piotr/scr
 
 gw     /home/piotr/wid
 gm     /home/piotr/muz
 gp     /home/piotr/pdf
 gb     /home/piotr/biu
 gB     /home/piotr/bin
+gbi    /home/piotr/bin
 gS     /home/piotr/szk
 gy     /home/piotr/dox
 
@@ -35,6 +36,8 @@ gcb    /home/piotr/.bak
 gcq    /home/piotr/.config/qutebrowser
 gC     /home/piotr/.calcurse
 gcn    /home/piotr/.newsboat
+gcm    /home/piotr/.mutt
+gcs    /home/piotr/git/hub/suckless/st
 
 gd     /home/piotr/.dotfiles
 gdd    /home/piotr/.dotfiles
@@ -54,18 +57,12 @@ gxs    /home/piotr/box/Dropbox/Szkoła
 geg    /home/piotr/.emacs.git 
 ged    /home/piotr/.emacs.d 
 
-gcm    /home/piotr/.mutt
-gdx    /home/piotr/.dotfiles/Boot-ex 
-
 gM     /media
 gr     /
 gR     /root
 
 gg     /home/piotr/git/lab
 ggg    /home/piotr/git/lab
-ggl    /home/piotr/git/lab/liberal_artist_org
-
-gcs    /home/piotr/git/hub/suckless/st
 
 # Local variables:
 # eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")
