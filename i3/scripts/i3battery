@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3battery.sh
 # Created:     16.07.18, 14:17    @x200
-# Last update: 16.07.18, 15:45:57 @x200
+# Last update: 16.07.18, 16:50:13 @x200
 
 # Doc:
 
@@ -14,7 +14,7 @@ ACPI=`acpi -b | sed 's/,//g'`
 STATE=`echo $ACPI | awk '{print $3}'`
 TIME=`echo $ACPI | awk '{print $5}'`
 TIME="${TIME%:*}"
-[[ "$STATE" = "Discharging" ]] && STATE=" " || STATE=" " 
+[[ "$STATE" = "Discharging" ]] && STATE="" || STATE=" " 
 PERCENT=`echo $ACPI | awk '{print $4}'`
 PERC=${PERCENT%\%}
 
@@ -26,8 +26,8 @@ elif (( $PERC < 50 )); then
     echo "<span color='#ececec'>  $PERCENT$STATE</span>"
 elif (( $PERC < 75 )); then
     echo "<span color='#ececec'>  $PERCENT$STATE</span>"
-elif (( $PERC < 95 )); then
-    echo "<span color='#ececec'>  $PERCENT$STATE</span>"
+# elif (( $PERC < 95 )); then
+#     echo "<span color='#ececec'>  $PERCENT$STATE</span>"
 elif (( $PERC <= 100 )); then
     echo "<span color='#ececec'>  $PERCENT$STATE</span>"
 fi
