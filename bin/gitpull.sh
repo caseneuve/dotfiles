@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 13.07.18, 12:44:45 @lenovo
+# Last update: 16.07.18, 09:49:53 @x200
 
 # Doc:
 # Aktualizuje repozytoria 'dotfiles', 'emacs/load' oraz wspólny projekt z gitlaba  na lokalnym komputerze
@@ -26,7 +26,7 @@ git pull
 echo
 
 if [ -d "/home/piotr/gitlab/liberal_artist_org" ]; then
-    echo "{BOLD}${ORANGE}Aktualizuję repo ${RED}LIBERAL ARTIST ${RESET}"
+    echo "${BOLD}${ORANGE}Aktualizuję repo ${RED}LIBERAL ARTIST ${RESET}"
     cd /home/piotr/gitlab/liberal_artist_org 
     git pull
     echo

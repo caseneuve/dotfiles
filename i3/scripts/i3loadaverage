@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
+# Created:     16.07.18, 15:16    @x200
+# Last update: 16.07.18, 16:05:27 @x200
+
+# Doc:
+load="$(cut -d ' ' -f1 /proc/loadavg)"
+cpus="$(nproc)"
+
+#color if load is too high
+if [[ $(echo "$cpus <= $load" | bc) ]]; then
+    echo "<span bgcolor='#00001f26'><span color='#C0392B'><span weight='bold'> $load</span></span></span>"
+else
+    echo " $load"
+ fi
+
+# awk -v cpus=$cpus -v cpuload=$load "
+#     BEGIN {
+#         if (cpus <= cpuload) {
+#             echo \"<span color='#FF0000'> $load </span>\" 
+#             exit 33;
+#         }
+#     }
+# "
+

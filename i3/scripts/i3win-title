@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3win-title.sh
 # Created:     10.07.18, 21:21    @x200
-# Last update: 11.07.18, 04:10:25 @lenovo
+# Last update: 16.07.18, 16:05:56 @x200
 
 # Doc:
 
@@ -19,8 +19,8 @@ if (( $LEN > 0 )); then
     else
         echo "<span bgcolor='#00001f26'> $NAME </span>"
     fi
-else
-    echo "(¬‿¬)"
+# else
+#     echo "(¬‿¬)"
 fi
 
 case $BLOCK_BUTTON in
