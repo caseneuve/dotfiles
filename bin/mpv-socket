@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 16.07.18, 20:55:18 @toshiba
+# Last update: 17.07.18, 02:04:07 @toshiba
 
 ## Doc:
 # TODO: check if file is a socket → [[ -S file ]]
@@ -94,6 +94,7 @@ Options:
  -f              print full stats
  -p              print current playlist
  -i              display message formatted for i3BLOCKS status message
+ -s              return mpv status, i.e. PLAY or PAUSE
  -l <url|path>   load file form URL/PATH to current playlist (use full path)
  -P <property>   get value of PROPERTY 
  -c <command>    send COMMAND to mpv socket 
@@ -101,7 +102,7 @@ Options:
 }
 
 main(){
-    while getopts ':fpic:l:' flag; do
+    while getopts ':fpisc:l:' flag; do
         case "${flag}" in
             i) i3mpvstat
                ;;
@@ -114,6 +115,8 @@ main(){
                fi
                ;;
             f) full
+               ;;
+            s) [[ $POSITION ]] && echo $STATUS || echo 'NOT ACTIVE'
                ;;
             c) echo '{ "command": ["get_property", "$OPTARG"] }' | socat - $SOC 2>/dev/null
                ;;
