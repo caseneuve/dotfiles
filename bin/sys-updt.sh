@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 17.07.18, 09:38:57 @x200
+# Last update: 17.07.18, 13:33:47 @toshiba
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -50,8 +50,8 @@ case $BLOCK_BUTTON in
     1) notify-send -u critical "System update:
 --------------" "$check" -i $dir/$DISTRO-logo.png && exit 0;;
     # right click
-    3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu" &&\
-             pkill -RTMIN+12 i3blocks
-       exit 0;;
+    3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks" &&\
+             pkill -RTMIN+12 i3blocks &&\
+             exit 0;;
 esac
 
