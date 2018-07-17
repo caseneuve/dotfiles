@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3temp-warning.sh
 # Created:     07.06.18, 18:11    @manjaroi3
-# Last update: 16.06.18, 20:59:58 @lenovo
+# Last update: 17.07.18, 13:46:45 @toshiba
 
 # DOC: Script used to inform about high core's temperature in i3blocks
 
@@ -39,9 +39,10 @@ fi
 # return info
 
 if (( $TEMP >= $CRITIC )); then
-    echo -e "<span bgcolor=\"#E74C3C\"> $TEMP°C! </span>"
+    echo -e "<span bgcolor='#00001f26'><span color='#C0392B'><span weight='bold'> $TEMP°C!</span></span></span>"
 elif (( $TEMP >= $HIGH )); then
-    echo -e "<span bgcolor=\"#adff2f\" fgcolor=\"#34495e\"> $TEMP°C </span>"
+#    echo -e "<span bgcolor=\"#adff2f\" fgcolor=\"#34495e\"> $TEMP°C</span>"
+    echo -e " $TEMP°C"
 fi
     
 # echo $TEMP
