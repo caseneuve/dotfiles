@@ -2,12 +2,14 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3dp.sh
 # Created:     10.07.18, 18:45    @x200
-# Last update: 16.07.18, 15:32:57 @x200
+# Last update: 17.07.18, 10:16:46 @x200
 
 # Doc: note: requires dropbox-cli (AUR)
 
 if [[ `dropbox-cli status | grep "isn't"` ]]; then
-    echo "<span fgcolor='#2980b9'><span bgcolor='#ffffff'>  </span></span>" # 𝔻!
+    echo "<span bgcolor='#00001f26'><span color='#C0392B'>  </span></span>" # 𝔻!
+elif [[ `dropbox-cli status | grep -i "uruchamianie"` ]]; then
+    echo "<span bgcolor='#2980b9'><span color='#ffffff'>  </span></span>" # 𝔻!
 elif [[ `dropbox-cli status | grep -i "synchronizowanie"` ]]; then
     echo "<span fgcolor='#27AE60'><span bgcolor='#ffffff'>  </span></span>" #𝔻↓↑
 else
