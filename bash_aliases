@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 17.07.18, 09:50:45 @x200
+# Last update: 17.07.18, 14:05:40 @toshiba
 
 #####################
 ## KOMENDY TERMINALA 
@@ -36,7 +36,7 @@ alias grep='grep --color=auto'
 alias thg='tmux new-window -n "hg" "hangups"'
 alias xclip='xclip -selection c'
 alias cpwd='pwd | xclip -selection c'
-alias treeno="tree | sed 's/-> [/a-zA-Z0-9 \.-\_]*//g'"
+alias treeno="tree | sed 's/-> [-/a-zA-Z0-9\.\_ ]*//g'"
 
 ###########
 ## FUNKCJE 
