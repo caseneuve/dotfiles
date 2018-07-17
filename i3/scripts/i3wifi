@@ -2,11 +2,12 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 16.07.18, 13:46:13 @x200
+# Last update: 17.07.18, 08:52:06 @x200
 
 # Doc:
 
 IF=$(ip route | awk '/^default/ { print $5 ; exit }')
+[[ -z $IF ]] && exit 
 
 CONN=`ping -c 1 1.1.1.1 2>/dev/null`
 QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
