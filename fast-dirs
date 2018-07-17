@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 17.07.18, 02:31:52 @toshiba
+# Last update: 17.07.18, 02:33:53 @toshiba
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -23,8 +23,8 @@ gss    /home/piotr/scr
 gw     /home/piotr/wid
 gm     /home/piotr/muz
 gp     /home/piotr/pdf
-gb     /home/piotr/biu
-gB     /home/piotr/bin
+gB     /home/piotr/biu
+gb     /home/piotr/bin
 gbi    /home/piotr/bin
 gS     /home/piotr/szk
 gy     /home/piotr/dox
@@ -47,7 +47,6 @@ gdb    /home/piotr/.dotfiles/bin
 gdi    /home/piotr/.dotfiles/i3
 gdr    /home/piotr/.dotfiles/ranger
 gdc    /home/piotr/.dotfiles/calcurse
-gdB    /home/piotr/.dotfiles/Boot-ex
 gdq    /home/piotr/.dotfiles/qtbro
 gdo    /home/piotr/dox
 
@@ -55,6 +54,7 @@ gx     /home/piotr/box/Dropbox
 gxx    /home/piotr/box/Dropbox
 gxc    /home/piotr/box/Dropbox/.Config
 gxs    /home/piotr/box/Dropbox/Szkoła
+gD     /home/piotr/box/Dropbox/Dokumenty  
 
 geg    /home/piotr/.emacs.git 
 ged    /home/piotr/.emacs.d 
