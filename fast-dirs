@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 16.07.18, 18:06:27 @x200
+# Last update: 17.07.18, 02:31:52 @toshiba
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -16,6 +16,8 @@ gag    /home/piotr/dwl/att
 go     /home/piotr/obr
 gob    /home/piotr/obr
 goo    /home/piotr/org
+gol    /home/piotr/org/log
+gog    /home/piotr/org/gtd
 gss    /home/piotr/scr
 
 gw     /home/piotr/wid
