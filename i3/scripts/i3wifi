@@ -2,13 +2,14 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 17.07.18, 08:52:06 @x200
+# Last update: 18.07.18, 10:24:38 @x200
 
 # Doc:
 
 IF=$(ip route | awk '/^default/ { print $5 ; exit }')
-[[ -z $IF ]] && exit 
+[[ -z $IF ]] && echo "OFF"
 
+GLYPH=""
 CONN=`ping -c 1 1.1.1.1 2>/dev/null`
 QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
@@ -22,16 +23,16 @@ QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
 #if [[ ! $(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`) ]]; then
 #    echo "<span fgcolor=\"#e74c3c\">▼ down</span>"
-    echo "<span fgcolor=\"#e74c3c\"> down</span>"
+    echo "<span fgcolor=\"#e74c3c\">$GLYPH down</span>"
     exit
 fi
 
 if [[ `echo $CONN | grep Unreachable` ]]; then
     #echo "<span fgcolor='#c0392b'><span bgcolor='#ececec'> ▼ ✕ </span></span>"
-    echo "<span bgcolor='#c0392b'><span fgcolor='#ececec'> ✕ </span></span>"
+    echo "<span bgcolor='#00001f26'><span color='#C0392B'>$GLYPH ? </span></span>"
 else
     #echo "▼ $QUALITY%"
-    echo " $QUALITY%"
+    echo "$GLYPH $QUALITY%"
 fi
 
 #if [ ! `echo $CONN` = "" ]; then echo "zero"; fi
