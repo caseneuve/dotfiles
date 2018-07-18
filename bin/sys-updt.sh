@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 17.07.18, 13:33:47 @toshiba
+# Last update: 18.07.18, 10:21:34 @x200
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -11,6 +11,8 @@
 # done: ?? po kliknięciu (lewy lub prawy) i3blocks się zwiesza
 # done: dodać liczenie ile updatów do ikonki
 
+checkupdates > /tmp/sysupdt
+
 dir=~/.dotfiles/i3/bin
 file=/tmp/sysupdt
 check=`cat $file`
@@ -18,10 +20,9 @@ num=`cat $file | wc -l`
 redbg=`tput setab 1`
 nor=`tput sgr0`
 DISTRO=antergos
+
 # DISTRO=`cat /etc/*-release | grep ^ID= | sed 's/^ID=\"\|\"\|ID=//g'`
 # DISTRO=`cat /etc/issue | awk '{print tolower($1)}' | head -n 1`
-
-checkupdates > /tmp/sysupdt
 
 # while getopts 'nry' flag; do
 #     case "${flag}" in
@@ -48,10 +49,11 @@ fi
 case $BLOCK_BUTTON in
     # left click 
     1) notify-send -u critical "System update:
---------------" "$check" -i $dir/$DISTRO-logo.png && exit 0;;
+--------------" "$check" -i $dir/$DISTRO-logo.png && exit 0
+       ;;
     # right click
-    3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks" &&\
-             pkill -RTMIN+12 i3blocks &&\
-             exit 0;;
+    3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks"
+       exit 0
+       ;;
 esac
 
