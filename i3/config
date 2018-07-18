@@ -8,8 +8,9 @@
 ####################################################
 
 ## {STATUS}
-# Last update: 17.07.18, 01:39:52 @toshiba
+# Last update: 19.07.18, 01:35:12 @x200
 # TODO: [ ] floating windows' position @ 2 screens
+# TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 
 ## {VARIABLES & general SETTINGS}       
 set $mod Mod4
@@ -221,6 +222,7 @@ workspace $ws7 output VGA1
 workspace $ws8 output VGA1
 
 workspace $ws2 output LVDS1
+workspace $ws3 output LVDS1
 workspace $ws4 output LVDS1
 workspace $ws9 output LVDS1
 workspace $ws10 output LVDS1
@@ -644,7 +646,7 @@ bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
 # bindsym $mod+Control+n $exe $term -e ~/.dotfiles/bin/notes.sh
 #bindsym F8             workspace $ws8; $exe $term -e mocp
 
-bindsym $mod+bracketleft  $exe ~/.dotfiles/rofi/scripts/rofi-dispatcher
+bindsym $mod+bracketleft  $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/mpv-commands.sh
 bindsym $mod+Shift+a      $exe ~/.dotfiles/bin/agenda
 

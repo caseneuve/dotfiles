@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 17.07.18, 14:05:40 @toshiba
+# Last update: 18.07.18, 22:57:27 @x200
 
 #####################
 ## KOMENDY TERMINALA 
@@ -172,6 +172,7 @@ alias etm='emacsclient -nw ~/.config/termite/config'
 alias etx='emacsclient -nw ~/.tmux.conf'
 alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
 alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
+alias egtd='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
 ############
 ## PROGRAMY 

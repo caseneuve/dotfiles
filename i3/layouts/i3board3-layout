@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Path:        ~/scr/board3.sh
+# Created:     18.07.18, 22:02    @x200
+# Last update: 19.07.18, 01:44:14 @x200
+
+# Doc:
+
+i3-msg -q "workspace 3; append_layout ~/.dotfiles/i3/layouts/i3board3.json;
+exec --no-startup-id st -t client;
+exec --no-startup-id st -t myterm;
+exec --no-startup-id st -t kalkulR -e R &;
+exec --no-startup-id st -t myclock -e ~/.dotfiles/i3/layouts/clock.sh &;
+exec --no-startup-id ~/.dotfiles/bin/agenda &;"
+
+#gtd.org -e emacsclient -nw ~/org/gtd/gtd.org &;
