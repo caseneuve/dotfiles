@@ -2,15 +2,17 @@
 
 # Path:        ~/biurko/bash/queuempv.sh
 # Created:     11.07.18, 01:26    @x200
-# Last update: 18.07.18, 17:36:34 @x200
+# Last update: 18.07.18, 18:19:08 @x200
 
-# Doc:
+# Doc: For now it only allows to append video urls or launching one audio stream per session (no appending) 
 # FIXME: poprawić warunki dla audio i video
 
 SOC=/tmp/mpv
+
 MOC_STATUS=$(mocp -i | grep "State:" | sed -e "s/^.*: //")
 [[ "$MOC_STATUS" = "PLAY" ]] && mocp -P
-VIDEOP=`echo '{ "command": ["get_property", "video"] }' | socat - $SOC 2>/dev/null | jq .data`
+
+#VIDEOP=`echo '{ "command": ["get_property", "video"] }' | socat - $SOC 2>/dev/null | jq .data`
 
 if (( $# > 1 )); then
     len=$(($#-1))
@@ -19,6 +21,8 @@ if (( $# > 1 )); then
 else
     TARGET="$1"
 fi
+
+[[ $OPT = "--no-video" ]] && MEDIA="Audio from:" || MEDIA="Video:"
 
 # if [[ ! `mpv-socket -s` = "NOT ACTIVE" ]]; then
 #     if [[ $OPT = "--no-video" ]]; then
@@ -40,24 +44,25 @@ fi
 #     fi
 # fi
 
-if [ ! $(mpv-socket -s) = "NOT ACTIVE" ]; then
-    echo "{ \"command\": [ \"loadfile\", \"$TARGET\", \"append-play\" ] }" | socat - $SOC 2>/dev/null &
+if [[ $(mpv-socket -s) = "NOT ACTIVE" ]]; then
+#if [[ $(xdotool search --class mpv) ]]; then
+    echo "{ \"command\": [ \"loadfile\", \"$TARGET\", \"append-play\" ] }" | socat - $SOC &
     notify-send -u low "Queuempv:
----------" "$MEDIA\n\n`curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)'`\n\nappended to playlist";
+---------" "$MEDIA\n\n`curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)'`\n\nappended to playlist"
     # echo "loadfile \"$TARGET\" append-play" > /tmp/mp_pipe
     # notify-send -u low "Urlview" "$MEDIA:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
 else
     if [[ $OPT ]]; then
-        mpv "$TARGET" --save-position-on-quit --input-ipc-server=$SOC "$OPT" 2>/dev/null &
+        mpv "$TARGET" --save-position-on-quit --input-ipc-server=$SOC "$OPT" &
         notify-send -u low "Queuempv:
----------" "$MEDIA\n\n`curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)'`\n\nloading."
+---------" "$MEDIA\n\n`curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)'`\n\n is loading."
         # [[ -e /tmp/mp_pipe ]] || mkfifo /tmp/mp_pipe
         # --input-file=/tmp/mp_pipe "$TARGET" &
         # notify-send -u low "Urlview" "$MEDIA:\n\n<i>`curl -s $TARGET | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
     else
-        mpv --save-position-on-quit --input-ipc-server=$SOC "$TARGET" 2>/dev/null &
+        mpv "$TARGET" --save-position-on-quit --input-ipc-server=$SOC &
         notify-send -u low "Queuempv:
----------" "$MEDIA\n\n`curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)'`\n\nloading."
+---------" "$MEDIA\n\n`curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)'`\n\nis loading."
     fi
 fi
 
