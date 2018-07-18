@@ -2,15 +2,15 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 18.07.18, 14:36:38 @x200
+# Last update: 18.07.18, 14:53:52 @x200
 
 ## Doc:
-# TODO: check if file is a socket → [[ -S file ]]
-# DONE: i3bloki nie resetują się po komendzie "stop"
-# TODO: -p (playlist) → show real number, track title (not filename), and * for currenlty playing, status (play/pause)
-# TODO: zamienić preambułę na funkcje, żeby program nie wychodził bez podania usage (gdy nic nie gra)
-# TODO: -t title → jak podzielić tytuły, żeby wyświetlały się w osobnych liniach?
 # FIXME: playlist -P działa tylko dla url
+# TODO: check if file is a socket → [[ -S file ]]
+# TODO: -p (playlist) → show real number, track title (not filename), and * for currenlty playing, status (play/pause)
+# DONE: i3bloki nie resetują się po komendzie "stop"
+# DONE: zamienić preambułę na funkcje, żeby program nie wychodził bez podania usage (gdy nic nie gra)
+# DONE: -t title → jak podzielić tytuły, żeby wyświetlały się w osobnych liniach?
 
 SOC=/tmp/mpv
 POSITION=`echo '{ "command": ["get_property_string", "time-pos"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1`
