@@ -1453,9 +1453,10 @@ config.bind(';o', 'hint links fill :open -t {hint-url}')
 # config.bind(';y', 'hint links yank')
 # config.bind(';v', 'hint links fill :spawn mpv {hint-url} --input-ipc-server=/tmp/mpv')
 # config.bind(';V', ':spawn mpv {url} --input-ipc-server=/tmp/mpv')
-config.bind(';v', 'hint links fill :spawn i3-msg "exec --no-startup-id ~/bin/queuempv {hint-url}"')
+config.bind(';v', 'hint links fill :spawn i3-msg "exec --no-startup-id ~/.dotfiles/bin/queuempv {hint-url}"')
 config.bind(';V', ':spawn i3-msg "exec --no-startup-id ~/bin/queuempv {url}"')
-config.bind(';a', 'hint links fill :spawn mpv --no-video --input-ipc-server=/tmp/mpv {hint-url}')
+config.bind(';a', 'hint links fill :spawn i3-msg "exec --no-startup-id ~/.dotfiles/bin/queuempv --no-video {hint-url}"')
+config.bind(';A', ':spawn i3-msg "exec --no-startup-id ~/bin/queuempv --no-video {url}"')
 # d → DOWNLOAD
 # download video
 config.bind('dv', 'spawn st -e youtube-dl --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
