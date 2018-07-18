@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 18.07.18, 16:36:07 @x200
+# Last update: 18.07.18, 16:57:14 @x200
 
 ## Doc:
 # FIXME: playlist -P działa tylko dla url
@@ -152,7 +152,7 @@ main(){
                ;;
             f) full
                ;;
-            s) [[ $POSITION ]] && echo $STATUS || echo 'NOT ACTIVE'
+            s) [[ $POSITION ]] && echo $STATUS || echo 'NOT ACTIVE' 
                ;;
             t) [[ $TITLE ]] && echo $TITLE || echo $SOURCE
                ;;
