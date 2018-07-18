@@ -2,27 +2,30 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 17.07.18, 02:08:42 @toshiba
+# Last update: 18.07.18, 14:36:38 @x200
 
 ## Doc:
 # TODO: check if file is a socket → [[ -S file ]]
 # DONE: i3bloki nie resetują się po komendzie "stop"
 # TODO: -p (playlist) → show real number, track title (not filename), and * for currenlty playing, status (play/pause)
 # TODO: zamienić preambułę na funkcje, żeby program nie wychodził bez podania usage (gdy nic nie gra)
+# TODO: -t title → jak podzielić tytuły, żeby wyświetlały się w osobnych liniach?
+# FIXME: playlist -P działa tylko dla url
 
 SOC=/tmp/mpv
-
 POSITION=`echo '{ "command": ["get_property_string", "time-pos"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1`
-
 REMAINING=`echo '{ "command": ["get_property_string", "time-remaining"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1`
-
 PLAYPOS=`echo '{ "command": ["get_property_string", "playlist-pos"] }' | socat - $SOC 2>/dev/null | jq .data | xargs`
 [[ $PLAYPOS ]] && PLAYPOS=$(( $PLAYPOS + 1 ))
-
 PLAYTOT=`echo '{ "command": ["get_property_string", "playlist-count"] }' | socat - $SOC 2>/dev/null | jq .data | xargs`
-
 METADATA=`echo '{ "command": ["get_property", "filtered-metadata"] }' | socat - $SOC 2>/dev/null`
 [[ "$(echo $METADATA | jq .data)" = "{}" ]] && METADATA=""
+
+# colors
+BGPLAY="#36648b"
+BGPAUSE="#00001f26"
+FGPAUSE="#6F7D91"
+#FGPAUSE=$BGPLAY
 
 if [[ $METADATA ]]; then
     ARTIST=`echo $METADATA | jq .data.Artist | xargs`
@@ -32,40 +35,67 @@ if [[ $METADATA ]]; then
     TRACK=`echo $METADATA | jq .data.Track | xargs`
 fi
 
-SOURCE=`echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/dev/null | jq .data[].filename | xargs` 
+PLAYLIST=`echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/dev/null | jq .data[].filename`
+SOURCE=`echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/dev/null | jq '.data[] | select (.| has("current")) | .filename' | xargs`
 
 [[ $SOURCE =~ "http" ]] && TITLE=`echo $(curl $SOURCE -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)')` || FILENAME=`echo '{ "command": ["get_property", "filename" ] }' | socat - $SOC 2>/dev/null | jq .data | xargs`
 
 STATUS=`echo '{ "command": ["get_property", "pause"] }' | socat - $SOC 2>/dev/null | jq .data`
 [[ "$STATUS" = "false" ]] && STATUS="PLAY" || STATUS="PAUSE"
 
+playlist(){
+    [[ $POSITION ]] || echo "mpv-socket: no active playlist"; exit
+    PLISTFILE=/tmp/mpv-playlist
+    rm $PLISTFILE
+    c=1
+    if [[ $SOURCE =~ "http" ]]; then
+        for i in $PLAYLIST; do
+            echo "$c. $(curl $i -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)')" >> $PLISTFILE
+            ((c++))
+        done
+    else
+        for i in $PLAYLIST; do
+            echo "$c. $i" >> $PLISTFILE
+        done
+    fi
+    cat $PLISTFILE
+}
+
+# i3blocks function
 i3mpvstat(){
+    TITLE_LEN=`echo "${#TITLE}"`
+    MAX=25
+    if (( $TITLE_LEN > $MAX )); then
+        let x=$TITLE_LEN-$MAX
+        TITLE=`echo ${TITLE::-$x}…`;
+    fi
     [[ -z $POSITION ]] && exit
     [[ -z $ARTIST ]] && ARTIST="" || ARTIST="$ARTIST: "
     LIST="[$PLAYPOS/$PLAYTOT] "
     if [[ "$STATUS" = "PLAY" ]]; then
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span bgcolor='#36648b'> ♫ $LIST$ARTIST$TITLE %02d:%02d [-%02d:%02d] ♫ </span>\n" \
+            printf "<span bgcolor='$BGPLAY'> ♫ $ARTIST$TITLE %02d:%02d [-%02d:%02d]$LIST♫ </span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
-            printf "<span bgcolor='#36648b'> ♫ $LIST$ARTIST$TITLE %02:%02d:%02d [-%02d:%02d] ♫ </span>\n" \
+            printf "<span bgcolor='$BGPLAY'> ♫ $ARTIST$TITLE %02:%02d:%02d [-%02d:%02d]$LIST♫ </span>\n" \
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
     elif [[ "$STATUS" = "PAUSE" ]]; then 
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span color='#6F7D91'> ♫ $LIST$ARTIST$TITLE %02d:%02d [-%02d:%02d] ♫ </span>\n" \
+            printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> ♫ $ARTIST$TITLE %02d:%02d [-%02d:%02d]$LIST♫ </span></span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
-            printf "<span color='#6F7D91'> ♫ $LIST$ARTIST$TITLE %02:%02d:%02d [-%02d:%02d] ♫ </span>\n" \
+            printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> ♫ $ARTIST$TITLE %02:%02d:%02d [-%02d:%02d]$LIST♫ </span></span>\n" \
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
     fi
 }
 
+# full info function 
 full(){
     [[ ! -S $SOC ]] && echo  "mpv-socket: $SOC does't exist" && exit 0
     [[ -z $POSITION ]] && echo "mpv-socket: no mpv instance is running" && exit
@@ -87,23 +117,27 @@ full(){
     printf 'List:        %s/%s\n' $PLAYPOS $PLAYTOT
 }
 
+# usage info function
 usage(){
-    echo "Usage:    mpv-socket [-ipf] [-l <url|path>] [-P <property>] [-c <command>]
+    echo "Usage:    mpv-socket [-ipfP] [-l <url|path>] [-g <property>] 
 
 Options:
  -f              print full stats
  -p              print current playlist
  -i              display message formatted for i3BLOCKS status message
  -s              return mpv status, i.e. PLAY or PAUSE
+ -P              display playlist titles
  -l <url|path>   load file form URL/PATH to current playlist (use full path)
- -P <property>   get value of PROPERTY 
- -c <command>    send COMMAND to mpv socket 
+ -g <property>   get value of PROPERTY 
 "
 }
 
+# BOSS
 main(){
-    while getopts ':fpisc:l:' flag; do
+    while getopts ':fpistPa:g:l:' flag; do
         case "${flag}" in
+            a) mpv --input-ipc-server=$SOC -- "$OPTARG" &
+               ;;
             i) i3mpvstat
                ;;
             # a) [[ $ALBUM ]] && echo $ALBUM
@@ -118,9 +152,18 @@ main(){
                ;;
             s) [[ $POSITION ]] && echo $STATUS || echo 'NOT ACTIVE'
                ;;
-            c) echo '{ "command": ["get_property", "$OPTARG"] }' | socat - $SOC 2>/dev/null
+            t) [[ $TITLE ]] && echo $TITLE || echo $SOURCE
                ;;
-            l) echo '{ "command": ["loadfile", $OPTARG, "append-play"] }' | socat - $SOC 2>/dev/null
+            P) playlist
+               ;;
+            g) if [[ -z $OPTARG ]]; then
+                   echo -e "mpv-socket: missing argument for -g flag\n"
+                   usage
+               else
+                   echo "{ \"command\": [\"get_property\", \"$OPTARG\"] }" | socat - $SOC 2>/dev/null
+               fi
+               ;;
+            l) echo "{ \"command\": [\"loadfile\", \"$OPTARG\", \"append-play\"] }" | socat - $SOC 2>/dev/null
                ;;
             \?) echo -e "Invalid flag \"-$OPTARG\"\n"; usage 
         esac
