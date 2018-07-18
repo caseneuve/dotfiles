@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 17.07.18, 00:40:56 @lenovo
+# Last update: 17.07.18, 10:34:52 @x200
 
 # Doc: via Luke Smith github
 # note: replacing feh with sxiv
@@ -13,7 +13,7 @@ mpvFiles="mkv mp4 avi mov wmv flv"
 fehFiles="png jpg jpeg jpe gif"
 wgetFiles="mp3 mp3?source=feed pdf"
 em="email"
-mpvscript=~/bin/queuempv
+mpvscript=~/.dotfiles/bin/queuempv
 
 if echo $fehFiles | grep -w $ext > /dev/null; then
     #nohup feh -. -B -- "$1" >/dev/null &
