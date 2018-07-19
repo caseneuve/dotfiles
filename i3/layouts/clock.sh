@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/clock.sh
 # Created:     18.07.18, 20:47    @x200
-# Last update: 19.07.18, 11:13:23 @x200
+# Last update: 19.07.18, 15:15:26 @x200
 
 # Doc:
 # note: depency → figlet
@@ -10,9 +10,9 @@
 # figlet fonts: http://www.flamingtext.com/tools/figlet/fontlist.html
 
 FONT=larry3d
-#fender3
-#colossal
-#block
+# fender3
+# colossal
+# block
 
 BLACK=0
 RED=1
@@ -47,7 +47,7 @@ current_task(){
 
 while true; do
     tput clear;
-    #tput bold
+    # tput bold
     choose_color
     echo -e "\n\n"
     date +"%H : %M" | figlet -f $FONT -c;
@@ -58,6 +58,7 @@ while true; do
     echo `date +"%d, %B %Y"`
     current_task
     echo `calcurse -n`
-    tput civis #invisible cursor; "tput cnorm" --> normal
+    tput civis               # invisible cursor; "tput cnorm" --> normal
     sleep 30;
 done
+
