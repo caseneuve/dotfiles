@@ -2,14 +2,17 @@
 
 # Path:        ~/scr/clock.sh
 # Created:     18.07.18, 20:47    @x200
-# Last update: 19.07.18, 01:01:49 @x200
+# Last update: 19.07.18, 09:48:22 @lenovo
 
 # Doc:
 # note: depency → figlet
 # idea:         https://bbs.archlinux.org/viewtopic.php?id=68663
 # figlet fonts: http://www.flamingtext.com/tools/figlet/fontlist.html
 
-FONT=block
+FONT=larry3d
+#fender3
+#colossal
+#block
 
 BLACK=0
 RED=1
@@ -36,15 +39,15 @@ choose_color(){
 
 current_task(){
     TASK=`emacsclient -e '(message (format "%s" org-clock-current-task))' | xargs`
-    TIME=`emacsclient -e '(message (format "%s" (substring-no-properties
-(org-clock-get-clock-string))))' | xargs`
-    TIME=${TIME%(*}
+    CLOCK=`emacsclient -e '(message (format "%s" (substring-no-properties
+(org-clock-get-clock-string)))) | xargs'`
+    [[ $CLOCK =~ "ERROR" ]] && TIME="" || TIME=${CLOCK%(*}
     [[ $TASK != "nil" ]] && echo "clocking: $TASK$TIME"
 }
 
 while true; do
     tput clear;
-    tput bold
+    #tput bold
     choose_color
     echo -e "\n\n"
     date +"%H : %M" | figlet -f $FONT -c;
