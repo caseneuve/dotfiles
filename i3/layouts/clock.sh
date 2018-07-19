@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/clock.sh
 # Created:     18.07.18, 20:47    @x200
-# Last update: 19.07.18, 09:48:22 @lenovo
+# Last update: 19.07.18, 11:13:23 @x200
 
 # Doc:
 # note: depency → figlet
@@ -40,8 +40,8 @@ choose_color(){
 current_task(){
     TASK=`emacsclient -e '(message (format "%s" org-clock-current-task))' | xargs`
     CLOCK=`emacsclient -e '(message (format "%s" (substring-no-properties
-(org-clock-get-clock-string)))) | xargs'`
-    [[ $CLOCK =~ "ERROR" ]] && TIME="" || TIME=${CLOCK%(*}
+(org-clock-get-clock-string))))' 2>/dev/null | xargs `
+    [[ -z $CLOCK ]] && TIME="" || TIME=${CLOCK%(*}
     [[ $TASK != "nil" ]] && echo "clocking: $TASK$TIME"
 }
 
