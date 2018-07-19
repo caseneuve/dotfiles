@@ -7,12 +7,12 @@
 ###                                     |___/    ###
 ####################################################
 
-## {STATUS}
-# Last update: 19.07.18, 01:35:12 @x200
+## >> {STATUS}
+# Last update: 19.07.18, 13:16:56 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 
-## {VARIABLES & general SETTINGS}       
+## >> {VARIABLES & general SETTINGS}       
 set $mod Mod4
 set $term st
 set $top  10
@@ -26,11 +26,11 @@ set $i3scr   ~/.dotfiles/i3/scripts
 
 bindsym $mod+q   kill
 
-#    {{power management:}}
+#  >>  {{power management:}}
 bindsym $mod+Shift+BackSpace     exec tmux kill-session -t tmux; exec i3-msg exit
 
-## {STARTUP & PROGRAMS}
-#    {{starup apps}
+## >> {STARTUP & PROGRAMS}
+#  >>  {{starup apps}
 exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 exec_always --no-startup-id dropbox start 
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
@@ -44,16 +44,16 @@ $exe        dunst
 #exec        --no-startup-id slack
 #exec        --no-startup-id firefox
 
-#    {{monitory & wall}}
+#  >>  {{monitory & wall}}
 $exe ~/.dotfiles/bin/monitoryUP.sh
 # exec_always ~/.i3/bin/monitory.sh
 #exec_always --no-startup-id ~/.fehbg
 
-#    {{głośność}}
+#  >>  {{głośność}}
 exec_always --no-startup-id amixer set Master 50% && pkill -RTMIN+1 i3blocks
 
-## {NAVIG}                  
-#    {{change focus:}}
+## >> {NAVIG}                  
+#  >>  {{change focus:}}
 bindsym $mod+j                  focus left
 bindsym $mod+k                  focus down
 bindsym $mod+i                  focus up
@@ -65,7 +65,7 @@ bindsym $mod+Up                 focus up
 bindsym $mod+Right              focus right
 
 # ===================
-#    {{moving windows:}}
+#  >>  {{moving windows:}}
 bindsym $mod+Shift+j            move left
 bindsym $mod+Shift+k            move down
 bindsym $mod+Shift+i            move up
@@ -76,28 +76,28 @@ bindsym $mod+Shift+Down         move down
 bindsym $mod+Shift+Up           move up
 bindsym $mod+Shift+Right        move right
 
-#    {{enter fullscreen mode for the focused container:}}
+#  >>  {{enter fullscreen mode for the focused container:}}
 bindsym $mod+f                  fullscreen toggle
 
-#    {{layouts:}}
+#  >>  {{layouts:}}
 bindsym $mod+y                  layout tabbed
 bindsym $mod+Ctrl+y             layout stacking
 bindsym $mod+Shift+y            layout toggle split
 
-#    {{toggle tiling / floating:}}
+#  >>  {{toggle tiling / floating:}}
 bindsym $mod+Shift+space        floating toggle
 bindsym $mod+space              focus mode_toggle
 
-#    {{resizing windows:}}
+#  >>  {{resizing windows:}}
 bindsym $mod+Ctrl+j     resize shrink width 10 px or 10 ppt
 bindsym $mod+Ctrl+i     resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+k     resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l     resize grow width 10 px or 10 ppt
 
-#    {{flash active window (za: Luke Smith) / jeśli compton jest włączony}}
+#  >>  {{flash active window (za: Luke Smith) / jeśli compton jest włączony}}
 bindsym $mod+grave      $exe bash $i3scr/flash.sh
 
-#    {{orphans:}}
+#  >>  {{orphans:}}
 # focus the parent container
 # bindsym $mod+a focus parent
 # focus the child container
@@ -107,8 +107,8 @@ bindsym $mod+grave      $exe bash $i3scr/flash.sh
 # split in vertical orientation
 # bindsym $mod+v split v
 
-## {SCRATCHPADS}
-#    {{dropdown → tmux:}}
+## >>{SCRATCHPADS}
+#  >>  {{dropdown → tmux:}}
 # $exe bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] resize set 1000 600
@@ -120,7 +120,7 @@ exec    $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh
 bindsym $mod+Shift+u               exec $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh      
 bindsym $mod+u                     [title="dropdown"] scratchpad show 
 
-#    {{math}}
+#  >>  {{math}}
 for_window [title="m4ath"] floating enable
 for_window [title="m4ath"] resize set 600 200
 for_window [title="m4ath"] move position center
@@ -131,7 +131,7 @@ for_window [title="m4ath"] move scratchpad
 bindsym $mod+Shift+c    $exe $term -t m4ath -e R -q; [title="m4ath"] scratchpad show 
 bindsym $mod+c          [title="m4ath"] scratchpad show 
 
-#    {{whitaker words}}
+#  >>  {{whitaker words}}
 for_window [title="w0rds"] move scratchpad
 for_window [title="w0rds"] resize set 500 300
 for_window [title="w0rds"] move position $wright $top 
@@ -140,14 +140,14 @@ for_window [title="w0rds"] move position $wright $top
 bindsym $mod+Shift+o    $exe $term -t w0rds -e words; [title="w0rds"] scratchpad show
 bindsym $mod+o          [title="w0rds"] scratchpad show
 
-#    {{system update}}
+#  >>  {{system update}}
 assign [title="sysupdt"] output primary
 for_window [title="sysupdt"] floating enable
 for_window [title="sysupdt"] resize set 600 300
 # todo: pewnie trzeba będzie wpisać zmienne, żeby pasowało do różnych ekranów
 for_window [title="sysupdt"] move right 400 px
 for_window [title="sysupdt"] move up 110 px
-## {WORKSPACES}                
+## >> {WORKSPACES}                
 # workspace_auto_back_and_forth yes
 set $ws1 "1"
 set $ws2 "2" 
@@ -160,7 +160,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-#    {{switch to workspace:}}
+#  >>  {{switch to workspace:}}
 bindsym $mod+1          workspace $ws1; 
 bindsym $mod+2          workspace $ws2; 
 bindsym $mod+3          workspace $ws3; 
@@ -185,7 +185,7 @@ bindsym Control+8       workspace $ws8;
 bindsym Control+9       workspace $ws9; 
 # bindsym Control+0 workspace $ws10
 
-#    {{move focused container to $ws:}}
+#  >>  {{move focused container to $ws:}}
 bindsym $mod+Shift+1    move container to workspace $ws1
 bindsym $mod+Shift+2    move container to workspace $ws2
 bindsym $mod+Shift+3    move container to workspace $ws3
@@ -197,7 +197,7 @@ bindsym $mod+Shift+8    move container to workspace $ws8
 bindsym $mod+Shift+9    move container to workspace $ws9
 bindsym $mod+Shift+0    move container to workspace $ws10
 
-#    {{move workspace to another monitor:}}
+#  >>  {{move workspace to another monitor:}}
 
 bindsym $mod+Control+h           move workspace to output left
 bindsym $mod+Shift+h             move workspace to output left
@@ -209,12 +209,12 @@ bindsym $mod+Control+Tab         focus output right
 bindsym $mod+Mod1+i              focus output up
 bindsym $mod+Mod1+k              focus output down
 
-#    {{pk: cycle through workspaces:}}
+#  >>  {{pk: cycle through workspaces:}}
 bindsym Mod1+Tab                workspace next
 bindsym Mod1+Shift+Tab          workspace prev
 bindsym $mod+Tab                workspace back_and_forth
 
-#    {{reguły dla monitorów:}}
+#  >>  {{reguły dla monitorów:}}
 workspace $ws1 output VGA1
 workspace $ws5 output VGA1
 workspace $ws6 output VGA1
@@ -227,7 +227,7 @@ workspace $ws4 output LVDS1
 workspace $ws9 output LVDS1
 workspace $ws10 output LVDS1
 
-#    {{reguły dla aplikacji:}}
+#  >>  {{reguły dla aplikacji:}}
 assign [class="Slack"]                 $ws9
 assign [class="Mtpaint"]               $ws7
 assign [class="MuPDF"]                 $ws5
@@ -263,7 +263,7 @@ for_window [class="Sxiv"]                     floating enable
 for_window [title=".*Private.Browsing.*"] move to workspace $ws7
 # for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
 
-#    {{przejdź do workspace i otwórz aplikację:}}
+#  >>  {{przejdź do workspace i otwórz aplikację:}}
 bindsym $mod+Control+1          workspace $ws1; exec emacs
 bindsym $mod+Control+2          workspace $ws2; exec $browser
 bindsym $mod+Control+3          workspace $ws3; exec $term
@@ -274,20 +274,20 @@ bindsym $mod+Control+7          workspace $ws7; exec gimp
 #bindsym $mod+Control+8          workspace $ws8; exec $term -e mocp
 bindsym $mod+Control+9          workspace $ws9; $exe slack
 
-#    {{reload the configuration file:}}
+#  >>  {{reload the configuration file:}}
 bindsym $mod+Escape             reload
 
-#    {{restart i3 inplace (preserves your layout/session, can be used to upgrade i3):}}
+#  >>  {{restart i3 inplace (preserves your layout/session, can be used to upgrade i3):}}
 # ==================================================================================
 bindsym $mod+Shift+Escape       restart
 
 # =============================================
-#    {{exit i3 (logs you out of your X session):}}
+#  >>  {{exit i3 (logs you out of your X session):}}
 # =============================================
 #bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-## {{MODES}}                  
-#    {{resize window (you can also use the mouse for that) (mod+R):}}
+## >> {MODES}                  
+#  >>  {{resize window (you can also use the mouse for that) (mod+R):}}
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -319,7 +319,7 @@ bindsym $mod+Shift+r    mode "resize"
 bindsym $mod+Shift+f    floating enable; resize set 1280 820; move position center
 bindsym $mod+Control+f  floating disable
 
-#    {{ move floating window (mod+W): }}
+#  >>  {{ move floating window (mod+W): }}
 mode "moveit" {
     bindsym i           move up 20px
     bindsym j           move left 20px
@@ -341,7 +341,7 @@ mode "moveit" {
 
 bindsym $mod+Shift+w    focus floating; mode "moveit"
 
-# {{ modify gaps (mod+S): }}
+#  >>  {{ modify gaps (mod+S): }}
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: ikjl|0 (local), IK|Shift+0 (global)
 set $mode_gaps_inner Inner Gaps: ikjl+| (local), IK|Shift+0 (global)
@@ -384,7 +384,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape   mode "default"
 }
 
-##  { FLOATING }
+## >> { FLOATING }
 
 for_window [class="Catfish"]    floating enable
 for_window [class="Gpick"]      floating enable
@@ -395,7 +395,7 @@ for_window [title="youtube-dl"] floating enable
 for_window [title="youtube-dl"] resize set 500 300
 for_window [title="youtube-dl"] move window to position $yright 10
 
-##  { GAPS }
+## >> { GAPS }
 # smart_gaps on 
 for_window [class="^.*"] border pixel 0
 hide_edge_borders smart
@@ -410,16 +410,16 @@ gaps outer $gou
 #new_window border pixel 10
 smart_borders on
 
-#    {{ sticky windows: }}
+#  >>  {{ sticky windows: }}
 for_window [class=mpv]  sticky enable
 bindsym $mod+v          sticky toggle
 bindsym $mod+Shift+v    $exe ~/.dotfiles/bin/i3video
 # bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move container to output primary; move right 590 px; move up 120 px 
-#    {{toggle gaps 0 / default:}}
+#  >>  {{toggle gaps 0 / default:}}
 bindsym $mod+Shift+G    gaps inner current set $gin; gaps outer current set $gou
 bindsym $mod+g          gaps inner current set 0; gaps outer current set 0
 
-##  {COLORS}
+## >> {COLORS}
 # borders
 set $bra   #ffffff
 set $bri   #00000000
@@ -449,11 +449,11 @@ client.urgent             $bru    $bgur  $txtur
 # former inact. #2c3e50
 # former client.focused #f1c40f
 
-##  { BAR }
+## >> { BAR }
 #font pango:DejaVu Sans Book 9
 #font pango:xos4 Terminus Regular 8
 font pango:Meslo LG M Regular 9
-#    {{bar color variables}}
+#  >>  {{bar color variables}}
 # bar background
 set $sbbg   #00000000
 # bar status line?
@@ -471,7 +471,7 @@ set $sbwubr #a52a2a
 # bar active workspace background     
 set $sbwabg #00001f26
 
-#    {{ bar: primary }} 
+#  >>  {{ bar: primary }} 
 bar {
         output primary
         tray_output none
@@ -498,7 +498,7 @@ bar {
                }
 }
 
-## {{ bar: secondary}}
+## >>{{ bar: secondary}}
 
 bar {
         output VGA1
@@ -525,12 +525,12 @@ bar {
                }
 }
 
-##  { CONTROLS }
-#    {{ SREEN brightness controls: }}
+## >> { CONTROLS }
+#  >>  {{ SREEN brightness controls: }}
 bindsym XF86MonBrightnessUp     $exe xbacklight -inc 15 # increase screen brightness
 bindsym XF86MonBrightnessDown   $exe xbacklight -dec 15 # decrease screen brightness
 
-#    {{ VOLUME / regulacja głośności: }}
+#  >>  {{ VOLUME / regulacja głośności: }}
 bindsym $mod+plus            $exe pactl set-sink-volume 0 +5%  && pkill -RTMIN+1 i3blocks
 bindsym $mod+minus           $exe pactl set-sink-volume 0 -5%  && pkill -RTMIN+1 i3blocks
 bindsym $mod+Shift+plus      $exe pactl set-sink-volume 0 +10% && pkill -RTMIN+1 i3blocks
@@ -549,17 +549,17 @@ bindsym XF86AudioStop        $exe mocp -s
 bindsym XF86AudioNext        $exe mocp -f
 bindsym XF86AudioPrev        $exe mocp -r
 
-#    {{ zrzut ekranu:}}
+#  >>  {{ zrzut ekranu:}}
 # zrzut calego ekranu
 bindsym Print            $exe scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 # zrzut tylko aktywnego okna
 bindsym $mod+Print       $exe scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
 
-#    {{ touchpad OFF/ON:}}
+#  >>  {{ touchpad OFF/ON:}}
 bindsym $mod+z           exec synclient TouchpadOff=1
 bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 
-##  { KBD }
+## >> { KBD }
 # term
 bindsym $mod+Return         split h exec $term
 bindsym $mod+Shift+Return   split v exec $term
@@ -605,7 +605,7 @@ bindsym $mod+Shift+s    move scratchpad
 #bindsym $mod+t              $exe thunar
 #bindsym $mod+w              exec firefox
 #bindsym $mod+F8             $exe mocp -p
-#    {{ dmenu scpripts}}
+#  >>  {{ dmenu scpripts}}
 #bindsym $mod+semicolon      $exe ~/.dotfiles/dmenu/dmenu-kill.sh
 bindsym $mod+semicolon      $exe rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 bindsym $mod+a              $exe ~/.dotfiles/bin/rofi-media.sh
@@ -613,16 +613,16 @@ bindsym $mod+a              $exe ~/.dotfiles/bin/rofi-media.sh
 bindsym $mod+Shift+d        $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
 bindsym $mod+d              $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
 
-##  { NARZĘDZIA SYSTEMOWE}
+## >> { NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9		$exe sudo bash ~/.i3/bin/mount.sh
 # bindsym $mod+F10	$exe sudo bash ~/.i3/bin/unmount.sh
 
-#    {{ screencasting:}}
+#  >>  {{ screencasting:}}
 bindsym $mod+F12        $exe ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12   exec pkill ffmpeg
 
-#    {{ append & reload:}}
+#  >>  {{ append & reload:}}
 bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
 
 # [SPADY!]

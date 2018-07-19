@@ -2,7 +2,7 @@
 ###   QUTEBROWSER CONFIG
 ##############################
 
-## Documentation
+## >> Documentation
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
 
@@ -10,7 +10,7 @@
 ## Remove it to not load settings done via the GUI.
 #config.load_autoconfig()
 
-## Aliases for commands. The keys of the given dictionary are the
+## >> Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
 c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
@@ -47,7 +47,7 @@ c.backend = 'webengine'
 ## Type: Dict
 # c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>', '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
 
-## Background color of the completion widget category headers.
+## >> Background color of the completion widget category headers.
 ## Type: QssColor
 # c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #888888, stop:1 #505050)'
 #c.colors.completion.category.bg = '#444444'
@@ -65,7 +65,7 @@ c.colors.completion.category.bg = '#888888'
 ## Type: QtColor
 # c.colors.completion.category.fg = 'white'
 
-## Background color of the completion widget for even rows.
+## >> Background color of the completion widget for even rows.
 ## Type: QssColor
 # c.colors.completion.even.bg = '#333333' 505050
 c.colors.completion.even.bg = '#505050'
@@ -95,7 +95,7 @@ c.colors.completion.even.bg = '#505050'
 ## Type: QssColor
 # c.colors.completion.match.fg = '#ff4444'
 
-## Background color of the completion widget for odd rows.
+## >> Background color of the completion widget for odd rows.
 ## Type: QssColor
 # c.colors.completion.odd.bg = '#444444'
 c.colors.completion.odd.bg = '#505050'
@@ -180,7 +180,7 @@ c.colors.completion.odd.bg = '#505050'
 ## Type: QssColor
 # c.colors.keyhint.suffix.fg = '#FFFF00'
 
-## Background color of an error message.
+## >> Background color of an error message.
 ## Type: QssColor
 # c.colors.messages.error.bg = 'red'
 c.colors.messages.error.bg = '#c0392b'
@@ -193,7 +193,7 @@ c.colors.messages.error.bg = '#c0392b'
 ## Type: QssColor
 # c.colors.messages.error.fg = 'white'
 
-## Background color of an info message.
+## >> Background color of an info message.
 ## Type: QssColor
 c.colors.messages.info.bg = 'green'
 # black
@@ -250,19 +250,19 @@ c.colors.messages.info.bg = 'green'
 ## Type: QssColor
 # c.colors.statusbar.caret.selection.fg = 'white'
 
-## Background color of the statusbar in command mode.
+## >> Background color of the statusbar in command mode.
 ## Type: QssColor
 # c.colors.statusbar.command.bg = '#2c3e50' 
 # c.colors.statusbar.command.bg = 'grey'
 c.colors.statusbar.command.bg = '#F7F7F7'
 
-## Foreground color of the statusbar in command mode.
+## >> Foreground color of the statusbar in command mode.
 ## Type: QssColor
 # c.colors.statusbar.command.fg = 'white'
 # c.colors.statusbar.command.fg = '#2980b9'
 c.colors.statusbar.command.fg = '#104e8b'
 
-## Background color of the statusbar in private browsing + command mode.
+## >> Background color of the statusbar in private browsing + command mode.
 ## Type: QssColor
 # c.colors.statusbar.command.private.bg = 'grey'
 c.colors.statusbar.command.private.bg = 'purple'
@@ -303,7 +303,7 @@ c.colors.statusbar.command.private.bg = 'purple'
 ## Type: QssColor
 # c.colors.statusbar.private.fg = 'white'
 
-## Background color of the progress bar.
+## >> Background color of the progress bar.
 ## Type: QssColor
 # c.colors.statusbar.progress.bg = 'white' #2980b9
 c.colors.statusbar.progress.bg = '#104e8b'
@@ -312,22 +312,22 @@ c.colors.statusbar.progress.bg = '#104e8b'
 ## Type: QssColor
 # c.colors.statusbar.url.error.fg = 'orange'
 
-## Default foreground color of the URL in the statusbar.
+## >> Default foreground color of the URL in the statusbar.
 ## Type: QssColor
 # c.colors.statusbar.url.fg = 'white'
 c.colors.statusbar.url.fg = 'black'
 
-## Foreground color of the URL in the statusbar for hovered links.
+## >> Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
 # c.colors.statusbar.url.hover.fg = 'aqua'
 c.colors.statusbar.url.hover.fg = 'blue'
 
-## Foreground color of the URL in the statusbar on successful load
+## >> Foreground color of the URL in the statusbar on successful load
 ## (http).
 ## Type: QssColor
 c.colors.statusbar.url.success.http.fg = 'orange'
 
-## Foreground color of the URL in the statusbar on successful load
+## >> Foreground color of the URL in the statusbar on successful load
 ## (https).
 ## Type: QssColor
 # c.colors.statusbar.url.success.https.fg = 'lime'
@@ -341,11 +341,11 @@ c.colors.statusbar.url.success.https.fg = 'green'
 ## Type: QtColor
 # c.colors.tabs.bar.bg = '#555555'
 
-## Background color of unselected even tabs.
+## >> Background color of unselected even tabs.
 ## Type: QtColor
 c.colors.tabs.even.bg = 'black'
 
-## Foreground color of unselected even tabs.
+## >> Foreground color of unselected even tabs.
 ## Type: QtColor
 c.colors.tabs.even.fg = '#bdc3c7'
 
@@ -353,11 +353,11 @@ c.colors.tabs.even.fg = '#bdc3c7'
 ## Type: QtColor
 #c.colors.tabs.indicator.error = 'black'
 
-## Color gradient start for the tab indicator.
+## >> Color gradient start for the tab indicator.
 ## Type: QtColor
 c.colors.tabs.indicator.start = 'black'
 
-## Color gradient end for the tab indicator.
+## >> Color gradient end for the tab indicator.
 ## Type: QtColor
 c.colors.tabs.indicator.stop = 'black'
 
@@ -370,28 +370,28 @@ c.colors.tabs.indicator.stop = 'black'
 ##   - none: Don't show a gradient.
 # c.colors.tabs.indicator.system = 'rgb'
 
-## Background color of unselected odd tabs.
+## >> Background color of unselected odd tabs.
 ## Type: QtColor
 c.colors.tabs.odd.bg = 'black'
 
-## Foreground color of unselected odd tabs.
+## >> Foreground color of unselected odd tabs.
 ## Type: QtColor
 c.colors.tabs.odd.fg = '#bdc3c7'
 # #F7F7F7
 
-## Background color of selected even tabs.
+## >> Background color of selected even tabs.
 ## Type: QtColor
 c.colors.tabs.selected.even.bg = '#F7F7F7'
 
-## Foreground color of selected even tabs.
+## >> Foreground color of selected even tabs.
 ## Type: QtColor
 c.colors.tabs.selected.even.fg = 'black'
 
-## Background color of selected odd tabs.
+## >> Background color of selected odd tabs.
 ## Type: QtColor
 c.colors.tabs.selected.odd.bg = '#F7F7F7'
 
-## Foreground color of selected odd tabs.
+## >> Foreground color of selected odd tabs.
 ## Type: QtColor
 c.colors.tabs.selected.odd.fg = 'black'
 
@@ -424,17 +424,17 @@ c.colors.webpage.bg = '#F7F7F7'
 ## Type: Bool
 # c.completion.quick = True
 
-## Padding (in pixels) of the scrollbar handle in the completion window.
+## >> Padding (in pixels) of the scrollbar handle in the completion window.
 ## Type: Int
 # c.completion.scrollbar.padding = 2
 c.completion.scrollbar.padding = 0
 
-## Width (in pixels) of the scrollbar in the completion window.
+## >> Width (in pixels) of the scrollbar in the completion window.
 ## Type: Int
 # c.completion.scrollbar.width = 12
 c.completion.scrollbar.width = 0
 
-## When to show the autocompletion window.
+## >> When to show the autocompletion window.
 ## Type: String
 ## Valid values:
 ##   - always: Whenever a completion is available.
@@ -461,7 +461,7 @@ c.completion.show = 'auto'
 ## Type: Int
 # c.completion.web_history_max_items = -1
 
-## Require a confirmation before quitting the application.
+## >> Require a confirmation before quitting the application.
 ## Type: ConfirmQuit
 ## Valid values:
 ##   - always: Always show a confirmation.
@@ -716,12 +716,12 @@ c.confirm_quit = ['always']
 ## Type: Bool
 # c.content.xss_auditing = False
 
-## Directory to save downloads to. If unset, a sensible OS-specific
+## >> Directory to save downloads to. If unset, a sensible OS-specific
 ## default is used.
 ## Type: Directory
 c.downloads.location.directory = '~/dwl'
 
-## Prompt the user for the download location. If set to false,
+## >> Prompt the user for the download location. If set to false,
 ## `downloads.location.directory` will be used.
 ## Type: Bool
 c.downloads.location.prompt = True
@@ -730,7 +730,7 @@ c.downloads.location.prompt = True
 ## Type: Bool
 c.downloads.location.remember = True
 
-## What to display in the download filename input.
+## >> What to display in the download filename input.
 ## Type: String
 ## Valid values:
 ##   - path: Show only the download path.
@@ -738,13 +738,13 @@ c.downloads.location.remember = True
 ##   - both: Show download path and filename.
 c.downloads.location.suggestion = 'path'
 
-## Default program used to open downloads. If null, the default internal
+## >> Default program used to open downloads. If null, the default internal
 ## handler is used. Any `{}` in the string will be expanded to the
 ## filename, else the filename will be appended.
 ## Type: String
 c.downloads.open_dispatcher = None
 
-## Where to show the downloaded files.
+## >> Where to show the downloaded files.
 ## Type: VerticalPosition
 ## Valid values:
 ##   - top
@@ -756,7 +756,7 @@ c.downloads.position = 'bottom'
 ## Type: Int
 # c.downloads.remove_finished = -1
 
-## Editor (and arguments) to use for the `open-editor` command. The
+## >> Editor (and arguments) to use for the `open-editor` command. The
 ## following placeholders are defined: * `{file}`: Filename of the file
 ## to be edited. * `{line}`: Line in which the caret is found in the
 ## text. * `{column}`: Column in which the caret is found in the text. *
@@ -769,39 +769,39 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 ## Type: Encoding
 # c.editor.encoding = 'utf-8'
 
-## Font used in the completion categories.
+## >> Font used in the completion categories.
 ## Type: Font
 c.fonts.completion.category = '10pt Meslo LG M'
 
-## Font used in the completion widget.
+## >> Font used in the completion widget.
 ## Type: Font
 c.fonts.completion.entry = '10pt Meslo LG M'
 
-## Font used for the debugging console.
+## >> Font used for the debugging console.
 ## Type: QtFont
 c.fonts.debug_console = '10pt Meslo LG M'
 
-## Font used for the downloadbar.
+## >> Font used for the downloadbar.
 ## Type: Font
 c.fonts.downloads = '9pt Meslo LG M'
 
-## Font used for the hints.
+## >> Font used for the hints.
 ## Type: Font
 c.fonts.hints = '9pt Meslo LG M'
 
-## Font used in the keyhint widget.
+## >> Font used in the keyhint widget.
 ## Type: Font
 c.fonts.keyhint = '10pt Meslo LG M'
 
-## Font used for error messages.
+## >> Font used for error messages.
 ## Type: Font
 c.fonts.messages.error = '9pt Meslo LG M'
 
-## Font used for info messages.
+## >> Font used for info messages.
 ## Type: Font
 c.fonts.messages.info = '9pt Meslo LG M'
 
-## Font used for warning messages.
+## >> Font used for warning messages.
 ## Type: Font
 c.fonts.messages.warning = '9pt Meslo LG M'
 
@@ -810,15 +810,15 @@ c.fonts.messages.warning = '9pt Meslo LG M'
 ## Type: Font
 # c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
 
-## Font used for prompts.
+## >> Font used for prompts.
 ## Type: Font
 c.fonts.prompts = '10pt Meslo LG M'
 
-## Font used in the statusbar.
+## >> Font used in the statusbar.
 ## Type: Font
 c.fonts.statusbar = '10pt Meslo LG M'
 
-## Font used in the tab bar.
+## >> Font used in the tab bar.
 ## Type: QtFont
 c.fonts.tabs = '9pt Meslo LG M'
 
@@ -877,15 +877,15 @@ c.fonts.tabs = '9pt Meslo LG M'
 ## Type: Int
 # c.hints.auto_follow_timeout = 0
 
-## CSS border value for hints.
+## >> CSS border value for hints.
 ## Type: String
 c.hints.border = '1px solid #E3BE23'
 
-## Characters used for hint strings.
+## >> Characters used for hint strings.
 ## Type: UniqueCharString
 c.hints.chars = 'asdfghjkl'
 
-## Dictionary file to be used by the word hints.
+## >> Dictionary file to be used by the word hints.
 ## Type: File
 c.hints.dictionary = '/usr/share/dict/words'
 
@@ -896,11 +896,11 @@ c.hints.dictionary = '/usr/share/dict/words'
 ##   - python: Slightly worse but faster
 # c.hints.find_implementation = 'python'
 
-## Hide unmatched hints in rapid mode.
+## >> Hide unmatched hints in rapid mode.
 ## Type: Bool
 c.hints.hide_unmatched_rapid_hints = True
 
-## Minimum number of characters used for hint strings.
+## >> Minimum number of characters used for hint strings.
 ## Type: Int
 c.hints.min_chars = 1
 
@@ -1028,7 +1028,7 @@ c.hints.min_chars = 1
 ##   - last-visible: Open new tabs in the most recently visible window.
 # c.new_instance_open_target_window = 'last-focused'
 
-## Show a filebrowser in upload/download prompts.
+## >> Show a filebrowser in upload/download prompts.
 ## Type: Bool
 c.prompt.filebrowser = True
 
@@ -1061,7 +1061,7 @@ c.prompt.filebrowser = True
 ## Type: Bool
 # c.qt.highdpi = False
 
-## Show a scrollbar.
+## >> Show a scrollbar.
 ## Type: Bool
 c.scrolling.bar = False
 
@@ -1070,7 +1070,7 @@ c.scrolling.bar = False
 ## Type: Bool
 # c.scrolling.smooth = False
 
-## When to find text on a page case-insensitively.
+## >> When to find text on a page case-insensitively.
 ## Type: String
 ## Valid values:
 ##   - always: Search case-insensitively.
@@ -1083,7 +1083,7 @@ c.search.ignore_case = 'always'
 ## Type: Bool
 # c.search.incremental = True
 
-## Name of the session to save by default. If this is set to null, the
+## >> Name of the session to save by default. If this is set to null, the
 ## session which was last loaded is saved.
 ## Type: SessionName
 c.session.default_name = None
@@ -1142,7 +1142,7 @@ c.session.default_name = None
 ##   - vi-VN: Vietnamese (Viet Nam)
 # c.spellcheck.languages = []
 
-## Hide the statusbar unless a message is shown.
+## >> Hide the statusbar unless a message is shown.
 ## Type: Bool
 c.statusbar.hide = True
 
@@ -1150,7 +1150,7 @@ c.statusbar.hide = True
 ## Type: Padding
 # c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
 
-## Position of the status bar.
+## >> Position of the status bar.
 ## Type: VerticalPosition
 ## Valid values:
 ##   - top
@@ -1170,11 +1170,11 @@ c.statusbar.position = 'top'
 ##   - progress: Progress bar for the current page loading.
 # c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
 
-## Open new tabs (middleclick/ctrl+click) in the background.
+## >> Open new tabs (middleclick/ctrl+click) in the background.
 ## Type: Bool
 c.tabs.background = True
 
-## Mouse button with which to close tabs.
+## >> Mouse button with which to close tabs.
 ## Type: String
 ## Valid values:
 ##   - right: Close tabs on right-click.
@@ -1208,7 +1208,7 @@ c.tabs.close_mouse_button = 'middle'
 ## Type: Int
 # c.tabs.indicator.width = 3
 
-## How to behave when the last tab is closed.
+## >> How to behave when the last tab is closed.
 ## Type: String
 ## Valid values:
 ##   - ignore: Don't do anything.
@@ -1256,7 +1256,7 @@ c.tabs.last_close = 'close'
 ## Type: Bool
 # c.tabs.pinned.shrink = True
 
-## Position of the tab bar.
+## >> Position of the tab bar.
 ## Type: Position
 ## Valid values:
 ##   - top
@@ -1273,7 +1273,7 @@ c.tabs.position = 'top'
 ##   - last-used: Select the previously selected tab.
 # c.tabs.select_on_remove = 'next'
 
-## When to show the tab bar.
+## >> When to show the tab bar.
 ## Type: String
 ## Valid values:
 ##   - always: Always show the tab bar.
@@ -1326,7 +1326,7 @@ c.tabs.show = 'multiple'
 ## Type: Bool
 # c.tabs.wrap = True
 
-## What search to start when something else than a URL is entered.
+## >> What search to start when something else than a URL is entered.
 ## Type: String
 ## Valid values:
 ##   - naive: Use simple/naive check.
@@ -1334,13 +1334,13 @@ c.tabs.show = 'multiple'
 ##   - never: Never search automatically.
 c.url.auto_search = 'naive'
 
-## Page(s) to open at the start.
+## >> Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
 #c.url.start_pages = ['https://feedly.com/i/my']
 #c.url.start_pages = ['file:///home/piotr/.dotfiles/qtbro/startpage.html']
 c.url.start_pages = 'file:///home/piotr/.dotfiles/qtbro/startpage.html'
 
-## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
+## >> Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
 c.url.default_page = 'file:///home/piotr/.dotfiles/qtbro/newtab.html'
@@ -1358,7 +1358,7 @@ c.url.default_page = 'file:///home/piotr/.dotfiles/qtbro/newtab.html'
 ##   - anchor
 # c.url.incdec_segments = ['path', 'query']
 
-## Search engines which can be used via the address bar. Maps a search
+## >> Search engines which can be used via the address bar. Maps a search
 ## engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
 ## placeholder. The placeholder will be replaced by the search term, use
 ## `{{` and `}}` for literal `{`/`}` signs. The search engine named
@@ -1406,7 +1406,7 @@ c.url.searchengines = {
 ## Type: Perc
 # c.zoom.default = '100%'
 
-## Available zoom levels.
+## >> Available zoom levels.
 ## Type: List of Perc
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
@@ -1418,7 +1418,7 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 ## Type: Bool
 # c.zoom.text_only = False
 
-## General bindings
+## >> General bindings
 config.bind('<Ctrl-G>', 'leave-mode', mode='insert')
 config.bind('<Ctrl-G>', 'leave-mode', mode='hint')
 config.bind('<Ctrl-G>', 'leave-mode', mode='passthrough')
@@ -1427,7 +1427,7 @@ config.bind('<Ctrl-G>', 'leave-mode', mode='prompt')
 config.bind('<Ctrl-G>', 'leave-mode', mode='command')
 config.bind('<Ctrl-G>', 'clear-keychain', mode='normal')
 
-## Bindings for normal mode
+## >> Bindings for normal mode
 # config.bind("'", 'enter-mode jump_mark')
 config.bind('=', 'zoom-in')
 config.bind('-', 'zoom-out')
@@ -1437,7 +1437,7 @@ config.bind('0', 'zoom')
 # config.bind(':', 'set-cmd-text :')
 # config.bind(';I', 'hint images tab')
 
-# zmieniam flagę -r na -b żeby otwierał w tle
+# >> zmieniam flagę -r na -b żeby otwierał w tle
 config.bind(';O', 'hint links fill :open -t -r {hint-url}')
 
 # config.bind(';R', 'hint --rapid links window')
@@ -1453,17 +1453,18 @@ config.bind(';o', 'hint links fill :open -t {hint-url}')
 # config.bind(';y', 'hint links yank')
 # config.bind(';v', 'hint links fill :spawn mpv {hint-url} --input-ipc-server=/tmp/mpv')
 # config.bind(';V', ':spawn mpv {url} --input-ipc-server=/tmp/mpv')
+# >> mpv bindings
 config.bind(';v', 'hint links fill :spawn i3-msg "exec --no-startup-id ~/.dotfiles/bin/queuempv {hint-url}"')
 config.bind(';V', ':spawn i3-msg "exec --no-startup-id ~/bin/queuempv {url}"')
 config.bind(';a', 'hint links fill :spawn i3-msg "exec --no-startup-id ~/.dotfiles/bin/queuempv --no-video {hint-url}"')
 config.bind(';A', ':spawn i3-msg "exec --no-startup-id ~/bin/queuempv --no-video {url}"')
-# d → DOWNLOAD
-# download video
+# >> d → DOWNLOAD bindings
+# >> download video
 config.bind('dv', 'spawn st -e youtube-dl --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
 config.bind('ds', 'spawn st -e youtube-dl --write-auto-sub --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
 config.bind('dS', 'spawn st -e youtube-dl --write-auto-sub --skip-download --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
 config.bind('dE', 'spawn st -e youtube-dl --write-srt --sub-lang en --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
-# download audio
+# >> download audio
 config.bind('da', ':spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "Muzyka/qtb/%(title)s.%(ext)s" {url}')
 config.bind('dA', 'hint links fill :spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "Muzyka/qtb/%(title)s.%(ext)s" {hint-url}')
 
@@ -1557,6 +1558,7 @@ config.bind('q', 'tab-close')
 # config.bind('ga', 'open -t')
 # config.bind('gb', 'set-cmd-text -s :bookmark-load')
 # config.bind('gd', 'download')
+# >> tab movement and G bindings
 config.bind('gf', 'view-source')
 config.bind('gg', 'scroll-to-perc 0')
 config.bind('gj', 'tab-move -')
@@ -1572,21 +1574,26 @@ config.bind('<Alt-;>', 'tab-focus -1')
 config.bind('<Alt-Shift-L>', 'tab-move +')
 config.bind('<Alt-Shift-J>', 'tab-move -')
 
-# NAVIG
+# >> NAVIG bindings
 config.bind(',', 'enter-mode insert')
 config.bind('k', 'scroll down')
 config.bind('i', 'scroll up')
 config.bind('l', 'scroll right')
 config.bind('j', 'scroll left')
 
+# >> quickmarks bindings
 config.bind('aa', 'quickmark-save')
 # config.bind('n', 'search-next')
 # config.bind('o', 'set-cmd-text -s :open')
 # config.bind('pP', 'open -- {primary}')
 # config.bind('pp', 'open -- {clipboard}')
 # config.bind('q', 'record-macro')
+
+# >> macro bindings
 config.bind('<F3>', 'record-macro')
 # config.bind('r', 'reload')
+
+# >> save bindings
 config.bind('sf', 'save')
 config.bind('sd', 'session-save')
 # config.bind('sk', 'set-cmd-text -s :bind')
@@ -1631,7 +1638,11 @@ config.bind('sd', 'session-save')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
 
-## Bindings for caret mode
+## >> Bindings for caret mode
+config.bind('j', 'move-to-prev-char', mode='caret')
+config.bind('k', 'move-to-next-line', mode='caret')
+config.bind('i', 'move-to-prev-line', mode='caret')
+config.bind('l', 'move-to-next-char', mode='caret')
 # config.bind('$', 'move-to-end-of-line', mode='caret')
 # config.bind('0', 'move-to-start-of-line', mode='caret')
 # config.bind('<Ctrl-Space>', 'drop-selection', mode='caret')
@@ -1650,10 +1661,6 @@ config.bind('sd', 'session-save')
 # config.bind('c', 'enter-mode normal', mode='caret')
 # config.bind('e', 'move-to-end-of-word', mode='caret')
 # config.bind('gg', 'move-to-start-of-document', mode='caret')
-config.bind('j', 'move-to-prev-char', mode='caret')
-config.bind('k', 'move-to-next-line', mode='caret')
-config.bind('i', 'move-to-prev-line', mode='caret')
-config.bind('l', 'move-to-next-char', mode='caret')
 # config.bind('v', 'toggle-selection', mode='caret')
 # config.bind('w', 'move-to-next-word', mode='caret')
 # config.bind('y', 'yank selection', mode='caret')

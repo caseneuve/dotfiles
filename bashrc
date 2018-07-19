@@ -8,17 +8,17 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 13.07.18, 13:42:25 @lenovo
+# Last update: 19.07.18, 13:28:02 @x200
 
-# Doc:
+# >> Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
 # note: lack of escape characters results in strange behaviour, e.g. not going to next line with input etc.
 
-# If not running interactively, don't do anything
+# >> If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# COMMAND PROMPT
-# → colors
+# >> COMMAND PROMPT
+# >> command prompt: colors
 BLUE="$(tput setaf 4)"
 BLUEBG="$(tput setab 4)"
 GREEN="$(tput setaf 2)"
@@ -35,16 +35,7 @@ RESET="$(tput sgr0)"
 BLACK="$(tput setaf 8)"
 MAGENTA="$(tput setaf 13)"
 
-# → string format
-# export PS1='\[${BLUEBG}\]\[${WHITE}\]\A \[${GREENBG}\]\[${WHITE}\] \w \[${REDBG}\]\[${WHIFG}\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[${RESET}\] \[${ORANGE}\]\[${BOLD}\]\$\[${RESET}\] '
-
-# rightprompt()
-# {
-#     [[ $? == 0 ]] && printf $BLUE || printf $BOLD$RED
-#     printf "%*s" $COLUMNS "$(date +%H:%M)"
-# }
-#\[$(tput sc; rightprompt; tput rc)\]
-
+# >> command prompt: helper func
 exitstatus()
 {
     if [[ $? == 0 ]]; then
@@ -54,11 +45,12 @@ exitstatus()
     fi
 }
 
+# >> command prompt: string format
 export PS1='\[$(exitstatus)\]\# \[$GREEN\]\w \[$RED\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$ORANGE\]\$\[$RESET\] '
 export PS2="\[$ORANGE\]> \[$RESET\]"
 shopt -s autocd
 
-# VARIABLES:
+# >> VARIABLES:
 export BROWSER=/usr/bin/qutebrowser
 export VISUAL=""
 export EDITOR='emacsclient -nw'
@@ -67,21 +59,21 @@ export PATH=$PATH:~/bin:~/scr
 export RANGER_LOAD_DEFAULT_RC=FALSE
 # export TERM=xterm-xfree86
 
-# mutt background fix
+# >> mutt background fix
 COLORFGBG="default;default"
 
-# bc calc
+# >> bc calc
 export BC_ENV_ARGS=$HOME/.bc
 
 TERM=xterm-256color
 export TERMINAL=st
 
-# SOURCE:
-# → aliases
+# >> SOURCE:
+# >> source: aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# → fuzzy finder
+# >> source: finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

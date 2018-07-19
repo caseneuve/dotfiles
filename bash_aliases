@@ -8,12 +8,9 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 18.07.18, 22:57:27 @x200
+# Last update: 19.07.18, 13:34:03 @x200
 
-#####################
-## KOMENDY TERMINALA 
-#####################
-
+## >> KOMENDY TERMINALA 
 alias ls='ls --color=auto'
 alias q=exit
 alias cl=clear
@@ -38,26 +35,22 @@ alias xclip='xclip -selection c'
 alias cpwd='pwd | xclip -selection c'
 alias treeno="tree | sed 's/-> [-/a-zA-Z0-9\.\_ ]*//g'"
 
-###########
-## FUNKCJE 
-###########
-
-# find file
-
+## >> FUNKCJE 
+# >> F: find file
 find_file(){
     find $1 -type f | grep $2
 }
 
 alias fif=find_file
 
-# alias add
+# >> F: alias add
 alias_add(){
     echo "alias $1='$2'" >> ~/.bash_aliases
 }
 
 alias aa=alias_add
 
-# wyświetl kolory
+# >> F: wyświetl kolory
 colors(){
     clear
     for C in {0..255}; do
@@ -68,24 +61,24 @@ colors(){
     echo -e "\n"
 }
 
-# wejdź do katalogu i wyświetl zawartość
+# >> F: wejdź do katalogu i wyświetl zawartość
 cdls() { cd "$@" && ls; }
 
-# utwórz katalog i wyświetl zawartość nadrzędnego katalogu sortując najpierw katalogi
+# >> F: utwórz katalog i wyświetl zawartość nadrzędnego katalogu sortując najpierw katalogi
 mk()
 {
     mkdir -p -- "$1" &&
         ls -a --group-directories-first
 }
 
-# utwórz katalog i wejdź do niego
+# >> F: utwórz katalog i wejdź do niego
 mkc()
 {
     mkdir -p -- "$1" &&
         cd -P -- "$1"
 }
 
-# mpv open playlist
+# >> F: mpv open playlist
 mpvplaylist()
 {
     if [ -f "playlist" ]; then
@@ -99,13 +92,13 @@ mpvplaylist()
     fi
 }
 
-# cmd help FIXME: poprawić czitsity
+# >> F: cmd help FIXME: poprawić czitsity
 cmdhelp()
 {
     curl cheat.sh/"$1"
 }
 
-# uses William Whitaker Words (online) to translate a word given as the function argument 
+# >> F: uses William Whitaker Words (online) to translate a word given as the function argument 
 translate_ww()
 {
     clear;
@@ -113,7 +106,7 @@ translate_ww()
     curl -s http://archives.nd.edu/cgi-bin/wordz.pl?keyword=/$1 | awk '! /</' | GREP_COLOR="0;34" egrep --color=always ".*XXX.*|$" | GREP_COLOR="0;92" egrep --color=always "$1|$" | GREP_COLOR="0;93" egrep --color=always ".*;.*|$"
 }
 
-# mupdf restore session
+# >> F: mupdf restore session
 mupdf_restore()
 {
     sed '/^$/d; /#/d' $1 | while read line ;
@@ -122,7 +115,7 @@ mupdf_restore()
     done 
 }
 
-# calcurse search
+# >> F: calcurse search
 calcurse_search()
 {
     calcurse -s01/01$(date +/%Y) -d365 --search=$1 --format-apt='- %m (%S-%E)\n' --format-recur-apt='- %m (%S-%E)\n'
@@ -137,10 +130,8 @@ calcurse_search_future()
 
 alias calS=calcurse_search_future
 
-##############
-### POLECENIA 
-##############
 
+## >> POLECENIA 
 alias sle='systemctl suspend'
 alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
@@ -161,7 +152,7 @@ alias ntx='nano ~/.tmux.conf'
 alias ch7='chmod 750 $1'
 alias mejk='make && sudo make install'
 
-# emacsclient
+## >> EMACSCLIENT
 alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
 alias eba='emacsclient -nw  ~/.bash_aliases'
 alias ebr='emacsclient -nw  ~/.bashrc'
@@ -174,10 +165,7 @@ alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
 alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 alias egtd='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
-############
-## PROGRAMY 
-############
-
+## >> PROGRAMY 
 alias t=trans
 alias tl=translate_ww
 alias tll='trans -s lat'
@@ -226,16 +214,10 @@ alias mt='cd ~/Pobrane; mutt'
 alias nf='clear; neofetch'
 alias h=cmdhelp
 
-###############
-## SYSTEM INFO 
-###############
-
+## >> SYSTEM INFO 
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
-###########
-## SKRYPTY 
-###########
-
+## >> SKRYPTY 
 alias check=checkupdates # from pacman-contrib
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh'
@@ -265,10 +247,7 @@ alias pdfs='/home/piotr/.dotfiles/bin/mupdf-cache.sh'
 alias pdfr='/home/piotr/.dotfiles/bin/mupdf-restore-session.sh'
 alias pdfrs='/home/piotr/.dotfiles/bin/mupdf_restore.sh'
 
-##########
-##  DMENU 
-##########
-
+## >> DMENU (deprecated...)
 alias emm='i3-msg -q "workspace 1; exec --no-startup-id emacs"'
 alias cu='i3-msg -q "exec --no-startup-id $TERMINAL -e calcurse"'
 alias dmo='i3-msg -q "workspace 8; exec --no-startup-id $TERMINAL -e mocp"'
@@ -283,10 +262,7 @@ alias nb='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 alias rss='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 alias news='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 
-###########
-## ZMIENNE 
-###########
-
+## >> ZMIENNE 
 home=/home/piotr
 muz=/home/piotr/Muzyka
 pod=/home/piotr/Pobrane
@@ -296,22 +272,16 @@ pob=/home/piotr/Pobrane
 obr=/home/piotr/Obrazy
 wid=/home/piotr/Wideo
 
-#######
-## GIT 
-#######
-
+## >> GIT 
 alias gts='/home/piotr/.dotfiles/bin/gitstatus.sh'
 alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
 alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
 alias gta='git add'
 alias gtc='git commit -m'
-
 alias ggl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
 alias gl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
 
-#######
-## GREP
-#######
+## >> GREP
 mal=~/Dropbox/config/.mutt_aliases
 malias_func(){
     if [ "$(cat $mal | grep -i "$1")" ]; then
@@ -379,6 +349,6 @@ alias ggg='cd /home/piotr/git/lab'
 
 # fast dirs end
 
-# aliased added by `alias_add' func:
+# >> aliased added by `alias_add' func:
 alias p1='ping 1.1.1.1'
 
