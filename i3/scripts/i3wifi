@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 18.07.18, 10:24:38 @x200
+# Last update: 19.07.18, 21:38:22 @lenovo
 
 # Doc:
 
@@ -29,7 +29,7 @@ fi
 
 if [[ `echo $CONN | grep Unreachable` ]]; then
     #echo "<span fgcolor='#c0392b'><span bgcolor='#ececec'> ▼ ✕ </span></span>"
-    echo "<span bgcolor='#00001f26'><span color='#C0392B'>$GLYPH ? </span></span>"
+    echo "<span bgcolor='#00001f26'><span color='#C0392B'>$GLYPH ?</span></span>"
 else
     #echo "▼ $QUALITY%"
     echo "$GLYPH $QUALITY%"
