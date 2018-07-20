@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/clock.sh
 # Created:     18.07.18, 20:47    @x200
-# Last update: 19.07.18, 15:15:26 @x200
+# Last update: 20.07.18, 03:58:12 @x200
 
 # Doc:
 # note: depency → figlet
@@ -55,7 +55,7 @@ while true; do
     echo "-------------------------------------------------------------------------"
     tput sgr0
     tput setaf $COLOR3;
-    echo `date +"%d, %B %Y"`
+    echo `date +"%A, %d %B"`
     current_task
     echo `calcurse -n`
     tput civis               # invisible cursor; "tput cnorm" --> normal
