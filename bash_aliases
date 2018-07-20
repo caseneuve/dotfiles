@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 19.07.18, 13:34:03 @x200
+# Last update: 20.07.18, 13:56:32 @x200
 
 ## >> KOMENDY TERMINALA 
 alias ls='ls --color=auto'
@@ -161,9 +161,9 @@ alias elog='date >> /home/piotr/.log-antergos; emacsclient -nw  /home/piotr/.log
 alias emt='emacsclient -nw ~/.muttrc'
 alias etm='emacsclient -nw ~/.config/termite/config'
 alias etx='emacsclient -nw ~/.tmux.conf'
-alias eno='emacsclient -nw /home/piotr/Dropbox/EMACS/notes.org'
 alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
 alias egtd='emacsclient -nw /home/piotr/org/gtd/gtd.org'
+alias eno='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
 ## >> PROGRAMY 
 alias t=trans
