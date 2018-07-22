@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/rofi-media.sh
 # Created:     02.05.18, 10:41    @x200
-# Last update: 13.07.18, 10:18:54 @toshiba
+# Last update: 22.07.18, 23:14:19 @lenovo
 
 # Doc: Script used for rofi to control media players 
 # TODO: dokończyć funkcje dla MPV i uzgodnić to z MOC
@@ -12,17 +12,16 @@ MPV_PIPE=/tmp/mp_pipe
 MPV_PIPE2=/tmp/mp_pipe2
 CLIP="$(xclip -o -selection clipboard)"
 
-x=$(rofi -dmenu -i -width 46 -p "" -l 0 -mesg \
-"-------------------------------------------------------
-         MOCP                          MPV             
--------------------------------------------------------
-[k] pause (toggle)       [a/A] pause (toggle)
-[y] play (clip yank)     [s]   play audio (clip yank) 
-[p] play (playlist)      [v]   play video (clip yank)
-[i] stop                 [d/D] stop video/audio (kill)
-[j] previous             [u/U] previous V/A on list 
-[l] next [f]             [o/O] next V/A on list
-[r] repeat (toggle)      [lesser/bigger] seek +/- 30 s.
+x=$(rofi -dmenu -i -font "Inconsolata 15" -p "" -l 0 -mesg \
+"         MOCP                          MPV             
+--------------------------------------------------------
+[k] pause (toggle)         [a/A] pause (toggle)
+[y] play (clip yank)       [s]   play audio (clip yank) 
+[p] play (playlist)        [v]   play video (clip yank)
+[i] stop                   [d/D] stop video/audio (kill)
+[j] previous               [u/U] previous V/A on list 
+[l] next [f]               [o/O] next V/A on list
+[r] repeat (toggle)        [&lt;/&gt;] seek +/- 30 s.
 [q] enqueue (clip yank)
 [S] server start")
 
