@@ -2,12 +2,12 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 23.05.18, 21:32:27 @manjaroi3
+# Last update: 23.07.18, 00:16:47 @lenovo
 
 # Doc:
 # todo: rozbić na małe skrypty (np. uedder)
 
-list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\ncalendar today\nuedder"
+list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\ncalendar today\nuedder\nsys-update info\nsys-update run"
 
 #x=$(echo -e $list | rofi -dmenu -p "START CLI APP")
 echo -e $list
@@ -54,6 +54,20 @@ case $1 in
     'uedder')
         #~/.dotfiles/bin/notify-weather.sh; pkill rofi ;;
         ~/.dotfiles/bin/notify-uedder-new.sh; pkill rofi ;;
+    'sys-update info') if [[ "$(checkupdates)" ]]; then
+                           notify-send -u critical "System update:
+==============" "$(checkupdates)" && pkill -RTMIN+12 i3blocks; pkill rofi;
+                       else
+                           notify-send -u low "System update:
+==============" "System is up to date" && pkill -RTMIN+12; pkill rofi;
+                       fi;;
+    'sys-update run') if [[ "$(checkupdates)" ]]; then
+                          i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks" && pkill rofi;
+                          exit 0
+                      else
+                          notify-send -u low "System update:
+==============" "System is up to date" && pkill -RTMIN+12; pkill rofi;
+                       fi;;
     *) eval "$1" ;;
 esac
 
