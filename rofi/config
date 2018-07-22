@@ -1,36 +1,58 @@
-# MY ROFI CONFIG
-# Last update: 30.04.18, 11:13:21 @x200
+#############################################
+#                        ▄▄▄▄      ██       #
+#                        ██▀▀▀      ▀▀      #
+#   ██▄████   ▄████▄   ███████    ████      #
+#   ██▀      ██▀  ▀██    ██         ██      #
+#   ██       ██    ██    ██         ██      #
+#   ██       ▀██▄▄██▀    ██      ▄▄▄██▄▄▄   #
+#   ▀▀         ▀▀▀▀      ▀▀      ▀▀▀▀▀▀▀▀   # 
+#                                           #
+#############################################
 
-# {MODES}
+# Last update: 22.07.18, 16:08:11 @lenovo
+
+# >> {Info}
+# default themes: /usr/share/rofi/themes/
+
+# >> {MODES}
 rofi.combi-modi:    window,drun,run
 rofi.modi:          window
 
-# {COLORS}
+# >> {COLORS}
 #! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 # rofi.color-normal: #586e75,  #fdf6e3,  #191f26,  #586e75,  #eee8d5
 # rofi.color-urgent: #586e75,  #dc322f,  #191f26,  #dc322f,  #fdf6e3
 # rofi.color-active: #586e75,  #268bd2,  #191f26,  #268bd2,  #fdf6e3
 
-rofi.color-normal: #000000,  #fdf6e3,  #000000,  #268bd2,  #eee8d5
-rofi.color-urgent: #000000,  #dc322f,  #000000,  #dc322f,  #fdf6e3
-rofi.color-active: #000000,  #268bd2,  #000000,  #268bd2,  #fdf6e3
+rofi.color-normal: #aa000000,  #ffffff,  #aa444444,  #aa000000,  #aa000000
+#rofi.color-normal: #aa000000,  #fdf6e3,  #aa444444,  #aa268bd2,  #eee8d5
+# rofi.color-urgent: #aa000000,  #dc322f,  #aa444444,  #aa268bd2,  #fdf6e3
+#rofi.color-active: #aa000000,  #aa268bd2,#aa444444,  #aa268bd2,  #fdf6e3
 
-#!                  'background', 'border', 'separator'
-#rofi.color-window:   #191f26,      #191f26,  #191f26
-rofi.color-window:   #000000,     #000000,  #000000
+#!                  'background', 'border',  'separator'
+#rofi.color-window:   #191f26,    #191f26,    #191f26
+#rofi.color-window:    #cc444444,  #aa000000,  #aa000000
+#rofi.color-window:    #aa444444,  #aa444444,  #aa444444
+# >> {APPEARANCE}
 
-# {APPEARANCE}
-#rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
-rofi.hide-scrollbar:    true
-#rofi.fake-transparency: true
-rofi.lines:             10
+#rofi.hide-scrollbar:    true
+#rofi.fake-transparency: false
+#rofi.lines:             10
 #rofi.bw:                0
-rofi.opacity:           50
+#rofi.location: 0
+#rofi.opacity:           80
+#rofi.fullscreen: true
+#rofi.width: 300
+#rofi.padding: 5
+#rofi.font: inconsolata 12
 
-# {MATCHING}
+#rofi.run-command: {cmd}
+#rofi.separator-style:                dash
+
+# >> {MATCHING}
 rofi.matching: fuzzy
 
-# {KBD}
+# >> {KBD}
 rofi.kb-row-up: Alt-i,Shift-Tab
 rofi.kb-row-down: Alt-k
 rofi.kb-delete-entry: Alt-d
@@ -38,3 +60,31 @@ rofi.kb-accept-entry: Alt-l,Return
 rofi.kb-mode-next: Alt-o,Control-Tab
 rofi.kb-mode-previous: Alt-u
 
+#####
+
+rofi.color-enabled: true
+
+! Window:           'background',  'border', 'separator'
+rofi.color-window: argb:cc252936,  #9575cd, #4682b4
+!argb:ffffffff
+
+!   State:              'bg',       'fg',   'altbg',        'hlbg',         hlfg
+rofi.color-normal: argb:00252936, #ffffff, argb:00252936, argb:009575cd, #00ff7f
+rofi.color-active: argb:00252936, #708090, argb:00252936, argb:009575cd, #ffc000
+rofi.color-urgent: argb:00252936, #ff0000, argb:00252936, argb:00252936, #ff0000
+
+rofi.width: 100
+rofi.padding: 400
+rofi.line-margin: 5
+rofi.lines: 10
+rofi.separator-style: solid
+rofi.columns: 2
+rofi.font: Inconsolata bold 16
+rofi.bw: 0
+rofi.eh: 1
+rofi.hide-scrollbar: true
+rofi.auto-select: true
+rofi.display-drun:run
+#rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi                                        
+                                        
+                                        
