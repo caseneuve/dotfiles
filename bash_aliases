@@ -8,9 +8,10 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 20.07.18, 13:56:32 @x200
+# Last update: 22.07.18, 13:30:00 @lenovo
 
 ## >> KOMENDY TERMINALA 
+alias mkd=mkdir
 alias ls='ls --color=auto'
 alias q=exit
 alias cl=clear
