@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/clock.sh
 # Created:     18.07.18, 20:47    @x200
-# Last update: 20.07.18, 03:58:12 @x200
+# Last update: 22.07.18, 16:16:22 @lenovo
 
 # Doc:
 # note: depency → figlet
@@ -51,6 +51,7 @@ while true; do
     choose_color
     echo -e "\n\n"
     date +"%H : %M" | figlet -f $FONT -c;
+#    date +"%H : %M" | toilet -f mono12 -t;
     tput setaf $COLOR2;    
     echo "-------------------------------------------------------------------------"
     tput sgr0
