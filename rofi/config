@@ -9,7 +9,10 @@
 #                                           #
 #############################################
 
-# Last update: 22.07.18, 23:25:38 @lenovo
+# >> {Doc}
+# Last update: 23.07.18, 11:44:42 @x200
+# FIXME: należy napisać skrypty dla różnych komend, żeby respektowały różne monitory; tutaj zostawić tylko kolory i fullscreen
+# - rofi media (bez separatora, inny padding)
 
 # >> {Info}
 # default themes: /usr/share/rofi/themes/
@@ -73,8 +76,8 @@ rofi.color-normal: argb:00252936, #ffffff, argb:00252936, argb:009575cd, #00ff7f
 rofi.color-active: argb:00252936, #708090, argb:00252936, argb:009575cd, #ffc000
 rofi.color-urgent: argb:00252936, #ff0000, argb:00252936, argb:00252936, #ff0000
 
-rofi.width: 100
-rofi.padding: 400
+#rofi.width: 50
+rofi.padding: 300
 rofi.line-margin: 5
 rofi.lines: 10
 rofi.separator-style: solid
@@ -85,5 +88,6 @@ rofi.eh: 1
 rofi.hide-scrollbar: true
 rofi.auto-select: true
 rofi.display-drun:run
+rofi.fullscreen: true
 #rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi            
                                         
