@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 25.07.18, 21:39:30 @x200
+# Last update: 25.07.18, 21:42:00 @x200
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
@@ -12,7 +12,7 @@
 
 # >> VARIABLES
 CLIP="$(xclip -o -selection clipboard)"
-MOC=$(mocp -i | awk 'NR==1 {print $2}')
+MOC=$(mocp -Q %state)
 MPV=$(~/bin/mpv-socket -s)
 GLYPH=
 
