@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 25.07.18, 16:56:12 @x200
+# Last update: 25.07.18, 16:59:35 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -610,7 +610,7 @@ bindsym $mod+Shift+s    move scratchpad
 #  >>  {{ dmenu scpripts}}
 #bindsym $mod+semicolon      $exe ~/.dotfiles/dmenu/dmenu-kill.sh
 bindsym $mod+semicolon      $exe rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
-bindsym $mod+a              $exe ~/.dotfiles/bin/rofi-media.sh
+#bindsym $mod+a              $exe ~/.dotfiles/bin/rofi-media.sh
 #bindsym $mod+Shift+d        $exe dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
 bindsym $mod+Shift+d        $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
 bindsym $mod+d              $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 

@@ -2,9 +2,10 @@
 
 # Path:        ~/.bin/rofi-media.sh
 # Created:     02.05.18, 10:41    @x200
-# Last update: 22.07.18, 23:14:19 @lenovo
+# Last update: 25.07.18, 16:59:13 @x200
 
-# Doc: Script used for rofi to control media players 
+# Doc: note: DEPRECATED → use media-controls.sh for rofi
+# (Script used for rofi to control media players)
 # TODO: dokończyć funkcje dla MPV i uzgodnić to z MOC
 # - może niektóre funkcje uda się płączyć w skryptach, żeby ograniczyć liczbę klawiszy
 
