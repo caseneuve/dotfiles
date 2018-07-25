@@ -10,7 +10,7 @@
 #############################################
 
 # >> {Doc}
-# Last update: 23.07.18, 11:44:42 @x200
+# Last update: 24.07.18, 10:53:55 @x200
 # FIXME: należy napisać skrypty dla różnych komend, żeby respektowały różne monitory; tutaj zostawić tylko kolory i fullscreen
 # - rofi media (bez separatora, inny padding)
 
@@ -90,4 +90,4 @@ rofi.auto-select: true
 rofi.display-drun:run
 rofi.fullscreen: true
 #rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi            
-                                        
+
