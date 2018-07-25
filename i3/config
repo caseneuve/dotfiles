@@ -8,9 +8,10 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 19.07.18, 13:16:56 @x200
+# Last update: 24.07.18, 12:11:35 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
+# TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
 
 ## >> {VARIABLES & general SETTINGS}       
 set $mod Mod4
@@ -551,9 +552,10 @@ bindsym XF86AudioPrev        $exe mocp -r
 
 #  >>  {{ zrzut ekranu:}}
 # zrzut calego ekranu
-bindsym Print            $exe scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
+bindsym Print            $exe scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
 # zrzut tylko aktywnego okna
-bindsym $mod+Print       $exe scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/Obrazy/scrot/'
+bindsym $mod+Print       $exe scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
+#bindsym $mod+Print       $exe i3-msg "scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send \"screenshot taken\""
 
 #  >>  {{ touchpad OFF/ON:}}
 bindsym $mod+z           exec synclient TouchpadOff=1
