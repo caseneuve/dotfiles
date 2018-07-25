@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 25.07.18, 20:36:53 @x200
+# Last update: 25.07.18, 21:39:30 @x200
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
@@ -68,7 +68,7 @@ moc_commands(){
         '[3] stop') mocp -s ;;
         '[p] previous') mocp -r ;;
         '[n] next') mocp -f ;;
-        '[r] repeat (toggle)') mocp -o r ;;
+        '[r] repeat (toggle)') mocp -t r ;;
         '[q] enqueue (clip yank)') mocp -q "$CLIP" ;;
         '[!] play (list)') mocp -p;;
         '[>] forward 30s.') mocp -k 30;;
