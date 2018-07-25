@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 24.07.18, 12:11:35 @x200
+# Last update: 25.07.18, 16:56:12 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -649,7 +649,7 @@ bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
 #bindsym F8             workspace $ws8; $exe $term -e mocp
 
 bindsym $mod+bracketleft  $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
-bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/mpv-commands.sh
+bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
 bindsym $mod+Shift+a      $exe ~/.dotfiles/bin/agenda
 
 ##################################################
