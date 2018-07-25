@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Path:        ~/.dotfiles/i3/i3lock/lock.sh
+# Created:     ?
+# Last update: 25.07.18, 21:12:11 @x200
+
+# Doc: old script; removed by i3betterlock 
+# note: requies i3lock
+
 [[ $(ps aux | grep -v grep | grep rofi) ]] && pkill rofi
 
 sleep 0.2s
