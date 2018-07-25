@@ -2,34 +2,45 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 25.07.18, 16:53:33 @x200
+# Last update: 25.07.18, 20:36:53 @x200
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
 # TODO: set position to go
 # TODO: change mode from video to audio ???
+# TODO: 25/07/2018 POPRAWIĆ WARUNKI!!! | done: problem - skrypty nie czytają /bin, trzeba podawać pełną ścieżkę
 
 # >> VARIABLES
 CLIP="$(xclip -o -selection clipboard)"
 MOC=$(mocp -i | awk 'NR==1 {print $2}')
-MPV=$(mpv-socket -s)
+MPV=$(~/bin/mpv-socket -s)
+GLYPH=
 
 # >> MPV FUNC
 mpv_commands(){
     SOC=/tmp/mpv
     POSITION=$(echo '{ "command": ["get_property_string", "time-pos"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1)
-    selected=$(echo -e "forward 30s \nrewind 30s \nnext \nprevious \npause toggle \nstop \nstream audio yank \nload video stream \nshow playlist " | rofi -theme mytheme -dmenu -p "mpv action: ")
+    selected=$(echo -e \
+                    "[>] forward 30s.
+[<] rewind 30s.
+[n] next
+[p] previous
+[1] pause toggle
+[2] stop
+[4] stream audio yank
+[3] load video stream
+[5] show playlist" | rofi -theme mytheme -dmenu -p "$GLYPH  MPV:")
     case "$selected" in
-        'forward 30s ') echo '{ "command": [ "seek", "30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
-        'rewind 30s ') echo '{ "command": [ "seek", "-30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
-        'next ') echo '{ "command": [ "playlist-next" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
-        'previous ') echo '{ "command": [ "playlist-prev" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
-        'pause toggle ') echo '{ "command": [ "cycle", "pause" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
-        'stream audio yank ') mpv --really-quiet --no-video --input-ipc-server=$SOC "$CLIP" > /dev/null & ;;
-        'stop ') echo '{ "command": [ "stop" ] }' | socat - $SOC 2>/dev/null; pkill -RTMIN+4 i3blocks && exit 0 ;;
-        'load video stream ') [[ $POSITION ]] && echo '{ "command": [ "loadfile", "$CLIP", "append-play" ] }' | socat - $SOC 2>/dev/null || mpv "$CLIP" --input-ipc-server=$SOC > /dev/null &;;
-        'show playlist ') notify-send "MPV Playlist:
--------------" "`~/bin/mpv-socket -P`"
+        '[>] forward 30s.') echo '{ "command": [ "seek", "30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
+        '[<] rewind 30s.') echo '{ "command": [ "seek", "-30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
+        '[n] next') echo '{ "command": [ "playlist-next" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
+        '[p] previous') echo '{ "command": [ "playlist-prev" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
+        '[1] pause toggle') echo '{ "command": [ "cycle", "pause" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
+        '[4] stream audio yank') mpv --really-quiet --no-video --input-ipc-server=$SOC "$CLIP" > /dev/null & ;;
+        '[2] stop') echo '{ "command": [ "stop" ] }' | socat - $SOC 2>/dev/null; pkill -RTMIN+4 i3blocks && exit 0 ;;
+        '[3] load video stream') [[ $POSITION ]] && echo '{ "command": [ "loadfile", "$CLIP", "append-play" ] }' | socat - $SOC 2>/dev/null || mpv "$CLIP" --input-ipc-server=$SOC > /dev/null &;;
+        '[5] show playlist') notify-send "MPV Playlist:
+-------------" "$(~/bin/mpv-socket -P)"
                           #"$(echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/dev/null | jq .data[].filename | xargs)"
                           ;;
         # 'position') ~/scr/mpv-set-playlist-post.sh && exit 0 ;;
@@ -39,50 +50,51 @@ mpv_commands(){
 
 # >> MOC FUNC
 moc_commands(){
-    selected=$(echo -e "[1] pause toggle\n[2] play (clip yank)\n[3] stop\n[4] previous\n[5] next\n[r] repeat (toggle)\n[q] enqueue (clip yank)\n[!] play (list)\n[>] forward 30 sec.\n[<] rewind 30 sec." | rofi -theme mytheme -dmenu -p "mocp action: ")
+    selected=$(echo -e \
+                    "[1] pause toggle
+[2] play (clip yank)
+[3] stop
+[p] previous
+[n] next
+[r] repeat (toggle)
+[q] enqueue (clip yank)
+[!] play (list)
+[>] forward 30s.
+[<] rewind 30s." | rofi -theme mytheme -dmenu -p "$GLYPH  MOCP:")
+    
     case "$selected" in
         '[1] pause toggle') mocp -G ;;
         '[2] play (clip yank)') mocp -l "$CLIP" ;;
         '[3] stop') mocp -s ;;
-        '[4] previous') mocp -r ;;
-        '[5] next') mocp -f ;;
+        '[p] previous') mocp -r ;;
+        '[n] next') mocp -f ;;
         '[r] repeat (toggle)') mocp -o r ;;
         '[q] enqueue (clip yank)') mocp -q "$CLIP" ;;
         '[!] play (list)') mocp -p;;
-        '[>] forward 30 sec.') mocp -k 30;;
-        '[<] rewind 30 sec.') mocp -k -30;;
+        '[>] forward 30s.') mocp -k 30;;
+        '[<] rewind 30s.') mocp -k -30;;
         *) exit 0;;
     esac
 }
 
 # >> PAUSE FUNC
 pause_commands(){
-    selected=$(echo -e "mocp\nmpv" | rofi -theme mytheme -dmenu -p "choose: ")
+    selected=$(echo -e "[a] mocp\n[f] mpv" | rofi -theme mytheme -dmenu -p "$GLYPH CHOOSE:")
     case "$selected" in
-        mocp) moc_commands;;
-        mpv) mpv_commands;;
+        '[a] mocp') moc_commands;;
+        '[f] mpv') mpv_commands;;
         *) exit 0;;
     esac
 }
 
 # >> CONDITIONS
-if [[ "$MOC" = "PLAY" && "$MPV" != "PAUSE" ]]; then
-    moc_commands;
-elif [[ "$MPV" = "PLAY" && "$MOC" != "PAUSE" ]]; then
+if [[ "$MOC" = "STOP" && "$MPV" = "NOT ACTIVE" || "$MOC" = "PAUSE" && "$MPV" = "PAUSE" ]]; then 
+    pause_commands;
+elif [[ "$MOC" = "STOP" && "$MPV" = "PLAY" || "$MOC" = "PAUSE" && "$MPV" = "PLAY" || "$MOC" = "STOP" && "$MPV" = "PAUSE" ]]; then
     mpv_commands;
+elif [[ "$MPV" = "NOT ACTIVE" && "$MOC" = "PLAY" || "$MPV" = "PAUSE" && "$MOC" = "PLAY" || "$MPV" = "NOT ACTIVE" && "$MOC" = "PAUSE" ]]; then
+    moc_commands;
 else
-   pause_commands;
+    notify-send "fajlur";
 fi
-
-# >> SPADY
-# show_list(){
-#     TITLES=`mpv-socket -t`
-#     COUNT=`echo "$TITLES" | wc -l`
-#     for (( c=1; c<=$COUNT; c++ )); do
-#         echo $COUNT
-#         printf "%s" `mpv-socket -t`
-#         echo `mpv-socket -t | awk 'NR==$c {print $0}'`
-#         printf "%d. %s\n" $c $(echo "$TITLES" | awk 'NR==$c {print $0}')
-#     done
-# }
 
