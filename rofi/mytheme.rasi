@@ -6,7 +6,7 @@
 
 * {
     background-color:      #e4e4a1; /*baige*/
-    border-color:          Black;
+    border-color:          #e4e4a1; /*Black*/
     text-color:            Black;
     font:                  "Inconsolata 10";
 }
@@ -30,17 +30,17 @@ configuration {
 
 #listview {
     layout:     horizontal;
-    spacing:    5px;
+    spacing:    10px;
     lines:      100;
 }
 
 #entry {
     expand:     false;
-    width:      10em;
+    width:      7em;
 }
 
 #element {
-    padding: 0px 2px;
+    padding: 0px 4px;
 }
 #element selected {
     background-color: Orange;
