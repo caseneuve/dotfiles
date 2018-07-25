@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 25.07.18, 16:59:35 @x200
+# Last update: 25.07.18, 21:07:43 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -552,9 +552,9 @@ bindsym XF86AudioPrev        $exe mocp -r
 
 #  >>  {{ zrzut ekranu:}}
 # zrzut calego ekranu
-bindsym Print            $exe scrot -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
+bindsym Print            $exe scrot '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
 # zrzut tylko aktywnego okna
-bindsym $mod+Print       $exe scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
+bindsym $mod+Print       $exe scrot -u '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
 #bindsym $mod+Print       $exe i3-msg "scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send \"screenshot taken\""
 
 #  >>  {{ touchpad OFF/ON:}}
@@ -587,9 +587,9 @@ bindsym $mod+r              $exe $term -e ranger
 bindsym $mod+t              $exe thunar
 # sys + appearance
 bindsym $mod+h              bar mode toggle
-bindsym Scroll_Lock         $exe ~/.dotfiles/i3/i3lock/lock.sh
-bindsym $mod+Shift+x        $exe ~/.dotfiles/i3/i3lock/lock.sh
-bindsym $mod+x              exec systemctl suspend      
+bindsym Scroll_Lock         $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
+bindsym $mod+x              $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
+bindsym $mod+Shift+x        exec systemctl suspend      
 # compton ?
 bindsym $mod+Ctrl+F2        $exe compton
 bindsym $mod+F2             exec pkill compton
