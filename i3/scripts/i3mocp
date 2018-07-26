@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 26.07.18, 22:11:04 @x200
+# Last update: 26.07.18, 22:31:22 @x200
 
 # Doc:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -45,13 +45,13 @@ if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     #     fi
         if [ "$STATUS" = "PLAY" ]; then
             echo -e "<span bgcolor='$BGCOLOR'> ♫ $ARTIST:  $SONGTITLE  $TIME [-$LEFT] ♫ </span>"
-        else
+        elif [ "$STATUS" = "PAUSE" ]; then
             echo -e "<span fgcolor='$FGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
         fi
     else
         if [ "$STATUS" = "PLAY" ]; then
             echo -e "<span bgcolor='$BGCOLOR'>♫ $FILE $TIME [-$LEFT] ♫ </span>"
-        else
+        elif [ "$STATUS" = "PAUSE" ]; then
             echo -e "♫ $FILE $TIME [-$LEFT] ♫"
         fi
     fi
