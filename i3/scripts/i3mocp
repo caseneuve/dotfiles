@@ -2,53 +2,64 @@
 
 # Path:        ~/.bin/mocp.sh
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 18.07.18, 13:37:49 @x200
+# Last update: 26.07.18, 22:11:04 @x200
 
 # Doc:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
 # <span> markup is used for pango markup
+BGCOLOR=#36648b
+FGCOLOR=#6F7D91
 
-TITLE=$(mocp -i | grep "^Title:" | sed -e "s/^.*: //")
-ARTIST=$(mocp -i | grep "Artist:" | sed -e "s/^.*: //")
-ARTIST_LEN=`echo ${#ARTIST}`
-TITLE_LEN=`echo ${#TITLE}`
-SONGTITLE=$(mocp -i | grep "SongTitle:" | sed -e "s/^.*: //")
-FILE=$(mocp -i | grep "File:" | sed -e "s/^.*: //")
-STATUS=$(mocp -i | grep "State:" | sed -e "s/^.*: //")
-TIME=$(mocp -i | grep "CurrentTime:" | sed -e "s/^[A-Za-z]*://")
-LEFT=$(mocp -i | grep "TimeLeft:" | sed -e "s/^[A-Za-z]*: //")
-MAXA=13
-MAXT=13
+TITLE=$(mocp -Q %title)
+ARTIST=$(mocp -Q %artist)
+[[ $(echo $ARTIST | awk '{print $1}' | grep -i "the\|a") ]] \
+    && ARTIST=$(echo $ARTIST | awk '{print $1 " " $2}') || ARTIST=$(echo $ARTIST | awk '{print $1}')
+SONGTITLE=$(mocp -Q %song)
+[[ $(echo $SONGTITLE | awk '{print $1}' | grep -i "the\|a") ]] \
+    && SONGTITLE=$(echo $SONGTITLE | awk '{print $1 " " $2}') || SONGTITLE=$(echo $SONGTITLE | awk '{print $1}')
+
+# ARTIST_LEN=$(echo ${#ARTIST})
+# TITLE_LEN=$(echo ${#TITLE})
+
+FILE=$(mocp -Q %file)
+FILE=${FILE##*/}
+STATUS=$(mocp -Q %state)
+TIME=$(mocp -Q %ct)
+LEFT=$(mocp -Q %tl)
+# MAXA=13
+# MAXT=13
 
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
-    if [ "$TITLE" != "" ]; then
-        if (( $TITLE_LEN > $MAXT )); then
-            let x=$TITLE_LEN-$MAXT
-            TITLE=`echo ${TITLE::-$X}…`;
-        fi
-        if [ "$ARTIST" != "" ]; then
-            if (( $ARTIST_LEN > $MAXA )); then
-                let x=$ARTIST_LEN-$MAXA
-                ARTIST=`echo ${ARTIST::-$x}.:`;
-            else
-                ARTIST="$ARTIST:";
-            fi
-        fi
+    # if [ "$TITLE" != "" ]; then
+    #     if (( $TITLE_LEN > $MAXT )); then
+    #         let x=$TITLE_LEN-$MAXT
+    #         TITLE=$(echo ${TITLE::-$X}…);
+    #     fi
+    #     if [ "$ARTIST" != "" ]; then
+    #         if (( $ARTIST_LEN > $MAXA )); then
+    #             let x=$ARTIST_LEN-$MAXA
+    #             ARTIST=$(echo ${ARTIST::-$x}.:);
+    #         else
+    #             ARTIST="$ARTIST:";
+    #         fi
+    #     fi
         if [ "$STATUS" = "PLAY" ]; then
-            echo -e "<span bgcolor='#36648b'> ♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫ </span>"
+            echo -e "<span bgcolor='$BGCOLOR'> ♫ $ARTIST:  $SONGTITLE  $TIME [-$LEFT] ♫ </span>"
         else
-            echo -e "<span fgcolor='#6F7D91'>♫ $ARTIST $SONGTITLE $TIME [-$LEFT] ♫</span>"
+            echo -e "<span fgcolor='$FGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
         fi
     else
         if [ "$STATUS" = "PLAY" ]; then
-            echo -e "<span bgcolor=\"#34495E\">♫ $FILE $TIME [-$LEFT] ♫ </span>"
+            echo -e "<span bgcolor='$BGCOLOR'>♫ $FILE $TIME [-$LEFT] ♫ </span>"
         else
             echo -e "♫ $FILE $TIME [-$LEFT] ♫"
         fi
     fi
     case $BLOCK_BUTTON in
             1) mocp -r ;; # left click = previous song
-            2) mocp -G ;; # middle click = toggle pause/play
+            # 2) mocp -G ;; # middle click = toggle pause/play
+            2) notify-send -u low "MOCP:
+=====" "$(mocp -i)";;
             3) mocp -f ;; # right click = next song
             4) mocp -k -10 ;; # scroll up = backward 10 sec
             5) mocp -k 10 ;; # scroll down = foreard 10 sec

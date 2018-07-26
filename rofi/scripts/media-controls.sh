@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 25.07.18, 21:42:00 @x200
+# Last update: 26.07.18, 19:53:56 @x200
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
@@ -60,7 +60,8 @@ moc_commands(){
 [q] enqueue (clip yank)
 [!] play (list)
 [>] forward 30s.
-[<] rewind 30s." | rofi -theme mytheme -dmenu -p "$GLYPH  MOCP:")
+[<] rewind 30s.
+info" | rofi -theme mytheme -dmenu -p "$GLYPH  MOCP:")
     
     case "$selected" in
         '[1] pause toggle') mocp -G ;;
@@ -73,6 +74,8 @@ moc_commands(){
         '[!] play (list)') mocp -p;;
         '[>] forward 30s.') mocp -k 30;;
         '[<] rewind 30s.') mocp -k -30;;
+        info) notify-send -u low "MOCP:
+=====" "$(mocp -i)";;
         *) exit 0;;
     esac
 }
