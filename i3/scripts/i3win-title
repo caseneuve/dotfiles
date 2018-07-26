@@ -2,16 +2,16 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3win-title.sh
 # Created:     10.07.18, 21:21    @x200
-# Last update: 26.07.18, 18:22:13 @x200
+# Last update: 26.07.18, 18:41:13 @x200
 
 # Doc:
 
-NAME=`xdotool getactivewindow getwindowname`
-LEN=`echo ${#NAME}`
+NAME=$(xdotool getactivewindow getwindowname)
+LEN=$(echo ${#NAME})
 MAX=40
 BGCOLOR=#191f26 # was: #00001f26
 
-NAME_SHORT=`echo $NAME | sed 's/ - qutebrowser$\|mpv$\|([0-9]* dpi)//g'`
+NAME_SHORT=$(echo $NAME | sed 's/ - qutebrowser$\|mpv$\|([0-9]* dpi)//g')
 
 if (( $LEN > 0 )); then
     if (( $LEN > $MAX )); then
