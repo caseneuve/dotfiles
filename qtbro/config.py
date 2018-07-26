@@ -343,7 +343,8 @@ c.colors.statusbar.url.success.https.fg = 'green'
 
 ## >> Background color of unselected even tabs.
 ## Type: QtColor
-c.colors.tabs.even.bg = 'black'
+c.colors.tabs.even.bg = '#191f26'
+#c.colors.tabs.even.bg = 'black'
 
 ## >> Foreground color of unselected even tabs.
 ## Type: QtColor
@@ -354,12 +355,12 @@ c.colors.tabs.even.fg = '#bdc3c7'
 #c.colors.tabs.indicator.error = 'black'
 
 ## >> Color gradient start for the tab indicator.
-## Type: QtColor
-c.colors.tabs.indicator.start = 'black'
+## Type: QtColor; was 'black'
+c.colors.tabs.indicator.start = '#191f26'
 
 ## >> Color gradient end for the tab indicator.
-## Type: QtColor
-c.colors.tabs.indicator.stop = 'black'
+## Type: QtColor; was 'black'
+c.colors.tabs.indicator.stop = '#191f26'
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -371,8 +372,8 @@ c.colors.tabs.indicator.stop = 'black'
 # c.colors.tabs.indicator.system = 'rgb'
 
 ## >> Background color of unselected odd tabs.
-## Type: QtColor
-c.colors.tabs.odd.bg = 'black'
+## Type: QtColor; was 'black'
+c.colors.tabs.odd.bg = '#191f26'
 
 ## >> Foreground color of unselected odd tabs.
 ## Type: QtColor

@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 25.07.18, 21:07:43 @x200
+# Last update: 26.07.18, 18:13:27 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -423,17 +423,21 @@ bindsym $mod+g          gaps inner current set 0; gaps outer current set 0
 ## >> {COLORS}
 # borders
 set $bra   #ffffff
-set $bri   #00000000
-set $bru   #00000000
+# set $bri   #00000000
+# set $bru   #00000000
+set $bri   #191f26
+set $bru   #191f26 
 set $brur  #c0392b
 # background
 set $bgf   #ffffff
-set $bgi   #000000
+set $bgi   #191f26
+#set $bgi   #000000
 set $bgur  #e74c3c
 # text
 set $txtf  #000000
 set $txti  #ffffff
-set $txtu  #7f8c8d
+set $txtu  #ffffff
+#set $txtu  #7f8c8d
 set $txtur #ffffff
 
 # class                   border  bg     text   
@@ -453,24 +457,33 @@ client.urgent             $bru    $bgur  $txtur
 ## >> { BAR }
 #font pango:DejaVu Sans Book 9
 #font pango:xos4 Terminus Regular 8
-font pango:Meslo LG M Regular 9
+#font pango:Meslo LG M Regular 9
+#font pango:Inconsolata 10
+font pango:Lato Light 8
+#font pango:ProzaLibre Regular 9
+#font pango:Source Sans Pro 10
 #  >>  {{bar color variables}}
 # bar background
-set $sbbg   #00000000
+set $sbbg  #191f26
+#set $sbbg   #00000000
 # bar status line?
 set $sbsl   #ffffff
 # bar workspace border
-set $sbwbr  #00000000
+set $sbwbr  #191f26
+#set $sbwbr  #00000000
 # bar focused workspace background     
 set $sbwfbg #ececec
 # bar focused workspace text     
-set $sbwtx  #00191f26
+set $sbwtx  #191f26
+#set $sbwtx  #00191f26
 # bar urgent workspace background     
 set $sbwu   #ff6347
 # bar urgent workspace border
 set $sbwubr #a52a2a
 # bar active workspace background     
-set $sbwabg #00001f26
+set $sbwabg #191f26
+# 001f26
+#set $sbwabg #00001f26
 
 #  >>  {{ bar: primary }} 
 bar {
