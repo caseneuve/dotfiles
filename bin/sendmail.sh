@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 05.07.18, 14:28:40 @toshiba
+# Last update: 30.07.18, 22:09:01 @x200
 
 # Doc:
 
@@ -14,8 +14,8 @@ whibg=$(tput setab 15)
 blafg=$(tput setaf 0)
 redbg=$(tput setab 1)
 
-adbook='/home/piotr/Dropbox/config/mutt/.mutt_aliases'
-MAILDIR='/home/piotr/Dropbox/config/mutt/.sent'
+adbook='/home/piotr/box/Dropbox/.Config/Mutt/.mutt_aliases'
+MAILDIR='/home/piotr/box/Dropbox/.Config/Mutt/.sent'
 
 [[ -d $MAILDIR ]] || mkdir $MAILDIR
 
