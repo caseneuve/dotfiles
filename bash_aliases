@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 22.07.18, 13:30:00 @lenovo
+# Last update: 01.08.18, 11:06:24 @x200
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -168,6 +168,7 @@ alias eno='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
 ## >> PROGRAMY 
 alias t=trans
+alias te='trans -t en'
 alias tl=translate_ww
 alias tll='trans -s lat'
 alias tb='trans $1 -b'
