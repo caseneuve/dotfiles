@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 01.08.18, 11:06:24 @x200
+# Last update: 02.08.18, 14:19:18 @x200
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -318,13 +318,12 @@ alias gbi='cd /home/piotr/bin'
 alias gS='cd /home/piotr/szk'
 alias gy='cd /home/piotr/dox'
 alias gc='cd /home/piotr/.config'
-alias gcc='cd /home/piotr/.config'
+alias gC='cd /home/piotr/.config'
 alias gcr='cd /home/piotr/.config/ranger'
 alias gct='cd /home/piotr/.config/termite'
 alias gcx='cd /home/piotr/.config/xfce4'
 alias gcb='cd /home/piotr/.bak'
 alias gcq='cd /home/piotr/.config/qutebrowser'
-alias gC='cd /home/piotr/.calcurse'
 alias gcn='cd /home/piotr/.newsboat'
 alias gcm='cd /home/piotr/.mutt'
 alias gcs='cd /home/piotr/git/hub/suckless/st'

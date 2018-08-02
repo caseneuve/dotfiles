@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 17.07.18, 02:33:53 @toshiba
+# Last update: 02.08.18, 17:50:22 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -30,13 +30,12 @@ gS     /home/piotr/szk
 gy     /home/piotr/dox
 
 gc     /home/piotr/.config
-gcc    /home/piotr/.config
+gC     /home/piotr/.config
 gcr    /home/piotr/.config/ranger
 gct    /home/piotr/.config/termite
 gcx    /home/piotr/.config/xfce4
 gcb    /home/piotr/.bak
 gcq    /home/piotr/.config/qutebrowser
-gC     /home/piotr/.calcurse
 gcn    /home/piotr/.newsboat
 gcm    /home/piotr/.mutt
 gcs    /home/piotr/git/hub/suckless/st
