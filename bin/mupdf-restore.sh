@@ -2,9 +2,9 @@
 
 # Path:        ~/.dotfiles/bin/mupdf_restore.sh
 # Created:     25.04.18, 21:38    @x200
-# Last update: 25.04.18, 22:45:00 @manjaroi3
+# Last update: 02.08.18, 16:49:58 @x200
 
-# Doc:
+# Doc: NOTE: DEPRECATED! Don't use it
 
 clear
 
