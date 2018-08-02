@@ -2,15 +2,15 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 19.07.18, 21:38:22 @lenovo
+# Last update: 01.08.18, 19:19:15 @x200
 
 # Doc:
 
 IF=$(ip route | awk '/^default/ { print $5 ; exit }')
 [[ -z $IF ]] && echo "OFF"
 
-GLYPH=""
-CONN=`ping -c 1 1.1.1.1 2>/dev/null`
+GLYPH="" # ▼
+CONN=$(ping -c 1 1.1.1.1 2>/dev/null)
 QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
 # if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
@@ -21,22 +21,18 @@ QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 # fi
 
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
-#if [[ ! $(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`) ]]; then
-#    echo "<span fgcolor=\"#e74c3c\">▼ down</span>"
+    # NOTE: może to jest lepsze rozwiązanie niż moje CONN? 
+    #if [[ ! $(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`) ]]; then
     echo "<span fgcolor=\"#e74c3c\">$GLYPH down</span>"
     exit
 fi
 
 if [[ `echo $CONN | grep Unreachable` ]]; then
-    #echo "<span fgcolor='#c0392b'><span bgcolor='#ececec'> ▼ ✕ </span></span>"
-    echo "<span bgcolor='#00001f26'><span color='#C0392B'>$GLYPH ?</span></span>"
+    # <span bgcolor='#00001f26'></span>
+    echo "<span color='#C0392B'>$GLYPH ?</span>"
 else
-    #echo "▼ $QUALITY%"
     echo "$GLYPH $QUALITY%"
 fi
-
-#if [ ! `echo $CONN` = "" ]; then echo "zero"; fi
-# ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo ok || echo error
 
 case $BLOCK_BUTTON in
     # left click 
