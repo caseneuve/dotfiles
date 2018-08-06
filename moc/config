@@ -1,7 +1,7 @@
 ########################
 ###   MY MOCP CONFIG
 ########################
-# Last update: 13.07.18, 01:13:46 @lenovo
+# Last update: 06.08.18, 12:18:39 @x200
 
 # {INTRO}
 # This is a configuration file for the MOC player.  It should be named
@@ -59,7 +59,7 @@
 # Show file titles (title, author, album) instead of file names?
 ReadTags = yes
 
-# {{ MUSIC DIR }}
+# >> {{ MUSIC DIR }}
 # In which directory do you store your music files?  If you specify it
 # you will be able to jump straight to this directory with the '-m'
 # parameter or the 'm' command.  This can also point to a playlist.
@@ -265,11 +265,11 @@ FileNamesIconv = yes
 # Should MOC precache files to assist gapless playback?
 #Precache = yes
 
-# { SAVE PLAYLIST? }
+# >> { SAVE PLAYLIST? }
 # Remember the playlist after exit?
-#SavePlaylist = yes
+SavePlaylist = yes
 
-# { MULTIPLE CLIENTS }
+# >> { MULTIPLE CLIENTS }
 # When using more than one client (interface) at a time, do they share the playlist?
 SyncPlaylist = yes
 
