@@ -1464,13 +1464,13 @@ config.bind(';a', 'hint links fill :spawn i3-msg "exec --no-startup-id ~/.dotfil
 config.bind(';A', ':spawn i3-msg "exec --no-startup-id ~/bin/queuempv --no-video {url}"')
 # >> d → DOWNLOAD bindings
 # >> download video
-config.bind('dv', 'spawn st -e youtube-dl --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
-config.bind('ds', 'spawn st -e youtube-dl --write-auto-sub --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
-config.bind('dS', 'spawn st -e youtube-dl --write-auto-sub --skip-download --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
-config.bind('dE', 'spawn st -e youtube-dl --write-srt --sub-lang en --output "Wideo/qtb/%(title)s.%(ext)s" {url}')
+config.bind('dv', 'spawn st -e youtube-dl --output "wid/qtb/%(title)s.%(ext)s" {url}')
+config.bind('ds', 'spawn st -e youtube-dl --write-auto-sub --output "wid/qtb/%(title)s.%(ext)s" {url}')
+config.bind('dS', 'spawn st -e youtube-dl --write-auto-sub --skip-download --output "wid/qtb/%(title)s.%(ext)s" {url}')
+config.bind('dE', 'spawn st -e youtube-dl --write-srt --sub-lang en --output "wid/qtb/%(title)s.%(ext)s" {url}')
 # >> download audio
-config.bind('da', ':spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "Muzyka/qtb/%(title)s.%(ext)s" {url}')
-config.bind('dA', 'hint links fill :spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "Muzyka/qtb/%(title)s.%(ext)s" {hint-url}')
+config.bind('da', ':spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "muz/qtb/%(title)s.%(ext)s" {url}')
+config.bind('dA', 'hint links fill :spawn st -e youtube-dl --extract-audio --audio-format mp3 --output "muz/qtb/%(title)s.%(ext)s" {hint-url}')
 
 # config.bind('<Alt-1>', 'tab-focus 1')
 # config.bind('<Alt-2>', 'tab-focus 2')
