@@ -8,14 +8,14 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 26.07.18, 18:13:27 @x200
+# Last update: 05.08.18, 17:04:24 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
 
 ## >> {VARIABLES & general SETTINGS}       
 set $mod Mod4
-set $term st
+set $term st 
 set $top  10
 set $scr1 eDP1
 set $scr2 VGA1
@@ -32,6 +32,7 @@ bindsym $mod+Shift+BackSpace     exec tmux kill-session -t tmux; exec i3-msg exi
 
 ## >> {STARTUP & PROGRAMS}
 #  >>  {{starup apps}
+exec_always --no-startup-id ~/.dotfiles/i3/i3listen.py 
 exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 exec_always --no-startup-id dropbox start 
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
@@ -576,8 +577,8 @@ bindsym $mod+Shift+z     exec synclient TouchpadOff=0
 
 ## >> { KBD }
 # term
-bindsym $mod+Return         split h exec $term
-bindsym $mod+Shift+Return   split v exec $term
+bindsym $mod+Return         split h exec $term -t "st @$(date +%H:%M:%S)"
+bindsym $mod+Shift+Return   split v exec $term -t "st @$(date +%H:%M:%S)"
 # qutebrowser
 #bindsym $mod+b              workspace 2; $exe qutebrowser
 bindsym $mod+b              $exe ~/.dotfiles/bin/i3-qtb-launcher.sh 
