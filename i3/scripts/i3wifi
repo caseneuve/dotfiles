@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 01.08.18, 19:19:15 @x200
+# Last update: 06.08.18, 09:07:27 @x200
 
 # Doc:
 
@@ -10,8 +10,10 @@ IF=$(ip route | awk '/^default/ { print $5 ; exit }')
 [[ -z $IF ]] && echo "OFF"
 
 GLYPH="" # ▼
-CONN=$(ping -c 1 1.1.1.1 2>/dev/null)
+CONN=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3))
+#CONN=$(ping -c 1 1.1.1.1 2>/dev/null)
 QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+PAC_LOSS=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3) | awk 'NR==4 {print $6}' | sed 's/%//g')
 
 # if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
 #   echo down # full text
@@ -23,13 +25,15 @@ QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
     # NOTE: może to jest lepsze rozwiązanie niż moje CONN? 
     #if [[ ! $(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`) ]]; then
-    echo "<span fgcolor=\"#e74c3c\">$GLYPH down</span>"
+    echo "<span fgcolor='#e74c3c'>$GLYPH down</span>"
     exit
 fi
 
-if [[ `echo $CONN | grep Unreachable` ]]; then
+if [[ $(echo $CONN | grep Unreachable) ]]; then
     # <span bgcolor='#00001f26'></span>
     echo "<span color='#C0392B'>$GLYPH ?</span>"
+elif [[ $(echo $CONN | grep '0 received') ]]; then
+    echo "<span color='#e74c3c'>$GLYPH $QUALITY%</span>"
 else
     echo "$GLYPH $QUALITY%"
 fi
@@ -39,3 +43,4 @@ case $BLOCK_BUTTON in
     1) notify-send -u low "Dropbox status:
 --------------" "$(dropbox-cli status)" -i ~/box/Dropbox/.Config/dropbox-logo.png && exit 0;;
 esac
+
