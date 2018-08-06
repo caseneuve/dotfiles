@@ -1465,6 +1465,7 @@ config.bind(';A', ':spawn i3-msg "exec --no-startup-id ~/bin/queuempv --no-video
 # >> d → DOWNLOAD bindings
 # >> download video
 config.bind('dv', 'spawn st -e youtube-dl --output "wid/qtb/%(title)s.%(ext)s" {url}')
+config.bind('dV', 'hint links fill :spawn st -e youtube-dl --output "wid/qtb/%(title)s.%(ext)s" {hint-url}')
 config.bind('ds', 'spawn st -e youtube-dl --write-auto-sub --output "wid/qtb/%(title)s.%(ext)s" {url}')
 config.bind('dS', 'spawn st -e youtube-dl --write-auto-sub --skip-download --output "wid/qtb/%(title)s.%(ext)s" {url}')
 config.bind('dE', 'spawn st -e youtube-dl --write-srt --sub-lang en --output "wid/qtb/%(title)s.%(ext)s" {url}')
