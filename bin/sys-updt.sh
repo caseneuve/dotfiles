@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 18.07.18, 10:21:34 @x200
+# Last update: 06.08.18, 22:47:35 @x200
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -43,7 +43,8 @@ DISTRO=antergos
 # }
 
 if (( $num > 0 )); then
-    [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span bgcolor='#00001f26'><span color='#C0392B'><span weight='bold'>  $num</span></span></span>" || echo -e "  $num"
+    # <span bgcolor='#00001f26'>
+    [[ `cat $file | grep -o linux-lts` ]] && echo -e "<span color='#C0392B'><span weight='bold'>  $num</span></span>" || echo -e "  $num"
 fi
 
 case $BLOCK_BUTTON in
