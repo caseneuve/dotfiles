@@ -1,8 +1,9 @@
 #!/bin/env python
 
-# Last update: 08.08.18, 22:49:16 @x200
+# Last update: 08.08.18, 23:46:21 @x200
 # >> DOC:
 # FIXME: uwaga na wyjątki, np. mupdf nie jest włączony
+# TODO: how to sort list of lists by the first element of each sublist?
 
 # >> IMPORT:
 import i3ipc, re, os, shelve
