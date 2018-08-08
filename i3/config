@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 05.08.18, 17:04:24 @x200
+# Last update: 07.08.18, 10:42:17 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -398,7 +398,7 @@ for_window [title="youtube-dl"] resize set 500 300
 for_window [title="youtube-dl"] move window to position $yright 10
 
 ## >> { GAPS }
-# smart_gaps on 
+smart_gaps on 
 for_window [class="^.*"] border pixel 0
 hide_edge_borders smart
 
