@@ -2,10 +2,12 @@
 
 # Path:        ~/scr/rofi-dispatcher.sh
 # Created:     13.07.18, 15:12    @lenovo
-# Last update: 13.07.18, 15:24:15 @lenovo
+# Last update: 08.08.18, 23:27:26 @x200
 
 # Doc:
+SCRIPT_DIR=~/.config/rofi/scripts
+#SCRIPT_DIR=~/.dotfiles/rofi/scripts
 
-selected=$(ls ~/.dotfiles/rofi/scripts | grep -v "rofi-dispatcher\|rofi-cli-starter\|rofi-sys-dispatcher" | rofi -theme mytheme -dmenu -p "choose the script to run: ")
+selected=$(ls $$$ | grep -v "rofi-dispatcher\|rofi-cli-starter\|rofi-sys-dispatcher" | rofi -theme mytheme -dmenu -p "choose the script to run: ")
 [[ -z "$selected" ]] && exit
 ~/.dotfiles/rofi/scripts/$selected
