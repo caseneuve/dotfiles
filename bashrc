@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 08.08.18, 12:37:34 @x200
+# Last update: 08.08.18, 21:29:24 @x200
 
 # >> Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -78,7 +78,10 @@ fi
 # >> source: finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# >> AKCJE
-# >> set terminal title dynamically TODO:
-trap 'echo -ne "\033]0;$BASH_COMMAND\007"' DEBUG
+# >> AKCJE / FUNKCJE
+# >> set terminal title dynamically (but not in tmux!)
+function automatic_title {
+    [[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$BASH_COMMAND ($(date +%H:%M))\007"' DEBUG
+}
+automatic_title
 
