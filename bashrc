@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 19.07.18, 13:28:02 @x200
+# Last update: 08.08.18, 12:37:34 @x200
 
 # >> Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -59,6 +59,7 @@ export PATH=$PATH:~/bin:~/scr
 export RANGER_LOAD_DEFAULT_RC=FALSE
 # export TERM=xterm-xfree86
 
+
 # >> mutt background fix
 COLORFGBG="default;default"
 
@@ -76,4 +77,8 @@ fi
 
 # >> source: finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# >> AKCJE
+# >> set terminal title dynamically TODO:
+trap 'echo -ne "\033]0;$BASH_COMMAND\007"' DEBUG
 
