@@ -1,6 +1,6 @@
 #!/bin/env python
 
-# Last update: 08.08.18, 23:46:21 @x200
+# Last update: 09.08.18, 11:17:23 @x200
 # >> DOC:
 # FIXME: uwaga na wyjątki, np. mupdf nie jest włączony
 # TODO: how to sort list of lists by the first element of each sublist?
@@ -12,10 +12,16 @@ from datetime import datetime as dt
 #import psutil
 #from subprocess import check_output
 
-# >> global VARIABLES:
-cacheDir = '/home/piotr/.cache/mupdf-cache'
+# >> VARIABLES: i3
 i3 = i3ipc.Connection()
 i3info = i3.get_tree().find_classed('MuPDF')
+
+# >> 0. exit script exception
+if i3info == []:
+    quit()
+
+# >> VARIABLES: cacheDir
+cacheDir = '/home/piotr/.cache/mupdf-cache'
 
 # >> 1. get TITLE and PAGE
 tpString = re.compile(r'([\[\]\(\)a-z0-9-_.ąćęłńóźż ]*.pdf) - ([0-9]*)/', re.I)
