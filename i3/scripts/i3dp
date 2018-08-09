@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3dp.sh
 # Created:     10.07.18, 18:45    @x200
-# Last update: 17.07.18, 10:28:43 @x200
+# Last update: 09.08.18, 11:11:39 @x200
 
 # Doc: note: requires dropbox-cli (AUR)
 
@@ -14,11 +14,14 @@ URU=`dropbox-cli status | grep -i "uruchamianie"`
 SYNC=`dropbox-cli status | grep -i "synchronizowanie"`
 
 if [[ $NOT ]]; then
-    echo "<span bgcolor='#00001f26'><span color='#C0392B'> $GLYPH </span></span>" # 𝔻!
+    # <span bgcolor='#00001f26'>
+    echo "<span color='#C0392B'> $GLYPH </span>" # 𝔻!
 elif [[ $URU ]]; then
-    echo "<span bgcolor='#2980b9'><span color='#ffffff'> $GLYPH </span></span>" # 𝔻!
+    # <span bgcolor='#2980b9'>
+    echo "<span color='#ffffff'> $GLYPH </span>" # 𝔻!
 elif [[ $SYNC ]]; then
-    echo "<span fgcolor='#27AE60'><span bgcolor='#ffffff'> $GLYPH </span></span>" #𝔻↓↑
+    # <span bgcolor='#ffffff'>
+    echo "<span fgcolor='#27AE60'> $GLYPH </span>" #𝔻↓↑
 else
     pkill -RTMIN+13 i3blocks
 fi
