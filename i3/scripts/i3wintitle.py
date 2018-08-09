@@ -1,6 +1,6 @@
 #!/bin/env python
 
-# DOC:
+# >> DOC:
 # ====
 # >> TODO: clean idiosyncratic names (eg cut out "qutebrowser from qtb etc."):
 # - [x] qutebrowser
@@ -48,6 +48,7 @@ if i3class == 'MuPDF':
 class_dict = {'Emacs': '',
               'MuPDF': '',
               'qutebrowser': '',
+              'Firefox': '', 
               'st-256color': '',
               'Thunar': '',
               'neomutt': '',
@@ -75,7 +76,7 @@ if i3name == 'dropdown':
     i3name = 'tmux'
 
 # >> remove some unnecesary info 
-removeRe = re.compile(r' - qutebrowser|sxiv -|feh')
+removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox ')
 if removeRe.search(i3name):
     i3name = re.sub(removeRe, '', i3name)
 
