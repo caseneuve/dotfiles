@@ -1,53 +1,127 @@
 #!/bin/env python
 
-# Last update: 09.08.18, 11:17:23 @x200
+# Last update: 11.08.18, 00:24:31 @x200
 # >> DOC:
-# FIXME: uwaga na wyjątki, np. mupdf nie jest włączony
-# TODO: how to sort list of lists by the first element of each sublist?
+# TODO: make option to name the file 
 
 # >> IMPORT:
 import i3ipc, re, os, shelve
 from subprocess import getoutput as gout
+from subprocess import Popen as pop
 from datetime import datetime as dt
+from rofi import Rofi
+
 #import psutil
 #from subprocess import check_output
 
 # >> VARIABLES: i3
 i3 = i3ipc.Connection()
 i3info = i3.get_tree().find_classed('MuPDF')
-
-# >> 0. exit script exception
-if i3info == []:
-    quit()
+i3ws = i3.get_tree().find_focused().workspace().num
 
 # >> VARIABLES: cacheDir
 cacheDir = '/home/piotr/.cache/mupdf-cache'
 
-# >> 1. get TITLE and PAGE
-tpString = re.compile(r'([\[\]\(\)a-z0-9-_.ąćęłńóźż ]*.pdf) - ([0-9]*)/', re.I)
+# >> VARIABLES: rofi theme
+r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
 
-# >> 2. APPEND title and page pairs to the list
-tpList = [tpString.search(title.name).groups() for title in i3info]
+# >> FUNCTIONS
+# >> 0. HELPER: NOTIFY
+def notify(urgency, message):
+    pop(['notify-send', '-u', urgency, 'MuPDF cache:', message])
+    return
 
-# >> 3. make PATH / PAGE list
-finalList = []
-pdfFiles = gout(['find /home/piotr -name "*.pdf"']).split('\n')
-for el in tpList:
-    for path in pdfFiles:
-        if str(el[0]) in path:
-            finalList.append((path, el[1]))
-            break # note: the fist match is enough (without break, we'd have duplicates if they exist on drive)
+# >> A. MUPDF CACHE
+def mupdf_cache():
+    # >> a0. go to the working directory!
+    os.chdir(cacheDir)
+
+    # >> a1. get TITLE, PAGE and DPI
+    tpdRe = re.compile(r'([\[\]\(\)a-z0-9-_.ąćęłńóźż ]*.pdf) - ([0-9]*)/[0-9]* \(([0-9]*) dpi\)', re.I)
+
+    # >> a2. APPEND title, page and dpi values to the list
+    tpdList = [tpdRe.search(title.name).groups() for title in i3info]
+
+    # >> a3. make PATH, PAGE, DPI list
+    allArgsList = []
+    pdfFiles = gout(['find /home/piotr -name "*.pdf"']).split('\n')
+    for el in tpdList:
+        for path in pdfFiles:
+            if str(el[0]) in path:
+                allArgsList.append((path, int(el[1]), int(el[2])))
+                break # note: the fist match is enough (without break, we'd have duplicates if they exist on drive)
         
-#print(finalList)
+    # >> a4. ask for the name of cached file
+    indexN, keyN = r.select("do you want to name the cached file? [y/n]", ['yes', 'no'])
+    if indexN == 0:
+        nameFile = r.text_entry("enter the name:")
+        cacheFile = dt.now().strftime(f'%y%m %d %b @%H:%M:%S {nameFile} ({len(allArgsList)})')
+    elif keyN == -1:
+        quit()
+    else:
+        cacheFile = dt.now().strftime(f'%y%m %d %b @%H:%M:%S ({len(allArgsList)})')
 
-# >> 4. save the FINAL LIST in cacheDir
-os.chdir(cacheDir)
-cacheFile = 'mu-ca' + dt.now().strftime("%y%m%d_%H%M%S")
-shelfFile = shelve.open(cacheFile)
-shelfFile['cacheList'] = finalList
-shelfFile.close()
+    # >> a5. save the FINAL LIST in cacheDir
+    shelfFile = shelve.open(cacheFile)
+    shelfFile['mupdfList'] = allArgsList
+    shelfFile.close()
 
-# >> SPADY:
+    # >> a6. notify about the cached file
+    notify('low', f'File "{cacheFile}" saved')
+
+# >> B. MUPDF LOAD
+def mupdf_load():
+    # >> b1. goto cache dir and get the list of files
+    os.chdir(cacheDir)
+    cachedFiles = os.listdir()
+    if cachedFiles == []:
+        notify('normal', 'No pdf files cached')
+        quit()
+
+    # >> b2. sort them
+    cachedFiles.sort(reverse=True)
+
+    # >> b2.0 choose file to load
+    indexB, keyB = r.select('choose a list to load:', cachedFiles)
+    if keyB == -1:
+        quit()
+    else:
+        loadFile = cachedFiles[indexB]
+
+    # >> b2.1 load the most recent file [OFF]
+    #loadFile = cacheFiles[0]
+    
+    # >> b3. load mupdfChosenList from the chosen file
+    shelfFile = shelve.open(loadFile)
+    mupdfChosenList = shelfFile['mupdfList']
+
+    # >> b4. run mupdf
+    for el in mupdfChosenList:
+        if os.path.exists(el[0]):
+            pop(['mupdf', '-r', f'{int(el[2])}', f'{el[0]}', f'{el[1]}'])
+        else:
+            notify('critical', f'File "{el[0]}" no longer exists')
+
+    # >> b5. make sure i3 layout will be tabbed
+    if i3ws == 5:
+        i3.command('workspace 5; layout tabbed')
+
+# >> C. EXECUTE
+
+if i3info == []:
+    mupdf_load()
+else:
+    optsA = ['[1] load', '[2] cache']
+    indexA, keyA = r.select('MuPDF cache action:', optsA)
+    if keyA == -1:
+        quit()
+    elif indexA == 0:
+        mupdf_load()
+    else:
+        mupdf_cache()
+
+##########################################################################
+# >> X. SPADY:
 # tpList = [ ]
 # for title in i3info:
 #     tpList.append(tpString.search(title.name).groups())
