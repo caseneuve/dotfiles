@@ -1,6 +1,6 @@
 #!/bin/env python
 
-# Last update: 11.08.18, 00:24:31 @x200
+# Last update: 11.08.18, 00:33:16 @x200
 # >> DOC:
 # TODO: make option to name the file 
 
@@ -119,6 +119,8 @@ else:
         mupdf_load()
     else:
         mupdf_cache()
+
+
 
 ##########################################################################
 # >> X. SPADY:
