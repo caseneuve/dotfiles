@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 06.08.18, 22:47:35 @x200
+# Last update: 10.08.18, 11:35:17 @x200
 
 # DOC: Primitive pamac-tray replacement
 # note: uses pacman-contrib package!
@@ -53,8 +53,9 @@ case $BLOCK_BUTTON in
 --------------" "$check" -i $dir/$DISTRO-logo.png && exit 0
        ;;
     # right click
-    3) i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks"
-       exit 0
-       ;;
+    3) #i3-msg -q "exec --no-startup-id st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks"
+        st -t sysupdt -e sudo pacman --noconfirm -Syyu && pkill -RTMIN+12 i3blocks
+        exit 0
+        ;;
 esac
 
