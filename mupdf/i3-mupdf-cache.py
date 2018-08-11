@@ -1,10 +1,10 @@
 #!/bin/env python
 
-# Last update: 11.08.18, 00:33:16 @x200
+# Last update: 11.08.18, 10:35:34 @x200
 # >> DOC:
 # TODO: make option to name the file 
 
-# >> IMPORT:
+# >> IMPORT
 import i3ipc, re, os, shelve
 from subprocess import getoutput as gout
 from subprocess import Popen as pop
@@ -106,17 +106,37 @@ def mupdf_load():
     if i3ws == 5:
         i3.command('workspace 5; layout tabbed')
 
-# >> C. EXECUTE
+# >> C. OPEN PDF from default folder ~/pdf
+def mupdf_open():
+    pdfFolder = '/home/piotr/pdf'
+    os.chdir(pdfFolder)
+    pdfs = os.listdir()
+    indexO, keyO = r.select('choose a file to open:', pdfs)
+    if keyO == -1:
+        quit()
+    else:
+        pop(['mupdf', f'{pdfs[indexO]}'])
+
+# >> D. EXECUTE
 
 if i3info == []:
-    mupdf_load()
+    opts0 = ['[1] load', '[2] open pdf']
+    index0, key0 = r.select('MuPDF cache action:', opts0)
+    if key0 == -1:
+        quit()
+    elif index0 == 0:
+        mupdf_load()
+    else:
+        mupdf_open()
 else:
-    optsA = ['[1] load', '[2] cache']
+    optsA = ['[1] load', '[2] open pdf', '[3] cache']
     indexA, keyA = r.select('MuPDF cache action:', optsA)
     if keyA == -1:
         quit()
     elif indexA == 0:
         mupdf_load()
+    elif indexA == 1:
+        mupdf_open()
     else:
         mupdf_cache()
 
