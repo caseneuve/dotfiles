@@ -1,8 +1,7 @@
 #!/bin/env python
 
-# Last update: 11.08.18, 10:35:34 @x200
-# >> DOC:
-# TODO: make option to name the file 
+# Last update: 11.08.18, 21:17:51 @x200
+# >> DOC: 
 
 # >> IMPORT
 import i3ipc, re, os, shelve
@@ -19,8 +18,8 @@ i3 = i3ipc.Connection()
 i3info = i3.get_tree().find_classed('MuPDF')
 i3ws = i3.get_tree().find_focused().workspace().num
 
-# >> VARIABLES: cacheDir
-cacheDir = '/home/piotr/.cache/mupdf-cache'
+# >> VARIABLES: cache_dir
+cache_dir = '/home/piotr/.cache/mupdf-cache'
 
 # >> VARIABLES: rofi theme
 r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
@@ -34,69 +33,69 @@ def notify(urgency, message):
 # >> A. MUPDF CACHE
 def mupdf_cache():
     # >> a0. go to the working directory!
-    os.chdir(cacheDir)
+    os.chdir(cache_dir)
 
     # >> a1. get TITLE, PAGE and DPI
-    tpdRe = re.compile(r'([\[\]\(\)a-z0-9-_.ąćęłńóźż ]*.pdf) - ([0-9]*)/[0-9]* \(([0-9]*) dpi\)', re.I)
+    tpd_re = re.compile(r'([\[\]\(\)a-z0-9-_.ąćęłńóźż ]*.pdf) - ([0-9]*)/[0-9]* \(([0-9]*) dpi\)', re.I)
 
     # >> a2. APPEND title, page and dpi values to the list
-    tpdList = [tpdRe.search(title.name).groups() for title in i3info]
+    tpd_list = [tpd_re.search(title.name).groups() for title in i3info]
 
     # >> a3. make PATH, PAGE, DPI list
-    allArgsList = []
-    pdfFiles = gout(['find /home/piotr -name "*.pdf"']).split('\n')
-    for el in tpdList:
-        for path in pdfFiles:
+    all_args_list = []
+    pdf_files = gout(['find /home/piotr -name "*.pdf"']).split('\n')
+    for el in tpd_list:
+        for path in pdf_files:
             if str(el[0]) in path:
-                allArgsList.append((path, int(el[1]), int(el[2])))
+                all_args_list.append((path, int(el[1]), int(el[2])))
                 break # note: the fist match is enough (without break, we'd have duplicates if they exist on drive)
         
     # >> a4. ask for the name of cached file
-    indexN, keyN = r.select("do you want to name the cached file? [y/n]", ['yes', 'no'])
-    if indexN == 0:
-        nameFile = r.text_entry("enter the name:")
-        cacheFile = dt.now().strftime(f'%y%m %d %b @%H:%M:%S {nameFile} ({len(allArgsList)})')
+    index_n, keyN = r.select("do you want to name the cached file? [y/n]", ['yes', 'no'])
+    if index_n == 0:
+        name_file = r.text_entry("enter the name:")
+        cache_file = dt.now().strftime(f'%y%m %d %b @%H:%M:%S {name_file} ({len(all_args_list)})')
     elif keyN == -1:
         quit()
     else:
-        cacheFile = dt.now().strftime(f'%y%m %d %b @%H:%M:%S ({len(allArgsList)})')
+        cache_file = dt.now().strftime(f'%y%m %d %b @%H:%M:%S ({len(all_args_list)})')
 
-    # >> a5. save the FINAL LIST in cacheDir
-    shelfFile = shelve.open(cacheFile)
-    shelfFile['mupdfList'] = allArgsList
-    shelfFile.close()
+    # >> a5. save the FINAL LIST in cache_dir
+    shelf_file = shelve.open(cache_file)
+    shelf_file['mupdfList'] = all_args_list
+    shelf_file.close()
 
     # >> a6. notify about the cached file
-    notify('low', f'File "{cacheFile}" saved')
+    notify('low', f'File "{cache_file}" saved')
 
 # >> B. MUPDF LOAD
 def mupdf_load():
     # >> b1. goto cache dir and get the list of files
-    os.chdir(cacheDir)
-    cachedFiles = os.listdir()
-    if cachedFiles == []:
+    os.chdir(cache_dir)
+    cached_files = os.listdir()
+    if cached_files == []:
         notify('normal', 'No pdf files cached')
         quit()
 
     # >> b2. sort them
-    cachedFiles.sort(reverse=True)
+    cached_files.sort(reverse=True)
 
     # >> b2.0 choose file to load
-    indexB, keyB = r.select('choose a list to load:', cachedFiles)
-    if keyB == -1:
+    index_b, key_b = r.select('choose a list to load:', cached_files)
+    if key_b == -1:
         quit()
     else:
-        loadFile = cachedFiles[indexB]
+        load_file = cached_files[index_b]
 
     # >> b2.1 load the most recent file [OFF]
-    #loadFile = cacheFiles[0]
+    #load_file = cacheFiles[0]
     
-    # >> b3. load mupdfChosenList from the chosen file
-    shelfFile = shelve.open(loadFile)
-    mupdfChosenList = shelfFile['mupdfList']
+    # >> b3. load mupdf_chosen_list from the chosen file
+    shelf_file = shelve.open(load_file)
+    mupdf_chosen_list = shelf_file['mupdfList']
 
     # >> b4. run mupdf
-    for el in mupdfChosenList:
+    for el in mupdf_chosen_list:
         if os.path.exists(el[0]):
             pop(['mupdf', '-r', f'{int(el[2])}', f'{el[0]}', f'{el[1]}'])
         else:
@@ -108,14 +107,14 @@ def mupdf_load():
 
 # >> C. OPEN PDF from default folder ~/pdf
 def mupdf_open():
-    pdfFolder = '/home/piotr/pdf'
-    os.chdir(pdfFolder)
+    pdf_folder = '/home/piotr/pdf'
+    os.chdir(pdf_folder)
     pdfs = os.listdir()
-    indexO, keyO = r.select('choose a file to open:', pdfs)
-    if keyO == -1:
+    index_o, key_o = r.select('choose a file to open:', pdfs)
+    if key_o == -1:
         quit()
     else:
-        pop(['mupdf', f'{pdfs[indexO]}'])
+        pop(['mupdf', f'{pdfs[index_o]}'])
 
 # >> D. EXECUTE
 
@@ -129,18 +128,16 @@ if i3info == []:
     else:
         mupdf_open()
 else:
-    optsA = ['[1] load', '[2] open pdf', '[3] cache']
-    indexA, keyA = r.select('MuPDF cache action:', optsA)
-    if keyA == -1:
+    opts_a = ['[1] load', '[2] open pdf', '[3] cache']
+    index_a, key_a = r.select('MuPDF cache action:', opts_a)
+    if key_a == -1:
         quit()
-    elif indexA == 0:
+    elif index_a == 0:
         mupdf_load()
-    elif indexA == 1:
+    elif index_a == 1:
         mupdf_open()
     else:
         mupdf_cache()
-
-
 
 ##########################################################################
 # >> X. SPADY:
