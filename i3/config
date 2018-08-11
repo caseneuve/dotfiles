@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 07.08.18, 10:42:17 @x200
+# Last update: 11.08.18, 10:03:13 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -402,8 +402,8 @@ smart_gaps on
 for_window [class="^.*"] border pixel 0
 hide_edge_borders smart
 
-set $gin 12
-set $gou 8
+set $gin 2
+set $gou 4
 # zmieniłem liczby z 10/10, bo wychodziły bardzo nierówne przerwy (???)
 gaps inner $gin
 gaps outer $gou
