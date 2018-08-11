@@ -1,10 +1,13 @@
 #!/bin/env python
 
-# Last update: 11.08.18, 21:17:51 @x200
+# Last update: 11.08.18, 21:31:25 @x200
 # >> DOC: 
 
 # >> IMPORT
-import i3ipc, re, os, shelve
+import i3ipc
+import re
+import os
+import shelve
 from subprocess import getoutput as gout
 from subprocess import Popen as pop
 from datetime import datetime as dt
