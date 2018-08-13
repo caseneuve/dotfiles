@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.08.18, 15:36:14 @x200
+# Last update: 13.08.18, 16:42:26 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -433,7 +433,8 @@ set $bgf   #2980b9
 set $bgi   #191f26
 set $bgur  #e74c3c
 # text
-set $txtf  #000000
+set $txtf  #ffffff
+# was 000000
 set $txti  #ffffff
 set $txtu  #ffffff
 #set $txtu  #7f8c8d
