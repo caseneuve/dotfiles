@@ -1,15 +1,18 @@
 #!/bin/env python
 
-import i3ipc, subprocess
+import i3ipc
+from subprocess import run
 i3 = i3ipc.Connection()
 
 # Dynamically name your workspaces after the current window class
 def on_window_pkill(i3, e):
-    subprocess.run(['pkill', '-RTMIN+2', 'i3blocks'])
-
+    run(['pkill', '-RTMIN+2', 'i3blocks'])
 
 def window_border(i3, e):
+    cons = i3.get_tree().leaves() 
     foc = i3.get_tree().find_focused()
+    for i in cons:
+        i.command('border none')
     foc.command('border pixel 1')
     
 # Subscribe to events
