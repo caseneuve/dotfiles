@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 12.08.18, 21:03:07 @x200
+# Last update: 13.08.18, 13:26:45 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -423,16 +423,14 @@ bindsym $mod+g          gaps inner current set 0; gaps outer current set 0
 
 ## >> {COLORS}
 # borders
-set $bra   #ffffff
-# set $bri   #00000000
-# set $bru   #00000000
+set $bra   #2980b9
 set $bri   #191f26
 set $bru   #191f26 
 set $brur  #c0392b
 # background
-set $bgf   #ffffff
+set $bgf   #2980b9
+# ffffff
 set $bgi   #191f26
-#set $bgi   #000000
 set $bgur  #e74c3c
 # text
 set $txtf  #000000
