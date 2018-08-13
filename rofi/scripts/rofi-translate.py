@@ -2,7 +2,7 @@
 
 # Path:        ~/biu/py/rofi-translate.py
 # Created:     13.08.18, 18:10    @x200
-# Last update: 13.08.18, 20:53:42 @x200
+# Last update: 13.08.18, 21:48:31 @x200
 
 # >> DOC:
 # note: requires translate-shell, rofi, python-rofi
@@ -24,7 +24,7 @@ unbashify_re = re.compile(r'\x1b\[(1m|22m|24m|4m)')
 kill_head_re = re.compile(r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> Polski \]\n*', re.UNICODE)
 
 # >> QUERY
-validator = lambda s: (s, None) if s.isalpha() else (None, ' ')
+validator = lambda s: (s, None) if not any(char.isdigit() for char in s) else (None, ' ')
 query = r.generic_entry('translate: ', validator)
 
 # >> REGEX OPS
