@@ -2,14 +2,16 @@
 
 # Path:        ~/biu/py/rofi-translate.py
 # Created:     13.08.18, 18:10    @x200
-# Last update: 13.08.18, 22:17:27 @x200
+# Last update: 13.08.18, 23:17:12 @x200
 
 # >> DOC:
 # note: requires translate-shell, rofi, python-rofi
+# usage: enter query → [expression to translate] &opt <[from_lang] >[to_lang]
+# example: "casa <es >en"
 
 # >> TODOs: 
-# todo: 13/08/2018, dodać możliwość zmiany języka np \fra → będzie wyszukiwał dla języka francuskiego 
 # todo: niech zapisuje wyniki w osobistym słowniku [((słowo, znaczenie), <ile razy>)]
+# done: dodać możliwość zmiany języka np \fra → będzie wyszukiwał dla języka francuskiego 
 # done: warunek dla złych wpisów (np. liczby)
 # done: warunek: jeśli query = resp niech daje komunikat, że nie znalazł tłumaczenia
 
@@ -22,8 +24,9 @@ import re
 # >> VARIABLES
 r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
 unbashify_re = re.compile(r'\x1b\[(1m|22m|24m|4m)')
-kill_head_re = re.compile(r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> Polski \]\n*', re.UNICODE)
-#lang_re = re.compile(r' \\([a-z]*)') # → todo 13/08/2018
+kill_head_re = re.compile(r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> (.*) \]\n*', re.UNICODE)
+to_lang_re = re.compile(r' \>([a-z]*)') 
+from_lang_re = re.compile(r' \<([a-z]*)')
 
 # >> QUERY
 validator = lambda s: (s, None) if not any(char.isdigit() for char in s) else (None, ' ')
@@ -33,16 +36,33 @@ query = r.generic_entry('translate: ', validator)
 if query == None:
     quit()
 else:
-    resp = out(['trans', f'{query}']).decode('utf-8').rstrip()
+    to_lang = to_lang_re.search(query)
+    from_lang = from_lang_re.search(query)
+    if to_lang != None:
+        to_lang = to_lang.group(1)
+        query = re.sub(to_lang_re, '', query)
+    else:
+        to_lang = ''
+    if from_lang != None:
+        from_lang = from_lang.group(1)
+        query = re.sub(from_lang_re, '', query)
+    else:
+        from_lang = ''
+    resp = out(['trans', f'{from_lang}:{to_lang}', f'{query}']).decode('utf-8').rstrip()
     unbash = re.sub(unbashify_re, '', resp)
-    dictio = kill_head_re.search(unbash).group(1) 
+    del_head = kill_head_re.search(unbash)
+    if del_head != None:
+        from_lang, to_lang = kill_head_re.search(unbash).groups()
+    else:
+        from_lang = '?'
+        to_lang = '?'
     defs = re.sub(kill_head_re, '',     unbash)
     defs = re.sub(r'    ',      r'- ',  defs)
     defs = re.sub(r'\n- - ',    r' : ', defs)
 
 # >> OUTPUT
 if resp != query:
-    pop(['notify-send', '-u', 'low', f'{query} ({dictio}):\n----------', f'{defs}'])
+    pop(['notify-send', '-u', 'low', f'{query} ({from_lang} → {to_lang}):\n----------', f'{defs}'])
 else:
     pop(['notify-send', '-u', 'low', 'Translate:\n----------', f'Nie znaleziono tłumaczenia dla <b>{query}</b>.'])
 
