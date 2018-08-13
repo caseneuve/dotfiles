@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.08.18, 16:42:26 @x200
+# Last update: 13.08.18, 19:06:05 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -623,13 +623,14 @@ bindsym $mod+Shift+s    move scratchpad
 #bindsym $mod+t              $exe thunar
 #bindsym $mod+w              exec firefox
 #bindsym $mod+F8             $exe mocp -p
-#  >>  {{ dmenu scpripts}}
+#  >>  {{ rofi\dmenu scpripts}}
 #bindsym $mod+semicolon      $exe ~/.dotfiles/dmenu/dmenu-kill.sh
 bindsym $mod+semicolon      $exe rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 #bindsym $mod+a              $exe ~/.dotfiles/bin/rofi-media.sh
 #bindsym $mod+Shift+d        $exe dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
 bindsym $mod+Shift+d        $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
 bindsym $mod+d              $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
+bindsym $mod+backslash      $exe ~/.config/rofi/scripts/translate
 
 ## >> { NARZĘDZIA SYSTEMOWE}
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
