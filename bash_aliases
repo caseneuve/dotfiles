@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 03.08.18, 18:01:37 @x200
+# Last update: 13.08.18, 15:45:52 @x200
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -234,7 +234,6 @@ alias hmupdf='/home/piotr/.bin/mupdfhelp.sh'
 alias bhelp='/home/piotr/.bin/bashhelp.sh'
 alias hbash='/home/piotr/.bin/bashhelp.sh'
 alias Ap='/home/piotr/.dotfiles/bin/i3append.sh'
-alias apd='/home/piotr/.dotfiles/bin/append.sh'
 alias pif='$home/.dotfiles/bin/ifpackage.sh'
 alias sm='$home/.dotfiles/bin/sendmail.sh'
 alias kbd='$home/.dotfiles/bin/kbd-help.sh'

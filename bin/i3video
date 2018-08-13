@@ -2,14 +2,14 @@
 
 # Path:        ~/bin/i3video.sh
 # Created:     12.07.18, 15:50    @x200
-# Last update: 12.07.18, 17:09:59 @x200
+# Last update: 13.08.18, 15:57:39 @x200
 
-# Doc:
+# >> Doc:
 small=415
 big=610
 top=12
 
-#if [[ $(cat /tmp/monitors | awk 'NR==1 {print $1}') = 1 ]]; then
+# if [[ $(cat /tmp/monitors | awk 'NR==1 {print $1}') = 1 ]]; then
 # if [[ $(cat $file | grep -o " connected" | wc -w) = 1 ]]; then
  if [[ $(xrandr --current | grep -o " connected" | wc -w) = 1 ]]; then
     res=$(xrandr --current | grep -A 1 primary | awk -F"x" 'NR==2 {gsub(/^ */,""); print $1}')
@@ -21,11 +21,12 @@ else
     i3-msg -q "fullscreen disable; floating enable; resize set 600 338; sticky enable; move window to position $res $top"
 fi
 
+# >> spady
 # resol. of first monitor
-#cat $file | grep -A 1 primary | awk -F"x" 'NR==2 {gsub(/^ */,""); print $1}'
+# cat $file | grep -A 1 primary | awk -F"x" 'NR==2 {gsub(/^ */,""); print $1}'
 
 # nr of monitors
-#$(cat $x | grep -o " connected" | wc -w)
+# $(cat $x | grep -o " connected" | wc -w)
 
+# fullscreen disable; floating enable; resize set 400 225; sticky enable; move window to position 1000 10
 
-#    fullscreen disable; floating enable; resize set 400 225; sticky enable; move window to position 1000 10

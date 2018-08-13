@@ -1,13 +1,13 @@
-# ~/.dotfiles/bin/asfddsf.sh
+#!/bin/bash
+
+# Path: ~/.dotfiles/bin/asfddsf.sh
 # Created:     04.01.18, 18:43    @x200
-# Last update: 16.06.18, 21:00:20 @lenovo
+# Last update: 13.08.18, 15:55:07 @x200
 
 # Doc:  Appends  i3config  file  (main) with  local  files  containing
 # different settings  for different machines, then  executes i3 reload
 # command (works only  for key bindings, otherwise  execute i3 restart
 # from keyboard shortcut/command line)
-
-#!/bin/bash
 
 loc=~/.i3/config
 cfg=~/.dotfiles/i3/config
