@@ -1529,7 +1529,7 @@ config.bind('J', 'back')
 config.bind('h', 'back')
 config.bind('<Alt-l>', 'tab-next')
 config.bind('<Alt-j>', 'tab-prev')
-config.bind('L', 'forward')
+config.bind('l', 'forward')
 config.bind('ab', 'bookmark-add')
 # config.bind('N', 'search-prev')
 # config.bind('O', 'set-cmd-text -s :open -t')
@@ -1583,10 +1583,10 @@ config.bind('<Alt-Shift-J>', 'tab-move -')
 
 # >> NAVIG bindings
 config.bind(',', 'enter-mode insert')
-config.bind('k', 'scroll down')
-config.bind('i', 'scroll up')
-config.bind('l', 'scroll right')
-config.bind('j', 'scroll left')
+config.bind('j', 'scroll down')
+config.bind('k', 'scroll up')
+config.bind('L', 'scroll right')
+config.bind('H', 'scroll left')
 
 # >> quickmarks bindings
 config.bind('aa', 'quickmark-save')
