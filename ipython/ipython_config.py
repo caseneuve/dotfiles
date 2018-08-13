@@ -603,3 +603,4 @@ c.InteractiveShell.colors = 'Linux'
 ## If True, any %store-d variables will be automatically restored when IPython
 #  starts.
 #c.StoreMagics.autorestore = False
+
