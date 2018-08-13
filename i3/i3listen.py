@@ -7,8 +7,14 @@ i3 = i3ipc.Connection()
 def on_window_pkill(i3, e):
     subprocess.run(['pkill', '-RTMIN+2', 'i3blocks'])
 
+
+def window_border(i3, e):
+    foc = i3.get_tree().find_focused()
+    foc.command('border pixel 1')
+    
 # Subscribe to events
 #i3.on('workspace::focus', on_workspace_focus)
+i3.on("window::focus", window_border)
 i3.on("window::focus", on_window_pkill)
 i3.on("window::title", on_window_pkill)
 i3.on("workspace::focus", on_window_pkill)
