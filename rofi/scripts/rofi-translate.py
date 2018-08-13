@@ -2,14 +2,15 @@
 
 # Path:        ~/biu/py/rofi-translate.py
 # Created:     13.08.18, 18:10    @x200
-# Last update: 13.08.18, 21:48:31 @x200
+# Last update: 13.08.18, 22:17:27 @x200
 
 # >> DOC:
 # note: requires translate-shell, rofi, python-rofi
 
 # >> TODOs: 
-# done: warunek dla złych wpisów (np. liczby)
+# todo: 13/08/2018, dodać możliwość zmiany języka np \fra → będzie wyszukiwał dla języka francuskiego 
 # todo: niech zapisuje wyniki w osobistym słowniku [((słowo, znaczenie), <ile razy>)]
+# done: warunek dla złych wpisów (np. liczby)
 # done: warunek: jeśli query = resp niech daje komunikat, że nie znalazł tłumaczenia
 
 # >> LIBS
@@ -22,6 +23,7 @@ import re
 r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
 unbashify_re = re.compile(r'\x1b\[(1m|22m|24m|4m)')
 kill_head_re = re.compile(r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> Polski \]\n*', re.UNICODE)
+#lang_re = re.compile(r' \\([a-z]*)') # → todo 13/08/2018
 
 # >> QUERY
 validator = lambda s: (s, None) if not any(char.isdigit() for char in s) else (None, ' ')
