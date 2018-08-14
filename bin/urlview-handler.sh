@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 14.08.18, 13:19:47 @x200
+# Last update: 14.08.18, 15:04:24 @x200
 
 # Doc: via Luke Smith github
 # note: replacing feh with sxiv
@@ -25,7 +25,7 @@ elif echo $wgetFiles | grep -w $ext > /dev/null; then
 elif echo $1 | grep "youtube\.\|youtu\.be" > /dev/null; then
     if [[ -f $mpvscript ]]; then
         nohup $mpvscript "$1" &
-        notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $1 | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
+        #notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $1 | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
     else
         nohup mpv "$1" > /dev/null &
     fi
