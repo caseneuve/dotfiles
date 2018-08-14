@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 14.08.18, 11:22:43 @x200
+# Last update: 14.08.18, 11:26:03 @x200
 
 # >> DOC: Primitive pamac-tray replacement
 
@@ -19,7 +19,7 @@ FILE=/tmp/sysupdt
 CHECK=`cat $FILE`
 NUM=`cat $FILE | wc -l`
 DISTRO=antergos
-GLYPH='$GLYPH'
+GLYPH=''
 COLOR='#C0392B'
 
 checkupdates > $FILE
