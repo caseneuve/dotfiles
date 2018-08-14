@@ -2,12 +2,12 @@
 
 # Path:        ~/biu/py/rofi-translate.py
 # Created:     13.08.18, 18:10    @x200
-# Last update: 13.08.18, 23:17:12 @x200
+# Last update: 14.08.18, 09:02:05 @x200
 
 # >> DOC:
 # note: requires translate-shell, rofi, python-rofi
 # usage: enter query → [expression to translate] &opt <[from_lang] >[to_lang]
-# example: "casa <es >en"
+# example: "casa <es >en" or "casa >en <es"
 
 # >> TODOs: 
 # todo: niech zapisuje wyniki w osobistym słowniku [((słowo, znaczenie), <ile razy>)]
@@ -48,7 +48,8 @@ else:
         query = re.sub(from_lang_re, '', query)
     else:
         from_lang = ''
-    resp = out(['trans', f'{from_lang}:{to_lang}', f'{query}']).decode('utf-8').rstrip()
+    resp = out(['trans', f'{from_lang}:{to_lang}',
+                f'{query}']).decode('utf-8').rstrip()
     unbash = re.sub(unbashify_re, '', resp)
     del_head = kill_head_re.search(unbash)
     if del_head != None:
@@ -56,9 +57,9 @@ else:
     else:
         from_lang = '?'
         to_lang = '?'
-    defs = re.sub(kill_head_re, '',     unbash)
-    defs = re.sub(r'    ',      r'- ',  defs)
-    defs = re.sub(r'\n- - ',    r' : ', defs)
+    defs = re.sub(kill_head_re, '', unbash)
+    defs = re.sub(r'    ', r'- ', defs)
+    defs = re.sub(r'\n- - ', r' : ', defs)
 
 # >> OUTPUT
 if resp != query:
