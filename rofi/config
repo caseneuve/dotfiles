@@ -10,7 +10,7 @@
 #############################################
 
 # >> {Doc}
-# Last update: 24.07.18, 10:53:55 @x200
+# Last update: 14.08.18, 13:51:24 @x200
 # FIXME: należy napisać skrypty dla różnych komend, żeby respektowały różne monitory; tutaj zostawić tylko kolory i fullscreen
 # - rofi media (bez separatora, inny padding)
 
@@ -62,8 +62,6 @@ rofi.kb-delete-entry: Alt-d
 rofi.kb-accept-entry: Alt-l,Return
 rofi.kb-mode-next: Alt-o,Control-Tab
 rofi.kb-mode-previous: Alt-u
-
-#####
 
 rofi.color-enabled: true
 
