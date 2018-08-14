@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 13.08.18, 15:45:52 @x200
+# Last update: 14.08.18, 23:04:36 @x200
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -167,6 +167,7 @@ alias egtd='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 alias eno='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
 ## >> PROGRAMY
+alias wm=wmctrl
 alias ipy=ipython
 alias t=trans
 alias te='trans -t en'
