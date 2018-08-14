@@ -1,7 +1,6 @@
 #!/bin/env python
 
 # >> DOC:
-# ====
 # >> TODO: clean idiosyncratic names (eg cut out "qutebrowser from qtb etc."):
 # - [x] qutebrowser
 # - [ ] mpv
@@ -34,17 +33,17 @@ focused = tree.find_focused()
 i3class = focused.window_class
 i3name = focused.name
 
-# >> if focus is on empty workspace make it clean
+# >> IF FOCUS IS ON EMPTY WORKSPACE, RESET THE TITLE
 if i3class == None:
     i3name = ''
     i3class = ''
 
-# >> mupdf: get page number first!
+# >> MUPDF: GET PAGE NUMBER FIRST
 mupdfRe = re.compile(r'([a-z0-9 ._-]*)(.pdf - )([0-9]+/[0-9]+)', re.I)
 if i3class == 'MuPDF':
     i3name = f'[{mupdfRe.search(i3name).group(3)}] {mupdfRe.search(i3name).group(1)}'
 
-# >> use glyph categories for some classes; DICT
+# >> CLASS ICONS DICT
 class_dict = {'Emacs': '',
               'MuPDF': '',
               'qutebrowser': '',
@@ -59,6 +58,7 @@ class_dict = {'Emacs': '',
               'MyPaint': ''
 }
 
+# >> CHANGE ICON DICT
 if i3class in class_dict:
     i3class = class_dict[i3class]
 
@@ -71,16 +71,19 @@ name_dict = {'neomutt': '',
 if i3name in name_dict:
     i3class = name_dict[i3name]
 
-# >> some special cases
-if i3name == 'dropdown':
-    i3name = 'tmux'
+# >> CHANGE NAME DICT
+special_dict = { 'dropdown': 'tmux',
+                 'm4ath': 'R calc',
+} 
+if i3name in special_dict:
+    i3name = special_dict[i3name]
 
-# >> remove some unnecesary info 
-removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox ')
+# >> REMOVE SOME UNNECESARY INFO 
+removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab')
 if removeRe.search(i3name):
     i3name = re.sub(removeRe, '', i3name)
 
-# >> shorten window name
+# >> SHORTEN WINDOW NAME
 if len(i3name) > 50:
     i3name=i3name[0:50] + "..."
 
