@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 14.08.18, 11:26:03 @x200
+# Last update: 14.08.18, 11:38:10 @x200
 
 # >> DOC: Primitive pamac-tray replacement
 
@@ -27,7 +27,7 @@ checkupdates > $FILE
 # >> i3blocks OUTPUT
 if (( $NUM > 0 )); then
     # <span bgcolor='#00001f26'>
-    [[ `cat $FILE | grep -o linux-lts` ]] && echo -e "<span color='$COLOR'><span weight='bold'> $GLYPH $NUM</span></span>" || echo -e " $GLYPH $NUM"
+    [[ `cat $FILE | grep -o linux-lts` ]] && echo -e "<span color='$COLOR'><span weight='bold'>$GLYPH $NUM</span></span>" || echo -e "$GLYPH $NUM"
 fi
 
 # >> MOUSE BEHAVIOUR

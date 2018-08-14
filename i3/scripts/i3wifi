@@ -2,26 +2,23 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 06.08.18, 09:07:27 @x200
+# Last update: 14.08.18, 11:40:12 @x200
 
-# Doc:
+# >> DOC:
 
+# >> COND:
 IF=$(ip route | awk '/^default/ { print $5 ; exit }')
 [[ -z $IF ]] && echo "OFF"
 
+# >> VARIABLES:
 GLYPH="" # ▼
 CONN=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3))
 #CONN=$(ping -c 1 1.1.1.1 2>/dev/null)
 QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 PAC_LOSS=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3) | awk 'NR==4 {print $6}' | sed 's/%//g')
 
-# if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
-#   echo down # full text
-#   echo down # short text
-#   echo \#FF0000 # color
-#   exit
-# fi
-
+# >> i3blocks OUTPUT
+# >> 1.
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
     # NOTE: może to jest lepsze rozwiązanie niż moje CONN? 
     #if [[ ! $(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`) ]]; then
@@ -29,6 +26,7 @@ if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
     exit
 fi
 
+# >> 2.
 if [[ $(echo $CONN | grep Unreachable) ]]; then
     # <span bgcolor='#00001f26'></span>
     echo "<span color='#C0392B'>$GLYPH ?</span>"
@@ -38,9 +36,18 @@ else
     echo "$GLYPH $QUALITY%"
 fi
 
+# >> MOUSE BEHAVIOUR
 case $BLOCK_BUTTON in
     # left click 
     1) notify-send -u low "Dropbox status:
 --------------" "$(dropbox-cli status)" -i ~/box/Dropbox/.Config/dropbox-logo.png && exit 0;;
 esac
+
+# >> SPADY
+# if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
+#   echo down # full text
+#   echo down # short text
+#   echo \#FF0000 # color
+#   exit
+# fi
 
