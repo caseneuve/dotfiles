@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 17.07.18, 10:34:52 @x200
+# Last update: 14.08.18, 13:19:47 @x200
 
 # Doc: via Luke Smith github
 # note: replacing feh with sxiv
@@ -16,8 +16,8 @@ em="email"
 mpvscript=~/.dotfiles/bin/queuempv
 
 if echo $fehFiles | grep -w $ext > /dev/null; then
-    #nohup feh -. -B -- "$1" >/dev/null &
-    nohup sxiv -a -- "$1" > /dev/null &
+    nohup feh -. -B -- "$1" >/dev/null &
+    # nohup sxiv -a -- "$1" > /dev/null & # sxiv nie potrafi otwierać linków
 elif echo $mpvFiles | grep -w $ext > /dev/null; then
     [[ -f $mpvscript ]] && nohup $mpvscript "$1" >/dev/null || nohup mpv --loop --quiet "$1" > /dev/null &
 elif echo $wgetFiles | grep -w $ext > /dev/null; then
