@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 15.08.18, 00:28:20 @x200
+# Last update: 15.08.18, 01:34:01 @x200
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
@@ -14,6 +14,7 @@
 
 # >> VARIABLES:
 EMACS_GUI=$(wmctrl -lx | grep "emacs.Emacs" | grep -v grep)
+EMACS_GUI_ID=$(wmctrl -lx | grep "emacs.Emacs" | grep -v grep | awk '{print $1}')
 [[ $EMACS_GUI ]] && EMACS_GUI_WS=$(echo $EMACS_GUI | awk '{print $2}')
 FOCUSED_WS=$(wmctrl -d | grep "*" | awk '{print $1}')
 EMACS_CLI=$(wmctrl -lx | grep "emacsclient" | grep -v grep)
@@ -23,7 +24,7 @@ if [[ $EMACS_GUI ]]; then
     if [[ $FOCUSED_WS == $EMACS_GUI_WS ]]; then
         [[ $EMACS_CLI ]] && wmctrl -a emacsclient || notify-send -u low "i3" "<i>No other instances of Emacs visible</i>"
     else
-        wmctrl -a Emacs
+        wmctrl -ia $EMACS_GUI_ID
     fi
 else
     echo 'i3-msg "workspace 1; exec --no-startup-id emacs"'
