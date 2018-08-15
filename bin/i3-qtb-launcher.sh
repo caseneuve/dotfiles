@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/qtb-launcher.sh
 # Created:     26.05.18, 23:42    @x200
-# Last update: 15.08.18, 13:40:30 @x200
+# Last update: 15.08.18, 14:05:07 @x200
 
 # >> DOC:
 # "If qutebrowser is running go to the next workspace with qtb window; if not -- launches qtb at wksp 2"
@@ -39,7 +39,7 @@ if [[ $QTB ]]; then
         done
     else
         [[ $FOCUSED_WS == $QTB_WS ]] && \
-            notify-send -u low "i3" "<i>No qutebrowser instances on other workspaces</i>" \
+            notify-send -u low "i3" "<i>No qutebrowser windows on other workspaces</i>" \
                         || wmctrl -ia ${QTB_ID}
     fi
 else
