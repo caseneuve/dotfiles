@@ -24,9 +24,12 @@
 # DONE: make a script that listens to i3 and responds when window changes focus
 # DONE: shorten name, note: 05/08/2018
 
-# >> PRELIMINARY SETTINGS
-import i3ipc, subprocess, re
+# >> IMPORTS
+import i3ipc
+import subprocess
+import re
 
+# >> VARIABLES
 i3 = i3ipc.Connection()
 tree = i3.get_tree()
 focused = tree.find_focused()
@@ -85,9 +88,13 @@ if removeRe.search(i3name):
 
 # >> SHORTEN WINDOW NAME
 if len(i3name) > 50:
-    i3name=i3name[0:50] + "..."
+    i3name = i3name[0:50] + "..."
 
-# >> RETURN string for i3blocks 
+# >> RETURN string for i3blocks
+# skoryguj niedozwolone znaki
+if '\n' in i3name:
+    i3name = 'shell command'
+
 print(f"<span weight='bold'>{i3class}  {i3name}</span>")
 #print(f"<span weight='bold'>{i3name}</span>")
 
