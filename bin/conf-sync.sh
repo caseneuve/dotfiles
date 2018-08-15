@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/quick-updates.sh
 # Created:     13.08.18, 14:32    @x200
-# Last update: 15.08.18, 17:52:46 @x200
+# Last update: 15.08.18, 18:09:49 @x200
 
 # >> DOC: sync config at all machines
 # >> LOG:
@@ -19,7 +19,7 @@
 LAST_UPD=$(awk 'NR==5 {print $(NF)}' ~/.dotfiles/bin/conf-sync.sh)
 echo -e "### Syncing configs with ${LAST_UPD:1}..."
 
-# >> install packages:
+# >> INSTALL PACKAGES:
 declare -a INST_PKG=("maim" "cronie" "wmctrl" "youtube-viewer" "pdfgrep")
 echo -e "# Packages: "
 
@@ -39,7 +39,7 @@ do
     fi
 done
 
-# >> symlinks
+# >> SYMLINKS
 echo "# Syncing symlinks for:"
 IPY_CONF=~/.ipython/profile_default/ipython_config.py
 IPY_DOT=~/.dotfiles/ipython/ipython_config.py
@@ -55,6 +55,13 @@ THIS=~/.dotfiles/bin/conf-sync.sh
 THIS_BIN=~/bin/conf-sync
 [[ -f $THIS_BIN ]] && rm $THIS_BIN
 ln -s $THIS $THIS_BIN && echo " - $(basename $THIS)"
+
+YTV_DIR=~/.config/youtube-viewer
+YTV_CONF=~/.config/youtube-viewer/youtube-viewer.conf
+YTV_DOT=~/.dotfiles/youtube-viewer/youtube-viewer.conf
+[[ ! -d $YTV_DIR ]] && mkdir $YTV_DIR
+[[ -f $YTV_CONF ]] && rm $YTV_CONF
+ln -s $YTV_DOT $YTV_CONF && echo " - $(basename $YTV_DOT)" 
 
 # >> TODO REMAINDER
 echo "## TODO:
