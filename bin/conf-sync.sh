@@ -2,10 +2,12 @@
 
 # Path:        ~/.dotfiles/bin/quick-updates.sh
 # Created:     13.08.18, 14:32    @x200
-# Last update: 15.08.18, 00:58:53 @x200
+# Last update: 15.08.18, 17:52:46 @x200
 
 # >> DOC: sync config at all machines
 # >> LOG:
+# 15/08/2018:
+# todo: add youtube-viewer config updt (mkdir etc)
 # 13/08/2018:
 # todo: [ ] toshiba; [ ] lenovo
 # app list (maim cronie wmctrl)
@@ -18,7 +20,7 @@ LAST_UPD=$(awk 'NR==5 {print $(NF)}' ~/.dotfiles/bin/conf-sync.sh)
 echo -e "### Syncing configs with ${LAST_UPD:1}..."
 
 # >> install packages:
-declare -a INST_PKG=("maim" "cronie" "wmctrl")
+declare -a INST_PKG=("maim" "cronie" "wmctrl" "youtube-viewer" "pdfgrep")
 echo -e "# Packages: "
 
 for package in "${INST_PKG[@]}"

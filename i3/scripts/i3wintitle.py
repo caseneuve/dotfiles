@@ -1,10 +1,12 @@
 #!/bin/env python
 
 # >> DOC:
+
+# >> TODOS:
 # >> TODO: clean idiosyncratic names (eg cut out "qutebrowser from qtb etc."):
 # - [x] qutebrowser
 # - [ ] mpv
-# >> TODO: czy da się dostać do tmuxa?
+# >> TODO: czy da się dostać do tmuxa?; note: tak, ale nie wiem jak updatować skrypt, gdy już się jest w tmuksie
 # >> TODO: glyphs
 # lista:
 # obrazy: gpick, gimp, mypaint
@@ -26,8 +28,8 @@
 
 # >> IMPORTS
 import i3ipc
-import subprocess
 import re
+from subprocess import check_output as out  
 
 # >> VARIABLES
 i3 = i3ipc.Connection()
@@ -81,6 +83,13 @@ special_dict = { 'dropdown': 'tmux',
 if i3name in special_dict:
     i3name = special_dict[i3name]
 
+# >> TMUX
+# if 'dropdown' in i3name:
+#     tmux_windows = out(['tmux', 'list-windows']).decode('utf-8').split('\n')
+#     for name in tmux_windows:
+#         if "active" in name:
+#             i3name = 'tmux: ' + name.split(' ')[1][:-1]
+    
 # >> REMOVE SOME UNNECESARY INFO 
 removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab')
 if removeRe.search(i3name):
