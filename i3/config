@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 16.08.18, 16:42:40 @x200
+# Last update: 16.08.18, 18:37:23 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -172,7 +172,7 @@ bindsym $mod+6          workspace $ws6;
 bindsym $mod+7          workspace $ws7; 
 bindsym $mod+8          workspace $ws8; 
 #layout stacking dla 9?
-bindsym $mod+9          workspace $ws9; 
+bindsym $mod+9          workspace $ws9; layout tabbed
 bindsym $mod+0          workspace $ws10;
 
 bindsym Control+1       workspace $ws1; 
@@ -184,7 +184,7 @@ bindsym Control+6       workspace $ws6;
 bindsym Control+7       workspace $ws7; 
 bindsym Control+8       workspace $ws8; 
 # layout stacking dla 9?
-bindsym Control+9       workspace $ws9; 
+bindsym Control+9       workspace $ws9; layout tabbed
 # bindsym Control+0 workspace $ws10
 
 #  >>  {{move focused container to $ws:}}
