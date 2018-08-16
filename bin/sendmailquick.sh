@@ -10,8 +10,8 @@ blu=$(tput setaf 4)
 whibg=$(tput setab 15)
 blafg=$(tput setaf 0)
 
-adbook='/home/piotr/Dropbox/config/mutt/.mutt_aliases'
-MAILDIR='/home/piotr/Dropbox/config/mutt/.sent'
+adbook='/home/piotr/box/Dropbox/.Config/Mutt/.mutt_aliases'
+MAILDIR='/home/piotr/box/Dropbox/.Config/Mutt/.sent'
 
 [[ -d $MAILDIR ]] || mkdir $MAILDIR
 
