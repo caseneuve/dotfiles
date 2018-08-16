@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/nmt-i3launcher.sh
 # Created:     20.05.18, 10:25    @lenovo
-# Last update: 15.08.18, 00:47:26 @x200
+# Last update: 16.08.18, 21:51:18 @x200
 
 # >> DOC:
 # "Open neomutt @ws 10, if already running, just go there"
@@ -11,13 +11,18 @@
 # todo: zastąpić st-256clor zmienną dla terinala
 # done: niech zawsze fokusuje się na neomutcie, gdy wchodzi do ws10 (alt: i3ipc/xdotool)
 
-NEOMUTT_ID=$(wmctrl -lx | grep "st-256color.st-256color" | grep neomutt | grep -v grep | awk '{print $1}')
+# >> VARIABLES:
+APP=neomutt
+WS=$(i3-msg -t get_config | grep 'set \$ws10' | awk '{print $3 " " $4}')
+NEOMUTT_ID=$(wmctrl -lx | grep "st-256color.st-256color" | grep $APP | grep -v grep | awk '{print $1}')
 
-if [[ $(pidof neomutt) ]]; then
+# >> RUN:
+if [[ $(pidof $APP) ]]; then
     #i3-msg -q 'workspace 10'
     wmctrl -ia $NEOMUTT_ID
 else
-    i3-msg -q 'workspace 10; exec --no-startup-id st -e neomutt'
+    print $WS
+    i3-msg -q "$WS; exec --no-startup-id st -e $APP"
 fi
 
 pkill -RTMIN+10 i3blocks

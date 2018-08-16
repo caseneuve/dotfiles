@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/qtb-launcher.sh
 # Created:     26.05.18, 23:42    @x200
-# Last update: 15.08.18, 14:05:07 @x200
+# Last update: 16.08.18, 22:00:38 @x200
 
 # >> DOC:
 # "If qutebrowser is running go to the next workspace with qtb window; if not -- launches qtb at wksp 2"
@@ -12,7 +12,9 @@
 # done: przepisać to na py (i3ipc) albo użyć wmctrl
 
 # >> VARIABLES:
-QTB=$(wmctrl -lx | grep "qutebrowser.qutebrowser" | grep -v grep)
+APP=qutebrowser
+WS=$(i3-msg -t get_config | grep 'set \$ws2' | awk '{print $3 " " $4}')
+QTB=$(wmctrl -lx | grep "qutebrowser.qutebrowser" | grep -v 'grep --color=auto')
 # note: additional paren is needet to capture output as an array!
 QTB_ID=($(wmctrl -lx | awk '/qutebrowser.qutebrowser/ && !/st-256color/ {print $1}'))
 [[ $QTB ]] && QTB_WS=($(wmctrl -lx | awk '/qutebrowser.qutebrowser/ && !/st-256color/ {print $2}'))
@@ -43,7 +45,7 @@ if [[ $QTB ]]; then
                         || wmctrl -ia ${QTB_ID}
     fi
 else
-    i3-msg -q "workspace 2; exec --no-startup-id qutebrowser"
+    i3-msg -q "$WS; exec --no-startup-id $APP"
 fi
 
 # >> SPADY:
