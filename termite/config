@@ -7,10 +7,11 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
+font = Inconsolata for Powerline 11
 #font = Monospace 9
 #font = xos4 Terminus 12 
 #Ubuntu Mono 12
-font = Meslo LG M 10.5
+#font = Meslo LG M 10.5
 #font = DejaVu Sans Mono 11
 scrollback_lines = 10000
 search_wrap = true
@@ -18,10 +19,10 @@ search_wrap = true
 #geometry = 640x480
 
 # "system", "on" or "off"
-cursor_blink = off
+cursor_blink = on
 
 # "block", "underline" or "ibeam"
-cursor_shape = block
+cursor_shape = underline
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 #browser = xdg-open
@@ -48,10 +49,10 @@ filter_unmatched_urls = true
 foreground      = #ececf0
 foreground_bold = #ececf0
 #cursor          = #f1c40f
-#cursor          = #ececf0
+cursor          = #ececf0
 #cursor          = #ff8194
 #cursor           =#839496
-cursor           =#2980b9
+#cursor           =#2980b9
 
 d700af background = #2d2c37
 
