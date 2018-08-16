@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 16.08.18, 19:15:02 @x200
+# Last update: 16.08.18, 22:23:34 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -151,53 +151,53 @@ for_window [title="sysupdt"] move right 400 px
 for_window [title="sysupdt"] move up 110 px
 ## >> {WORKSPACES}                
 # workspace_auto_back_and_forth yes
-set $ws1 "1"
-set $ws2 "2" 
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"          
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 workspace Emacs
+set $ws2 workspace Qtb
+set $ws3 workspace Term
+set $ws4 workspace Gui
+set $ws5 workspace Pdf
+set $ws6 workspace Gfx
+set $ws7 workspace Media+
+set $ws8 workspace Var
+set $ws9 workspace Social
+set $ws10 workspace Mail/RSS
 
 #  >>  {{switch to workspace:}}
-bindsym $mod+1          workspace $ws1; 
-bindsym $mod+2          workspace $ws2; 
-bindsym $mod+3          workspace $ws3; 
-bindsym $mod+4          workspace $ws4; 
-bindsym $mod+5          workspace $ws5; layout tabbed
-bindsym $mod+6          workspace $ws6; 
-bindsym $mod+7          workspace $ws7; 
-bindsym $mod+8          workspace $ws8; 
+bindsym $mod+1          $ws1; 
+bindsym $mod+2          $ws2; 
+bindsym $mod+3          $ws3; 
+bindsym $mod+4          $ws4; 
+bindsym $mod+5          $ws5; layout tabbed
+bindsym $mod+6          $ws6; 
+bindsym $mod+7          $ws7; 
+bindsym $mod+8          $ws8; 
 #layout stacking dla 9?
-bindsym $mod+9          workspace $ws9; layout tabbed
-bindsym $mod+0          workspace $ws10;
+bindsym $mod+9          $ws9; layout tabbed
+bindsym $mod+0          $ws10;
 
-bindsym Control+1       workspace $ws1; 
-bindsym Control+2       workspace $ws2; 
-bindsym Control+3       workspace $ws3; 
-bindsym Control+4       workspace $ws4; 
-bindsym Control+5       workspace $ws5; layout tabbed
-bindsym Control+6       workspace $ws6; 
-bindsym Control+7       workspace $ws7; 
-bindsym Control+8       workspace $ws8; 
+bindsym Control+1       $ws1; 
+bindsym Control+2       $ws2; 
+bindsym Control+3       $ws3; 
+bindsym Control+4       $ws4; 
+bindsym Control+5       $ws5; layout tabbed
+bindsym Control+6       $ws6; 
+bindsym Control+7       $ws7; 
+bindsym Control+8       $ws8; 
 # layout stacking dla 9?
-bindsym Control+9       workspace $ws9; layout tabbed
+bindsym Control+9       $ws9; layout tabbed
 # bindsym Control+0 workspace $ws10
 
 #  >>  {{move focused container to $ws:}}
-bindsym $mod+Shift+1    move container to workspace $ws1
-bindsym $mod+Shift+2    move container to workspace $ws2
-bindsym $mod+Shift+3    move container to workspace $ws3
-bindsym $mod+Shift+4    move container to workspace $ws4
-bindsym $mod+Shift+5    move container to workspace $ws5
-bindsym $mod+Shift+6    move container to workspace $ws6
-bindsym $mod+Shift+7    move container to workspace $ws7
-bindsym $mod+Shift+8    move container to workspace $ws8
-bindsym $mod+Shift+9    move container to workspace $ws9
-bindsym $mod+Shift+0    move container to workspace $ws10
+bindsym $mod+Shift+1    move container to $ws1
+bindsym $mod+Shift+2    move container to $ws2
+bindsym $mod+Shift+3    move container to $ws3
+bindsym $mod+Shift+4    move container to $ws4
+bindsym $mod+Shift+5    move container to $ws5
+bindsym $mod+Shift+6    move container to $ws6
+bindsym $mod+Shift+7    move container to $ws7
+bindsym $mod+Shift+8    move container to $ws8
+bindsym $mod+Shift+9    move container to $ws9
+bindsym $mod+Shift+0    move container to $ws10
 
 #  >>  {{move workspace to another monitor:}}
 
@@ -217,64 +217,64 @@ bindsym Mod1+Shift+Tab          workspace prev
 bindsym $mod+Tab                workspace back_and_forth
 
 #  >>  {{reguły dla monitorów:}}
-workspace $ws1 output VGA1
-workspace $ws5 output VGA1
-workspace $ws6 output VGA1
-workspace $ws7 output VGA1
-workspace $ws8 output VGA1
+$ws1 output VGA1
+$ws5 output VGA1
+$ws6 output VGA1
+$ws7 output VGA1
+$ws8 output VGA1
 
-workspace $ws2 output LVDS1
-workspace $ws3 output LVDS1
-workspace $ws4 output LVDS1
-workspace $ws9 output LVDS1
-workspace $ws10 output LVDS1
+$ws2 output LVDS1
+$ws3 output LVDS1
+$ws4 output LVDS1
+$ws9 output LVDS1
+$ws10 output LVDS1
 
 #  >>  {{reguły dla aplikacji:}}
 assign [class="Slack"]                 $ws9
-assign [class="Mtpaint"]               $ws7
+assign [class="Mtpaint"]               $ws6
 assign [class="MuPDF"]                 $ws5
 assign [class="Messenger for Desktop"] $ws9
 # przypisz wszystkie okna z klasy 'firefox' do ws2 =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile
 assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
-assign [class="libreoffice-writer"]    $ws5
-assign [class="libreoffice"]           $ws5
-assign [class="libreoffice-calc"]      $ws5
-assign [class="Vlc"]                   $ws7
+assign [class="libreoffice-writer"]    $ws4
+assign [class="libreoffice"]           $ws4
+assign [class="libreoffice-calc"]      $ws4
+assign [class="Vlc"]                   $ws8
 assign [class="neomutt"]               $ws10
 assign [class="Lxappearance"]          $ws3
 assign [class="FBReader"]              $ws5
 assign [class="Steam"]                 $ws8
-assign [class="MyPaint"]               $ws8
+assign [class="MyPaint"]               $ws6
 assign [title=".*Edytor obrazów GIMP.*"]   $ws6
-assign [class="Arandr"]                $ws4    
+assign [class="Arandr"]                $ws4
 
-for_window [title=".*LibreOffice.Writer*"]    move to workspace $ws4
-for_window [title=".*tryb.prywatny.*"]        move to workspace $ws7
+for_window [title=".*LibreOffice.Writer*"]    move to $ws4
+for_window [title=".*tryb.prywatny.*"]        move to $ws7
 for_window [class="Gpick"]                    resize set 1000 600
 # wartości zmiennych $right i $down podane w plikach lokalnych!
 for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
 for_window [title="nmtui"]                    floating enable
 for_window [class="Shotcut"]                  gaps inner current set 0; gaps outer current set 0
-#for_window [title="Edytor obrazów GIMP"]      move workspace $ws6
+#for_window [title="Edytor obrazów GIMP"]      move $ws6
 #for_window [window_role="gimp-dock"]          floating disable; move left; resize shrink width 50 px or 50ppt
 #for_window [window_role="gimp-toolbox"]       floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"]       floating enable
 for_window [window_role="gimp-dock"]          floating enable
 for_window [class="Sxiv"]                     floating enable
-# for_window [title=".*Private.*"] move to workspace $ws7 
-for_window [title=".*Private.Browsing.*"] move to workspace $ws7
-# for_window [title=".*\(Private Browsing\).*"] move to workspace $ws7
+# for_window [title=".*Private.*"] move to $ws7 
+for_window [title=".*Private.Browsing.*"] move to $ws7
+# for_window [title=".*\(Private Browsing\).*"] move to $ws7
 
 #  >>  {{przejdź do workspace i otwórz aplikację:}}
-bindsym $mod+Control+1          workspace $ws1; exec emacs
-bindsym $mod+Control+2          workspace $ws2; exec $browser
-bindsym $mod+Control+3          workspace $ws3; exec $term
-bindsym $mod+Control+4          workspace $ws4; exec $term -e 'emacsclient ~/.i3/config'
-bindsym $mod+Control+5          workspace $ws5; exec thunar
-bindsym $mod+Control+6          workspace $ws6; exec $term -e ranger
-bindsym $mod+Control+7          workspace $ws7; exec gimp
-#bindsym $mod+Control+8          workspace $ws8; exec $term -e mocp
-bindsym $mod+Control+9          workspace $ws9; $exe slack
+bindsym $mod+Control+1          $ws1; exec emacs
+bindsym $mod+Control+2          $ws2; exec $browser
+bindsym $mod+Control+3          $ws3; exec $term
+bindsym $mod+Control+4          $ws4; exec $term -e 'emacsclient ~/.i3/config'
+bindsym $mod+Control+5          $ws5; exec thunar
+bindsym $mod+Control+6          $ws6; exec $term -e ranger
+bindsym $mod+Control+7          $ws7; exec gimp
+#bindsym $mod+Control+8         $ws8; exec $term -e mocp
+bindsym $mod+Control+9          $ws9; $exe slack
 
 #  >>  {{reload the configuration file:}}
 bindsym $mod+Escape             reload
@@ -585,7 +585,7 @@ bindsym $mod+Shift+Return   split v exec $term -t "st @$(date +%H:%M:%S)"
 #bindsym $mod+b              workspace 2; $exe qutebrowser
 bindsym $mod+b              $exe ~/.dotfiles/bin/i3-qtb-launcher.sh 
 bindsym $mod+Shift+b        $exe qutebrowser
-bindsym $mod+p              workspace 7; $exe qutebrowser :command ":open -p"
+bindsym $mod+p              $ws7; $exe qutebrowser :command ":open -p"
 # emacs
 #bindsym $mod+e              workspace 1; $exe emacs
 bindsym $mod+e              $exe ~/.dotfiles/bin/i3-emacs-launcher.sh 
@@ -617,7 +617,7 @@ bindsym $mod+Shift+n        $exe $term -e nmtui
 bindsym $mod+Shift+s    move scratchpad
 
 #bindsym $mod+e              exec emacs
-#bindsym $mod+g              workspace $ws10; $exe $term -e mutt 
+#bindsym $mod+g              $ws10; $exe $term -e mutt 
 #bindsym $mod+n              $exe $term -e calcurse 
 #bindsym $mod+r              exec $term -e ranger
 #bindsym $mod+t              $exe thunar
@@ -647,23 +647,23 @@ bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
 # [SPADY!]
 # bindsym $mod+Shift+q             kill
 # bindsym $mod+F11                fullscreen toggle
-# bindsym $mod+Control+e          workspace $ws1; exec emacs
-# bindsym $mod+Control+r          workspace $ws6; exec $term -e ranger
-# bindsym $mod+Control+t          workspace $ws6; exec thunar
-# bindsym $mod+p                  workspace $ws7; exec mtpaint
-# bindsym $mod+Control+0          workspace $ws10; $exe qutebrowser
-# bindsym $mod+Control+b          workspace $ws10; $exe qutebrowser
+# bindsym $mod+Control+e     $ws1; exec emacs
+# bindsym $mod+Control+r     $ws6; exec $term -e ranger
+# bindsym $mod+Control+t     $ws6; exec thunar
+# bindsym $mod+p             $ws7; exec mtpaint
+# bindsym $mod+Control+0     $ws10; $exe qutebrowser
+# bindsym $mod+Control+b     $ws10; $exe qutebrowser
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Shift+c   exec $term -e calcurse
 # bindsym $mod+c         exec $term -e 'bc -q'
 #$exe compton --config ~/.config/compton.conf -b
 #bindsym $mod+d         $exe j4-dmenu-desktop #-sb '#b58900'
 #bindsym $mod+d         $exe dmenu_run -sb '#b58900' -p 'run:'
-# bindsym $mod+g         workspace $ws10; $exe ~/.dotfiles/bin/mutt.sh
+# bindsym $mod+g             $ws10; $exe ~/.dotfiles/bin/mutt.sh
 # bindsym $mod+n         split h $exe $term -e nano 
 # bindsym $mod+Shift+n   split v $exe $term -e nano
 # bindsym $mod+Control+n $exe $term -e ~/.dotfiles/bin/notes.sh
-#bindsym F8             workspace $ws8; $exe $term -e mocp
+#bindsym F8                  $ws8; $exe $term -e mocp
 
 bindsym $mod+bracketleft  $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
