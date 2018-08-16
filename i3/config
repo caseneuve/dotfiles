@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.08.18, 19:06:05 @x200
+# Last update: 16.08.18, 16:42:40 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -639,7 +639,7 @@ bindsym $mod+backslash      $exe ~/.config/rofi/scripts/translate
 
 #  >>  {{ screencasting:}}
 bindsym $mod+F12        $exe ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
-bindsym $mod+Ctrl+F12   exec pkill ffmpeg
+bindsym $mod+Ctrl+F12   exec pkill ffmpeg && notify-send "screencast" "screencast stopped"
 
 #  >>  {{ append & reload:}}
 bindsym $mod+Ctrl+a     $exe ~/.dotfiles/bin/i3append.sh
