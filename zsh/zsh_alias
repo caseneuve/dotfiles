@@ -1,0 +1,132 @@
+# -*- mode: sh -*-
+
+## >> KOMENDY TERMINALA 
+alias mkd=mkdir
+alias ls='ls --color=auto'
+alias q=exit
+alias cl=clear
+alias cls=clear
+alias klr=clear
+alias la='ls -a1'
+alias ll='ls -l'
+alias cdl='cd $1;ls'
+alias 'cd.'='cd ..'
+alias '..'='cd ..'
+alias lg='ls --group-directories-first'
+alias lg1='ls -1 --group-directories-first'
+alias ls1='ls -1'
+alias lag='ls -a --group-directories-first'
+alias lal='ls -al --group-directories-first'
+alias lal1='ls -al --group-directories-first'
+alias la1='ls -a1 --group-directories-first'
+alias kl=pkill
+alias grep='grep --color=auto'
+alias thg='tmux new-window -n "hg" "hangups"'
+alias xclip='xclip -selection c'
+alias cpwd='pwd | xclip -selection c'
+alias treeno="tree | sed 's/-> [-/a-zA-Z0-9\.\_ ]*//g'"
+
+## >> PROGRAMY
+alias pdfg='pdfgrep'
+alias yv='youtube-viewer'
+alias wm=wmctrl
+alias ipy=ipython
+alias t=trans
+alias te='trans -t en'
+alias tl=translate_ww
+alias tll='trans -s lat'
+alias tb='trans $1 -b'
+alias tt=termite
+alias ff=fzf
+alias e="emacsclient -nw -c"
+alias r=ranger
+alias m="mocp -l"
+alias ms="mocp -s"
+alias mp="mocp -G"
+alias mn="mocp -f"
+alias mN="mocp -r"
+alias mr="mocp -o r"
+alias mq="mocp -q"
+alias mS="mocp -S"
+alias m3='i3-msg -q "workspace 8; exec --no-startup-id st -e mocp"'
+alias f='feh -B black'
+alias n='nano --nohelp'
+alias nl='nano -l --nohelp'
+alias qb=qutebrowser
+alias qtb='i3-msg -q "workspace 2; exec --no-startup-id qutebrowser"'
+alias qb='i3-msg -q "workspace 2; exec --no-startup-id qutebrowser"'
+alias qp='i3-msg -q "workspace 7; exec --no-startup-id qutebrowser :command \":open -p\""'
+alias v=mpv
+alias mpva='mpv --no-video'
+alias va='mpv --no-video'
+alias Mpva='mpv --no-video --input-ipc-server=/tmp/mpvsocket'
+alias Ma='mpv --no-video --input-ipc-server=/tmp/mpvsocket'
+alias Mpvp="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket &>/dev/null"
+alias Mp="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket &>/dev/null"
+alias Mpause="echo '{\"command\": [\"cycle\", \"pause\"]}' | socat - /tmp/mpvsocket &>/dev/null"
+#alias vl='mpv --playlist=/home/piotr/Wideo/playlist &'
+#alias vp='mpv --playlist=playlist &'
+alias vp=mpvplaylist
+alias mpvp=mpvplaylist
+#alias mpvp=mpvopenplaylist
+alias c=calcurse
+alias caa='i3-msg -q "exec --no-startup-id st -e calcurse"'
+alias clc='clear; bc -q'
+#alias calt='echo -e "TODO:\n$(calcurse -t --format-todo "(%p) %m\t>> %N" | tail -n +2 | sed '/^\s*$/d')'
+alias kal='cal --color=always -n 3'
+alias hg=hangups 
+alias mu=mupdf
+alias mt='cd ~/Pobrane; mutt'
+alias nf='clear; neofetch'
+alias h=cmdhelp
+
+## >> FAST DIRS
+alias gh='cd /home/piotr'
+alias ga='cd /home/piotr/dwl'
+alias gaa='cd /home/piotr/dwl'
+alias gag='cd /home/piotr/dwl/att'
+alias go='cd /home/piotr/obr'
+alias gob='cd /home/piotr/obr'
+alias goo='cd /home/piotr/org'
+alias gol='cd /home/piotr/org/log'
+alias gog='cd /home/piotr/org/gtd'
+alias gss='cd /home/piotr/scr'
+alias gw='cd /home/piotr/wid'
+alias gm='cd /home/piotr/muz'
+alias gp='cd /home/piotr/pdf'
+alias gB='cd /home/piotr/biu'
+alias gb='cd /home/piotr/bin'
+alias gbi='cd /home/piotr/bin'
+alias gS='cd /home/piotr/szk'
+alias gy='cd /home/piotr/dox'
+alias gc='cd /home/piotr/.config'
+alias gC='cd /home/piotr/.config'
+alias gcr='cd /home/piotr/.config/ranger'
+alias gct='cd /home/piotr/.config/termite'
+alias gcx='cd /home/piotr/.config/xfce4'
+alias gcb='cd /home/piotr/.bak'
+alias gcq='cd /home/piotr/.config/qutebrowser'
+alias gcn='cd /home/piotr/.newsboat'
+alias gcm='cd /home/piotr/.mutt'
+alias gcs='cd /home/piotr/git/hub/suckless/st'
+alias gd='cd /home/piotr/.dotfiles'
+alias gdd='cd /home/piotr/.dotfiles'
+alias gdb='cd /home/piotr/.dotfiles/bin'
+alias gdi='cd /home/piotr/.dotfiles/i3'
+alias gdr='cd /home/piotr/.dotfiles/ranger'
+alias gdc='cd /home/piotr/.dotfiles/calcurse'
+alias gdq='cd /home/piotr/.dotfiles/qtbro'
+alias gdo='cd /home/piotr/dox'
+alias gx='cd /home/piotr/box/Dropbox'
+alias gxx='cd /home/piotr/box/Dropbox'
+alias gxc='cd /home/piotr/box/Dropbox/.Config'
+alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
+alias gD='cd /home/piotr/box/Dropbox/Dokumenty'
+alias geg='cd /home/piotr/.emacs.git'
+alias ged='cd /home/piotr/.emacs.d'
+alias gM='cd /media'
+alias gr='cd /'
+alias gR='cd /root'
+alias gg='cd /home/piotr/git/lab'
+alias ggg='cd /home/piotr/git/lab'
+
