@@ -2,7 +2,7 @@
 
 # Path:        ~/biu/py/rofi-translate.py
 # Created:     13.08.18, 18:10    @x200
-# Last update: 14.08.18, 09:02:05 @x200
+# Last update: 17.08.18, 00:48:43 @x200
 
 # >> DOC:
 # note: requires translate-shell, rofi, python-rofi
@@ -30,7 +30,7 @@ from_lang_re = re.compile(r' \<([a-z]*)')
 
 # >> QUERY
 validator = lambda s: (s, None) if not any(char.isdigit() for char in s) else (None, ' ')
-query = r.generic_entry('translate: ', validator)
+query = r.generic_entry('  TRANSLATE: ', validator)
 
 # >> REGEX OPS
 if query == None:
