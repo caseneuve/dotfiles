@@ -2,7 +2,7 @@
 
 # Path:        ~/.tmux/tmux-hg.sh
 # Created:     13.03.18, 10:30    @x200
-# Last update: 22.06.18, 21:05:37 @lenovo
+# Last update: 16.08.18, 21:01:55 @x200
 
 # Doc: starts tmux with 3 windows, the second one named "hg" with HANGUPS and the third "cal" with CALCURSE running
 # https://stackoverflow.com/questions/5609192/how-to-set-up-tmux-so-that-it-starts-up-with-specified-windows-opened
@@ -15,7 +15,7 @@ tmux new-window -n 'mocp' 'mocp'
 tmux new-window -n 'htop' 'htop'
 tmux rename-window -t%0 'term'
 tmux select-window -t 'tmux:term'
-tmux splitw -h -p 30
+tmux splitw -h -p 20
 tmux clock-mode
 tmux select-pane -L
 #tmux select-window -t 'tmux:cal'
