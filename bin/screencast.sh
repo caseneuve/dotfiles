@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Last update: 03.08.18, 10:47:18 @x200
+# Last update: 16.08.18, 16:46:13 @x200
 
 CASTDIR=$HOME/wid/cast
 [[ -d $CASTDIR ]] || mkdir -p $CASTDIR
@@ -14,9 +14,16 @@ else
     else
         outFile="$CASTDIR/out.mkv"
     fi
-#    pkill compton;
+    pkill compton;
+    notify-send "screencast" "start in 3 sec."
+    sleep 1 && xdotool key ctrl+space 
+    notify-send "screencast" "start in 2 sec."
+    sleep 1 && xdotool key ctrl+space
+    notify-send "screencast" "start in 1 sec."
+    sleep 1 && xdotool key ctrl+space
     ffmpeg -f x11grab -s "$dimensions" -i :0.0 "$outFile"
+    compton &
 fi
 
-[[ $(ps aux | grep compton | grep -v grep) ]] || compton &
+#[[ $(ps aux | grep compton | grep -v grep) ]] || compton &
 
