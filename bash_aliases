@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 15.08.18, 17:58:53 @x200
+# Last update: 17.08.18, 14:14:50 @x200
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -139,7 +139,7 @@ alias sbr='source ~/.bashrc'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
-alias PSyyu='sudo pacman -Syyu'
+alias PSyyu='sudo pacman -Syyu && pkill -RTMIN+12 i3blocks'
 alias sp='sudo pacman -S'
 alias spR='sudo pacman -Rs'
 alias ya='yaourt --noconfirm'
