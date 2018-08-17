@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 16.08.18, 23:14:04 @x200
+# Last update: 17.08.18, 09:40:44 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -239,7 +239,7 @@ assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
 assign [class="libreoffice-writer"]    $ws4
 assign [class="libreoffice"]           $ws4
 assign [class="libreoffice-calc"]      $ws4
-assign [class="Vlc"]                   $ws8
+assign [class="Vlc"]                   $ws7
 assign [class="neomutt"]               $ws10
 assign [class="Lxappearance"]          $ws3
 assign [class="FBReader"]              $ws5
