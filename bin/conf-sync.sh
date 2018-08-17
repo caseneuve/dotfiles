@@ -2,10 +2,11 @@
 
 # Path:        ~/.dotfiles/bin/quick-updates.sh
 # Created:     13.08.18, 14:32    @x200
-# Last update: 17.08.18, 11:56:46 @lenovo
+# Last update: 17.08.18, 12:04:00 @lenovo
 
 # >> DOC: sync config at all machines
 # >> LOG:
+# 17/08/2018 lenovo updt
 # 15/08/2018:
 # todo: add youtube-viewer config updt (mkdir etc)
 # 13/08/2018:
