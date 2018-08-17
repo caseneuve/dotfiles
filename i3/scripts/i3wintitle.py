@@ -91,7 +91,7 @@ if i3name in special_dict:
 #             i3name = 'tmux: ' + name.split(' ')[1][:-1]
     
 # >> REMOVE SOME UNNECESARY INFO 
-removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab')
+removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab|Slack ')
 if removeRe.search(i3name):
     i3name = re.sub(removeRe, '', i3name)
 
