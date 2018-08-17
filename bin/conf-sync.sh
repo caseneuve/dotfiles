@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/quick-updates.sh
 # Created:     13.08.18, 14:32    @x200
-# Last update: 15.08.18, 18:09:49 @x200
+# Last update: 17.08.18, 11:56:46 @lenovo
 
 # >> DOC: sync config at all machines
 # >> LOG:
@@ -23,19 +23,16 @@ echo -e "### Syncing configs with ${LAST_UPD:1}..."
 declare -a INST_PKG=("maim" "cronie" "wmctrl" "youtube-viewer" "pdfgrep")
 echo -e "# Packages: "
 
-for package in "${INST_PKG[@]}"
-do
+for package in "${INST_PKG[@]}"; do
     if pacman -Qi $package &> /dev/null ; then
-        echo -e " - Package $(pacman -Q $package) is already installed" 
+        echo -e " - Package $(pacman -Q $package) is already installed"
     else
-        while true; do
-            read -p " - Package $package missing, do you want to install it now? [y/n] " yn
-            case $yn in
-                [Yy]* ) sudo pacman -S --noconfirm $package;;
-                [Nn]* ) break;;
-                * ) echo "Answer [Yy/Nn] : ";;
-            esac
-        done
+        read -p " - Package $package missing, do you want to install it now? [y/n] " yn
+        case $yn in
+            [Yy]* ) sudo pacman -S --noconfirm $package;;
+            [Nn]* ) break;;
+            * ) echo "Answer [Yy/Nn] : ";;
+        esac
     fi
 done
 
