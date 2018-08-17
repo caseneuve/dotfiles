@@ -1,14 +1,17 @@
 ##############################
-###   QUTEBROWSER CONFIG
+###   MY QUTEBROWSER CONFIG
 ##############################
 
-## >> Documentation
+## >> DOC:
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
 #config.load_autoconfig()
+
+## >> TODOS:
+# todo: dopisać bind dla CARET MODE
 
 ## >> Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
@@ -36,7 +39,8 @@ c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-c.backend = 'webengine'
+#c.backend = 'webengine'
+c.backend = 'webkit'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
