@@ -1,6 +1,6 @@
 #!/bin/env python
 
-# Last update: 11.08.18, 21:31:25 @x200
+# Last update: 17.08.18, 02:15:49 @x200
 # >> DOC: 
 
 # >> IMPORT
@@ -39,7 +39,7 @@ def mupdf_cache():
     os.chdir(cache_dir)
 
     # >> a1. get TITLE, PAGE and DPI
-    tpd_re = re.compile(r'([\[\]\(\)a-z0-9-_.ąćęłńóźż ]*.pdf) - ([0-9]*)/[0-9]* \(([0-9]*) dpi\)', re.I)
+    tpd_re = re.compile(r'([\[\]\(\)a-z0-9-_.ąćęłńóśźż ]*.pdf) - ([0-9]*)/[0-9]* \(([0-9]*) dpi\)', re.I)
 
     # >> a2. APPEND title, page and dpi values to the list
     tpd_list = [tpd_re.search(title.name).groups() for title in i3info]
