@@ -2,17 +2,19 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3dp.sh
 # Created:     10.07.18, 18:45    @x200
-# Last update: 09.08.18, 11:11:39 @x200
+# Last update: 17.08.18, 09:20:50 @x200
 
-# Doc: note: requires dropbox-cli (AUR)
+# >> DOC: note: requires dropbox-cli (AUR)
 
+# >> VARIABLES:
 GLYPH=""
 #GLYPH=""
 #GLYPH=𝔻
-NOT=`dropbox-cli status | grep "isn't"`
-URU=`dropbox-cli status | grep -i "uruchamianie"`
-SYNC=`dropbox-cli status | grep -i "synchronizowanie"`
+NOT=$(dropbox-cli status | grep "isn't")
+URU=$(dropbox-cli status | grep -i "uruchamianie")
+SYNC=$(dropbox-cli status | grep -i "synchronizowanie")
 
+# >> RUN:
 if [[ $NOT ]]; then
     # <span bgcolor='#00001f26'>
     echo "<span color='#C0392B'> $GLYPH </span>" # 𝔻!
@@ -26,6 +28,7 @@ else
     pkill -RTMIN+13 i3blocks
 fi
 
+# >> MOUSE BEHAVIOUR
 case $BLOCK_BUTTON in
     # left click 
     1) if [[ $NOT ]]; then
@@ -37,7 +40,11 @@ case $BLOCK_BUTTON in
        elif [[ $SYNC ]]; then
            notify-send -u low "Dropbox status:
 --------------" "$(dropbox-cli status)" -i ~/box/Dropbox/.Config/dropbox-logo.png && exit 0
+       else
+           notify-send -u low "Dropbox status:
+--------------" "$(dropbox-cli status)" && exit 0 
        fi
+       pkill -RTMIN+13 i3blocks
        ;;
 esac
 
