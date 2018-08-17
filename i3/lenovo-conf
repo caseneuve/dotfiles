@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 05.06.18, 22:42:06 @lenovo
+# Last update: 17.08.18, 09:31:52 @lenovo
 
 # exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
 
@@ -27,7 +27,7 @@ set $vtop 30
 set $term st
 
 # rofi helper (mod+' nie działa)
-bindsym $mod+backslash          exec --no-startup-id ~/.dotfiles/bin/rofi-media.sh
+#bindsym $mod+backslash          exec --no-startup-id ~/.dotfiles/bin/rofi-media.sh
 
 # skype
 for_window [class="Skype"] move window to position 1070 20
