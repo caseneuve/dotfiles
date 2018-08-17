@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Last update: 11.07.18, 17:35:24 @x200
+# Last update: 17.08.18, 14:45:17 @x200
 
 # Doc: skrypt wykonawczy dla mutt'a
 
-i3-msg 'workspace 5' && mupdf "$1" && i3-msg workspace number 10
+WS_PDF=$(i3-msg -t get_config | grep 'set \$ws5' | awk '{print $3 " " $4}')
+WS_MAIL=$(i3-msg -t get_config | grep 'set \$ws10' | awk '{print $3 " " $4}')
+
+i3-msg -q "$WS_PDF" && mupdf "$1" 
+i3-msg -q "$WS_MAIL"
 
