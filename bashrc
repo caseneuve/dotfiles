@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 18.08.18, 16:03:54 @x200
+# Last update: 18.08.18, 16:05:16 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -77,7 +77,7 @@ print_pre_prompt ()
     GITB=$BOLD$PSGIT$GITB$RESET
     case $GTS in
         *'nothing to commit'*) GTS=$GREEN$(echo -e '\u2714 ')$RESET;; 
-        *'not staged'*|*'Untracked'*) GTS=$ORANGE$(echo -e '\u2717 ')$RESET;;
+        *'not staged'*|*'Untracked'*|*'modified'*) GTS=$ORANGE$(echo -e '\u2717 ')$RESET;;
         *) GTS= ;;
     esac
     PS1R="$GITB $GTS$(date +%H:%M)"
