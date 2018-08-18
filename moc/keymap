@@ -1,7 +1,7 @@
 ##########################
 ###   MY MOCP KEYMAP
 ##########################
-# Last update: 19.05.18, 15:41:56 @x200
+# Last update: 18.08.18, 00:08:13 @x200
 
 # { INTRO}
 # {{ notation }}
@@ -64,10 +64,10 @@ quit                  = Q
 
 # { Menu and interface control keys:}
 go                    = ENTER
-menu_down             = DOWN k
-menu_up               = UP i
-menu_page_down        = PAGE_DOWN M-k
-menu_page_up          = PAGE_UP M-i
+menu_down             = DOWN j
+menu_up               = UP k
+menu_page_down        = PAGE_DOWN M-j
+menu_page_up          = PAGE_UP M-k
 menu_first_item       = HOME M-<
 menu_last_item        = END M->
 search_menu           = /
@@ -81,15 +81,15 @@ toggle_hidden_files   = ^h
 next_search           = ^n
 show_lyrics           = 
 theme_menu            = T
-help                  = h ?
+help                  = ?
 refresh               = ^r
 reload                = r
 
 # Audio playing and positioning keys:
 seek_forward          = RIGHT l
-seek_backward         = LEFT j
+seek_backward         = LEFT h
 seek_forward_fast     = ] L
-seek_backward_fast    = [ J
+seek_backward_fast    = [ H
 pause                 = SPACE
 stop                  = s
 next                  = n 
@@ -138,8 +138,8 @@ add_directory         = A
 plist_add_stream      = 
 delete_from_playlist  = d
 playlist_full_paths   = P
-plist_move_up         = I
-plist_move_down       = K
+plist_move_up         = K
+plist_move_down       = J
 save_playlist         = V
 remove_dead_entries   = Y
 clear_playlist        = C
