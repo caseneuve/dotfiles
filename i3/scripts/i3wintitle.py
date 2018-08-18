@@ -54,6 +54,8 @@ class_dict = {'Emacs': '',
               'qutebrowser': '',
               'Firefox': '', 
               'st-256color': '',
+              'scratch': '',
+              'calculator': '',
               'Thunar': '',
               'neomutt': '',
               'mpv': '',
@@ -91,7 +93,7 @@ if i3name in special_dict:
 #             i3name = 'tmux: ' + name.split(' ')[1][:-1]
     
 # >> REMOVE SOME UNNECESARY INFO 
-removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab|Slack ')
+removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab|Slack |- Mozilla Firefox')
 if removeRe.search(i3name):
     i3name = re.sub(removeRe, '', i3name)
 
