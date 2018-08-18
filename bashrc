@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 18.08.18, 15:41:25 @x200
+# Last update: 18.08.18, 16:03:54 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -49,6 +49,11 @@ exitstatus()
     fi
 }
 
+exitstatus2()
+{
+    [[ ! $? == 0 ]] && echo $RED
+}
+
 # >>    + vc_check (off)
 # vc_check()
 # {
@@ -86,7 +91,7 @@ PROMPT_COMMAND=print_pre_prompt
 # >>  - prompt string format
 #export PS1='\[$(exitstatus)\]\# \[$GREEN\]\w \[$RED\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$ORANGE\]\$\[$RESET\] '
 #export PS1='\[$(tput sc; rightp; tput rc)\]\[$BOLD\]\[$BLUE\]\w\[$RESET\]\n> '
-export PS1='\n\[$BOLD\]> \[$RESET\]'
+export PS1='\n\[$(exitstatus2)\]\[$BOLD\]\#\[$RESET\]: \[$RESET\]'
 export PS2='\[$ORANGE\]… \[$RESET\]'
 shopt -s autocd
 
