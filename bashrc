@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 18.08.18, 16:05:16 @x200
+# Last update: 18.08.18, 16:35:07 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -37,6 +37,7 @@ BLACK="$(tput setaf 8)"
 MAGENTA="$(tput setaf 13)"
 # >>  - ps colors
 PSDIR="$(tput setaf 33)"
+PSGIT="$(tput setaf 197)"
 
 # >>  - prompt helper funcs
 # >>    + exitstatus
@@ -69,10 +70,8 @@ exitstatus2()
 print_pre_prompt ()
 {
     PS1L=$PWD
-    PSGIT="$(tput setaf 197)"
-    if [[ $PS1L/ = "$HOME"/* ]]; then PS1L=\~${PS1L#$HOME}; fi
-    GTS=$(git status 2>/dev/null) # wywala błąd fatal: not a git repository (or any of the parent directories): .git
-    PSGIT="$(tput setaf 197)"
+    [[ $PS1L/ = "$HOME"/* ]] && PS1L=\~${PS1L#$HOME}
+    GTS=$(git status 2>/dev/null)
     GITB=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
     GITB=$BOLD$PSGIT$GITB$RESET
     case $GTS in
@@ -82,17 +81,18 @@ print_pre_prompt ()
     esac
     PS1R="$GITB $GTS$(date +%H:%M)"
     # FIXME: +9 działa przy starcie, ale gdy się sorsuje bashrc, okazuje się, że jest 2 za mało; skąd ta różnica??
-    printf "%s%s%s%s%$(($COLUMNS-${#PS1L}+${#GTS}+19))s" "$BOLD" "$PSDIR" "$PS1L" "$RESET" "$PS1R" #+${#GTS}+15
-#    printf "%s%$(($COLUMNS-${#PS1L}+${#GTS}+20))s" $PS1L $PS1R
+    printf "%s%s%s%s%$(($COLUMNS-${#PS1L}+${#GTS}+19))s" "$BOLD" "$PSDIR" "$PS1L" "$RESET" "$PS1R"
 }
 
 PROMPT_COMMAND=print_pre_prompt
 
 # >>  - prompt string format
-#export PS1='\[$(exitstatus)\]\# \[$GREEN\]\w \[$RED\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$ORANGE\]\$\[$RESET\] '
-#export PS1='\[$(tput sc; rightp; tput rc)\]\[$BOLD\]\[$BLUE\]\w\[$RESET\]\n> '
 export PS1='\n\[$(exitstatus2)\]\[$BOLD\]\#\[$RESET\]: \[$RESET\]'
 export PS2='\[$ORANGE\]… \[$RESET\]'
+#export PS1='\[$(exitstatus)\]\# \[$GREEN\]\w \[$RED\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$ORANGE\]\$\[$RESET\] '
+#export PS1='\[$(tput sc; rightp; tput rc)\]\[$BOLD\]\[$BLUE\]\w\[$RESET\]\n> '
+
+# >> auto cd
 shopt -s autocd
 
 # >> VARIABLES:
