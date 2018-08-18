@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 18.08.18, 16:35:07 @x200
+# Last update: 18.08.18, 19:32:57 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -52,7 +52,7 @@ exitstatus()
 
 exitstatus2()
 {
-    [[ ! $? == 0 ]] && echo $RED
+    [[ ! $? == 0 ]] && echo $RED || echo "$(tput setaf 240)" 
 }
 
 # >>    + vc_check (off)
@@ -84,10 +84,10 @@ print_pre_prompt ()
     printf "%s%s%s%s%$(($COLUMNS-${#PS1L}+${#GTS}+19))s" "$BOLD" "$PSDIR" "$PS1L" "$RESET" "$PS1R"
 }
 
-PROMPT_COMMAND=print_pre_prompt
+PROMPT_COMMAND="print_pre_prompt; history -a; history -n"
 
 # >>  - prompt string format
-export PS1='\n\[$(exitstatus2)\]\[$BOLD\]\#\[$RESET\]: \[$RESET\]'
+export PS1='\n\[$(exitstatus2)\]\[$BOLD\]\#\[$RESET\] \[$RESET\]'
 export PS2='\[$ORANGE\]… \[$RESET\]'
 #export PS1='\[$(exitstatus)\]\# \[$GREEN\]\w \[$RED\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$ORANGE\]\$\[$RESET\] '
 #export PS1='\[$(tput sc; rightp; tput rc)\]\[$BOLD\]\[$BLUE\]\w\[$RESET\]\n> '
@@ -130,4 +130,7 @@ function automatic_title {
     [[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$PWD ($(date +%H:%M))\007"' DEBUG
 }
 automatic_title
+
+# >> HISTORY
+export HISTCONTROL=ignoreboth:erasedups
 
