@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 17.08.18, 09:40:44 @x200
+# Last update: 18.08.18, 13:14:49 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -114,15 +114,16 @@ bindsym $mod+grave $exe bash $i3scr/flash.sh
 # $exe bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] resize set 1000 600
-#for_window [title="dropdown"] border pixel 3
 for_window [title="dropdown"] move position center
+#for_window [title="dropdown"] border pixel 3
+#for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 
-exec    $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh 
-bindsym $mod+Shift+u exec $term -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh      
+exec    $term -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh 
+bindsym $mod+Shift+u exec $term -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh 
 bindsym $mod+u [title="dropdown"] scratchpad show 
 
-#  >>  {{math}}
+#  >>  {{math calculator}}
 for_window [title="m4ath"] floating enable
 for_window [title="m4ath"] resize set 600 200
 for_window [title="m4ath"] move position center
@@ -130,7 +131,7 @@ for_window [title="m4ath"] move position center
 for_window [title="m4ath"] move scratchpad
 
 #exec $term -t m4ath -e R -q
-bindsym $mod+Shift+c $exe $term -t m4ath -e R -q; [title="m4ath"] scratchpad show 
+bindsym $mod+Shift+c $exe $term -c calculator -t m4ath -e R -q; [title="m4ath"] scratchpad show 
 bindsym $mod+c [title="m4ath"] scratchpad show 
 
 #  >>  {{whitaker words}}
@@ -149,6 +150,16 @@ for_window [title="sysupdt"] resize set 600 300
 # todo: pewnie trzeba będzie wpisać zmienne, żeby pasowało do różnych ekranów
 for_window [title="sysupdt"] move right 400 px
 for_window [title="sysupdt"] move up 110 px
+
+# >> {{quick floating term}}
+for_window [instance="myquickterm"] floating enable move left 277px,move up 149px
+for_window [instance="myquickterm"] resize set 1282 400
+for_window [instance="myquickterm"] move position 0
+for_window [instance="myquickterm"] move scratchpad
+$exe -st -c 'st-scratch' -n myquickterm -f 'Inconsolata:size=13'
+bindsym $mod+Shift+slash $exe st -c 'scratch' -n myquickterm -f 'Inconsolata:size=13'
+bindsym $mod+slash [instance="myquickterm"] scratchpad show
+
 ## >> {WORKSPACES}                
 # workspace_auto_back_and_forth yes
 set $ws1 workspace Emacs
