@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 18.08.18, 14:56:39 @x200
+# Last update: 18.08.18, 15:41:25 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -38,7 +38,8 @@ MAGENTA="$(tput setaf 13)"
 # >>  - ps colors
 PSDIR="$(tput setaf 33)"
 
-# >>  - prompt helper func
+# >>  - prompt helper funcs
+# >>    + exitstatus
 exitstatus()
 {
     if [[ $? == 0 ]]; then
@@ -48,6 +49,7 @@ exitstatus()
     fi
 }
 
+# >>    + vc_check (off)
 # vc_check()
 # {
 #     GTS=$(git status 2>/dev/null) # wywala błąd fatal: not a git repository (or any of the parent directories): .git
@@ -57,7 +59,8 @@ exitstatus()
 #     [[ $(echo $GTS | grep fatal) ]] && exit
 #     [[ $(echo $GTS | grep "nothing to commit") ]] && printf "%s %s" $GITB $OK || printf "%s" $NIE
 # }
-    
+
+# >>    + print_pre_prompt
 print_pre_prompt ()
 {
     PS1L=$PWD
@@ -69,7 +72,7 @@ print_pre_prompt ()
     GITB=$BOLD$PSGIT$GITB$RESET
     case $GTS in
         *'nothing to commit'*) GTS=$GREEN$(echo -e '\u2714 ')$RESET;; 
-        *'not staged'*) GTS=$ORANGE$(echo -e '\u2717 ')$RESET;;
+        *'not staged'*|*'Untracked'*) GTS=$ORANGE$(echo -e '\u2717 ')$RESET;;
         *) GTS= ;;
     esac
     PS1R="$GITB $GTS$(date +%H:%M)"
