@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3battery.sh
 # Created:     16.07.18, 14:17    @x200
-# Last update: 26.07.18, 18:27:58 @x200
+# Last update: 18.08.18, 10:31:35 @x200
 
 # Doc:
 
@@ -19,15 +19,15 @@ PERCENT=`echo $ACPI | awk '{print $4}'`
 PERC=${PERCENT%\%}
 
 if (( $PERC < 10 )); then
-    echo "<span color='#FF0000'>  $PERCENT$STATE</span>"
+    echo "<span color='#FF0000'> $PERC $STATE</span>"
 elif (( $PERC < 50 )); then
-    echo "<span color='#ececec'>  $PERCENT$STATE</span>"
+    echo "<span color='#ececec'> $PERC $STATE</span>"
 elif (( $PERC < 75 )); then
-    echo "<span color='#ececec'>  $PERCENT$STATE</span>"
+    echo "<span color='#ececec'> $PERC $STATE</span>"
 elif (( $PERC < 85 )); then
-    echo "<span color='#ececec'>  $PERCENT$STATE</span>"
+    echo "<span color='#ececec'> $PERC $STATE</span>"
 elif (( $PERC <= 100 )); then
-    echo "<span color='#ececec'>  $PERCENT$STATE</span>"
+    echo "<span color='#ececec'> $PERC $STATE</span>"
 fi
 
 case $BLOCK_BUTTON in

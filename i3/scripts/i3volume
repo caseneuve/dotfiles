@@ -2,15 +2,15 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3volume.sh
 # Created:     08.07.18, 22:34    @x200
-# Last update: 08.07.18, 22:40:50 @x200
+# Last update: 18.08.18, 10:29:11 @x200
 
 # Doc: i3blocks volume script
 
-vol=`amixer | grep "^\s*Front Left" | awk 'NR==1 {print $(NF-1)}' | sed 's/\[\|\]//g'`
-state=`amixer | grep "^\s*Front Left" | awk 'NR==1 {print $(NF)}' | sed 's/\[\|\]//g'`
+vol=$(amixer | grep "^\s*Front Left" | awk 'NR==1 {print $(NF-1)}' | sed 's/\[\|\]//g')
+state=$(amixer | grep "^\s*Front Left" | awk 'NR==1 {print $(NF)}' | sed 's/\[\|\]//g')
 
 if [ "$state" = "on" ]; then
-    echo $vol
+    echo ${vol/\%/}
 else
     echo "MUTE"
 fi
