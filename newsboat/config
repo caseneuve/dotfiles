@@ -1,37 +1,37 @@
 #############################################
 #              NEWSBOAT CONFIG            
 #############################################
-# Last update: 05.05.18, 17:49:43 @manjaroi3
+# Last update: 19.08.18, 03:07:08 @x200
 #############################################
 
 # Doc: (browse-url "https://newsboat.org/releases/2.11.1/docs/newsboat.html")
 
-## {GENERAL}
+## >> {GENERAL}
 auto-reload yes
 external-url-viewer "urlview"
 browser qutebrowser
 show-keymap-hint no
 
-## {BINDINGS}
-bind-key k down
-bind-key i up
-bind-key k next articlelist
-bind-key i prev articlelist
-bind-key K next-feed articlelist
-bind-key I prev-feed articlelist
+## >> {BINDINGS}
+bind-key j down
+bind-key k up
+bind-key n next articlelist
+bind-key p prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
 bind-key G end
 bind-key g home
 bind-key o pagedown
 bind-key u pageup
 bind-key l open
-bind-key j quit articlelist
-bind-key j quit article
-bind-key q quit 
+bind-key q quit articlelist
+bind-key q quit article
+bind-key Q quit 
 bind-key a toggle-article-read
-bind-key L next-unread article
-bind-key J prev-unread article
-bind-key K next article
-bind-key I prev article
+bind-key J next-unread article
+bind-key K prev-unread article
+bind-key n next article
+bind-key p prev article
 bind-key D pb-download
 bind-key u show-urls
 bind-key x pb-delete
@@ -39,13 +39,13 @@ bind-key O open-in-browser
 bind-key C mark-feed-read
 bind-key f edit-flags
 
-## {STRING FORMAT}
+## >> {STRING FORMAT}
 articlelist-title-format "  %T (%u nieprzeczytane)"
 itemview-title-format "%F: %T"
 feedlist-title-format "  RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
 
-## {COLORS}
-#  {{main}}
+## >> {COLORS}
+#  >> {{main}}
 color listnormal        cyan   default
 color listfocus         black  yellow   standout bold
 color listnormal_unread blue   default
@@ -54,7 +54,7 @@ color info              black  white    bold
 #color article cyan default
 color article           white default
 
-#  {{highligh text}}
+#  >> {{highligh text}}
 highlight article "^Kanał:.*" red color237 bold
 highlight article "^Tytuł:.*" yellow color237 bold
 highlight article "^Autor:.*" green color237 bold
