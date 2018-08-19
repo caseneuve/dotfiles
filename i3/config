@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 20.08.18, 00:46:59 @x200
+# Last update: 20.08.18, 01:01:11 @lenovo
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -416,9 +416,11 @@ mode "i3move" {
 
      bindsym Return   mode "default"
      bindsym Escape   mode "default"
+     bindsym Ctrl+g   mode "default"
 }
 
-bindsym $mod+Shift+n mode "i3move"
+bindsym $mod+Shift+F1 mode "i3move"
+bindsym $mod+F11 mode "i3move"
 
 ## >> { FLOATING }
 
