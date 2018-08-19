@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 18.08.18, 13:14:49 @x200
+# Last update: 19.08.18, 02:00:26 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -152,9 +152,10 @@ for_window [title="sysupdt"] move right 400 px
 for_window [title="sysupdt"] move up 110 px
 
 # >> {{quick floating term}}
-for_window [instance="myquickterm"] floating enable move left 277px,move up 149px
-for_window [instance="myquickterm"] resize set 1282 400
-for_window [instance="myquickterm"] move position 0
+for_window [instance="myquickterm"] floating enable
+#move left 277px,move up 149px
+for_window [instance="myquickterm"] resize set 1280 400
+for_window [instance="myquickterm"] move position 0px -17px
 for_window [instance="myquickterm"] move scratchpad
 $exe -st -c 'st-scratch' -n myquickterm -f 'Inconsolata:size=13'
 bindsym $mod+Shift+slash $exe st -c 'scratch' -n myquickterm -f 'Inconsolata:size=13'
@@ -679,6 +680,10 @@ bindsym $mod+Ctrl+a $exe ~/.dotfiles/bin/i3append.sh
 bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
 bindsym $mod+Shift+a $exe ~/.dotfiles/bin/agenda
+
+# >> testy
+# ok
+#bindsym $mod+Shift+backslash exec --no-startup-id ~/biu/i3/moving.py -m nw
 
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
