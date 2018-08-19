@@ -40,8 +40,8 @@ c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
 ## Valid values:
 ##   - webengine: Use QtWebEngine (based on Chromium).
 ##   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
-#c.backend = 'webengine'
-c.backend = 'webkit'
+c.backend = 'webengine'
+#c.backend = 'webkit'
 
 ## This setting can be used to map keys to other keys. When the key used
 ## as dictionary-key is pressed, the binding for the key used as
