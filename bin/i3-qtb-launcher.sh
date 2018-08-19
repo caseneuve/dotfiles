@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/qtb-launcher.sh
 # Created:     26.05.18, 23:42    @x200
-# Last update: 19.08.18, 02:06:57 @x200
+# Last update: 19.08.18, 02:51:11 @x200
 
 # >> DOC:
 # "If qutebrowser is running go to the next workspace with qtb window; if not -- launches qtb at wksp 2"
@@ -46,7 +46,7 @@ if [[ $QTB ]]; then
                         || wmctrl -ia ${QTB_ID}
     fi
 else
-    i3-msg -q "$WS; exec --no-startup-id $APP"
+    i3-msg -q "workspace $WS; exec --no-startup-id $APP"
 fi
 
 # >> SPADY:
