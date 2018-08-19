@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/qtb-launcher.sh
 # Created:     26.05.18, 23:42    @x200
-# Last update: 16.08.18, 22:00:38 @x200
+# Last update: 19.08.18, 02:06:57 @x200
 
 # >> DOC:
 # "If qutebrowser is running go to the next workspace with qtb window; if not -- launches qtb at wksp 2"
@@ -13,7 +13,8 @@
 
 # >> VARIABLES:
 APP=qutebrowser
-WS=$(i3-msg -t get_config | grep 'set \$ws2' | awk '{print $3 " " $4}')
+#WS=$(i3-msg -t get_config | grep 'set \$ws2' | awk '{print $3 " " $4}')
+WS=$(i3-msg -t get_config | grep 'set \$ws2' | awk '{print $4}')
 QTB=$(wmctrl -lx | grep "qutebrowser.qutebrowser" | grep -v 'grep --color=auto')
 # note: additional paren is needet to capture output as an array!
 QTB_ID=($(wmctrl -lx | awk '/qutebrowser.qutebrowser/ && !/st-256color/ {print $1}'))
