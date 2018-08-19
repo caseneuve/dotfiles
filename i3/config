@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 19.08.18, 02:00:26 @x200
+# Last update: 20.08.18, 00:46:59 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -397,6 +397,28 @@ mode "$mode_gaps_outer" {
         bindsym Return   mode "default"
         bindsym Escape   mode "default"
 }
+
+mode "i3move" {
+     bindsym u $exe ~/git/lab/py-exercises/i3move.py -m 1
+     bindsym 1 $exe ~/git/lab/py-exercises/i3move.py -m 1
+     bindsym o $exe ~/git/lab/py-exercises/i3move.py -m 2
+     bindsym 2 $exe ~/git/lab/py-exercises/i3move.py -m 2
+     bindsym j $exe ~/git/lab/py-exercises/i3move.py -m 4
+     bindsym 4 $exe ~/git/lab/py-exercises/i3move.py -m 4
+     bindsym l $exe ~/git/lab/py-exercises/i3move.py -m 3
+     bindsym 3 $exe ~/git/lab/py-exercises/i3move.py -m 3
+     bindsym k $exe ~/git/lab/py-exercises/i3move.py -m 5
+     bindsym 5 $exe ~/git/lab/py-exercises/i3move.py -m 5
+
+     bindsym f $exe ~/git/lab/py-exercises/i3move.py -f
+     bindsym r $exe ~/git/lab/py-exercises/i3move.py -r 15
+     bindsym Shift+r $exe ~/git/lab/py-exercises/i3move.py -r -15
+
+     bindsym Return   mode "default"
+     bindsym Escape   mode "default"
+}
+
+bindsym $mod+Shift+n mode "i3move"
 
 ## >> { FLOATING }
 
