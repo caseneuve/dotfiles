@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/nmt-i3launcher.sh
 # Created:     20.05.18, 10:25    @lenovo
-# Last update: 16.08.18, 21:51:18 @x200
+# Last update: 19.08.18, 02:53:39 @x200
 
 # >> DOC:
 # "Open neomutt @ws 10, if already running, just go there"
@@ -13,7 +13,8 @@
 
 # >> VARIABLES:
 APP=neomutt
-WS=$(i3-msg -t get_config | grep 'set \$ws10' | awk '{print $3 " " $4}')
+#WS=$(i3-msg -t get_config | grep 'set \$ws10' | awk '{print $3 " " $4}')
+WS=$(i3-msg -t get_config | grep 'set \$ws10' | awk '{print $4}')
 NEOMUTT_ID=$(wmctrl -lx | grep "st-256color.st-256color" | grep $APP | grep -v grep | awk '{print $1}')
 
 # >> RUN:
@@ -22,7 +23,7 @@ if [[ $(pidof $APP) ]]; then
     wmctrl -ia $NEOMUTT_ID
 else
     print $WS
-    i3-msg -q "$WS; exec --no-startup-id st -e $APP"
+    i3-msg -q "workspace $WS; exec --no-startup-id st -e $APP"
 fi
 
 pkill -RTMIN+10 i3blocks
