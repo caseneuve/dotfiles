@@ -1,5 +1,8 @@
 #!/bin/env python
 
+# Path: ~/.dotfiles/i3/scripts/i3wintitle.py
+# Last update: 20.08.18, 02:32:12 @lenovo
+
 # >> DOC:
 
 # >> TODOS:
@@ -103,8 +106,9 @@ if len(i3name) > 50:
 
 # >> RETURN string for i3blocks
 # skoryguj niedozwolone znaki
-if '\n' in i3name:
-    i3name = 'shell command'
+for i in ['\n', '&']:
+    if i in i3name:
+        i3name = 'shell command'
 
 print(f"<span weight='bold'>{i3class}  {i3name}</span>")
 #print(f"<span weight='bold'>{i3name}</span>")
