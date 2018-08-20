@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 18.08.18, 19:32:57 @x200
+# Last update: 20.08.18, 02:21:04 @lenovo
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -17,6 +17,9 @@
 # >> PRELIM:
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+# >> HISTORY
+export HISTCONTROL=ignoreboth:erasedups
 
 # >> COMMAND PROMPT
 # >>  - prompt colors
@@ -84,7 +87,8 @@ print_pre_prompt ()
     printf "%s%s%s%s%$(($COLUMNS-${#PS1L}+${#GTS}+19))s" "$BOLD" "$PSDIR" "$PS1L" "$RESET" "$PS1R"
 }
 
-PROMPT_COMMAND="print_pre_prompt; history -a; history -n"
+#PROMPT_COMMAND="print_pre_prompt; history -a; history -n"
+export PROMPT_COMMAND='print_pre_prompt'
 
 # >>  - prompt string format
 export PS1='\n\[$(exitstatus2)\]\[$BOLD\]\#\[$RESET\] \[$RESET\]'
@@ -126,11 +130,9 @@ fi
 # >> AKCJE / FUNKCJE
 # >> dynamic terminal title (not in tmux!)
 function automatic_title {
-    # [[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$BASH_COMMAND ($(date +%H:%M))\007"' DEBUG
-    [[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$PWD ($(date +%H:%M))\007"' DEBUG
+    #[[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$BASH_COMMAND ($(date +%H:%M))\007"' DEBUG
+    #[[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$PWD ($(date +%H:%M))\007"' DEBUG
+    [[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$(history | tail -n 1) ($(date +%H:%M))\007"' DEBUG
 }
 automatic_title
-
-# >> HISTORY
-export HISTCONTROL=ignoreboth:erasedups
 
