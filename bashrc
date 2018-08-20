@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 20.08.18, 02:21:04 @lenovo
+# Last update: 20.08.18, 02:49:01 @lenovo
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -132,7 +132,8 @@ fi
 function automatic_title {
     #[[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$BASH_COMMAND ($(date +%H:%M))\007"' DEBUG
     #[[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$PWD ($(date +%H:%M))\007"' DEBUG
-    [[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$(history | tail -n 1) ($(date +%H:%M))\007"' DEBUG
+    #[[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$(history | tail -n 1) ($(date +%H:%M))\007"' DEBUG
+    [[ -n "$TMUX" ]] ||  trap 'echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g") ($(date +%H:%M))\007"' DEBUG
 }
 automatic_title
 
