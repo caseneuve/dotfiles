@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 20.08.18, 01:01:11 @lenovo
+# Last update: 20.08.18, 10:15:00 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -491,17 +491,17 @@ client.urgent             $bru    $bgur  $txtur
 # former client.focused #f1c40f
 
 ## >> { BAR }
+font pango:Lato Light 8
 #font pango:DejaVu Sans Book 9
 #font pango:xos4 Terminus Regular 8
 #font pango:Meslo LG M Regular 9
 #font pango:Inconsolata 10
-font pango:Lato Light 8
 #font pango:ProzaLibre Regular 9
 #font pango:Source Sans Pro 10
 #  >>  {{bar color variables}}
 # bar background
-set $sbbg  #191f26
-#set $sbbg   #00000000
+#set $sbbg  #191f26
+set $sbbg   #000000
 # bar status line?
 set $sbsl   #ffffff
 # bar workspace border
