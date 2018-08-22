@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 20.08.18, 10:15:00 @x200
+# Last update: 22.08.18, 13:01:24 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -500,8 +500,9 @@ font pango:Lato Light 8
 #font pango:Source Sans Pro 10
 #  >>  {{bar color variables}}
 # bar background
-#set $sbbg  #191f26
-set $sbbg   #000000
+set $sbbg  #191f26
+#set $sbbg #f1c40f
+#set $sbbg   #000000
 # bar status line?
 set $sbsl   #ffffff
 # bar workspace border

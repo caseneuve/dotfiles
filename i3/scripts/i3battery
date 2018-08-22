@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3battery.sh
 # Created:     16.07.18, 14:17    @x200
-# Last update: 18.08.18, 10:31:35 @x200
+# Last update: 22.08.18, 13:00:04 @x200
 
 # Doc:
 
@@ -21,13 +21,13 @@ PERC=${PERCENT%\%}
 if (( $PERC < 10 )); then
     echo "<span color='#FF0000'> $PERC $STATE</span>"
 elif (( $PERC < 50 )); then
-    echo "<span color='#ececec'> $PERC $STATE</span>"
+    echo " $PERC $STATE"
 elif (( $PERC < 75 )); then
-    echo "<span color='#ececec'> $PERC $STATE</span>"
+    echo " $PERC $STATE"
 elif (( $PERC < 85 )); then
-    echo "<span color='#ececec'> $PERC $STATE</span>"
+    echo " $PERC $STATE"
 elif (( $PERC <= 100 )); then
-    echo "<span color='#ececec'> $PERC $STATE</span>"
+    echo " $PERC $STATE"
 fi
 
 case $BLOCK_BUTTON in
