@@ -2,34 +2,40 @@
 
 # Path:        ~/biu/py/rofi-translate.py
 # Created:     13.08.18, 18:10    @x200
-# Last update: 17.08.18, 00:48:43 @x200
+# Last update: 22.08.18, 12:36:08 @x200
 
 # >> DOC:
 # note: requires translate-shell, rofi, python-rofi
 # usage: enter query → [expression to translate] &opt <[from_lang] >[to_lang]
 # example: "casa <es >en" or "casa >en <es"
 
-# >> TODOs: 
+# >> TODOs:
 # todo: niech zapisuje wyniki w osobistym słowniku [((słowo, znaczenie), <ile razy>)]
-# done: dodać możliwość zmiany języka np \fra → będzie wyszukiwał dla języka francuskiego 
+# done: dodać możliwość zmiany języka np \fra → będzie wyszukiwał dla języka francuskiego
 # done: warunek dla złych wpisów (np. liczby)
 # done: warunek: jeśli query = resp niech daje komunikat, że nie znalazł tłumaczenia
 
 # >> LIBS
-from rofi import Rofi
 from subprocess import check_output as out
 from subprocess import Popen as pop
 import re
+from rofi import Rofi
 
 # >> VARIABLES
 r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
 unbashify_re = re.compile(r'\x1b\[(1m|22m|24m|4m)')
-kill_head_re = re.compile(r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> (.*) \]\n*', re.UNICODE)
-to_lang_re = re.compile(r' \>([a-z]*)') 
+kill_head_re = re.compile(
+    r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> (.*) \]\n*', re.UNICODE)
+to_lang_re = re.compile(r' \>([a-z]*)')
 from_lang_re = re.compile(r' \<([a-z]*)')
 
 # >> QUERY
-validator = lambda s: (s, None) if not any(char.isdigit() for char in s) else (None, ' ')
+
+
+def validator(s): return (s, None) if not any(char.isdigit()
+                                              for char in s) else (None, ' ')
+
+
 query = r.generic_entry('  TRANSLATE: ', validator)
 
 # >> REGEX OPS
@@ -63,7 +69,8 @@ else:
 
 # >> OUTPUT
 if resp != query:
-    pop(['notify-send', '-u', 'low', f'{query} ({from_lang} → {to_lang}):\n----------', f'{defs}'])
+    pop(['notify-send', '-u', 'low',
+         f'{query} ({from_lang} → {to_lang}):\n----------', f'{defs}'])
 else:
-    pop(['notify-send', '-u', 'low', 'Translate:\n----------', f'Nie znaleziono tłumaczenia dla <b>{query}</b>.'])
-
+    pop(['notify-send', '-u', 'low', 'Translate:\n----------',
+         f'Nie znaleziono tłumaczenia dla <b>{query}</b>.'])
