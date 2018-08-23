@@ -18,7 +18,7 @@ MAILDIR='/home/piotr/box/Dropbox/.Config/Mutt/.sent'
 ## code:
 clear
 
-echo "${yel}${bold}### Executing _tnijpdf_ script ${normal}"
+echo "${yel}${bold}### Executing _sendmailquick_ script ${normal}"
 echo
 read -p "${blu}${bold}Do kogo chcesz wysłać wiadomość? ${normal}" alias
 #read -p "Temat wiadomości: " subject
