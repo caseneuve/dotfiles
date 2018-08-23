@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 17.08.18, 14:14:50 @x200
+# Last update: 23.08.18, 10:09:21 @x200
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -283,6 +283,13 @@ alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
 alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
 alias gta='git add'
 alias gtc='git commit -m'
+alias gits='git status'
+alias gita='git add'
+alias gitl='git pull'
+alias gitp='git push'
+alias gitc='git commit -m'
+
+## >> PCCLOUD
 alias ggl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
 alias gl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
 
