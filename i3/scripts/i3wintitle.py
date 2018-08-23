@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Path: ~/.dotfiles/i3/scripts/i3wintitle.py
-# Last update: 20.08.18, 02:32:12 @lenovo
+# Last update: 22.08.18, 21:50:17 @x200
 
 # >> DOC:
 
@@ -30,9 +30,9 @@
 # DONE: shorten name, note: 05/08/2018
 
 # >> IMPORTS
-import i3ipc
+#from subprocess import check_output as out
 import re
-from subprocess import check_output as out  
+import i3ipc
 
 # >> VARIABLES
 i3 = i3ipc.Connection()
@@ -55,7 +55,7 @@ if i3class == 'MuPDF':
 class_dict = {'Emacs': '',
               'MuPDF': '',
               'qutebrowser': '',
-              'Firefox': '', 
+              'Firefox': '',
               'st-256color': '',
               'scratch': '',
               'calculator': '',
@@ -66,7 +66,7 @@ class_dict = {'Emacs': '',
               'feh': '',
               'Gimp-2.10': '',
               'MyPaint': ''
-}
+              }
 
 # >> CHANGE ICON DICT
 if i3class in class_dict:
@@ -77,26 +77,20 @@ name_dict = {'neomutt': '',
              'calcurse': '',
              'MOC [stop]': '',
              'MOC [play]': '',
-}
+             }
 if i3name in name_dict:
     i3class = name_dict[i3name]
 
 # >> CHANGE NAME DICT
-special_dict = { 'dropdown': 'tmux',
-                 'm4ath': 'R calc',
-} 
+special_dict = {'dropdown': 'tmux',
+                'm4ath': 'R calc',
+                }
 if i3name in special_dict:
     i3name = special_dict[i3name]
 
-# >> TMUX
-# if 'dropdown' in i3name:
-#     tmux_windows = out(['tmux', 'list-windows']).decode('utf-8').split('\n')
-#     for name in tmux_windows:
-#         if "active" in name:
-#             i3name = 'tmux: ' + name.split(' ')[1][:-1]
-    
-# >> REMOVE SOME UNNECESARY INFO 
-removeRe = re.compile(r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab|Slack |- Mozilla Firefox')
+# >> REMOVE SOME UNNECESARY INFO
+removeRe = re.compile(
+    r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab|Slack |- Mozilla Firefox')
 if removeRe.search(i3name):
     i3name = re.sub(removeRe, '', i3name)
 
@@ -113,3 +107,10 @@ for i in ['\n', '&']:
 print(f"<span weight='bold'>{i3class}  {i3name}</span>")
 #print(f"<span weight='bold'>{i3name}</span>")
 
+# >> SPADY:
+# >> TMUX
+# if 'dropdown' in i3name:
+#     tmux_windows = out(['tmux', 'list-windows']).decode('utf-8').split('\n')
+#     for name in tmux_windows:
+#         if "active" in name:
+#             i3name = 'tmux: ' + name.split(' ')[1][:-1]
