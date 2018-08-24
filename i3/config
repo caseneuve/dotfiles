@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 22.08.18, 13:01:24 @x200
+# Last update: 24.08.18, 16:48:44 @x200
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -549,7 +549,7 @@ bar {
                }
 }
 
-## >>{{ bar: secondary}}
+## >>  {{ bar: secondary}}
 
 bar {
         output VGA1
