@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Last update: 24.08.18, 11:31:25 @x200
+# Last update: 24.08.18, 11:37:35 @x200
 
 # >> DOC:
 # 24/08/2018 update: grab only active screen (todo: check how does it work with one screen)
+# 24/08/2018: bug: with kbd it grabs always primary screen (why?)
 
 # >> set output directory, if doesn't exist - create one:
 CASTDIR=$HOME/wid/cast
