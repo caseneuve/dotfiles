@@ -355,8 +355,10 @@ alias ged='cd /home/piotr/.emacs.d'
 alias gM='cd /media'
 alias gr='cd /'
 alias gR='cd /root'
-alias gg='cd /home/piotr/git/lab'
-alias ggg='cd /home/piotr/git/lab'
+alias gg='cd /home/piotr/git'
+alias ggl='cd /home/piotr/git/lab'
+alias ggp='cd /home/piotr/git/lab/py-exercises'
+alias ggh='cd /home/piotr/git/hub'
 
 # fast dirs end
 
