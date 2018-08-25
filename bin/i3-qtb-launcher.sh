@@ -2,12 +2,13 @@
 
 # Path:        ~/.dotfiles/bin/qtb-launcher.sh
 # Created:     26.05.18, 23:42    @x200
-# Last update: 25.08.18, 15:13:39 @toshiba
+# Last update: 25.08.18, 15:32:51 @toshiba
 
 # >> DOC:
 # "If qutebrowser is running go to the next workspace with qtb window; if not -- launches qtb at wksp 2"
 
 # >> TODOS:
+# bug: 25/08/2018, zwiesza się, gdy okno jest w skraczpadzie (dodać warunek
 # fixme: jak iść do następnego okna, a nie skakać między dwoma, jeśli jest więcej niż 2?
 # done: przepisać to na py (i3ipc) albo użyć wmctrl
 
