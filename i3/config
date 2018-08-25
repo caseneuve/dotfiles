@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 25.08.18, 17:36:54 @toshiba
+# Last update: 25.08.18, 17:38:45 @toshiba
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -153,9 +153,6 @@ for_window [title="sysupdt"] move up 110 px
 
 #  >>  {{quick floating term}}
 for_window [instance="myquickterm"] floating enable
-#move left 277px,move up 149px
-#for_window [instance="myquickterm"] resize set 1280 400
-#for_window [instance="myquickterm"] move position 0px -17px
 for_window [instance="myquickterm"] move scratchpad
 $exe -st -c 'st-scratch' -n myquickterm -f 'Inconsolata:size=13'
 bindsym $mod+Shift+slash $exe st -c 'scratch' -n myquickterm -f 'Inconsolata:size=13'
