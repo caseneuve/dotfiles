@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 25.08.18, 17:06:08 @toshiba
+# Last update: 25.08.18, 17:38:45 @toshiba
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -153,9 +153,6 @@ for_window [title="sysupdt"] move up 110 px
 
 #  >>  {{quick floating term}}
 for_window [instance="myquickterm"] floating enable
-#move left 277px,move up 149px
-for_window [instance="myquickterm"] resize set 1280 400
-for_window [instance="myquickterm"] move position 0px -17px
 for_window [instance="myquickterm"] move scratchpad
 $exe -st -c 'st-scratch' -n myquickterm -f 'Inconsolata:size=13'
 bindsym $mod+Shift+slash $exe st -c 'scratch' -n myquickterm -f 'Inconsolata:size=13'
@@ -398,7 +395,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape   mode "default"
 }
 
-# >> {{i3 move}}
+# >> {{i3move}}
 mode "i3move" {
      bindsym u $exe ~/git/lab/py-exercises/i3move.py -m 1
      bindsym 1 $exe ~/git/lab/py-exercises/i3move.py -m 1
