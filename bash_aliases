@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 23.08.18, 10:09:21 @x200
+# Last update: 25.08.18, 20:34:30 @toshiba
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -136,6 +136,7 @@ alias calS=calcurse_search_future
 alias sle='systemctl suspend'
 alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
+alias sba='source ~/.bash_aliases'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
