@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3dp.sh
 # Created:     10.07.18, 18:45    @x200
-# Last update: 17.08.18, 09:20:50 @x200
+# Last update: 25.08.18, 14:51:21 @toshiba
 
 # >> DOC: note: requires dropbox-cli (AUR)
 
@@ -15,18 +15,25 @@ URU=$(dropbox-cli status | grep -i "uruchamianie")
 SYNC=$(dropbox-cli status | grep -i "synchronizowanie")
 
 # >> RUN:
-if [[ $NOT ]]; then
-    # <span bgcolor='#00001f26'>
-    echo "<span color='#C0392B'> $GLYPH </span>" # 𝔻!
-elif [[ $URU ]]; then
-    # <span bgcolor='#2980b9'>
-    echo "<span color='#ffffff'> $GLYPH </span>" # 𝔻!
-elif [[ $SYNC ]]; then
-    # <span bgcolor='#ffffff'>
-    echo "<span fgcolor='#27AE60'> $GLYPH </span>" #𝔻↓↑
-else
-    pkill -RTMIN+13 i3blocks
-fi
+while true; do
+    if [[ $NOT ]]; then
+        # <span bgcolor='#00001f26'>
+        echo "<span color='#C0392B'> $GLYPH </span>" # 𝔻!
+        sleep 10
+    elif [[ $URU ]]; then
+        # <span bgcolor='#2980b9'>
+        echo "<span color='#ffffff'> $GLYPH </span>" # 𝔻!
+        sleep 10
+    elif [[ $SYNC ]]; then
+        # <span bgcolor='#ffffff'>
+        echo "<span fgcolor='#27AE60'> $GLYPH </span>" #𝔻↓↑
+        sleep 10
+    else
+        pkill -RTMIN+13 i3blocks
+        break
+    fi
+done
+
 
 # >> MOUSE BEHAVIOUR
 case $BLOCK_BUTTON in

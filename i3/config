@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 24.08.18, 16:48:44 @x200
+# Last update: 25.08.18, 17:38:45 @toshiba
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -151,15 +151,12 @@ for_window [title="sysupdt"] resize set 600 300
 for_window [title="sysupdt"] move right 400 px
 for_window [title="sysupdt"] move up 110 px
 
-# >> {{quick floating term}}
+#  >>  {{quick floating term}}
 for_window [instance="myquickterm"] floating enable
-#move left 277px,move up 149px
-for_window [instance="myquickterm"] resize set 1280 400
-for_window [instance="myquickterm"] move position 0px -17px
 for_window [instance="myquickterm"] move scratchpad
 $exe -st -c 'st-scratch' -n myquickterm -f 'Inconsolata:size=13'
 bindsym $mod+Shift+slash $exe st -c 'scratch' -n myquickterm -f 'Inconsolata:size=13'
-bindsym $mod+slash [instance="myquickterm"] scratchpad show
+bindsym $mod+slash $exe ~/.dotfiles/bin/i3quick-floating.sh
 
 ## >> {WORKSPACES}                
 # workspace_auto_back_and_forth yes
@@ -398,17 +395,23 @@ mode "$mode_gaps_outer" {
         bindsym Escape   mode "default"
 }
 
+# >> {{i3move}}
 mode "i3move" {
      bindsym u $exe ~/git/lab/py-exercises/i3move.py -m 1
      bindsym 1 $exe ~/git/lab/py-exercises/i3move.py -m 1
      bindsym o $exe ~/git/lab/py-exercises/i3move.py -m 2
      bindsym 2 $exe ~/git/lab/py-exercises/i3move.py -m 2
-     bindsym j $exe ~/git/lab/py-exercises/i3move.py -m 4
+     bindsym m $exe ~/git/lab/py-exercises/i3move.py -m 4
      bindsym 4 $exe ~/git/lab/py-exercises/i3move.py -m 4
-     bindsym l $exe ~/git/lab/py-exercises/i3move.py -m 3
+     bindsym period $exe ~/git/lab/py-exercises/i3move.py -m 3
      bindsym 3 $exe ~/git/lab/py-exercises/i3move.py -m 3
-     bindsym k $exe ~/git/lab/py-exercises/i3move.py -m 5
+     bindsym c $exe ~/git/lab/py-exercises/i3move.py -m 5
      bindsym 5 $exe ~/git/lab/py-exercises/i3move.py -m 5
+
+     bindsym i $exe ~/git/lab/py-exercises/i3move.py -m 1 -s 
+     bindsym l $exe ~/git/lab/py-exercises/i3move.py -m 2 -s
+     bindsym k $exe ~/git/lab/py-exercises/i3move.py -m 3 -s
+     bindsym j $exe ~/git/lab/py-exercises/i3move.py -m 4 -s
 
      bindsym f $exe ~/git/lab/py-exercises/i3move.py -f
      bindsym r $exe ~/git/lab/py-exercises/i3move.py -r 15
