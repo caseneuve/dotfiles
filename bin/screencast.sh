@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Last update: 24.08.18, 11:37:35 @x200
+# Last update: 25.08.18, 13:23:29 @x200
 
 # >> DOC:
+# 25/08/2018 send signal 9 to i3blocks → i3screencast-indicator.sh
 # 24/08/2018 update: grab only active screen (todo: check how does it work with one screen)
 # 24/08/2018: bug: with kbd it grabs always primary screen (why?)
 
@@ -42,7 +43,9 @@ sleep 1 && xdotool key ctrl+space
 # 3. run ffmpeg
 # @old:
 #ffmpeg -f x11grab -s "$dimensions" -i :0.0 "$outFile"
+pkill -RTMIN+9 i3blocks
 ffmpeg -f x11grab -s "$SCREEN_DIMS" -i :0.0+$SCR_X,$SCR_Y "$outFile"
 # 4.
 [ $COM == 1 ] && compton &
+pkill -RTMIN+9 i3blocks
 

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Path:        ~/biu/i3/screencastis.sh
+# Created:     24.08.18, 23:09    @x200
+# Last update: 25.08.18, 13:23:36 @x200
+
+# >> DOC: 
+# i3blocks screencast indicator; runs with screencast.sh
+# >> VARIABLES: 
+FGCOLOR=#C0392B
+
+# >> RUN:
+[[ $(ps aux | grep ffmpeg | grep -v grep) ]] && echo -e "<span color='$FGCOLOR'>  </span>" || echo ""
+
