@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 17.07.18, 00:57:48 @toshiba
+# Last update: 25.08.18, 19:22:28 @toshiba
 
 # Doc:
 # Aktualizuje repozytoria 'dotfiles', 'emacs/load' oraz wspólny projekt z gitlaba  na lokalnym komputerze
@@ -17,7 +17,7 @@ BOLD="$(tput bold)"
 DOTFILES=/home/piotr/.dotfiles
 EMACS=/home/piotr/.emacs.git
 #ARTIST=/home/piotr/git/lab/liberal_artist_org
-#PY_EX=/home/piotr/git/lab/py-exercises
+PY_EX=/home/piotr/git/lab/py-exercises
 ST=/home/piotr/git/hub/st
 EMACS_HTMLIZE=/home/piotr/git/hub/emacs-htmlize
 
@@ -40,12 +40,12 @@ echo
 #     echo
 # fi
 
-# if [ -d $PY_EX ]; then
-#     echo "${BOLD}${ORANGE}Aktualizuję repo ${RED}PY-EXERCISES ${RESET}"
-#     cd $PY_EX
-#     git pull
-#     echo
-# fi
+if [ -d $PY_EX ]; then
+    echo "${BOLD}${ORANGE}Aktualizuję repo ${RED}PY-EXERCISES ${RESET}"
+    cd $PY_EX
+    git pull
+    echo
+fi
 
 if [ -d $ST ]; then
     echo "${BOLD}${ORANGE}Aktualizuję repo ${RED}SUCKLESS TERMINAL ${RESET}"
