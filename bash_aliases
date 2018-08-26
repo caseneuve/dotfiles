@@ -8,13 +8,16 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 25.08.18, 20:34:30 @toshiba
+# Last update: 26.08.18, 20:38:52 @x200
+
+## >> VARIABLES:
+MYTERM=st
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
 alias ls='ls --color=auto'
 alias q=exit
-alias cl=clear
+#alias cl=clear
 alias cls=clear
 alias klr=clear
 alias la='ls -a1'
@@ -35,6 +38,8 @@ alias thg='tmux new-window -n "hg" "hangups"'
 alias xclip='xclip -selection c'
 alias cpwd='pwd | xclip -selection c'
 alias treeno="tree | sed 's/-> [-/a-zA-Z0-9\.\_ ]*//g'"
+alias cl='i3-msg -q splith; cd $PWD && $MYTERM &'
+alias clo='i3-msg -q splitv; cd $PWD && $MYTERM &'
 
 ## >> FUNKCJE 
 # >> F: find file
