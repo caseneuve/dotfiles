@@ -7,7 +7,7 @@
 ###                                     |___/    ###
 ####################################################
 
-# Last update: 25.08.18, 21:54:27 @toshiba
+# Last update: 26.08.18, 16:09:04 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -607,8 +607,11 @@ bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 ## >> { KBD }
 # term
-bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
-bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
+bindsym $mod+Return split h $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
+bindsym $mod+Shift+Return split v $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
+# bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
+# bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
+
 # qutebrowser
 #bindsym $mod+b workspace 2; $exe qutebrowser
 bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh 
