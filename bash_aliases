@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 23.08.18, 10:09:21 @x200
+# Last update: 25.08.18, 20:34:30 @toshiba
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
@@ -136,6 +136,7 @@ alias calS=calcurse_search_future
 alias sle='systemctl suspend'
 alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
+alias sba='source ~/.bash_aliases'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
@@ -355,8 +356,10 @@ alias ged='cd /home/piotr/.emacs.d'
 alias gM='cd /media'
 alias gr='cd /'
 alias gR='cd /root'
-alias gg='cd /home/piotr/git/lab'
-alias ggg='cd /home/piotr/git/lab'
+alias gg='cd /home/piotr/git'
+alias ggl='cd /home/piotr/git/lab'
+alias ggp='cd /home/piotr/git/lab/py-exercises'
+alias ggh='cd /home/piotr/git/hub'
 
 # fast dirs end
 

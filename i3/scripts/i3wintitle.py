@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Path: ~/.dotfiles/i3/scripts/i3wintitle.py
-# Last update: 22.08.18, 21:50:17 @x200
+# Last update: 25.08.18, 18:22:19 @lenovo
 
 # >> DOC:
 
@@ -65,7 +65,9 @@ class_dict = {'Emacs': '',
               'Sxiv': '',
               'feh': '',
               'Gimp-2.10': '',
-              'MyPaint': ''
+              'MyPaint': '',
+              'Slack': '',
+              'Messenger for Desktop': '',
               }
 
 # >> CHANGE ICON DICT
@@ -90,7 +92,7 @@ if i3name in special_dict:
 
 # >> REMOVE SOME UNNECESARY INFO
 removeRe = re.compile(
-    r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab|Slack |- Mozilla Firefox')
+    r' - qutebrowser|sxiv -|feh|^Firefox |^Home \| |\| GitLab|Slack - |- Mozilla Firefox')
 if removeRe.search(i3name):
     i3name = re.sub(removeRe, '', i3name)
 

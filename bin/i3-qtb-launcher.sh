@@ -2,12 +2,13 @@
 
 # Path:        ~/.dotfiles/bin/qtb-launcher.sh
 # Created:     26.05.18, 23:42    @x200
-# Last update: 19.08.18, 02:51:11 @x200
+# Last update: 25.08.18, 15:32:51 @toshiba
 
 # >> DOC:
 # "If qutebrowser is running go to the next workspace with qtb window; if not -- launches qtb at wksp 2"
 
 # >> TODOS:
+# bug: 25/08/2018, zwiesza się, gdy okno jest w skraczpadzie (dodać warunek
 # fixme: jak iść do następnego okna, a nie skakać między dwoma, jeśli jest więcej niż 2?
 # done: przepisać to na py (i3ipc) albo użyć wmctrl
 
@@ -37,7 +38,7 @@ if [[ $QTB ]]; then
             # if focused = highest in the list, open the first from the list
             [[ $FOCUSED_WS == ${QTB_WS[-1]} ]] && wmctrl -ia ${QTB_DICT[${QTB_WS[0]}]} && break 
             # if focused is higher or equal than the list element, go next 
-            [[ $ws < $FOCUSED_WS || $FOCUSED_WS == $ws ]] && continue
+            [[ $ws < $FOCUSED_WS || $FOCUSED_WS == $ws ]] && wmctrl -ia ${QTB_DICT[$ws]} && continue
             wmctrl -ia ${QTB_DICT[$ws]} && break
         done
     else
