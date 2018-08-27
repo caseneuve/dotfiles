@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 26.08.18, 20:38:52 @x200
+# Last update: 27.08.18, 12:48:51 @x200
 
 ## >> VARIABLES:
 MYTERM=st
@@ -173,6 +173,8 @@ alias egtd='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 alias eno='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
 ## >> PROGRAMY
+alias i3g=i3get
+alias i3m=i3move
 alias pdfg='pdfgrep'
 alias yv='youtube-viewer'
 alias wm=wmctrl
@@ -275,15 +277,23 @@ alias news='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"
 
 ## >> ZMIENNE 
 home=/home/piotr
-muz=/home/piotr/Muzyka
-pod=/home/piotr/Pobrane
+muz=/home/piotr/muz
+pob=/home/piotr/dwl
 dot=/home/piotr/.dotfiles
-moc=/home/piotr/.moc
-pob=/home/piotr/Pobrane
-obr=/home/piotr/Obrazy
-wid=/home/piotr/Wideo
+obr=/home/piotr/obr
+wid=/home/piotr/wid
+att=/home/piotr/dwl/att
+
+alias home='cd /home/piotr'
+alias muz='cd /home/piotr/muz'
+alias pob='cd /home/piotr/dwl'
+alias dot='cd /home/piotr/.dotfiles'
+alias obr='cd /home/piotr/obr'
+alias wid='cd /home/piotr/wid'
+alias att='cd /home/piotr/dwl/att'
 
 ## >> GIT 
+alias gito='git checkout'
 alias gts='/home/piotr/.dotfiles/bin/gitstatus.sh'
 alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
 alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
