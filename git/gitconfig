@@ -31,3 +31,5 @@ hist = log --graph --decorate --pretty='%C(dim)%ad%Creset%Cblue %C(bold)%h%Crese
 #   whitespace = red reverse
 # <--------------------------------------------------------------------------------|
 
+[core]
+	editor = emacsclient -nw
