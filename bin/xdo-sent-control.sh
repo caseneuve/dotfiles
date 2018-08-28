@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/xdo-sent-control.sh
 # Created:     28.08.18, 12:40    @x200
-# Last update: 28.08.18, 14:15:38 @x200
+# Last update: 28.08.18, 23:51:31 @x200
 
 # >> DOC:
 # Dep: xdotool
@@ -13,13 +13,29 @@
 # >> VARIABLES: 
 SENT_ID=$(xdotool search --class sent)
 
-if [[ -n $SENT_ID ]]; then
-   while getopts 'agnprq' flag; do
-       case "${flag}" in
-           a|g|n|p|r|q) xdotool key --window $SENT_ID $flag 2>/dev/null
-                  ;;
-           *) xdotool key --window $SENT_ID n
-              ;;
-       esac
-   done
-fi
+
+while getopts 'agnprq' flag; do
+    if [[ -n $SENT_ID ]]; then
+        for i in $SENT_ID; do
+            case "${flag}" in
+                a|g|n|p|r|q) xdotool key --window $i $flag 2>/dev/null
+                             ;;
+                *) xdotool key --window $i n
+                   ;;
+            esac
+        done
+    fi
+done
+
+# if [[ -n $SENT_ID ]]; then
+#     for i in $SENT_ID; do
+#         while getopts 'agnprq' flag; do
+#             case "${flag}" in
+#                 a|g|n|p|r|q) xdotool key --window $i $flag 2>/dev/null
+#                              ;;
+#                 *) xdotool key --window $i n
+#                    ;;
+#             esac
+#         done
+#     done
+# fi
