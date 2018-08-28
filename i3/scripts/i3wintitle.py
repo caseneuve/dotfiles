@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Path: ~/.dotfiles/i3/scripts/i3wintitle.py
-# Last update: 26.08.18, 14:39:17 @x200
+# Last update: 28.08.18, 17:19:37 @x200
 
 # >> DOC:
 
@@ -52,12 +52,17 @@ mupdfRe = re.compile(r'([a-z0-9 ._-]*)(.pdf - )([0-9]+/[0-9]+)', re.I)
 if i3class == 'MuPDF':
     i3name = f'[{mupdfRe.search(i3name).group(3)}] {mupdfRe.search(i3name).group(1)}'
 
+# >> SENT: find file name
+if 'sent' in i3name and 'presenter' in i3class:
+    sent_pid = out(['pidof', 'sent']).decode('utf-8').strip()
+    i3name = out(['ps', sent_pid]).decode('utf-8').strip().split()[10]
+
 # >> EMACS: EXTRACT ONLY BASENAME
 if i3class == 'Emacs':
     if '/' in i3name:
         i3name = out(['basename', i3name]).decode('utf-8').strip()
-        
-# >> CLASS ICONS DICT
+
+        # >> CLASS ICONS DICT
 class_dict = {'Emacs': '',
               'MuPDF': '',
               'qutebrowser': '',
@@ -74,6 +79,7 @@ class_dict = {'Emacs': '',
               'MyPaint': '',
               'Slack': '',
               'Messenger for Desktop': '',
+              'presenter': '',
               }
 
 # >> CHANGE ICON DICT
