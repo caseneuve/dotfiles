@@ -7,7 +7,7 @@
 ###                                     |___/    ###
 ####################################################
 
-# Last update: 26.08.18, 16:09:04 @x200
+# Last update: 28.08.18, 13:49:46 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -678,6 +678,13 @@ bindsym $mod+Ctrl+a $exe ~/.dotfiles/bin/i3append.sh
 bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
 bindsym $mod+Shift+a $exe ~/.dotfiles/bin/agenda
+
+# >> {{ sent TODO: napisać skrypt do tego }}
+bindsym $mod+XF86Forward $exe ~/.dotfiles/bin/xdo-sent-control.sh -n
+bindsym $mod+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -p
+bindsym $mod+Shift+XF86Forward $exe ~/.dotfiles/bin/xdo-sent-control.sh -g
+bindsym $mod+Shift+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -a
+bindsym $mod+Control+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -r
 
 # [SPADY!]
 # bindsym $mod+Shift+q kill
