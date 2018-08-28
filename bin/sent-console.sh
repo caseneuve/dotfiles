@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 28.08.18, 23:59:54 @x200
+# Last update: 29.08.18, 01:10:37 @x200
 
 # >> DOC: 
 # simple console to navigate through SENT slides
@@ -32,7 +32,4 @@ while true; do
         esac
     done
 done
-
-    
-
         
