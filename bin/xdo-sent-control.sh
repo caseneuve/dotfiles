@@ -2,9 +2,11 @@
 
 # Path:        ~/.dotfiles/bin/xdo-sent-control.sh
 # Created:     28.08.18, 12:40    @x200
-# Last update: 28.08.18, 13:27:14 @x200
+# Last update: 28.08.18, 14:15:38 @x200
 
-# >> DOC: 
+# >> DOC:
+# Dep: xdotool
+# Enables remote control on slides in @sent app
 
 # >> TODOS: 
 
