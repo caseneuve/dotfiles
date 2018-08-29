@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Path: ~/.dotfiles/i3/scripts/i3wintitle.py
-# Last update: 28.08.18, 17:19:37 @x200
+# Last update: 29.08.18, 23:19:33 @toshiba
 
 # >> DOC:
 
@@ -114,9 +114,19 @@ if len(i3name) > 50:
 
 # >> RETURN string for i3blocks
 # skoryguj niedozwolone znaki
-for i in ['\n', '&']:
+# for i in ['\n', '&']:
+#     if i in i3name:
+#         i3name = 'shell command'
+
+# >> tests for pango:
+pango_escape = {
+    "&": "&amp;",
+    "<": "&lt;",
+}
+
+for i in pango_escape:
     if i in i3name:
-        i3name = 'shell command'
+        i3name = i3name.replace(i, pango_escape[i])
 
 print(f"<span weight='bold'>{i3class}  {i3name}</span>")
 #print(f"<span weight='bold'>{i3name}</span>")
