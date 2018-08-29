@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 27.08.18, 12:48:51 @x200
+# Last update: 29.08.18, 14:32:13 @lenovo
 
 ## >> VARIABLES:
 MYTERM=st
@@ -41,23 +41,21 @@ alias treeno="tree | sed 's/-> [-/a-zA-Z0-9\.\_ ]*//g'"
 alias cl='i3-msg -q splith; cd $PWD && $MYTERM &'
 alias clo='i3-msg -q splitv; cd $PWD && $MYTERM &'
 
-## >> FUNKCJE 
-# >> F: find file
-find_file(){
-    find $1 -type f | grep $2
-}
+## >> FUNKCJE
+# >> F: copy path
+copy_path(){ echo $PWD/$1 | xclip -selection clipboard; } 
+alias cpa=copy_path
 
+# >> F: find file
+find_file(){ find $1 -type f | grep $2; }
 alias fif=find_file
 
 # >> F: alias add
-alias_add(){
-    echo "alias $1='$2'" >> ~/.bash_aliases
-}
-
+alias_add(){ echo "alias $1='$2'" >> ~/.bash_aliases; }
 alias aa=alias_add
 
 # >> F: wyświetl kolory
-colors(){
+colors(){ 
     clear
     for C in {0..255}; do
         tput setab $C
