@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 30.08.18, 22:41:41 @lenovo
+# Last update: 30.08.18, 23:06:45 @lenovo
 
 # >> DOC: 
 # simple console to navigate through SENT slides
@@ -10,6 +10,8 @@
 # note: input file must not have trailing newlines at the end
 
 # >> TODOS:
+# todo: add marks (goto marked slide)
+# todo: add goto slide nr (,2 → goto 2; ,3 → goto 3 etc)
 # done: when sent instance added/removed during run it has to "reload", otherwise it looses one round
 # done: add counters, eg : 5n, 5p etc.
 # done: read file, and echo which slide we are currently on 
