@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 31.08.18, 00:32:03 @lenovo
+# Last update: 31.08.18, 01:15:22 @lenovo
 
 # >> DOC: simple console to navigate through SENT slides
 # 30/08/2018 v0.2 → read file, count slides, mark/jump  
@@ -18,6 +18,7 @@
 
 # >> VARIABLES:
 MSG="Sent console v0.2 alpha"
+
 # spr. czy podany arg jest plikiem 
 # >> - file ops @v
 if [[ -f $1 ]]; then
@@ -46,6 +47,7 @@ echo "Sent console v0.2 alpha"
 # >> loop start 
 while true; do
     # >> prepre
+    [[ -n $NOTE ]] && NOOT=", #$(echo -e $NOTE | wc -l)" || NOOT=
     [[ -n $POS ]] && POOS="+$POS" || POOS=
     # >> pre prompt @loop
     if [[ -n $MARK ]]; then
@@ -56,15 +58,17 @@ while true; do
 
     # >> read @loop
     if [[ -f $1 ]]; then
-        read -p "[ $FILE $COUNT/$TOTAL$REST ] > " command
+        read -p "[ $FILE $COUNT/$TOTAL$REST$NOOT ] > " command
     else
-        read -p "[ $COUNT/$TOTAL$REST ] > " command
+        read -p "[ $COUNT/$TOTAL$REST$NOOT ] > " command
     fi
-    
-    [[ $(echo $command | grep [0-9]) ]] && num=$(echo $command | grep -o "[0-9]*") || num=1
-    command=$(echo $command | grep -o "[a-z]*")
 
-    # >> jump to the  marked @loop
+    if [[ $command != *"# "* ]]; then
+        [[ $(echo $command | grep [0-9]) ]] && num=$(echo $command | grep -o "[0-9]*") || num=1
+        command=$(echo $command | grep -o "[a-z]*")
+    fi
+
+    # >> jump to the marked @loop
     if [[ $command == "j" ]]; then
         [[ -z $MARK ]] && echo "no slide marked!" && continue
         POS=$COUNT
@@ -75,7 +79,7 @@ while true; do
     fi
 
     # >> and go back
-    if [[ $command == "b" ]]; then
+    if [[ $command == "t" ]]; then
         [[ -z $POS ]] && echo "no saved position to go back!" && continue
         if [[ $POS == $COUNT ]]; then
             echo "no need to jump back..."
@@ -105,14 +109,26 @@ while true; do
             'exit'|'quit') exit ;;
             'kill') pkill sent && exit ;;
             clr|clear|klr) clear; echo $MSG ;;
-            m) MARK=$COUNT
-               echo "slide $MARK marked!"
+            m) MARK=$COUNT; echo "slide $MARK marked!"; break ;;
+            c) MARK=; POS=; echo "marks cleared!"; break ;;
+            '# '*) [[ -n $NOTE ]] && NOTE="$NOTE\n$command" || NOTE="$command"
+                   break ;;
+            f) [[ $NOTE ]] && echo -e "$NOTE" || echo "no notes!"
                break ;;
-            c) MARK=
-               POS=
-               echo "marks cleared!"
-               break ;;
-            *) echo "commands are: <num>[n]ext, <num>[p]revious, [r]eload, [a] beg, [g] end"
+            x) NOTE=; echo "notes cleared!"; break ;;
+            *) echo -e "commands are:
+ <num>[n]ext,
+ <num>[p]revious,
+ [r]eload,
+ [a] beg,
+ [g] end,
+ [m]ark slide,
+ [j]ump to slide,
+ [t]oggle jump pos.,
+ [c]lear marks,
+ [#] enter note,
+ [f] print notes,
+ [x] clear notes."
                break ;;
         esac
     done
