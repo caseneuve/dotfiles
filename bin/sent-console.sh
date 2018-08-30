@@ -2,21 +2,19 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 30.08.18, 23:06:45 @lenovo
+# Last update: 31.08.18, 00:32:03 @lenovo
 
-# >> DOC: 
-# simple console to navigate through SENT slides
-# 30/08/2018 v0.2 → read file, count slides
+# >> DOC: simple console to navigate through SENT slides
+# 30/08/2018 v0.2 → read file, count slides, mark/jump  
 # note: input file must not have trailing newlines at the end
 
 # >> TODOS:
-# todo: add marks (goto marked slide)
 # todo: add goto slide nr (,2 → goto 2; ,3 → goto 3 etc)
+# todo: add colors (?)
+# done: add marks (goto marked slide)
 # done: when sent instance added/removed during run it has to "reload", otherwise it looses one round
 # done: add counters, eg : 5n, 5p etc.
 # done: read file, and echo which slide we are currently on 
-# licz ile jest przerw między akapitami, tj ile slajdów
-# cat -s $file | grep -c "^\s*$"
 
 # >> VARIABLES:
 MSG="Sent console v0.2 alpha"
@@ -39,6 +37,7 @@ if [[ $2 =~ [0-9]+ ]]; then
     done
 fi
 
+
 # >> RUN:
 clear
 
@@ -46,15 +45,49 @@ echo "Sent console v0.2 alpha"
 
 # >> loop start 
 while true; do
-    if [[ -f $1 ]]; then
-        read -p "[ $FILE $COUNT/$TOTAL ] > " command
+    # >> prepre
+    [[ -n $POS ]] && POOS="+$POS" || POOS=
+    # >> pre prompt @loop
+    if [[ -n $MARK ]]; then
+        REST=", *$MARK$POOS"
     else
-        read -p "> " command
+        REST=
+    fi
+
+    # >> read @loop
+    if [[ -f $1 ]]; then
+        read -p "[ $FILE $COUNT/$TOTAL$REST ] > " command
+    else
+        read -p "[ $COUNT/$TOTAL$REST ] > " command
     fi
     
     [[ $(echo $command | grep [0-9]) ]] && num=$(echo $command | grep -o "[0-9]*") || num=1
     command=$(echo $command | grep -o "[a-z]*")
 
+    # >> jump to the  marked @loop
+    if [[ $command == "j" ]]; then
+        [[ -z $MARK ]] && echo "no slide marked!" && continue
+        POS=$COUNT
+        DIFF=$(( COUNT - MARK ))
+        num=$(echo $DIFF | grep -o "[0-9]*")
+        (( DIFF > 0 )) && command="p" || command="n"
+        echo "jumping to the marked slide $MARK!"
+    fi
+
+    # >> and go back
+    if [[ $command == "b" ]]; then
+        [[ -z $POS ]] && echo "no saved position to go back!" && continue
+        if [[ $POS == $COUNT ]]; then
+            echo "no need to jump back..."
+            continue
+        fi
+        DIFF=$(( POS - COUNT ))
+        num=$(echo $DIFF | grep -o "[0-9]*")
+        (( DIFF < 0 )) && command="p" || command="n"
+        echo "and jumping back to the slide $POS!"
+        POS=$COUNT
+    fi
+        
     SENT_ID=$(xdotool search --class sent)
 
     if [[ -z $SENT_ID ]]; then
@@ -72,6 +105,13 @@ while true; do
             'exit'|'quit') exit ;;
             'kill') pkill sent && exit ;;
             clr|clear|klr) clear; echo $MSG ;;
+            m) MARK=$COUNT
+               echo "slide $MARK marked!"
+               break ;;
+            c) MARK=
+               POS=
+               echo "marks cleared!"
+               break ;;
             *) echo "commands are: <num>[n]ext, <num>[p]revious, [r]eload, [a] beg, [g] end"
                break ;;
         esac
