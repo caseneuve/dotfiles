@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 30.08.18, 22:37:23 @lenovo
+# Last update: 30.08.18, 22:41:41 @lenovo
 
 # >> DOC: 
 # simple console to navigate through SENT slides
@@ -75,6 +75,9 @@ while true; do
         esac
     done
 
+    # >> reloaded msg
+    [[ $command == 'r' ]] && echo "slides reloaded!" 
+    
     # >> set counter @loop
     if [[ $TOTAL ]]; then
         case $command in
