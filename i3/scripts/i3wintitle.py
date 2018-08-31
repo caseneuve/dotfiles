@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Path: ~/.dotfiles/i3/scripts/i3wintitle.py
-# Last update: 25.08.18, 18:22:19 @lenovo
+# Last update: 31.08.18, 21:15:50 @lenovo
 
 # >> DOC:
 
@@ -32,6 +32,7 @@
 # >> IMPORTS
 #from subprocess import check_output as out
 import re
+from subprocess import check_output as out
 import i3ipc
 
 # >> VARIABLES
@@ -51,7 +52,17 @@ mupdfRe = re.compile(r'([a-z0-9 ._-]*)(.pdf - )([0-9]+/[0-9]+)', re.I)
 if i3class == 'MuPDF':
     i3name = f'[{mupdfRe.search(i3name).group(3)}] {mupdfRe.search(i3name).group(1)}'
 
-# >> CLASS ICONS DICT
+# >> SENT: find file name
+if 'sent' in i3name and 'presenter' in i3class:
+    sent_pid = out(['pidof', 'sent']).decode('utf-8').strip()
+    i3name = out(['ps', sent_pid]).decode('utf-8').strip().split()[10]
+
+# >> EMACS: EXTRACT ONLY BASENAME
+if i3class == 'Emacs':
+    if '/' in i3name:
+        i3name = out(['basename', i3name]).decode('utf-8').strip()
+
+        # >> CLASS ICONS DICT
 class_dict = {'Emacs': '',
               'MuPDF': '',
               'qutebrowser': '',
@@ -68,6 +79,7 @@ class_dict = {'Emacs': '',
               'MyPaint': '',
               'Slack': '',
               'Messenger for Desktop': '',
+              'presenter': '',
               }
 
 # >> CHANGE ICON DICT
@@ -102,9 +114,19 @@ if len(i3name) > 50:
 
 # >> RETURN string for i3blocks
 # skoryguj niedozwolone znaki
-for i in ['\n', '&']:
+# for i in ['\n', '&']:
+#     if i in i3name:
+#         i3name = 'shell command'
+
+# >> tests for pango:
+pango_escape = {
+    "&": "&amp;",
+    "<": "&lt;",
+}
+
+for i in pango_escape:
     if i in i3name:
-        i3name = 'shell command'
+        i3name = i3name.replace(i, pango_escape[i])
 
 print(f"<span weight='bold'>{i3class}  {i3name}</span>")
 #print(f"<span weight='bold'>{i3name}</span>")

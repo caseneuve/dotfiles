@@ -8,7 +8,9 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 25.08.18, 17:38:45 @toshiba
+# Last update: 31.08.18, 21:14:29 @lenovo
+
+## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
 # TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
 # TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
@@ -61,10 +63,10 @@ bindsym $mod+k focus down
 bindsym $mod+i focus up
 bindsym $mod+l focus right
 
-bindsym $mod+Left focus left
+#bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Right focus right
 
 # ===================
 #  >>  {{moving windows:}}
@@ -73,10 +75,10 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+i move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Right move right
 
 #  >>  {{enter fullscreen mode for the focused container:}}
 bindsym $mod+f fullscreen toggle
@@ -99,24 +101,11 @@ bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
 #  >>  {{flash active window (za: Luke Smith) / jeśli compton jest włączony}}
 bindsym $mod+grave $exe bash $i3scr/flash.sh
 
-#  >>  {{orphans:}}
-# focus the parent container
-# bindsym $mod+a focus parent
-# focus the child container
-#bindsym $mod+d focus child
-# split in horizontal orientation
-# bindsym $mod+h split h
-# split in vertical orientation
-# bindsym $mod+v split v
-
 ## >>{SCRATCHPADS}
 #  >>  {{dropdown → tmux:}}
-# $exe bash ~/.dotfiles/bin/dropdown.sh
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] resize set 1000 600
 for_window [title="dropdown"] move position center
-#for_window [title="dropdown"] border pixel 3
-#for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 
 exec    $term -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh 
@@ -619,8 +608,11 @@ bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 ## >> { KBD }
 # term
-bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
-bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
+bindsym $mod+Return split h $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
+bindsym $mod+Shift+Return split v $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
+# bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
+# bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
+
 # qutebrowser
 #bindsym $mod+b workspace 2; $exe qutebrowser
 bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh 
@@ -684,6 +676,24 @@ bindsym $mod+Ctrl+F12 exec pkill ffmpeg && notify-send "screencast" "screencast 
 #  >>  {{ append & reload:}}
 bindsym $mod+Ctrl+a $exe ~/.dotfiles/bin/i3append.sh
 
+bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
+bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
+bindsym $mod+Shift+a $exe ~/.dotfiles/bin/agenda
+
+# >> {{ sent TODO: napisać skrypt do tego }}
+# bindsym $mod+XF86Forward $exe ~/.dotfiles/bin/xdo-sent-control.sh -n
+# bindsym $mod+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -p
+# bindsym $mod+Shift+XF86Forward $exe ~/.dotfiles/bin/xdo-sent-control.sh -g
+# bindsym $mod+Shift+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -a
+# bindsym $mod+Control+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -r
+
+bindsym $mod+Right $exe ~/.dotfiles/bin/xdo-sent-control.sh -n
+bindsym $mod+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -p
+bindsym $mod+Shift+Right $exe ~/.dotfiles/bin/xdo-sent-control.sh -g
+bindsym $mod+Shift+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -a
+bindsym $mod+Control+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -r
+
+
 # [SPADY!]
 # bindsym $mod+Shift+q kill
 # bindsym $mod+F11 fullscreen toggle
@@ -705,11 +715,17 @@ bindsym $mod+Ctrl+a $exe ~/.dotfiles/bin/i3append.sh
 # bindsym $mod+Control+n $exe $term -e ~/.dotfiles/bin/notes.sh
 #bindsym F8 $ws8; $exe $term -e mocp
 
-bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
-bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
-bindsym $mod+Shift+a $exe ~/.dotfiles/bin/agenda
+#  >>  {{orphans:}}
+# focus the parent container
+# bindsym $mod+a focus parent
+# focus the child container
+#bindsym $mod+d focus child
+# split in horizontal orientation
+# bindsym $mod+h split h
+# split in vertical orientation
+# bindsym $mod+v split v
 
-# >> testy
+# >> {{testy}}
 # ok
 #bindsym $mod+Shift+backslash exec --no-startup-id ~/biu/i3/moving.py -m nw
 

@@ -2,9 +2,10 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 20.08.18, 20:04:09 @x200
+# Last update: 30.08.18, 16:28:50 @lenovo
 
 # Doc: via Luke Smith github
+# todo: poprawić wget i pdf (nie działa xdg-open dla pdf @toshi!)
 # note: replacing feh with sxiv
 # done: problem na współpracy z queuemv → argument sie nie rozwija, lecz cytuje się nazwa (należy cytuwać podwójnymi nawiasami)
 
@@ -23,7 +24,9 @@ elif echo $1 | grep "googleusercontent.com" >/dev/null; then
 elif echo $mpvFiles | grep -w $ext > /dev/null; then
     [[ -f $mpvscript ]] && nohup $mpvscript "$1" >/dev/null || nohup mpv --loop --quiet "$1" > /dev/null &
 elif echo $wgetFiles | grep -w $ext > /dev/null; then
-    nohup wget "$1" >/dev/null &
+    #nohup wget "$1" >/dev/null
+    nohup wget -O /tmp/file.$ext "$1" >/dev/null && xdg-open /tmp/file.$ext &
+    # [[ $ext == "pdf" ]] && mupdf /tmp/file.$ext || xdg-open /tmp/file.$ext &
 elif echo $1 | grep "youtube\.\|youtu\.be" > /dev/null; then
     if [[ -f $mpvscript ]]; then
         nohup $mpvscript "$1" &

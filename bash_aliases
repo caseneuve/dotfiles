@@ -8,13 +8,16 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 23.08.18, 10:09:21 @x200
+# Last update: 29.08.18, 14:32:13 @lenovo
+
+## >> VARIABLES:
+MYTERM=st
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
 alias ls='ls --color=auto'
 alias q=exit
-alias cl=clear
+#alias cl=clear
 alias cls=clear
 alias klr=clear
 alias la='ls -a1'
@@ -35,24 +38,24 @@ alias thg='tmux new-window -n "hg" "hangups"'
 alias xclip='xclip -selection c'
 alias cpwd='pwd | xclip -selection c'
 alias treeno="tree | sed 's/-> [-/a-zA-Z0-9\.\_ ]*//g'"
+alias cl='i3-msg -q splith; cd $PWD && $MYTERM &'
+alias clo='i3-msg -q splitv; cd $PWD && $MYTERM &'
 
-## >> FUNKCJE 
+## >> FUNKCJE
+# >> F: copy path
+copy_path(){ echo $PWD/$1 | xclip -selection clipboard; } 
+alias cpa=copy_path
+
 # >> F: find file
-find_file(){
-    find $1 -type f | grep $2
-}
-
+find_file(){ find $1 -type f | grep $2; }
 alias fif=find_file
 
 # >> F: alias add
-alias_add(){
-    echo "alias $1='$2'" >> ~/.bash_aliases
-}
-
+alias_add(){ echo "alias $1='$2'" >> ~/.bash_aliases; }
 alias aa=alias_add
 
 # >> F: wyświetl kolory
-colors(){
+colors(){ 
     clear
     for C in {0..255}; do
         tput setab $C
@@ -136,6 +139,7 @@ alias calS=calcurse_search_future
 alias sle='systemctl suspend'
 alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
+alias sba='source ~/.bash_aliases'
 alias nba='nano --nohelp ~/.bash_aliases'
 alias nbr='nano --nohelp ~/.bashrc'
 alias nco='nano --nohelp ~/.compton.conf'
@@ -167,6 +171,8 @@ alias egtd='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 alias eno='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
 ## >> PROGRAMY
+alias i3g=i3get
+alias i3m=i3move
 alias pdfg='pdfgrep'
 alias yv='youtube-viewer'
 alias wm=wmctrl
@@ -269,15 +275,23 @@ alias news='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"
 
 ## >> ZMIENNE 
 home=/home/piotr
-muz=/home/piotr/Muzyka
-pod=/home/piotr/Pobrane
+muz=/home/piotr/muz
+pob=/home/piotr/dwl
 dot=/home/piotr/.dotfiles
-moc=/home/piotr/.moc
-pob=/home/piotr/Pobrane
-obr=/home/piotr/Obrazy
-wid=/home/piotr/Wideo
+obr=/home/piotr/obr
+wid=/home/piotr/wid
+att=/home/piotr/dwl/att
+
+alias home='cd /home/piotr'
+alias muz='cd /home/piotr/muz'
+alias pob='cd /home/piotr/dwl'
+alias dot='cd /home/piotr/.dotfiles'
+alias obr='cd /home/piotr/obr'
+alias wid='cd /home/piotr/wid'
+alias att='cd /home/piotr/dwl/att'
 
 ## >> GIT 
+alias gito='git checkout'
 alias gts='/home/piotr/.dotfiles/bin/gitstatus.sh'
 alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
 alias pull='/home/piotr/.dotfiles/bin/gitpull.sh'
@@ -326,6 +340,7 @@ alias gB='cd /home/piotr/biu'
 alias gb='cd /home/piotr/bin'
 alias gbi='cd /home/piotr/bin'
 alias gS='cd /home/piotr/szk'
+alias gsz='cd /home/piotr/szk/18-19'
 alias gy='cd /home/piotr/dox'
 alias gc='cd /home/piotr/.config'
 alias gC='cd /home/piotr/.config'
@@ -336,7 +351,7 @@ alias gcb='cd /home/piotr/.bak'
 alias gcq='cd /home/piotr/.config/qutebrowser'
 alias gcn='cd /home/piotr/.newsboat'
 alias gcm='cd /home/piotr/.mutt'
-alias gcs='cd /home/piotr/git/hub/suckless/st'
+alias ggs='cd /home/piotr/git/hub/st'
 alias gd='cd /home/piotr/.dotfiles'
 alias gdd='cd /home/piotr/.dotfiles'
 alias gdb='cd /home/piotr/.dotfiles/bin'
@@ -355,8 +370,10 @@ alias ged='cd /home/piotr/.emacs.d'
 alias gM='cd /media'
 alias gr='cd /'
 alias gR='cd /root'
-alias gg='cd /home/piotr/git/lab'
-alias ggg='cd /home/piotr/git/lab'
+alias gg='cd /home/piotr/git'
+alias ggl='cd /home/piotr/git/lab'
+alias ggp='cd /home/piotr/git/lab/py-exercises'
+alias ggh='cd /home/piotr/git/hub'
 
 # fast dirs end
 

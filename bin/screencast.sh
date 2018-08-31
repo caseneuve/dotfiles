@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Last update: 25.08.18, 13:23:29 @x200
+# Last update: 25.08.18, 13:29:19 @x200
 
 # >> DOC:
+# requires i3move (i3ipc installed via pip)
+
+# >> LOG: 
 # 25/08/2018 send signal 9 to i3blocks → i3screencast-indicator.sh
 # 24/08/2018 update: grab only active screen (todo: check how does it work with one screen)
 # 24/08/2018: bug: with kbd it grabs always primary screen (why?)
