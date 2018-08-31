@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 31.08.18, 01:15:22 @lenovo
+# Last update: 31.08.18, 19:30:58 @lenovo
 
 # >> DOC: simple console to navigate through SENT slides
 # 30/08/2018 v0.2 → read file, count slides, mark/jump  
@@ -18,6 +18,16 @@
 
 # >> VARIABLES:
 MSG="Sent console v0.2 alpha"
+# >> COLORS @var
+bd=$(tput bold)
+res=$(tput sgr0)
+yel=$(tput setaf 11)
+gre=$(tput setaf 10)
+red=$(tput setaf 1)
+blu=$(tput setaf 4)
+whibg=$(tput setab 15)
+blafg=$(tput setaf 0)
+redbg=$(tput setab 1)
 
 # spr. czy podany arg jest plikiem 
 # >> - file ops @v
@@ -70,25 +80,25 @@ while true; do
 
     # >> jump to the marked @loop
     if [[ $command == "j" ]]; then
-        [[ -z $MARK ]] && echo "no slide marked!" && continue
+        [[ -z $MARK ]] && echo "${red}no slide marked!${res}" && continue
         POS=$COUNT
         DIFF=$(( COUNT - MARK ))
         num=$(echo $DIFF | grep -o "[0-9]*")
         (( DIFF > 0 )) && command="p" || command="n"
-        echo "jumping to the marked slide $MARK!"
+        echo "${yel}jumping to the marked slide $MARK!${res}"
     fi
 
     # >> and go back
     if [[ $command == "t" ]]; then
-        [[ -z $POS ]] && echo "no saved position to go back!" && continue
+        [[ -z $POS ]] && echo "${red}no saved position to go back!${res}" && continue
         if [[ $POS == $COUNT ]]; then
-            echo "no need to jump back..."
+            echo "${red}no need to jump back...${res}"
             continue
         fi
         DIFF=$(( POS - COUNT ))
         num=$(echo $DIFF | grep -o "[0-9]*")
         (( DIFF < 0 )) && command="p" || command="n"
-        echo "and jumping back to the slide $POS!"
+        echo "${yel}...and jumping back to the slide $POS!${res}"
         POS=$COUNT
     fi
         
@@ -96,7 +106,7 @@ while true; do
 
     if [[ -z $SENT_ID ]]; then
         [[ $(echo "quit exit q" | grep $command) ]] && exit
-        echo "no sent presentation active!"
+        echo "${red}no sent presentation active!${res}"
     fi
 
     # >> command process @loop
@@ -109,13 +119,13 @@ while true; do
             'exit'|'quit') exit ;;
             'kill') pkill sent && exit ;;
             clr|clear|klr) clear; echo $MSG ;;
-            m) MARK=$COUNT; echo "slide $MARK marked!"; break ;;
-            c) MARK=; POS=; echo "marks cleared!"; break ;;
-            '# '*) [[ -n $NOTE ]] && NOTE="$NOTE\n$command" || NOTE="$command"
+            m) MARK=$COUNT; echo "${yel}slide $MARK marked!${res}"; break ;;
+            c) MARK=; POS=; echo "${yel}marks cleared$!${res}"; break ;;
+            '# '*) [[ -n $NOTE ]] && NOTE="$NOTE\n$command (@$COUNT)" || NOTE="$command (@$COUNT)"
                    break ;;
-            f) [[ $NOTE ]] && echo -e "$NOTE" || echo "no notes!"
+            f) [[ $NOTE ]] && echo -e "${gre}$NOTE${res}" || echo "${red}no notes!${res}"
                break ;;
-            x) NOTE=; echo "notes cleared!"; break ;;
+            x) NOTE=; echo "${gre}notes cleared!${res}"; break ;;
             *) echo -e "commands are:
  <num>[n]ext,
  <num>[p]revious,
