@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Last update: 25.08.18, 13:29:19 @x200
+# Last update: 01.09.18, 19:12:59 @toshiba
 
 # >> DOC:
 # requires i3move (i3ipc installed via pip)
@@ -32,10 +32,10 @@ fi
 
 # >> run
 # 1. kill compton (to avoid glithes, todo: can we fix this?)
-if [[ $(ps aux | grep compton | grep -v grep) ]]; then
-    pkill compton;
-    COM=1
-fi
+# if [[ $(ps aux | grep compton | grep -v grep) ]]; then
+#     pkill compton;
+#     COM=1
+# fi
 # 2. countdown:
 notify-send "screencast" "start in 3 sec."
 sleep 1 && xdotool key ctrl+space 
@@ -49,6 +49,5 @@ sleep 1 && xdotool key ctrl+space
 pkill -RTMIN+9 i3blocks
 ffmpeg -f x11grab -s "$SCREEN_DIMS" -i :0.0+$SCR_X,$SCR_Y "$outFile"
 # 4.
-[ $COM == 1 ] && compton &
+# [ $COM == 1 ] && compton &
 pkill -RTMIN+9 i3blocks
-
