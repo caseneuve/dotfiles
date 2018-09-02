@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 02.09.18, 15:26:22 @lenovo
+# Last update: 02.09.18, 20:42:52 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -610,6 +610,7 @@ bindsym $mod+Shift+z exec synclient TouchpadOff=0
 # term
 bindsym $mod+Return split h $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
 bindsym $mod+Shift+Return split v $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
+bindsym $mod+Mod1+Return $exe ~/.dotfiles/bin/i3-term-toggler.sh
 # bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
 # bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
 
