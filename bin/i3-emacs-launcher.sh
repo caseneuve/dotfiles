@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 02.09.18, 13:54:02 @lenovo
+# Last update: 02.09.18, 14:04:51 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
@@ -16,8 +16,10 @@ GUI_ID+=$(wmctrl -lx | awk '/emacs.Emacs/ && !/st-256color/ && !/qutebrowser.qut
 GUI_WS+=$(wmctrl -lx | awk '/emacs.Emacs/ && !/st-256color/ && !/qutebrowser.qutebrowser/ {print $2}')
 CLI_ID+=$(wmctrl -lx | grep "emacsclient\| e " | grep -v grep | awk '{print $1}')
 CLI_WS+=$(wmctrl -lx | grep "emacsclient\| e " | grep -v grep | awk '{print $2}')
+
 FOC_NAME=$(~/bin/i3get -n)
 FOC_ID=$(wmctrl -l | grep "$FOC_NAME" | awk  '{print $1}')
+[[ -z $FOC_ID ]] && FOC_ID="no id"
 FOC_WS=$(wmctrl -d | awk '/*/ {print $1}')
 
 IDS=(${GUI_ID[@]} ${CLI_ID[@]})
