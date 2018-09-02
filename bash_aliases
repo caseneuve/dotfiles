@@ -8,10 +8,10 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 29.08.18, 14:32:13 @lenovo
+# Last update: 02.09.18, 21:36:33 @lenovo
 
 ## >> VARIABLES:
-MYTERM=st
+MYTERM='st -c term'
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
