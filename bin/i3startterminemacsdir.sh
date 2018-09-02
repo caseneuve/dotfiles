@@ -2,7 +2,7 @@
 
 # Path:        ~/biu/bash/cdemacsdir.sh
 # Created:     26.08.18, 15:00    @x200
-# Last update: 26.08.18, 21:19:57 @x200
+# Last update: 02.09.18, 15:16:55 @lenovo
 
 # >> DOC:
 # Requires:
@@ -21,8 +21,8 @@ FOC=$(~/bin/i3get -c)
 
 # >> RUN:
 if [[ $FOC == 'Emacs' && -d $DIR ]]; then
-    cd $DIR && st -t "st @$(date +%H:%M:%S)" &
+    cd $DIR && st -c term -t "st @$(date +%H:%M:%S)" &
 else
-    st -t "st @$(date +%H:%M:%S)" &
+    st -c term -t "st @$(date +%H:%M:%S)" &
 fi
 
