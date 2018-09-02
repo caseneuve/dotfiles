@@ -2,11 +2,14 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 02.09.18, 00:32:16 @lenovo
+# Last update: 02.09.18, 11:03:27 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
 # note: requires `wmctrl` package (pacman)
+
+# >> TODOs:
+# todo: first search on the focused wksp
 
 # >> VARIABLES:
 GUI_ID=$(wmctrl -lx | awk '/emacs.Emacs/ && !/st-256color/ {print $1}')
