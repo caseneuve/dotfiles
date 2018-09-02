@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 02.09.18, 13:10:00 @lenovo
+# Last update: 02.09.18, 13:13:49 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
@@ -28,7 +28,7 @@ if [[ -n $IDS ]]; then
     if [[ $(echo ${IDS[@]} | grep $FOC_ID) ]]; then
         for ((i=0; i<len; i++)); do
             if [[ $FOC_ID == ${IDS[$i]} ]]; then
-                (( len == 1 )) && notify-send "No more Emacs instances active"
+                (( len == 1 )) && notify-send -u low "i3" "<i>No more Emacs instances active</i>"
                 (( i + 1 < len )) && a=$((i+1)) || a=0
                 wmctrl -ia ${IDS[$a]} && break
             fi
