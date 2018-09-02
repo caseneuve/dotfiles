@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 02.09.18, 14:04:51 @lenovo
+# Last update: 02.09.18, 14:07:17 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
@@ -19,6 +19,7 @@ CLI_WS+=$(wmctrl -lx | grep "emacsclient\| e " | grep -v grep | awk '{print $2}'
 
 FOC_NAME=$(~/bin/i3get -n)
 FOC_ID=$(wmctrl -l | grep "$FOC_NAME" | awk  '{print $1}')
+# condition in case empty wksp is focused
 [[ -z $FOC_ID ]] && FOC_ID="no id"
 FOC_WS=$(wmctrl -d | awk '/*/ {print $1}')
 
