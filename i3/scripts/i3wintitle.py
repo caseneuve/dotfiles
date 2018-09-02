@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Path: ~/.dotfiles/i3/scripts/i3wintitle.py
-# Last update: 31.08.18, 21:15:50 @lenovo
+# Last update: 02.09.18, 15:32:06 @lenovo
 
 # >> DOC:
 
@@ -68,6 +68,7 @@ class_dict = {'Emacs': '',
               'qutebrowser': '',
               'Firefox': '',
               'st-256color': '',
+              'term': '',
               'scratch': '',
               'calculator': '',
               'Thunar': '',
@@ -80,6 +81,8 @@ class_dict = {'Emacs': '',
               'Slack': '',
               'Messenger for Desktop': '',
               'presenter': '',
+              'rss': '',
+              'mail': '',
               }
 
 # >> CHANGE ICON DICT
