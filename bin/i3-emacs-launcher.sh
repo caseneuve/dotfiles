@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 02.09.18, 13:20:06 @lenovo
+# Last update: 02.09.18, 13:54:02 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
@@ -28,7 +28,7 @@ len=${#IDS[@]}
 # >>  1. if emacs is running running
 if [[ -n $IDS ]]; then
     # >>   a. if focused window is emacs
-    if [[ $(echo ${IDS[@]} | grep $FOC_ID) ]]; then
+    if [[ $(echo ${IDS[@]} | grep "$FOC_ID") ]]; then
         for ((i=0; i<len; i++)); do
             if [[ $FOC_ID == ${IDS[$i]} ]]; then
                 # >>    a1. if there is only one emacs window on the list
@@ -51,7 +51,7 @@ if [[ -n $IDS ]]; then
                 wmctrl -ia ${IDS[$i]} && exit
             fi
         done
-        wmctrl -ai ${IDS[0]}
+        wmctrl -ia ${IDS[0]}
     fi
 else
     # >>  2. or run emacs
