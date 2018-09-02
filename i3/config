@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 31.08.18, 21:14:29 @lenovo
+# Last update: 02.09.18, 15:26:22 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -171,7 +171,7 @@ bindsym $mod+7 $ws7;
 bindsym $mod+8 $ws8; 
 #layout stacking dla 9?
 bindsym $mod+9 $ws9; layout tabbed
-bindsym $mod+0 $ws10;
+bindsym $mod+0 $ws10; layout tabbed
 
 bindsym Control+1 $ws1; 
 bindsym Control+2 $ws2; 
@@ -615,7 +615,7 @@ bindsym $mod+Shift+Return split v $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
 
 # qutebrowser
 #bindsym $mod+b workspace 2; $exe qutebrowser
-bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh 
+bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh
 bindsym $mod+Shift+b $exe qutebrowser
 bindsym $mod+p $ws7; $exe qutebrowser :command ":open -p"
 # emacs
