@@ -2,11 +2,14 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 02.09.18, 13:13:49 @lenovo
+# Last update: 02.09.18, 13:18:23 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
 # note: requires `wmctrl` package (pacman)
+
+# >> TODOS:
+# todo: spr. czy można to skrócić awkiem, żeby od razu zadeklarwać listy
 
 # >> VARIABLES:
 GUI_ID+=$(wmctrl -lx | awk '/emacs.Emacs/ && !/st-256color/ && !/qutebrowser.qutebrowser/ {print $1}')
@@ -28,7 +31,13 @@ if [[ -n $IDS ]]; then
     if [[ $(echo ${IDS[@]} | grep $FOC_ID) ]]; then
         for ((i=0; i<len; i++)); do
             if [[ $FOC_ID == ${IDS[$i]} ]]; then
-                (( len == 1 )) && notify-send -u low "i3" "<i>No more Emacs instances active</i>"
+                # a1. if there is only one emacs window on the list
+                (( len == 1 )) &&\
+                    notify-send -u low \
+                                "i3" \
+                                "<i>No more Emacs instances active</i>"
+                # a2. if focus is on the last emacs win on the list
+                # - go to the beginning
                 (( i + 1 < len )) && a=$((i+1)) || a=0
                 wmctrl -ia ${IDS[$a]} && break
             fi
