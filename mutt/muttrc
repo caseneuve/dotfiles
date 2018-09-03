@@ -7,89 +7,97 @@
 ###                               ###
 #####################################
 
-# Last update: 11.07.18, 17:31:49 @x200
+# Last update: 03.09.18, 17:28:07 @x200
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
-## { GENERAL }
-#   {{ ACCOUNTS }}
-#    {{{ Akwinata }}}
+## >> { GENERAL }
+# >>   {{ ACCOUNTS }}
+# >>    {{{ Akwinata }}}
 source ~/box/Dropbox/.Config/Mutt/.muttakwinata
 folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttakwinata'
-#    {{{ Gmail }}}
+
+# >>    {{{ Gmail }}}
 source ~/box/Dropbox/.Config/Mutt/.muttgmail
 folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
-#    {{{ hooks }}}
+
+# >>    {{{ hooks }}}
 folder-hook Akwinata]/*   source ~/box/Dropbox/.Config/Mutt/.muttakwinata
 folder-hook Gmail]/*     source ~/box/Dropbox/.Config/Mutt/.muttgmail
 
-#    {{{ kbd }}}
+# >>    {{{ kbd }}}
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttgmail<enter><change-folder>!<enter>'
 macro index,pager <f3> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttakwinata<enter><change-folder>!<enter>'
 
-#   {{ aliasy}}
+# >>   {{ aliasy}}
 set alias_file = "~/box/Dropbox/.Config/Mutt/.mutt_aliases"
 source $alias_file
 #set sort_alias = alias
 #set reverse_alias = yes
 
-# kolory
+# >> kolory
 source ~/.mutt/schemes/mutt_color
-# kbd
+
+# >> kbd
 source ~/.mutt/kbd.conf
 # mailcap: how to open attachements
 set mailcap_path=~/.mutt/mailcap
-#   {{ record sent messages }}
+
+# >>   {{ record sent messages }}
 #set record="$HOME/.mail/sent"
 set record=""
 
-#   {{ imap }}
+# >>   {{ imap }}
 set imap_keepalive = 900
 
-## { BEHAVIOUR } 
-#   {{ open html messages }}
+## >> { BEHAVIOUR } 
+# >>   {{ open html messages }}
 auto_view text/html                                  
 alternative_order text/plain text/enriched text/html 
 
-#   {{ reply immediately }}
+# >>   {{ reply immediately }}
 set fast_reply=yes
 set include=yes
 
-#   {{ pager }}
+# >>   {{ pager }}
 set pager_context=3
 set pager_stop=yes
 
-## { WRITING MESSAGES }
+## >> { WRITING MESSAGES }
 set editor="emacsclient -a \"\" -t"
 #set editor="nano --fill=80"
 #set editor="emacsclient -nw"
 
-## { APPEARANCE }
-#   {{ nie podświetlaj całej linii }}
+## >> { APPEARANCE }
+# >>   {{ nie podświetlaj całej linii }}
 set arrow_cursor 
-#   {{ sortowanie }}
+# >>   {{ sortowanie }}
 set sort=threads
 set sort_browser=date
 set sort_aux=reverse-last-date-received
-#   {{ status chars }}
+# >>   {{ status chars }}
 set status_chars=" #%A"
-#   {{ index format }}
-# http://www.mutt.org/doc/manual/#index-format
-#                num  flag  att.      from     subj                date            size       label#
-set date_format="%m %b %Y"
+# >>   {{ index format }}
+# >> http://www.mutt.org/doc/manual/#index-format
+
+set date_format="%d %b %y"
+# num | flag | att. | date | from | subj | size || label#
 #                                                 90=value adjusted to x200
-#set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
 set index_format="%2C %S %?X?A& ? %D %-25.25F%-90.90s%> %c"
+#set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
+
 # don't show help line
 set help=no
-#   {{ status line format }}
+
+# >>   {{ status line format }}
 set status_on_top=yes
 set status_format="%rNeoMutt: %-34.34f   new: %n   unread: %u   index%?V?(%V)?: %M %?t?  tagged: %t?%?d?  deleted: %d? %* all: %m "
-#   {{ pager format }}
+
+# >>   {{ pager format }}
 # Default: “-%Z- %C/%m: %-20.20n   %s%*  -- (%P)”
 set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%m, sent: %D]"
 
-## { SIDEBAR }
-#   {{ sidebar (neomutt) }}
+## >> { SIDEBAR }
+# >>   {{ sidebar (neomutt) }}
 set sidebar_visible=yes
 set sidebar_delim_chars='/'
 set sidebar_width = 10
@@ -99,7 +107,7 @@ set sidebar_short_path = yes
 set sidebar_format = '%B %N'
 set mail_check_stats
 
-## { MAILBOXES}
+## >> { MAILBOXES}
 mailboxes imaps://akwinata.edu.pl/INBOX imaps://imap.gmail.com/INBOX
 
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
