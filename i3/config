@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 02.09.18, 21:44:38 @lenovo
+# Last update: 03.09.18, 23:30:10 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -607,47 +607,59 @@ bindsym $mod+z exec synclient TouchpadOff=1
 bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 ## >> { KBD }
-# term
+# >> term @kbd
 bindsym $mod+Return split h $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
 bindsym $mod+Shift+Return split v $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
 bindsym $mod+Mod1+Return $exe ~/.dotfiles/bin/i3-term-toggler.sh
 # bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
 # bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
 
-# qutebrowser
+# >> qutebrowser @kbd
 #bindsym $mod+b workspace 2; $exe qutebrowser
 bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh
 bindsym $mod+Shift+b $exe qutebrowser
 bindsym $mod+p $ws7; $exe qutebrowser :command ":open -p"
-# emacs
+
+# >> emacs @kbd
 #bindsym $mod+e workspace 1; $exe emacs
 bindsym $mod+e $exe ~/.dotfiles/bin/i3-emacs-launcher.sh 
 #bindsym $mod+Shift+e $exe $term -e emacsclient -nw
 bindsym $mod+Control+e $exe $term -e ~/.dotfiles/bin/notes.sh 
-# mail & feed
+
+# >> mail & feed @kbd
 bindsym $mod+n $exe ~/.dotfiles/bin/i3-newsboat-launcher.sh
 bindsym $mod+m $exe ~/.dotfiles/bin/i3-neomutt-launcher.sh
 # calcurse todo: napisać skrypt, który będzie otwierał scratchpad, jeśli calc już jest włączone 
 # bindsym $mod+Shift+c $exe $term -e calcurse
-# mocp
+
+# >> mocp @kbd
 bindsym $mod+Shift+m $exe $term -e mocp
-# ranger & thunar
+
+# >> ranger & thunar @kbd
 bindsym $mod+r $exe $term -e ranger
 bindsym $mod+t $exe thunar
-# sys + appearance
+
+# >> sys + appearance @kbd
 bindsym $mod+h bar mode toggle
 bindsym Scroll_Lock $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+x $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+Shift+x exec systemctl suspend      
-# compton ?
+
+# >> compton ? @kbd
 bindsym $mod+Ctrl+F2 $exe compton
 bindsym $mod+F2 exec pkill compton
-# HELP
+
+# >> HELP @kbd
 bindsym $mod+F1 $exe ~/.dotfiles/bin/i3quick-help.sh
-# network manager
+
+# >> network manager @kbd
 bindsym $mod+Shift+n $exe $term -e nmtui
-# move scratchpad
+
+# >> move scratchpad @kbd
 bindsym $mod+Shift+s move scratchpad
+
+# >> gromit (write & draw on the screen)
+bindsym $mod+F8 $exe ~/.dotfiles/bin/i3-gromit-launcher.sh
 
 #bindsym $mod+e exec emacs
 #bindsym $mod+g $ws10; $exe $term -e mutt 

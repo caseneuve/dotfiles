@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Path:        ~/.dotfiles/i3/scripts/i3gromit-indicator
+# Created:     03.09.18, 22:52    @x200
+# Last update: 03.09.18, 22:56:21 @x200
+
+# >> DOC: 
+
+# >> TODOS: 
+
+# >> VARIABLES: 
+FGCOLOR=#1e90ff
+# C0392B
+# 3cb371
+
+# >> RUN:
+[[ $(ps aux | grep "gromit-mpx" | grep -v grep) ]] && echo -e "<span color='$FGCOLOR'> </span>" || echo ""
