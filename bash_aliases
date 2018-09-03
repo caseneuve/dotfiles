@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 02.09.18, 21:36:33 @lenovo
+# Last update: 03.09.18, 22:44:49 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -42,6 +42,12 @@ alias cl='i3-msg -q splith; cd $PWD && $MYTERM &'
 alias clo='i3-msg -q splitv; cd $PWD && $MYTERM &'
 
 ## >> FUNKCJE
+# >> F: is app running
+app_running_p(){
+    ps aux | grep "$1" | grep -v grep
+}
+alias psaux=app_running_p
+
 # >> F: copy path
 copy_path(){ echo $PWD/$1 | xclip -selection clipboard; } 
 alias cpa=copy_path
