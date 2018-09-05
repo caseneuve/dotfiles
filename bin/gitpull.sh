@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 25.08.18, 19:33:41 @toshiba
+# Last update: 03.09.18, 09:03:00 @lenovo
 
 # Doc:
 # Aktualizuje repozytoria 'dotfiles', 'emacs/load' oraz wspólny projekt z gitlaba  na lokalnym komputerze
@@ -28,10 +28,12 @@ do
     if [[ -d $i ]]; then
         echo "## Aktualizuję repo $BOLD$(basename $i)$RESET:"
         cd $i
+        [[ $(git branch | grep "\* patched") ||  $(git branch | grep "\* master") ]] && git branch | grep "\*" || git checkout master
+        git status --porcelain
         git pull
         echo
     else
-        echo -e "!! Nie ma takiego repo:\n$i"
+        echo -e "!! Nie ma takiego repo:\n$i\n"
     fi
 done
 

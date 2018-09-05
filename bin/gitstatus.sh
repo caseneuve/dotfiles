@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitstatus.sh
 # Created:     27.12.17           ?
-# Last update: 17.07.18, 13:45:27 @toshiba
+# Last update: 03.09.18, 09:02:34 @lenovo
 
 # Doc:
 # Podaje status repozytoriów 'dotfiles' i 'emacs' na lokalnym komputerze
@@ -24,7 +24,7 @@ ST=/home/piotr/git/hub/st
 # .dotfiles
 echo "${BOLD}${GREEN}Sprawdzam status repo ${RED}DOTFILES ${RESET}"
 cd $DOT
-if [[ `git status --porcelain` ]]; then
+if [[ $(git status --porcelain) ]]; then
     echo -e "${YEL}${BOLD}$(git status --porcelain) ${RESET}\n"
 else
     echo -e "$(git status | sed -n '2p')\n"
