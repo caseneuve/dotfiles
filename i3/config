@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 03.09.18, 23:30:10 @x200
+# Last update: 08.09.18, 00:24:43 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -585,8 +585,8 @@ bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -- -10% && pkill -RTMI
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 #bindsym $mod+plus $exe pactl set-sink-volume $sink -- +10%
 #bindsym $mod+minus exec --no-startEOFup-id pactl set-sink-volume $sink -- -10%
-#bindsym XF86AudioMute $exe pactl set-sink-mute $sink toggle
-bindsym XF86AudioMute $exe amixer set Master toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute $exe pactl set-sink-mute $sink toggle
+#bindsym XF86AudioMute $exe amixer set Master toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioPlay $exe mocp -G 
 bindsym XF86AudioStop $exe mocp -s 
 bindsym XF86AudioNext $exe mocp -f
