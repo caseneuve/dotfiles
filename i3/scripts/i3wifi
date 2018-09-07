@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 18.08.18, 10:23:08 @x200
+# Last update: 07.09.18, 16:09:30 @x200
 
 # >> DOC:
 
@@ -11,10 +11,17 @@ IF=$(ip route | awk '/^default/ { print $5 ; exit }')
 [[ -z $IF ]] && echo "OFF"
 
 # >> VARIABLES:
-GLYPH="" # ▼
+if [[ $IF == "enp0s25" ]]; then
+    GLYPH=""
+    QUALITY=""
+else
+    GLYPH="" # ▼
+    QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+fi
+
 CONN=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3))
 #CONN=$(ping -c 1 1.1.1.1 2>/dev/null)
-QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+
 PAC_LOSS=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3) | awk 'NR==4 {print $6}' | sed 's/%//g')
 
 # >> i3blocks OUTPUT
