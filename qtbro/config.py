@@ -1742,7 +1742,7 @@ config.bind('}', 'move-to-end-of-next-block', mode='caret')
 # config.bind('<Shift-Ins>', 'insert-text {primary}', mode='insert')
 
 # Bindings for passthrough mode
-config.unbind('<Ctrl-V>', 'passthrough')
+#config.unbind('<Ctrl-V>', 'passthrough')
 # config.bind('<Ctrl-V>', 'leave-mode', mode='passthrough')
 
 # Bindings for prompt mode
