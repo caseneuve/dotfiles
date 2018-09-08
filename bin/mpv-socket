@@ -2,9 +2,10 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 19.08.18, 02:45:55 @x200
+# Last update: 08.09.18, 13:26:35 @x200
 
 ## Doc:
+# requires socat
 # todo: zmienić kolory (bez kolorowego tła)
 # FIXME: playlist -P działa tylko dla url
 # BUG: niepotrzebnie robi curla gdy wkleja się ścieżkę do pliku (dlaczego?)
