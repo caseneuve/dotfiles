@@ -2,7 +2,7 @@
 ###   MY BASHRC FOR ROOT   ###
 ##############################
 
-# Last update: 12.07.18, 13:07:30 @x200
+# Last update: 08.09.18, 11:19:38 @x200
 # Doc: symlinked to /root/.bashrc
 
 # If not running interactively, don't do anything
@@ -22,32 +22,29 @@ BLACK=$(tput setaf 8)
 MAGENTA="$(tput setaf 13)"
 RESET=$(tput sgr0)
 
-# → string format
-# PS1='\[${BOLD}\]\[${REDBG}\] \u \[${RESET}\]\[${GREENBG}\]\[${WHITE}\] \w \[${RESET}\]\[${CYAN}\]\[${BOLD}\] \$\[${RESET}\] '
-
-rightprompt()
-{
-    [[ $? == 0 ]] && printf $RED || printf $BOLD$BLUE
-    printf "%*s" $COLUMNS "$(date +%H:%M)"
-}
-
-export PS1='\[$(tput sc; rightprompt; tput rc)\]\[$RED\]\# \[$CYAN\]\w \[$MAGENTA\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$RED\]\$\[$RESET\] '
+# >>  - prompt string format
+export PS1='\[$RED\]\u\[$RESET\]: \[$BOLD\]\[$GREEN\]\w\[$RESET\] \[$RED\]\$ \[$RESET\]'
 
 # auto CD
 shopt -s autocd
 
-# SOURCE:
-# → aliasy
-if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
-fi
-
 # VARIABLES
-export EDITOR='/usr/bin/emacsclient -nw'
-export QT_STYLE_OVERRIDE=gtk
-export QT_SELECT=qt5
+export EDITOR='nano'
 
 if [[ $LANG = '' ]]; then
 	export LANG=en_US.UTF-8
 fi
 
+function automatic_title {
+    [[ -n "$TMUX" ]] ||  trap 'echo -ne "\033]2;root: $(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g") ($(date +%H:%M))\007"' DEBUG
+}
+automatic_title
+
+# >> ALIASY
+alias ls='ls --color=auto'
+alias q='exit'
+alias sbr='source ~/.bashrc'
+alias la='ls -a'
+alias ll='ls -l'
+alias klr='clear'
+alias gh='cd $HOME'

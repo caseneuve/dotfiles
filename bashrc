@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 23.08.18, 09:49:09 @x200
+# Last update: 08.09.18, 11:20:02 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -58,17 +58,6 @@ exitstatus2()
     [[ ! $? == 0 ]] && echo $RED || echo "$(tput setaf 240)" 
 }
 
-# >>    + vc_check (off)
-# vc_check()
-# {
-#     GTS=$(git status 2>/dev/null) # wywala błąd fatal: not a git repository (or any of the parent directories): .git
-#     GITB=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
-#     OK=" ok"
-#     NIE="$RED?$RESET"
-#     [[ $(echo $GTS | grep fatal) ]] && exit
-#     [[ $(echo $GTS | grep "nothing to commit") ]] && printf "%s %s" $GITB $OK || printf "%s" $NIE
-# }
-
 # >>    + print_pre_prompt
 print_pre_prompt ()
 {
@@ -88,12 +77,16 @@ print_pre_prompt ()
     printf "%s%s%s%s%$(($COLUMNS-${#PS1L}+${#GTS}+19))s" "$BOLD" "$PSDIR" "$PS1L" "$RESET" "$PS1R"
 }
 
-#PROMPT_COMMAND="print_pre_prompt; history -a; history -n"
-export PROMPT_COMMAND='print_pre_prompt'
-
 # >>  - prompt string format
-export PS1='\n\[$(exitstatus2)\]\[$BOLD\]\#\[$RESET\] \[$RESET\]'
-export PS2='\[$ORANGE\]… \[$RESET\]'
+if [[ $(tty) =~ "/dev/tty" ]]; then
+    export PS1='\[$RED\]\u\[$RESET\]@\h \[$BOLD\]\[$BLUE\]\w\[$RESET\] \$ '
+else
+    #PROMPT_COMMAND="print_pre_prompt; history -a; history -n"
+    export PROMPT_COMMAND='print_pre_prompt'
+    export PS1='\n\[$(exitstatus2)\]\[$BOLD\]\#\[$RESET\] \[$RESET\]'
+    export PS2='\[$ORANGE\]… \[$RESET\]'
+fi
+
 #export PS1='\[$(exitstatus)\]\# \[$GREEN\]\w \[$RED\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[$RESET\] \[$ORANGE\]\$\[$RESET\] '
 #export PS1='\[$(tput sc; rightp; tput rc)\]\[$BOLD\]\[$BLUE\]\w\[$RESET\]\n> '
 
@@ -138,3 +131,14 @@ function automatic_title {
 }
 automatic_title
 
+# >> SPADY
+# + vc_check (off)
+# vc_check()
+# {
+#     GTS=$(git status 2>/dev/null) # wywala błąd fatal: not a git repository (or any of the parent directories): .git
+#     GITB=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
+#     OK=" ok"
+#     NIE="$RED?$RESET"
+#     [[ $(echo $GTS | grep fatal) ]] && exit
+#     [[ $(echo $GTS | grep "nothing to commit") ]] && printf "%s %s" $GITB $OK || printf "%s" $NIE
+# }
