@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 28.08.18, 14:07:38 @x200
+# Last update: 10.09.18, 19:06:45 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -28,6 +28,9 @@ gb     /home/piotr/bin
 gbi    /home/piotr/bin
 gS     /home/piotr/szk
 gsz    /home/piotr/szk/18-19
+gsr    /home/piotr/szk/ratio
+gsf    /home/piotr/szk/filozofia
+g@     /home/piotr/org/pro/www-akwinata
 gy     /home/piotr/dox
 
 gc     /home/piotr/.config
@@ -69,7 +72,9 @@ ggp    /home/piotr/git/lab/py-exercises
 ggh    /home/piotr/git/hub 
 
 # Local variables:
-# eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")
+# eval: (load-file "/home/piotr/git/hub/emacs/file-hooks/fast-dirs.el")
 # eval: (add-hook 'after-save-hook 'pk/sync-fastdirs nil t)
 # End:
+
+# eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")
 
