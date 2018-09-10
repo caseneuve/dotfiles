@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 10.09.18, 19:06:45 @x200
+# Last update: 10.09.18, 19:07:28 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -29,7 +29,7 @@ gbi    /home/piotr/bin
 gS     /home/piotr/szk
 gsz    /home/piotr/szk/18-19
 gsr    /home/piotr/szk/ratio
-gsf    /home/piotr/szk/filozofia
+gsf    /home/piotr/szk/flz
 g@     /home/piotr/org/pro/www-akwinata
 gy     /home/piotr/dox
 
