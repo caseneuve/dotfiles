@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 10.09.18, 19:07:28 @x200
+# Last update: 10.09.18, 19:10:48 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -41,7 +41,7 @@ gcx    /home/piotr/.config/xfce4
 gcb    /home/piotr/.bak
 gcq    /home/piotr/.config/qutebrowser
 gcn    /home/piotr/.newsboat
-gcm    /home/piotr/.mutt
+gcm    /home/piotr/.config/neomutt
 ggs    /home/piotr/git/hub/st
 
 gd     /home/piotr/.dotfiles
@@ -59,7 +59,7 @@ gxc    /home/piotr/box/Dropbox/.Config
 gxs    /home/piotr/box/Dropbox/Szkoła
 gD     /home/piotr/box/Dropbox/Dokumenty  
 
-geg    /home/piotr/.emacs.git 
+geg    /home/piotr/git/hub/emacs
 ged    /home/piotr/.emacs.d 
 
 gM     /media
