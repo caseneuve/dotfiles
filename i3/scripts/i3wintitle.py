@@ -83,6 +83,7 @@ class_dict = {'Emacs': '',
               'presenter': '',
               'rss': '',
               'mail': '',
+              'calibre': '',
               }
 
 # >> CHANGE ICON DICT
