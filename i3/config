@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 08.09.18, 01:42:16 @x200
+# Last update: 10.09.18, 13:31:36 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -542,13 +542,12 @@ bar {
 }
 
 ## >>  {{ bar: secondary}}
-
 bar {
-        output VGA1
+        output VGA-1
         tray_output none
-        modifier $mod 
+        modifier $mod
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
-        i3bar_command i3bar -t 
+        i3bar_command i3bar -t
         position bottom
         height 20
 
@@ -562,9 +561,6 @@ bar {
                active_workspace     $sbwbr     $sbwabg    $sbwfbg
                inactive_workspace   $sbwbr     $sbwabg    $sbwfbg
                urgent_workspace     $brur      $bgur      $sbwfbg 
-
-               #binding_mode        #2f343a    #900000    #ffffff
-               #urgent_workspace    #c0392b    #e74c3c    #bdc3c7
                }
 }
 
