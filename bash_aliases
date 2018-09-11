@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 03.09.18, 22:44:49 @x200
+# Last update: 11.09.18, 08:44:19 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -253,10 +253,6 @@ alias pif='$home/.dotfiles/bin/ifpackage.sh'
 alias sm='$home/.dotfiles/bin/sendmail.sh'
 alias kbd='$home/.dotfiles/bin/kbd-help.sh'
 alias update='/home/piotr/.dotfiles/bin/update.sh'
-alias monitory='/home/piotr/.dotfiles/bin/monitoryL.sh'
-alias monitL='/home/piotr/.dotfiles/bin/monitoryL.sh'
-alias monitR='/home/piotr/.dotfiles/bin/monitoryR.sh'
-alias monitory2='/home/piotr/.dotfiles/bin/monitory-duplicate.sh'
 alias notes='/home/piotr/.dotfiles/bin/notes.sh'
 alias nt='/home/piotr/.dotfiles/bin/notes.sh'
 alias updt='/home/piotr/.dotfiles/bin/update-local.sh'
