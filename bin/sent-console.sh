@@ -2,9 +2,10 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 12.09.18, 22:52:59 @x200
+# Last update: 12.09.18, 23:21:58 @x200
 
 # >> DOC: simple console to navigate through SENT slides
+# 12/09/2018 v0.3 → cosmetics (colors, args, <return> = new slide)
 # 30/08/2018 v0.2 → read file, count slides, mark/jump  
 # note: input file must not have trailing newlines at the end
 
@@ -52,7 +53,7 @@ fi
 # >> RUN:
 clear
 
-echo "Sent console v0.2 alpha"
+echo "Sent console v0.3 alpha"
 
 # >> loop start 
 while true; do
@@ -112,6 +113,7 @@ while true; do
     # >> command process @loop
     for i in $SENT_ID; do
         case $command in
+            '') xdotool key --window $i n 2> /dev/null ;;
             n|p) for ((n=0;n<$num;n++)); do
                      xdotool key --window $i $command 2> /dev/null
                      done ;;
@@ -120,7 +122,7 @@ while true; do
             'kill') pkill sent && exit ;;
             clr|clear|klr) clear; echo $MSG ;;
             m) MARK=$COUNT; echo "${yel}slide $MARK marked!${res}"; break ;;
-            c) MARK=; POS=; echo "${yel}marks cleared$!${res}"; break ;;
+            c) MARK=; POS=; echo "${yel}marks cleared!${res}"; break ;;
             '# '*) [[ -n $NOTE ]] && NOTE="$NOTE\n$command (@$COUNT)" || NOTE="$command (@$COUNT)"
                    break ;;
             f) [[ $NOTE ]] && echo -e "${gre}$NOTE${res}" || echo "${red}no notes!${res}"
@@ -149,17 +151,17 @@ while true; do
     # >> set counter @loop
     if [[ $TOTAL ]]; then
         case $command in
-            n) if (( COUNT + num <= TOTAL )); then
+            n|'') if (( COUNT + num <= TOTAL )); then
                    COUNT=$((COUNT+num))
                else
                    COUNT=$TOTAL
-                   echo "no more slides!"
+                   echo "${red}no more slides!${res}"
                fi ;;
             p) if (( COUNT - num > 0 )); then
                    COUNT=$((COUNT-num))
                else
                    COUNT=1
-                   echo "you're already at the beginning!"
+                   echo "${red}you're already at the beginning!${res}"
                fi ;;
             g) COUNT=$TOTAL ;;
             a) COUNT=1 ;;
