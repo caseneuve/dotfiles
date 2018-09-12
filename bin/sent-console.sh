@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 31.08.18, 19:30:58 @lenovo
+# Last update: 12.09.18, 22:52:59 @x200
 
 # >> DOC: simple console to navigate through SENT slides
 # 30/08/2018 v0.2 → read file, count slides, mark/jump  
@@ -35,7 +35,7 @@ if [[ -f $1 ]]; then
     TOTAL=$(cat $1 | grep -v "^#" | cat -s | grep -c "^\s*$")
     FILE=$(basename $1)
     COUNT=1
-elif [[ $1 == '-h' ]]; then
+elif [[ $1 == '-h' || -z $1 ]]; then
     echo "usage: sent-console [sent file] [nr of instances]"
     exit
 fi
