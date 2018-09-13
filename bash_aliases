@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 11.09.18, 08:44:19 @x200
+# Last update: 13.09.18, 15:40:54 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -152,29 +152,11 @@ alias nco='nano --nohelp ~/.compton.conf'
 alias PSyyu='sudo pacman -Syyu && pkill -RTMIN+12 i3blocks'
 alias sp='sudo pacman -S'
 alias spR='sudo pacman -Rs'
-alias ya='yaourt --noconfirm'
-alias yaup='yaourt --noconfirm -Syu --aur'
-alias nlog='date >> /home/piotr/.log-antergos; nano --nohelp /home/piotr/.log-antergos'
+alias yayup='yay -Syua'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
 alias yt=youtube-dl
-alias nmt='nano ~/.muttrc'
-alias ntm='nano ~/.config/termite/config'
-alias ntx='nano ~/.tmux.conf'
 alias ch7='chmod 750 $1'
 alias mejk='make && sudo make install'
-
-## >> EMACSCLIENT
-alias cfg='emacsclient -nw /home/piotr/.dotfiles/i3/config'
-alias eba='emacsclient -nw  ~/.bash_aliases'
-alias ebr='emacsclient -nw  ~/.bashrc'
-alias eco='emacsclient -nw  ~/.compton.conf'
-alias elog='date >> /home/piotr/.log-antergos; emacsclient -nw  /home/piotr/.log-antergos'
-alias emt='emacsclient -nw ~/.muttrc'
-alias etm='emacsclient -nw ~/.config/termite/config'
-alias etx='emacsclient -nw ~/.tmux.conf'
-alias ebib='emacsclient -nw /home/piotr/Dropbox/EMACS/bib-log.org'
-alias egtd='emacsclient -nw /home/piotr/org/gtd/gtd.org'
-alias eno='emacsclient -nw /home/piotr/org/gtd/gtd.org'
 
 ## >> PROGRAMY
 alias i3g=i3get
