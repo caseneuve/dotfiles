@@ -496,7 +496,7 @@ c.confirm_quit = ['always']
 # value. With QtWebEngine, the maximum supported value is 2147483647 (~2
 # GB).
 ## Type: Int
-# c.content.cache.size = None
+c.content.cache.size = None
 
 # Which cookies to accept.
 ## Type: String
@@ -510,7 +510,7 @@ c.confirm_quit = ['always']
 # Store cookies. Note this option needs a restart with QtWebEngine on Qt
 # < 5.9.
 ## Type: Bool
-# c.content.cookies.store = True
+c.content.cookies.store = True
 
 # Default encoding to use for websites. The encoding must be a string
 # describing an encoding such as _utf-8_, _iso-8859-1_, etc.
