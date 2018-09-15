@@ -522,7 +522,8 @@ c.content.cookies.store = True
 # menu. For QtWebEngine, see `--enable-webengine-inspector` in
 # `qutebrowser --help` instead.
 ## Type: Bool
-c.content.developer_extras = True
+# 15/09/2018: option has been removed from qtb
+#c.content.developer_extras = False
 
 # Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
