@@ -2,7 +2,7 @@
 
 # ~/.dotfiles/bin/gitpull.sh
 # Created:     21.12.17           ?
-# Last update: 03.09.18, 09:03:00 @lenovo
+# Last update: 15.09.18, 08:28:29 @lenovo
 
 # Doc:
 # Aktualizuje repozytoria 'dotfiles', 'emacs/load' oraz wspólny projekt z gitlaba  na lokalnym komputerze
@@ -15,7 +15,7 @@ RESET="$(tput sgr0)"
 BOLD="$(tput bold)"
 
 DOTFILES=/home/piotr/.dotfiles
-EMACS=/home/piotr/.emacs.git
+EMACS=/home/piotr/git/hub/emacs
 PY_EX=/home/piotr/git/lab/py-exercises
 ST=/home/piotr/git/hub/st
 EMACS_HTMLIZE=/home/piotr/git/hub/emacs-htmlize
