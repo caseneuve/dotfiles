@@ -28,7 +28,7 @@ do
     if [[ -d $i ]]; then
         echo "## Aktualizuję repo $BOLD$(basename $i)$RESET:"
         cd $i
-        [[ $(git branch | grep "\* patched") ||  $(git branch | grep "\* master") ]] && git branch | grep "\*" || git checkout master
+        # [[ $(git branch | grep "\* patched") ||  $(git branch | grep "\* master") ]] && git branch | grep "\*" || git checkout master
         git status --porcelain
         git pull
         echo
