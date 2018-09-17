@@ -1,17 +1,17 @@
 ############################################
 ###            MUTT: MY MAILCAP
 ############################################
-# Last update: 07.05.18, 12:53:50 @x200
+# Last update: 17.09.18, 12:10:43 @x200
 
 # Doc: Tells mutt how to open/view attachements
 
 # {all images}
-image/*; ~/.mutt/viewimagefeh.sh %s
-#image/*; ~/.mutt/muttimage.sh %s ; copiousoutput
+image/*; ~/.config/neomutt/viewimagefeh.sh %s
+#image/*; ~/.config/neomutt/muttimage.sh %s ; copiousoutput
 
 # {pdf}
-application/pdf; ~/.mutt/viewpdf.sh %s
-application/x-pdf; ~/.mutt/viewpdf.sh %s
+application/pdf; ~/.config/neomutt/viewpdf.sh %s
+application/x-pdf; ~/.config/neomutt/viewpdf.sh %s
 
 # {view html messages}
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
@@ -30,5 +30,5 @@ application/rtf; unrtf --text '%s' | less
 application/msword; unrtf --text '%s' | less
 
 # {audio}
-audio/*; ~/.mutt/listenaudio.sh %s
+audio/*; ~/.config/neomutt/listenaudio.sh %s
 
