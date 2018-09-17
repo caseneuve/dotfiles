@@ -2,11 +2,14 @@
 ###   MY BASHRC FOR ROOT   ###
 ##############################
 
-# Last update: 08.09.18, 11:19:38 @x200
+# Last update: 17.09.18, 09:52:24 @x200
 # Doc: symlinked to /root/.bashrc
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+# >> LANG: let command line messages be in English
+export LC_MESSAGES=C 
 
 # BASH PROMPT
 # → colors

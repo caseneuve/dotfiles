@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 08.09.18, 11:20:02 @x200
+# Last update: 17.09.18, 09:49:45 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -94,6 +94,7 @@ fi
 shopt -s autocd
 
 # >> VARIABLES:
+export LC_MESSAGES=C # let command line messages be in English
 export BROWSER=/usr/bin/qutebrowser
 export VISUAL=""
 export EDITOR='emacsclient -nw'
@@ -131,14 +132,3 @@ function automatic_title {
 }
 automatic_title
 
-# >> SPADY
-# + vc_check (off)
-# vc_check()
-# {
-#     GTS=$(git status 2>/dev/null) # wywala błąd fatal: not a git repository (or any of the parent directories): .git
-#     GITB=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
-#     OK=" ok"
-#     NIE="$RED?$RESET"
-#     [[ $(echo $GTS | grep fatal) ]] && exit
-#     [[ $(echo $GTS | grep "nothing to commit") ]] && printf "%s %s" $GITB $OK || printf "%s" $NIE
-# }
