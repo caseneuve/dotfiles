@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/monitory-UP.sh
 # Created:     06.07.18, 09:47    @toshiba
-# Last update: 18.09.18, 08:06:15 @x200
+# Last update: 18.09.18, 10:44:20 @x200
 
 # Doc: default setting for 2 monitors (primary down, secondary up)
 #xrandr --current | grep -A 1 primary | awk -F"x" 'NR==2 {gsub(/^ */,""); print $1}'
@@ -22,3 +22,4 @@ else
 fi
 
 ~/.fehbg
+pkill dunst && dunst &
