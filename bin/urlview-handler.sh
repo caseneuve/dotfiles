@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 30.08.18, 16:28:50 @lenovo
+# Last update: 19.09.18, 23:21:56 @x200
 
 # Doc: via Luke Smith github
 # todo: poprawić wget i pdf (nie działa xdg-open dla pdf @toshi!)
@@ -29,7 +29,7 @@ elif echo $wgetFiles | grep -w $ext > /dev/null; then
     # [[ $ext == "pdf" ]] && mupdf /tmp/file.$ext || xdg-open /tmp/file.$ext &
 elif echo $1 | grep "youtube\.\|youtu\.be" > /dev/null; then
     if [[ -f $mpvscript ]]; then
-        nohup $mpvscript "$1" &
+        nohup $mpvscript "$1" > /dev/null &
         #notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $1 | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
     else
         nohup mpv "$1" > /dev/null &
