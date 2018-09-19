@@ -7,22 +7,22 @@
 ###                               ###
 #####################################
 
-# Last update: 08.09.18, 00:28:32 @x200
+# Last update: 19.09.18, 20:22:49 @x200
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 
 ## >> { GENERAL }
 # >>   {{ ACCOUNTS }}
 # >>    {{{ Akwinata }}}
-source ~/box/Dropbox/.Config/Mutt/.muttakwinata
-folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttakwinata'
+# source ~/box/Dropbox/.Config/Mutt/.muttakwinata
+# folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttakwinata'
 
 # >>    {{{ Gmail }}}
 source ~/box/Dropbox/.Config/Mutt/.muttgmail
 folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
 
 # >>    {{{ hooks }}}
-folder-hook Akwinata]/*   source ~/box/Dropbox/.Config/Mutt/.muttakwinata
-folder-hook Gmail]/*     source ~/box/Dropbox/.Config/Mutt/.muttgmail
+#folder-hook Akwinata]/*   source ~/box/Dropbox/.Config/Mutt/.muttakwinata
+#folder-hook Gmail]/*     source ~/box/Dropbox/.Config/Mutt/.muttgmail
 
 # >>    {{{ kbd }}}
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttgmail<enter><change-folder>!<enter>'
@@ -98,17 +98,18 @@ set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%
 
 ## >> { SIDEBAR }
 # >>   {{ sidebar (neomutt) }}
-set sidebar_visible=yes
-set sidebar_delim_chars='/'
-set sidebar_width = 10
-set sidebar_on_right = yes
-set sidebar_short_path = yes
+set sidebar_visible=no
+# set sidebar_delim_chars='/'
+# set sidebar_width = 10
+# set sidebar_on_right = yes
+# set sidebar_short_path = yes
 #set sidebar_component_depth = 0
-set sidebar_format = '%B %N'
-set mail_check_stats
+# set sidebar_format = '%B %N'
+# set mail_check_stats
 
 ## >> { MAILBOXES}
-mailboxes imaps://akwinata.edu.pl/INBOX imaps://imap.gmail.com/INBOX
+mailboxes imaps://imap.gmail.com/INBOX
+#mailboxes imaps://akwinata.edu.pl/INBOX imaps://imap.gmail.com/INBOX
 
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 bind index,pager <Esc>i sidebar-prev
