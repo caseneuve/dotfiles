@@ -7,8 +7,10 @@
 ###                               ###
 #####################################
 
-# Last update: 19.09.18, 20:22:49 @x200
+# Last update: 19.09.18, 22:09:03 @x200
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
+# >> TODOS:
+# todo: make hook for mailboxes (Wysłane, Szkoła)?
 
 ## >> { GENERAL }
 # >>   {{ ACCOUNTS }}
@@ -17,16 +19,17 @@
 # folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttakwinata'
 
 # >>    {{{ Gmail }}}
-source ~/box/Dropbox/.Config/Mutt/.muttgmail
-folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
+
+#folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
 
 # >>    {{{ hooks }}}
 #folder-hook Akwinata]/*   source ~/box/Dropbox/.Config/Mutt/.muttakwinata
 #folder-hook Gmail]/*     source ~/box/Dropbox/.Config/Mutt/.muttgmail
+#folder-hook =Szkoła source ~/box/Dropbox/.Config/Mutt/.muttgmail 
 
 # >>    {{{ kbd }}}
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttgmail<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttakwinata<enter><change-folder>!<enter>'
+#macro index,pager <f2> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttgmail<enter><change-folder>!<enter>'
+#macro index,pager <f3> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttakwinata<enter><change-folder>!<enter>'
 
 # >>   {{ aliasy}}
 set alias_file = "~/box/Dropbox/.Config/Mutt/.mutt_aliases"
@@ -98,20 +101,28 @@ set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%
 
 ## >> { SIDEBAR }
 # >>   {{ sidebar (neomutt) }}
-set sidebar_visible=no
-# set sidebar_delim_chars='/'
-# set sidebar_width = 10
-# set sidebar_on_right = yes
-# set sidebar_short_path = yes
+set sidebar_visible=yes
+set sidebar_delim_chars='/'
+set sidebar_width = 20
+set sidebar_on_right = yes
+set sidebar_short_path = yes
 #set sidebar_component_depth = 0
-# set sidebar_format = '%B %N'
-# set mail_check_stats
+set sidebar_format = '%-7.7B [%F] %* %N'
+set mail_check_stats
+#set mail_check_stats_interval = 1
 
 ## >> { MAILBOXES}
-mailboxes imaps://imap.gmail.com/INBOX
+source ~/box/Dropbox/.Config/Mutt/.muttgmail
+mailboxes imaps://imap.gmail.com/INBOX =Szkoła =[Gmail]/Wysłane
+# folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
+# folder-hook Gmail]/* source ~/box/Dropbox/.Config/Mutt/.muttgmail
+# folder-hook =Szkoła source ~/box/Dropbox/.Config/Mutt/.muttgmail 
+
 #mailboxes imaps://akwinata.edu.pl/INBOX imaps://imap.gmail.com/INBOX
 
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 bind index,pager <Esc>i sidebar-prev
 bind index,pager <Esc>k sidebar-next
 bind index,pager <Esc>o sidebar-open
+
+
