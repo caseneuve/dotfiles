@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 19.09.18, 23:21:56 @x200
+# Last update: 21.09.18, 15:53:23 @x200
 
 # Doc: via Luke Smith github
 # todo: poprawić wget i pdf (nie działa xdg-open dla pdf @toshi!)
@@ -17,15 +17,15 @@ em="email"
 mpvscript=~/.dotfiles/bin/queuempv
 
 if echo $fehFiles | grep -w $ext > /dev/null; then
-    nohup feh -. -B -- "$1" >/dev/null &
+    nohup feh -. -B -- "$1" > /dev/null &
     # nohup sxiv -a -- "$1" > /dev/null & # sxiv nie potrafi otwierać linków
 elif echo $1 | grep "googleusercontent.com" >/dev/null; then
-    nohup feh -. -B -- "$1" >/dev/null &
+    nohup feh -. -B -- "$1" > /dev/null &
 elif echo $mpvFiles | grep -w $ext > /dev/null; then
     [[ -f $mpvscript ]] && nohup $mpvscript "$1" >/dev/null || nohup mpv --loop --quiet "$1" > /dev/null &
 elif echo $wgetFiles | grep -w $ext > /dev/null; then
     #nohup wget "$1" >/dev/null
-    nohup wget -O /tmp/file.$ext "$1" >/dev/null && xdg-open /tmp/file.$ext &
+    nohup wget -O /tmp/file.$ext "$1" > /dev/null && xdg-open /tmp/file.$ext &
     # [[ $ext == "pdf" ]] && mupdf /tmp/file.$ext || xdg-open /tmp/file.$ext &
 elif echo $1 | grep "youtube\.\|youtu\.be" > /dev/null; then
     if [[ -f $mpvscript ]]; then
@@ -40,6 +40,6 @@ elif echo $1 | grep vimeo > /dev/null; then
     nohup mpv "$1" > /dev/null &
 else
     #nohup qutebrowser --target window "$1" >/dev/null &
-    nohup qutebrowser "$1" >/dev/null &
+    nohup qutebrowser "$1" > /dev/null &
 fi
 
