@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 13.09.18, 15:40:54 @x200
+# Last update: 30.09.18, 20:32:47 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -286,6 +286,7 @@ alias gita='git add'
 alias gitl='git pull'
 alias gitp='git push'
 alias gitc='git commit -m'
+alias gitb='git branch'
 
 ## >> PCCLOUD
 alias ggl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
