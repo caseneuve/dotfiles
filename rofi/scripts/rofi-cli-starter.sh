@@ -2,10 +2,14 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 23.07.18, 00:16:47 @lenovo
+# Last update: 30.09.18, 14:00:54 @lenovo
 
 # Doc:
 # todo: rozbić na małe skrypty (np. uedder)
+# todo: napisać skrypt do uaktualniania WS
+
+for ws 
+WS1=$(i3-msg -t get_config | grep 'set \$ws1 ' | awk '{print $4}')
 
 list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\ncalendar today\nuedder\nsys-update info\nsys-update run"
 
@@ -14,7 +18,7 @@ echo -e $list
 
 case $1 in
     'emacs @1'|emm)
-        i3-msg -q "workspace 1; exec --no-startup-id emacs" >/dev/null && pkill rofi ;;
+        i3-msg -q "workspace $WS1; exec --no-startup-id emacs" >/dev/null && pkill rofi ;;
     'qutebrowser @2'|'qb'|'qq')
         i3-msg -q "workspace 2; exec --no-startup-id qutebrowser" >/dev/null && pkill rofi ;;
     'ranger @6')
