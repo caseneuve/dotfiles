@@ -1,7 +1,9 @@
 #!/bin/env python
 
-# Last update: 30.09.18, 23:30:57 @x200
+# Last update: 30.09.18, 23:36:08 @x200
 # >> DOC: 
+# Save current state of files open in mupdf (i.e. page number, dpi etc.),
+# load recently saved or open selected file from $HOME/pdf.
 
 # >> TODOS
 # done: [x] check if cache dir exists and create it when not, 30/09/2018
