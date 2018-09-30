@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 21.09.18, 20:45:59 @x200
+# Last update: 01.10.18, 00:08:35 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -458,6 +458,7 @@ set $bru   #191f26
 set $brur  #c0392b
 # background
 set $bgf   #2980b9
+set $bgfi  #466380
 # ffffff
 set $bgi   #191f26
 set $bgur  #e74c3c
@@ -471,7 +472,7 @@ set $txtur #ffffff
 
 # class                   border  bg     text   
 client.focused            $bra    $bgf   $txtf
-client.focused_inactive   $bri    $bgi   $txti
+client.focused_inactive   $bri    $bgfi   $txti
 client.unfocused          $bru    $bgi   $txtu 
 client.urgent             $bru    $bgur  $txtur 
 
