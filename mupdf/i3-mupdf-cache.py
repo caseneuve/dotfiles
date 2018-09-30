@@ -1,7 +1,11 @@
 #!/bin/env python
 
-# Last update: 17.08.18, 02:15:49 @x200
+# Last update: 30.09.18, 23:30:57 @x200
 # >> DOC: 
+
+# >> TODOS
+# done: [x] check if cache dir exists and create it when not, 30/09/2018
+# fixme: [ ] mupdf_cache func is soooo slow, what is the reason?
 
 # >> IMPORT
 import i3ipc
@@ -35,7 +39,9 @@ def notify(urgency, message):
 
 # >> A. MUPDF CACHE
 def mupdf_cache():
-    # >> a0. go to the working directory!
+    # >> a0. check if cache_dir exists, create if not, and go there
+    if not os.path.isdir(cache_dir):
+        os.mkdir(cache_dir)
     os.chdir(cache_dir)
 
     # >> a1. get TITLE, PAGE and DPI
@@ -51,7 +57,7 @@ def mupdf_cache():
         for path in pdf_files:
             if str(el[0]) in path:
                 all_args_list.append((path, int(el[1]), int(el[2])))
-                break # note: the fist match is enough (without break, we'd have duplicates if they exist on drive)
+                break # note: the fist match is enough (without break, we'd have duplicates if they exist on disc)
         
     # >> a4. ask for the name of cached file
     index_n, keyN = r.select("do you want to name the cached file? [y/n]", ['yes', 'no'])
