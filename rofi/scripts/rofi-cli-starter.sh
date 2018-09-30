@@ -2,37 +2,38 @@
 
 # Path:        ~/.dotfiles/rofi/scripts/rofi-cli-starter.sh
 # Created:     29.04.18, 16:42    @x200
-# Last update: 30.09.18, 14:00:54 @lenovo
+# Last update: 30.09.18, 20:03:47 @x200
 
 # Doc:
-# todo: rozbić na małe skrypty (np. uedder)
-# todo: napisać skrypt do uaktualniania WS
+# todo: [ ] rozbić na małe skrypty (np. uedder)
+# done: [x] napisać skrypt do uaktualniania WS; 30/09/2018
 
-for ws 
-WS1=$(i3-msg -t get_config | grep 'set \$ws1 ' | awk '{print $4}')
+function get-ws {
+    rgx="set \$ws$1 "
+    i3-msg -t get_config | grep "$rgx" | awk '{print $4}'
+}
 
 list="emacs @1\nqutebrowser @2\nterminal @3\nranger @6\nqutebrowser-private @7\nnewsboat (rss) @10\nneomutt (mail) @10\nmocp @8\ncalcurse (kal)\nranger @point\ncalendar next\ncalendar tomorrow\ncalendar today\nuedder\nsys-update info\nsys-update run"
 
-#x=$(echo -e $list | rofi -dmenu -p "START CLI APP")
 echo -e $list
 
 case $1 in
     'emacs @1'|emm)
-        i3-msg -q "workspace $WS1; exec --no-startup-id emacs" >/dev/null && pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 1); exec --no-startup-id emacs" >/dev/null && pkill rofi ;;
     'qutebrowser @2'|'qb'|'qq')
-        i3-msg -q "workspace 2; exec --no-startup-id qutebrowser" >/dev/null && pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 2); exec --no-startup-id qutebrowser" >/dev/null && pkill rofi ;;
     'ranger @6')
-        i3-msg -q "workspace 6; exec --no-startup-id st -e ranger" && pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 6); exec --no-startup-id st -e ranger" && pkill rofi ;;
     'qutebrowser-private @7'|'qp')
-        i3-msg -q "workspace 7; exec --no-startup-id qutebrowser :command \":open -p\"" >/dev/null && pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 7); exec --no-startup-id qutebrowser :command \":open -p\"" >/dev/null && pkill rofi ;;
     'mocp @8'|mocp)
-        i3-msg -q "workspace 8; exec --no-startup-id st -e mocp"; pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 8); exec --no-startup-id st -e mocp"; pkill rofi ;;
     'terminal @3')
-        i3-msg -q "workspace 3; exec --no-startup-id st -t main" && pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 3); exec --no-startup-id st -t main" && pkill rofi ;;
     'newsboat (rss) @10')
-        i3-msg -q "workspace 10; exec --no-startup-id st -e newsboat" >/dev/null && pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 10); exec --no-startup-id st -e newsboat" >/dev/null && pkill rofi ;;
     'neomutt (mail) @10'|mmm)
-        i3-msg -q "workspace 10; exec --no-startup-id st -e neomutt" && pkill rofi ;;
+        i3-msg -q "workspace $(get-ws 10); exec --no-startup-id st -e neomutt" && pkill rofi ;;
     'calcurse (kal)')
         i3-msg -q "exec --no-startup-id st -e calcurse"; pkill rofi ;;
     'ranger @point')
@@ -74,4 +75,3 @@ case $1 in
                        fi;;
     *) eval "$1" ;;
 esac
-
