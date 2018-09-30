@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 28.09.18, 08:54:15 @toshiba
+# Last update: 30.09.18, 12:36:09 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
@@ -60,5 +60,5 @@ if [[ -n $IDS ]]; then
     fi
 else
     # >>  2. or run emacs
-    i3-msg -q "workspace $WS; exec --n-startup-id emacs &"
+    i3-msg -q "workspace $WS; exec --no-startup-id emacs &"
 fi
