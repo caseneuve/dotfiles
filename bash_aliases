@@ -8,14 +8,14 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 30.09.18, 20:32:47 @x200
+# Last update: 01.10.18, 18:57:55 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
 
 ## >> KOMENDY TERMINALA 
 alias mkd=mkdir
-alias ls='ls --color=auto'
+alias ls='ls -hN --color=auto --group-directories-first'
 alias q=exit
 #alias cl=clear
 alias cls=clear
@@ -153,12 +153,13 @@ alias PSyyu='sudo pacman -Syyu && pkill -RTMIN+12 i3blocks'
 alias sp='sudo pacman -S'
 alias spR='sudo pacman -Rs'
 alias yayup='yay -Syua'
-alias yta='youtube-dl --extract-audio --audio-format mp3'
-alias yt=youtube-dl
+alias yta='youtube-dl --add-metadata -ixc --audio-format mp3' 
+alias yt='youtube-dl --add-metadata -ic'
 alias ch7='chmod 750 $1'
 alias mejk='make && sudo make install'
 
 ## >> PROGRAMY
+alias ccat="highlight --out-format=ansi"
 alias i3g=i3get
 alias i3m=i3move
 alias pdfg='pdfgrep'
