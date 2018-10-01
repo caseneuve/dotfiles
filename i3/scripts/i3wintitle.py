@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Path: ~/.dotfiles/i3/scripts/i3wintitle.py
-# Last update: 02.09.18, 15:32:06 @lenovo
+# Last update: 01.10.18, 22:19:18 @x200
 
 # >> DOC:
 
@@ -52,6 +52,11 @@ mupdfRe = re.compile(r'([a-z0-9 ._-]*)(.pdf - )([0-9]+/[0-9]+)', re.I)
 if i3class == 'MuPDF':
     i3name = f'[{mupdfRe.search(i3name).group(3)}] {mupdfRe.search(i3name).group(1)}'
 
+# >> Zathura: GET GET PAGE NUMBER FIRST
+zathuraRe = re.compile(r'([a-z0-9 ._-]*)(.pdf ).([0-9]+/[0-9]+).', re.I)
+if i3class == 'Zathura':
+    i3name = f'[{zathuraRe.search(i3name).group(3)}] {zathuraRe.search(i3name).group(1)}'
+    
 # >> SENT: find file name
 if 'sent' in i3name and 'presenter' in i3class:
     sent_pid = out(['pidof', 'sent']).decode('utf-8').strip()
@@ -65,6 +70,7 @@ if i3class == 'Emacs':
         # >> CLASS ICONS DICT
 class_dict = {'Emacs': '',
               'MuPDF': '',
+              'Zathura': '*',
               'qutebrowser': '',
               'Firefox': '',
               'st-256color': '',
