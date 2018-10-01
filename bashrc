@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 17.09.18, 09:49:45 @x200
+# Last update: 01.10.18, 18:40:57 @x200
 
 # >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -17,6 +17,9 @@
 # >> PRELIM:
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+# disable C-s, C-q
+stty -ixon
 
 # >> HISTORY
 export HISTCONTROL=ignoreboth:erasedups
