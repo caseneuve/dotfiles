@@ -1,0 +1,49 @@
+# -*- mode: conf-space -*-
+
+##########################
+# MY ZATHURA CONFIG FILE #
+##########################
+
+# Last update: 01.10.18, 22:27:15 @x200
+# Docs: https://pwmt.org/projects/zathura/documentation/
+
+# >> init options
+set selection-clipboard clipboard
+set window-title-basename true
+set window-title-home-tilde true
+set statusbar-basename true
+set statusbar-home-tilde true
+set window-title-page true
+
+# >> kbd
+# map W zoom width
+map S toggle_statusbar
+map [fullscreen] S toggle_statusbar
+map f follow
+map <Return> goto
+map J scroll full-down
+map K scroll full-up
+map <A-j> scroll half-down
+map <A-k> scroll half-up
+
+# available function shortcuts:
+# ----------------------------
+# abort
+# adjust_window
+# change_mode
+# follow
+# focus_inputbar
+# goto
+# index_navigate
+# navigate
+# quit
+# recolor
+# reload
+# rotate
+# search
+# set
+# toggle_fullscreen
+# toggle_index
+# toggle_inputbar
+# toggle_statusbar
+# zoom
