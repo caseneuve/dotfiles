@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 01.10.18, 18:57:55 @x200
+# Last update: 03.10.18, 18:27:22 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -307,7 +307,7 @@ malias_func(){
 alias malias=malias_func
 alias mal=malias_func
 
-# fast dirs start
+# >> fast dirs start
 
 alias g@='cd /home/piotr/org/pro/www-akwinata'
 alias gB='cd /home/piotr/biu'
@@ -370,7 +370,7 @@ alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
 alias gxx='cd /home/piotr/box/Dropbox'
 alias gy='cd /home/piotr/dox'
 
-# fast dirs end
+# >> fast dirs end
 
 # >> aliased added by `alias_add' func:
 alias p1='ping 1.1.1.1'
