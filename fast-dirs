@@ -4,76 +4,70 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 30.09.18, 17:20:12 @x200
+# Last update: 03.10.18, 15:29:23 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
 
-gh     /home/piotr 
+g@     /home/piotr/org/pro/www-akwinata
+gB     /home/piotr/biu
+gC     /home/piotr/.config
+gD     /home/piotr/box/Dropbox/Dokumenty  
+gM     /media
+gR     /root
+gS     /home/piotr/szk
 ga     /home/piotr/dwl
 gaa    /home/piotr/dwl
 gag    /home/piotr/dwl/att
-go     /home/piotr/obr
-gob    /home/piotr/obr
-goo    /home/piotr/org
-gol    /home/piotr/org/log
-gog    /home/piotr/org/gtd
-gop    /home/piotr/org/pro
-gss    /home/piotr/szk
-gsc    /home/piotr/scr
-
-gw     /home/piotr/wid
-gm     /home/piotr/muz
-gp     /home/piotr/pdf
-gB     /home/piotr/biu
 gb     /home/piotr/bin
 gbi    /home/piotr/bin
-gS     /home/piotr/szk
-gsz    /home/piotr/szk/18-19
-gsr    /home/piotr/szk/ratio
-gsf    /home/piotr/szk/flz
-g@     /home/piotr/org/pro/www-akwinata
-gy     /home/piotr/dox
-
 gc     /home/piotr/.config
-gC     /home/piotr/.config
+gcb    /home/piotr/.bak
+gcm    /home/piotr/.config/neomutt
+gcn    /home/piotr/.newsboat
+gcq    /home/piotr/.config/qutebrowser
 gcr    /home/piotr/.config/ranger
 gct    /home/piotr/.config/termite
 gcx    /home/piotr/.config/xfce4
-gcb    /home/piotr/.bak
-gcq    /home/piotr/.config/qutebrowser
-gcn    /home/piotr/.newsboat
-gcm    /home/piotr/.config/neomutt
-ggs    /home/piotr/git/hub/st
-
 gd     /home/piotr/.dotfiles
-gdd    /home/piotr/.dotfiles
 gdb    /home/piotr/.dotfiles/bin
-gdi    /home/piotr/.dotfiles/i3
-gdr    /home/piotr/.dotfiles/ranger
 gdc    /home/piotr/.dotfiles/calcurse
-gdq    /home/piotr/.dotfiles/qtbro
+gdd    /home/piotr/.dotfiles
+gdi    /home/piotr/.dotfiles/i3
 gdo    /home/piotr/dox
-
-gx     /home/piotr/box/Dropbox
-gxx    /home/piotr/box/Dropbox
-gxc    /home/piotr/box/Dropbox/.Config
-gxs    /home/piotr/box/Dropbox/Szkoła
-gD     /home/piotr/box/Dropbox/Dokumenty  
-
-geg    /home/piotr/git/hub/emacs
-ged    /home/piotr/.emacs.d
-geh    /home/piotr/git/hub/heder
+gdq    /home/piotr/.dotfiles/qtbro
+gdr    /home/piotr/.dotfiles/ranger
 geH    /home/piotr/git/hub/hobbit
-
-gM     /media
-gr     /
-gR     /root
-
+ged    /home/piotr/.emacs.d
+geg    /home/piotr/git/hub/emacs
+geh    /home/piotr/git/hub/heder
+gf     /home/piotr/gfx
 gg     /home/piotr/git
+ggh    /home/piotr/git/hub 
 ggl    /home/piotr/git/lab
 ggp    /home/piotr/git/lab/py-exercises
-ggh    /home/piotr/git/hub 
+ggs    /home/piotr/git/hub/st
+gh     /home/piotr 
+gm     /home/piotr/muz
+go     /home/piotr/obr
+gob    /home/piotr/obr
+gog    /home/piotr/org/gtd
+gol    /home/piotr/org/log
+goo    /home/piotr/org
+gop    /home/piotr/org/pro
+gp     /home/piotr/pdf
+gr     /
+gsc    /home/piotr/scr
+gsf    /home/piotr/szk/flz
+gsr    /home/piotr/szk/ratio
+gss    /home/piotr/szk
+gsz    /home/piotr/szk/18-19
+gw     /home/piotr/wid
+gx     /home/piotr/box/Dropbox
+gxc    /home/piotr/box/Dropbox/.Config
+gxs    /home/piotr/box/Dropbox/Szkoła
+gxx    /home/piotr/box/Dropbox
+gy     /home/piotr/dox
 
 # Local variables:
 # eval: (load-file "/home/piotr/git/hub/emacs/file-hooks/fast-dirs.el")
