@@ -54,7 +54,9 @@ def mupdf_cache():
 
     # >> a3. make PATH, PAGE, DPI list
     all_args_list = []
-    pdf_files = gout(['find /home/piotr -name "*.pdf"']).split('\n')
+    pdf_files = gout([
+        'find /home/piotr -name "*.pdf" -not -path "*/.cache/*" -not -path "*/.local/*" -not -path "*/.config/*"'
+    ]).split('\n')
     for el in tpd_list:
         for path in pdf_files:
             if str(el[0]) in path:
