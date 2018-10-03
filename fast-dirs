@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 03.10.18, 15:30:39 @x200
+# Last update: 03.10.18, 15:31:47 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -74,6 +74,3 @@ gy     /home/piotr/dox
 # eval: (load-file "/home/piotr/git/hub/emacs/file-hooks/fast-dirs.el")
 # eval: (add-hook 'after-save-hook 'pk/sync-fastdirs nil t)
 # End:
-
-# eval: (load-file "/home/piotr/.emacs.git/file-hooks/fast-dirs.el")
-
