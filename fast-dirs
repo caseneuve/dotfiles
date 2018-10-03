@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 03.10.18, 15:29:23 @x200
+# Last update: 03.10.18, 15:30:39 @x200
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -64,6 +64,7 @@ gss    /home/piotr/szk
 gsz    /home/piotr/szk/18-19
 gw     /home/piotr/wid
 gx     /home/piotr/box/Dropbox
+gxd    /home/piotr/box/Dropbox/Dokumenty
 gxc    /home/piotr/box/Dropbox/.Config
 gxs    /home/piotr/box/Dropbox/Szkoła
 gxx    /home/piotr/box/Dropbox
