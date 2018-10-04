@@ -1073,7 +1073,7 @@ c.prompt.filebrowser = True
 
 # >> Show a scrollbar.
 ## Type: Bool
-c.scrolling.bar = False
+#c.scrolling.bar = False
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
