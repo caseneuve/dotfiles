@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 03.10.18, 18:27:22 @x200
+# Last update: 04.10.18, 12:57:49 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -159,6 +159,7 @@ alias ch7='chmod 750 $1'
 alias mejk='make && sudo make install'
 
 ## >> PROGRAMY
+alias gromit=gromit-mpx
 alias ccat="highlight --out-format=ansi"
 alias i3g=i3get
 alias i3m=i3move
