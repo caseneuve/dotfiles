@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 04.10.18, 12:57:49 @x200
+# Last update: 05.10.18, 17:08:32 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -152,7 +152,8 @@ alias nco='nano --nohelp ~/.compton.conf'
 alias PSyyu='sudo pacman -Syyu && pkill -RTMIN+12 i3blocks'
 alias sp='sudo pacman -S'
 alias spR='sudo pacman -Rs'
-alias yayup='yay -Syua'
+alias yayup='yay -Syu'
+alias yaya='yay -Syua'
 alias yta='youtube-dl --add-metadata -ixc --audio-format mp3' 
 alias yt='youtube-dl --add-metadata -ic'
 alias ch7='chmod 750 $1'
