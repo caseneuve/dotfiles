@@ -2,7 +2,7 @@
 
 # x200 local settings:
 # ===================
-# Last update: 08.09.18, 00:11:30 @x200
+# Last update: 08.10.18, 11:11:06 @x200
 
 # bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
 
@@ -23,3 +23,17 @@
 # set $vtop 25
 # set $vright 870
 # set $term st
+
+# reguły dla monitorów
+$ws1 output VGA-1
+$ws5 output VGA-1
+$ws6 output VGA-1
+$ws7 output VGA-1
+$ws8 output VGA-1
+
+$ws2 output LVDS-1
+$ws3 output LVDS-1
+$ws4 output LVDS-1
+$ws9 output LVDS-1
+$ws10 output LVDS-1
+
