@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 08.10.18, 11:11:29 @x200
+# Last update: 09.10.18, 22:02:47 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -22,6 +22,7 @@ set $top  10
 set $scr1 eDP1
 set $scr2 VGA1
 floating_modifier $mod
+focus_on_window_activation focus
 
 set $exe     exec --no-startup-id
 set $browser qutebrowser
