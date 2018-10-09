@@ -2,11 +2,12 @@
 
 # Path:        ~/scr/mupdf-adjust-width.sh
 # Created:     09.10.18, 10:21    @x200
-# Last update: 09.10.18, 10:42:24 @x200
+# Last update: 09.10.18, 10:44:06 @x200
 # >> DOC:
 # Loop over every instance of mupdf and insert W (adjust to width)
 
 # >> TODOS: 
+# todo: usage func when lack of args
 
 # >> VARIABLES: 
 WINDOWS=$(xdotool search --classname mupdf)
