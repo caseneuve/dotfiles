@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mupdf-adjust-width.sh
 # Created:     09.10.18, 10:21    @x200
-# Last update: 09.10.18, 10:44:06 @x200
+# Last update: 09.10.18, 17:42:19 @lenovo
 # >> DOC:
 # Loop over every instance of mupdf and insert W (adjust to width)
 
@@ -13,19 +13,28 @@
 WINDOWS=$(xdotool search --classname mupdf)
 
 # >> RUN: 
-function xdotool-adjust {
+xdotool-adjust(){
     for i in $1; do
         xdotool key --window $i $2
     done
 }
 
-while getopts 'hw' arg; do
-    case "${arg}" in
-        h) xdotool-adjust "${WINDOWS}" "H"
-           ;;
-        w) xdotool-adjust "$WINDOWS" "W"
-           ;;
-        *) echo "usage: mupdf-adjust -[hw]"
-           ;;
-    esac
-done
+if [[ -z $1 ]]; then
+    echo "usage: mupdf-adjust [-hw]
+
+options:
+ -w    adjust all mupdfs to width
+ -h    adjust all mupdfs to height
+"
+else
+    while getopts 'hw' arg; do
+        case "${arg}" in
+            h) xdotool-adjust "${WINDOWS}" "H"
+               ;;
+            w) xdotool-adjust "$WINDOWS" "W"
+               ;;
+            *) echo "usage: mupdf-adjust -[hw]"
+        esac
+    done
+fi
+
