@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 09.10.18, 19:22:19 @lenovo
+# Last update: 09.10.18, 22:51:35 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
@@ -10,19 +10,23 @@
 # done: 1. select file
 # 2. duplicate it
 # todo: save the xdotool id
-# todo: find pid and path (ps aux, awk)
+# done: find pid and path (ps aux, awk)
 # todo: open selected file at the same wksp
-
+# todo: capture page num
+# todo: check for the mupdf file workspace (for now assume that it is ws5)
 
 # >> VARIABLES: 
 mupdfs=$(xdotool search --classname mupdf)
-titles=()
-pids=()
+wksp=$(wmctrl -d | grep "  \* " | awk '{print $9}')
+#i3mupdf=$(i3-msg -t get_config | grep -E "assign.*MuPDF"| awk '{print $3}')
+muwksp=$(i3-msg -t get_config | grep "set \$ws5" | awk '{print $4}')
 
 if [[ -n $mupdfs ]]; then
+    titles=()
+    Xids=()
     for i in $mupdfs; do
         titles+=("$(xdotool getwindowname $i)")
-        pids+=("$i")
+        Xids+=("$i")
     done
 else
     echo "No mupdf files opened." && exit 
@@ -54,9 +58,39 @@ while true; do
         choose_prompt "$choice"
     else
         if (( 0 < choice )) && (( choice < ((len + 1)) )); then
-            path=$(ps aux | grep "${titles[choice-1]%.pdf - *}" | grep -v grep | grep -v "/bin/sh -c set"| awk 'NR==1 {print $13}')
-            mupdf "$path" &
-            break
+            page=$(echo "${titles[choice-1]#*.pdf - }" | sed 's/\/[0-9]* ([0-9]* dpi)//g')
+            path=$(ps aux | grep "${titles[choice-1]%.pdf - *}" | grep -v grep | grep -v "/bin/sh -c set"| grep -o " /home/piotr/.*\.pdf")
+            i3-msg -q "workspace $muwksp"
+            mupdf $path $page &
+            xdotool windowactivate "${Xids[choice-1]}"
+            i3-msg -q "move container to workspace $wksp"
+            i3-msg -q "workspace $wksp"
+            # todo: trzeba zbudować listę na nowo
+            # note: do tego miejsca w miarę ok; fixme: nie focusuje się pdf na ws5
+            while true; do
+                clear
+                echo -e "MuPDF console v0.1 alpha\n"
+                read -p "$(tput blink) >$(tput sgr0) " choice
+                working=$(xdotool search --name "${titles[choice-1]%.pdf - *}")
+                # bug: jest coś nie tak w loopach...
+                echo $working
+                case $choice in
+                    w) for i in $working; do
+                           xdotool key --window $i W
+                       done
+                       ;;
+                    h) for i in $working; do
+                           xdotool key --window $i H
+                       done
+                       ;;
+                    j) for i in $working; do
+                           xdotool key --window $i j
+                       done
+                       ;;
+                    *) break
+                       ;;
+                esac
+            done
         else
             choose_prompt "$choice"
         fi
