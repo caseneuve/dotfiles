@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 15:45:43 @lenovo
+# Last update: 10.10.18, 16:39:49 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
@@ -26,7 +26,6 @@
 conswind=$(xdotool getactivewindow)
 muwksp=$(i3-msg -t get_config | grep "set \$ws5" | awk '{print $4}')
 msg="MuPDF console v0.1 alpha:"
-saved=
 
 #i3mupdf=$(i3-msg -t get_config | grep -E "assign.*MuPDF"| awk '{print $3}')
 
@@ -118,6 +117,7 @@ choose_pdf(){
                 i3-msg -q "move container to workspace $wksp"
                 i3-msg -q "workspace $wksp"
                 titl="${titles[choice-1]%.pdf - *}"
+                saved=
                 break
             else
                 choose_prompt "$choice"
