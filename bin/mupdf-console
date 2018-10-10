@@ -2,11 +2,12 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 17:27:31 @lenovo
+# Last update: 10.10.18, 20:50:09 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
-# >> TODOS: 
+# >> TODOS:
+# done: automatically reload list
 # done: 1. select file, 2. duplicate it
 # done: save the xdotool id
 # done: find pid and path (ps aux, awk)
@@ -53,9 +54,10 @@ make_vars(){
 
 # >> - choose_prompt
 choose_prompt(){
+    make_vars
     clear
     echo $msg
-    echo "Choose a file to duplicate (\"r\" reloads the list): "
+    echo "Choose a file to duplicate (input reloads the list): "
     for (( c=0; c<len; c++ )); do
         echo " [$((c+1))] ${titles[c]%.pdf - *}"
     done
@@ -102,9 +104,17 @@ choose_pdf(){
         read -p "$(tput blink) >$(tput sgr0) " choice
         if [[ $choice == q || $choice == Q ]]; then
             clear && exit
-        elif [[ $choice == r ]]; then
-            make_vars
-            choose_prompt "$choice"
+        elif [[ $choice == "?" || $choice == help ]]; then
+             echo -e "MuPDF console DISPATCH HELP:
+ q/Q        - exit 
+ A/killall  - kill all mupdfs and quit
+ <return>   - reload
+ <num>      - choose file
+ ?/help     - print this message
+" | less
+             choose_prompt ""
+        elif [[ $choice == A || $choice == killall ]]; then
+            pkill mupdf && exit
         elif ! [[ "$choice" =~ ^[0-9]+$ ]]; then
             choose_prompt "$choice"
         else
@@ -162,13 +172,15 @@ pdf_sync(){
             [0-9]*b) mupdf_sync "${choice%b}" "shift+space" ;;
             [0-9]*f) mupdf_sync "${choice%f}" "space" ;;
             [0-9]*) mupdf_sync "${choice}" "Return" ;;
-            \?) echo -e "MuPDF console HELP:
+            \?) echo -e "MuPDF console ACTION HELP:
 f      - sync workspaces (make sure current title is active on each of them)
 <n>    - go to page <n>
 <n>f   - go <n> pages forward
 <n>b   - go <n> pages backward
 j      - scroll down
 k      - scroll up
+l      - scroll right
+H      - scroll left
 i      - inverse video
 g/a    - go to first page
 G/;    - go to last page
@@ -188,7 +200,6 @@ v[arg] - perform action [arg] only on the second window" | less ;;
 
 # >> RUN:
 while true; do
-    make_vars
     choose_prompt
     choose_pdf
     pdf_sync
