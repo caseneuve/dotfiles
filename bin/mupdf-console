@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 15:13:04 @lenovo
+# Last update: 10.10.18, 15:27:25 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
@@ -14,12 +14,11 @@
 # done: capture page num
 # todo: check for the mupdf file workspace (for now assume that it is ws5)
 # fix: xdotool reacts with delay (why?) (have to wait few seconds until xdotool starts to sync windows)
-# note: it's relaled to focus
+# note: it's relaled to focus (?)
 # done: option to change pdf (now: after killing current pdf)
 # done: show page number
 # done: scroll n pages forward, backward
 # done: option to kill only pdf on the conosole's wksp
-# fix: K szwankuje ?
 # done: dodać opcję do ustawiania tylko jednego okna
 
 
@@ -118,6 +117,7 @@ choose_pdf(){
                 xdotool windowactivate "${Xids[choice-1]}"
                 i3-msg -q "move container to workspace $wksp"
                 i3-msg -q "workspace $wksp"
+                titl="${titles[choice-1]%.pdf - *}"
                 break
             else
                 choose_prompt "$choice"
@@ -128,7 +128,6 @@ choose_pdf(){
 
 # >> - pdf_sync
 pdf_sync(){
-    titl="${titles[choice-1]%.pdf - *}"
     while true; do
         pages=$(wmctrl -l | grep "$titl" | awk '{print $6}' | sed 's/\/[0-9]*//g')
         [[ $(xdotool getactivewindow) == $conswind ]] || xdotool windowactivate $conswind
@@ -143,9 +142,26 @@ pdf_sync(){
             Cids+=($i)
         done
         case $choice in
+            I) echo -e "$wids\n${Cids[@]}" && sleep 1;;
+            f) for i in $wids; do xdotool windowactivate $i; done ;;
             '') mupdf_sync "space" ;;
+            p) mupdf_sync "shift+space" ;;
             -) mupdf_sync "minus" ;;
             =|+) mupdf_sync "equal" ;;
+            g|a) mupdf_sync "g" ;;
+            G|";") mupdf_sync "G" ;;
+            s) saved="[$(echo $pages | awk '{print $1}')*]"; savedp=$(echo $pages | awk '{print $1}') ;;
+            S) mupdf_sync "${savedp}" "Return" ;;
+            w) mupdf_sync "W" ;;
+            h) mupdf_sync "H" ;;
+            j) mupdf_sync "j" ;;
+            k) mupdf_sync "k" ;;
+            i) mupdf_sync "i" ;;
+            b*) sync_one "${choice#*b}" "${Cids[1]}" ;;
+            v*) sync_one "${choice#*v}" "${Cids[0]}" ;;
+            [0-9]*b) mupdf_sync "${choice%b}" "shift+space" ;;
+            [0-9]*f) mupdf_sync "${choice%f}" "space" ;;
+            [0-9]*) mupdf_sync "${choice}" "Return" ;;
             \?) echo -e "MuPDF console HELP:
 f      - sync workspaces (make sure current title is active on each of them)
 <n>    - go to page <n>
@@ -163,26 +179,9 @@ A      - kill all mupdf windows with current title (or \"killall\" command)
 Q      - quit (\"quit\" command)
 b[arg] - perform action [arg] (as described above) only on the primary window
 v[arg] - perform action [arg] only on the second window" | less ;;
-            G|";") mupdf_sync "G" ;;
-            I) echo $wids && sleep 1;;
-            S) mupdf_sync "${savedp}" "Return" ;;
-            [0-9]*) mupdf_sync "${choice}" "Return" ;;
-            [0-9]*b) mupdf_sync "${choice%b}" "shift+space" ;;
-            [0-9]*f) mupdf_sync "${choice%f}" "space" ;;
-            b*) sync_one "${choice#*b}" "${Cids[1]}" ;;
-            f) for i in $wids; do xdotool windowactivate $i; done ;;
-            g|a) mupdf_sync "g" ;;
-            h) mupdf_sync "H" ;;
-            i) mupdf_sync "i" ;;
-            j) mupdf_sync "j" ;;
-            k) mupdf_sync "k" ;;
             killall|A) mupdf_sync "q" 2>/dev/null; break ;;
-            kill|K) xdotool windowactivate "${Xids[choice-1]}"; xdotool key q; xdotool windowactivate "${conswind}"; break ;;
-            p) mupdf_sync "shift+space" ;;
+            kill|K) xdotool windowactivate "${Cids[1]}"; xdotool key q; xdotool windowactivate "${conswind}"; break ;;
             quit|Q) clear && exit ;;
-            s) saved="[$(echo $pages | awk '{print $1}')*]"; savedp=$(echo $pages | awk '{print $1}') ;;
-            v*) sync_one "${choice#*v}" "${Cids[0]}" ;;
-            w) mupdf_sync "W" ;;
         esac
     done
 }
