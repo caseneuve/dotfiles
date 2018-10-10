@@ -2,13 +2,12 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 13:41:56 @lenovo
+# Last update: 10.10.18, 15:13:04 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
 # >> TODOS: 
-# done: 1. select file
-# 2. duplicate it
+# done: 1. select file, 2. duplicate it
 # done: save the xdotool id
 # done: find pid and path (ps aux, awk)
 # done: open selected file at the same wksp
@@ -20,6 +19,9 @@
 # done: show page number
 # done: scroll n pages forward, backward
 # done: option to kill only pdf on the conosole's wksp
+# fix: K szwankuje ?
+# done: dodać opcję do ustawiania tylko jednego okna
+
 
 # >> VARIABLES:
 conswind=$(xdotool getactivewindow)
@@ -55,11 +57,13 @@ make_vars(){
 choose_prompt(){
     clear
     echo $msg
-    echo "Choose a file to duplicate: "
+    echo "Choose a file to duplicate (\"r\" reloads the list): "
     for (( c=0; c<len; c++ )); do
         echo " [$((c+1))] ${titles[c]%.pdf - *}"
     done
-    if [[ -n $1 ]]; then
+    if [[ $1 == r ]]; then
+        echo
+    elif [[ -n $1 ]]; then
         echo -e "\n … Invalid input: $1\n"
     else
         echo
@@ -69,23 +73,40 @@ choose_prompt(){
 # >> - mupdf_sync
 mupdf_sync(){
     for i in $wids; do
-        xdotool key --window $i $1
+        if (( $# > 1 )); then
+               xdotool type --window $i $1
+               xdotool key --window $i $2
+        else
+            xdotool key --window $i $1
+        fi
     done
 }
 
-# >> - mupdf_sync_pages
-mupdf_sync_pages(){
-    for i in $wids; do
-        xdotool type --window $i $1
-        xdotool key --window $i $2
-    done
+# >> - sync_one
+sync_one(){
+    case "$1" in
+        -) xdotool key --window "$2" minus ;;
+        =) xdotool key --window "$2" equal ;;
+        [0-9]*) xdotool type --window "$2" "$1"
+                xdotool key --window "$2" Return ;;
+        w) xdotool key --window "$2" W ;;
+        h) xdotool key --window "$2" H ;;
+        j) xdotool key --window "$2" j ;;
+        k) xdotool key --window "$2" k ;;
+        l) xdotool key --window "$2" l ;;
+        H) xdotool key --window "$2" h ;;
+    esac
 }
 
+# >> - choose_pdf
 choose_pdf(){
     while true; do
         read -p "$(tput blink) >$(tput sgr0) " choice
-        if [[ "$choice" == "Q" ]]; then
+        if [[ $choice == q || $choice == Q ]]; then
             clear && exit
+        elif [[ $choice == r ]]; then
+            make_vars
+            choose_prompt "$choice"
         elif ! [[ "$choice" =~ ^[0-9]+$ ]]; then
             choose_prompt "$choice"
         else
@@ -105,17 +126,9 @@ choose_pdf(){
     done
 }
 
-# >> - sync_prepare 
-sync_prepare(){
-    titl="${titles[choice-1]%.pdf - *}"
-    wids=$(xdotool search --name $titl)
-    for i in $wids; do
-        xdotool windowactivate $i
-    done
-}
-
 # >> - pdf_sync
 pdf_sync(){
+    titl="${titles[choice-1]%.pdf - *}"
     while true; do
         pages=$(wmctrl -l | grep "$titl" | awk '{print $6}' | sed 's/\/[0-9]*//g')
         [[ $(xdotool getactivewindow) == $conswind ]] || xdotool windowactivate $conswind
@@ -125,50 +138,51 @@ pdf_sync(){
         echo -e " → ${titl} :: $(echo $pages | tr ' ' '[;*2]') $saved \n" 
         read -p "$(tput blink) >$(tput sgr0) " choice
         wids=$(xdotool search --name $titl)
+        Cids=()
+        for i in $wids; do
+            Cids+=($i)
+        done
         case $choice in
-            I) echo $wids && sleep 1;;
-            w) mupdf_sync "W" ;;
-            g|a) mupdf_sync "g" ;;
-            h) mupdf_sync "H" ;;
-            j) mupdf_sync "j" ;;
-            k) mupdf_sync "k" ;;
             '') mupdf_sync "space" ;;
             -) mupdf_sync "minus" ;;
             =|+) mupdf_sync "equal" ;;
+            \?) echo -e "MuPDF console HELP:
+f      - sync workspaces (make sure current title is active on each of them)
+<n>    - go to page <n>
+<n>f   - go <n> pages forward
+<n>b   - go <n> pages backward
+j      - scroll down
+k      - scroll up
+i      - inverse video
+g/a    - go to first page
+G/;    - go to last page
+s      - save this page
+S      - go to the saved page
+K      - kill mupdf window on current workspace (or \"kill\" command)
+A      - kill all mupdf windows with current title (or \"killall\" command)
+Q      - quit (\"quit\" command)
+b[arg] - perform action [arg] (as described above) only on the primary window
+v[arg] - perform action [arg] only on the second window" | less ;;
             G|";") mupdf_sync "G" ;;
-            p) mupdf_sync "shift+space" ;;
+            I) echo $wids && sleep 1;;
+            S) mupdf_sync "${savedp}" "Return" ;;
+            [0-9]*) mupdf_sync "${choice}" "Return" ;;
+            [0-9]*b) mupdf_sync "${choice%b}" "shift+space" ;;
+            [0-9]*f) mupdf_sync "${choice%f}" "space" ;;
+            b*) sync_one "${choice#*b}" "${Cids[1]}" ;;
+            f) for i in $wids; do xdotool windowactivate $i; done ;;
+            g|a) mupdf_sync "g" ;;
+            h) mupdf_sync "H" ;;
             i) mupdf_sync "i" ;;
-            f) for i in $wids; do
-                   xdotool windowactivate $i
-               done ;;
-            s) saved="[$(echo $pages | awk '{print $1}')*]"
-               savedp=$(echo $pages | awk '{print $1}') ;;
-            S) mupdf_sync_pages "${savedp}" "Return" ;;
-            [0-9]*f) mupdf_sync_pages "${choice%f}" "space" ;;
-            [0-9]*b) mupdf_sync_pages "${choice%b}" "shift+space" ;;
-            [0-9]*) mupdf_sync_pages "${choice}" "Return" ;;
-            kill|K) xdotool windowactivate "${Xids[choice-1]}"
-                    xdotool key q
-                    xdotool windowactivate "${conswind}"
-                    break ;;
+            j) mupdf_sync "j" ;;
+            k) mupdf_sync "k" ;;
+            killall|A) mupdf_sync "q" 2>/dev/null; break ;;
+            kill|K) xdotool windowactivate "${Xids[choice-1]}"; xdotool key q; xdotool windowactivate "${conswind}"; break ;;
+            p) mupdf_sync "shift+space" ;;
             quit|Q) clear && exit ;;
-            killall|A) mupdf_sync "q" 2>/dev/null
-                       break ;;
-            ?) echo -e "MuPDF console HELP:
-f    - sync workspaces (make sure current title is active on each of them)
-<n>  - go to page <n>
-<n>f - go <n> pages forward
-<n>b - go <n> pages backward
-j    - scroll down
-k    - scroll up
-i    - inverse video
-g/a  - go to first page
-G/;  - go to last page
-s    - save this page
-S    - go to the saved page
-K    - kill mupdf window on current workspace (or \"kill\" command)
-A    - kill all mupdf windows with current title (or \"killall\" command)
-Q    - quit (\"quit\" command)" | less ;;
+            s) saved="[$(echo $pages | awk '{print $1}')*]"; savedp=$(echo $pages | awk '{print $1}') ;;
+            v*) sync_one "${choice#*v}" "${Cids[0]}" ;;
+            w) mupdf_sync "W" ;;
         esac
     done
 }
@@ -178,6 +192,5 @@ while true; do
     make_vars
     choose_prompt
     choose_pdf
-    sync_prepare
     pdf_sync
 done
