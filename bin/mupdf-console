@@ -2,40 +2,47 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 09.10.18, 22:51:35 @lenovo
+# Last update: 10.10.18, 10:57:51 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
 # >> TODOS: 
 # done: 1. select file
 # 2. duplicate it
-# todo: save the xdotool id
+# done: save the xdotool id
 # done: find pid and path (ps aux, awk)
-# todo: open selected file at the same wksp
+# done: open selected file at the same wksp
 # todo: capture page num
 # todo: check for the mupdf file workspace (for now assume that it is ws5)
+# fix: xdotool reacts with delay (why?) (have to wait few seconds until xdotool starts to sync windows)
+# todo: option to change pdf
+# todo: show page number
+# todo: scroll n pages forward, backward
 
-# >> VARIABLES: 
-mupdfs=$(xdotool search --classname mupdf)
-wksp=$(wmctrl -d | grep "  \* " | awk '{print $9}')
+
+# >> VARIABLES:
+conswind=$(xdotool getactivewindow)
 #i3mupdf=$(i3-msg -t get_config | grep -E "assign.*MuPDF"| awk '{print $3}')
-muwksp=$(i3-msg -t get_config | grep "set \$ws5" | awk '{print $4}')
-
-if [[ -n $mupdfs ]]; then
-    titles=()
-    Xids=()
-    for i in $mupdfs; do
-        titles+=("$(xdotool getwindowname $i)")
-        Xids+=("$i")
-    done
-else
-    echo "No mupdf files opened." && exit 
-fi
-
-len=${#titles[@]}
 
 # >> FUNCS
 choose_prompt(){
+    mupdfs=$(xdotool search --classname mupdf)
+    wksp=$(wmctrl -d | grep "  \* " | awk '{print $9}')
+    muwksp=$(i3-msg -t get_config | grep "set \$ws5" | awk '{print $4}')
+
+    if [[ -n $mupdfs ]]; then
+        titles=()
+        Xids=()
+        for i in $mupdfs; do
+            titles+=("$(xdotool getwindowname $i)")
+            Xids+=("$i")
+        done
+    else
+        echo "No mupdf files opened." && exit 
+    fi
+
+    len=${#titles[@]}
+
     clear
     echo -e "MuPDF console v0.1 alpha\n"
     echo "Choose a file to duplicate: "
@@ -49,9 +56,13 @@ choose_prompt(){
     fi
 }
 
-# >> RUN:
-choose_prompt
+mupdf-sync(){
+    for i in $1; do
+        xdotool key --window $i $2
+    done
+}
 
+choose_pdf(){
 while true; do
     read -p "$(tput blink) >$(tput sgr0) " choice
     if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
@@ -65,36 +76,57 @@ while true; do
             xdotool windowactivate "${Xids[choice-1]}"
             i3-msg -q "move container to workspace $wksp"
             i3-msg -q "workspace $wksp"
-            # todo: trzeba zbudować listę na nowo
-            # note: do tego miejsca w miarę ok; fixme: nie focusuje się pdf na ws5
-            while true; do
-                clear
-                echo -e "MuPDF console v0.1 alpha\n"
-                read -p "$(tput blink) >$(tput sgr0) " choice
-                working=$(xdotool search --name "${titles[choice-1]%.pdf - *}")
-                # bug: jest coś nie tak w loopach...
-                echo $working
-                case $choice in
-                    w) for i in $working; do
-                           xdotool key --window $i W
-                       done
-                       ;;
-                    h) for i in $working; do
-                           xdotool key --window $i H
-                       done
-                       ;;
-                    j) for i in $working; do
-                           xdotool key --window $i j
-                       done
-                       ;;
-                    *) break
-                       ;;
-                esac
-            done
+            break
         else
             choose_prompt "$choice"
         fi
     fi
 done
+}
 
-exit
+prepare(){
+    titl="${titles[choice-1]%.pdf - *}"
+    wids=$(xdotool search --name $titl)
+    for i in $wids; do
+        xdotool windowactivate $i
+    done
+}
+
+pdf_sync(){
+    while true; do
+    [[ $(xdotool getactivewindow) == $conswind ]] || xdotool windowactivate $conswind
+    clear
+    echo -e "MuPDF console v0.1 alpha\n"
+    echo -e " → ${titl}\n"
+    read -p "$(tput blink) >$(tput sgr0) " choice
+    wids=$(xdotool search --name $titl)
+    case $choice in
+        i) echo $wids && sleep 1;;
+        w) mupdf-sync "$wids" "W" ;;
+        g) mupdf-sync "$wids" "g" ;;
+        h) mupdf-sync "$wids" "H" ;;
+        j) mupdf-sync "$wids" "j" ;;
+        k) mupdf-sync "$wids" "k" ;;
+        '') mupdf-sync "$wids" "space" ;;
+        -) mupdf-sync "$wids" "minus" ;;
+        =|+) mupdf-sync "$wids" "equal" ;;
+        G) mupdf-sync "$wids" "G" ;;
+        p) mupdf-sync "$wids" "shift+space" ;;
+        I) mupdf-sync "$wids" "i" ;;
+        f) for i in $wids; do
+               xdotool windowactivate $i
+           done ;;
+        kill|quit|Q) mupdf-sync "$wids" "q"
+                     break ;;
+    esac
+done
+}
+
+# >> RUN:
+while true; do
+    choose_prompt
+    choose_pdf
+    prepare
+    pdf_sync
+done
+
