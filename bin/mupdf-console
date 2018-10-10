@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 16:39:49 @lenovo
+# Last update: 10.10.18, 17:27:31 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
@@ -14,7 +14,7 @@
 # done: capture page num
 # todo: check for the mupdf file workspace (for now assume that it is ws5)
 # fix: xdotool reacts with delay (why?) (have to wait few seconds until xdotool starts to sync windows)
-# note: it's relaled to focus (?)
+# note: it's related to focus (?)
 # done: option to change pdf (now: after killing current pdf)
 # done: show page number
 # done: scroll n pages forward, backward
@@ -134,7 +134,7 @@ pdf_sync(){
         clear
         echo $msg
         # fix: dlaczego tr nie pozwala na więcej znaków niż jeden?
-        echo -e " → ${titl} :: $(echo $pages | tr ' ' '[;*2]') $saved \n" 
+        echo -e " → ${titl} :: $(echo $pages | tr ' ' ';') $saved \n" 
         read -p "$(tput blink) >$(tput sgr0) " choice
         wids=$(xdotool search --name $titl)
         Cids=()
