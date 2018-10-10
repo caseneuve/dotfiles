@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 15:27:25 @lenovo
+# Last update: 10.10.18, 15:45:43 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
@@ -152,8 +152,8 @@ pdf_sync(){
             G|";") mupdf_sync "G" ;;
             s) saved="[$(echo $pages | awk '{print $1}')*]"; savedp=$(echo $pages | awk '{print $1}') ;;
             S) mupdf_sync "${savedp}" "Return" ;;
-            w) mupdf_sync "W" ;;
-            h) mupdf_sync "H" ;;
+            w|W) mupdf_sync "W" ;;
+            h|H) mupdf_sync "H" ;;
             j) mupdf_sync "j" ;;
             k) mupdf_sync "k" ;;
             i) mupdf_sync "i" ;;
