@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 10:57:51 @lenovo
+# Last update: 10.10.18, 13:41:56 @lenovo
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
@@ -12,23 +12,28 @@
 # done: save the xdotool id
 # done: find pid and path (ps aux, awk)
 # done: open selected file at the same wksp
-# todo: capture page num
+# done: capture page num
 # todo: check for the mupdf file workspace (for now assume that it is ws5)
 # fix: xdotool reacts with delay (why?) (have to wait few seconds until xdotool starts to sync windows)
-# todo: option to change pdf
-# todo: show page number
-# todo: scroll n pages forward, backward
-
+# note: it's relaled to focus
+# done: option to change pdf (now: after killing current pdf)
+# done: show page number
+# done: scroll n pages forward, backward
+# done: option to kill only pdf on the conosole's wksp
 
 # >> VARIABLES:
 conswind=$(xdotool getactivewindow)
+muwksp=$(i3-msg -t get_config | grep "set \$ws5" | awk '{print $4}')
+msg="MuPDF console v0.1 alpha:"
+saved=
+
 #i3mupdf=$(i3-msg -t get_config | grep -E "assign.*MuPDF"| awk '{print $3}')
 
-# >> FUNCS
-choose_prompt(){
-    mupdfs=$(xdotool search --classname mupdf)
+# >> FUNCS:
+# >> - make_vars
+make_vars(){
+    mupdfs=$(xdotool search --classname mupdf 2>/dev/null)
     wksp=$(wmctrl -d | grep "  \* " | awk '{print $9}')
-    muwksp=$(i3-msg -t get_config | grep "set \$ws5" | awk '{print $4}')
 
     if [[ -n $mupdfs ]]; then
         titles=()
@@ -38,13 +43,18 @@ choose_prompt(){
             Xids+=("$i")
         done
     else
-        echo "No mupdf files opened." && exit 
+        clear
+        echo $msg
+        echo " → No mupdf files opened." && exit 
     fi
 
     len=${#titles[@]}
+}
 
+# >> - choose_prompt
+choose_prompt(){
     clear
-    echo -e "MuPDF console v0.1 alpha\n"
+    echo $msg
     echo "Choose a file to duplicate: "
     for (( c=0; c<len; c++ )); do
         echo " [$((c+1))] ${titles[c]%.pdf - *}"
@@ -56,35 +66,47 @@ choose_prompt(){
     fi
 }
 
-mupdf-sync(){
-    for i in $1; do
+# >> - mupdf_sync
+mupdf_sync(){
+    for i in $wids; do
+        xdotool key --window $i $1
+    done
+}
+
+# >> - mupdf_sync_pages
+mupdf_sync_pages(){
+    for i in $wids; do
+        xdotool type --window $i $1
         xdotool key --window $i $2
     done
 }
 
 choose_pdf(){
-while true; do
-    read -p "$(tput blink) >$(tput sgr0) " choice
-    if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
-        choose_prompt "$choice"
-    else
-        if (( 0 < choice )) && (( choice < ((len + 1)) )); then
-            page=$(echo "${titles[choice-1]#*.pdf - }" | sed 's/\/[0-9]* ([0-9]* dpi)//g')
-            path=$(ps aux | grep "${titles[choice-1]%.pdf - *}" | grep -v grep | grep -v "/bin/sh -c set"| grep -o " /home/piotr/.*\.pdf")
-            i3-msg -q "workspace $muwksp"
-            mupdf $path $page &
-            xdotool windowactivate "${Xids[choice-1]}"
-            i3-msg -q "move container to workspace $wksp"
-            i3-msg -q "workspace $wksp"
-            break
-        else
+    while true; do
+        read -p "$(tput blink) >$(tput sgr0) " choice
+        if [[ "$choice" == "Q" ]]; then
+            clear && exit
+        elif ! [[ "$choice" =~ ^[0-9]+$ ]]; then
             choose_prompt "$choice"
+        else
+            if (( 0 < choice )) && (( choice < ((len + 1)) )); then
+                page=$(echo "${titles[choice-1]#*.pdf - }" | sed 's/\/[0-9]* ([0-9]* dpi)//g')
+                path=$(ps aux | grep "${titles[choice-1]%.pdf - *}" | grep -v grep | grep -v "/bin/sh -c set"| grep -o " /home/piotr/.*\.pdf")
+                i3-msg -q "workspace $muwksp"
+                mupdf $path $page &
+                xdotool windowactivate "${Xids[choice-1]}"
+                i3-msg -q "move container to workspace $wksp"
+                i3-msg -q "workspace $wksp"
+                break
+            else
+                choose_prompt "$choice"
+            fi
         fi
-    fi
-done
+    done
 }
 
-prepare(){
+# >> - sync_prepare 
+sync_prepare(){
     titl="${titles[choice-1]%.pdf - *}"
     wids=$(xdotool search --name $titl)
     for i in $wids; do
@@ -92,41 +114,70 @@ prepare(){
     done
 }
 
+# >> - pdf_sync
 pdf_sync(){
     while true; do
-    [[ $(xdotool getactivewindow) == $conswind ]] || xdotool windowactivate $conswind
-    clear
-    echo -e "MuPDF console v0.1 alpha\n"
-    echo -e " → ${titl}\n"
-    read -p "$(tput blink) >$(tput sgr0) " choice
-    wids=$(xdotool search --name $titl)
-    case $choice in
-        i) echo $wids && sleep 1;;
-        w) mupdf-sync "$wids" "W" ;;
-        g) mupdf-sync "$wids" "g" ;;
-        h) mupdf-sync "$wids" "H" ;;
-        j) mupdf-sync "$wids" "j" ;;
-        k) mupdf-sync "$wids" "k" ;;
-        '') mupdf-sync "$wids" "space" ;;
-        -) mupdf-sync "$wids" "minus" ;;
-        =|+) mupdf-sync "$wids" "equal" ;;
-        G) mupdf-sync "$wids" "G" ;;
-        p) mupdf-sync "$wids" "shift+space" ;;
-        I) mupdf-sync "$wids" "i" ;;
-        f) for i in $wids; do
-               xdotool windowactivate $i
-           done ;;
-        kill|quit|Q) mupdf-sync "$wids" "q"
-                     break ;;
-    esac
-done
+        pages=$(wmctrl -l | grep "$titl" | awk '{print $6}' | sed 's/\/[0-9]*//g')
+        [[ $(xdotool getactivewindow) == $conswind ]] || xdotool windowactivate $conswind
+        clear
+        echo $msg
+        # fix: dlaczego tr nie pozwala na więcej znaków niż jeden?
+        echo -e " → ${titl} :: $(echo $pages | tr ' ' '[;*2]') $saved \n" 
+        read -p "$(tput blink) >$(tput sgr0) " choice
+        wids=$(xdotool search --name $titl)
+        case $choice in
+            I) echo $wids && sleep 1;;
+            w) mupdf_sync "W" ;;
+            g|a) mupdf_sync "g" ;;
+            h) mupdf_sync "H" ;;
+            j) mupdf_sync "j" ;;
+            k) mupdf_sync "k" ;;
+            '') mupdf_sync "space" ;;
+            -) mupdf_sync "minus" ;;
+            =|+) mupdf_sync "equal" ;;
+            G|";") mupdf_sync "G" ;;
+            p) mupdf_sync "shift+space" ;;
+            i) mupdf_sync "i" ;;
+            f) for i in $wids; do
+                   xdotool windowactivate $i
+               done ;;
+            s) saved="[$(echo $pages | awk '{print $1}')*]"
+               savedp=$(echo $pages | awk '{print $1}') ;;
+            S) mupdf_sync_pages "${savedp}" "Return" ;;
+            [0-9]*f) mupdf_sync_pages "${choice%f}" "space" ;;
+            [0-9]*b) mupdf_sync_pages "${choice%b}" "shift+space" ;;
+            [0-9]*) mupdf_sync_pages "${choice}" "Return" ;;
+            kill|K) xdotool windowactivate "${Xids[choice-1]}"
+                    xdotool key q
+                    xdotool windowactivate "${conswind}"
+                    break ;;
+            quit|Q) clear && exit ;;
+            killall|A) mupdf_sync "q" 2>/dev/null
+                       break ;;
+            ?) echo -e "MuPDF console HELP:
+f    - sync workspaces (make sure current title is active on each of them)
+<n>  - go to page <n>
+<n>f - go <n> pages forward
+<n>b - go <n> pages backward
+j    - scroll down
+k    - scroll up
+i    - inverse video
+g/a  - go to first page
+G/;  - go to last page
+s    - save this page
+S    - go to the saved page
+K    - kill mupdf window on current workspace (or \"kill\" command)
+A    - kill all mupdf windows with current title (or \"killall\" command)
+Q    - quit (\"quit\" command)" | less ;;
+        esac
+    done
 }
 
 # >> RUN:
 while true; do
+    make_vars
     choose_prompt
     choose_pdf
-    prepare
+    sync_prepare
     pdf_sync
 done
-
