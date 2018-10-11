@@ -2,11 +2,14 @@
 
 # Path:        ~/scr/mupdf-console.sh
 # Created:     09.10.18, 17:45    @lenovo
-# Last update: 10.10.18, 20:50:09 @lenovo
+# Last update: 11.10.18, 07:18:45 @x200
 # >> DOC:
 # duplicate a chosen pdf file and control the navigation with the console 
 
 # >> TODOS:
+# fixme: random positions in Cids ?
+# done: regex catching pages → now it catches any brackets before .pdf
+# done: xdotool doesn't accept names with spaces! 
 # done: automatically reload list
 # done: 1. select file, 2. duplicate it
 # done: save the xdotool id
@@ -122,7 +125,8 @@ choose_pdf(){
                 page=$(echo "${titles[choice-1]#*.pdf - }" | sed 's/\/[0-9]* ([0-9]* dpi)//g')
                 path=$(ps aux | grep "${titles[choice-1]%.pdf - *}" | grep -v grep | grep -v "/bin/sh -c set"| grep -o " /home/piotr/.*\.pdf")
                 i3-msg -q "workspace $muwksp"
-                mupdf $path $page &
+                # note: seems to work with titls with spaces
+                mupdf "$(echo $path)" $page &
                 xdotool windowactivate "${Xids[choice-1]}"
                 i3-msg -q "move container to workspace $wksp"
                 i3-msg -q "workspace $wksp"
@@ -139,14 +143,16 @@ choose_pdf(){
 # >> - pdf_sync
 pdf_sync(){
     while true; do
-        pages=$(wmctrl -l | grep "$titl" | awk '{print $6}' | sed 's/\/[0-9]*//g')
+        # >> fixme: it doesn't work with titles with spaces!!!
+        # pages=$(echo ${path#*.pdf - } !!!!!ITD!!!  -l | grep "$titl" | awk '{print $6}' | sed 's/\/[0-9]*//g')
+        pages=$(wmctrl -l | grep "$titl" | awk '{print $(NF-2)}' | sed 's/\/[0-9]*//g')
         [[ $(xdotool getactivewindow) == $conswind ]] || xdotool windowactivate $conswind
         clear
         echo $msg
-        # fix: dlaczego tr nie pozwala na więcej znaków niż jeden?
+        # >> fix: dlaczego tr nie pozwala na więcej znaków niż jeden?
         echo -e " → ${titl} :: $(echo $pages | tr ' ' ';') $saved \n" 
         read -p "$(tput blink) >$(tput sgr0) " choice
-        wids=$(xdotool search --name $titl)
+        wids=$(xdotool search --name "$titl")
         Cids=()
         for i in $wids; do
             Cids+=($i)
@@ -167,8 +173,9 @@ pdf_sync(){
             j) mupdf_sync "j" ;;
             k) mupdf_sync "k" ;;
             i) mupdf_sync "i" ;;
-            b*) sync_one "${choice#*b}" "${Cids[1]}" ;;
-            v*) sync_one "${choice#*v}" "${Cids[0]}" ;;
+            L) mupdf_sync "L" ;;
+            b*) sync_one "${choice#*b}" "${Cids[0]}" ;;
+            v*) sync_one "${choice#*v}" "${Cids[1]}" ;;
             [0-9]*b) mupdf_sync "${choice%b}" "shift+space" ;;
             [0-9]*f) mupdf_sync "${choice%f}" "space" ;;
             [0-9]*) mupdf_sync "${choice}" "Return" ;;
@@ -192,7 +199,7 @@ Q      - quit (\"quit\" command)
 b[arg] - perform action [arg] (as described above) only on the primary window
 v[arg] - perform action [arg] only on the second window" | less ;;
             killall|A) mupdf_sync "q" 2>/dev/null; break ;;
-            kill|K) xdotool windowactivate "${Cids[1]}"; xdotool key q; xdotool windowactivate "${conswind}"; break ;;
+            kill|K) xdotool windowactivate "${Cids[0]}"; xdotool key q; xdotool windowactivate "${conswind}"; break ;;
             quit|Q) clear && exit ;;
         esac
     done
