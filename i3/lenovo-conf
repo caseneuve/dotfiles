@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 13.10.18, 02:28:38 @lenovo
+# Last update: 13.10.18, 20:40:12 @lenovo
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -24,10 +24,11 @@ for_window [class="Skype"] move window to position 1070 20
 # >> eksperymenty z kbd
 # zamień TAB na mod (super_R), przy wciśnięciu; wpisuj <tab> po puszczeniu
 # ok: (dla opcji `xmodmap -e "keycode 23 = Super_R ISO_Left_Tab`)
-bindcode --release 23 exec --no-startup-id xdotool key --clearmodifiers Tab
-bindsym Mod3+l resize grow width 10px
-bindsym Mod3+j resize shrink width 10px
-bindsym Mod3+i resize grow height 10px
-bindsym Mod3+k resize shrink height 10px
-bindsym Mod3+space workspace next
-bindsym Mod3+slash workspace prev
+#exec --no-startup-id xmodmap ~/.Xmodmap
+#bindcode --release 23 exec --no-startup-id xdotool key --clearmodifiers Tab
+# bindsym Mod3+l resize grow width 10px
+# bindsym Mod3+j resize shrink width 10px
+# bindsym Mod3+i resize grow height 10px
+# bindsym Mod3+k resize shrink height 10px
+# bindsym Mod3+space workspace next
+# bindsym Mod3+slash workspace prev
