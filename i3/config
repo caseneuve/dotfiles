@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.10.18, 16:13:13 @x200
+# Last update: 13.10.18, 17:40:37 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -124,8 +124,8 @@ for_window [title="w0rds"] move position $wright $top
 bindsym $mod+o $exe ~/.dotfiles/bin/i3scratchpads -o
 
 #  >>  {{quick floating term}}
-for_window [instance="myquickterm"] floating enable
-for_window [instance="myquickterm"] move scratchpad
+for_window [class="myquickterm"] floating enable
+for_window [class="myquickterm"] move scratchpad
 bindsym $mod+slash $exe ~/.dotfiles/bin/i3scratchpads -f
 
 #  >>  {{system update}}
@@ -730,7 +730,8 @@ bindsym $mod+Control+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -r
 # >> {{testy}}
 # ok
 #bindsym $mod+Shift+backslash exec --no-startup-id ~/biu/i3/moving.py -m nw
-
+# to nie działa dobrze
+#bindcode --release 66 exec --no-startup-id xdotool key --clearmodifiers Caps_Lock
 
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
