@@ -1,12 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 13.10.18, 02:01:25 @lenovo
-
-# exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
-
-# bindsym F1 workspace $ws5; exec mupdf ~/.i3/cheatsheet.pdf 
-# for_window [class="MuPDF"] fullscreen enable
+# Last update: 13.10.18, 02:28:38 @lenovo
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -34,3 +29,5 @@ bindsym Mod3+l resize grow width 10px
 bindsym Mod3+j resize shrink width 10px
 bindsym Mod3+i resize grow height 10px
 bindsym Mod3+k resize shrink height 10px
+bindsym Mod3+space workspace next
+bindsym Mod3+slash workspace prev

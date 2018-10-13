@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.10.18, 02:07:09 @lenovo
+# Last update: 13.10.18, 02:23:59 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -725,6 +725,7 @@ bindsym $mod+Control+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -r
 # bindsym $mod+h split h
 # split in vertical orientation
 # bindsym $mod+v split v
+
 
 # >> {{testy}}
 # ok
