@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.10.18, 21:13:19 @lenovo
+# Last update: 13.10.18, 21:21:05 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -129,8 +129,8 @@ for_window [class="myquickterm"] move scratchpad
 bindsym $mod+slash $exe ~/.dotfiles/bin/i3scratchpads -f
 
 #  >>  {{system update}}
-assign [title="sysupdt"] output primary
-for_window [title="sysupdt"] floating enable
+assign [class="sysupdt"] output primary
+for_window [class="sysupdt"] floating enable
 # todo: pewnie trzeba będzie wpisać zmienne, żeby pasowało do różnych ekranów
 
 
