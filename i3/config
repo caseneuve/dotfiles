@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.10.18, 02:23:59 @lenovo
+# Last update: 13.10.18, 16:13:13 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -105,8 +105,8 @@ bindsym $mod+grave $exe bash $i3scr/flash.sh
 ## >>{SCRATCHPADS}
 #  >>  {{dropdown → tmux:}}
 for_window [title="dropdown"] floating enable
-for_window [title="dropdown"] resize set 1000 600
-for_window [title="dropdown"] move position center
+# for_window [title="dropdown"] resize set 1000 600
+# for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
 bindsym $mod+u $exe ~/.dotfiles/bin/i3scratchpads -u
 
