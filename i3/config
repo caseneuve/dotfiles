@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.10.18, 17:40:37 @x200
+# Last update: 13.10.18, 21:13:19 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -131,10 +131,7 @@ bindsym $mod+slash $exe ~/.dotfiles/bin/i3scratchpads -f
 #  >>  {{system update}}
 assign [title="sysupdt"] output primary
 for_window [title="sysupdt"] floating enable
-for_window [title="sysupdt"] resize set 600 300
 # todo: pewnie trzeba będzie wpisać zmienne, żeby pasowało do różnych ekranów
-for_window [title="sysupdt"] move right 400 px
-for_window [title="sysupdt"] move up 110 px
 
 
 ## >> {WORKSPACES}                
