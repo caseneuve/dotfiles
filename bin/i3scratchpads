@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 13.10.18, 17:39:21 @x200
+# Last update: 13.10.18, 21:04:59 @lenovo
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -19,14 +19,14 @@ while getopts "ufco" flag; do
                i3-msg -q "exec --no-startup-id $term -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh" &&\
                    sleep 0.1
                i3-msg -q "[title=\"dropdown\"] scratchpad show"
-               i3move -p 70 -m c
+               ~/bin/i3move -p 70 -m c
            else
                i3-msg -q "[title=\"dropdown\"] scratchpad show"
-               wwid=$(i3get -g | awk 'NR==3 {print $2}')
-               swid=$(i3get -G | awk 'NR==3 {print $2}')
+               wwid=$(~/bin/i3get -g | awk 'NR==3 {print $2}')
+               swid=$(~/bin/i3get -G | awk 'NR==3 {print $2}')
                proc=$(bc -l <<< $wwid/$swid)
                if [[ $(echo $proc'==0.7' | bc -l) == 0 ]]; then
-                   [[ $(i3get -n) == dropdown ]] && i3move -p 70 -m c
+                   [[ $(~/bin/i3get -n) == dropdown ]] && ~/bin/i3move -p 70 -m c
                fi
            fi
            ;;
@@ -35,8 +35,8 @@ while getopts "ufco" flag; do
                i3-msg -q "exec --no-startup-id $term -c myquickterm -f 'Inconsolata:size=13'" &&\
                    sleep 0.1
            fi
-           i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&\
-               [[ $(i3get -c) == myquickterm ]] && i3move -s -m 1
+           i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&
+               if [[ $(~/bin/i3get -c) == myquickterm ]]; then ~/bin/i3move -s -m 1; fi
            ;;
         # >> - calc
         c) if [[ ! $(ps aux | grep m4ath | grep -v grep ) ]]; then
