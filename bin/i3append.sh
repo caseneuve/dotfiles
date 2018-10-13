@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Path: ~/.dotfiles/bin/asfddsf.sh
+# Path: ~/.dotfiles/bin/i3append.sh
 # Created:     04.01.18, 18:43    @x200
-# Last update: 13.08.18, 15:55:07 @x200
+# Last update: 13.10.18, 02:32:41 @lenovo
 
 # Doc:  Appends  i3config  file  (main) with  local  files  containing
 # different settings  for different machines, then  executes i3 reload
