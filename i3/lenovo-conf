@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 17.08.18, 09:31:52 @lenovo
+# Last update: 13.10.18, 02:01:25 @lenovo
 
 # exec_always feh --bg-fill ~/.i3/wallpaper/i3wall.jpg start # jeżeli wpis z początku nie działa
 
@@ -14,21 +14,23 @@ bindsym $mod+Shift+End          exec --no-startup-id ~/.dotfiles/i3/i3lock/lock.
 bindsym Pause                   exec systemctl suspend
 
 # zmienne dla hangoutów
-set $right 990
-set $down 505
-set $top 10
+# set $right 990
+# set $down 505
+# set $top 10
 # sys-updt window
-set $sright 755
+#set $sright 755
 # video mode
-set $vright 950
-set $vtop 30
-
-#
-set $term st
-
-# rofi helper (mod+' nie działa)
-#bindsym $mod+backslash          exec --no-startup-id ~/.dotfiles/bin/rofi-media.sh
+#set $vright 950
+#set $vtop 30
 
 # skype
 for_window [class="Skype"] move window to position 1070 20
 
+# >> eksperymenty z kbd
+# zamień TAB na mod (super_R), przy wciśnięciu; wpisuj <tab> po puszczeniu
+# ok: (dla opcji `xmodmap -e "keycode 23 = Super_R ISO_Left_Tab`)
+bindcode --release 23 exec --no-startup-id xdotool key --clearmodifiers Tab
+bindsym Mod3+l resize grow width 10px
+bindsym Mod3+j resize shrink width 10px
+bindsym Mod3+i resize grow height 10px
+bindsym Mod3+k resize shrink height 10px
