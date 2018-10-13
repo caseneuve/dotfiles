@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 13.10.18, 10:58:52 @x200
+# Last update: 13.10.18, 11:46:12 @x200
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -11,15 +11,16 @@
 term=st
 
 # >> RUN:
-
 while getopts "ufco" flag; do
     case "${flag}" in
+        # >> - tmux
         u) if [[ ! $(ps aux | grep dropdown | grep -v grep) ]]; then
                i3-msg -q "exec --no-startup-id $term -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh" &&\
                    sleep 0.1
            fi
            i3-msg -q "[title=\"dropdown\"] scratchpad show"
            ;;
+        # >> - quick scratch
         f) if [[ ! $(ps aux | grep myquickterm | grep -v grep) ]]; then
                i3-msg -q "exec --no-startup-id st -c 'scratch' -n myquickterm -f 'Inconsolata:size=13'" &&\
                    sleep 0.1
@@ -27,17 +28,20 @@ while getopts "ufco" flag; do
            i3-msg -q '[instance="myquickterm"] scratchpad show' &&\
                ~/bin/i3move -s -m 1
            ;;
+        # >> - calc
         c) if [[ ! $(ps aux | grep m4ath | grep -v grep ) ]]; then
                i3-msg -q "exec --no-startup-id $term -c calculator -t m4ath -e R -q" &&\
                    sleep 0.1
            fi
            i3-msg -q "[title="m4ath"] scratchpad show"
            ;;
+        # >> - words
         o) if [[ ! $(ps aux | grep w0rds | grep -v grep) ]]; then
                i3-msg -q "exec --no-startup-id $term -t w0rds -e words" &&\
                    sleep 0.1
            fi
-           i3-msg -q "[title=\"w0rds\"] scratchpad show"
+           i3-msg -q "[title=\"w0rds\"] scratchpad show" &&\
+               ~/bin/i3move -g 10 -m ne
            ;;
     esac
 done
