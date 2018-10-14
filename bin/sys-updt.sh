@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 13.10.18, 21:24:35 @lenovo
+# Last update: 14.10.18, 09:44:26 @lenovo
 
 # >> DOC: Primitive pamac-tray replacement
 
@@ -15,16 +15,19 @@
 FILE=/tmp/sysupdt
 checkupdates > $FILE
 
-DIR=~/.dotfiles/i3/bin
 CHECK=$(cat $FILE)
 NUM=$(cat $FILE | wc -l)
 GLYPH=''
 COLOR='#C0392B'
 
 # >> i3blocks OUTPUT
-if (( $NUM > 0 )); then
-    # <span bgcolor='#00001f26'>
-    [[ $(cat $FILE | grep -o linux-lts) ]] && echo -e "<span color='$COLOR'><span weight='bold'>$GLYPH $NUM</span></span>" || echo -e "$GLYPH $NUM"
+if [[ -n $NUM ]]; then
+    if (( $NUM > 0 )); then
+        # <span bgcolor='#00001f26'>
+        [[ $(cat $FILE | grep -o linux-lts) ]] &&\
+            echo -e "<span color='$COLOR'><span weight='bold'>$GLYPH $NUM</span></span>" ||\
+                echo -e "$GLYPH $NUM"
+    fi
 fi
 
 # >> MOUSE BEHAVIOUR
@@ -37,7 +40,9 @@ case $BLOCK_BUTTON in
     # right click
     3) rm $FILE
        #st -t sysupdt -e sudo pacman --noconfirm -Syyu
-       st -c sysupdt -e yay --noconfirm -Syu & [[ $(~/bin/i3get -c) == sysupdt ]] && ~/bin/i3move -p 35 -g 10 -m ne && pkill -RTMIN+12 i3blocks
+       st -c sysupdt -e yay --noconfirm -Syu &\
+           [[ $(~/bin/i3get -c) == sysupdt ]] &&\
+               ~/bin/i3move -p 35 -g 10 -m ne && pkill -RTMIN+12 i3blocks
        exit 0
        ;;
 esac
