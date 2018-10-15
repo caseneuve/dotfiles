@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 13.10.18, 21:21:05 @lenovo
+# Last update: 15.10.18, 09:05:00 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -69,7 +69,6 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 #bindsym $mod+Right focus right
 
-# ===================
 #  >>  {{moving windows:}}
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
@@ -83,6 +82,10 @@ bindsym $mod+Shift+Up move up
 
 #  >>  {{enter fullscreen mode for the focused container:}}
 bindsym $mod+f fullscreen toggle
+
+#  >>  {{mark container}}
+bindsym $mod+Shift+a mark --toggle marked
+bindsym $mod+a [con_mark="marked"] focus
 
 #  >>  {{layouts:}}
 bindsym $mod+y layout tabbed
@@ -382,7 +385,7 @@ mode "i3move" {
      bindsym 4 $exe ~/git/lab/py-exercises/i3move.py -m 4
      bindsym period $exe ~/git/lab/py-exercises/i3move.py -m 3
      bindsym 3 $exe ~/git/lab/py-exercises/i3move.py -m 3
-     bindsym c $exe ~/git/lab/py-exercises/i3move.py -m 5
+     bindsym c $exe ~/git/lab/py-exercises/i3move.py -s -m 5
      bindsym 5 $exe ~/git/lab/py-exercises/i3move.py -m 5
 
      bindsym i $exe ~/git/lab/py-exercises/i3move.py -m 1 -s 
@@ -676,7 +679,7 @@ bindsym $mod+Ctrl+a $exe ~/.dotfiles/bin/i3append.sh
 
 bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
-bindsym $mod+Shift+a $exe ~/.dotfiles/bin/agenda
+#bindsym $mod+Shift+a $exe ~/.dotfiles/bin/agenda
 
 # >> {{ sent TODO: napisać skrypt do tego }}
 # bindsym $mod+XF86Forward $exe ~/.dotfiles/bin/xdo-sent-control.sh -n
