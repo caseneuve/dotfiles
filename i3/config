@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 15.10.18, 09:05:00 @lenovo
+# Last update: 16.10.18, 13:49:55 @x200
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -434,6 +434,7 @@ smart_borders on
 #  >>  {{ sticky windows: }}
 for_window [class=mpv]  sticky enable
 bindsym $mod+v sticky toggle
+#bindsym $mod+Shift+v $exe ~/bin/i3move -F -x yt -r -20 -g 10 -m ne; sticky enable
 bindsym $mod+Shift+v $exe ~/.dotfiles/bin/i3video
 # bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move container to output primary; move right 590 px; move up 120 px 
 #  >>  {{toggle gaps 0 / default:}}
