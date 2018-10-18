@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 05.10.18, 17:08:32 @x200
+# Last update: 18.10.18, 08:36:52 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -160,6 +160,7 @@ alias ch7='chmod 750 $1'
 alias mejk='make && sudo make install'
 
 ## >> PROGRAMY
+alias dps='dropbox-cli status'
 alias gromit=gromit-mpx
 alias ccat="highlight --out-format=ansi"
 alias i3g=i3get
