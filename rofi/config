@@ -10,7 +10,7 @@
 #############################################
 
 # >> {Doc}
-# Last update: 14.08.18, 13:51:24 @x200
+# Last update: 20.10.18, 12:17:39 @lenovo
 # FIXME: należy napisać skrypty dla różnych komend, żeby respektowały różne monitory; tutaj zostawić tylko kolory i fullscreen
 # - rofi media (bez separatora, inny padding)
 
@@ -66,7 +66,8 @@ rofi.kb-mode-previous: Alt-u
 rofi.color-enabled: true
 
 ! Window:           'background',  'border', 'separator'
-rofi.color-window: argb:cc252936,  #9575cd, #4682b4
+rofi.color-window:  argb:f214191f,        #9575cd, #4682b4
+!rofi.color-window: argb:cc252936,  #9575cd, #4682b4
 !argb:ffffffff
 
 !   State:              'bg',       'fg',   'altbg',        'hlbg',         hlfg
