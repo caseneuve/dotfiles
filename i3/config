@@ -8,12 +8,10 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 20.10.18, 23:57:04 @lenovo
+# Last update: 20.10.18, 23:58:38 @lenovo
 
 ## >> { TODOS }
-# TODO: [ ] floating windows' position @ 2 screens
-# TODO: skrypty do rozpoznawania aktywnych monitorów (np dla reguł monitorów i workspejsów)
-# TODO: dodać zmienne do wszystkich lokalizacji itd (np scrot)
+# todo: 20/10/2018, zrobić tu porządek :-)
 
 ## >> { VARIABLES & general SETTINGS } 
 set $mod Mod4
