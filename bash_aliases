@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 20.10.18, 10:12:37 @lenovo
+# Last update: 20.10.18, 13:55:25 @lenovo
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -152,13 +152,14 @@ alias nco='nano --nohelp ~/.compton.conf'
 alias PSyyu='sudo pacman -Syyu && pkill -RTMIN+12 i3blocks'
 alias sp='sudo pacman -S'
 alias spR='sudo pacman -Rs'
-alias yayup='yay -Syu && pkill -RTMIN+12 i3blocks'
+alias yayup=~/.dotfiles/bin/yayup.sh
 alias yaya='yay -Syua'
 alias yta='youtube-dl --add-metadata -ixc --audio-format mp3' 
 alias yt='youtube-dl --add-metadata -ic'
 alias ch7='chmod 750 $1'
 alias mejk='make && sudo make install'
 
+u
 ## >> PROGRAMY
 alias dps='dropbox-cli status'
 alias gromit=gromit-mpx
