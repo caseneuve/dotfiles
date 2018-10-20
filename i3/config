@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> {STATUS}
-# Last update: 16.10.18, 13:49:55 @x200
+# Last update: 19.10.18, 21:53:13 @lenovo
 
 ## >> {TODOS}
 # TODO: [ ] floating windows' position @ 2 screens
@@ -396,6 +396,8 @@ mode "i3move" {
      bindsym f $exe ~/git/lab/py-exercises/i3move.py -f
      bindsym r $exe ~/git/lab/py-exercises/i3move.py -r 15
      bindsym Shift+r $exe ~/git/lab/py-exercises/i3move.py -r -15
+
+     bindsym Shift+l $exe ~/git/lab/py-exercises/i3move.py -l
 
      bindsym Return   mode "default"
      bindsym Escape   mode "default"
