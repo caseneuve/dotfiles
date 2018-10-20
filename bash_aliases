@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 18.10.18, 08:36:52 @x200
+# Last update: 20.10.18, 10:12:37 @lenovo
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -152,7 +152,7 @@ alias nco='nano --nohelp ~/.compton.conf'
 alias PSyyu='sudo pacman -Syyu && pkill -RTMIN+12 i3blocks'
 alias sp='sudo pacman -S'
 alias spR='sudo pacman -Rs'
-alias yayup='yay -Syu'
+alias yayup='yay -Syu && pkill -RTMIN+12 i3blocks'
 alias yaya='yay -Syua'
 alias yta='youtube-dl --add-metadata -ixc --audio-format mp3' 
 alias yt='youtube-dl --add-metadata -ic'
