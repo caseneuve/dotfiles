@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 20.10.18, 23:58:38 @lenovo
+# Last update: 23.10.18, 23:57:18 @lenovo
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -233,6 +233,7 @@ assign [class="MyPaint"]               $ws6
 assign [title=".*Edytor obrazów GIMP.*"]   $ws6
 assign [class="Arandr"]                $ws4
 assign [class="calibre"]               $ws5
+assign [class="Vivaldi-stable"]        $ws7
 
 for_window [title=".*LibreOffice.Writer*"]    move to $ws4
 for_window [title=".*tryb.prywatny.*"]        move to $ws7
