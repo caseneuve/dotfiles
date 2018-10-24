@@ -90,6 +90,7 @@ class_dict = {'Emacs': '',
               'rss': '',
               'mail': '',
               'calibre': '',
+              'whit4ker': '',
               }
 
 # >> CHANGE ICON DICT
@@ -102,13 +103,16 @@ name_dict = {'neomutt': '',
              'MOC [stop]': '',
              'MOC [play]': '',
              }
+
 if i3name in name_dict:
     i3class = name_dict[i3name]
 
 # >> CHANGE NAME DICT
 special_dict = {'dropdown': 'tmux',
                 'm4ath': 'R calc',
+                'w0rds': 'William Whitaker Words'
                 }
+
 if i3name in special_dict:
     i3name = special_dict[i3name]
 
