@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 07.09.18, 16:09:30 @x200
+# Last update: 24.10.18, 22:34:31 @lenovo
 
 # >> DOC:
 
@@ -11,6 +11,8 @@ IF=$(ip route | awk '/^default/ { print $5 ; exit }')
 [[ -z $IF ]] && echo "OFF"
 
 # >> VARIABLES:
+COLOR="#C0392B"
+
 if [[ $IF == "enp0s25" ]]; then
     GLYPH=""
     QUALITY=""
@@ -29,7 +31,7 @@ PAC_LOSS=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3) | awk 'NR=
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
     # NOTE: może to jest lepsze rozwiązanie niż moje CONN? 
     #if [[ ! $(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3`) ]]; then
-    echo "<span fgcolor='#e74c3c'>$GLYPH down</span>"
+    echo "<span fgcolor='$COLOR'>$GLYPH down</span>"
     # update dropbox status @i3blocks
     pkill -RTMIN+13 i3blocks
     exit
@@ -38,12 +40,12 @@ fi
 # >> 2.
 if [[ $(echo $CONN | grep Unreachable) ]]; then
     # <span bgcolor='#00001f26'></span>
-    echo "<span color='#C0392B'>$GLYPH ?</span>"
+    echo "<span color='$COLOR'>$GLYPH ?</span>"
     # update dropbox status @i3blocks
     pkill -RTMIN+13 i3blocks
 
 elif [[ $(echo $CONN | grep '0 received') ]]; then
-    echo "<span color='#e74c3c'>$GLYPH $QUALITY</span>"
+    echo "<span color='$COLOR'>$GLYPH $QUALITY</span>"
     # update dropbox status @i3blocks
     pkill -RTMIN+13 i3blocks
 else
@@ -59,12 +61,4 @@ case $BLOCK_BUTTON in
        pkill -RTMIN+13 i3blocks
        ;;
 esac
-
-# >> SPADY
-# if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
-#   echo down # full text
-#   echo down # short text
-#   echo \#FF0000 # color
-#   exit
-# fi
 
