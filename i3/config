@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 23.10.18, 23:57:18 @lenovo
+# Last update: 24.10.18, 21:43:27 @lenovo
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -120,8 +120,8 @@ bindsym $mod+c $exe ~/.dotfiles/bin/i3scratchpads -c
 
 # >>> {{ whitaker words }}
 for_window [title="w0rds"] move scratchpad
-for_window [title="w0rds"] resize set 500 300
-for_window [title="w0rds"] move position $wright $top 
+# for_window [title="w0rds"] resize set 500 300
+# for_window [title="w0rds"] move position $wright $top 
 bindsym $mod+o $exe ~/.dotfiles/bin/i3scratchpads -o
 
 # >>> {{ quick floating term }}
@@ -409,7 +409,7 @@ for_window [title="youtube-dl"] resize set 500 300
 for_window [title="youtube-dl"] move window to position $yright 10
 
 ## >> { GAPS }
-smart_gaps on 
+smart_gaps off 
 for_window [class="^.*"] border pixel 0
 hide_edge_borders smart
 
@@ -470,36 +470,60 @@ client.urgent             $bru    $bgur  $txtur
 
 
 ## >> { BAR }
-font pango:Lato Light 8
+font pango:Lato 8
+#font pango:Lato Light 8
 #font pango:DejaVu Sans Book 9
 #font pango:xos4 Terminus Regular 8
 #font pango:Meslo LG M Regular 9
 #font pango:Inconsolata 10
 #font pango:ProzaLibre Regular 9
 #font pango:Source Sans Pro 10
+
 # >>> {{ bar color variables }}
+# >>>> {{ dark theme }}
+# dark theme start
+# # bar background
+# set $sbbg  #191f26
+# #set $sbbg  #ececec
+# # bar active workspace background     
+# set $sbwabg #191f26
+# # bar status line
+# set $sbsl   #ffffff
+# # bar workspace border
+# set $sbwbr  #191f26
+# # bar focused workspace background     
+# set $sbwfbg #ececec
+# # bar focused workspace text     
+# set $sbwtx  #191f26
+# bar other workspace txt
+# set $sbowtx #ececec
+# # bar urgent workspace background     
+# set $sbwu   #ff6347
+# # bar urgent workspace border
+# set $sbwubr #a52a2a
+# dark theme end
+
+# >>>> {{ light theme }}
+# light theme start
 # bar background
-set $sbbg  #191f26
-#set $sbbg #f1c40f
-#set $sbbg   #000000
-# bar status line?
-set $sbsl   #ffffff
+set $sbbg  #9B9B9B
+# bar active workspace background     
+set $sbwabg #9B9B9B
+# bar status line
+set $sbsl   #191f26
 # bar workspace border
-set $sbwbr  #191f26
-#set $sbwbr  #00000000
-# bar focused workspace background     
-set $sbwfbg #ececec
+set $sbwbr  #9B9B9B
+# bar focused workspace background #a9a9a9
+set $sbwfbg #9B9B9B
 # bar focused workspace text     
 set $sbwtx  #191f26
-#set $sbwtx  #00191f26
+# bar other workspace txt
+set $sbowtx #191f26
 # bar urgent workspace background     
 set $sbwu   #ff6347
 # bar urgent workspace border
 set $sbwubr #a52a2a
-# bar active workspace background     
-set $sbwabg #191f26
-# 001f26
-#set $sbwabg #00001f26
+# light theme stop
 
 # >>> {{ bar: primary }} 
 bar {
@@ -508,7 +532,7 @@ bar {
         modifier $mod 
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
         i3bar_command i3bar -t
-        position bottom
+        position top
         height 20
         # status_command i3status 
 
@@ -518,10 +542,10 @@ bar {
                separator  $sbwabg
 
                # colorclass         border     backgro    text
-               focused_workspace    $sbwabg    $sbwfbg    $sbwtx
-               active_workspace     $sbwbr     $sbwabg    $sbwfbg
-               inactive_workspace   $sbwbr     $sbwabg    $sbwfbg
-               urgent_workspace     $brur      $bgur      $sbwfbg 
+               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
+               active_workspace     $sbwbr     $sbwabg    $sbowtx
+               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
+               urgent_workspace     $brur      $bgur      $sbwtx 
 
                #binding_mode        #2f343a    #900000    #ffffff
                #urgent_workspace    #c0392b    #e74c3c    #bdc3c7
