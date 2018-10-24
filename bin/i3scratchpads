@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 24.10.18, 09:02:43 @lenovo
+# Last update: 24.10.18, 16:01:08 @lenovo
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -43,7 +43,8 @@ while getopts "ufco" flag; do
                i3-msg -q "exec --no-startup-id $term -c calculator -t m4ath -e R -q" &&\
                    sleep 0.1
            fi
-           i3-msg -q "[title="m4ath"] scratchpad show"
+           i3-msg -q "[class=\"calculator\"] scratchpad show" &&
+               if [[ $(~/bin/i3get -c) == calculator ]]; then ~/bin/i3move -m c; fi
            ;;
         # >> - words
         o) if [[ ! $(ps aux | grep w0rds | grep -v grep) ]]; then
