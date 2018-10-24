@@ -68,7 +68,7 @@ if i3class == 'Emacs':
         i3name = out(['basename', i3name]).decode('utf-8').strip()
 
         # >> CLASS ICONS DICT
-class_dict = {'Emacs': '',
+class_dict = {'Emacs': '',
               'MuPDF': '',
               'Zathura': '*',
               'qutebrowser': '',
