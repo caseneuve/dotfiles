@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 24.10.18, 15:57:10 @lenovo
+# Last update: 24.10.18, 22:55:26 @lenovo
 
 ## Doc:
 # requires socat
@@ -27,6 +27,9 @@ METADATA=$(echo '{ "command": ["get_property", "filtered-metadata"] }' | socat -
 #VIDEOP=`echo '{ "command": ["get_property", "video"] }' | socat - $SOC 2>/dev/null | jq .data`
 
 # >> - colors @var
+BGCOLOR=#36648b
+FGCOLOR=#596473
+
 BGPLAY="#36648b"
 FGPAUSE="#6F7D91"
 BGPAUSE="#191f26"
@@ -91,11 +94,11 @@ i3mpvstat(){
     # LIST="($PLAYPOS/$PLAYTOT) "
     if [[ "$STATUS" = "PLAY" ]]; then
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST %02d:%02d </span>\n" \
+            printf "<span fgcolor='$BGCOLOR' weight='bold'> $GLYPH $LIST %02d:%02d </span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
-            printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
+            printf "<span fgcolor='$FGCOLOR'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
@@ -110,11 +113,11 @@ i3mpvstat(){
         # fi
     elif [[ "$STATUS" = "PAUSE" ]]; then 
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST %02d:%02d </span></span>\n" \
+            printf "<span fgcolor='$FGCOLOR' weight='normal'> $GLYPH $LIST %02d:%02d </span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
-            printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span></span>\n" \
+            printf "<span fgcolor='$FGCOLOR'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
