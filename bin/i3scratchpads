@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 24.10.18, 16:01:08 @lenovo
+# Last update: 24.10.18, 18:48:07 @lenovo
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -52,7 +52,7 @@ while getopts "ufco" flag; do
                    sleep 0.1
            fi
            i3-msg -q "[title=\"w0rds\"] scratchpad show" &&
-               if [[ $(~/bin/i3get -c) == whit4ker ]]; then ~/bin/i3move -g 10 -m ne; fi
+               if [[ $(~/bin/i3get -c) == whit4ker ]]; then ~/bin/i3move -p 35 -g 20 -m sw; fi
            ;;
     esac
 done
