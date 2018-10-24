@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 08.09.18, 13:26:35 @x200
+# Last update: 24.10.18, 15:57:10 @lenovo
 
 ## Doc:
 # requires socat
@@ -86,17 +86,12 @@ i3mpvstat(){
     [[ $(echo $TITLE | awk '{print $1}' | grep -i "^the \|^a ") ]] \
         && TITLE=$(echo $TITLE | awk '{print $1 " " $2}') || TITLE=$(echo $TITLE | awk '{print $1}')
     [[ -z $ARTIST ]] && ARTIST="" || ARTIST="$ARTIST: "
-    # TITLE_LEN=$(echo "${#TITLE}")
-    # MAX=25
-    # if (( $TITLE_LEN > $MAX )); then
-    #     let x=$TITLE_LEN-$MAX
-    #     TITLE=$(echo ${TITLE::-$x}…);
-    # fi
     [[ -z $POSITION ]] && exit
-    LIST="($PLAYPOS/$PLAYTOT) "
+    [[ $PLAYPOS == $PLAYTOT ]] && LIST="" || LIST="$PLAYPOS/$PLAYTOT "
+    # LIST="($PLAYPOS/$PLAYTOT) "
     if [[ "$STATUS" = "PLAY" ]]; then
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST$ARTIST $TITLE %02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
+            printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST %02d:%02d </span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
@@ -104,9 +99,18 @@ i3mpvstat(){
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
+        # if (( $(($POSITION/3600)) < 1 )); then
+        #     printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST$ARTIST $TITLE %02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
+        #            $(($POSITION%3600/60)) $(($POSITION%60)) \
+        #            $(($REMAINING%3600/60)) $(($REMAINING%60))
+        # else
+        #     printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
+        #            $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
+        #            $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
+        # fi
     elif [[ "$STATUS" = "PAUSE" ]]; then 
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST$ARTIST $TITLE %02d:%02d [-%02d:%02d] $GLYPH </span></span>\n" \
+            printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST %02d:%02d </span></span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
@@ -114,6 +118,15 @@ i3mpvstat(){
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
+        # if (( $(($POSITION/3600)) < 1 )); then
+        #     printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST$ARTIST $TITLE %02d:%02d [-%02d:%02d] $GLYPH </span></span>\n" \
+        #            $(($POSITION%3600/60)) $(($POSITION%60)) \
+        #            $(($REMAINING%3600/60)) $(($REMAINING%60))
+        # else
+        #     printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span></span>\n" \
+        #            $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
+        #            $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
+        # fi
     fi
 }
 
