@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 24.10.18, 15:47:41 @lenovo
+# Last update: 24.10.18, 19:24:18 @lenovo
 
 # >> DOC:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -10,7 +10,9 @@
 
 # >> VARIABLES:
 BGCOLOR=#36648b
-FGCOLOR=#6F7D91
+FGCOLOR=#596473
+#FGCOLOR=#6F7D91
+
 
 #TITLE=$(mocp -Q %title)
 #ARTIST=$(mocp -Q %artist)
@@ -32,13 +34,13 @@ TIME=$(mocp -Q %ct)
 # >> RUN:
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     if [ "$STATUS" = "PLAY" ]; then
-        echo -e "<span bgcolor='$BGCOLOR'>♫ $TRACK $TIME </span>"
+        echo -e "<span fgcolor='$BGCOLOR' weight='bold'>♫ $TRACK $TIME </span>"
     elif [ "$STATUS" = "PAUSE" ]; then
         echo -e "<span fgcolor='$FGCOLOR'>♫ $TRACK $TIME </span>"
     fi
 else
     if [ "$STATUS" = "PLAY" ]; then
-        echo -e "<span bgcolor='$BGCOLOR'>♫ $TIME </span>"
+        echo -e "<span fgcolor='$BGCOLOR' weight='bold'>♫ $TIME </span>"
     elif [ "$STATUS" = "PAUSE" ]; then
         echo -e "♫ $TIME ♫"
     fi
