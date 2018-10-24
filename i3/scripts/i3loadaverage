@@ -2,33 +2,20 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
 # Created:     16.07.18, 15:16    @x200
-# Last update: 22.08.18, 12:48:33 @x200
+# Last update: 24.10.18, 22:38:04 @lenovo
 
 # >> DOC:
 
 # >> VARIABLES:
 LOAD="$(cut -d ' ' -f1 /proc/loadavg)"
 CPUS="$(nproc)"
-#BGCOLOR=#000000 # was: #00001f26, #191f26
 WEIGHT=normal
 FGCOLOR=#C0392B
 GLYPH=''
 
 # >> i3blocks OUTPUT
 if [[ $(echo "$CPUS <= $LOAD" | bc) = "1" ]]; then
-    # <span bgcolor='$BGCOLOR'>
     echo "<span color='$FGCOLOR'><span weight='$WEIGHT'>$GLYPH $LOAD</span></span>"
 else
     echo "$GLYPH $LOAD"
 fi
-
-# >> SPADY
-# awk -v cpus=$cpus -v cpuload=$load "
-#     BEGIN {
-#         if (cpus <= cpuload) {
-#             echo \"<span color='#FF0000'> $load </span>\" 
-#             exit 33;
-#         }
-#     }
-# "
-
