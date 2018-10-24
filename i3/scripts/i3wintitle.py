@@ -144,7 +144,7 @@ for i in pango_escape:
     if i in i3name:
         i3name = i3name.replace(i, pango_escape[i])
 
-print(f"<span weight='bold'>{i3class}  {i3name}</span>")
+print(f"<span weight='normal'>{i3class}  {i3name}</span>")
 #print(f"<span weight='bold'>{i3name}</span>")
 
 # >> SPADY:
