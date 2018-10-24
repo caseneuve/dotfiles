@@ -53,6 +53,7 @@ i3.on("window::title", on_window_pkill)
 i3.on("workspace::focus", on_window_pkill)
 i3.on("workspace::focus", boldify_wksp_name)
 
-# Start the main loop and wait for events to come in.
+
+# >> Start the main loop and wait for events to come in.
 i3.main()
 
