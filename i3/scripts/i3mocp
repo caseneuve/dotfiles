@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 24.10.18, 19:24:18 @lenovo
+# Last update: 25.10.18, 00:00:41 @lenovo
 
 # >> DOC:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -12,7 +12,7 @@
 BGCOLOR=#36648b
 FGCOLOR=#596473
 #FGCOLOR=#6F7D91
-
+GLYPH=""
 
 #TITLE=$(mocp -Q %title)
 #ARTIST=$(mocp -Q %artist)
@@ -34,15 +34,15 @@ TIME=$(mocp -Q %ct)
 # >> RUN:
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     if [ "$STATUS" = "PLAY" ]; then
-        echo -e "<span fgcolor='$BGCOLOR' weight='bold'>♫ $TRACK $TIME </span>"
+        echo -e "<span fgcolor='$BGCOLOR' weight='bold'>$GLYPH $TRACK $TIME </span>"
     elif [ "$STATUS" = "PAUSE" ]; then
-        echo -e "<span fgcolor='$FGCOLOR'>♫ $TRACK $TIME </span>"
+        echo -e "<span fgcolor='$FGCOLOR'>$GLYPH $TRACK $TIME </span>"
     fi
 else
     if [ "$STATUS" = "PLAY" ]; then
-        echo -e "<span fgcolor='$BGCOLOR' weight='bold'>♫ $TIME </span>"
+        echo -e "<span fgcolor='$BGCOLOR' weight='bold'>$GLYPH $TIME </span>"
     elif [ "$STATUS" = "PAUSE" ]; then
-        echo -e "♫ $TIME ♫"
+        echo -e "$GLYPH $TIME "
     fi
 fi
 
@@ -50,15 +50,15 @@ fi
 # if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
 #     if [ "$TITLE" ]; then
 #         if [ "$STATUS" = "PLAY" ]; then
-#             echo -e "<span bgcolor='$BGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
+#             echo -e "<span bgcolor='$BGCOLOR'>$GLYPH $ARTIST: $SONGTITLE $TIME [-$LEFT] $GLYPH</span>"
 #         elif [ "$STATUS" = "PAUSE" ]; then
-#             echo -e "<span fgcolor='$FGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
+#             echo -e "<span fgcolor='$FGCOLOR'>$GLYPH $ARTIST: $SONGTITLE $TIME [-$LEFT] $GLYPH</span>"
 #         fi
 #     else
 #         if [ "$STATUS" = "PLAY" ]; then
-#             echo -e "<span bgcolor='$BGCOLOR'>♫ $FILE: $TIME [-$LEFT] ♫</span>"
+#             echo -e "<span bgcolor='$BGCOLOR'>$GLYPH $FILE: $TIME [-$LEFT] $GLYPH</span>"
 #         elif [ "$STATUS" = "PAUSE" ]; then
-#             echo -e "♫ $FILE: $TIME [-$LEFT] ♫"
+#             echo -e "$GLYPH $FILE: $TIME [-$LEFT] $GLYPH"
 #         fi
 #     fi
     
