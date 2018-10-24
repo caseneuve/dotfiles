@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-socket.sh (ln → dp)
 # Created:     14.07.18, 09:12    @toshiba
-# Last update: 24.10.18, 22:55:26 @lenovo
+# Last update: 25.10.18, 00:01:08 @lenovo
 
 ## Doc:
 # requires socat
@@ -83,7 +83,7 @@ playlist(){
 # >> - i3blocks @func
 i3mpvstat(){
     VIDEOP=$(echo '{ "command": ["get_property", "video"] }' | socat - $SOC 2>/dev/null | jq .data)
-    [[ "$VIDEOP" = "false" ]] && GLYPH=♫ || GLYPH=
+    [[ "$VIDEOP" = "false" ]] && GLYPH= || GLYPH=
     [[ $(echo $ARTIST | awk '{print $1}' | grep -i "^the \|^a ") ]] \
         && ARTIST=$(echo $ARTIST | awk '{print $1 " " $2}') || ARTIST=$(echo $ARTIST | awk '{print $1}')
     [[ $(echo $TITLE | awk '{print $1}' | grep -i "^the \|^a ") ]] \
