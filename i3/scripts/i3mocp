@@ -1,61 +1,66 @@
 #!/bin/bash
 
-# Path:        ~/.bin/mocp.sh
+# Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 24.08.18, 09:48:52 @x200
+# Last update: 24.10.18, 15:47:41 @lenovo
 
-# Doc:
+# >> DOC:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
 # <span> markup is used for pango markup
+
+# >> VARIABLES:
 BGCOLOR=#36648b
 FGCOLOR=#6F7D91
 
-TITLE=$(mocp -Q %title)
-ARTIST=$(mocp -Q %artist)
-[[ $(echo $ARTIST | awk '{print $1}' | grep -i "the\|a") ]] \
-    && ARTIST=$(echo $ARTIST | awk '{print $1 " " $2}') || ARTIST=$(echo $ARTIST | awk '{print $1}')
-SONGTITLE=$(mocp -Q %song)
-[[ $(echo $SONGTITLE | awk '{print $1}' | grep -i "the\|a") ]] \
-    && SONGTITLE=$(echo $SONGTITLE | awk '{print $1 " " $2}') || SONGTITLE=$(echo $SONGTITLE | awk '{print $1}')
+#TITLE=$(mocp -Q %title)
+#ARTIST=$(mocp -Q %artist)
+#[[ $(echo $ARTIST | awk '{print $1}' | grep -i "the\|a") ]] \
+#    && ARTIST=$(echo $ARTIST | awk '{print $1 " " $2}') || ARTIST=$(echo $ARTIST | awk '{print $1}')
+#SONGTITLE=$(mocp -Q %song)
+#[[ $(echo $SONGTITLE | awk '{print $1}' | grep -i "the\|a") ]] \
+#    && SONGTITLE=$(echo $SONGTITLE | awk '{print $1 " " $2}') || SONGTITLE=$(echo $SONGTITLE | awk '{print $1}')
 
-# ARTIST_LEN=$(echo ${#ARTIST})
-# TITLE_LEN=$(echo ${#TITLE})
-
-FILE=$(mocp -Q %file)
-FILE=${FILE##*/}
+TRACK=$(mocp -Q %n)
+[[ -n $TRACK ]] && TRACK="$TRACK. " || TRACK=""
+#FILE=$(mocp -Q %file)
+#FILE=${FILE##*/}
 STATUS=$(mocp -Q %state)
 TIME=$(mocp -Q %ct)
-LEFT=$(mocp -Q %tl)
-# MAXA=13
-# MAXT=13
+#LEFT=$(mocp -Q %tl)
 
+
+# >> RUN:
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
-    # if [ "$TITLE" != "" ]; then
-    #     if (( $TITLE_LEN > $MAXT )); then
-    #         let x=$TITLE_LEN-$MAXT
-    #         TITLE=$(echo ${TITLE::-$X}…);
-    #     fi
-    #     if [ "$ARTIST" != "" ]; then
-    #         if (( $ARTIST_LEN > $MAXA )); then
-    #             let x=$ARTIST_LEN-$MAXA
-    #             ARTIST=$(echo ${ARTIST::-$x}.:);
-    #         else
-    #             ARTIST="$ARTIST:";
-    #         fi
-    #     fi
-    if [ "$TITLE" ]; then
-        if [ "$STATUS" = "PLAY" ]; then
-            echo -e "<span bgcolor='$BGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
-        elif [ "$STATUS" = "PAUSE" ]; then
-            echo -e "<span fgcolor='$FGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
-        fi
-    else
-        if [ "$STATUS" = "PLAY" ]; then
-            echo -e "<span bgcolor='$BGCOLOR'>♫ $FILE: $TIME [-$LEFT] ♫</span>"
-        elif [ "$STATUS" = "PAUSE" ]; then
-            echo -e "♫ $FILE: $TIME [-$LEFT] ♫"
-        fi
+    if [ "$STATUS" = "PLAY" ]; then
+        echo -e "<span bgcolor='$BGCOLOR'>♫ $TRACK $TIME </span>"
+    elif [ "$STATUS" = "PAUSE" ]; then
+        echo -e "<span fgcolor='$FGCOLOR'>♫ $TRACK $TIME </span>"
     fi
+else
+    if [ "$STATUS" = "PLAY" ]; then
+        echo -e "<span bgcolor='$BGCOLOR'>♫ $TIME </span>"
+    elif [ "$STATUS" = "PAUSE" ]; then
+        echo -e "♫ $TIME ♫"
+    fi
+fi
+
+# >>> old run
+# if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
+#     if [ "$TITLE" ]; then
+#         if [ "$STATUS" = "PLAY" ]; then
+#             echo -e "<span bgcolor='$BGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
+#         elif [ "$STATUS" = "PAUSE" ]; then
+#             echo -e "<span fgcolor='$FGCOLOR'>♫ $ARTIST: $SONGTITLE $TIME [-$LEFT] ♫</span>"
+#         fi
+#     else
+#         if [ "$STATUS" = "PLAY" ]; then
+#             echo -e "<span bgcolor='$BGCOLOR'>♫ $FILE: $TIME [-$LEFT] ♫</span>"
+#         elif [ "$STATUS" = "PAUSE" ]; then
+#             echo -e "♫ $FILE: $TIME [-$LEFT] ♫"
+#         fi
+#     fi
+    
+# >> MOUSE:
     case $BLOCK_BUTTON in
             1) mocp -r ;; # left click = previous song
             # 2) mocp -G ;; # middle click = toggle pause/play
