@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 25.10.18, 06:44:42 @lenovo
+# Last update: 25.10.18, 21:44:42 @x200
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -370,14 +370,19 @@ mode "$mode_gaps_outer" {
 # >>> {{ i3move }}
 mode "i3move" {
      bindsym u $exe ~/git/lab/py-exercises/i3move.py -m 1
+     bindsym Shift+u $exe ~/git/lab/py-exercises/i3move.py -m 1 -g 15
      bindsym 1 $exe ~/git/lab/py-exercises/i3move.py -m 1
      bindsym o $exe ~/git/lab/py-exercises/i3move.py -m 2
+     bindsym Shift+o $exe ~/git/lab/py-exercises/i3move.py -m 2 -g 15
      bindsym 2 $exe ~/git/lab/py-exercises/i3move.py -m 2
      bindsym m $exe ~/git/lab/py-exercises/i3move.py -m 4
+     bindsym Shift+m $exe ~/git/lab/py-exercises/i3move.py -m 4 -g 15
      bindsym 4 $exe ~/git/lab/py-exercises/i3move.py -m 4
      bindsym period $exe ~/git/lab/py-exercises/i3move.py -m 3
+     bindsym Shift+period $exe ~/git/lab/py-exercises/i3move.py -m 3 -g 15
      bindsym 3 $exe ~/git/lab/py-exercises/i3move.py -m 3
      bindsym c $exe ~/git/lab/py-exercises/i3move.py -s -m 5
+     bindsym Shift+c $exe ~/git/lab/py-exercises/i3move.py -s -m 5 -g 15
      bindsym 5 $exe ~/git/lab/py-exercises/i3move.py -m 5
 
      bindsym i $exe ~/git/lab/py-exercises/i3move.py -m 1 -s 
@@ -388,6 +393,9 @@ mode "i3move" {
      bindsym f $exe ~/git/lab/py-exercises/i3move.py -f
      bindsym r $exe ~/git/lab/py-exercises/i3move.py -r 15
      bindsym Shift+r $exe ~/git/lab/py-exercises/i3move.py -r -15
+
+     bindsym y $exe ~/git/lab/py-exercises/i3move.py -x yt -r small -m 3 -g 15
+     bindsym Shift+y $exe ~/git/lab/py-exercises/i3move.py -x yt -r medium -m 3 -g 15
 
      bindsym Shift+l $exe ~/git/lab/py-exercises/i3move.py -l
 
@@ -412,9 +420,13 @@ for_window [class="YTBDWL"] move scratchpad
 # for_window [title="youtube-dl"] move window to position $yright 10
 
 ## >> { GAPS }
-#smart_gaps on 
-for_window [class="^.*"] border pixel 0
-hide_edge_borders smart
+# smart_gaps on
+# no borders: 
+default_border pixel 0
+#for_window [class="^.*"] border pixel 0 
+#for_window [class="term"] border pixel 0
+#hide_edge_borders both
+#hide_edge_borders vertical
 
 set $gin 4
 set $gou 4
@@ -423,8 +435,8 @@ gaps inner $gin
 gaps outer $gou
 
 # no title bar:
-#new_window border pixel 10
-smart_borders on
+#new_window border pixel 0
+#smart_borders on
 
 # >>> {{ sticky windows: }}
 for_window [class=mpv]  sticky enable
@@ -562,7 +574,7 @@ bar {
         modifier $mod
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
         i3bar_command i3bar -t
-        position bottom
+        position top
         height 20
 
         colors {
