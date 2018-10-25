@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 25.10.18, 01:55:47 @lenovo
+# Last update: 25.10.18, 06:44:42 @lenovo
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -198,8 +198,9 @@ bindsym $mod+Mod1+i focus output up
 bindsym $mod+Mod1+k focus output down
 
 # >>> {{ pk: cycle through workspaces: }}
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
+# 25/10/2018: with dynamic renamig of wksp "prev" works like back_and_forth, and "next" goes to the beginning of stack
+bindsym Mod1+Tab workspace prev
+bindsym Mod1+Shift+Tab workspace next
 #bindsym $mod+Tab workspace back_and_forth
 
 # >>> {{ reguły dla monitorów: }}
