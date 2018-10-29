@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 29.10.18, 14:10:38 @lenovo
+# Last update: 29.10.18, 21:54:17 @lenovo
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -135,6 +135,9 @@ assign [class="sysupdt"] output primary
 for_window [class="sysupdt"] floating enable
 # todo: pewnie trzeba będzie wpisać zmienne, żeby pasowało do różnych ekranów
 
+# >>> {{ tty-clock }}
+for_window [class="cl0ck"] floating enable
+bindsym $mod+Shift+t $exe ~/.dotfiles/bin/i3scratchpads -t 1
 
 ## >> { WORKSPACES }                
 # workspace_auto_back_and_forth yes
