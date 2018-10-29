@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Last update: 01.09.18, 19:12:59 @toshiba
+# Last update: 29.10.18, 20:27:25 @lenovo
 
 # >> DOC:
 # requires i3move (i3ipc installed via pip)
@@ -32,7 +32,7 @@ fi
 
 # >> run
 # 1. kill compton (to avoid glithes, todo: can we fix this?)
-# if [[ $(ps aux | grep compton | grep -v grep) ]]; then
+# if [[ $(pgrep grep compton) ]]; then
 #     pkill compton;
 #     COM=1
 # fi

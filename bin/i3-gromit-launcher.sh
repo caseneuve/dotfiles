@@ -2,14 +2,15 @@
 
 # Path:        ~/scr/gromit-launcher.sh
 # Created:     03.09.18, 22:57    @x200
-# Last update: 03.09.18, 23:41:20 @x200
+# Last update: 29.10.18, 20:21:24 @lenovo
 
 # >> DOC: 
 
 # >> TODOS: 
 
 # >> VARIABLES: 
-G_PID=$(ps aux | awk '/gromit-mpx/ && !/awk/ {print $2}')
+#G_PID=$(ps aux | awk '/gromit-mpx/ && !/awk/ {print $2}')
+G_PID=$(pgrep gromit-mpx)
 
 if [[ $G_PID ]]; then
     kill -9 $G_PID
