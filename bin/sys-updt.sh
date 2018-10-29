@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 14.10.18, 09:44:26 @lenovo
+# Last update: 29.10.18, 20:08:45 @lenovo
 
 # >> DOC: Primitive pamac-tray replacement
 
@@ -41,7 +41,7 @@ case $BLOCK_BUTTON in
     3) rm $FILE
        #st -t sysupdt -e sudo pacman --noconfirm -Syyu
        st -c sysupdt -e yay --noconfirm -Syu &\
-           [[ $(~/bin/i3get -c) == sysupdt ]] &&\
+           [[ $(~/git/hub/i3/i3get.sh -c) == sysupdt ]] &&\
                ~/bin/i3move -p 35 -g 10 -m ne && pkill -RTMIN+12 i3blocks
        exit 0
        ;;

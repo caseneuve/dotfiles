@@ -2,7 +2,7 @@
 
 # Path:        ~/biu/bash/cdemacsdir.sh
 # Created:     26.08.18, 15:00    @x200
-# Last update: 02.09.18, 15:16:55 @lenovo
+# Last update: 29.10.18, 20:07:56 @lenovo
 
 # >> DOC:
 # Requires:
@@ -17,7 +17,7 @@
 FULL=$(wmctrl -lx | awk '/emacs.Emacs/ {print $5}')
 FILE=$(basename "$FULL")
 DIR=${FULL%$FILE}
-FOC=$(~/bin/i3get -c)
+FOC=$(~/git/hub/i3/i3get.sh -c)
 
 # >> RUN:
 if [[ $FOC == 'Emacs' && -d $DIR ]]; then
