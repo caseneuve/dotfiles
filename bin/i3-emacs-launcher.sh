@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3-emacs-launcher.sh
 # Created:     27.05.18, 09:16    @x200
-# Last update: 30.09.18, 12:36:09 @lenovo
+# Last update: 29.10.18, 21:00:46 @lenovo
 
 # >> DOC:
 # "If emacs is running goes to the first workspace with qtb window; if not -- launches qtb at wksp 1"
@@ -10,6 +10,8 @@
 
 # >> TODOS:
 # todo: spr. czy można to skrócić awkiem, żeby od razu zadeklarwać listy
+# fixme: 29/10/2018, po zmianach (dynamic wksp) skrypt przestał dobrze działać
+
 
 # >> VARIABLES:
 GUI_ID+=$(wmctrl -lx | awk '/emacs.Emacs/ && !/st-256color/ && !/qutebrowser.qutebrowser/ {print $1}')
@@ -17,7 +19,7 @@ GUI_WS+=$(wmctrl -lx | awk '/emacs.Emacs/ && !/st-256color/ && !/qutebrowser.qut
 CLI_ID+=$(wmctrl -lx | grep "emacsclient\| e " | grep -v grep | awk '{print $1}')
 CLI_WS+=$(wmctrl -lx | grep "emacsclient\| e " | grep -v grep | awk '{print $2}')
 
-FOC_NAME=$(~/bin/i3get -n)
+FOC_NAME=$(~/git/hub/i3/i3get.sh -t)
 FOC_ID=$(wmctrl -l | grep "$FOC_NAME" | awk  '{print $1}')
 # condition in case empty wksp is focused
 [[ -z $FOC_ID ]] && FOC_ID="no id"
