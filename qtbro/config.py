@@ -1397,7 +1397,8 @@ c.url.searchengines = {
     'et': 'https://www.etymonline.com/word/{}',
     'bib': 'http://katalogi.bn.org.pl/iii/encore/search/C__S{}__U?lang=pol&suite=cobalt',
     'sjp': 'https://sjp.pl/{}',
-    'mg': 'https://www.google.com/maps/place/{}'
+    'mg': 'https://www.google.com/maps/place/{}',
+    'map': 'https://www.google.com/maps/place/{}',
 }
 
 # URL parameters to strip with `:yank url`.
