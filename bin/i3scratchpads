@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 29.10.18, 21:54:08 @lenovo
+# Last update: 30.10.18, 08:18:35 @x200
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -64,8 +64,9 @@ while getopts "ufcot:" flag; do
                    i3-msg -q "border pixel 1"
                fi
            ;;
+        # >>> clock
         t) if [[ ! $(ps aux | grep cl0ck | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $term -c cl0ck -t tty-clock -e tty-clock -C $OPTARG -c -b" &&\
+               i3-msg -q "exec --no-startup-id $term -c cl0ck -t tty-clock -f 'Inconsolata:size=10' -e tty-clock -C $OPTARG -c -b" &&\
                    sleep 0.1
            fi
            if [[ $(~/git/hub/i3/i3get.sh -c) =~ cl0ck ]]; then
