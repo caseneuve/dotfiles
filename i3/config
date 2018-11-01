@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 29.10.18, 21:54:17 @lenovo
+# Last update: 01.11.18, 19:24:11 @x200
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -574,7 +574,7 @@ bar {
                }
 }
 
-# >>> {{ bar: secondary}}
+# >>> {{ bar: secondary }}
 bar {
         output VGA-1
         tray_output none
@@ -590,11 +590,11 @@ bar {
                separator  $sbwabg
 
                # colorclass         border     backgro    text
-               focused_workspace    $sbwabg    $sbwfbg    $sbwtx
-               active_workspace     $sbwbr     $sbwabg    $sbwfbg
-               inactive_workspace   $sbwbr     $sbwabg    $sbwfbg
-               urgent_workspace     $brur      $bgur      $sbwfbg 
-               }
+               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
+               active_workspace     $sbwbr     $sbwabg    $sbowtx
+               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
+               urgent_workspace     $brur      $bgur      $sbwtx 
+        }
 }
 
 
