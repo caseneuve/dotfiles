@@ -2,7 +2,7 @@
 
 # Path:        ~/biu/bash/cdemacsdir.sh
 # Created:     26.08.18, 15:00    @x200
-# Last update: 30.10.18, 10:38:51 @x200
+# Last update: 02.11.18, 18:48:31 @x200
 
 
 # >> DOC:
@@ -19,7 +19,8 @@
 FULL=$(wmctrl -lx | awk '/emacs.Emacs/ {print $5}')
 FILE=$(basename "$FULL")
 DIR=${FULL%$FILE}
-FOC=$(~/git/hub/i3/i3get.sh -c)
+#FOC=$(~/git/hub/i3/i3get.sh -c)
+FOC=$(~/git/lab/py-exercises/i3get.py -c)
 
 # >> RUN:
 if [[ $FOC =~ "Emacs" && -d $DIR ]]; then
