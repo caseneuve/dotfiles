@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 30.10.18, 08:18:35 @x200
+# Last update: 02.11.18, 15:47:24 @x200
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -27,6 +27,8 @@ while getopts "ufcot:" flag; do
                proc=$(bc -l <<< $wwid/$swid)
                if [[ $(echo $proc'==0.7' | bc -l) == 0 ]] && [[ $(~/git/hub/i3/i3get.sh -t) =~ "dropdown" ]]; then
                    ~/bin/i3move -p 70 -m c
+               fi
+               if [[ $(~/git/hub/i3/i3get.sh -t) =~ "dropdown" ]]; then
                    i3-msg -q "border pixel 1"
                fi
            fi
