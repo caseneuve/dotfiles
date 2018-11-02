@@ -1,10 +1,10 @@
 # Path:        ~/.dotfiles/fzf/fzf.bash
 # Created:     29.03.18, 11:02    @manjaroi3
-# Last update: 03.11.18, 00:37:18 @toshiba
+# Last update: 03.11.18, 00:40:31 @toshiba
 
 ## >> DOC:
 # Config & functions for FUZZY FINDER
-#
+# NOTE: depends on *fd* package
 
 # >> Setup fzf
 # ---------
