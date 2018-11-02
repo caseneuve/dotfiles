@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 01.11.18, 19:24:11 @x200
+# Last update: 02.11.18, 19:07:54 @x200
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -581,7 +581,7 @@ bar {
         modifier $mod
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
         i3bar_command i3bar -t
-        position top
+        position bottom
         height 20
 
         colors {
