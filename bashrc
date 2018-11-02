@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 03.11.18, 00:18:05 @toshiba
+# Last update: 03.11.18, 00:33:09 @toshiba
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -123,13 +123,13 @@ export BC_ENV_ARGS=$HOME/.bc
 TERM=xterm-256color
 export TERMINAL=st
 
-# >> SOURCE:
-# >>  - source aliases
+## >> SOURCE:
+# >>> source aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# >>  - source finder
+# >>> source fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # >> AKCJE / FUNKCJE
