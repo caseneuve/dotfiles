@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 02.11.18, 20:14:20 @x200
+# Last update: 02.11.18, 20:17:35 @x200
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -106,6 +106,9 @@ export LESS_TERMCAP_so=$'\E[01;37;31m' # begin reverse video
 export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;33m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+export LESS_TERMCAP_mb=$'\E[1;36m'     # begin bold
+export LESS_TERMCAP_md=$'\E[1;34m'     # begin blink
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
 
 ## >> VARIOUS:
 # >>>  mutt background fix
