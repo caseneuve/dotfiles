@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 02.11.18, 20:17:35 @x200
+# Last update: 02.11.18, 23:14:56 @toshiba
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -26,7 +26,7 @@ export HISTCONTROL=ignoreboth:erasedups
 
 ## >> COMMAND PROMPT
 # >>> prompt colors
-#BLUE="$(tput setaf 4)"
+BLUE="$(tput setaf 4)"
 #BLUEBG="$(tput setab 4)"
 GREEN="$(tput setaf 2)"
 #GREENBG="$(tput setab 2)"
@@ -41,7 +41,8 @@ BOLD="$(tput bold)"
 RESET="$(tput sgr0)"
 #BLACK="$(tput setaf 8)"
 #MAGENTA="$(tput setaf 13)"
-PSGIT="$(tput setaf 197)"
+#PSGIT="$(tput setaf 197)"
+PSGIT="$(tput setaf 2)"
 
 # >>> command prompt func
 __command_prompt () {
@@ -64,10 +65,10 @@ __command_prompt () {
             GITCOL=$ORANGE ;; 
         *'nothing to commit'*)
             GTS="✔"
-            GITCOL=$GREEN ;; 
+            GITCOL=$BLUE ;; 
         *'not staged'*|*'Untracked'*|*'modified'*|*'to be committed'*|*'deleted')
             GTS="✗"
-            GITCOL=$ORANGE ;;
+            GITCOL=$RED ;;
         *) GTS= ;;
     esac
     if [[ -n $GTS ]]; then
