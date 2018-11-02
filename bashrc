@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 02.11.18, 23:14:56 @toshiba
+# Last update: 02.11.18, 23:49:36 @toshiba
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -52,6 +52,7 @@ __command_prompt () {
     else
         DIR="${PWD#$HOME/}"
     fi
+    [[ $DIR =~ "Dropbox" ]] && DIR=${DIR/box\/Dropbox\//dp:}
     if [[ "$code" != 0 ]]; then
         COLOR=$RED
     else
