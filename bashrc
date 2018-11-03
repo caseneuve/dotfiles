@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 02.11.18, 20:17:35 @x200
+# Last update: 03.11.18, 00:33:09 @toshiba
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -26,7 +26,7 @@ export HISTCONTROL=ignoreboth:erasedups
 
 ## >> COMMAND PROMPT
 # >>> prompt colors
-#BLUE="$(tput setaf 4)"
+BLUE="$(tput setaf 4)"
 #BLUEBG="$(tput setab 4)"
 GREEN="$(tput setaf 2)"
 #GREENBG="$(tput setab 2)"
@@ -41,7 +41,8 @@ BOLD="$(tput bold)"
 RESET="$(tput sgr0)"
 #BLACK="$(tput setaf 8)"
 #MAGENTA="$(tput setaf 13)"
-PSGIT="$(tput setaf 197)"
+#PSGIT="$(tput setaf 197)"
+PSGIT="$(tput setaf 2)"
 
 # >>> command prompt func
 __command_prompt () {
@@ -51,6 +52,7 @@ __command_prompt () {
     else
         DIR="${PWD#$HOME/}"
     fi
+    [[ $DIR =~ "Dropbox" ]] && DIR=${DIR/box\/Dropbox\//dp:}
     if [[ "$code" != 0 ]]; then
         COLOR=$RED
     else
@@ -64,10 +66,10 @@ __command_prompt () {
             GITCOL=$ORANGE ;; 
         *'nothing to commit'*)
             GTS="✔"
-            GITCOL=$GREEN ;; 
+            GITCOL=$BLUE ;; 
         *'not staged'*|*'Untracked'*|*'modified'*|*'to be committed'*|*'deleted')
             GTS="✗"
-            GITCOL=$ORANGE ;;
+            GITCOL=$RED ;;
         *) GTS= ;;
     esac
     if [[ -n $GTS ]]; then
@@ -99,6 +101,7 @@ export VISUAL=""
 export EDITOR='emacsclient -nw'
 export ALTERNATE_EDITOR="nano"
 export RANGER_LOAD_DEFAULT_RC=FALSE
+LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
 
 ## >> LESS COLORS for MAN 
 export LESS=-R
@@ -120,13 +123,13 @@ export BC_ENV_ARGS=$HOME/.bc
 TERM=xterm-256color
 export TERMINAL=st
 
-# >> SOURCE:
-# >>  - source aliases
+## >> SOURCE:
+# >>> source aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# >>  - source finder
+# >>> source fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # >> AKCJE / FUNKCJE
