@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 02.11.18, 15:47:24 @x200
+# Last update: 03.11.18, 09:28:57 @x200
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -22,13 +22,13 @@ while getopts "ufcot:" flag; do
                ~/bin/i3move -p 70 -m c
            else
                i3-msg -q "[title=\"dropdown\"] scratchpad show"
-               wwid=$(~/git/hub/i3/i3get.sh -g | awk 'NR==3 {print $2}')
-               swid=$(~/git/hub/i3/i3get.sh -G | awk 'NR==3 {print $2}')
+               wwid=$(~/git/lab/py-exercises/i3get.py -g | awk 'NR==3 {print $2}')
+               swid=$(~/git/lab/py-exercises/i3get.py -G | awk 'NR==3 {print $2}')
                proc=$(bc -l <<< $wwid/$swid)
-               if [[ $(echo $proc'==0.7' | bc -l) == 0 ]] && [[ $(~/git/hub/i3/i3get.sh -t) =~ "dropdown" ]]; then
+               if [[ $(echo $proc'==0.7' | bc -l) == 0 ]] && [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]]; then
                    ~/bin/i3move -p 70 -m c
                fi
-               if [[ $(~/git/hub/i3/i3get.sh -t) =~ "dropdown" ]]; then
+               if [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]]; then
                    i3-msg -q "border pixel 1"
                fi
            fi
@@ -39,7 +39,7 @@ while getopts "ufcot:" flag; do
                    sleep 0.1
            fi
            i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&
-               if [[ $(~/git/hub/i3/i3get.sh -c) =~ myquickterm ]]; then
+               if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ myquickterm ]]; then
                    ~/bin/i3move -s -m 1;
                    i3-msg -q "border pixel 1"
                fi
@@ -50,7 +50,7 @@ while getopts "ufcot:" flag; do
                    sleep 0.1
            fi
            i3-msg -q "[class=\"calculator\"] scratchpad show" &&
-               if [[ $(~/git/hub/i3/i3get.sh -c) =~ calculator ]]; then
+               if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ calculator ]]; then
                    ~/bin/i3move -m c;
                    i3-msg -q "border pixel 1"
                fi
@@ -61,7 +61,7 @@ while getopts "ufcot:" flag; do
                    sleep 0.1
            fi
            i3-msg -q "[title=\"w0rds\"] scratchpad show" &&
-               if [[ $(~/git/hub/i3/i3get.sh -c) =~ whit4ker ]]; then
+               if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ whit4ker ]]; then
                    ~/bin/i3move -p 35 -g 20 -m sw
                    i3-msg -q "border pixel 1"
                fi
@@ -71,7 +71,7 @@ while getopts "ufcot:" flag; do
                i3-msg -q "exec --no-startup-id $term -c cl0ck -t tty-clock -f 'Inconsolata:size=10' -e tty-clock -C $OPTARG -c -b" &&\
                    sleep 0.1
            fi
-           if [[ $(~/git/hub/i3/i3get.sh -c) =~ cl0ck ]]; then
+           if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ cl0ck ]]; then
                ~/bin/i3move -p 22 -g 15 -m se
                i3-msg -q "sticky enable"
            fi
