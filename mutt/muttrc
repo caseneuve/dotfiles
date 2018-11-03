@@ -7,7 +7,7 @@
 ###                               ###
 #####################################
 
-# Last update: 02.11.18, 12:15:33 @x200
+# Last update: 03.11.18, 08:28:50 @x200
 # Doc: (browse-url "http://www.mutt.org/doc/manual")
 # >> TODOS:
 # todo: make hook for mailboxes (Wysłane, Szkoła)?
@@ -84,8 +84,9 @@ set status_chars=" #%A"
 
 set date_format="%d %b %y"
 # num | flag | att. | date | from | subj | size || label#
-#                                                 87=value adjusted to x200 gaps
-set index_format="%2C %S %?X?A& ? %D %-25.25F%-87.87s%> %c"
+#                                              87=value adjusted to x200 gaps
+set index_format="%2C %S %?X?A& ? %D %-25.25F%-200.200s"
+#set index_format="%2C %S %?X?A& ? %D %-25.25F%-87.87s%> %c"
 #set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
 
 # >>> {{ don't show help line }}
