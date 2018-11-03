@@ -1,6 +1,6 @@
 # Path:        ~/.dotfiles/fzf/fzf.bash
 # Created:     29.03.18, 11:02    @manjaroi3
-# Last update: 03.11.18, 01:15:32 @toshiba
+# Last update: 03.11.18, 01:18:55 @toshiba
 
 ## >> DOC:
 # Config & functions for FUZZY FINDER
@@ -23,7 +23,7 @@ export FZF_ALT_C_COMMAND='fd -H --type d . ~'
 export FZF_DEFAULT_OPTS='--height 60% --reverse --border --inline-info'
 export FZF_DEFAULT_COMMAND='fd --type f . ~'
 export FZF_COMPLETION_TRIGGER='~~'
-export FZF_CTRL_T_COMMAND='fd . ~'
+export FZF_CTRL_T_COMMAND='fd . ./'
 export FZF_CTRL_T_OPTS='-m'
 
 # >>> Aliasy
