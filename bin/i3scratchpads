@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 03.11.18, 09:28:57 @x200
+# Last update: 03.11.18, 11:10:20 @x200
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -62,7 +62,7 @@ while getopts "ufcot:" flag; do
            fi
            i3-msg -q "[title=\"w0rds\"] scratchpad show" &&
                if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ whit4ker ]]; then
-                   ~/bin/i3move -p 35 -g 20 -m sw
+                   ~/bin/i3move -p 35 -g 10 -m sw
                    i3-msg -q "border pixel 1"
                fi
            ;;
