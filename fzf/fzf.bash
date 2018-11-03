@@ -1,6 +1,6 @@
 # Path:        ~/.dotfiles/fzf/fzf.bash
 # Created:     29.03.18, 11:02    @manjaroi3
-# Last update: 03.11.18, 01:18:55 @toshiba
+# Last update: 03.11.18, 01:38:18 @lenovo
 
 ## >> DOC:
 # Config & functions for FUZZY FINDER
@@ -28,7 +28,7 @@ export FZF_CTRL_T_OPTS='-m'
 
 # >>> Aliasy
 # przejrzyj zawartość plików tekstowych w danym katalogu
-alias ffp="fd --type f --type l -E '*.pdf' -E '*.mp?' -E '*.pyc' -E '*.RData' -E '*.png' . ./ | fzf --reverse --height 100% --border --inline-info --preview 'head -100 {}'"
+alias ffp="fd --type f --type l -E '*.avi' -E '*.ttf' -E '*.doc?' -E '*.m??' -E '*.od?' -E '*.rar' -E '*.jp*' -E '*.pdf' -E '*.mp?' -E '*.pyc' -E '*.RData' -E '*.png' . ./ | fzf --reverse --height 100% --border --inline-info --preview 'head -100 {}'"
 
 ## >> FUNCTIONS
 # >>> find pdf and open with preferred app (mupdf)
