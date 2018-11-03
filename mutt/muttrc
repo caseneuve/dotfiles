@@ -7,81 +7,83 @@
 ###                               ###
 #####################################
 
-# Last update: 03.11.18, 08:28:50 @x200
-# Doc: (browse-url "http://www.mutt.org/doc/manual")
-# >> TODOS:
-# todo: make hook for mailboxes (Wysłane, Szkoła)?
+# Last update: 03.11.18, 09:10:23 @x200
 
-## >> { GENERAL }
-# >>> {{ ACCOUNTS }}
-# >>> {{{ Akwinata }}}
+## >>  {   DOC }
+# http://www.mutt.org/doc/manual
+
+## >>  {   TODOS }
+# 03/11/2018, todo: jak automatycznie aktualizować foldery w jednej skrzynce? (wysłane, szkoła itp)
+
+## >>  {   GENERAL }
+# >>>  {{  ACCOUNTS }}
+# >>>> {{{ Akwinata }}}
 # source ~/box/Dropbox/.Config/Mutt/.muttakwinata
 # folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttakwinata'
 
-# >>> {{{ Gmail }}}
+# >>>> {{{ Gmail }}}
 
 #folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
 
-# >>> {{{ hooks }}}
+# >>>> {{{ hooks }}}
 #folder-hook Akwinata]/*   source ~/box/Dropbox/.Config/Mutt/.muttakwinata
 #folder-hook Gmail]/*     source ~/box/Dropbox/.Config/Mutt/.muttgmail
 #folder-hook =Szkoła source ~/box/Dropbox/.Config/Mutt/.muttgmail 
 
-# >>>  {{ kbd OFF }}}
+# >>>  {{  kbd OFF }}}
 #macro index,pager <f2> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttgmail<enter><change-folder>!<enter>'
 #macro index,pager <f3> '<sync-mailbox><enter-command>source ~/box/Dropbox/.Config/Mutt/.muttakwinata<enter><change-folder>!<enter>'
 
-# >>>  {{ aliasy}}
+# >>>  {{  aliasy }}
 set alias_file = "~/box/Dropbox/.Config/Mutt/.mutt_aliases"
 source $alias_file
 #set sort_alias = alias
 #set reverse_alias = yes
 
-# >>> kolory
+# >>>  {{  kolory }}
 source ~/.config/neomutt/mutt_color
 
-# >>> kbd
+# >>>  {{  kbd }}
 source ~/.config/neomutt/kbd.conf
 # mailcap: how to open attachements
 set mailcap_path=~/.config/neomutt/mailcap
 
-# >>>   {{ record sent messages }}
+# >>>  {{  record sent messages }}
 #set record="$HOME/.mail/sent"
 set record=""
 
-# >>>   {{ imap }}
+# >>>  {{  imap }}
 set imap_keepalive = 900
 
-## >> { BEHAVIOUR } 
-# >>> {{ open html messages }}
+## >>  {   BEHAVIOUR } 
+# >>>  {{  open html messages }}
 auto_view text/html                                  
 alternative_order text/plain text/enriched text/html 
 
-# >>> {{ reply immediately }}
+# >>>  {{  reply immediately }}
 set fast_reply=yes
 set include=yes
 
-# >>> {{ pager }}
+# >>>  {{  pager }}
 set pager_context=3
 set pager_stop=yes
 
-## >> { WRITING MESSAGES }
+## >>  {   WRITING MESSAGES }
 set editor="emacsclient -a \"\" -t"
 #set editor="nano --fill=80"
 #set editor="emacsclient -nw"
 
-## >> { APPEARANCE }
-# >>> {{ nie podświetlaj całej linii }}
+## >>  {   APPEARANCE }
+# >>>  {{  nie podświetlaj całej linii }}
 set arrow_cursor 
-# >>  {{ sortowanie }}
+# >>   {{  sortowanie }}
 set sort=threads
 set sort_browser=date
 set sort_aux=reverse-last-date-received
-# >>> {{ status chars }}
+# >>>  {{  status chars }}
 set status_chars=" #%A"
-# >>> {{ index format }}
-# >> http://www.mutt.org/doc/manual/#index-format
-
+# >>>  {{  index format }}
+# http://www.mutt.org/doc/manual/#index-format
 set date_format="%d %b %y"
 # num | flag | att. | date | from | subj | size || label#
 #                                              87=value adjusted to x200 gaps
@@ -89,19 +91,19 @@ set index_format="%2C %S %?X?A& ? %D %-25.25F%-200.200s"
 #set index_format="%2C %S %?X?A& ? %D %-25.25F%-87.87s%> %c"
 #set index_format="%2C %S %?X?A& ? %D   %-20.20F   %-90.90s        %> %c"
 
-# >>> {{ don't show help line }}
+# >>>  {{  don't show help line }}
 set help=no
 
-# >>> {{ status line format }}
+# >>>  {{  status line format }}
 set status_on_top=yes
 set status_format="%rNeoMutt: %-34.34f   new: %n   unread: %u   index%?V?(%V)?: %M %?t?  tagged: %t?%?d?  deleted: %d? %* all: %m "
 
-# >>> {{ pager format }}
+# >>>  {{  pager format }}
 # Default: “-%Z- %C/%m: %-20.20n   %s%*  -- (%P)”
 set pager_format="(%P) %20a | %-80.80s %* [%S,%?y? %y, ?%?X? att: %X,? msg: %C/%m, sent: %D]"
 
-## >> { SIDEBAR }
-# >>> {{ sidebar (neomutt) }}
+## >>  {   SIDEBAR }
+# >>>  {{  sidebar (neomutt) }}
 set sidebar_visible=yes
 set sidebar_delim_chars='/'
 set sidebar_width = 20
@@ -112,7 +114,7 @@ set sidebar_format = '%-7.7B [%F] %* %N'
 set mail_check_stats
 #set mail_check_stats_interval = 1
 
-## >> { MAILBOXES}
+## >>  {   MAILBOXES }
 source ~/box/Dropbox/.Config/Mutt/.muttgmail
 mailboxes imaps://imap.gmail.com/INBOX =Szkoła =[Gmail]/Wysłane
 # folder-hook $folder 'source ~/box/Dropbox/.Config/Mutt/.muttgmail'
