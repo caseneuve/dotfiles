@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Inconsolata for Powerline 11
+font = Inconsolata 12
 #font = Monospace 9
 #font = xos4 Terminus 12 
 #Ubuntu Mono 12
@@ -22,7 +22,7 @@ search_wrap = true
 cursor_blink = on
 
 # "block", "underline" or "ibeam"
-cursor_shape = underline
+cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 #browser = xdg-open
@@ -96,7 +96,8 @@ color15 = #ecf0f1
 
 # 20% background transparency (requires a compositor)
 #background = rgba(45, 55, 67, 0.90)
-background = rgba(45, 44, 55, 0.85)
+#background = rgba(45, 44, 55, 0.85)
+background = #0a0c10
 
 [hints]
 #font = Monospace 12
