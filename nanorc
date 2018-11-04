@@ -306,10 +306,10 @@ bind M-r backspace all
 bind ^z undo all
 bind ^r redo all
 bind ^l gotoline all
-bind M-' mark main
 bind M-> lastline all
 bind M-< firstline all
 bind M-% replace all
 bind ^F whereis all
-bind ^G searchagain all
+#bind ^G searchagain all
+bind M-' mark main
 
