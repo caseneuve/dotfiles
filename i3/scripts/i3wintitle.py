@@ -43,13 +43,14 @@ if i3class == None:
 
 
 # >> MUPDF: GET PAGE NUMBER FIRST
-mupdfRe = re.compile(r'([a-z0-9 ._-]*)(.pdf - )([0-9]+/[0-9]+)', re.I)
+mupdfRe = re.compile(r'([ąćęńóśżźła-z0-9 ._-]*)(.pdf - )([0-9]+/[0-9]+)', re.I)
 if i3class == 'MuPDF':
     i3name = f'[{mupdfRe.search(i3name).group(3)}] {mupdfRe.search(i3name).group(1)}'
 
 
 # >> Zathura: GET GET PAGE NUMBER FIRST
-zathuraRe = re.compile(r'([a-z0-9 ._-]*)(.pdf ).([0-9]+/[0-9]+).', re.I)
+# note: it won't work if full path is set as the window title!
+zathuraRe = re.compile(r'([ąćęńóśżźła-z0-9 \._-]*)(.pdf ).([0-9]+/[0-9]+).', re.I)
 if i3class == 'Zathura':
     i3name = f'[{zathuraRe.search(i3name).group(3)}] {zathuraRe.search(i3name).group(1)}'
 
