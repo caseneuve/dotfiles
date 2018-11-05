@@ -1,7 +1,7 @@
 ######################################################
 ###                My MOCP theme PK
 ######################################################
-# Last update: 30.05.18, 19:53:32 @x200
+# Last update: 06.11.18, 00:54:09 @lenovo
 
 # variable                #fg      #bg      #weight
 background		= default  default
@@ -33,7 +33,7 @@ enabled			= blue     black     bold
 empty_mixer_bar		= white    default
 filled_mixer_bar	= default  blue
 empty_time_bar		= white    default
-filled_time_bar		= black    blue
+filled_time_bar		= black    white
 entry			= green    default   bold
 entry_title		= white    green     bold
 error			= red      default   bold
