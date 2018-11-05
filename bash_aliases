@@ -371,6 +371,7 @@ alias gx='cd /home/piotr/box/Dropbox'
 alias gxd='cd /home/piotr/box/Dropbox/Dokumenty'
 alias gxc='cd /home/piotr/box/Dropbox/.Config'
 alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
+alias gx@='cd /home/piotr/box/Dropbox/Szkoła/www'
 alias gxx='cd /home/piotr/box/Dropbox'
 alias gy='cd /home/piotr/dox'
 
