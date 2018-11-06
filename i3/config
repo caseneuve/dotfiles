@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 06.11.18, 02:30:42 @lenovo
+# Last update: 06.11.18, 02:46:53 @lenovo
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -373,36 +373,38 @@ mode "$mode_gaps_outer" {
 }
 
 # >>> {{ i3move }}
+set $i3move exec --no-startup-id ~/git/hub/i3/i3move.py
+
 mode "i3move" {
-     bindsym u $exe ~/git/lab/py-exercises/i3move.py -m 1
-     bindsym Shift+u $exe ~/git/lab/py-exercises/i3move.py -m 1 -g 15
-     bindsym 1 $exe ~/git/lab/py-exercises/i3move.py -m 1
-     bindsym o $exe ~/git/lab/py-exercises/i3move.py -m 2
-     bindsym Shift+o $exe ~/git/lab/py-exercises/i3move.py -m 2 -g 15
-     bindsym 2 $exe ~/git/lab/py-exercises/i3move.py -m 2
-     bindsym m $exe ~/git/lab/py-exercises/i3move.py -m 4
-     bindsym Shift+m $exe ~/git/lab/py-exercises/i3move.py -m 4 -g 15
-     bindsym 4 $exe ~/git/lab/py-exercises/i3move.py -m 4
-     bindsym period $exe ~/git/lab/py-exercises/i3move.py -m 3
-     bindsym Shift+period $exe ~/git/lab/py-exercises/i3move.py -m 3 -g 15
-     bindsym 3 $exe ~/git/lab/py-exercises/i3move.py -m 3
-     bindsym c $exe ~/git/lab/py-exercises/i3move.py -s -m 5
-     bindsym Shift+c $exe ~/git/lab/py-exercises/i3move.py -s -m 5 -g 15
-     bindsym 5 $exe ~/git/lab/py-exercises/i3move.py -m 5
+     bindsym u $i3move -m 1
+     bindsym Shift+u $i3move -m 1 -g 15
+     bindsym 1 $i3move -m 1
+     bindsym o $i3move -m 2
+     bindsym Shift+o $i3move -m 2 -g 15
+     bindsym 2 $i3move -m 2
+     bindsym m $i3move -m 4
+     bindsym Shift+m $i3move -m 4 -g 15
+     bindsym 4 $i3move -m 4
+     bindsym period $i3move -m 3
+     bindsym Shift+period $i3move -m 3 -g 15
+     bindsym 3 $i3move -m 3
+     bindsym c $i3move -s -m 5
+     bindsym Shift+c $i3move -s -m 5 -g 15
+     bindsym 5 $i3move -m 5
 
-     bindsym i $exe ~/git/lab/py-exercises/i3move.py -m 1 -s 
-     bindsym l $exe ~/git/lab/py-exercises/i3move.py -m 2 -s
-     bindsym k $exe ~/git/lab/py-exercises/i3move.py -m 3 -s
-     bindsym j $exe ~/git/lab/py-exercises/i3move.py -m 4 -s
+     bindsym i $i3move -m 1 -s 
+     bindsym l $i3move -m 2 -s
+     bindsym k $i3move -m 3 -s
+     bindsym j $i3move -m 4 -s
 
-     bindsym f $exe ~/git/lab/py-exercises/i3move.py -f
-     bindsym r $exe ~/git/lab/py-exercises/i3move.py -r 15
-     bindsym Shift+r $exe ~/git/lab/py-exercises/i3move.py -r -15
+     bindsym f $i3move -f
+     bindsym r $i3move -r 15
+     bindsym Shift+r $i3move -r -15
 
-     bindsym y $exe ~/git/lab/py-exercises/i3move.py -x yt -r small -m 3 -g 15
-     bindsym Shift+y $exe ~/git/lab/py-exercises/i3move.py -x yt -r medium -m 3 -g 15
+     bindsym y $i3move -x yt -r small -m 3 -g 15
+     bindsym Shift+y $i3move -x yt -r medium -m 3 -g 15
 
-     bindsym Shift+l $exe ~/git/lab/py-exercises/i3move.py -l
+     bindsym Shift+l $i3move -l
 
      bindsym Return   mode "default"
      bindsym Escape   mode "default"
