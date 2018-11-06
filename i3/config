@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 02.11.18, 19:07:54 @x200
+# Last update: 06.11.18, 02:30:42 @lenovo
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -33,7 +33,7 @@ bindsym $mod+Shift+BackSpace exec tmux kill-session -t tmux; exec i3-msg exit
 
 ## >> { STARTUP & PROGRAMS }
 # >>> {{ starup apps }}
-exec_always --no-startup-id ~/.dotfiles/i3/i3listen.py
+exec_always --no-startup-id ~/git/hub/i3/i3listen.py
 exec_always --no-startup-id ~/git/hub/i3/i3catch.py 
 exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 exec_always --no-startup-id dropbox start 
