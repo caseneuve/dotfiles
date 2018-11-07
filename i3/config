@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 06.11.18, 02:46:53 @lenovo
+# Last update: 07.11.18, 11:25:18 @lenovo
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -222,29 +222,30 @@ $ws9 output LVDS1
 $ws10 output LVDS1
 
 # >>> {{ reguły dla aplikacji: }}
-assign [class="Slack"]                 $ws9
-assign [class="Mtpaint"]               $ws6
+# note: 07/11/2018, zajmuje się tym i3catch
+# assign [class="Slack"]                 $ws9
+# assign [class="Mtpaint"]               $ws6
 #assign [class="MuPDF"]                 $ws5
-assign [class="Messenger for Desktop"] $ws9
+#assign [class="Messenger for Desktop"] $ws9
 # przypisz wszystkie okna z klasy 'firefox' do ws2 =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile
-assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
-assign [class="libreoffice-writer"]    $ws4
-assign [class="libreoffice"]           $ws4
-assign [class="libreoffice-calc"]      $ws4
-assign [class="Vlc"]                   $ws7
+# assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
+# assign [class="libreoffice-writer"]    $ws4
+# assign [class="libreoffice"]           $ws4
+# assign [class="libreoffice-calc"]      $ws4
+# assign [class="Vlc"]                   $ws7
 #assign [class="neomutt"]               $ws10
-assign [class="Lxappearance"]          $ws3
-assign [class="FBReader"]              $ws5
-assign [class="Steam"]                 $ws8
-assign [class="MyPaint"]               $ws6
-assign [title=".*Edytor obrazów GIMP.*"]   $ws6
-assign [class="Arandr"]                $ws4
-assign [class="calibre"]               $ws5
-assign [class="Vivaldi-stable"]        $ws7
+# assign [class="Lxappearance"]          $ws3
+# assign [class="FBReader"]              $ws5
+# assign [class="Steam"]                 $ws8
+# assign [class="MyPaint"]               $ws6
+# assign [title=".*Edytor obrazów GIMP.*"]   $ws6
+# assign [class="Arandr"]                $ws4
+# assign [class="calibre"]               $ws5
+# assign [class="Vivaldi-stable"]        $ws7
 
-for_window [title=".*LibreOffice.Writer*"]    move to $ws4
-for_window [title=".*tryb.prywatny.*"]        move to $ws7
-for_window [class="Gpick"]                    resize set 1000 600
+# for_window [title=".*LibreOffice.Writer*"]    move to $ws4
+# for_window [title=".*tryb.prywatny.*"]        move to $ws7
+# for_window [class="Gpick"]                    resize set 1000 600
 # wartości zmiennych $right i $down podane w plikach lokalnych!
 for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
 for_window [title="nmtui"]                    floating enable
@@ -429,10 +430,10 @@ for_window [class="YTBDWL"] move scratchpad
 ## >> { GAPS }
 # smart_gaps on
 # no borders: 
-default_border pixel 0
-#for_window [class="^.*"] border pixel 0
+# default_border pixel 0
+for_window [class="^.*"] border pixel 0
 #for_window [class="calculator"] border pixel 1
-#new_float normal 0
+#new_float normal 1
 
 #hide_edge_borders both
 #hide_edge_borders vertical
