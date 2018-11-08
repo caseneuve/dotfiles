@@ -1,10 +1,15 @@
-#############################################
-#              NEWSBOAT CONFIG            
-#############################################
-# Last update: 19.08.18, 03:07:08 @x200
-#############################################
+#####################################################
+##                           | |                   ##
+##    _  _    _           ,  | |   __   __, _|_    ##
+##   / |/ |  |/  |  |  |_/ \_|/ \_/  \_/  |  |     ##
+##     |  |_/|__/ \/ \/   \/  \_/ \__/ \_/|_/|_/   ##
+##                                                 ##
+#####################################################
 
-# Doc: (browse-url "https://newsboat.org/releases/2.11.1/docs/newsboat.html")
+# Last update: 08.11.18, 11:05:10 @x200
+
+## >> {DOC}
+# https://newsboat.org/releases/2.11.1/docs/newsboat.html
 
 ## >> {GENERAL}
 auto-reload yes
@@ -41,43 +46,37 @@ bind-key f edit-flags
 
 ## >> {STRING FORMAT}
 articlelist-title-format "  %T (%u nieprzeczytane)"
-itemview-title-format "%F: %T"
-feedlist-title-format "  RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
+itemview-title-format    "%F: %T"
+feedlist-title-format    "  RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
 
 ## >> {COLORS}
-#  >> {{main}}
-color listnormal        cyan   default
-color listfocus         black  yellow   standout bold
-color listnormal_unread blue   default
-color listfocus_unread  yellow default  bold
-color info              black  white    bold
-#color article cyan default
-color article           white default
+#  >>> {{main}}
+color listnormal        cyan    default
+color listfocus         yellow default  bold
+color listnormal_unread blue    default
+color listfocus_unread  red default  bold
+color info              black   white    bold
+color article           white   default
+#color listfocus         black   yellow   standout bold
+#color listfocus_unread  yellow  default  bold
 
-#  >> {{highligh text}}
-highlight article "^Kanał:.*" red color237 bold
-highlight article "^Tytuł:.*" yellow color237 bold
-highlight article "^Autor:.*" green color237 bold
-highlight article "^Odsyłacz:.*" blue color237 bold
-highlight article "^Data:.*" cyan color237 bold
-highlight article "^Flagi:.*" magenta color237 bold
-highlight article "\\[[0-9][0-9]*\\]" color203 default #bold #66 # odsyłacze w tekście
-highlight article "http.[a-zA-A0-9\.#_/:=?&%-]*" blue color237 underline
-highlight article "^Odsyłacze:.$" white color237 underline bold
-# highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
-# highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold﻿
-# highlight article "^Kanał:.*" color174 color237 bold
-# highlight article "^Tytuł:.*" color223 color237 bold
-# highlight article "^Autor:.*" color114 color237
-# highlight article "^Odsyłacz:.*" color116 color237
-# highlight article "^Data:.*" color223 color237
+#  >>> {{highligh text}}
+highlight article "^Kanał:.*\|^Feed:.*"   red black bold
+highlight article "^Tytuł:.*\|^Title:.*"  yellow black bold
+highlight article "^Autor:.*\|^Author:.*" green black bold
+highlight article "^Odsyłacz:.*|^Link:.*" blue black bold
+highlight article "^Data:.*\|^Date:.*"    cyan black bold
+highlight article "^Flagi:.*\|^Flags:.*"  magenta black bold
+highlight article "\\[[0-9][0-9]*\\]"     red default
+highlight article "http.[-a-zA-A0-9\.#_/:=?&%\+]*" blue default underline
+highlight article "^Odsyłacze:.$\|^Links:.$"       white black underline bold
 
 #highlight articlelist "\\|[a-zA-Z]*" red default
 #highlight articlelist "(?<=\s)[a-zA-Z ]*" yellow default
 # {{{ https://newsboat.org/releases/2.10.2/docs/newsboat.html#_highlighting_text }}}
 
 # {macros [off]}
-#browser linkhandler
+# browser linkhandler
 # macro , open-in-browser
 # macro v set browser "i3 exec mpv"; open-in-browser ; set browser linkhandler
 # macro y set browser "spawndl"; open-in-browser ; set browser linkhandler
