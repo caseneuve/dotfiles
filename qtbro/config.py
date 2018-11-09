@@ -1,6 +1,11 @@
-##############################
-# MY QUTEBROWSER CONFIG
-##############################
+############################################################ 
+##              _       _                                 ##
+##    __ _ _  _| |_ ___| |__ _ _ _____ __ _____ ___ _ _   ##
+##   / _` | || |  _/ -_) '_ \ '_/ _ \ V  V (_-</ -_) '_|  ##
+##   \__, |\_,_|\__\___|_.__/_| \___/\_/\_//__/\___|_|    ##
+##      |_|                                               ## 
+##                                                        ##   
+############################################################
 
 # >> DOC:
 # qute://help/configuring.html
@@ -1567,7 +1572,8 @@ config.bind('P', 'open -p')
 # config.bind('Ss', 'open qute://settings')
 config.bind('Sm', 'open -t ;; set-cmd-text -s :messages ;; command-accept')
 # config.bind('T', 'tab-focus')
-config.unbind('T', 'tab-focus')
+config.unbind('T', 'normal')
+# config.bid('T', 'open -t ;; set-cmd-text -s ;; command-accept')
 # config.bind('ZQ', 'quit')
 # config.bind('ZZ', 'quit --save')
 # config.bind('[[', 'navigate prev')
