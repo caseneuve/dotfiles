@@ -652,7 +652,7 @@ bindsym $mod+Mod1+Return $exe ~/.dotfiles/bin/i3-term-toggler.sh
 #bindsym $mod+b workspace 2; $exe qutebrowser
 bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh
 bindsym $mod+Shift+b $exe qutebrowser
-bindsym $mod+p $ws7; $exe qutebrowser :command ":open -p"
+bindsym $mod+p $exe qutebrowser :command ":open -p"
 
 # >>>> emacs @kbd
 #bindsym $mod+e workspace 1; $exe emacs
