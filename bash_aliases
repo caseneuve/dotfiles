@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 20.10.18, 13:58:05 @lenovo
+# Last update: 09.11.18, 11:32:22 @toshiba
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -222,7 +222,8 @@ alias h=cmdhelp
 ## >> SYSTEM INFO 
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
-## >> SKRYPTY 
+## >> SKRYPTY
+alias wikd=/home/piotr/.dotfiles/other/wiki-date.sh
 alias check=checkupdates # from pacman-contrib
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
 alias walp='/home/piotr/.dotfiles/bin/walp.sh'
