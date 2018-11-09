@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 03.11.18, 00:33:09 @toshiba
+# Last update: 09.11.18, 12:31:20 @toshiba
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -102,6 +102,8 @@ export EDITOR='emacsclient -nw'
 export ALTERNATE_EDITOR="nano"
 export RANGER_LOAD_DEFAULT_RC=FALSE
 LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
+# set grep match color to bold, blue (default red bold)
+export GREP_COLORS="mt=01;34"
 
 ## >> LESS COLORS for MAN 
 export LESS=-R
