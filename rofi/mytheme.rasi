@@ -28,6 +28,11 @@ configuration {
     children:   [ prompt, entry, listview ];
 }
 
+#prompt {
+    /* text-color: Yellow; */
+    font: "Inconsolata Bold 10";
+}
+
 #listview {
     layout:     horizontal;
     spacing:    10px;
