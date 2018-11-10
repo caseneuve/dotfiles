@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 26.07.18, 19:53:56 @x200
+# Last update: 10.11.18, 11:23:09 @toshiba
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
@@ -14,7 +14,11 @@
 CLIP="$(xclip -o -selection clipboard)"
 MOC=$(mocp -Q %state)
 MPV=$(~/bin/mpv-socket -s)
-GLYPH=
+if [[ $HOSTNAME == toshiba ]]; then
+    GLYPH=
+else
+    GLYPH=
+fi
 
 # >> MPV FUNC
 mpv_commands(){
