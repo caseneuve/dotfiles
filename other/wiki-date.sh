@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/wida.sh
 # Created:     09.11.18, 09:17    @toshiba
-# Last update: 09.11.18, 11:37:51 @toshiba
+# Last update: 10.11.18, 20:01:34 @toshiba
 # >> DOC: 
 
 # >> TODOS: 
@@ -18,7 +18,7 @@ del=
 # >>> usage
 usage(){
     cat << EOF
-Wiki date: drukuj wydarzenia z bieżącego dnia w terminalu
+$0: drukuj wydarzenia z bieżącego dnia w terminalu
 Usage: wiki-date [-swuz] [-f <nnnn>] [-t <nnnn>] [-q <regex>]
 
  -s  święta
