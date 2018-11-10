@@ -5,9 +5,9 @@
  */
 
 * {
-    background-color:      #2980b9; /*baige*/
-    border-color:          Black; /*Black*/
-    text-color:            white;
+    background-color:      #e4e4a1; /*baige*/
+    border-color:          #e4e4a1; /*Black*/
+    text-color:            Black;
     font:                  "Inconsolata 10";
 }
 
@@ -18,7 +18,7 @@ configuration {
     anchor:     north;
     location:   north;
     width:      100%;
-    padding:    3px;
+    padding:    4px;
     children:   [ horibox ];
     fullscreen: false;
 }
@@ -36,14 +36,12 @@ configuration {
 
 #entry {
     expand:     false;
-    width:      15em;
+    width:      7em;
 }
 
 #element {
     padding: 0px 4px;
 }
-
 #element selected {
     background-color: Orange;
-    text-color: Black;
 }
