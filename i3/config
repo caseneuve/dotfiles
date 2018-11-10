@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 09.11.18, 12:59:16 @toshiba
+# Last update: 10.11.18, 11:14:33 @toshiba
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -428,7 +428,7 @@ for_window [class="YTBDWL"] move scratchpad
 # for_window [title="youtube-dl"] move window to position $yright 10
 
 ## >> { GAPS }
-# smart_gaps on
+smart_gaps on
 # no borders: 
 # default_border pixel 0
 for_window [class="^.*"] border pixel 0
@@ -703,9 +703,9 @@ bindsym $mod+F8 $exe ~/.dotfiles/bin/i3-gromit-launcher.sh
 #bindsym $mod+w exec firefox
 #bindsym $mod+F8 $exe mocp -p
 
-# >>>> rofi\dmenu scpripts
+# >>>> rofi/dmenu scpripts
 #bindsym $mod+semicolon $exe ~/.dotfiles/dmenu/dmenu-kill.sh
-bindsym $mod+semicolon $exe rofi -show window -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
+bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 #bindsym $mod+a $exe ~/.dotfiles/bin/rofi-media.sh
 #bindsym $mod+Shift+d $exe dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
 bindsym $mod+Shift+d $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
