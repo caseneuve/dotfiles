@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 05.11.18, 11:32:45 @lenovo
+# Last update: 11.11.18, 02:21:27 @toshiba
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -62,16 +62,17 @@ gsf -- /home/piotr/szk/flz
 gsr -- /home/piotr/szk/ratio
 gss -- /home/piotr/szk
 gsz -- /home/piotr/szk/18-19
-gw -- /home/piotr/wid
+gww -- /home/piotr/wid
+gwt -- /home/piotr/web/test
 gx -- /home/piotr/box/Dropbox
-gxd -- /home/piotr/box/Dropbox/Dokumenty
-gxc -- /home/piotr/box/Dropbox/.Config
-gxs -- /home/piotr/box/Dropbox/Szkoła
 gx@ -- /home/piotr/box/Dropbox/Szkoła/www
+gxc -- /home/piotr/box/Dropbox/.Config
+gxd -- /home/piotr/box/Dropbox/Dokumenty
+gxs -- /home/piotr/box/Dropbox/Szkoła
 gxx -- /home/piotr/box/Dropbox
 gy -- /home/piotr/dox
 
 # Local variables:
-# eval: (load-file "/home/piotr/git/hub/emacs/file-hooks/fast-dirs.el")
+# eval: (load-file "/home/piotr/git/hub/emacs/fast-dirs.el")
 # eval: (add-hook 'after-save-hook 'pk/sync-fastdirs nil t)
 # End:
