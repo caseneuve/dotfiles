@@ -1614,6 +1614,7 @@ config.bind('<Alt-Shift-J>', 'tab-move -')
 
 # >> NAVIG bindings
 config.bind(',', 'enter-mode insert')
+config.bind('e', 'enter-mode insert')
 config.bind('j', 'scroll down')
 config.bind('k', 'scroll up')
 config.bind('L', 'scroll right')
