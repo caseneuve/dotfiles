@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 09.11.18, 11:32:22 @toshiba
+# Last update: 12.11.18, 23:01:19 @toshiba
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -25,6 +25,7 @@ alias ll='ls -l'
 alias cdl='cd $1;ls'
 alias 'cd.'='cd ..'
 alias '..'='cd ..'
+alias 'cd..'='cd ../..' 
 alias lg='ls --group-directories-first'
 alias lg1='ls -1 --group-directories-first'
 alias ls1='ls -1'
@@ -367,12 +368,13 @@ alias gsf='cd /home/piotr/szk/flz'
 alias gsr='cd /home/piotr/szk/ratio'
 alias gss='cd /home/piotr/szk'
 alias gsz='cd /home/piotr/szk/18-19'
-alias gw='cd /home/piotr/wid'
+alias gww='cd /home/piotr/wid'
+alias gwt='cd /home/piotr/web/test'
 alias gx='cd /home/piotr/box/Dropbox'
-alias gxd='cd /home/piotr/box/Dropbox/Dokumenty'
-alias gxc='cd /home/piotr/box/Dropbox/.Config'
-alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
 alias gx@='cd /home/piotr/box/Dropbox/Szkoła/www'
+alias gxc='cd /home/piotr/box/Dropbox/.Config'
+alias gxd='cd /home/piotr/box/Dropbox/Dokumenty'
+alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
 alias gxx='cd /home/piotr/box/Dropbox'
 alias gy='cd /home/piotr/dox'
 
