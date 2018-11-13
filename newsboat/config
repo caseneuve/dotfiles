@@ -6,7 +6,7 @@
 ##                                                 ##
 #####################################################
 
-# Last update: 08.11.18, 11:09:20 @x200
+# Last update: 13.11.18, 00:59:04 @toshiba
 
 ## >> {DOC}
 # https://newsboat.org/releases/2.11.1/docs/newsboat.html
@@ -54,7 +54,7 @@ feedlist-title-format    "  RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&
 color listnormal        cyan    default
 color listfocus         yellow default  bold
 color listnormal_unread blue    default
-color listfocus_unread  red default  bold
+color listfocus_unread  color9 default  bold
 color info              black   white    bold
 color article           white   default
 #color listfocus         black   yellow   standout bold
@@ -68,7 +68,7 @@ highlight article "^Odsyłacz:.*|^Link:.*" blue black bold
 highlight article "^Data:.*\|^Date:.*"    cyan black bold
 highlight article "^Flagi:.*\|^Flags:.*"  magenta black bold
 highlight article "\\[[0-9][0-9]*\\]"     red default
-highlight article "http.[-a-zA-A0-9\.#_/:=?&%\+]*" blue default underline
+highlight article "http.[-a-zA-A0-9\.#_/:=?&%\+()]*" blue default underline
 highlight article "^Odsyłacze:.$\|^Links:.$\|^Footnotes:.$" white default underline bold
 
 #highlight articlelist "\\|[a-zA-Z]*" red default
