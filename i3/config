@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 10.11.18, 11:14:33 @toshiba
+# Last update: 13.11.18, 16:03:52 @x200
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -544,6 +544,8 @@ set $sbwfbg #9B9B9B
 set $sbwtx  #191f26
 # bar other workspace txt
 set $sbowtx #191f26
+# #51657b
+# #3c4b5d
 # bar urgent workspace background     
 set $sbwu   #ff6347
 # bar urgent workspace border
