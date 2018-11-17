@@ -2,10 +2,10 @@
 
 # Path:        ~/.dotfiles/bin/gitlabinit.sh
 # Created:     17.11.18, 19:53    @lenovo
-# Last update: 17.11.18, 20:22:12 @lenovo
+# Last update: 17.11.18, 20:22:52 @lenovo
 
 # >> DOC:
-#init nonexistent repo on gitlab
+# init nonexistent repo on gitlab
 
 # >> VARIABLES: 
 if [[ -z $1 ]]; then
@@ -34,7 +34,6 @@ while true; do
         git commit -m 'initial commit'
         git push --set-upstream git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git master
         git status
-        # echo ok
         exit 0
     elif [[ $answer =~ n|N ]]; then
         echo ">   Quit!"
