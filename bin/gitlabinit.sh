@@ -2,11 +2,10 @@
 
 # Path:        ~/.dotfiles/bin/gitlabinit.sh
 # Created:     17.11.18, 19:53    @lenovo
-# Last update: 17.11.18, 20:14:15 @lenovo
+# Last update: 17.11.18, 20:22:12 @lenovo
+
 # >> DOC:
 #init nonexistent repo on gitlab
-
-# >> TODOS: 
 
 # >> VARIABLES: 
 if [[ -z $1 ]]; then
@@ -21,6 +20,8 @@ else
     NAMESPACE=$2
 fi
 
+
+# >> RUN:
 while true; do
     read -p "## Im going to initialize a git repo on GitLab:
 >  user:    $NAMESPACE
@@ -40,13 +41,4 @@ while true; do
         exit 1
     fi
 done
-
-        
-
-        
-# >> RUN:
-# git init
-# git add .
-# git commit -m 'initial commit'
-# git push --set-upstream git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git master
-# git status
+ 
