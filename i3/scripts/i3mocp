@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 25.10.18, 00:00:41 @lenovo
+# Last update: 17.11.18, 14:49:53 @toshiba
 
 # >> DOC:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -12,7 +12,11 @@
 BGCOLOR=#36648b
 FGCOLOR=#596473
 #FGCOLOR=#6F7D91
-GLYPH=""
+if [[ $HOSTNAME == toshiba ]]; then
+    GLYPH="♫"
+else
+    GLYPH=""
+fi
 
 #TITLE=$(mocp -Q %title)
 #ARTIST=$(mocp -Q %artist)
