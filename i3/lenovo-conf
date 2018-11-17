@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 13.10.18, 20:40:12 @lenovo
+# Last update: 17.11.18, 14:41:57 @toshiba
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -32,3 +32,25 @@ for_window [class="Skype"] move window to position 1070 20
 # bindsym Mod3+k resize shrink height 10px
 # bindsym Mod3+space workspace next
 # bindsym Mod3+slash workspace prev
+
+bar {
+        output VGA1
+        tray_output none
+        modifier $mod
+        status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
+        i3bar_command i3bar -t
+        position bottom
+        height 20
+
+        colors {
+               background $sbbg
+               statusline $sbsl
+               separator  $sbwabg
+
+               # colorclass         border     backgro    text
+               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
+               active_workspace     $sbwbr     $sbwabg    $sbowtx
+               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
+               urgent_workspace     $brur      $bgur      $sbwtx 
+        }
+}

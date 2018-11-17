@@ -8,7 +8,7 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 13.11.18, 16:03:52 @x200
+# Last update: 17.11.18, 14:42:23 @toshiba
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
@@ -580,28 +580,7 @@ bar {
 }
 
 # >>> {{ bar: secondary }}
-bar {
-        output VGA-1
-        tray_output none
-        modifier $mod
-        status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
-        i3bar_command i3bar -t
-        position bottom
-        height 20
-
-        colors {
-               background $sbbg
-               statusline $sbsl
-               separator  $sbwabg
-
-               # colorclass         border     backgro    text
-               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
-               active_workspace     $sbwbr     $sbwabg    $sbowtx
-               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $brur      $bgur      $sbwtx 
-        }
-}
-
+# moved to local files!
 
 ## >> { CONTROLS }
 # >>> {{ SREEN brightness controls: }}

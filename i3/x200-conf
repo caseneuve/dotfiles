@@ -2,7 +2,7 @@
 
 # x200 local settings:
 # ===================
-# Last update: 01.11.18, 19:24:05 @x200
+# Last update: 17.11.18, 14:42:11 @toshiba
 
 # bindsym F1 workspace $ws5; exec mupdf ~/.help/readline-emacs-editing-mode-cheat-sheet.pdf
 
@@ -37,3 +37,24 @@
 # $ws9 output LVDS-1
 # $ws10 output LVDS-1
 
+bar {
+        output VGA-1
+        tray_output none
+        modifier $mod
+        status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
+        i3bar_command i3bar -t
+        position bottom
+        height 20
+
+        colors {
+               background $sbbg
+               statusline $sbsl
+               separator  $sbwabg
+
+               # colorclass         border     backgro    text
+               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
+               active_workspace     $sbwbr     $sbwabg    $sbowtx
+               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
+               urgent_workspace     $brur      $bgur      $sbwtx 
+        }
+}
