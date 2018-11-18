@@ -4,7 +4,7 @@
 # - bash_aliases
 # - ranger
 
-# Last update: 11.11.18, 02:21:27 @toshiba
+# Last update: 18.11.18, 10:41:20 @toshiba
 # todo: uporządkować skróty według folderów
 
 # key  # path
@@ -62,6 +62,7 @@ gsf -- /home/piotr/szk/flz
 gsr -- /home/piotr/szk/ratio
 gss -- /home/piotr/szk
 gsz -- /home/piotr/szk/18-19
+gwe -- /home/piotr/web
 gww -- /home/piotr/wid
 gwt -- /home/piotr/web/test
 gx -- /home/piotr/box/Dropbox
