@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 19.11.18, 13:40:17 @lenovo
+# Last update: 23.11.18, 21:15:44 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -48,6 +48,11 @@ app_running_p(){
     ps aux | grep "$1" | grep -v grep
 }
 alias psaux=app_running_p
+
+kill_running_app(){
+    app_running_p "$1" | awk '{print $2}' | xargs kill -9
+}
+alias psauk=kill_running_app
 
 # >> F: copy path
 copy_path(){ echo $PWD/$1 | xclip -selection clipboard; } 
