@@ -8,33 +8,34 @@
 ####################################################
 
 ## >> { STATUS }
-# Last update: 17.11.18, 14:42:23 @toshiba
+# Last update: 23.11.18, 23:09:36 @x200
 
 ## >> { TODOS }
 # todo: 20/10/2018, zrobić tu porządek :-)
 
 ## >> { VARIABLES & general SETTINGS } 
 set $mod Mod4
-set $term st 
+set $term st
+set $browser qutebrowser
 set $top  10
-set $scr1 eDP1
-set $scr2 VGA1
+# set $scr1 eDP1
+# set $scr2 VGA1
 floating_modifier $mod
 focus_on_window_activation focus
 
 set $exe     exec --no-startup-id
-set $browser qutebrowser
 set $i3scr   ~/.dotfiles/i3/scripts
+set $app     exec ~/git/hub/i3/i3applauncher
 
 bindsym $mod+q kill
 
-# >>> {{power management:}}
+# >>> {{kill i3}}
 bindsym $mod+Shift+BackSpace exec tmux kill-session -t tmux; exec i3-msg exit
 
 ## >> { STARTUP & PROGRAMS }
 # >>> {{ starup apps }}
 exec_always --no-startup-id ~/git/hub/i3/i3listen.py
-exec_always --no-startup-id ~/git/hub/i3/i3catch.py 
+# exec_always --no-startup-id ~/git/hub/i3/i3catch.py 
 exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
 exec_always --no-startup-id dropbox start 
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
@@ -141,40 +142,74 @@ bindsym $mod+Shift+t $exe ~/.dotfiles/bin/i3scratchpads -t 1
 
 ## >> { WORKSPACES }                
 # workspace_auto_back_and_forth yes
-set $ws1 workspace Emacs
-set $ws2 workspace Qtb
-set $ws3 workspace Term
-set $ws4 workspace Gui
-set $ws5 workspace Pdf
-set $ws6 workspace Gfx
-set $ws7 workspace Media+
-set $ws8 workspace Var
-set $ws9 workspace Social
-set $ws10 workspace Mail/RSS
+# set $ws1 workspace Emacs
+# set $ws2 workspace Qtb
+# set $ws3 workspace Term
+# set $ws4 workspace Gui
+# set $ws5 workspace Pdf
+# set $ws6 workspace Gfx
+# set $ws7 workspace Media+
+# set $ws8 workspace Var
+# set $ws9 workspace Social
+# set $ws10 workspace Mail/RSS
+
+set $ws1 workspace number 1
+set $ws2 workspace number 2
+set $ws3 workspace number 3
+set $ws4 workspace number 4
+set $ws5 workspace number 5
+set $ws6 workspace number 6
+set $ws7 workspace number 7
+set $ws8 workspace number 8
+set $ws9 workspace number 9
+set $ws10 workspace number 10
 
 # >>> {{ switch to workspace: }}
-set $i3go exec --no-startup-id ~/git/hub/i3/i3go.sh
-bindsym $mod+1 $i3go 1;
-bindsym $mod+2 $i3go 2;
-bindsym $mod+3 $i3go 3;
-bindsym $mod+4 $i3go 4;
-bindsym $mod+5 $i3go 5;
-bindsym $mod+6 $i3go 6;
-bindsym $mod+7 $i3go 7;
-bindsym $mod+8 $i3go 8;
-bindsym $mod+9 $i3go 9; 
-bindsym $mod+0 $i3go 10;
+# set $i3go exec --no-startup-id ~/git/hub/i3/i3go.sh
+# bindsym $mod+1 $i3go 1;
+# bindsym $mod+2 $i3go 2;
+# bindsym $mod+3 $i3go 3;
+# bindsym $mod+4 $i3go 4;
+# bindsym $mod+5 $i3go 5;
+# bindsym $mod+6 $i3go 6;
+# bindsym $mod+7 $i3go 7;
+# bindsym $mod+8 $i3go 8;
+# bindsym $mod+9 $i3go 9; 
+# bindsym $mod+0 $i3go 10;
 
-bindsym Control+1 $i3go 1;
-bindsym Control+2 $i3go 2;
-bindsym Control+3 $i3go 3;
-bindsym Control+4 $i3go 4;
-bindsym Control+5 $i3go 5; 
-bindsym Control+6 $i3go 6;
-bindsym Control+7 $i3go 7;
-bindsym Control+8 $i3go 8;
+# bindsym Control+1 $i3go 1;
+# bindsym Control+2 $i3go 2;
+# bindsym Control+3 $i3go 3;
+# bindsym Control+4 $i3go 4;
+# bindsym Control+5 $i3go 5; 
+# bindsym Control+6 $i3go 6;
+# bindsym Control+7 $i3go 7;
+# bindsym Control+8 $i3go 8;
+# # layout stacking dla 9?
+# bindsym Control+9 $i3go 9; 
+# # bindsym Control+0 workspace $i3go 10
+
+bindsym $mod+1 $ws1;
+bindsym $mod+2 $ws2;
+bindsym $mod+3 $ws3;
+bindsym $mod+4 $ws4;
+bindsym $mod+5 $ws5;
+bindsym $mod+6 $ws6;
+bindsym $mod+7 $ws7;
+bindsym $mod+8 $ws8;
+bindsym $mod+9 $ws9; 
+bindsym $mod+0 $ws10;
+
+bindsym Control+1 $ws1;
+bindsym Control+2 $ws2;
+bindsym Control+3 $ws3;
+bindsym Control+4 $ws4;
+bindsym Control+5 $ws5; 
+bindsym Control+6 $ws6;
+bindsym Control+7 $ws7;
+bindsym Control+8 $ws8;
 # layout stacking dla 9?
-bindsym Control+9 $i3go 9; 
+bindsym Control+9 $ws9; 
 # bindsym Control+0 workspace $i3go 10
 
 # >>> {{ move focused container to $ws: }}
@@ -202,49 +237,53 @@ bindsym $mod+Mod1+k focus output down
 
 # >>> {{ pk: cycle through workspaces: }}
 # 25/10/2018: with dynamic renamig of wksp "prev" works like back_and_forth, and "next" goes to the beginning of stack
-bindsym Mod1+Tab workspace prev
+bindsym Mod1+Tab workspace back_and_forth
 bindsym Mod1+Shift+Tab workspace next
 # note: przy dynamicznych ws (renaming) back_and_forth nie działa
-#bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Tab workspace next
+bindsym $mod+Tab workspace prev
+#bindsym $mod+Tab workspace next
 
 # >>> {{ reguły dla monitorów: }}
-$ws1 output VGA1
-$ws5 output VGA1
-$ws6 output VGA1
-$ws7 output VGA1
-$ws8 output VGA1
+# workspace 2 output primary
+workspace 3 output primary
+workspace 4 output primary
+workspace 9 output primary
+workspace 10 output primary
 
-$ws2 output LVDS1
-$ws3 output LVDS1
-$ws4 output LVDS1
-$ws9 output LVDS1
-$ws10 output LVDS1
+workspace 1 output secondary
+workspace 5 output secondary
+workspace 6 output secondary
+workspace 7 output secondary
+workspace 8 output secondary
 
 # >>> {{ reguły dla aplikacji: }}
 # note: 07/11/2018, zajmuje się tym i3catch
-# assign [class="Slack"]                 $ws9
-# assign [class="Mtpaint"]               $ws6
-#assign [class="MuPDF"]                 $ws5
-#assign [class="Messenger for Desktop"] $ws9
-# przypisz wszystkie okna z klasy 'firefox' do ws2 =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile
-# assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
-# assign [class="libreoffice-writer"]    $ws4
-# assign [class="libreoffice"]           $ws4
-# assign [class="libreoffice-calc"]      $ws4
-# assign [class="Vlc"]                   $ws7
-#assign [class="neomutt"]               $ws10
-# assign [class="Lxappearance"]          $ws3
-# assign [class="FBReader"]              $ws5
-# assign [class="Steam"]                 $ws8
-# assign [class="MyPaint"]               $ws6
-# assign [title=".*Edytor obrazów GIMP.*"]   $ws6
-# assign [class="Arandr"]                $ws4
-# assign [class="calibre"]               $ws5
-# assign [class="Vivaldi-stable"]        $ws7
+assign [class="Emacs"]                 $ws1
+assign [class="Lxappearance"]          $ws3
+assign [class="libreoffice-writer"]    $ws4
+assign [class="libreoffice"]           $ws4
+assign [class="libreoffice-calc"]      $ws4
+assign [class="Arandr"]                $ws4
+assign [class="FBReader"]              $ws5
+assign [class="calibre"]               $ws5
+assign [class="MuPDF"]                 $ws5
+assign [class="Mtpaint"]               $ws6
+assign [class="MyPaint"]               $ws6
+assign [title=".*Edytor obrazów GIMP.*"]   $ws6
+# przypisz wszystkie okna z klasy 'firefox' do ws2
+# =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile
+assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
+assign [class="Vivaldi-stable"]        $ws7
+assign [class="Vlc"]                   $ws7
+assign [class="Steam"]                 $ws8
+assign [class="Slack"]                 $ws9
+assign [class="Messenger for Desktop"] $ws9
+assign [class="rss"]                   $ws10
+assign [class="neomutt"]               $ws10
+assign [class="mail"]               $ws10
 
-# for_window [title=".*LibreOffice.Writer*"]    move to $ws4
-# for_window [title=".*tryb.prywatny.*"]        move to $ws7
+for_window [title=".*LibreOffice.Writer*"]    move to $ws4
+for_window [title=".*tryb.prywatny.*"]        move to $ws7
 # for_window [class="Gpick"]                    resize set 1000 600
 # wartości zmiennych $right i $down podane w plikach lokalnych!
 for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
@@ -539,9 +578,12 @@ set $sbsl   #191f26
 # bar workspace border
 set $sbwbr  #9B9B9B
 # bar focused workspace background #a9a9a9
-set $sbwfbg #9B9B9B
+#set $sbwfbg #9B9B9B
+set $sbwfbg #8c8c8c
+#set $sbwfbg #808080
 # bar focused workspace text     
-set $sbwtx  #191f26
+#set $sbwtx  #191f26
+set $sbwtx  #111111
 # bar other workspace txt
 set $sbowtx #191f26
 # #51657b
@@ -569,10 +611,10 @@ bar {
                separator  $sbwabg
 
                # colorclass         border     backgro    text
-               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
+               focused_workspace    $sbwbr     $sbwfbg    $sbwtx
                active_workspace     $sbwbr     $sbwabg    $sbowtx
                inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $brur      $bgur      $sbwtx 
+               urgent_workspace     $brur      $bgur      $sbowtx 
 
                #binding_mode        #2f343a    #900000    #ffffff
                #urgent_workspace    #c0392b    #e74c3c    #bdc3c7
@@ -630,20 +672,24 @@ bindsym $mod+Mod1+Return $exe ~/.dotfiles/bin/i3-term-toggler.sh
 # bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
 
 # >>>> qutebrowser @kbd
-#bindsym $mod+b workspace 2; $exe qutebrowser
-bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh
+bindsym $mod+b $app qutebrowser
 bindsym $mod+Shift+b $exe qutebrowser
 bindsym $mod+p $exe qutebrowser :command ":open -p"
+# bindsym $mod+b workspace 2; $exe qutebrowser
+# bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh
 
 # >>>> emacs @kbd
-#bindsym $mod+e workspace 1; $exe emacs
-bindsym $mod+e $exe ~/.dotfiles/bin/i3-emacs-launcher.sh 
-#bindsym $mod+Shift+e $exe $term -e emacsclient -nw
+bindsym $mod+e $app emacs
 bindsym $mod+Control+e $exe $term -e ~/.dotfiles/bin/notes.sh 
+#bindsym $mod+e workspace 1; $exe emacs
+#bindsym $mod+e $exe ~/.dotfiles/bin/i3-emacs-launcher.sh 
+#bindsym $mod+Shift+e $exe $term -e emacsclient -nw
 
-# >>>> mail & feed @kbd
-bindsym $mod+n $exe ~/.dotfiles/bin/i3-newsboat-launcher.sh
-bindsym $mod+m $exe ~/.dotfiles/bin/i3-neomutt-launcher.sh
+# >>>> mail & rss @kbd
+bindsym $mod+n $app newsboat
+bindsym $mod+m $app neomutt
+#bindsym $mod+n $exe ~/.dotfiles/bin/i3-newsboat-launcher.sh
+#bindsym $mod+m $exe ~/.dotfiles/bin/i3-neomutt-launcher.sh
 # calcurse todo: napisać skrypt, który będzie otwierał scratchpad, jeśli calc już jest włączone 
 # bindsym $mod+Shift+c $exe $term -e calcurse
 
@@ -688,9 +734,12 @@ bindsym $mod+F8 $exe ~/.dotfiles/bin/i3-gromit-launcher.sh
 #bindsym $mod+semicolon $exe ~/.dotfiles/dmenu/dmenu-kill.sh
 bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 #bindsym $mod+a $exe ~/.dotfiles/bin/rofi-media.sh
+bindsym $mod+Shift+d $exe dmenu_run -nb '#9B9B9B' -nf '#191f26' -sb '#ff6347' -p 'run:'
 #bindsym $mod+Shift+d $exe dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
-bindsym $mod+Shift+d $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
-bindsym $mod+d $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
+#bindsym $mod+Shift+d $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
+#bindsym $mod+d $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
+bindsym $mod+d $exe rofi -show drun -modi drun -theme i3grey
+#bindsym $mod+d $exe rofi -combi-modi sys#drun -show combi -modi drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate
 
 
