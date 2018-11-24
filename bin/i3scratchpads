@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 03.11.18, 11:10:20 @x200
+# Last update: 24.11.18, 11:26:02 @x200
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -28,9 +28,9 @@ while getopts "ufcot:" flag; do
                if [[ $(echo $proc'==0.7' | bc -l) == 0 ]] && [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]]; then
                    ~/bin/i3move -p 70 -m c
                fi
-               if [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]]; then
-                   i3-msg -q "border pixel 1"
-               fi
+               # if [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]]; then
+               #     i3-msg -q "border pixel 1"
+               # fi
            fi
            ;;
         # >>> quick scratch
@@ -41,7 +41,7 @@ while getopts "ufcot:" flag; do
            i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&
                if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ myquickterm ]]; then
                    ~/bin/i3move -s -m 1;
-                   i3-msg -q "border pixel 1"
+                   # i3-msg -q "border pixel 1"
                fi
            ;;
         # >>> calc
@@ -52,7 +52,7 @@ while getopts "ufcot:" flag; do
            i3-msg -q "[class=\"calculator\"] scratchpad show" &&
                if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ calculator ]]; then
                    ~/bin/i3move -m c;
-                   i3-msg -q "border pixel 1"
+                   # i3-msg -q "border pixel 1"
                fi
            ;;
         # >>> words
@@ -63,7 +63,7 @@ while getopts "ufcot:" flag; do
            i3-msg -q "[title=\"w0rds\"] scratchpad show" &&
                if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ whit4ker ]]; then
                    ~/bin/i3move -p 35 -g 10 -m sw
-                   i3-msg -q "border pixel 1"
+                   # i3-msg -q "border pixel 1"
                fi
            ;;
         # >>> clock
