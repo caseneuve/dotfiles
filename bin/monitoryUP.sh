@@ -2,11 +2,12 @@
 
 # Path:        ~/.dotfiles/bin/monitory-UP.sh
 # Created:     06.07.18, 09:47    @toshiba
-# Last update: 18.09.18, 14:23:54 @x200
+# Last update: 24.11.18, 10:53:42 @x200
 
 # Doc: default setting for 2 monitors (primary down, secondary up)
 #xrandr --current | grep -A 1 primary | awk -F"x" 'NR==2 {gsub(/^ */,""); print $1}'
 
+log_file=/tmp/monit_num
 intern=$(xrandr --listmonitors | awk 'NR==2 {print $(NF)}')
 #intern=$(xrandr --current | awk 'NR==2 {print $1}')
 
@@ -30,3 +31,6 @@ if [ -n $extern ] && [ -n $intern ]; then
     ~/.fehbg;
     pkill dunst && dunst &
 fi
+
+echo "num=$(xrandr --listmonitors | awk 'NR==1 {print $2}')" > $log_file
+
