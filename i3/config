@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 24.11.18, 13:10:04 @x200
+# Last update: 24.11.18, 13:23:23 @x200
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -122,7 +122,7 @@ for_window [class="cl0ck"] floating enable
 bindsym $mod+Shift+t $exe $dot/i3scratchpads -t 1
 
 ## >> { WORKSPACES }                
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no
 
 set $ws1 workspace number 1
 set $ws2 workspace number 2
@@ -434,7 +434,7 @@ set $txtur #ececec
 client.focused            $bra    $bgf   $txtf
 client.focused_inactive   $bri    $bgfi  $txti
 client.unfocused          $bru    $bgi   $txtu 
-client.urgent             $bru    $bgur  $txtur 
+client.urgent             $brur    $bgur  $txtur 
 
 ## >> { BAR }
 font pango:Lato 8
