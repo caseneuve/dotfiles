@@ -2,9 +2,10 @@
 
 # Path:        ~/.dotfiles/i3quick-help.sh
 # Created:     20.05.18, 10:52    @lenovo
-# Last update: 13.08.18, 15:44:14 @x200
+# Last update: 24.11.18, 11:35:22 @x200
 
-# Doc: F1
+# Doc:
+# mod+f1
 
 notify-send "i3 KBD HELPER" \
 "\-------------
