@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 24.11.18, 13:50:35 @x200
+# Last update: 24.11.18, 14:17:16 @x200
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -493,30 +493,7 @@ bar {
 
 # >>> {{ bar: secondary → local }}
 # moved to local files!
-bar {
-        #output VGA-1
-        output secondary
-        tray_output none
-        modifier $mod
-        status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
-        i3bar_command i3bar -t
-        position top
-        height 20
 
-        colors {
-               background $sbbg
-               statusline $sbsl
-               separator  $sbwabg
-
-               # colorclass         border     backgro    text
-               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
-               active_workspace     $sbwbr     $sbwabg    $sbowtx
-               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $brur      $bgur      $sbwtx 
-        }
-}
-
- 
 ## >> { CONTROLS }
 # >>> {{ SREEN brightness controls: }}
 bindsym XF86MonBrightnessUp $exe xbacklight -inc 15   # increase screen brightness
