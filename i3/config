@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 24.11.18, 13:49:01 @x200
+# Last update: 24.11.18, 13:49:57 @x200
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -404,8 +404,7 @@ hide_edge_borders both
 for_window [class="^term"] border pixel 1
 for_window [class="cl0ck"] border pixel 1
 for_window [class="whit4ker"] border pixel 1
-for_window [class="m4ath"] border pixel 1
-for_window [class="calc"] border pixel 1
+for_window [class="^calculator$"] border pixel 1
 
 # >>> {{ sticky windows: }}
 bindsym $mod+v sticky toggle
