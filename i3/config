@@ -6,56 +6,52 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
+# Last update: 24.11.18, 11:51:26 @x200
 
-## >> { STATUS }
-# Last update: 23.11.18, 23:09:36 @x200
-
-## >> { TODOS }
-# todo: 20/10/2018, zrobić tu porządek :-)
+## >> TODO
+# todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
+# todo: (goto-line 544) → i3-qtb-launcher
+# todo: (goto-line 552) → i3-emacs-launcher
 
 ## >> { VARIABLES & general SETTINGS } 
 set $mod Mod4
 set $term st
 set $browser qutebrowser
-set $top  10
-# set $scr1 eDP1
-# set $scr2 VGA1
 floating_modifier $mod
-focus_on_window_activation focus
+focus_on_window_activation smart
 
 set $exe     exec --no-startup-id
+set $exea    exec_always --no-startup-id
+
+# >>> {{ shortcuts }}
 set $i3scr   ~/.dotfiles/i3/scripts
-set $app     exec ~/git/hub/i3/i3applauncher
+set $dot     ~/.dotfiles/bin
+set $hub     ~/git/hub/i3
+set $app     exec --no-startup-id ~/git/hub/i3/i3applauncher
+set $i3move  exec --no-startup-id ~/git/hub/i3/i3move.py
 
+
+# >>> {{ killing apps / i3 }}
 bindsym $mod+q kill
-
-# >>> {{kill i3}}
 bindsym $mod+Shift+BackSpace exec tmux kill-session -t tmux; exec i3-msg exit
+bindsym $mod+Escape reload
+bindsym $mod+Shift+Escape restart
 
 ## >> { STARTUP & PROGRAMS }
-# >>> {{ starup apps }}
-exec_always --no-startup-id ~/git/hub/i3/i3listen.py
-# exec_always --no-startup-id ~/git/hub/i3/i3catch.py 
-exec        --no-startup-id ~/.dotfiles/bin/gitpull.sh
-exec_always --no-startup-id dropbox start 
-exec_always --no-startup-id compton --config ~/.config/compton.conf -b  
-#exec_always --no-startup-id nm-applet
-#exec_always --no-startup-id pamac-tray start
-exec        --no-startup-id mocp -S
-exec        --no-startup-id emacs --daemon 
-exec        --no-startup-id xfce4-power-manager
-$exe        dunst
-#exec        --no-startup-id emacs
-#exec        --no-startup-id slack
-#exec        --no-startup-id firefox
+# >>> {{ startup scripts }}
+$exea $hub/i3listen.py      # manage workspace names and window titles in bar
+$exe  $dot/gitpull.sh    # git
+$exe  $dot/monitoryUP.sh # monitors
+# exec_always --no-startup-id $hub/i3catch.py
 
-# >>> {{ monitory & wall }}
-$exe ~/.dotfiles/bin/monitoryUP.sh
-# exec_always ~/.i3/bin/monitory.sh
-#exec_always --no-startup-id ~/.fehbg
-
-# >>> {{ głośność }}
-exec_always --no-startup-id amixer set Master 50% && pkill -RTMIN+1 i3blocks
+# >>> {{ startup apps & deamons}}
+$exea dropbox-cli start 
+$exea compton --config ~/.config/compton.conf -b  
+$exe  mocp -S
+$exe  emacs --daemon
+$exe  dunst                                             # notifier
+# off: nm-applet, pamac-tray start
+$exea  amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
 
 ## >> { NAVIG } 
 # >>> {{ change focus: }}
@@ -63,24 +59,19 @@ bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+i focus up
 bindsym $mod+l focus right
-
-#bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
 
 # >>> {{ moving windows: }}
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+i move up
 bindsym $mod+Shift+l move right
-
 #bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 #bindsym $mod+Shift+Right move right
 
-# >>> {{ enter fullscreen mode for the focused container: }}
 bindsym $mod+f fullscreen toggle
 
 # >>> {{ mark container }}
@@ -102,56 +93,36 @@ bindsym $mod+Ctrl+i resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
 
-# >>> {{ flash active window (za: Luke Smith) / jeśli compton jest włączony }}
+# >>> {{ flash active window, x200 off }}
 bindsym $mod+grave $exe bash $i3scr/flash.sh
 
 ## >> { SCRATCHPADS }
 # >>> {{ dropdown → tmux: }}
 for_window [title="dropdown"] floating enable
-# for_window [title="dropdown"] resize set 1000 600
-# for_window [title="dropdown"] move position center
 for_window [title="dropdown"] move scratchpad
-bindsym $mod+u $exe ~/.dotfiles/bin/i3scratchpads -u
+bindsym $mod+u $exe $dot/i3scratchpads -u
 
 # >>> {{ math calculator }}
 for_window [title="m4ath"] floating enable
 for_window [title="m4ath"] resize set 600 200
-for_window [title="m4ath"] move position center
 for_window [title="m4ath"] move scratchpad
-bindsym $mod+c $exe ~/.dotfiles/bin/i3scratchpads -c
+bindsym $mod+c $exe $dot/i3scratchpads -c
 
 # >>> {{ whitaker words }}
 for_window [title="w0rds"] move scratchpad
-# for_window [title="w0rds"] resize set 500 300
-# for_window [title="w0rds"] move position $wright $top 
-bindsym $mod+o $exe ~/.dotfiles/bin/i3scratchpads -o
+bindsym $mod+o $exe $dot/i3scratchpads -o
 
 # >>> {{ quick floating term }}
 for_window [class="myquickterm"] floating enable
 for_window [class="myquickterm"] move scratchpad
-bindsym $mod+slash $exe ~/.dotfiles/bin/i3scratchpads -f
-
-# >>> {{ system update }}
-assign [class="sysupdt"] output primary
-for_window [class="sysupdt"] floating enable
-# todo: pewnie trzeba będzie wpisać zmienne, żeby pasowało do różnych ekranów
+bindsym $mod+slash $exe $dot/i3scratchpads -f
 
 # >>> {{ tty-clock }}
 for_window [class="cl0ck"] floating enable
-bindsym $mod+Shift+t $exe ~/.dotfiles/bin/i3scratchpads -t 1
+bindsym $mod+Shift+t $exe $dot/i3scratchpads -t 1
 
 ## >> { WORKSPACES }                
-# workspace_auto_back_and_forth yes
-# set $ws1 workspace Emacs
-# set $ws2 workspace Qtb
-# set $ws3 workspace Term
-# set $ws4 workspace Gui
-# set $ws5 workspace Pdf
-# set $ws6 workspace Gfx
-# set $ws7 workspace Media+
-# set $ws8 workspace Var
-# set $ws9 workspace Social
-# set $ws10 workspace Mail/RSS
+workspace_auto_back_and_forth yes
 
 set $ws1 workspace number 1
 set $ws2 workspace number 2
@@ -165,30 +136,7 @@ set $ws9 workspace number 9
 set $ws10 workspace number 10
 
 # >>> {{ switch to workspace: }}
-# set $i3go exec --no-startup-id ~/git/hub/i3/i3go.sh
-# bindsym $mod+1 $i3go 1;
-# bindsym $mod+2 $i3go 2;
-# bindsym $mod+3 $i3go 3;
-# bindsym $mod+4 $i3go 4;
-# bindsym $mod+5 $i3go 5;
-# bindsym $mod+6 $i3go 6;
-# bindsym $mod+7 $i3go 7;
-# bindsym $mod+8 $i3go 8;
-# bindsym $mod+9 $i3go 9; 
-# bindsym $mod+0 $i3go 10;
-
-# bindsym Control+1 $i3go 1;
-# bindsym Control+2 $i3go 2;
-# bindsym Control+3 $i3go 3;
-# bindsym Control+4 $i3go 4;
-# bindsym Control+5 $i3go 5; 
-# bindsym Control+6 $i3go 6;
-# bindsym Control+7 $i3go 7;
-# bindsym Control+8 $i3go 8;
-# # layout stacking dla 9?
-# bindsym Control+9 $i3go 9; 
-# # bindsym Control+0 workspace $i3go 10
-
+# before: $hub/i3go.sh
 bindsym $mod+1 $ws1;
 bindsym $mod+2 $ws2;
 bindsym $mod+3 $ws3;
@@ -208,9 +156,7 @@ bindsym Control+5 $ws5;
 bindsym Control+6 $ws6;
 bindsym Control+7 $ws7;
 bindsym Control+8 $ws8;
-# layout stacking dla 9?
 bindsym Control+9 $ws9; 
-# bindsym Control+0 workspace $i3go 10
 
 # >>> {{ move focused container to $ws: }}
 bindsym $mod+Shift+1 move container to $ws1
@@ -235,13 +181,10 @@ bindsym $mod+Control+Tab focus output right
 bindsym $mod+Mod1+i focus output up
 bindsym $mod+Mod1+k focus output down
 
-# >>> {{ pk: cycle through workspaces: }}
-# 25/10/2018: with dynamic renamig of wksp "prev" works like back_and_forth, and "next" goes to the beginning of stack
+# >>> {{ cycle through workspaces: }}
 bindsym Mod1+Tab workspace back_and_forth
 bindsym Mod1+Shift+Tab workspace next
-# note: przy dynamicznych ws (renaming) back_and_forth nie działa
 bindsym $mod+Tab workspace prev
-#bindsym $mod+Tab workspace next
 
 # >>> {{ reguły dla monitorów: }}
 # workspace 2 output primary
@@ -257,7 +200,6 @@ workspace 7 output secondary
 workspace 8 output secondary
 
 # >>> {{ reguły dla aplikacji: }}
-# note: 07/11/2018, zajmuje się tym i3catch
 assign [class="Emacs"]                 $ws1
 assign [class="Lxappearance"]          $ws3
 assign [class="libreoffice-writer"]    $ws4
@@ -269,7 +211,7 @@ assign [class="calibre"]               $ws5
 assign [class="MuPDF"]                 $ws5
 assign [class="Mtpaint"]               $ws6
 assign [class="MyPaint"]               $ws6
-assign [title=".*Edytor obrazów GIMP.*"]   $ws6
+assign [class="Gimp-2.10"]             $ws6
 # przypisz wszystkie okna z klasy 'firefox' do ws2
 # =oprócz= ("?!") tych, których rola jest oznaczona jako GtkFile
 assign [class="Firefox" window_role="^(?!GtkFileChooserDialog)"] $ws7
@@ -280,44 +222,17 @@ assign [class="Slack"]                 $ws9
 assign [class="Messenger for Desktop"] $ws9
 assign [class="rss"]                   $ws10
 assign [class="neomutt"]               $ws10
-assign [class="mail"]               $ws10
+assign [class="mail"]                  $ws10
 
 for_window [title=".*LibreOffice.Writer*"]    move to $ws4
-for_window [title=".*tryb.prywatny.*"]        move to $ws7
-# for_window [class="Gpick"]                    resize set 1000 600
-# wartości zmiennych $right i $down podane w plikach lokalnych!
-for_window [title=".*Rozmowa.*"]              floating enable; resize set 370 260; sticky enable; move window to position $right $down 
-for_window [title="nmtui"]                    floating enable
-for_window [class="Shotcut"]                  gaps inner current set 0; gaps outer current set 0
-#for_window [title="Edytor obrazów GIMP"]      move $ws6
-#for_window [window_role="gimp-dock"]          floating disable; move left; resize shrink width 50 px or 50ppt
-#for_window [window_role="gimp-toolbox"]       floating disable; move right; resize grow width 30 px or 30ppt
-for_window [window_role="gimp-toolbox"]       floating enable
-for_window [window_role="gimp-dock"]          floating enable
-for_window [class="Sxiv"]                     floating enable
-# for_window [title=".*Private.*"] move to $ws7 
-for_window [title=".*Private.Browsing.*"] move to $ws7
-# for_window [title=".*\(Private Browsing\).*"] move to $ws7
 
 # >>> {{ przejdź do workspace i otwórz aplikację: }}
-bindsym $mod+Control+1 $ws1; exec emacs
-bindsym $mod+Control+2 $ws2; exec $browser
-bindsym $mod+Control+3 $ws3; exec $term -c term
-# bindsym $mod+Control+4 $ws3; exec $term -e 'emacsclient ~/.i3/config'
-bindsym $mod+Control+5 $ws4; exec thunar
-# bindsym $mod+Control+6 $ws6; exec $term -e ranger
-bindsym $mod+Control+7 $ws7; exec gimp
-#bindsym $mod+Control+8 $ws8; exec $term -e mocp
+bindsym $mod+Control+1 $ws1; $exe emacs
+bindsym $mod+Control+2 $ws2; $exe $browser
+bindsym $mod+Control+3 $ws3; $exe $term -c term
+bindsym $mod+Control+4 $ws4; $exe thunar
+bindsym $mod+Control+6 $ws6; $exe gimp
 bindsym $mod+Control+9 $ws9; $exe slack
-
-# >>> {{ reload the configuration file: }}
-bindsym $mod+Escape reload
-
-# >>> {{ restart i3 inplace (preserves your layout/session, can be used to upgrade i3): }}
-bindsym $mod+Shift+Escape restart
-
-# >>> {{ exit i3 (logs you out of your X session): }}
-#bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 ## >> { MODES }
 # >>> {{ resize window (you can also use the mouse for that) (mod+R): }}
@@ -344,8 +259,6 @@ mode "resize" {
 }
 
 bindsym $mod+Shift+r mode "resize"
-bindsym $mod+Shift+f floating enable; resize set 1280 820; move position center
-bindsym $mod+Control+f  floating disable
 
 # >>> {{ move floating window (mod+W): }}
 mode "moveit" {
@@ -413,8 +326,6 @@ mode "$mode_gaps_outer" {
 }
 
 # >>> {{ i3move }}
-set $i3move exec --no-startup-id ~/git/hub/i3/i3move.py
-
 mode "i3move" {
      bindsym u $i3move -m 1
      bindsym Shift+u $i3move -m 1 -g 15
@@ -456,141 +367,104 @@ bindsym $mod+F11 mode "i3move"
 
 
 ## >> { FLOATING }
-for_window [class="Catfish"]    floating enable
-for_window [class="Gpick"]      floating enable
-for_window [title="mutt-audio"] floating enable
-
+for_window [title="nmtui"]               floating enable
+for_window [window_role="gimp-toolbox"]  floating enable
+for_window [window_role="gimp-dock"]     floating enable
+for_window [class="Sxiv"]                floating enable
+for_window [class="Catfish"]             floating enable
+for_window [class="Gpick"]               floating enable
+for_window [class="Gpick"]               resize set 675 200
+for_window [class="Gpick"]               move position center
 # dialog window for qutebrowser downloads via youtube-dl
 for_window [class="YTBDWL"] floating enable
 for_window [class="YTBDWL"] move scratchpad
 # for_window [title="youtube-dl"] resize set 500 300
 # for_window [title="youtube-dl"] move window to position $yright 10
 
-## >> { GAPS }
+## >> { GAPS & BORDERS }
 smart_gaps on
-# no borders: 
-# default_border pixel 0
-for_window [class="^.*"] border pixel 0
-#for_window [class="calculator"] border pixel 1
-#new_float normal 1
-
-#hide_edge_borders both
-#hide_edge_borders vertical
-
-set $gin 6
-set $gou 4
+set $gaps_in  6
+set $gaps_out 4
 # zmieniłem liczby z 10/10, bo wychodziły bardzo nierówne przerwy (???)
-gaps inner $gin
-gaps outer $gou
+gaps inner $gaps_in
+gaps outer $gaps_out
 
-# no title bar:
-#new_window border pixel 0
-# smart_borders on
+# >>>> toggle gaps
+bindsym $mod+Shift+G gaps inner current set $gaps_in; gaps outer current set $gaps_out
+bindsym $mod+g gaps inner current set 0; gaps outer current set 0
+
+# >>>> borders exclude
+for_window [class="^.*"] border pixel 0
+for_window [class="myquickterm"] border pixel 0
+for_window [class="scratch"] border pixel 0
+
+# >>>> borders for scratchpads and terms only
+smart_borders on
+hide_edge_borders both
+for_window [class="term"] border pixel 1
+for_window [class="cl0ck"] border pixel 1
+for_window [class="w0rds"] border pixel 1
+for_window [class="m4ath"] border pixel 1
+for_window [class="calc"] border pixel 1
 
 # >>> {{ sticky windows: }}
-for_window [class=mpv]  sticky enable
 bindsym $mod+v sticky toggle
+bindsym $mod+Shift+v $exe $dot/i3video
 #bindsym $mod+Shift+v $exe ~/bin/i3move -F -x yt -r -20 -g 10 -m ne; sticky enable
-bindsym $mod+Shift+v $exe ~/.dotfiles/bin/i3video
-# bindsym $mod+Shift+v    fullscreen disable; floating enable; resize set 400 225; sticky enable; move container to output primary; move right 590 px; move up 120 px 
-# >>> {{ toggle gaps 0 / default: }}
-bindsym $mod+Shift+G gaps inner current set $gin; gaps outer current set $gou
-bindsym $mod+g gaps inner current set 0; gaps outer current set 0
 
 
 ## >> { COLORS }
 # borders
-set $bra   #2980b9
+set $bra   #191f26
 set $bri   #191f26
 set $bru   #191f26 
 set $brur  #c0392b
 # background
-set $bgf   #2980b9
-set $bgfi  #466380
-# ffffff
+set $bgf   #9B9B9B
+set $bgfi  #323f4d 
 set $bgi   #191f26
 set $bgur  #e74c3c
 # text
-set $txtf  #ffffff
-# was 000000
-set $txti  #ffffff
-set $txtu  #ffffff
-#set $txtu  #7f8c8d
-set $txtur #ffffff
+set $txtf  #111111
+set $txti  #ececec
+set $txtu  #ececec
+set $txtur #ececec
 
 # class                   border  bg     text   
 client.focused            $bra    $bgf   $txtf
-client.focused_inactive   $bri    $bgfi   $txti
+client.focused_inactive   $bri    $bgfi  $txti
 client.unfocused          $bru    $bgi   $txtu 
 client.urgent             $bru    $bgur  $txtur 
 
-# archive --------------------------------------#
-# client.focused          #2980b9 #2980b9 #ffffff 
-# client.focused_inactive #466380 #466380 #ffffff 
-# client.unfocused        #34495e #34495e #bdc3c7 
-# client.urgent           #c0392b #e74c3c #ffffff 
-# former inact. #2c3e50
-# former client.focused #f1c40f
-
-
 ## >> { BAR }
 font pango:Lato 8
-#font pango:Lato Light 8
-#font pango:DejaVu Sans Book 9
-#font pango:xos4 Terminus Regular 8
-#font pango:Meslo LG M Regular 9
-#font pango:Inconsolata 10
-#font pango:ProzaLibre Regular 9
-#font pango:Source Sans Pro 10
 
 # >>> {{ bar color variables }}
-# >>>> {{ dark theme }}
+# >>>> {{ dark theme [off] }}
+# sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
 # dark theme start
-# # bar background
-# set $sbbg  #191f26
-# #set $sbbg  #ececec
-# # bar active workspace background     
-# set $sbwabg #191f26
-# # bar status line
-# set $sbsl   #ffffff
-# # bar workspace border
-# set $sbwbr  #191f26
-# # bar focused workspace background     
+# set $sbbg   #191f26
 # set $sbwfbg #ececec
-# # bar focused workspace text     
+# set $sbwabg #191f26
+# set $sbsl   #ffffff
 # set $sbwtx  #191f26
-# bar other workspace txt
 # set $sbowtx #ececec
-# # bar urgent workspace background     
+# set $sbwbr  #191f26
 # set $sbwu   #ff6347
-# # bar urgent workspace border
 # set $sbwubr #a52a2a
 # dark theme end
 
 # >>>> {{ light theme }}
 # light theme start
-# bar background
-set $sbbg  #9B9B9B
-# bar active workspace background     
+# sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
+set $sbbg   #9B9B9B 
+set $sbwfbg #8c8c8c 
 set $sbwabg #9B9B9B
-# bar status line
 set $sbsl   #191f26
-# bar workspace border
-set $sbwbr  #9B9B9B
-# bar focused workspace background #a9a9a9
-#set $sbwfbg #9B9B9B
-set $sbwfbg #8c8c8c
-#set $sbwfbg #808080
-# bar focused workspace text     
-#set $sbwtx  #191f26
 set $sbwtx  #111111
-# bar other workspace txt
 set $sbowtx #191f26
-# #51657b
-# #3c4b5d
-# bar urgent workspace background     
+set $sbwbr  #9B9B9B
 set $sbwu   #ff6347
-# bar urgent workspace border
 set $sbwubr #a52a2a
 # light theme stop
 
@@ -615,18 +489,15 @@ bar {
                active_workspace     $sbwbr     $sbwabg    $sbowtx
                inactive_workspace   $sbwbr     $sbwabg    $sbowtx
                urgent_workspace     $brur      $bgur      $sbowtx 
-
-               #binding_mode        #2f343a    #900000    #ffffff
-               #urgent_workspace    #c0392b    #e74c3c    #bdc3c7
                }
 }
 
-# >>> {{ bar: secondary }}
+# >>> {{ bar: secondary → local }}
 # moved to local files!
 
 ## >> { CONTROLS }
 # >>> {{ SREEN brightness controls: }}
-bindsym XF86MonBrightnessUp $exe xbacklight -inc 15 # increase screen brightness
+bindsym XF86MonBrightnessUp $exe xbacklight -inc 15   # increase screen brightness
 bindsym XF86MonBrightnessDown $exe xbacklight -dec 15 # decrease screen brightness
 
 # >>> {{ VOLUME / regulacja głośności: }}
@@ -634,180 +505,89 @@ bindsym $mod+plus $exe pactl set-sink-volume 0 +5%  && pkill -RTMIN+1 i3blocks
 bindsym $mod+minus $exe pactl set-sink-volume 0 -5%  && pkill -RTMIN+1 i3blocks
 bindsym $mod+Shift+plus $exe pactl set-sink-volume 0 +10% && pkill -RTMIN+1 i3blocks
 bindsym $mod+Shift+minus $exe pactl set-sink-volume 0 -10% && pkill -RTMIN+1 i3blocks
-
 bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume 0 -- +10% && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -- -10% && pkill -RTMIN+1 i3blocks
 
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
-#bindsym $mod+plus $exe pactl set-sink-volume $sink -- +10%
-#bindsym $mod+minus exec --no-startEOFup-id pactl set-sink-volume $sink -- -10%
-#bindsym XF86AudioMute $exe pactl set-sink-mute $sink toggle
 bindsym XF86AudioMute $exe amixer set Master toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioPlay $exe mocp -G 
 bindsym XF86AudioStop $exe mocp -s 
 bindsym XF86AudioNext $exe mocp -f
 bindsym XF86AudioPrev $exe mocp -r
 
-# >>> {{ zrzut ekranu: }}
+# >>> {{ zrzut ekranu: maim }}
 # zrzut calego ekranu
 bindsym Print $exe maim -u ~/obr/maim/$(date +%Y%b%d_%H.%M.%S).maim.png && notify-send "Maim:" "screenshot taken"
-#bindsym Print $exe scrot '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
 # zrzut tylko aktywnego okna
 bindsym $mod+Print $exe maim -u -i $(xdotool getactivewindow) ~/obr/maim/$(date +%Y%b%d_%H.%M.%S).maim.png && notify-send "Maim:" "screenshot taken"
-#bindsym $mod+Print $exe scrot -u '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
-#bindsym $mod+Print $exe i3-msg "scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send \"screenshot taken\""
 # zrzut wybranego okna
 bindsym $mod+Shift+Print $exe maim -s -u ~/obr/maim/$(date +%Y%b%d_%H.%M.%S).maim.png
+
+# old: scrot
+# bindsym Print $exe scrot '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
+# bindsym $mod+Print $exe scrot -u '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
+# bindsym $mod+Print $exe i3-msg "scrot -u -d 3 '%d%b%y_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send \"screenshot taken\""
+
 # >>> {{ touchpad OFF/ON: }}
 bindsym $mod+z exec synclient TouchpadOff=1
 bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 
 ## >> { KBD }
-# >>>> term @kbd
-bindsym $mod+Return split h $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
-bindsym $mod+Shift+Return split v $exe ~/.dotfiles/bin/i3startterminemacsdir.sh
-bindsym $mod+Mod1+Return $exe ~/.dotfiles/bin/i3-term-toggler.sh
+bindsym $mod+Return split h $exe $dot/i3startterminemacsdir.sh
+bindsym $mod+Shift+Return split v $exe $dot/i3startterminemacsdir.sh
+bindsym $mod+Mod1+Return $exe $dot/i3-term-toggler.sh
 # bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
 # bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
-
-# >>>> qutebrowser @kbd
 bindsym $mod+b $app qutebrowser
 bindsym $mod+Shift+b $exe qutebrowser
 bindsym $mod+p $exe qutebrowser :command ":open -p"
-# bindsym $mod+b workspace 2; $exe qutebrowser
-# bindsym $mod+b $exe ~/.dotfiles/bin/i3-qtb-launcher.sh
-
-# >>>> emacs @kbd
+# bindsym $mod+b $exe $dot/i3-qtb-launcher.sh
 bindsym $mod+e $app emacs
-bindsym $mod+Control+e $exe $term -e ~/.dotfiles/bin/notes.sh 
 #bindsym $mod+e workspace 1; $exe emacs
-#bindsym $mod+e $exe ~/.dotfiles/bin/i3-emacs-launcher.sh 
+#bindsym $mod+e $exe $dot/i3-emacs-launcher.sh 
 #bindsym $mod+Shift+e $exe $term -e emacsclient -nw
-
-# >>>> mail & rss @kbd
 bindsym $mod+n $app newsboat
 bindsym $mod+m $app neomutt
-#bindsym $mod+n $exe ~/.dotfiles/bin/i3-newsboat-launcher.sh
-#bindsym $mod+m $exe ~/.dotfiles/bin/i3-neomutt-launcher.sh
-# calcurse todo: napisać skrypt, który będzie otwierał scratchpad, jeśli calc już jest włączone 
-# bindsym $mod+Shift+c $exe $term -e calcurse
-
-# >>>> mocp @kbd
-bindsym $mod+Shift+m $exe $term -e mocp
-
-# >>>> ranger & thunar @kbd
-bindsym $mod+r $exe $term -e ranger
 bindsym $mod+t $exe thunar
-
-# >>>> sys + appearance @kbd
 bindsym $mod+h bar mode toggle
 bindsym Scroll_Lock $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+x $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+Shift+x exec systemctl suspend      
-
-# >>>> compton ? @kbd
 bindsym $mod+Ctrl+F2 $exe compton
-bindsym $mod+F2 exec pkill compton
-
-# >>>> HELP @kbd
-bindsym $mod+F1 $exe ~/.dotfiles/bin/i3quick-help.sh
-
-# >>>> network manager @kbd
+bindsym $mod+F2 $exe pkill compton
+bindsym $mod+F1 $exe $dot/i3quick-help.sh
 bindsym $mod+Shift+n $exe $term -e nmtui
-
-# >>>> move scratchpad @kbd
 bindsym $mod+Shift+s move scratchpad
-
-# >>>> gromit (write & draw on the screen)
-bindsym $mod+F8 $exe ~/.dotfiles/bin/i3-gromit-launcher.sh
-
-#bindsym $mod+e exec emacs
-#bindsym $mod+g $ws10; $exe $term -e mutt 
-#bindsym $mod+n $exe $term -e calcurse 
-#bindsym $mod+r exec $term -e ranger
-#bindsym $mod+t $exe thunar
-#bindsym $mod+w exec firefox
-#bindsym $mod+F8 $exe mocp -p
+bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 
 # >>>> rofi/dmenu scpripts
-#bindsym $mod+semicolon $exe ~/.dotfiles/dmenu/dmenu-kill.sh
+bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
 bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
-#bindsym $mod+a $exe ~/.dotfiles/bin/rofi-media.sh
-bindsym $mod+Shift+d $exe dmenu_run -nb '#9B9B9B' -nf '#191f26' -sb '#ff6347' -p 'run:'
-#bindsym $mod+Shift+d $exe dmenu_run -sb '#e67e22' -nb '#000000' -p 'run:'
+bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate
+bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
+bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
+
+#bindsym $mod+Shift+d $exe dmenu_run -nb '#9B9B9B' -nf '#191f26' -sb '#ff6347' -p 'run:'
+#bindsym $mod+Shift+d $exe dmenu_run -nb '#191f26' -nf '#ececec' -sb '#ff6347' -p 'run:'
 #bindsym $mod+Shift+d $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
 #bindsym $mod+d $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
-bindsym $mod+d $exe rofi -show drun -modi drun -theme i3grey
 #bindsym $mod+d $exe rofi -combi-modi sys#drun -show combi -modi drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
-bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate
-
 
 ## >> { NARZĘDZIA SYSTEMOWE }
 # todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
 # bindsym $mod+F9 $exe sudo bash ~/.i3/bin/mount.sh
 # bindsym $mod+F10 $exe sudo bash ~/.i3/bin/unmount.sh
-
 # >>> {{ screencasting:}}
-bindsym $mod+F12 $exe ~/.dotfiles/bin/screencast.sh $(date "+%d%h%H%M")
+bindsym $mod+F12 $exe $dot/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12 exec pkill ffmpeg && notify-send "screencast" "screencast stopped"
+bindsym $mod+Ctrl+a $exe $dot/i3append.sh
+bindsym $mod+Right $exe $dot/xdo-sent-control.sh -n
+bindsym $mod+Left $exe $dot/xdo-sent-control.sh -p
+bindsym $mod+Shift+Right $exe $dot/xdo-sent-control.sh -g
+bindsym $mod+Shift+Left $exe $dot/xdo-sent-control.sh -a
+bindsym $mod+Control+Left $exe $dot/xdo-sent-control.sh -r
 
-# >>> {{ append & reload:}}
-bindsym $mod+Ctrl+a $exe ~/.dotfiles/bin/i3append.sh
-
-bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
-bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
-#bindsym $mod+Shift+a $exe ~/.dotfiles/bin/agenda
-
-# >>> {{ sent TODO: napisać skrypt do tego }}
-# bindsym $mod+XF86Forward $exe ~/.dotfiles/bin/xdo-sent-control.sh -n
-# bindsym $mod+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -p
-# bindsym $mod+Shift+XF86Forward $exe ~/.dotfiles/bin/xdo-sent-control.sh -g
-# bindsym $mod+Shift+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -a
-# bindsym $mod+Control+XF86Back $exe ~/.dotfiles/bin/xdo-sent-control.sh -r
-
-bindsym $mod+Right $exe ~/.dotfiles/bin/xdo-sent-control.sh -n
-bindsym $mod+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -p
-bindsym $mod+Shift+Right $exe ~/.dotfiles/bin/xdo-sent-control.sh -g
-bindsym $mod+Shift+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -a
-bindsym $mod+Control+Left $exe ~/.dotfiles/bin/xdo-sent-control.sh -r
-
-
-# >> { ORPHANS }
-# bindsym $mod+Shift+q kill
-# bindsym $mod+F11 fullscreen toggle
-# bindsym $mod+Control+e $ws1; exec emacs
-# bindsym $mod+Control+r $ws6; exec $term -e ranger
-# bindsym $mod+Control+t $ws6; exec thunar
-# bindsym $mod+p $ws7; exec mtpaint
-# bindsym $mod+Control+0 $ws10; $exe qutebrowser
-# bindsym $mod+Control+b $ws10; $exe qutebrowser
-# bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Shift+c exec $term -e calcurse
-# bindsym $mod+c exec $term -e 'bc -q'
-#$exe compton --config ~/.config/compton.conf -b
-#bindsym $mod+d $exe j4-dmenu-desktop #-sb '#b58900'
-#bindsym $mod+d $exe dmenu_run -sb '#b58900' -p 'run:'
-# bindsym $mod+g $ws10; $exe ~/.dotfiles/bin/mutt.sh
-# bindsym $mod+n split h $exe $term -e nano 
-# bindsym $mod+Shift+n split v $exe $term -e nano
-# bindsym $mod+Control+n $exe $term -e ~/.dotfiles/bin/notes.sh
-#bindsym F8 $ws8; $exe $term -e mocp
-
-# focus the parent container
-# bindsym $mod+a focus parent
-# focus the child container
-#bindsym $mod+d focus child
-# split in horizontal orientation
-# bindsym $mod+h split h
-# split in vertical orientation
-# bindsym $mod+v split v
-
-# >>> {{ testy }}
-# ok
-#bindsym $mod+Shift+backslash exec --no-startup-id ~/biu/i3/moving.py -m nw
-# to nie działa dobrze
-#bindcode --release 66 exec --no-startup-id xdotool key --clearmodifiers Caps_Lock
 
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
