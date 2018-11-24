@@ -2,16 +2,14 @@
 
 # Path:        ~/.dotfiles/i3/i3lock/lock.sh
 # Created:     ?
-# Last update: 25.07.18, 21:12:11 @x200
+# Last update: 24.11.18, 10:44:07 @x200
 
 # Doc: old script; removed by i3betterlock 
 # note: requies i3lock
 
-[[ $(ps aux | grep -v grep | grep rofi) ]] && pkill rofi
+[[ $(pgrep rofi) ]] && pkill rofi; sleep 0.2s
 
-sleep 0.2s
-
-scrot /tmp/screen.png
+cp ~/.i3/wall.jpg /tmp/screen.png
 
 convert /tmp/screen.png -paint 1.5 /tmp/screen.png
 
