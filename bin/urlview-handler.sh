@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 21.09.18, 15:53:23 @x200
+# Last update: 25.11.18, 19:54:07 @toshiba
 
 # Doc: via Luke Smith github
 # todo: poprawić wget i pdf (nie działa xdg-open dla pdf @toshi!)
@@ -17,7 +17,11 @@ em="email"
 mpvscript=~/.dotfiles/bin/queuempv
 
 if echo $fehFiles | grep -w $ext > /dev/null; then
-    nohup feh -. -B -- "$1" > /dev/null &
+    if echo $1 | grep slack; then
+        xdg-open $1 &
+    else
+        nohup feh -. -B -- "$1" > /dev/null &
+    fi
     # nohup sxiv -a -- "$1" > /dev/null & # sxiv nie potrafi otwierać linków
 elif echo $1 | grep "googleusercontent.com" >/dev/null; then
     nohup feh -. -B -- "$1" > /dev/null &
