@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 24.11.18, 14:17:16 @x200
+# Last update: 25.11.18, 23:16:36 @toshiba
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -562,7 +562,8 @@ bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 
 # >>>> rofi/dmenu scpripts
 bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
-bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
+#bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
+bindsym $mod+semicolon $exe rofi -show window -modi window -window-format {c:15}{t:25} -theme i3black_and_red
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate
 bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
