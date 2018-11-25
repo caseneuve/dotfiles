@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/weechat/weechat_setup.sh
 # Created:     24.11.18, 23:39    @x200
-# Last update: 25.11.18, 10:04:28 @lenovo
+# Last update: 25.11.18, 11:22:41 @x200
 
 # >> DOC: 
 
@@ -15,79 +15,139 @@ WEE=$HOME/.weechat
 WEELUA=$WEE/lua
 WEEPY=$WEE/python
 WEEPERL=$WEE/perl
-
+gre=$(tput setaf 2)
+red=$(tput setaf 9)
+blu=$(tput setaf 4)
+res=$(tput sgr0)
 # >> RUN:
 clear
-echo "===================="
-echo "## WEECHAT SETUP! ##"
-echo ""
-# read -p "Confirm that you are running this script as sudo [y/n] " confirm
-# if [[ $confirm != y ]]; then
-#     echo "Run this script as root!"
-#     exit 1
-# fi
+echo $gre
+cat << EOF
+###############################################
+__        _______ _____ ____ _   _    _  _____ 
+\ \      / / ____| ____/ ___| | | |  / \|_   _|
+ \ \ /\ / /|  _| |  _|| |   | |_| | / _ \ | |  
+  \ V  V / | |___| |__| |___|  _  |/ ___ \| |  
+   \_/\_/  |_____|_____\____|_| |_/_/   \_\_|  
+                                               
+                    _               
+           ___  ___| |_ _   _ _ __  
+          / __|/ _ \ __| | | | '_ \ 
+          \__ \  __/ |_| |_| | |_) |
+          |___/\___|\__|\__,_| .__/ 
+                             |_|    
+##############################################
 
+EOF
+echo $res
+
+echo $gre
 echo "# Checking dependencies..."
 echo "# ... Installing:"
+echo $res
+
 for app in python2 python2-virtualenv weechat
 do
     if [[ ! $(pacman -Q $app 2>/dev/null) ]]; then
-        echo ""
-        echo "# ... $app"
+        echo $gre "# ... $app" $res
         yay -S $app
     else
-        echo ""
-        echo "# ... skipping $app"
+        echo $red "# ... skipping $app" $res
     fi
 done
 
+echo $gre
 echo "# ... lua-cjson"
+echo $res
 yay lua-cjson
 
+echo $gre
 echo "# Running weechat just to build directory structure..."
-weechat &
-sleep 2
-ps aux | grep "weechat" | grep -v grep | grep -v $0 | awk '{print $2}' | xargs kill -9
+echo $res
+weechat -r '/key bind meta-t /bar toggle buflist; /key bind meta-n /bar toggle nicklist; /key bind meta-s /input return; /save; /quit' 
 
+echo $gre
 echo "# Making a python virtual environment in $VIRTWEE..."
-[[ -d $VENVS ]] || echo -e "\n# ... mkd $VIRTWEE"; mkdir $VENVS
+echo $res
+if [[ -d $VENVS ]]; then
+    echo $red "# ... $VENVS exists!" $res
+else
+    echo $gre "# ... mkd $VENVS" $res
+    mkdir $VENVS
+fi
+
+     
 cd $VENVS
-[[ -d $VIRTWEE ]] || echo -e "\n#... running virtualenv2"; virtualenv2 $VIRTWEE
+if [[ -d $VIRTWEE ]]; then
+    echo $red "# ... $VIRTWEE exists, skipping!" $res
+else
+    echo $gre "#... running virtualenv2" $res
+    virtualenv2 $VIRTWEE
+fi
+
+
 cd $VIRTWEE
 source $VIRTWEE/bin/activate
-echo "# ... installing pync and websocket-client"
+echo $gre
+echo "# ... installing *pync* and *websocket-client*"
+echo $res
 pip install pync
-pip install websocket-client
+echo $gre
 echo "# ... done!"
-echo ""
-echo "# Installing some plugins: 
+echo $res 
+pip install websocket-client
+echo $gre
+echo "# ... done!"
+echo -e "\n# Installing some plugins: 
   - *matrix-protocol*, 
   - *multiline.pl* 
   - *wee_slack.py*"
-echo "# (more info
-  - https://github.com/torhve/weechat-matrix-protocol-script
+echo "# (more info at: $blu 
+  - https://github.com/torhve/weechat-matrix-protocol-script 
   - https://github.com/wee-slack/wee-slack 
-  - https://weechat.org/scripts/source/multiline.pl.html/ )"
+  - https://weechat.org/scripts/source/multiline.pl.html/ $gre)$res"
+echo $res
 
 cd /tmp
-echo -e "\n# ... cloning matrix-protocol"
+echo $gre
+echo "# ... cloning *matrix-protocol*"
+echo $res
 git clone https://github.com/torhve/weechat-matrix-protocol-script.git
-echo -e "\n# ... downloading multiline"
-wget https://weechat.org/files/scripts/multiline.pl
-echo -e "\n# ... downloading wee_slack"
-wget https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
-echo -e "\n# ... moving files to [1] $WEELUA , [2] $WEEPERL and [3] $WEEPY respectively"
-cp /tmp/weechat-matrix-protocol-script/matrix.lua $WEELUA/ && echo -e "\n# ... [1] done"
-cp /tmp/multiline.pl $WEEPERL/ && echo -e "\n# ... [2] done"
-cp /tmp/wee_slack.py $WEEPY/ && echo -e "\n# ... [3] done"
 
-echo -e "\n# ... linking files to autoload folders"
-ln -s $WEELUA/matrix.lua $WEELUA/autoload/
-ln -s $WEEPERL/multiline.pl $WEEPERL/autoload/
-ln -s $WEEPY/wee_slack.py $WEEPY/autoload/
-echo ""
+echo $gre
+echo "# ... downloading *multiline*"
+echo $res
+wget https://weechat.org/files/scripts/multiline.pl
+
+echo $gre
+echo "# ... downloading *wee_slack*"
+echo $res
+wget https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
+
+echo $gre
+echo "# ... moving files to:
+#  [1] $WEELUA, 
+#  [2] $WEEPERL,
+#  [3] $WEEPY respectively"
+echo $res
+
+
+cp /tmp/weechat-matrix-protocol-script/matrix.lua $WEELUA/ && echo "$gre# ... [1] done $res"
+cp /tmp/multiline.pl $WEEPERL/ && echo "$gre# ... [2] done $res"
+cp /tmp/wee_slack.py $WEEPY/ && echo "$gre# ... [3] done $res"
+
+echo $gre
+echo "# ... creating symlinks in /autoload folders"
+echo $res
+
+[[ -L $WEELUA/autoload/matrix.lua ]] || ln -s $WEELUA/matrix.lua $WEELUA/autoload/
+[[ -L $WEEPERL/autoload/multiline.pl ]] || ln -s $WEEPERL/multiline.pl $WEEPERL/autoload/
+[[ -L $WEEPY/autoload/wee_slack.py ]] || ln -s $WEEPY/wee_slack.py $WEEPY/autoload/
+echo $gre
 echo "# ... done!"
-echo ""
+echo $res
+
+echo $red
 cat << EOF
 ## instructions ##
 ==================
@@ -115,9 +175,36 @@ cat << EOF
    C-n / C-p   → next / prev buffer
 
 Before running weechat remember to run:
-   `source VIRTWEE/bin/activate`
+   "source $VIRTWEE/bin/activate"
 
+EOF
+echo $res
+
+while true; do
+    echo "# Do you want to start weechat with autoconfigure?"
+    read -sp "# (you will need to pass some credentials) [y/n] " answer
+    if [[ $answer == "n" ]]; then
+        echo $gre
+        echo "============================
 ## WEECHAT SETUP COMPLETE ##
 ============================
-EOF
+"
+        echo $res
+        exit 0
+    else
+        while true; do
+            read -p "$gre# Enter your *matrix* login: $res" matrix_log
+            read -ps "$gre# Enter your *matrix* password: $res" matrix_pass
+            read -p "$gre# Correct? [y/n] $res" matrix_pass
+            [[ $matrix_pass == "y" ]] && break
+        done
+        echo $gre
+        echo -e "\n# Starting WeeChat with autoconfigure..."
+        echo $res
+        sleep 3
+
+        source $VIRTWEE/bin/activate
+        weechat -r '/set plugins.var.lua.matrix.user $matrix_log; /set plugins.var.lua.matrix.password $matrix_pass; /matrix connect; /slack register'
+    fi
+done
 
