@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/weechat/weechat_setup.sh
 # Created:     24.11.18, 23:39    @x200
-# Last update: 25.11.18, 11:22:41 @x200
+# Last update: 25.11.18, 11:48:34 @toshiba
 
 # >> DOC: 
 
@@ -193,10 +193,12 @@ while true; do
         exit 0
     else
         while true; do
+            echo -e "\n"
             read -p "$gre# Enter your *matrix* login: $res" matrix_log
-            read -ps "$gre# Enter your *matrix* password: $res" matrix_pass
-            read -p "$gre# Correct? [y/n] $res" matrix_pass
-            [[ $matrix_pass == "y" ]] && break
+            read -sp "$gre# Enter your *matrix* password: $res" matrix_pass
+            echo ""
+            read -p "$gre# Correct? [y/n] $res" correct
+            [[ $correct == "y" ]] && break
         done
         echo $gre
         echo -e "\n# Starting WeeChat with autoconfigure..."
@@ -204,7 +206,15 @@ while true; do
         sleep 3
 
         source $VIRTWEE/bin/activate
-        weechat -r '/set plugins.var.lua.matrix.user $matrix_log; /set plugins.var.lua.matrix.password $matrix_pass; /matrix connect; /slack register'
+        weechat -r "/set plugins.var.lua.matrix.user $matrix_log; /set plugins.var.lua.matrix.password $matrix_pass; /script reload matrix.lua; /matrix connect; /slack register"
+
+        echo $gre
+        echo "============================
+## WEECHAT SETUP COMPLETE ##
+============================
+"
+        echo $res
+        exit 0
     fi
 done
 
