@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/weechat/weechat_setup.sh
 # Created:     24.11.18, 23:39    @x200
-# Last update: 25.11.18, 19:31:40 @toshiba
+# Last update: 26.11.18, 09:09:30 @lenovo
 
 # >> DOC:
 # Read info under the banner
@@ -18,6 +18,7 @@ WEE=$HOME/.weechat
 WEELUA=$WEE/lua
 WEEPY=$WEE/python
 WEEPERL=$WEE/perl
+WEERUBY=$WEE/ruby
 gre=$(tput setaf 2)
 red=$(tput setaf 9)
 blu=$(tput setaf 4)
@@ -60,9 +61,10 @@ cat << EOF
 
 # Plugins:
 # =======
-# - matrix-protocol 
-# - multiline.pl 
-# - wee_slack.py
+# - matrix-protocol   => plugin for matrix.org
+# - multiline.pl      => multiline entries support
+# - wee_slack.py      => plugin for slack
+# - urls.rb           => urlview launcher)
 EOF
 echo $res
 while true; do
@@ -96,7 +98,7 @@ done
 echo $gre
 echo "# Running weechat just to build directory structure..."
 echo $res
-weechat -r '/key bind meta-t /bar toggle buflist; /key bind meta-n /bar toggle nicklist; /key bind meta-s /input return; /save; /quit' 
+weechat -r '/key bind meta-t /bar toggle buflist; /key bind meta-n /bar toggle nicklist; /key bind meta-s /input return; /key bind ctrl-U /urls; /save; /quit' 
 
 echo $gre
 echo "# Creating a python2 virtual environment in $VIRTWEE..."
@@ -132,11 +134,13 @@ echo $gre
 echo "# Installing the plugins: 
   - *matrix-protocol*, 
   - *multiline.pl* 
-  - *wee_slack.py*"
+  - *wee_slack.py*
+  - *urls.rb*"
 echo "# (more info at: $blu 
   - https://github.com/torhve/weechat-matrix-protocol-script 
   - https://github.com/wee-slack/wee-slack 
-  - https://weechat.org/scripts/source/multiline.pl.html/ $gre)"
+  - https://weechat.org/scripts/source/multiline.pl.html/ 
+  - https://weechat.org/files/scripts/unofficial/urlview.rb $gre)"
 
 cd /tmp
 echo $gre
@@ -155,6 +159,11 @@ echo $res
 wget https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
 
 echo $gre
+echo "# ... downloading *urls*"
+echo $res
+wget https://weechat.org/files/scripts/unofficial/urlview.rb
+
+echo $gre
 echo "# ... moving files to:"
 echo -n "#  [1] $WEELUA"
 cp /tmp/weechat-matrix-protocol-script/matrix.lua $WEELUA/ && echo " ... done!"
@@ -162,12 +171,15 @@ echo -n "#  [2] $WEEPERL"
 cp /tmp/multiline.pl $WEEPERL/ && echo " ... done!"
 echo -n "#  [3] $WEEPY"
 cp /tmp/wee_slack.py $WEEPY/ && echo " ... done!"
+echo -n "#  [4] $WEERUBY"
+cp /tmp/urls.rb $WEERUBY/ && echo " ... done!"
 
 echo -e "\n# ... creating symlinks in $WEE/.../autoload/ folders" $res
 
 [[ -L $WEELUA/autoload/matrix.lua ]] || ln -s $WEELUA/matrix.lua $WEELUA/autoload/
 [[ -L $WEEPERL/autoload/multiline.pl ]] || ln -s $WEEPERL/multiline.pl $WEEPERL/autoload/
 [[ -L $WEEPY/autoload/wee_slack.py ]] || ln -s $WEEPY/wee_slack.py $WEEPY/autoload/
+[[ -L $WEERUBY/autoload/urls.rb ]] || ln -s $WEERUBY/urls.rb $WEERUBY/autoload/
 echo $gre"# ... done!" $res
 
 echo $red
