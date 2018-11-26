@@ -5,8 +5,9 @@
  */
 
 * {
-    background-color:      #2980b9; /*baige*/
-    border-color:          Black; /*Black*/
+    /* background-color:      #2980b9;  */
+    background-color:      #36648b;
+    border-color:          Black;
     text-color:            white;
     font:                  "Inconsolata 10";
 }
