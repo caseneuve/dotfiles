@@ -4,7 +4,7 @@
 # MY ZATHURA CONFIG FILE #
 ##########################
 
-# Last update: 01.10.18, 22:27:15 @x200
+# Last update: 28.11.18, 18:13:28 @x200
 # Docs: https://pwmt.org/projects/zathura/documentation/
 
 # >> init options
@@ -14,6 +14,8 @@ set window-title-home-tilde true
 set statusbar-basename true
 set statusbar-home-tilde true
 set window-title-page true
+set statusbar-h-padding 0
+set statusbar-v-padding 0
 
 # >> kbd
 # map W zoom width
@@ -25,6 +27,12 @@ map J scroll full-down
 map K scroll full-up
 map <A-j> scroll half-down
 map <A-k> scroll half-up
+map I recolor
+map P print
+map R rotate
+map r reload
+map = zoom in
+map 0 zoom 100
 
 # available function shortcuts:
 # ----------------------------
