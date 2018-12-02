@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 24.10.18, 22:34:31 @lenovo
+# Last update: 02.12.18, 15:27:45 @x200
 
 # >> DOC:
 
@@ -15,16 +15,16 @@ COLOR="#C0392B"
 
 if [[ $IF == "enp0s25" ]]; then
     GLYPH=""
-    QUALITY=""
+    QUALITY=$(dmesg | grep $IF | grep Up | awk 'NR==1 {print $8 " " $9}')
 else
     GLYPH="" # ▼
     QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 fi
 
-CONN=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3))
+CONN=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3 | head -n 1))
 #CONN=$(ping -c 1 1.1.1.1 2>/dev/null)
 
-PAC_LOSS=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3) | awk 'NR==4 {print $6}' | sed 's/%//g')
+#PAC_LOSS=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3) | awk 'NR==4 {print $6}' | sed 's/%//g')
 
 # >> i3blocks OUTPUT
 # >> 1.
@@ -45,11 +45,11 @@ if [[ $(echo $CONN | grep Unreachable) ]]; then
     pkill -RTMIN+13 i3blocks
 
 elif [[ $(echo $CONN | grep '0 received') ]]; then
-    echo "<span color='$COLOR'>$GLYPH $QUALITY</span>"
+    echo "<span color='$COLOR'>$GLYPH ${QUALITY}</span>"
     # update dropbox status @i3blocks
     pkill -RTMIN+13 i3blocks
 else
-    echo "$GLYPH $QUALITY"
+    echo "$GLYPH ${QUALITY}"
 fi
 
 # >> MOUSE BEHAVIOUR
@@ -61,4 +61,3 @@ case $BLOCK_BUTTON in
        pkill -RTMIN+13 i3blocks
        ;;
 esac
-
