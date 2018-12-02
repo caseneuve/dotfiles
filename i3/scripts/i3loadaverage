@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
 # Created:     16.07.18, 15:16    @x200
-# Last update: 25.10.18, 02:18:25 @lenovo
+# Last update: 02.12.18, 21:41:10 @x200
 
 # >> DOC:
 
@@ -19,3 +19,10 @@ if [[ $(echo "$CPUS <= $LOAD" | bc) = "1" ]]; then
 else
     echo "$GLYPH $LOAD"
 fi
+
+# >> MOUSE
+case $BLOCK_BUTTON in
+    1) notify-send "CPU eaters:" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)";;
+    3) notify-send "MEMORY eaters [$(free -h | awk '/^Mem/ {print $3 "/" $2}' | sed 's/i//g')]:" \
+                   "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
+esac 
