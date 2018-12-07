@@ -1,7 +1,7 @@
 
 # toshiba (aka manjaro) local settings:
 # ======================
-# Last update: 17.11.18, 14:41:45 @toshiba
+# Last update: 04.12.18, 21:38:11 @toshiba
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -28,7 +28,7 @@ bar {
         modifier $mod
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
         i3bar_command i3bar -t
-        position bottom
+        position top
         height 20
 
         colors {
