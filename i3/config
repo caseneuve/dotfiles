@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 07.12.18, 15:37:57 @lenovo
+# Last update: 07.12.18, 18:06:25 @lenovo
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -419,7 +419,8 @@ set $bri   #191f26
 set $bru   #191f26 
 set $brur  #c0392b
 # background
-set $bgf   #9B9B9B
+#set $bgf   #9B9B9B
+set $bgf   #F79F1F
 set $bgfi  #323f4d 
 set $bgi   #191f26
 set $bgur  #e74c3c
