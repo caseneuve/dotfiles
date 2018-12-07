@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 17.11.18, 14:41:57 @toshiba
+# Last update: 07.12.18, 11:05:26 @lenovo
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -39,7 +39,7 @@ bar {
         modifier $mod
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
         i3bar_command i3bar -t
-        position bottom
+        position top
         height 20
 
         colors {
