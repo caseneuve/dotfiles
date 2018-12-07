@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 25.11.18, 23:16:36 @toshiba
+# Last update: 07.12.18, 15:37:57 @lenovo
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -396,7 +396,7 @@ bindsym $mod+g gaps inner current set 0; gaps outer current set 0
 # >>>> borders exclude
 for_window [class="^.*"] border pixel 0
 for_window [class="myquickterm"] border pixel 0
-for_window [class="scratch"] border pixel 0
+for_window [class="scratch"] border pixel 1
 
 # >>>> borders for scratchpads and terms only
 smart_borders on
