@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 09.11.18, 12:31:20 @toshiba
+# Last update: 08.12.18, 21:39:15 @lenovo
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -40,7 +40,7 @@ WHITE="$(tput setaf 15)"
 BOLD="$(tput bold)"
 RESET="$(tput sgr0)"
 #BLACK="$(tput setaf 8)"
-#MAGENTA="$(tput setaf 13)"
+MAGENTA="$(tput setaf 13)"
 #PSGIT="$(tput setaf 197)"
 PSGIT="$(tput setaf 2)"
 
@@ -62,18 +62,25 @@ __command_prompt () {
     GITB=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
     case $GTS in
         *'use "git push"'*)
-            GTS="✔"
+            GTS=" ✔ "
             GITCOL=$ORANGE ;; 
         *'nothing to commit'*)
-            GTS="✔"
+            GTS=" ✔ "
             GITCOL=$BLUE ;; 
         *'not staged'*|*'Untracked'*|*'modified'*|*'to be committed'*|*'deleted')
-            GTS="✗"
+            GTS=" ✗ "
             GITCOL=$RED ;;
         *) GTS= ;;
     esac
-    if [[ -n $GTS ]]; then
-        PS1="\[$PSGIT\]$GITB\[$RESET\] \[$GITCOL\]$GTS\[$RESET\] \[$BOLD\]\[$WHITE\]$DIR\[$RESET\]\[$COLOR\]:\[$RESET\] "
+
+    if [[ -n $VIRTUAL_ENV ]]; then
+        [[  $(echo "$PWD" | grep "${VIRTUAL_ENV##*/}") ]] && VENV="{venv:} " || VENV="{venv: ${VIRTUAL_ENV##*/}} "
+    else
+        VENV=
+    fi
+    
+    if [[ -n $GTS || -n $VENV ]] ; then
+        PS1="\[$MAGENTA\]$VENV\[$RESET\]\[$PSGIT\]$GITB\[$RESET\]\[$GITCOL\]$GTS\[$RESET\]\[$BOLD\]\[$WHITE\]$DIR\[$RESET\]\[$COLOR\]:\[$RESET\] "
     else
         PS1="\[$BOLD\]\[$WHITE\]$DIR\[$RESET\]\[$BOLD\]\[$COLOR\]:\[$RESET\] "
     fi
