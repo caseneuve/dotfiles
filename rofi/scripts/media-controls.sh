@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 10.11.18, 11:23:09 @toshiba
+# Last update: 08.12.18, 11:35:34 @lenovo
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
@@ -19,6 +19,7 @@ if [[ $HOSTNAME == toshiba ]]; then
 else
     GLYPH=
 fi
+[[ -z $1 ]] && THEME=mytheme || THEME=$1
 
 # >> MPV FUNC
 mpv_commands(){
@@ -33,7 +34,7 @@ mpv_commands(){
 [2] stop
 [4] stream audio yank
 [3] load video stream
-[5] show playlist" | rofi -theme mytheme -dmenu -p "$GLYPH  MPV:")
+[5] show playlist" | rofi -theme $THEME -dmenu -p "$GLYPH  MPV:")
     case "$selected" in
         '[>] forward 30s.') echo '{ "command": [ "seek", "30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
         '[<] rewind 30s.') echo '{ "command": [ "seek", "-30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
@@ -65,7 +66,7 @@ moc_commands(){
 [!] play (list)
 [>] forward 30s.
 [<] rewind 30s.
-info" | rofi -theme mytheme -dmenu -p "$GLYPH  MOCP:")
+info" | rofi -theme $THEME -dmenu -p "$GLYPH  MOCP:")
     
     case "$selected" in
         '[1] pause toggle') mocp -G ;;
@@ -86,7 +87,7 @@ info" | rofi -theme mytheme -dmenu -p "$GLYPH  MOCP:")
 
 # >> PAUSE FUNC
 pause_commands(){
-    selected=$(echo -e "[a] mocp\n[f] mpv" | rofi -theme mytheme -dmenu -p "$GLYPH CHOOSE:")
+    selected=$(echo -e "[a] mocp\n[f] mpv" | rofi -theme $THEME -dmenu -p "$GLYPH CHOOSE:")
     case "$selected" in
         '[a] mocp') moc_commands;;
         '[f] mpv') mpv_commands;;

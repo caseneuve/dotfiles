@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 07.12.18, 18:06:25 @lenovo
+# Last update: 08.12.18, 11:37:54 @lenovo
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -562,12 +562,14 @@ bindsym $mod+Shift+s move scratchpad
 bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 
 # >>>> rofi/dmenu scpripts
-bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
+set $rofi-theme i3orange
+#bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
+bindsym $mod+d $exe rofi -show drun -modi drun -theme $rofi-theme
 #bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
-bindsym $mod+semicolon $exe rofi -show window -modi window -window-format {c:15}{t:25} -theme i3black_and_red
-bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate
-bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh
-bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh
+bindsym $mod+semicolon $exe rofi -show window -modi window -window-format {c:15}{t:25} -theme $rofi-theme
+bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
+bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
+bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh $rofi-theme
 
 #bindsym $mod+Shift+d $exe dmenu_run -nb '#9B9B9B' -nf '#191f26' -sb '#ff6347' -p 'run:'
 #bindsym $mod+Shift+d $exe dmenu_run -nb '#191f26' -nf '#ececec' -sb '#ff6347' -p 'run:'

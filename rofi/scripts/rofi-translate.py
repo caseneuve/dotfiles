@@ -16,13 +16,20 @@
 # done: warunek: jeśli query = resp niech daje komunikat, że nie znalazł tłumaczenia
 
 # >> LIBS
+import sys
 from subprocess import check_output as out
 from subprocess import Popen as pop
 import re
 from rofi import Rofi
 
 # >> VARIABLES
-r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
+#r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
+if len(sys.argv) == 1:
+    theme = '/home/piotr/.config/rofi/mytheme.rasi'
+else:
+    theme = '/home/piotr/.config/rofi/' + str(sys.argv[1])
+
+r = Rofi(rofi_args=['-theme', theme])
 unbashify_re = re.compile(r'\x1b\[(1m|22m|24m|4m)')
 kill_head_re = re.compile(
     r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> (.*) \]\n*', re.UNICODE)
