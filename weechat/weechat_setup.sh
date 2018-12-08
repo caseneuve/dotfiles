@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/weechat/weechat_setup.sh
 # Created:     24.11.18, 23:39    @x200
-# Last update: 26.11.18, 09:09:30 @lenovo
+# Last update: 08.12.18, 22:20:01 @lenovo
 
 # >> DOC:
 # Read info under the banner
@@ -19,10 +19,12 @@ WEELUA=$WEE/lua
 WEEPY=$WEE/python
 WEEPERL=$WEE/perl
 WEERUBY=$WEE/ruby
+DOTFILES=$HOME/.dotflies/weechat
 gre=$(tput setaf 2)
 red=$(tput setaf 9)
 blu=$(tput setaf 4)
 res=$(tput sgr0)
+
 # >> RUN:
 clear
 echo $gre
@@ -62,9 +64,13 @@ cat << EOF
 # Plugins:
 # =======
 # - matrix-protocol   => plugin for matrix.org
-# - multiline.pl      => multiline entries support
 # - wee_slack.py      => plugin for slack
 # - urls.rb           => urlview launcher)
+# - multiline.pl      => multiline entries support
+# - go.py             => support for quick jumping to buffers
+# - weenotify         => send system notifications
+# - colorize_nicks.py => (don't know if needed :-))
+
 EOF
 echo $res
 while true; do
@@ -81,12 +87,12 @@ while true; do
     fi
 done
 
+# >>> installing dependencies
 echo $gre
 echo "# Checking dependencies..."
 echo $res
 
-for app in python2 python2-virtualenv weechat lua-cjson
-do
+for app in python2 python2-virtualenv weechat lua-cjson; do
     if [[ ! $(pacman -Q $app 2>/dev/null) ]]; then
         echo $gre "# ... installing $app" $res
         yay -S $app
@@ -95,11 +101,24 @@ do
     fi
 done
 
+# >>> run weechat for the first time
 echo $gre
-echo "# Running weechat just to build directory structure..."
+echo "# Running weechat to build directory structure and install some official scripts..."
 echo $res
-weechat -r '/key bind meta-t /bar toggle buflist; /key bind meta-n /bar toggle nicklist; /key bind meta-s /input return; /key bind ctrl-U /urls; /save; /quit' 
+weechat -r '/script install go.py; /script install colorize_nicks.py; /script install weenotify.py; /save; /quit' 
 
+# >>> symlinks
+echo $gre
+echo "# Linking config files from ~/.dotfiles repo..."
+if [[ -d $DOTFILES ]]; then
+    for file in $(ls $DOTFILES/*.conf); do
+        [[ -f $WEE/$file ]] && rm $WEE/$file
+        ln -s $DOTFILES/$file $WEE/
+    done
+fi
+echo $res
+
+# >>> virtualenv
 echo $gre
 echo "# Creating a python2 virtual environment in $VIRTWEE..."
 echo $res
@@ -119,27 +138,33 @@ else
     cd $VIRTWEE
     source $VIRTWEE/bin/activate
     echo $gre
-    echo "# ... installing *pync* and *websocket-client*"
-    echo $res
-    pip install pync
-    echo $gre
-    echo "# ... done!"
-    echo $res 
-    pip install websocket-client
-    echo $gre
-    echo "# ... done!"
+    echo "# ... installing:
+# - *pync*             (slack dependency)
+# - *websocket-client* (slack dependency)
+# - *dbus-python*      (weenotify dependency)
+# - *notify2*          (weenotify dependency)"
+    for lib in pync websocket-client dbus-python notify2; do
+        if [[ ${pip freeze | grep $lib} ]]; then
+            echo $res
+            echo $gre
+            echo "# $lib already installed!"
+        else
+            echo $res
+            pip install $lib
+            echo $gre
+            echo "# ... done!"
+    done
 fi
 
+# >>> installing external plugins
 echo $gre
 echo "# Installing the plugins: 
   - *matrix-protocol*, 
-  - *multiline.pl* 
   - *wee_slack.py*
   - *urls.rb*"
 echo "# (more info at: $blu 
   - https://github.com/torhve/weechat-matrix-protocol-script 
   - https://github.com/wee-slack/wee-slack 
-  - https://weechat.org/scripts/source/multiline.pl.html/ 
   - https://weechat.org/files/scripts/unofficial/urlview.rb $gre)"
 
 cd /tmp
@@ -148,10 +173,10 @@ echo "# ... cloning *matrix-protocol*"
 echo $res
 git clone https://github.com/torhve/weechat-matrix-protocol-script.git
 
-echo $gre
-echo "# ... downloading *multiline*"
-echo $res
-wget https://weechat.org/files/scripts/multiline.pl
+# echo $gre
+# echo "# ... downloading *multiline*"
+# echo $res
+# wget https://weechat.org/files/scripts/multiline.pl
 
 echo $gre
 echo "# ... downloading *wee_slack*"
@@ -177,11 +202,12 @@ cp /tmp/urls.rb $WEERUBY/ && echo " ... done!"
 echo -e "\n# ... creating symlinks in $WEE/.../autoload/ folders" $res
 
 [[ -L $WEELUA/autoload/matrix.lua ]] || ln -s $WEELUA/matrix.lua $WEELUA/autoload/
-[[ -L $WEEPERL/autoload/multiline.pl ]] || ln -s $WEEPERL/multiline.pl $WEEPERL/autoload/
+#[[ -L $WEEPERL/autoload/multiline.pl ]] || ln -s $WEEPERL/multiline.pl $WEEPERL/autoload/
 [[ -L $WEEPY/autoload/wee_slack.py ]] || ln -s $WEEPY/wee_slack.py $WEEPY/autoload/
 [[ -L $WEERUBY/autoload/urls.rb ]] || ln -s $WEERUBY/urls.rb $WEERUBY/autoload/
 echo $gre"# ... done!" $res
 
+# >>> final message
 echo $red
 cat << EOF
 ## Instructions ##
@@ -208,12 +234,19 @@ cat << EOF
    Alt+[0..9]  → goto buffer [0-9]
    F1 / F2     → buflist beg / end
    C-n / C-p   → next / prev buffer
+   Alt+q       → kill buffer
+   Alt+g       → select buffer to go
+   Alt+a       → last action buffer
+   Alt+/       → previously focused buffer
 
 # Before running weechat remember to run:
   "source $VIRTWEE/bin/activate"
+  or
+  "$VIRTWEE/python weechat"
 EOF
 echo $res
 
+# >>> last configs
 while true; do
     echo "# Do you want to start weechat with autoconfigure?"
     read -p "# (you will need to pass some credentials) [y/n] " answer
