@@ -7,7 +7,7 @@
 ##   _|          _|_|      _|      _|   ##
 ##                                      ##
 ##########################################
-# Last update: 10.11.18, 11:11:47 @toshiba
+# Last update: 08.12.18, 11:32:40 @lenovo
 
 # >> {Doc}
 # FIXME: należy napisać skrypty dla różnych komend, żeby respektowały różne monitory; tutaj zostawić tylko kolory i fullscreen
@@ -55,25 +55,25 @@ rofi.modi:          window
 rofi.matching: fuzzy
 
 # >> {KBD}
-rofi.kb-row-up: Alt-i,Shift-Tab
-rofi.kb-row-down: Alt-k
+rofi.kb-row-up: Alt-j,Control-Tab
+rofi.kb-row-down: Alt-l
 rofi.kb-delete-entry: Alt-d
-rofi.kb-accept-entry: Alt-l,Return
-rofi.kb-mode-next: Alt-o,Control-Tab
+rofi.kb-accept-entry: Alt-a,Return
+rofi.kb-mode-next: Alt-o
 rofi.kb-mode-previous: Alt-u
 
 rofi.color-enabled: true
 
 # >> {COLORS}
-! Window:           'background',  'border', 'separator'
-rofi.color-window:  argb:f214191f,        #9575cd, #4682b4
-!rofi.color-window: argb:cc252936,  #9575cd, #4682b4
-!argb:ffffffff
+# ! Window:           'background',  'border', 'separator'
+# rofi.color-window:  argb:f214191f,        #9575cd, #4682b4
+# !rofi.color-window: argb:cc252936,  #9575cd, #4682b4
+# !argb:ffffffff
 
-!   State:              'bg',       'fg',   'altbg',        'hlbg',         hlfg
-rofi.color-normal: argb:00252936, #ffffff, argb:00252936, argb:009575cd, #00ff7f
-rofi.color-active: argb:00252936, #708090, argb:00252936, argb:009575cd, #ffc000
-rofi.color-urgent: argb:00252936, #ff0000, argb:00252936, argb:00252936, #ff0000
+# !   State:              'bg',       'fg',   'altbg',        'hlbg',         hlfg
+# rofi.color-normal: argb:00252936, #ffffff, argb:00252936, argb:009575cd, #00ff7f
+# rofi.color-active: argb:00252936, #708090, argb:00252936, argb:009575cd, #ffc000
+# rofi.color-urgent: argb:00252936, #ff0000, argb:00252936, argb:00252936, #ff0000
 
 # >> {FORMAT}
 #rofi.width: 50
@@ -86,8 +86,9 @@ rofi.font: Inconsolata 16
 rofi.bw: 0
 rofi.eh: 1
 rofi.hide-scrollbar: true
-rofi.auto-select: true
-rofi.display-drun:run
+rofi.auto-select: false
+rofi.display-drun: run |
+rofi.display-window: window |  
 rofi.fullscreen: true
 #rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi            
 
