@@ -7,7 +7,7 @@
 ##   _|          _|_|      _|      _|   ##
 ##                                      ##
 ##########################################
-# Last update: 08.12.18, 11:32:40 @lenovo
+# Last update: 08.12.18, 11:42:11 @lenovo
 
 # >> {Doc}
 # FIXME: należy napisać skrypty dla różnych komend, żeby respektowały różne monitory; tutaj zostawić tylko kolory i fullscreen
@@ -52,7 +52,8 @@ rofi.modi:          window
 #rofi.separator-style:                dash
 
 # >> {MATCHING}
-rofi.matching: fuzzy
+# opts: normal, fuzzy, regex, glob
+rofi.matching: regex
 
 # >> {KBD}
 rofi.kb-row-up: Alt-j,Control-Tab
