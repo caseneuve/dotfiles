@@ -2,7 +2,7 @@
 
 # Path:        ~/biu/i3/screencastis.sh
 # Created:     24.08.18, 23:09    @x200
-# Last update: 25.08.18, 13:23:36 @x200
+# Last update: 08.12.18, 21:34:00 @lenovo
 
 # >> DOC: 
 # i3blocks screencast indicator; runs with screencast.sh
@@ -10,5 +10,5 @@
 FGCOLOR=#C0392B
 
 # >> RUN:
-[[ $(ps aux | grep ffmpeg | grep -v grep) ]] && echo -e "<span color='$FGCOLOR'>  </span>" || echo ""
+[[ $(ps aux | grep ffmpeg | grep -v grep) ]] && echo -e "<span color='$FGCOLOR'> </span>" || echo ""
 
