@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/weechat/weechat_setup.sh
 # Created:     24.11.18, 23:39    @x200
-# Last update: 08.12.18, 22:20:01 @lenovo
+# Last update: 09.12.18, 00:45:44 @lenovo
 
 # >> DOC:
 # Read info under the banner
@@ -19,7 +19,7 @@ WEELUA=$WEE/lua
 WEEPY=$WEE/python
 WEEPERL=$WEE/perl
 WEERUBY=$WEE/ruby
-DOTFILES=$HOME/.dotflies/weechat
+DOTFILES=$HOME/.dotfiles/weechat
 gre=$(tput setaf 2)
 red=$(tput setaf 9)
 blu=$(tput setaf 4)
@@ -94,10 +94,10 @@ echo $res
 
 for app in python2 python2-virtualenv weechat lua-cjson; do
     if [[ ! $(pacman -Q $app 2>/dev/null) ]]; then
-        echo $gre "# ... installing $app" $res
+        echo $gre"# ... installing $app" $res
         yay -S $app
     else
-        echo $red "# ... $app already installed, skipping" $res
+        echo $red"# ... $app already installed, skipping" $res
     fi
 done
 
@@ -110,10 +110,16 @@ weechat -r '/script install go.py; /script install colorize_nicks.py; /script in
 # >>> symlinks
 echo $gre
 echo "# Linking config files from ~/.dotfiles repo..."
+echo $res
 if [[ -d $DOTFILES ]]; then
     for file in $(ls $DOTFILES/*.conf); do
-        [[ -f $WEE/$file ]] && rm $WEE/$file
-        ln -s $DOTFILES/$file $WEE/
+        file=${file##*/}
+        if [[ -L $WEE/$file ]]; then
+            echo $red"# ... symlink $file already exists!"$res
+        else
+            [[ -f $WEE/$file ]] && rm $WEE/$file
+            ln -s $DOTFILES/$file $WEE && echo $gre"# ... symlink for $file done!"$res
+        fi
     done
 fi
 echo $res
@@ -135,26 +141,13 @@ if [[ -d $VIRTWEE ]]; then
 else
     echo $gre"#... running virtualenv2" $res
     virtualenv2 $VIRTWEE
-    cd $VIRTWEE
-    source $VIRTWEE/bin/activate
-    echo $gre
-    echo "# ... installing:
-# - *pync*             (slack dependency)
-# - *websocket-client* (slack dependency)
-# - *dbus-python*      (weenotify dependency)
-# - *notify2*          (weenotify dependency)"
-    for lib in pync websocket-client dbus-python notify2; do
-        if [[ ${pip freeze | grep $lib} ]]; then
-            echo $res
-            echo $gre
-            echo "# $lib already installed!"
-        else
-            echo $res
-            pip install $lib
-            echo $gre
-            echo "# ... done!"
-    done
 fi
+
+echo $gre
+echo "# ... checking Python requirements:"
+echo $res
+source $VIRTWEE/bin/activate
+pip install -r "$DOTFILES/requirements.txt"
 
 # >>> installing external plugins
 echo $gre
@@ -168,44 +161,30 @@ echo "# (more info at: $blu
   - https://weechat.org/files/scripts/unofficial/urlview.rb $gre)"
 
 cd /tmp
-echo $gre
-echo "# ... cloning *matrix-protocol*"
-echo $res
-git clone https://github.com/torhve/weechat-matrix-protocol-script.git
+external_script(){
+    if [[ -f "$2/$1" ]]; then
+        echo $red"# ... plugin $1 already installed!"$res
+    else
+        echo $gre"# ... cloning *$1*"$res
+        [[ $(echo $3 | grep git) ]] && git clone $3 $2 || wget -P $2 $3
+        echo -n $gre"# ... symlinking $1 to $2/autoload/$1"
+        [[ -L $2/autoload/$1 ]] || ln -s $2/$1 $2/autoload/
+        echo " ... done!"
+        echo $res
+    fi
+}
 
-# echo $gre
-# echo "# ... downloading *multiline*"
-# echo $res
-# wget https://weechat.org/files/scripts/multiline.pl
+external_script matrix.lua \
+                $WEELUA \
+                https://github.com/torhve/weechat-matrix-protocol-script.git
 
-echo $gre
-echo "# ... downloading *wee_slack*"
-echo $res
-wget https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
+external_script wee_slack.py \
+                $WEEPY \
+                https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
 
-echo $gre
-echo "# ... downloading *urls*"
-echo $res
-wget https://weechat.org/files/scripts/unofficial/urlview.rb
-
-echo $gre
-echo "# ... moving files to:"
-echo -n "#  [1] $WEELUA"
-cp /tmp/weechat-matrix-protocol-script/matrix.lua $WEELUA/ && echo " ... done!"
-echo -n "#  [2] $WEEPERL"
-cp /tmp/multiline.pl $WEEPERL/ && echo " ... done!"
-echo -n "#  [3] $WEEPY"
-cp /tmp/wee_slack.py $WEEPY/ && echo " ... done!"
-echo -n "#  [4] $WEERUBY"
-cp /tmp/urls.rb $WEERUBY/ && echo " ... done!"
-
-echo -e "\n# ... creating symlinks in $WEE/.../autoload/ folders" $res
-
-[[ -L $WEELUA/autoload/matrix.lua ]] || ln -s $WEELUA/matrix.lua $WEELUA/autoload/
-#[[ -L $WEEPERL/autoload/multiline.pl ]] || ln -s $WEEPERL/multiline.pl $WEEPERL/autoload/
-[[ -L $WEEPY/autoload/wee_slack.py ]] || ln -s $WEEPY/wee_slack.py $WEEPY/autoload/
-[[ -L $WEERUBY/autoload/urls.rb ]] || ln -s $WEERUBY/urls.rb $WEERUBY/autoload/
-echo $gre"# ... done!" $res
+external_script urlview.rb \
+                $WEERUBY \
+                https://weechat.org/files/scripts/unofficial/urlview.rb
 
 # >>> final message
 echo $red

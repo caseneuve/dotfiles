@@ -1,0 +1,6 @@
+dbus-python==1.2.8
+notify2==0.3.1
+pync==2.0.3
+python-dateutil==2.7.5
+six==1.11.0
+websocket-client==0.54.0
