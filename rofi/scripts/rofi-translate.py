@@ -24,12 +24,16 @@ from rofi import Rofi
 
 # >> VARIABLES
 #r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
-if len(sys.argv) == 1:
-    theme = '/home/piotr/.config/rofi/mytheme.rasi'
-else:
+try:
     theme = '/home/piotr/.config/rofi/' + str(sys.argv[1])
+except IndexError:
+    theme = '/home/piotr/.config/rofi/mytheme.rasi'
+try:
+    monitor = str(sys.argv[2])
+except IndexError:
+    monitor = '-2'
+r = Rofi(rofi_args=['-theme', theme, '-monitor', monitor])
 
-r = Rofi(rofi_args=['-theme', theme])
 unbashify_re = re.compile(r'\x1b\[(1m|22m|24m|4m)')
 kill_head_re = re.compile(
     r'^.*\n.*\n*.*\n*.*\n\[ (.*) -> (.*) \]\n*', re.UNICODE)
