@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/weechat/weechat_setup.sh
 # Created:     24.11.18, 23:39    @x200
-# Last update: 09.12.18, 00:45:44 @lenovo
+# Last update: 09.12.18, 16:10:36 @x200
 
 # >> DOC:
 # Read info under the banner
@@ -105,7 +105,7 @@ done
 echo $gre
 echo "# Running weechat to build directory structure and install some official scripts..."
 echo $res
-weechat -r '/script install go.py; /script install colorize_nicks.py; /script install weenotify.py; /save; /quit' 
+weechat -r '/script install go.py; /script install colorize_nicks.py; /script install weenotify.py; /set plugins.var.python.weenotify.enable "on"; /save; /quit' 
 
 # >>> symlinks
 echo $gre
