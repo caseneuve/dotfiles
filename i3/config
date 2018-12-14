@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 08.12.18, 11:37:54 @lenovo
+# Last update: 14.12.18, 22:19:30 @lenovo
 
 ## >> TODO
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
@@ -82,6 +82,7 @@ bindsym $mod+a [con_mark="marked"] focus
 bindsym $mod+y layout tabbed
 bindsym $mod+Ctrl+y layout stacking
 bindsym $mod+Shift+y layout toggle split
+bindsym $mod+Control+t split toggle
 
 # >>> {{ toggle tiling / floating: }}
 bindsym $mod+Shift+space floating toggle
@@ -534,9 +535,9 @@ bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 
 ## >> { KBD }
-bindsym $mod+Return split h $exe $dot/i3startterminemacsdir.sh
-bindsym $mod+Shift+Return split v $exe $dot/i3startterminemacsdir.sh
-bindsym $mod+Mod1+Return $exe $dot/i3-term-toggler.sh
+bindsym $mod+Return $exe $dot/i3startterminemacsdir.sh
+bindsym $mod+Shift+Return split toggle $exe $dot/i3startterminemacsdir.sh
+#bindsym $mod+Mod1+Return $exe $dot/i3-term-toggler.sh
 # bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
 # bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
 bindsym $mod+b $app qutebrowser
