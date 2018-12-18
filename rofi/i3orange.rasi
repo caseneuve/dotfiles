@@ -31,7 +31,8 @@ configuration {
 }
 
 #prompt {
-    font: "Inconsolata Bold 10";
+    /* font: "Inconsolata Bold 10"; */
+    font: "Inconsolata 10";
 }
 
 #listview {
