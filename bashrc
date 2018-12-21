@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 08.12.18, 21:39:15 @lenovo
+# Last update: 21.12.18, 22:06:35 @x200
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -105,8 +105,9 @@ export PATH=$PATH:~/bin:~/scr:~/.cargo
 export LC_MESSAGES=C # let command line messages be in English
 export BROWSER=/usr/bin/qutebrowser
 export VISUAL=""
-export EDITOR='emacsclient -nw'
-export ALTERNATE_EDITOR="nano"
+#export EDITOR='emacsclient -nw'
+export EDITOR=emacsclient
+export ALTERNATE_EDITOR=nano
 export RANGER_LOAD_DEFAULT_RC=FALSE
 LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
 # set grep match color to bold, blue (default red bold)
