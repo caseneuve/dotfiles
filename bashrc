@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 08.12.18, 21:39:15 @lenovo
+# Last update: 23.12.18, 19:45:53 @lenovo
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -23,6 +23,7 @@ stty -ixon
 
 ## >> HISTORY
 export HISTCONTROL=ignoreboth:erasedups
+export HISTIGNORE="klr:q:yayup:ls:sbr:history"
 
 ## >> COMMAND PROMPT
 # >>> prompt colors
