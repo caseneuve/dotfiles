@@ -31,7 +31,8 @@ configuration {
 }
 
 #prompt {
-    font: "Inconsolata Bold 10";
+    /* font: "Inconsolata Bold 10"; */
+    font: "Inconsolata 10";
 }
 
 #listview {
@@ -52,6 +53,8 @@ configuration {
 }
 
 #element selected {
-    background-color: #ff6347;
-    text-color: #111;
+    /* background-color: #ff6347; */
+    background-color: #b33939;
+    /* text-color: #111; */
+    text-color: #fff;
 }

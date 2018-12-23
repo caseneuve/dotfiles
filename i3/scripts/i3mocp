@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 17.11.18, 14:49:53 @toshiba
+# Last update: 18.12.18, 20:23:58 @x200
 
 # >> DOC:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -18,22 +18,10 @@ else
     GLYPH=""
 fi
 
-#TITLE=$(mocp -Q %title)
-#ARTIST=$(mocp -Q %artist)
-#[[ $(echo $ARTIST | awk '{print $1}' | grep -i "the\|a") ]] \
-#    && ARTIST=$(echo $ARTIST | awk '{print $1 " " $2}') || ARTIST=$(echo $ARTIST | awk '{print $1}')
-#SONGTITLE=$(mocp -Q %song)
-#[[ $(echo $SONGTITLE | awk '{print $1}' | grep -i "the\|a") ]] \
-#    && SONGTITLE=$(echo $SONGTITLE | awk '{print $1 " " $2}') || SONGTITLE=$(echo $SONGTITLE | awk '{print $1}')
-
 TRACK=$(mocp -Q %n)
 [[ -n $TRACK ]] && TRACK="$TRACK. " || TRACK=""
-#FILE=$(mocp -Q %file)
-#FILE=${FILE##*/}
 STATUS=$(mocp -Q %state)
 TIME=$(mocp -Q %ct)
-#LEFT=$(mocp -Q %tl)
-
 
 # >> RUN:
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
@@ -50,34 +38,15 @@ else
     fi
 fi
 
-# >>> old run
-# if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
-#     if [ "$TITLE" ]; then
-#         if [ "$STATUS" = "PLAY" ]; then
-#             echo -e "<span bgcolor='$BGCOLOR'>$GLYPH $ARTIST: $SONGTITLE $TIME [-$LEFT] $GLYPH</span>"
-#         elif [ "$STATUS" = "PAUSE" ]; then
-#             echo -e "<span fgcolor='$FGCOLOR'>$GLYPH $ARTIST: $SONGTITLE $TIME [-$LEFT] $GLYPH</span>"
-#         fi
-#     else
-#         if [ "$STATUS" = "PLAY" ]; then
-#             echo -e "<span bgcolor='$BGCOLOR'>$GLYPH $FILE: $TIME [-$LEFT] $GLYPH</span>"
-#         elif [ "$STATUS" = "PAUSE" ]; then
-#             echo -e "$GLYPH $FILE: $TIME [-$LEFT] $GLYPH"
-#         fi
-#     fi
-    
 # >> MOUSE:
-    case $BLOCK_BUTTON in
-            1) mocp -r ;; # left click = previous song
-            # 2) mocp -G ;; # middle click = toggle pause/play
-            2) notify-send -u low "MOCP:
+
+case $BLOCK_BUTTON in
+    # 1) mocp -r ;; # left click = previous song
+    1) mocp -G ;; # middle click = toggle pause/play
+    2) mocp -f ;; # right click = next song
+    3) notify-send -u low "MOCP:
 =====" "$(mocp -i)";;
-            3) mocp -f ;; # right click = next song
-            4) mocp -k -10 ;; # scroll up = backward 10 sec
-            5) mocp -k 10 ;; # scroll down = foreard 10 sec
-        esac
-        exit 0
-else
-    echo -e ""
-fi
+    4) mocp -k -10 ;; # scroll up = backward 10 sec
+    5) mocp -k 10 ;; # scroll down = foreard 10 sec
+esac
 
