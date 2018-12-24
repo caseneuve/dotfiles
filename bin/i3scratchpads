@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 24.11.18, 13:46:59 @x200
+# Last update: 24.12.18, 13:57:41 @lenovo
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -10,6 +10,7 @@
 
 # >> VARIABLES:
 term=st
+font=Iosevka
 
 # >> RUN:
 while getopts "ufcot:" flag; do
@@ -36,7 +37,7 @@ while getopts "ufcot:" flag; do
            ;;
         # >>> quick scratch
         f) if [[ ! $(ps aux | grep myquickterm | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $term -c myquickterm -f 'Inconsolata:size=13'" &&\
+               i3-msg -q "exec --no-startup-id $term -c myquickterm -f '$font:size=13'" &&\
                    sleep 0.1
            fi
            i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&
