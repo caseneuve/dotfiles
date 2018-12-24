@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 24.12.18, 13:57:41 @lenovo
+# Last update: 24.12.18, 14:14:57 @lenovo
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -10,7 +10,11 @@
 
 # >> VARIABLES:
 term=st
-font=Iosevka
+if [[ $term == st ]]; then
+    font=$(awk '/^static char \*font/ {print $5}' ~/git/hub/st/config.h)
+    font=${font%%:*}
+    font=${font/\"/}
+fi
 
 # >> RUN:
 while getopts "ufcot:" flag; do
