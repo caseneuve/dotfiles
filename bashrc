@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 23.12.18, 23:46:41 @lenovo
+# Last update: 25.12.18, 19:10:22 @x200
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -102,7 +102,8 @@ shopt -s autocd
 bind TAB:menu-complete
 
 ## >> ENV VARIABLES:
-export PATH=$PATH:~/bin:~/scr:~/.cargo
+# >>> path:
+export PATH=$PATH:~/bin:~/scr:~/.cargo/bin
 export LC_MESSAGES=C # let command line messages be in English
 export BROWSER=/usr/bin/qutebrowser
 export VISUAL=""
