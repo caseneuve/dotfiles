@@ -6,9 +6,10 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 14.12.18, 22:19:30 @lenovo
+# Last update: 27.12.18, 17:52:31 @x200
 
 ## >> TODO
+# todo: 27/12/2018 ujednolicić zmienne kolorów
 # todo: (goto-line 523) → i3startterminalinemacsdir zamienić na skrypt, który będzie otwierał terminal z opcjami
 # todo: (goto-line 544) → i3-qtb-launcher
 # todo: (goto-line 552) → i3-emacs-launcher
@@ -418,18 +419,23 @@ bindsym $mod+Shift+v $exe $dot/i3video
 set $bra   #191f26
 set $bri   #191f26
 set $bru   #191f26 
-set $brur  #c0392b
+#set $brur  #c0392b
+set $brur  #F06292
 # background
 #set $bgf   #9B9B9B
-set $bgf   #F79F1F
+#set $bgf   #F79F1F
+set $bgf    #F06292
 set $bgfi  #323f4d 
 set $bgi   #191f26
-set $bgur  #e74c3c
+#set $bgur  #e74c3c
+set $bgur  #9B9B9B
 # text
-set $txtf  #111111
+#set $txtf  #111111
+set $txtf  #ffffff
 set $txti  #ececec
 set $txtu  #ececec
 set $txtur #ececec
+
 
 # class                   border  bg     text   
 client.focused            $bra    $bgf   $txtf
@@ -438,7 +444,12 @@ client.unfocused          $bru    $bgi   $txtu
 client.urgent             $brur    $bgur  $txtur 
 
 ## >> { BAR }
-font pango:Lato 8
+# use fonts.conf configuration
+font pango:monospace 9
+#font pango:Iosevka 9
+#font pango:Lato Thin 8
+#font pango:Inconsolata 9
+#font pango: DejaVu Sans Mono 8
 
 # >>> {{ bar color variables }}
 # >>>> {{ dark theme [off] }}
@@ -459,14 +470,18 @@ font pango:Lato 8
 # light theme start
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
 set $sbbg   #9B9B9B 
-set $sbwfbg #8c8c8c 
+#set $sbwfbg #8c8c8c
+#set $sbwfbg #EC407A
+set $sbwfbg #F06292
 set $sbwabg #9B9B9B
 set $sbsl   #191f26
-set $sbwtx  #111111
+#set $sbwtx  #111111
+set $sbwtx  #ffffff
 set $sbowtx #191f26
+set $sbuwtx #F06292
 set $sbwbr  #9B9B9B
-set $sbwu   #ff6347
-set $sbwubr #a52a2a
+#set $sbwu   #ff6347
+set $sbwubr #ececec
 # light theme stop
 
 # >>> {{ bar: primary }} 
@@ -486,10 +501,10 @@ bar {
                separator  $sbwabg
 
                # colorclass         border     backgro    text
-               focused_workspace    $sbwbr     $sbwfbg    $sbwtx
+               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
                active_workspace     $sbwbr     $sbwabg    $sbowtx
                inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $brur      $bgur      $sbowtx 
+               urgent_workspace     $sbwubr    $sbwubr    $sbuwtx 
                }
 }
 
