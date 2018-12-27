@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3battery.sh
 # Created:     16.07.18, 14:17    @x200
-# Last update: 21.11.18, 21:32:34 @x200
+# Last update: 27.12.18, 16:49:29 @x200
 
 # Doc:
 
@@ -14,21 +14,21 @@ ACPI=`acpi -b | sed 's/,//g'`
 STATE=`echo $ACPI | awk '{print $3}'`
 TIME=`echo $ACPI | awk '{print $5}'`
 TIME="${TIME%:*}"
-[[ "$STATE" = "Discharging" ]] && STATE="" || STATE="  " 
+[[ "$STATE" = "Discharging" ]] && STATE="" || STATE=" " 
 PERCENT=`echo $ACPI | awk '{print $4}'`
 PERC=${PERCENT%\%}
 FGCOLOR=#C0392B
 
 if (( $PERC < 10 )); then
-    echo "<span color='$FGCOLOR'> $PERC $STATE</span>"
+    echo "<span color='$FGCOLOR'>  $PERC $STATE</span>"
 elif (( $PERC < 50 )); then
-    echo " $PERC $STATE"
+    echo "  $PERC $STATE"
 elif (( $PERC < 75 )); then
-    echo " $PERC $STATE"
+    echo "  $PERC $STATE"
 elif (( $PERC < 85 )); then
-    echo " $PERC $STATE"
+    echo "  $PERC $STATE"
 elif (( $PERC <= 100 )); then
-    echo " $PERC $STATE"
+    echo "  $PERC $STATE"
 fi
 
 case $BLOCK_BUTTON in

@@ -2,13 +2,16 @@
 
 # Path:        ~/.dotfiles/i3/bin/date.sh
 # Created:     13.05.18, 18:16    @x200
-# Last update: 16.07.18, 16:38:44 @x200
+# Last update: 27.12.18, 16:11:46 @x200
 
-# DOC: script to display date in i3 blocks and send notifications via CALCURSE about upcoming calendar events
-# TODO: scroll up/down (events yesterday, today all)
+# >> DOC:
+# script to display date in i3 blocks and send notifications via CALCURSE about upcoming calendar events
+# >> TODOS:
+# todo: scroll up/down (events yesterday, today all)
 
 tod=$(date +%)
-echo "<span weight='bold'>$(date '+%a, %d %b')</span>"
+#echo "<span weight='bold'>$(date '+%a, %d %b')</span>"
+echo $(date '+%a, %d %b')
 
 case $BLOCK_BUTTON in
     # left click = previous song
