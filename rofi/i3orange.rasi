@@ -8,9 +8,10 @@
     /* background-color:      #9B9B9B; */
     /* border-color:          #111;  */
     /* text-color:            #191f26; */
-    background-color:      #F79F1F;
+    /* background-color:      #F79F1F; */
+    background-color:      #F06292;
     text-color:            #191f26;
-    font:                  "Inconsolata 10";
+    font:                  "monospace 10";
 }
 
 configuration {
@@ -32,7 +33,7 @@ configuration {
 
 #prompt {
     /* font: "Inconsolata Bold 10"; */
-    font: "Inconsolata 10";
+    font: "monospace 10";
 }
 
 #listview {
@@ -42,7 +43,7 @@ configuration {
 }
 
 #entry {
-    font: "Inconsolata 10";
+    /* font: "monospace 10"; */
     text-color: #191f26;
     expand:     false;
     width:      10em;
@@ -54,7 +55,8 @@ configuration {
 
 #element selected {
     /* background-color: #ff6347; */
-    background-color: #b33939;
+    /* background-color: #b33939; */
+    /* background-color: #b33939; */
     /* text-color: #111; */
-    text-color: #fff;
+    text-color: #ffffff;
 }
