@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 27.12.18, 17:52:31 @x200
+# Last update: 28.12.18, 11:09:47 @x200
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -424,7 +424,9 @@ set $brur  #F06292
 # background
 #set $bgf   #9B9B9B
 #set $bgf   #F79F1F
-set $bgf    #F06292
+set $bgf    #218c74
+# #33d9b2
+# #F06292
 set $bgfi  #323f4d 
 set $bgi   #191f26
 #set $bgur  #e74c3c
