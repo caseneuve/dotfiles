@@ -7,7 +7,7 @@
 ##   _|          _|_|      _|      _|   ##
 ##                                      ##
 ##########################################
-# Last update: 08.12.18, 11:42:11 @lenovo
+# Last update: 28.12.18, 16:15:13 @x200
 
 # >> {Doc}
 # FIXME: należy napisać skrypty dla różnych komend, żeby respektowały różne monitory; tutaj zostawić tylko kolory i fullscreen
@@ -83,7 +83,7 @@ rofi.line-margin: 5
 rofi.lines: 10
 rofi.separator-style: solid
 rofi.columns: 2
-rofi.font: Inconsolata 16
+rofi.font: monospace 16
 rofi.bw: 0
 rofi.eh: 1
 rofi.hide-scrollbar: true
