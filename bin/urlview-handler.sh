@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 03.12.18, 11:51:35 @x200
+# Last update: 28.12.18, 16:36:54 @x200
 
 # Doc: via Luke Smith github
 # note: replacing feh with sxiv
@@ -39,6 +39,8 @@ elif echo $1 | grep "youtube\.\|youtu\.be" > /dev/null; then
 #      nohup mpv "$1" > /dev/null &
 elif echo $1 | grep vimeo > /dev/null; then
     nohup mpv "$1" > /dev/null &
+elif echo $1 | grep "https://docs\.google\.com/document" > /dev/null; then
+    nohup ~/.dotfiles/bin/gdocs-downloader.sh $1 > /dev/null &
 else
     #nohup qutebrowser --target window "$1" >/dev/null &
     nohup qutebrowser "$1" > /dev/null &
