@@ -1,7 +1,7 @@
 /* -*- mode: css -*- */
 
 /**
- * ROFI mytheme orange 
+ * ROFI mytheme ... pink
  */
 
 * {
@@ -14,8 +14,8 @@
     font:                  "monospace 10";
 }
 
-configuration {
-}
+/* configuration { */
+/* } */
 
 #window {
     anchor:     north;
@@ -33,7 +33,7 @@ configuration {
 
 #prompt {
     /* font: "Inconsolata Bold 10"; */
-    font: "monospace 10";
+    font: "Monospace 10";
 }
 
 #listview {

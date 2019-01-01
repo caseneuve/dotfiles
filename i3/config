@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 28.12.18, 11:09:47 @x200
+# Last update: 30.12.18, 22:43:05 @x200
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -420,7 +420,7 @@ set $bra   #191f26
 set $bri   #191f26
 set $bru   #191f26 
 #set $brur  #c0392b
-set $brur  #F06292
+set $brur  #ffffff
 # background
 #set $bgf   #9B9B9B
 #set $bgf   #F79F1F
@@ -430,13 +430,13 @@ set $bgf    #218c74
 set $bgfi  #323f4d 
 set $bgi   #191f26
 #set $bgur  #e74c3c
-set $bgur  #9B9B9B
+set $bgur  #ffffff
 # text
 #set $txtf  #111111
 set $txtf  #ffffff
 set $txti  #ececec
 set $txtu  #ececec
-set $txtur #ececec
+set $txtur #F06292
 
 
 # class                   border  bg     text   

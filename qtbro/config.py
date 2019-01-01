@@ -783,58 +783,58 @@ c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
 
 # >> Font used in the completion categories.
 ## Type: Font
-c.fonts.completion.category = '11pt Inconsolata'
+c.fonts.completion.category = '11pt Monospace'
 
 # >> Font used in the completion widget.
 ## Type: Font
-c.fonts.completion.entry = '11pt Inconsolata'
+c.fonts.completion.entry = '11pt Monospace'
 
 # >> Font used for the debugging console.
 ## Type: QtFont
-c.fonts.debug_console = '11pt Inconsolata'
+c.fonts.debug_console = '11pt Monospace'
 
 # >> Font used for the downloadbar.
 ## Type: Font
-c.fonts.downloads = '10pt Inconsolata'
+c.fonts.downloads = '10pt Monospace'
 
 # >> Font used for the hints.
 ## Type: Font
-c.fonts.hints = '10pt Inconsolata'
+c.fonts.hints = '10pt Monospace'
 
 # >> Font used in the keyhint widget.
 ## Type: Font
-c.fonts.keyhint = '11pt Inconsolata'
+c.fonts.keyhint = '11pt Monospace'
 
 # >> Font used for error messages.
 ## Type: Font
-c.fonts.messages.error = '10pt Inconsolata'
+c.fonts.messages.error = '10pt Monospace'
 
 # >> Font used for info messages.
 ## Type: Font
-c.fonts.messages.info = '10pt Inconsolata'
+c.fonts.messages.info = '10pt Monospace'
 
 # >> Font used for warning messages.
 ## Type: Font
-c.fonts.messages.warning = '10pt Inconsolata'
+c.fonts.messages.warning = '10pt Monospace'
 
-# Default monospace fonts. Whenever "monospace" is used in a font
+# Default Monospace fonts. Whenever "Monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 ## Type: Font
-# c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+# c.fonts.Monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", Monospace, Fixed, Consolas, Terminal'
 
 # >> Font used for prompts.
 ## Type: Font
-c.fonts.prompts = '11pt Inconsolata'
-#c.fonts.prompts = '11pt Inconsolata'
+c.fonts.prompts = '11pt Monospace'
+#c.fonts.prompts = '11pt Monospace'
 
 # >> Font used in the statusbar.
 ## Type: Font
-#c.fonts.statusbar = '11pt Inconsolata'
-c.fonts.statusbar = '11pt Inconsolata'
+#c.fonts.statusbar = '11pt Monospace'
+c.fonts.statusbar = '11pt Monospace'
 
 # >> Font used in the tab bar.
 ## Type: QtFont
-#c.fonts.tabs = '10pt Inconsolata'
+#c.fonts.tabs = '10pt Monospace'
 c.fonts.tabs = '10pt Roboto Condensed'
 
 # Font family for cursive fonts.
