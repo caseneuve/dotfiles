@@ -8,7 +8,7 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 23.11.18, 21:15:44 @x200
+# Last update: 03.01.19, 13:56:54 @x200
 
 ## >> VARIABLES:
 MYTERM='st -c term'
@@ -361,7 +361,6 @@ alias ggp='cd /home/piotr/git/lab/py-exercises'
 alias ggs='cd /home/piotr/git/hub/st'
 alias gh='cd /home/piotr'
 alias gm='cd /home/piotr/muz'
-alias go='cd /home/piotr/obr'
 alias gob='cd /home/piotr/obr'
 alias gog='cd /home/piotr/org/gtd'
 alias gol='cd /home/piotr/org/log'
