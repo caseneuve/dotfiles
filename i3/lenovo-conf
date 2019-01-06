@@ -1,7 +1,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 07.12.18, 11:05:26 @lenovo
+# Last update: 06.01.19, 09:39:36 @lenovo
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -51,6 +51,6 @@ bar {
                focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
                active_workspace     $sbwbr     $sbwabg    $sbowtx
                inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $brur      $bgur      $sbwtx 
+               urgent_workspace     $brur      $bgur      $sbuwtx
         }
 }
