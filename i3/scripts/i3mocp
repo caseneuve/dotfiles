@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 18.12.18, 20:23:58 @x200
+# Last update: 11.01.19, 11:14:58 @x200
 
 # >> DOC:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
@@ -19,7 +19,7 @@ else
 fi
 
 TRACK=$(mocp -Q %n)
-[[ -n $TRACK ]] && TRACK="$TRACK. " || TRACK=""
+[[ -n $TRACK ]] && TRACK="$TRACK." || TRACK=""
 STATUS=$(mocp -Q %state)
 TIME=$(mocp -Q %ct)
 
