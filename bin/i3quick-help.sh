@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3quick-help.sh
 # Created:     20.05.18, 10:52    @lenovo
-# Last update: 24.11.18, 11:35:22 @x200
+# Last update: 13.01.19, 10:40:09 @x200
 
 # Doc:
 # mod+f1
@@ -19,5 +19,9 @@ floating toggle = W+S+space
 -------------
 shot whole screen    = PrtSc
 shot current window  = W+PrtSc
-shot selected window = W+S+PrtSc"
+shot selected window = W+S+PrtSc
+-------------
+screencast start = W+f12
+screencast stop  = W+Ctrl+f12
+"
 
