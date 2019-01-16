@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/gitlabinit.sh
 # Created:     17.11.18, 19:53    @lenovo
-# Last update: 07.12.18, 14:14:08 @lenovo
+# Last update: 16.01.19, 11:53:17 @x200
 
 # >> DOC:
 # init nonexistent repo on gitlab
@@ -46,9 +46,9 @@ while true; do
 >
 >  Proceed? [Y/n] " answer
     if [[ $answer =~ y|Y ]] || [[ -z $answer ]]; then
-        [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) ]] && git init
+        [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) ]] || git init
         git add .
-        git commit -m 'initial commit'
+        git commit -m 'GitLab initial commit'
         git push --set-upstream git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git master
         git status
         exit 0
