@@ -4,4 +4,4 @@ Version=1.0
 Type=Application
 Terminal=false
 Exec=/home/piotr/.dotfiles/desktop/messenger-qtb.sh
-Name=Messenger at Web
+Name=Messenger at Qtb
