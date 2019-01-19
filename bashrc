@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     26.06.18, 13:16    @lenovo
-# Last update: 13.01.19, 09:59:25 @x200
+# Last update: 20.01.19, 00:23:43 @lenovo
 
 ## >> DOC:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
@@ -154,4 +154,6 @@ function automatic_title {
 }
 
 automatic_title
+
+[[ $(which fish 2>/dev/null) ]] && exec fish
 
