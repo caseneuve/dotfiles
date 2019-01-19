@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/i3temp-warning.sh
 # Created:     07.06.18, 18:11    @manjaroi3
-# Last update: 13.08.18, 15:56:35 @x200
+# Last update: 20.01.19, 00:43:54 @lenovo
 
 # DOC: Script used to inform about high core's temperature in i3blocks
 
@@ -23,17 +23,26 @@ highx=85
 critx=`sensors | grep Core | awk '{print $9}'| grep -o [0-9]* | head -n 1`
 CRITX=$(( $critx - 5 ))
 
+# lenovo
+templ=`sensors | grep "Package id 0" | awk '{print $4}' | grep -o [0-9]* | head -n 1`
+highl=84
+critl=95
+
 # CODE:
 
 # set proper variables
-if (( $HOSTNAME == "x200" )); then
+if [ "$HOSTNAME" == "x200" ]; then
     TEMP=$tempx
     CRITIC=$critx
     HIGH=$highx
-else
+elif [ "$HOSTNAME" == "toshiba" ]; then
     TEMP=$temp
     CRITIC=$crit
     HIGH=$high
+elif [ "$HOSTNAME" == "lenovo" ]; then
+    TEMP=$templ
+    CRITIC=$critl
+    HIGH=$highl
 fi
 
 # return info
