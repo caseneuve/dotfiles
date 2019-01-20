@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 23:28:51 @toshiba
+# Last update: 20.01.19, 23:44:25 @x200
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -81,6 +81,8 @@ if status --is-interactive
   abbr --add lg ls --group-directories-first --color="always"
   abbr --add mejk 'make && sudo make install'
   abbr --add pull ~/.dotfiles/bin/gitpull.sh
+  abbr --add sp sudo pacman -S
+  abbr --add sr sudo pacman -R 
 
 end
 
