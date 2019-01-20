@@ -3,26 +3,22 @@
 # fast dirs shrotcuts for:
 # - bash_aliases
 # - ranger
+# - fish
 
-# Last update: 27.12.18, 20:15:33 @x200
-# todo: uporządkować skróty według folderów
+# Last update: 20.01.19, 12:01:10 @lenovo
 
 # key  # path
 
-g@ -- /home/piotr/org/pro/www-akwinata
 gB -- /home/piotr/biu
 gC -- /home/piotr/.config
 gD -- /home/piotr/box/Dropbox/Dokumenty
-gM -- /media
-gR -- /root
 gS -- /home/piotr/szk
 ga -- /home/piotr/dwl
 gaa -- /home/piotr/dwl
 gag -- /home/piotr/dwl/att
 gb -- /home/piotr/bin
 gbi -- /home/piotr/bin
-gc -- /home/piotr/.config
-gcb -- /home/piotr/.bak
+gcf -- /home/piotr/.config/fish
 gcm -- /home/piotr/.config/neomutt
 gcn -- /home/piotr/.newsboat
 gcq -- /home/piotr/.config/qutebrowser
@@ -31,10 +27,9 @@ gct -- /home/piotr/.config/termite
 gcx -- /home/piotr/.config/xfce4
 gd -- /home/piotr/.dotfiles
 gdb -- /home/piotr/.dotfiles/bin
-gdc -- /home/piotr/dcm
 gdd -- /home/piotr/.dotfiles
+gdf -- /home/piotr/.dotfiles/fish
 gdi -- /home/piotr/.dotfiles/i3
-gdo -- /home/piotr/dox
 gdq -- /home/piotr/.dotfiles/qtbro
 gdr -- /home/piotr/.dotfiles/ranger
 geH -- /home/piotr/git/hub/hobbit
@@ -50,27 +45,24 @@ ggs -- /home/piotr/git/hub/st
 gh -- /home/piotr
 gm -- /home/piotr/muz
 gob -- /home/piotr/obr
-gog -- /home/piotr/org/gtd
-gol -- /home/piotr/org/log
 goo -- /home/piotr/org
 gop -- /home/piotr/org/pro
 gp -- /home/piotr/pdf
-gr -- /
 gsc -- /home/piotr/scr
 gsf -- /home/piotr/szk/flz
-gsr -- /home/piotr/szk/ratio
+gsr -- /home/piotr/szk/rtk
 gss -- /home/piotr/szk
 gsz -- /home/piotr/szk/18-19
 gwe -- /home/piotr/web
 gww -- /home/piotr/wid
 gwt -- /home/piotr/web/test
 gx -- /home/piotr/box/Dropbox
-gx@ -- /home/piotr/box/Dropbox/Szkoła/www
 gxc -- /home/piotr/box/Dropbox/.Config
 gxd -- /home/piotr/box/Dropbox/Dokumenty
 gxs -- /home/piotr/box/Dropbox/Szkoła
 gxx -- /home/piotr/box/Dropbox
-gy -- /home/piotr/dox
+gxw -- /home/piotr/box/Dropbox/Wiki
+gx@ -- /home/piotr/box/Dropbox/Web 
 
 # Local variables:
 # eval: (load-file "/home/piotr/git/hub/emacs/fast-dirs.el")
