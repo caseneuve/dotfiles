@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 11:58:16 @lenovo
+# Last update: 20.01.19, 12:18:00 @lenovo
 
 ## >> VARIABLES
 set -e BROWSER
@@ -68,7 +68,7 @@ function p1 -d 'Ping 1.1.1.1'
 end
 
 # >>> yayup
-function yup -d 'Update packages'
+function yyy -d 'Update packages'
     yay -Syu && pkill -RTMIN+12 i3blocks
 end
 
