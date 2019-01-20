@@ -5,13 +5,13 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 12:18:00 @lenovo
+# Last update: 20.01.19, 14:06:22 @lenovo
 
 ## >> VARIABLES
 set -e BROWSER
 set -e EDITOR
 set -gx BROWSER /usr/bin/qutebrowser
-set -gx EDITOR emacsclient -c -nw
+set -gx EDITOR emacsclient
 
 ## >> SOURCE:
 # >>> source funcs
