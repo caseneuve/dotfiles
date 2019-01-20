@@ -5,13 +5,35 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 14:06:22 @lenovo
+# Last update: 20.01.19, 21:19:32 @x200
 
 ## >> VARIABLES
+# >>> env vars
 set -e BROWSER
 set -e EDITOR
 set -gx BROWSER /usr/bin/qutebrowser
 set -gx EDITOR emacsclient
+
+# >>> fish vars
+#set -e fish_greeting
+set -gx fish_greeting
+set -gx fish_color_cancel brcyan
+
+# >>> color theme
+set fish_color_comment        magenta
+set fish_color_command        brblue --bold
+set fish_color_cancel         brred
+set fish_color_autosuggestion yellow
+set fish_color_end            bryellow
+set fish_color_error          red --bold
+set fish_color_operator       bryellow
+set fish_color_param          brmagenta --bold
+set fish_color_quote          green
+set fish_color_redirection    blue
+set fish_color_search_match   --background=magenta
+set fish_color_selection      -r
+set fish_color_valid_path     green
+set fish_color_escape         brcyan
 
 ## >> SOURCE:
 # >>> source funcs
@@ -45,8 +67,14 @@ if status --is-interactive
   abbr --add x xclip -selection c
   abbr --add sc set_color
   abbr --add gits git status
+  abbr --add gitl git pull
+  abbr --add gitp git push
+  abbr --add gita git add
+  abbr --add gitc 'git commit -m'
   abbr --add mk mkdir -p
   abbr --add lg ls --group-directories-first --color="always"
+  abbr --add mejk 'make && sudo make install'
+  abbr --add pull ~/.dotfiles/bin/gitpull.sh
 
 end
 

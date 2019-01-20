@@ -1,5 +1,5 @@
 # My fish prompt
-# Last update: 20.01.19, 13:38:29 @lenovo
+# Last update: 20.01.19, 20:10:10 @x200
 
 function fish_prompt -d "My fish prompt"
     set -l STAT $status
@@ -49,10 +49,10 @@ function fish_prompt -d "My fish prompt"
     echo -n (string replace -r "~/" "" -- $PPWD)
     set_color normal
     if test $STAT = 0
-        set_color green
+        set_color -o green
         echo -n ': ' 
     else
-        set_color red
+        set_color -o red
         echo -n ': ' 
     end
     set_color normal
