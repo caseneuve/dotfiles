@@ -5,7 +5,7 @@
 # - ranger
 # - fish
 
-# Last update: 20.01.19, 12:01:10 @lenovo
+# Last update: 20.01.19, 12:07:49 @lenovo
 
 # key  # path
 
@@ -62,7 +62,9 @@ gxd -- /home/piotr/box/Dropbox/Dokumenty
 gxs -- /home/piotr/box/Dropbox/Szkoła
 gxx -- /home/piotr/box/Dropbox
 gxw -- /home/piotr/box/Dropbox/Wiki
-gx@ -- /home/piotr/box/Dropbox/Web 
+gx@ -- /home/piotr/box/Dropbox/Web
+gxb -- /home/piotr/box/Dropbox/Biurko
+gxp -- /home/piotr/box/Dropbox/Programowanie
 
 # Local variables:
 # eval: (load-file "/home/piotr/git/hub/emacs/fast-dirs.el")

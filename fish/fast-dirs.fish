@@ -53,5 +53,7 @@ abbr --add gxd /home/piotr/box/Dropbox/Dokumenty
 abbr --add gxs /home/piotr/box/Dropbox/Szkoła
 abbr --add gxx /home/piotr/box/Dropbox
 abbr --add gxw /home/piotr/box/Dropbox/Wiki
-abbr --add gx@ /home/piotr/box/Dropbox/Web 
+abbr --add gx@ /home/piotr/box/Dropbox/Web
+abbr --add gxb /home/piotr/box/Dropbox/Biurko
+abbr --add gxp /home/piotr/box/Dropbox/Programowanie
 

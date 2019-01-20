@@ -374,7 +374,9 @@ alias gxd='cd /home/piotr/box/Dropbox/Dokumenty'
 alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
 alias gxx='cd /home/piotr/box/Dropbox'
 alias gxw='cd /home/piotr/box/Dropbox/Wiki'
-alias gx@='cd /home/piotr/box/Dropbox/Web '
+alias gx@='cd /home/piotr/box/Dropbox/Web'
+alias gxb='cd /home/piotr/box/Dropbox/Biurko'
+alias gxp='cd /home/piotr/box/Dropbox/Programowanie'
 
 # >> fast dirs end
 
