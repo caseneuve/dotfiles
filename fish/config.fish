@@ -1,11 +1,11 @@
 
-##  #      #    #  
+ ##  #      #    #  
  #       ## ###  #  
 ###  #   #  # #  #  
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 01:24:46 @lenovo
+# Last update: 20.01.19, 01:25:50 @lenovo
 
 # >> varibales
 set -e BROWSER
