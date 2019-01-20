@@ -5,40 +5,39 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 01:25:50 @lenovo
+# Last update: 20.01.19, 11:58:16 @lenovo
 
-# >> varibales
+## >> VARIABLES
 set -e BROWSER
 set -e EDITOR
 set -gx BROWSER /usr/bin/qutebrowser
 set -gx EDITOR emacsclient -c -nw
 
-# >> source
+## >> SOURCE:
+# >>> source funcs
 if test -d ~/.config/fish/functions
     source ~/.config/fish/functions/*
 end
 
+# >>> source fzf
 if test -d ~/.fzf
     source ~/.fzf/shell/key-bindings.fish
     fzf_key_bindings
 end
 
-# >> abbrevs
+
+## >> ABBREVS
 #if not set -q abbrs_initialized
 if status --is-interactive
   #set -U abbrs_initialized
   set -g fish_user_abbreviations
-  #echo -n Setting abbreviations... 
+  #echo -n Setting abbreviations...
 
-  # fast dirs start here
+  # >>> source fast dirs
+  if test -f fast-dirs.fish
+      source fast-dirs.fish
+  end
 
-  abbr --add gh  ~
-  abbr --add gob ~/obr
-  abbr --add gww ~/wid
-  abbr --add gss ~/szk
-
-  # fast dirs end here
-  
   abbr --add klr clear
   abbr --add q exit
   abbr --add e $EDITOR
@@ -49,7 +48,6 @@ if status --is-interactive
   abbr --add mk mkdir -p
   abbr --add lg ls --group-directories-first --color="always"
 
-  #echo 'Done'
 end
 
 # >> functions
