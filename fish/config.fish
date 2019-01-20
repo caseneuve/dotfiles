@@ -5,7 +5,12 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 21:19:32 @x200
+# Last update: 20.01.19, 23:28:51 @toshiba
+
+# TODOS:
+# todo: 20/01/2019, move all global vars to universal vars:
+# - https://fishshell.com/docs/current/tutorial.html#tut_universal
+# - https://stackoverflow.com/questions/25632846/how-to-set-environment-variables-in-fish-shell#comment75000885_30187924
 
 ## >> VARIABLES
 # >>> env vars
@@ -13,6 +18,7 @@ set -e BROWSER
 set -e EDITOR
 set -gx BROWSER /usr/bin/qutebrowser
 set -gx EDITOR emacsclient
+set -gx VIRTUAL_ENV_DISABLE_PROMPT no # https://github.com/fish-shell/fish-shell/pull/1795
 
 # >>> fish vars
 #set -e fish_greeting

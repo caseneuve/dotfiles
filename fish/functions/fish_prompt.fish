@@ -1,9 +1,12 @@
 # My fish prompt
-# Last update: 20.01.19, 20:10:10 @x200
+# Last update: 20.01.19, 23:23:04 @toshiba
 
 function fish_prompt -d "My fish prompt"
+    # >> set vars
     set -l STAT $status
     set -l PPWD (prompt_pwd)
+
+    # >> func: add_icons
     function add_icons -d "Return appropriate symbol if $CWD is a special context"
         set -l dir "$PWD"
         set_color normal
@@ -40,11 +43,15 @@ function fish_prompt -d "My fish prompt"
         end
     end
 
-    # virtyal env
-    # if set -q VIRTUAL_ENV
-    #     echo -n -s (set_color magenta) "{" (basename "$VIRTUAL_ENV") "}" (set_color normal) " "
-    # end
+    # >> virtual env
+    if set -q VIRTUAL_ENV
+        echo -n -s (set_color magenta) "{" (basename "$VIRTUAL_ENV") "}" (set_color normal) " "
+    end
+
+    # >> funcall: add icons
     echo -n (add_icons)
+
+    # >> print CWD with status indicator
     set_color -o white
     echo -n (string replace -r "~/" "" -- $PPWD)
     set_color normal
@@ -57,3 +64,4 @@ function fish_prompt -d "My fish prompt"
     end
     set_color normal
 end
+
