@@ -43,9 +43,9 @@ set fish_color_escape         brcyan
 
 ## >> SOURCE:
 # >>> source funcs
-if test -d ~/.config/fish/functions
-    source ~/.config/fish/functions/*
-end
+# if test -d ~/.config/fish/functions
+#     source ~/.config/fish/functions/*
+# end
 
 # >>> source fzf
 if test -d ~/.fzf
@@ -89,7 +89,8 @@ end
 # >> functions
 # >>> reload config 
 function sfc -d 'Reload fish config'
-  source ~/.config/fish/config.fish >/dev/null
+    update_functions
+    source ~/.config/fish/config.fish >/dev/null
   if test $status = 0
       set_color -i blue
       echo "* Fish config reloaded! *"
@@ -121,4 +122,30 @@ end
 function lns -d 'Make a symbolic link from current working dir'
     ln -s $PWD/$argv[1] $argv[2]
 end
-                    
+
+function update_functions -d 'Update function files'
+    set -l DOT ~/.dotfiles/fish/functions/
+    set -l CFG ~/.config/fish/functions/
+    set -l updt false
+
+    if ! test -d $CFG
+        mkdir -p $CFG
+    end
+    
+    for file in (ls $DOT)
+        if test -L $CFG$file
+            continue
+        else
+            ln -s $DOT$file $CGF
+            set_color -i blue
+            echo "* Missing file '$file' symlinked... *"
+            set updt true 
+        end
+    end
+    if $updt
+        source $CFG* && echo "* Functions updated! *"
+        set_color normal
+    end
+end
+
+update_functions
