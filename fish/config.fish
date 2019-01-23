@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.01.19, 23:44:25 @x200
+# Last update: 23.01.19, 16:51:57 @toshiba
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -136,7 +136,7 @@ function update_functions -d 'Update function files'
         if test -L $CFG$file
             continue
         else
-            ln -s $DOT$file $CGF
+            ln -s $DOT$file $CFG
             set_color -i blue
             echo "* Missing file '$file' symlinked... *"
             set updt true 
