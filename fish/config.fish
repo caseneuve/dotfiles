@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 23.01.19, 16:51:57 @toshiba
+# Last update: 24.01.19, 00:00:23 @lenovo
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -82,7 +82,8 @@ if status --is-interactive
   abbr --add mejk 'make && sudo make install'
   abbr --add pull ~/.dotfiles/bin/gitpull.sh
   abbr --add sp sudo pacman -S
-  abbr --add sr sudo pacman -R 
+  abbr --add sr sudo pacman -R
+  abbr --add dps 'dropbox-cli status'
 
 end
 
