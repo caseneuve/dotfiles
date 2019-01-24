@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 24.01.19, 00:00:23 @lenovo
+# Last update: 24.01.19, 07:35:45 @lenovo
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -84,6 +84,7 @@ if status --is-interactive
   abbr --add sp sudo pacman -S
   abbr --add sr sudo pacman -R
   abbr --add dps 'dropbox-cli status'
+  abbr --add notes ~/bin/notes.sh
 
 end
 
