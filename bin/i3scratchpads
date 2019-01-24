@@ -2,16 +2,18 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 24.12.18, 14:14:57 @lenovo
+# Last update: 24.01.19, 18:03:25 @toshiba
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
 # requires: i3move; i3get
 
 # >> VARIABLES:
-term=st
-if [[ $term == st ]]; then
-    font=$(awk '/^static char \*font/ {print $5}' ~/git/hub/st/config.h)
+TRMNL=st
+ST_CFG=~/git/hub/st/config.def.h
+
+if [[ $TRMNL == st ]]; then
+    font=$(awk '/^static char \*font/ {print $5}' $ST_CFG)
     font=${font%%:*}
     font=${font/\"/}
 fi
@@ -21,7 +23,7 @@ while getopts "ufcot:" flag; do
     case "${flag}" in
         # >>> tmux
         u) if [[ ! $(ps aux | grep dropdown | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $term -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh" &&\
+               i3-msg -q "exec --no-startup-id $TRMNL -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh" &&\
                    sleep 0.1
                i3-msg -q "[title=\"dropdown\"] scratchpad show"
                ~/bin/i3move -p 70 -m c
@@ -41,7 +43,7 @@ while getopts "ufcot:" flag; do
            ;;
         # >>> quick scratch
         f) if [[ ! $(ps aux | grep myquickterm | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $term -c myquickterm -f '$font:size=13'" &&\
+               i3-msg -q "exec --no-startup-id $TRMNL -c myquickterm -f '$font:size=13'" &&\
                    sleep 0.1
            fi
            i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&
@@ -52,7 +54,7 @@ while getopts "ufcot:" flag; do
            ;;
         # >>> calc
         c) if [[ ! $(ps aux | grep m4ath | grep -v grep ) ]]; then
-               i3-msg -q "exec --no-startup-id $term -c calculator -t m4ath -e R -q" &&\
+               i3-msg -q "exec --no-startup-id $TRMNL -c calculator -t m4ath -e R -q" &&\
                    sleep 0.1
            fi
            i3-msg -q "[class=\"calculator\"] scratchpad show" &&
@@ -63,7 +65,7 @@ while getopts "ufcot:" flag; do
            ;;
         # >>> words
         o) if [[ ! $(ps aux | grep w0rds | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $term -c whit4ker -t w0rds -e words" &&\
+               i3-msg -q "exec --no-startup-id $TRMNL -c whit4ker -t w0rds -e words" &&\
                    sleep 0.1
            fi
            i3-msg -q "[title=\"w0rds\"] scratchpad show" &&
@@ -74,7 +76,7 @@ while getopts "ufcot:" flag; do
            ;;
         # >>> clock
         t) if [[ ! $(ps aux | grep cl0ck | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $term -c cl0ck -t tty-clock -f 'Inconsolata:size=10' -e tty-clock -C $OPTARG -c -b" &&\
+               i3-msg -q "exec --no-startup-id $TRMNL -c cl0ck -t tty-clock -f '$font:size=10' -e tty-clock -C $OPTARG -c -b" &&\
                    sleep 0.1
            fi
            if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ cl0ck ]]; then
