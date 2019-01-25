@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Last update: 29.10.18, 20:27:25 @lenovo
+# Last update: 25.01.19, 09:30:17 @toshiba
 
 # >> DOC:
 # requires i3move (i3ipc installed via pip)
@@ -11,6 +11,8 @@
 # 24/08/2018: bug: with kbd it grabs always primary screen (why?)
 
 # >> set output directory, if doesn't exist - create one:
+[[ -n $DISPLAY ]] || $DISPLAY=:0
+    
 CASTDIR=$HOME/wid/cast
 [[ -d $CASTDIR ]] || mkdir -p $CASTDIR
 
@@ -47,7 +49,7 @@ sleep 1 && xdotool key ctrl+space
 # @old:
 #ffmpeg -f x11grab -s "$dimensions" -i :0.0 "$outFile"
 pkill -RTMIN+9 i3blocks
-ffmpeg -f x11grab -s "$SCREEN_DIMS" -i :0.0+$SCR_X,$SCR_Y "$outFile"
+ffmpeg -f x11grab -s "$SCREEN_DIMS" -i $DISPLAY.0+$SCR_X,$SCR_Y "$outFile"
 # 4.
 # [ $COM == 1 ] && compton &
 pkill -RTMIN+9 i3blocks
