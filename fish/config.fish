@@ -94,7 +94,7 @@ if status --is-interactive
 
 end
 
-# >> functions
+# >> FUNCTIONS
 # >>> reload config 
 function sfc -d 'Reload fish config'
     update_functions
@@ -117,7 +117,7 @@ function yyy -d 'Update packages'
     yay -Syu && pkill -RTMIN+12 i3blocks
 end
 
-# psaux / psauk
+# >>> psaux / psauk
 function psaux -d 'Look for process id with ps'
     ps aux | grep $argv | grep -v grep
 end
@@ -131,6 +131,16 @@ function lns -d 'Make a symbolic link from current working dir'
     ln -s $PWD/$argv[1] $argv[2]
 end
 
+# >>> copy (path) to clipboard
+function xc -d 'Copy arg to clipboard'
+    command $argv | xclip -sel clip
+end
+
+function xp -d 'Copy full path to clipboard'
+    command pwd | xclip -sel clip
+end
+
+# >>> update functions
 function update_functions -d 'Update function files'
     set -l DOT ~/.dotfiles/fish/functions/
     set -l CFG ~/.config/fish/functions/
