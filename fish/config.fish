@@ -70,6 +70,8 @@ if status --is-interactive
   abbr --add q exit
   abbr --add e $EDITOR
   abbr --add cd. cd ..
+  abbr --add cd.. cd ../..
+  abbr --add cd... cd ../../..
   abbr --add x xclip -selection c
   abbr --add sc set_color
   abbr --add gits git status
@@ -86,6 +88,9 @@ if status --is-interactive
   abbr --add dps 'dropbox-cli status'
   abbr --add notes ~/bin/notes.sh
   abbr --add ipy ipython
+  abbr --add mdk 'mkdir -p'
+  abbr --add mkd 'mkdir -p'
+  abbr --add compton ~/.dotfiles/compton/compton-hack.sh
 
 end
 
