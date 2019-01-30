@@ -46,8 +46,9 @@ $exe  $dot/monitoryUP.sh # monitors
 # exec_always --no-startup-id $hub/i3catch.py
 
 # >>> {{ startup apps & deamons}}
-$exea dropbox-cli start 
-$exea compton --config ~/.config/compton.conf -b  
+$exea dropbox-cli start
+#$exea compton --config ~/.config/compton.conf -b  
+$exea $dot/compton/compton-hack.sh
 $exe  mocp -S
 $exe  emacs --daemon
 $exe  dunst                                             # notifier
