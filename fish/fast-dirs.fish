@@ -45,6 +45,7 @@ abbr --add gsr /home/piotr/szk/rtk
 abbr --add gss /home/piotr/szk
 abbr --add gsz /home/piotr/szk/18-19
 abbr --add gwe /home/piotr/web
+abbr --add gws /home/piotr/web/schole
 abbr --add gww /home/piotr/wid
 abbr --add gwt /home/piotr/web/test
 abbr --add gx /home/piotr/box/Dropbox
