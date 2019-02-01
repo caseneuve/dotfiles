@@ -86,7 +86,6 @@ if status --is-interactive
   abbr --add sp sudo pacman -S
   abbr --add sr sudo pacman -R
   abbr --add dps 'dropbox-cli status'
-  abbr --add notes ~/bin/notes.sh
   abbr --add ipy ipython
   abbr --add mdk 'mkdir -p'
   abbr --add mkd 'mkdir -p'
