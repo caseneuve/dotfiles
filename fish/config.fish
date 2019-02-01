@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 24.01.19, 19:02:25 @toshiba
+# Last update: 01.02.19, 19:55:07 @lenovo
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -68,7 +68,8 @@ if status --is-interactive
 
   abbr --add klr clear
   abbr --add q exit
-  abbr --add e $EDITOR
+  # abbr --add e $EDITOR
+  abbr --add e "$EDITOR -nw"
   abbr --add cd. cd ..
   abbr --add cd.. cd ../..
   abbr --add cd... cd ../../..
@@ -89,7 +90,7 @@ if status --is-interactive
   abbr --add ipy ipython
   abbr --add mdk 'mkdir -p'
   abbr --add mkd 'mkdir -p'
-  abbr --add compton ~/.dotfiles/compton/compton-hack.sh
+  abbr --add compton --config ~/.config/compton/compton.conf
 
 end
 
@@ -121,11 +122,11 @@ function psaux -d 'Look for process id with ps'
     ps aux | grep $argv | grep -v grep
 end
 
-  
 function psauk -d 'Kill all processes for the app name'
     psaux $argv | awk '{print $2}' | xargs kill -9
 end
 
+# >>> make symlink from pwd
 function lns -d 'Make a symbolic link from current working dir'
     ln -s $PWD/$argv[1] $argv[2]
 end
