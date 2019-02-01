@@ -1,7 +1,8 @@
+# -*- mode:conf-space -*-
 
 # lenovo local settings:
 # =====================
-# Last update: 06.01.19, 09:39:36 @lenovo
+# Last update: 01.02.19, 19:32:35 @lenovo
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate

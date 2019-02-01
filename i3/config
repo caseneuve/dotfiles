@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 30.12.18, 22:43:05 @x200
+# Last update: 01.02.19, 19:34:24 @lenovo
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -47,8 +47,8 @@ $exe  $dot/monitoryUP.sh # monitors
 
 # >>> {{ startup apps & deamons}}
 $exea dropbox-cli start
-#$exea compton --config ~/.config/compton.conf -b  
-$exea $dot/compton/compton-hack.sh
+$exea compton --config ~/.config/compton/compton.conf
+#$exea $dot/compton/compton-hack.sh
 $exe  mocp -S
 $exe  emacs --daemon
 $exe  dunst                                             # notifier
