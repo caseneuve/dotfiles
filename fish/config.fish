@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 01.02.19, 19:55:07 @lenovo
+# Last update: 02.02.19, 09:43:40 @lenovo
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -90,7 +90,7 @@ if status --is-interactive
   abbr --add ipy ipython
   abbr --add mdk 'mkdir -p'
   abbr --add mkd 'mkdir -p'
-  abbr --add compton --config ~/.config/compton/compton.conf
+  abbr --add compton 'compton --config ~/.config/compton/compton.conf'
 
 end
 
