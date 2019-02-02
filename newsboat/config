@@ -6,7 +6,7 @@
 ##                                                 ##
 #####################################################
 
-# Last update: 01.02.19, 22:42:20 @lenovo
+# Last update: 02.02.19, 18:01:07 @lenovo
 
 ## >> {DOC}
 # https://newsboat.org/releases/2.11.1/docs/newsboat.html
@@ -52,9 +52,9 @@ feedlist-title-format    "  RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&
 ## >> {COLORS}
 #  >>> {{main}}
 color listnormal        blue    default
-color listfocus         blue    default  underline
+color listfocus         blue    default  underline bold
 color listnormal_unread cyan    default
-color listfocus_unread  cyan    default  underline
+color listfocus_unread  cyan    default  underline bold
 color info              black   white    bold
 color article           white   default
 #color listfocus         black   yellow   standout bold
