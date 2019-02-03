@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 02.02.19, 09:43:40 @lenovo
+# Last update: 04.02.19, 00:33:05 @lenovo
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -91,6 +91,7 @@ if status --is-interactive
   abbr --add mdk 'mkdir -p'
   abbr --add mkd 'mkdir -p'
   abbr --add compton 'compton --config ~/.config/compton/compton.conf'
+  abbr --add sqlb sqlitebrowser
 
 end
 
