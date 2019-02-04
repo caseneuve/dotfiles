@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 01.02.19, 19:34:24 @lenovo
+# Last update: 04.02.19, 16:25:03 @lenovo
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -31,7 +31,6 @@ set $hub     ~/git/hub/i3
 set $app     exec --no-startup-id ~/git/hub/i3/i3applauncher
 set $i3move  exec --no-startup-id ~/git/hub/i3/i3move.py
 
-
 # >>> {{ killing apps / i3 }}
 bindsym $mod+q kill
 bindsym $mod+Shift+BackSpace exec tmux kill-session -t tmux; exec i3-msg exit
@@ -46,13 +45,12 @@ $exe  $dot/monitoryUP.sh # monitors
 # exec_always --no-startup-id $hub/i3catch.py
 
 # >>> {{ startup apps & deamons}}
+# off: nm-applet, pamac-tray start
 $exea dropbox-cli start
 $exea compton --config ~/.config/compton/compton.conf
-#$exea $dot/compton/compton-hack.sh
 $exe  mocp -S
 $exe  emacs --daemon
 $exe  dunst                                             # notifier
-# off: nm-applet, pamac-tray start
 $exea  amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
 
 ## >> { NAVIG } 
@@ -378,6 +376,7 @@ for_window [class="Catfish"]             floating enable
 for_window [class="Gpick"]               floating enable
 for_window [class="Gpick"]               resize set 675 200
 for_window [class="Gpick"]               move position center
+
 # dialog window for qutebrowser downloads via youtube-dl
 for_window [class="YTBDWL"] floating enable
 for_window [class="YTBDWL"] move scratchpad
@@ -388,7 +387,6 @@ for_window [class="YTBDWL"] move scratchpad
 smart_gaps on
 set $gaps_in  6
 set $gaps_out 4
-# zmieniłem liczby z 10/10, bo wychodziły bardzo nierówne przerwy (???)
 gaps inner $gaps_in
 gaps outer $gaps_out
 
@@ -402,17 +400,16 @@ for_window [class="myquickterm"] border pixel 0
 for_window [class="scratch"] border pixel 1
 
 # >>>> borders for scratchpads and terms only
+#for_window [class="cl0ck"] border pixel 1
 smart_borders on
 hide_edge_borders both
 for_window [class="^term"] border pixel 1
-#for_window [class="cl0ck"] border pixel 1
 for_window [class="whit4ker"] border pixel 1
 for_window [class="^calculator$"] border pixel 1
 
 # >>> {{ sticky windows: }}
 bindsym $mod+v sticky toggle
 bindsym $mod+Shift+v $exe $dot/i3video
-#bindsym $mod+Shift+v $exe ~/bin/i3move -F -x yt -r -20 -g 10 -m ne; sticky enable
 
 
 ## >> { COLORS }
@@ -420,31 +417,23 @@ bindsym $mod+Shift+v $exe $dot/i3video
 set $bra   #191f26
 set $bri   #191f26
 set $bru   #191f26 
-#set $brur  #c0392b
 set $brur  #ffffff
 # background
-#set $bgf   #9B9B9B
-#set $bgf   #F79F1F
 set $bgf    #218c74
-# #33d9b2
-# #F06292
 set $bgfi  #323f4d 
 set $bgi   #191f26
-#set $bgur  #e74c3c
 set $bgur  #ffffff
 # text
-#set $txtf  #111111
 set $txtf  #ffffff
 set $txti  #ececec
 set $txtu  #ececec
 set $txtur #F06292
 
-
 # class                   border  bg     text   
 client.focused            $bra    $bgf   $txtf
 client.focused_inactive   $bri    $bgfi  $txti
 client.unfocused          $bru    $bgi   $txtu 
-client.urgent             $brur    $bgur  $txtur 
+client.urgent             $brur   $bgur  $txtur 
 
 ## >> { BAR }
 # use fonts.conf configuration
@@ -455,36 +444,31 @@ font pango:monospace 9
 #font pango: DejaVu Sans Mono 8
 
 # >>> {{ bar color variables }}
-# >>>> {{ dark theme [off] }}
+# >>>> {{ dark theme [on] }}
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
 # dark theme start
-# set $sbbg   #191f26
-# set $sbwfbg #ececec
-# set $sbwabg #191f26
-# set $sbsl   #ffffff
-# set $sbwtx  #191f26
-# set $sbowtx #ececec
-# set $sbwbr  #191f26
-# set $sbwu   #ff6347
-# set $sbwubr #a52a2a
+set $sbbg   #0a0c10 
+set $sbwfbg #EC407A
+set $sbwabg #0a0c10
+set $sbsl   #b1becd
+set $sbwtx  #ececec
+set $sbowtx #b1becd
+set $sbuwtx #EC407A
+set $sbwbr  #0a0c10
+set $sbwubr #ececec
 # dark theme end
 
-# >>>> {{ light theme }}
+# >>>> {{ light theme [off] }}
 # light theme start
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
-set $sbbg   #9B9B9B 
-#set $sbwfbg #8c8c8c
-#set $sbwfbg #EC407A
-set $sbwfbg #F06292
-set $sbwabg #9B9B9B
-set $sbsl   #191f26
-#set $sbwtx  #111111
-set $sbwtx  #ffffff
-set $sbowtx #191f26
-set $sbuwtx #F06292
-set $sbwbr  #9B9B9B
-#set $sbwu   #ff6347
-set $sbwubr #ececec
+# set $sbbg   #9B9B9B 
+# set $sbwfbg #F06292
+# set $sbwabg #9B9B9B
+# set $sbsl   #191f26
+# set $sbowtx #191f26
+# set $sbuwtx #F06292
+# set $sbwbr  #9B9B9B
+# set $sbwubr #ececec
 # light theme stop
 
 # >>> {{ bar: primary }} 
@@ -555,17 +539,10 @@ bindsym $mod+Shift+z exec synclient TouchpadOff=0
 ## >> { KBD }
 bindsym $mod+Return $exe $dot/i3startterminemacsdir.sh
 bindsym $mod+Shift+Return split toggle $exe $dot/i3startterminemacsdir.sh
-#bindsym $mod+Mod1+Return $exe $dot/i3-term-toggler.sh
-# bindsym $mod+Return split h exec $term -t "st @$(date +%H:%M:%S)"
-# bindsym $mod+Shift+Return split v exec $term -t "st @$(date +%H:%M:%S)"
 bindsym $mod+b $app qutebrowser
 bindsym $mod+Shift+b $exe qutebrowser
 bindsym $mod+p $exe qutebrowser :command ":open -p"
-# bindsym $mod+b $exe $dot/i3-qtb-launcher.sh
 bindsym $mod+e $app emacs
-#bindsym $mod+e workspace 1; $exe emacs
-#bindsym $mod+e $exe $dot/i3-emacs-launcher.sh 
-#bindsym $mod+Shift+e $exe $term -e emacsclient -nw
 bindsym $mod+n $app newsboat
 bindsym $mod+m $app neomutt
 bindsym $mod+t $exe thunar
@@ -582,24 +559,20 @@ bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 
 # >>>> rofi/dmenu scpripts
 set $rofi-theme i3orange
-#bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
 bindsym $mod+d $exe rofi -show drun -modi drun -theme $rofi-theme
-#bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 bindsym $mod+semicolon $exe rofi -show window -modi window -window-format {c:15}{t:25} -theme $rofi-theme
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh $rofi-theme
 
+#bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
+#bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 #bindsym $mod+Shift+d $exe dmenu_run -nb '#9B9B9B' -nf '#191f26' -sb '#ff6347' -p 'run:'
 #bindsym $mod+Shift+d $exe dmenu_run -nb '#191f26' -nf '#ececec' -sb '#ff6347' -p 'run:'
 #bindsym $mod+Shift+d $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
 #bindsym $mod+d $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 #bindsym $mod+d $exe rofi -combi-modi sys#drun -show combi -modi drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
 
-## >> { NARZĘDZIA SYSTEMOWE }
-# todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
-# bindsym $mod+F9 $exe sudo bash ~/.i3/bin/mount.sh
-# bindsym $mod+F10 $exe sudo bash ~/.i3/bin/unmount.sh
 # >>> {{ screencasting:}}
 bindsym $mod+F12 $exe $dot/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12 exec pkill ffmpeg && notify-send "screencast" "screencast stopped"
@@ -609,6 +582,11 @@ bindsym $mod+Left $exe $dot/xdo-sent-control.sh -p
 bindsym $mod+Shift+Right $exe $dot/xdo-sent-control.sh -g
 bindsym $mod+Shift+Left $exe $dot/xdo-sent-control.sh -a
 bindsym $mod+Control+Left $exe $dot/xdo-sent-control.sh -r
+
+
+## >> { NARZĘDZIA SYSTEMOWE }
+# todo: trzeba ustawić NOPASSWD dla tej akcji (sudoers)
+# bindsym $mod+F10 $exe sudo bash ~/.i3/bin/unmount.sh
 
 
 ##################################################

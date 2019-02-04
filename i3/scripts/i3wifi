@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/i3wifi.sh
 # Created:     10.07.18, 14:37    @x200
-# Last update: 27.12.18, 16:50:04 @x200
+# Last update: 04.02.19, 15:49:41 @lenovo
 
 # >> DOC:
 
@@ -45,11 +45,11 @@ if [[ $(echo $CONN | grep Unreachable) ]]; then
     pkill -RTMIN+13 i3blocks
 
 elif [[ $(echo $CONN | grep '0 received') ]]; then
-    echo "<span color='$COLOR'>$GLYPH ${QUALITY} </span>"
+    echo "<span color='$COLOR'>$GLYPH ${QUALITY}</span>"
     # update dropbox status @i3blocks
     pkill -RTMIN+13 i3blocks
 else
-    echo "$GLYPH ${QUALITY} "
+    echo "$GLYPH ${QUALITY}"
 fi
 
 # >> MOUSE BEHAVIOUR

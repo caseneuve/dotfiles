@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 24.11.18, 08:42:16 @x200
+# Last update: 04.02.19, 15:47:20 @lenovo
 
 # >> DOC:
 # Primitive pamac-tray replacement
@@ -16,7 +16,7 @@ checkupdates > $FILE
 
 CHECK=$(cat $FILE)
 NUM=$(cat $FILE | wc -l)
-GLYPH=''
+GLYPH=' '
 COLOR='#C0392B'
 
 # >> i3blocks OUTPUT
@@ -24,8 +24,8 @@ if [[ -n $NUM ]]; then
     if (( $NUM > 0 )); then
         # <span bgcolor='#00001f26'>
         [[ $(cat $FILE | grep -o linux-lts) ]] &&\
-            echo -e "<span color='$COLOR' weight='bold'>$GLYPH $NUM</span>" ||\
-                echo -e "$GLYPH $NUM"
+            echo -e "<span color='$COLOR' weight='bold'>$GLYPH$NUM</span>" ||\
+                echo -e "$GLYPH$NUM"
     fi
 fi
 
