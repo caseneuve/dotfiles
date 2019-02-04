@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3disk.sh
 # Created:     16.07.18, 16:53    @x200
-# Last update: 03.02.19, 22:40:42 @lenovo
+# Last update: 04.02.19, 17:19:31 @lenovo
 
 # Doc:
 
@@ -11,5 +11,5 @@ AVAIL=`df -h -P -l $DIR | awk 'NR==2 {print $4}'`
 ICON= 
 # 
 
-(( ${AVAIL%G} <= 2 )) && echo "<span bgcolor='#00001f26'><span color='#C0392B'>$ICON  $AVAIL</span></span>" || echo "$ICON  $AVAIL"
+(( ${AVAIL%G} <= 2 )) && echo "<span bgcolor='#00001f26'><span color='#C0392B'>$ICON  ${AVAIL%G}</span></span>" || echo "$ICON  ${AVAIL%G}"
 
