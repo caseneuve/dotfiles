@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 04.02.19, 16:25:03 @lenovo
+# Last update: 04.02.19, 18:28:45 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -446,12 +446,12 @@ font pango:monospace 9
 # >>> {{ bar color variables }}
 # >>>> {{ dark theme [on] }}
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
-# dark theme start
+# dark theme start #EC407A
 set $sbbg   #0a0c10 
-set $sbwfbg #EC407A
+set $sbwfbg #0a0c10
 set $sbwabg #0a0c10
 set $sbsl   #b1becd
-set $sbwtx  #ececec
+set $sbwtx  #EC407A
 set $sbowtx #b1becd
 set $sbuwtx #EC407A
 set $sbwbr  #0a0c10
