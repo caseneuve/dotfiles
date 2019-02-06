@@ -2,16 +2,15 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 04.02.19, 18:29:36 @toshiba
+# Last update: 06.02.19, 10:11:53 @x200
 
 # >> DOC:
 # script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
 # <span> markup is used for pango markup
 
 # >> VARIABLES:
-BGCOLOR=#36648b
-FGCOLOR=#596473
-#FGCOLOR=#6F7D91
+ACT_COLOR=#227093
+INACT_COLOR=#3b475e
 if [[ $HOSTNAME == toshiba ]]; then
     GLYPH="♫"
 else
@@ -26,13 +25,13 @@ TIME=$(mocp -Q %ct)
 # >> RUN:
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     if [ "$STATUS" = "PLAY" ]; then
-        echo -e " <span fgcolor='$BGCOLOR' weight='normal'>$GLYPH $TRACK $TIME </span>"
+        echo -e " <span fgcolor='$ACT_COLOR' weight='normal'>$GLYPH $TRACK $TIME </span>"
     elif [ "$STATUS" = "PAUSE" ]; then
-        echo -e " <span fgcolor='$FGCOLOR'>$GLYPH $TRACK $TIME </span>"
+        echo -e " <span fgcolor='$INACT_COLOR'>$GLYPH $TRACK $TIME </span>"
     fi
 else
     if [ "$STATUS" = "PLAY" ]; then
-        echo -e " <span fgcolor='$BGCOLOR' weight='normal'>$GLYPH $TIME </span>"
+        echo -e " <span fgcolor='$ACT_COLOR' weight='normal'>$GLYPH $TIME </span>"
     elif [ "$STATUS" = "PAUSE" ]; then
         echo -e " $GLYPH $TIME "
     fi
