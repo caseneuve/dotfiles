@@ -2,14 +2,14 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
 # Created:     16.07.18, 15:16    @x200
-# Last update: 04.02.19, 15:56:26 @lenovo
+# Last update: 06.02.19, 09:46:10 @x200
 
 # >> DOC:
 
 # >> VARIABLES:
 LOAD="$(cut -d ' ' -f1 /proc/loadavg)"
 CPUS="$(nproc)"
-WEIGHT=bold
+WEIGHT=normal
 FGCOLOR=#C0392B
 GLYPH=' '
 
