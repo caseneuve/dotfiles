@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
 # Created:     16.07.18, 15:16    @x200
-# Last update: 06.02.19, 09:46:10 @x200
+# Last update: 06.02.19, 14:11:46 @x200
 
 # >> DOC:
 
@@ -10,7 +10,8 @@
 LOAD="$(cut -d ' ' -f1 /proc/loadavg)"
 CPUS="$(nproc)"
 WEIGHT=normal
-FGCOLOR=#C0392B
+FGCOLOR=#ff5252
+#FGCOLOR=#EC407A
 GLYPH=' '
 
 # >> i3blocks OUTPUT
