@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     30.05.18, 16:02    @x200
-# Last update: 04.02.19, 18:25:03 @toshiba
+# Last update: 14.02.19, 22:08:05 @lenovo
 
 # >> DOC:
 # Primitive pamac-tray replacement
@@ -17,7 +17,8 @@ checkupdates > $FILE
 CHECK=$(cat $FILE)
 NUM=$(cat $FILE | wc -l)
 GLYPH=' '
-COLOR='#C0392B'
+#COLOR='#C0392B'
+COLOR='#ff5252'
 
 # >> i3blocks OUTPUT
 if [[ -n $NUM ]]; then
