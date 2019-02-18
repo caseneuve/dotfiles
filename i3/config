@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 04.02.19, 19:00:56 @lenovo
+# Last update: 18.02.19, 17:01:44 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -512,6 +512,7 @@ bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume 0 -- +10% && pkill -RTMI
 bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -- -10% && pkill -RTMIN+1 i3blocks
 
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
+bindsym $mod+Shift+m  $exe pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute $exe amixer set Master toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioPlay $exe mocp -G 
 bindsym XF86AudioStop $exe mocp -s 
