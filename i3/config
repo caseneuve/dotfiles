@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 18.02.19, 17:01:44 @toshiba
+# Last update: 19.02.19, 08:37:25 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -46,12 +46,13 @@ $exe  $dot/monitoryUP.sh # monitors
 
 # >>> {{ startup apps & deamons}}
 # off: nm-applet, pamac-tray start
-$exea dropbox-cli start
+#$exea dropbox-cli start
+$exe  dropbox start -i
 $exea compton --config ~/.config/compton/compton.conf
 $exe  mocp -S
 $exe  emacs --daemon
 $exe  dunst                                             # notifier
-$exea  amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
+$exea amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
 
 ## >> { NAVIG } 
 # >>> {{ change focus: }}
