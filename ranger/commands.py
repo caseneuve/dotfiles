@@ -1788,11 +1788,11 @@ class fzf_locate(Command):
         import subprocess
         if self.quantifier:
             #command="locate home media | fzf -e -i"
-            command='locate --regex "^/home/piotr/(.co|[a-z]|.vi|.do)" \
+            command='locate --regex "^$HOME/(.co|[a-z]|.vi|.do)" \
 | ~/.fzf/bin/fzf'
         else:
             #command="locate home media | fzf -e -i"
-            command='locate --regex "^/home/piotr/(.co|[a-z]|.vi|.do)" \
+            command='locate --regex "^$HOME/(.co|[a-z]|.vi|.do)" \
 | ~/.fzf/bin/fzf'
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
