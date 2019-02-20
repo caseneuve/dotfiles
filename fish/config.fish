@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 04.02.19, 00:33:05 @lenovo
+# Last update: 20.02.19, 14:25:03 @x200
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -54,7 +54,7 @@ if test -d ~/.fzf
 end
 
 
-## >> ABBREVS
+## >> ABBREVS (~ aliases)
 #if not set -q abbrs_initialized
 if status --is-interactive
   #set -U abbrs_initialized
@@ -66,8 +66,8 @@ if status --is-interactive
       source fast-dirs.fish
   end
 
-  abbr --add klr clear
-  abbr --add q exit
+  abbr --add klr ' clear'
+  abbr --add q ' exit'
   # abbr --add e $EDITOR
   abbr --add e "$EDITOR -nw"
   abbr --add cd. cd ..
