@@ -1,6 +1,6 @@
 # Path:        ~/.dotfiles/fzf/fzf.bash
 # Created:     29.03.18, 11:02    @manjaroi3
-# Last update: 03.11.18, 01:38:18 @lenovo
+# Last update: 20.02.19, 14:03:52 @x200
 
 ## >> DOC:
 # Config & functions for FUZZY FINDER
@@ -20,7 +20,7 @@ source "/home/piotr/.fzf/shell/key-bindings.bash"
 export FZF_ALT_C_COMMAND='fd -H --type d . ~'
 
 ## >> Default options
-export FZF_DEFAULT_OPTS='--height 60% --reverse --border --inline-info'
+export FZF_DEFAULT_OPTS='--height 75% --reverse --border --inline-info'
 export FZF_DEFAULT_COMMAND='fd --type f . ~'
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_CTRL_T_COMMAND='fd . ./'
