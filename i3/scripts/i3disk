@@ -2,14 +2,11 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3disk.sh
 # Created:     16.07.18, 16:53    @x200
-# Last update: 04.02.19, 17:19:31 @lenovo
-
-# Doc:
+# Last update: 20.02.19, 15:32:10 @x200
 
 DIR=$HOME
 AVAIL=`df -h -P -l $DIR | awk 'NR==2 {print $4}'`
-ICON= 
-# 
+ICON=  #  , 
 
 (( ${AVAIL%G} <= 2 )) && echo "<span bgcolor='#00001f26'><span color='#C0392B'>$ICON  ${AVAIL%G}</span></span>" || echo "$ICON  ${AVAIL%G}"
 
