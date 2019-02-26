@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 12.09.18, 23:21:58 @x200
+# Last update: 26.02.19, 13:12:24 @x200
 
 # >> DOC: simple console to navigate through SENT slides
 # 12/09/2018 v0.3 → cosmetics (colors, args, <return> = new slide)
@@ -18,7 +18,7 @@
 # done: read file, and echo which slide we are currently on 
 
 # >> VARIABLES:
-MSG="Sent console v0.2 alpha"
+MSG="Sent console v0.3 alpha"
 # >> COLORS @var
 bd=$(tput bold)
 res=$(tput sgr0)
@@ -44,16 +44,19 @@ fi
 # >> - how many instances @v
 if [[ $2 =~ [0-9]+ ]]; then
     a=$2
-    for ((n=0;n<$2;n++)); do
-        sent $1 &
-    done
+else
+    a=2
 fi
+
+for ((n=0;n<$a;n++)); do
+    sent $1 &
+done
 
 
 # >> RUN:
 clear
 
-echo "Sent console v0.3 alpha"
+echo $MSG
 
 # >> loop start 
 while true; do
