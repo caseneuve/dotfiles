@@ -1,0 +1,31 @@
+! XRESOURCES
+! Last update: 
+
+! from i3wm docs: https://i3wm.org/docs/userguide.html#xresources
+! The ~/.Xresources should contain a line such as
+!      *color0: #121212
+! and must be loaded properly, e.g., by using
+!      xrdb ~/.Xresources
+! This value is picked up on by other applications (e.g., the URxvt terminal emulator)
+! and can be used in i3 like this:
+! set_from_resource $black i3wm.color0 #000000
+
+! dark colors start
+! *bgcolor:   #0a0c10 
+! *dark1:     #0a0c10
+! *dark2:     #3b475e
+! *pink:      #EC407A
+! *light:     #ececec
+! dark colors end
+
+! light colors start 
+!#9B9B9B
+*bgcolor:  #ffb142
+*dark1:    #0a0c10
+*dark2:    #191f26
+*pink:     #EC407A
+*light:    #ececec
+*blue:     #227093
+*grey:     #3b475e
+*white:    #ffffff
+! light colors end
