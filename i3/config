@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 19.02.19, 08:37:25 @toshiba
+# Last update: 2019-02-27, 16:44:54 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -448,29 +448,45 @@ font pango:monospace 9
 # >>>> {{ dark theme [on] }}
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
 # dark theme start #EC407A #b1becd
-set $sbbg   #0a0c10 
-set $sbwfbg #0a0c10
-set $sbwabg #0a0c10
-set $sbsl   #3b475e
-set $sbwtx  #EC407A
-set $sbowtx #3b475e
-set $sbuwtx #EC407A
-set $sbwbr  #0a0c10
-set $sbwubr #ececec
+# set $sbbg   #0a0c10 
+# set $sbwfbg #0a0c10
+# set $sbwabg #0a0c10
+# set $sbsl   #3b475e
+# set $sbwtx  #EC407A
+# set $sbowtx #3b475e
+# set $sbuwtx #EC407A
+# set $sbwbr  #0a0c10
+# set $sbwubr #ececec
 # dark theme end
 
 # >>>> {{ light theme [off] }}
 # light theme start
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
 # set $sbbg   #9B9B9B 
-# set $sbwfbg #F06292
+# set $sbwfbg #9B9B9B
 # set $sbwabg #9B9B9B
 # set $sbsl   #191f26
+# set $sbwtx  #ececec
 # set $sbowtx #191f26
 # set $sbuwtx #F06292
 # set $sbwbr  #9B9B9B
 # set $sbwubr #ececec
 # light theme stop
+
+# >> set colors from Xresources
+# command          | variable | Xresources var | fallback |
+# ========================================================|
+set_from_resource  $sbbg        i3wm.bgcolor     #9B9B9B 
+set_from_resource  $sbwfbg      i3wm.bgcolor     #9B9B9B
+set_from_resource  $sbwabg      i3wm.bgcolor     #9B9B9B
+set_from_resource  $sbsl        i3wm.bgcolor     #191f26
+set_from_resource  $sbwtx       i3wm.white       #ececec
+# set_from_resource  $sbwtx       i3wm.blue        #ececec
+set_from_resource  $sbowtx      i3wm.grey        #191f26
+set_from_resource  $sbuwtx      i3wm.pink        #F06292
+set_from_resource  $sbwbr       i3wm.bgcolor     #9B9B9B
+set_from_resource  $sbwubr      i3wm.light       #ececec
+
 
 # >>> {{ bar: primary }} 
 bar {
