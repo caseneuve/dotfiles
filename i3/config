@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-02-27, 16:44:54 @toshiba
+# Last update: 2019-02-27, 18:21:07 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -445,7 +445,7 @@ font pango:monospace 9
 #font pango: DejaVu Sans Mono 8
 
 # >>> {{ bar color variables }}
-# >>>> {{ dark theme [on] }}
+# >>>> {{ dark theme [off] }}
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
 # dark theme start #EC407A #b1becd
 # set $sbbg   #0a0c10 
