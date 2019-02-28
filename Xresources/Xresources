@@ -1,5 +1,8 @@
-! XRESOURCES
-! Last update: 
+! -*- eval:(rainbow-mode) -*-
+! -----------------------------------------
+!                 XRESOURCES
+! -----------------------------------------
+! Last update: 2019-02-28, 18:23:29 @lenovo
 
 ! from i3wm docs: https://i3wm.org/docs/userguide.html#xresources
 ! The ~/.Xresources should contain a line such as
