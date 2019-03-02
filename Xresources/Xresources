@@ -2,7 +2,7 @@
 ! -----------------------------------------
 !                 XRESOURCES
 ! -----------------------------------------
-! Last update: 2019-02-28, 18:23:29 @lenovo
+! Last update: 2019-03-02, 21:15:26 @x200
 
 ! from i3wm docs: https://i3wm.org/docs/userguide.html#xresources
 ! The ~/.Xresources should contain a line such as
@@ -31,4 +31,5 @@
 *blue:     #227093
 *grey:     #3b475e
 *white:    #ffffff
+*urgent:   #C0392B
 ! light colors end
