@@ -2,12 +2,11 @@
 
 # Path:        ~/.dotfiles/bin/when-created.sh
 # Created:     2019-03-02, 21:46    @x200
-# Last update: 2019-03-02, 22:17:06 @x200
+# Last update: 2019-03-02, 22:33:53 @x200
 # Doc:         check when file given as argument was created (execute as root)
 
 [[ ! -f ${1} ]] && echo "Specify file to check" && exit 1
 [[ "$EUID" -ne 0 ]] && echo "Please run as root" && exit 1
-
 
 INODE=$(stat -c %i "$1")
 DEVICE=$(df . | awk '/^\// {print $1}')
