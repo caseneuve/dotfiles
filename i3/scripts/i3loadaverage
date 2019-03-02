@@ -2,13 +2,13 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
 # Created:     2018-08-16, 15:16    @x200
-# Last update: 2019-03-02, 21:32:49 @x200
+# Last update: 2019-03-02, 23:03:37 @x200
 # Doc:         load average indicator for i3blocks
 
 LOAD=$(cut -d ' ' -f1 /proc/loadavg)
 CPUS=$(nproc)
 WEIGHT=normal
-FGCOLOR=$(cat $HOME/.Xresources | awk '/^*urgent/ {print $2}')
+FGCOLOR=$(awk '/^*urgent/ {print $2}' $HOME/.Xresources)
 GLYPH=' '
 
 if [[ $(echo "$CPUS <= $LOAD" | bc) = "1" ]]; then
