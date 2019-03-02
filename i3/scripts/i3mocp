@@ -1,16 +1,15 @@
 #!/bin/bash
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
-# Created:     25.04.18, 09:30    @manjaroi3
-# Last update: 06.02.19, 10:11:53 @x200
+# Created:     2018-04-25, 09:30    @manjaroi3
+# Last update: 2019-03-02, 22:27:32 @x200
+# Doc:         script to display in i3 status bar (i3blocks)
+#              the currently playing track (via mocp) 
+#              <span> markup is used for pango markup
 
-# >> DOC:
-# script to display in i3 status bar (i3blocks) the currently playing track (via mocp) 
-# <span> markup is used for pango markup
+ACT_COLOR=$(cat $HOME/.Xresources | awk '/^*blue/ {print $2}')
+INACT_COLOR=$(cat $HOME/.Xresources | awk '/^*grey/ {print $2}')
 
-# >> VARIABLES:
-ACT_COLOR=#227093
-INACT_COLOR=#3b475e
 if [[ $HOSTNAME == toshiba ]]; then
     GLYPH="♫"
 else
@@ -22,7 +21,6 @@ TRACK=$(mocp -Q %n)
 STATUS=$(mocp -Q %state)
 TIME=$(mocp -Q %ct)
 
-# >> RUN:
 if [ "$STATUS" != "STOP" ] && [ "$STATUS" != "" ]; then
     if [ "$STATUS" = "PLAY" ]; then
         echo -e " <span fgcolor='$ACT_COLOR' weight='normal'>$GLYPH $TRACK $TIME </span>"
@@ -37,10 +35,7 @@ else
     fi
 fi
 
-# >> MOUSE:
-
 case $BLOCK_BUTTON in
-    # 1) mocp -r ;; # left click = previous song
     1) mocp -G ;; # middle click = toggle pause/play
     2) mocp -f ;; # right click = next song
     3) notify-send -u low "MOCP:
