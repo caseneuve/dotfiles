@@ -1,6 +1,6 @@
 #!/bin/bash
 
 GLYPH=""
-FGCOLOR="#ff5252"
+FGCOLOR=$(cat $HOME/.Xresources | awk '/^*urgent/ {print $2}')
 
 [[ -n $(pgrep dropbox) ]] || echo "<span color='$FGCOLOR'>$GLYPH </span>"

@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # Path:        ~/.dotfiles/i3/bin/i3dp.sh
-# Created:     10.07.18, 18:45    @x200
-# Last update: 25.08.18, 14:51:21 @toshiba
-
-# >> DOC: note: requires dropbox-cli (AUR)
+# Created:     2018-07-18, 18:45    @x200
+# Last update: 2019-03-02, 21:22:32 @x200
+# Doc:         note: requires dropbox-cli (AUR)
 
 # >> VARIABLES:
 GLYPH=""

@@ -1,23 +1,18 @@
 #!/bin/bash
 
 # Path:        ~/.dotfiles/i3/bin/i3battery.sh
-# Created:     16.07.18, 14:17    @x200
-# Last update: 27.12.18, 16:49:29 @x200
-
-# Doc:
+# Created:     2018-07-16, 14:17    @x200
+# Last update: 2019-03-02, 21:29:59 @x200
+# Doc:         get battery info for i3blocks
 
 ACPI=`acpi -b | sed 's/,//g'`
-#echo $ACPI | awk '{print $3 " " $4 " " $5}'
-# NAME=${MYVAR%:*}  # retain the part before the colon
-# NAME=${NAME##*/}  # retain the part after the last slash
-# echo $NAME
 STATE=`echo $ACPI | awk '{print $3}'`
 TIME=`echo $ACPI | awk '{print $5}'`
 TIME="${TIME%:*}"
 [[ "$STATE" = "Discharging" ]] && STATE="" || STATE=" " 
 PERCENT=`echo $ACPI | awk '{print $4}'`
 PERC=${PERCENT%\%}
-FGCOLOR=#C0392B
+FGCOLOR=$(cat $HOME/.Xresources | awk '/^*urgent/ {print $2}')
 
 if (( $PERC < 10 )); then
     echo "<span color='$FGCOLOR'>  $PERC $STATE</span>"
@@ -34,20 +29,4 @@ fi
 case $BLOCK_BUTTON in
     1) [[ -z $STATE ]] && notify-send "BATTERY:" "$TIME left to discharge" || notify-send "BATTERY:" "$TIME left to full charge";;
 esac
-
-# BUTTON CLICK → time
-    
-	# if ($percent < 20) {
-	# 	print "#FF0000\n";
-	# } elsif ($percent < 40) {
-	# 	print "#FFAE00\n";
-	# } elsif ($percent < 60) {
-	# 	print "#FFF600\n";
-	# } elsif ($percent < 85) {
-	# 	print "#A8FF00\n";
-	# }
-
-	# if ($percent < 5) {
-	# 	exit(33);
-	# }
 

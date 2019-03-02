@@ -1,29 +1,27 @@
 #!/bin/bash
 
 # Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
-# Created:     16.07.18, 15:16    @x200
-# Last update: 06.02.19, 14:11:46 @x200
+# Created:     2018-08-16, 15:16    @x200
+# Last update: 2019-03-02, 21:32:49 @x200
+# Doc:         load average indicator for i3blocks
 
-# >> DOC:
-
-# >> VARIABLES:
-LOAD="$(cut -d ' ' -f1 /proc/loadavg)"
-CPUS="$(nproc)"
+LOAD=$(cut -d ' ' -f1 /proc/loadavg)
+CPUS=$(nproc)
 WEIGHT=normal
-FGCOLOR=#ff5252
-#FGCOLOR=#EC407A
+FGCOLOR=$(cat $HOME/.Xresources | awk '/^*urgent/ {print $2}')
 GLYPH=' '
 
-# >> i3blocks OUTPUT
 if [[ $(echo "$CPUS <= $LOAD" | bc) = "1" ]]; then
-    echo "<span color='$FGCOLOR'><span weight='$WEIGHT'>$GLYPH$LOAD</span></span>"
+    echo "<span color='$FGCOLOR'><span weight='$WEIGHT'>\
+$GLYPH$LOAD</span></span>"
 else
     echo "$GLYPH$LOAD"
 fi
 
-# >> MOUSE
 case $BLOCK_BUTTON in
-    1) notify-send "CPU eaters:" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)";;
+    1) notify-send "CPU eaters:" \
+                   "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)";;
     3) notify-send "MEMORY eaters [$(free -h | awk '/^Mem/ {print $3 "/" $2}' | sed 's/i//g')]:" \
                    "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
-esac 
+esac
+
