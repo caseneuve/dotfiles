@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 20.02.19, 14:25:03 @x200
+# Last update: 2019-03-04, 13:22:53 @x200
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -83,7 +83,6 @@ if status --is-interactive
   abbr --add mk mkdir -p
   abbr --add lg ls --group-directories-first --color="always"
   abbr --add mejk 'make && sudo make install'
-  abbr --add pull ~/.dotfiles/bin/gitpull.sh
   abbr --add sp sudo pacman -S
   abbr --add sr sudo pacman -R
   abbr --add dps 'dropbox-cli status'
