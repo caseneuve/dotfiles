@@ -2,7 +2,7 @@
 ! -----------------------------------------
 !                 XRESOURCES
 ! -----------------------------------------
-! Last update: 2019-03-03, 22:33:13 @x200
+! Last update: 2019-03-04, 16:33:59 @x200
 
 ! from i3wm docs: https://i3wm.org/docs/userguide.html#xresources
 ! The ~/.Xresources should contain a line such as
@@ -13,7 +13,8 @@
 ! and can be used in i3 like this:
 ! set_from_resource $black i3wm.color0 #000000
 
-! dark colors start
+!! >> i3blocks
+! >>> dark colors start
 ! *bgcolor:   #0a0c10 
 ! *dark1:     #0a0c10
 ! *dark2:     #3b475e
@@ -21,7 +22,7 @@
 ! *light:     #ececec
 ! dark colors end
 
-! light colors start 
+! >>> light colors start 
 !#9B9B9B
 *bgcolor:  #ffb142
 *dark1:    #0a0c10
@@ -34,7 +35,11 @@
 *urgent:   #C0392B
 ! light colors end
 
-! st colors
+!! >> st variables
+! >>> transparency (0.0-1)
+*.alpha: 0.9
+
+! >>> colors:
 ! gruvbox:
 ! *color0:     #282828
 ! *color1:     #cc241d
@@ -56,3 +61,7 @@
 ! *foreground:    STRING,  &colorname[257] },
 ! *cursorColor:   STRING,  &colorname[258] },
 
+
+! Local variables:
+! eval:(add-hook 'after-save-hook (lambda () (shell-command "xrdb ~/.Xresources > /dev/null 2>&1")) nil t)
+! End:
