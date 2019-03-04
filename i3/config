@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-02-27, 18:21:07 @toshiba
+# Last update: 2019-03-04, 13:13:17 @x200
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -39,7 +39,6 @@ bindsym $mod+Shift+Escape restart
 
 ## >> { STARTUP & PROGRAMS }
 # >>> {{ startup scripts }}
-$exea $hub/i3listen.py      # manage workspace names and window titles in bar
 $exe  $dot/gitpull.sh    # git
 $exe  $dot/monitoryUP.sh # monitors
 # exec_always --no-startup-id $hub/i3catch.py
@@ -50,9 +49,10 @@ $exe  $dot/monitoryUP.sh # monitors
 $exe  dropbox start -i
 $exea compton --config ~/.config/compton/compton.conf
 $exe  mocp -S
-$exe  emacs --daemon
+#$exe  emacs --daemon
 $exe  dunst                                             # notifier
 $exea amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
+$exea $hub/i3listen.py      # manage workspace names and window titles in bar
 
 ## >> { NAVIG } 
 # >>> {{ change focus: }}
