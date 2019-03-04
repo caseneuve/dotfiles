@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# Path:        ~/scr/mpv-socket.sh (ln → dp)
-# Created:     14.07.18, 09:12    @toshiba
-# Last update: 25.10.18, 00:01:08 @lenovo
-
-## Doc:
+# Path:        ~/.dotfiles/bin/mpv-socket
+# Created:     2018-07-14, 09:12    @toshiba
+# Last update: 2019-03-04, 10:43:11 @x200
+# Doc:
 # requires socat
 # todo: zmienić kolory (bez kolorowego tła)
 # FIXME: playlist -P działa tylko dla url
@@ -27,13 +26,12 @@ METADATA=$(echo '{ "command": ["get_property", "filtered-metadata"] }' | socat -
 #VIDEOP=`echo '{ "command": ["get_property", "video"] }' | socat - $SOC 2>/dev/null | jq .data`
 
 # >> - colors @var
-BGCOLOR=#36648b
-FGCOLOR=#596473
-
-BGPLAY="#36648b"
-FGPAUSE="#6F7D91"
-BGPAUSE="#191f26"
-#FGPAUSE=$BGPLAY
+PLAY_COLOR=$(awk  '/^*blue/ {print $2}' $HOME/.Xresources)
+PAUSE_COLOR=$(awk '/^*grey/ {print $2}' $HOME/.Xresources)
+WEIGHT=normal
+BGPLAY=$PLAY_COLOR
+FGPAUSE=$PAUSE_COLOR
+#BGPAUSE="#191f26"
 
 # >> - metadata @var
 if [[ $METADATA ]]; then
@@ -94,11 +92,11 @@ i3mpvstat(){
     # LIST="($PLAYPOS/$PLAYTOT) "
     if [[ "$STATUS" = "PLAY" ]]; then
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span fgcolor='$BGCOLOR' weight='bold'> $GLYPH $LIST %02d:%02d </span>\n" \
+            printf "<span fgcolor='$PLAY_COLOR' weight='$WEIGHT'> $GLYPH $LIST %02d:%02d </span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
-            printf "<span fgcolor='$FGCOLOR'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
+            printf "<span fgcolor='$PAUSE_COLOR'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
@@ -113,11 +111,11 @@ i3mpvstat(){
         # fi
     elif [[ "$STATUS" = "PAUSE" ]]; then 
         if (( $(($POSITION/3600)) < 1 )); then
-            printf "<span fgcolor='$FGCOLOR' weight='normal'> $GLYPH $LIST %02d:%02d </span>\n" \
+            printf "<span fgcolor='$PAUSE_COLOR' weight='normal'> $GLYPH $LIST %02d:%02d </span>\n" \
                    $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING%3600/60)) $(($REMAINING%60))
         else
-            printf "<span fgcolor='$FGCOLOR'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
+            printf "<span fgcolor='$PLAY_COLOR'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
