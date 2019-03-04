@@ -2,8 +2,14 @@
 ! -----------------------------------------
 !                 XRESOURCES
 ! -----------------------------------------
-! Last update: 2019-03-04, 16:33:59 @x200
+! Last update: 2019-03-04, 18:58:28 @x200
+! Docs:
 
+! >> syntax
+! #define black_normal #000000
+! then use black_normal as value
+
+! >> i3docs
 ! from i3wm docs: https://i3wm.org/docs/userguide.html#xresources
 ! The ~/.Xresources should contain a line such as
 !      *color0: #121212
