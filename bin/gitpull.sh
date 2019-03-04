@@ -1,44 +1,47 @@
 #!/bin/bash
 
-# ~/.dotfiles/bin/gitpull.sh
-# Created:     21.12.17           ?
-# Last update: 06.11.18, 00:11:46 @toshiba
+# Path:        ~/.dotfiles/bin/gitpull.sh
+# Created:     2019-03-04, 12:39    @x200
+# Last update: 2019-03-04, 13:17:40 @x200
+# Doc:         update all active repos
 
-# Doc:
-# Aktualizuje repozytoria 'dotfiles', 'emacs/load' oraz wspólny projekt z gitlaba  na lokalnym komputerze
-# TODO: loop?
+DOT=$HOME/.dotfiles
+SCHOLE=$HOME/web/schole
+LAB=$HOME/git/lab
+HUB=$HOME/git/hub 
 
-# colors
-# ORANGE="$(tput setaf 11)"
-# RED="$(tput setaf 9)"
-RESET="$(tput sgr0)"
-BOLD="$(tput bold)"
-
-DOTFILES=/home/piotr/.dotfiles
-EMACS=/home/piotr/git/hub/emacs
-HOBBIT=/home/piotr/git/hub/hobbit
-HEDER=/home/piotr/git/hub/heder
-PY_EX=/home/piotr/git/lab/py-exercises
-ST=/home/piotr/git/hub/st
-SZK=/home/piotr/git/lab/szk.el
-I3=/home/piotr/git/hub/i3
-EMACS_HTMLIZE=/home/piotr/git/hub/emacs-htmlize
-
-clear
-
-for i in $DOTFILES $I3 $EMACS $HOBBIT $HEDER $SZK $ST $EMACS_HTMLIZE $PY_EX 
-do
-    if [[ -d $i ]]; then
-        echo "## Aktualizuję repo $BOLD$(basename $i)$RESET:"
-        cd $i
-        # [[ $(git branch | grep "\* patched") ||  $(git branch | grep "\* master") ]] && git branch | grep "\*" || git checkout master
+gitpull(){
+    cd $1
+    if [[ -d .git ]]
+    then
+        echo "## Pulling from repo -- $BOLD$(basename $1)$RESET:"
         git status --porcelain
-        git pull --all
+        git pull
         echo
     else
-        echo -e "!! Nie ma takiego repo:\n$i\n"
+        echo "!! $1 is not a git repo"
     fi
-done
+}
 
-. ~/.bashrc
+main() {
+    # update dotfiles and bashrc
+    gitpull $DOT
+    . $HOME/.bashrc
+        
+    # update other repos
+    for dir in $SCHOLE $LAB $HUB
+    do
+        for repo in $(fd -t d -d 1 . $dir)
+        do
+            gitpull $repo
+        done
+    done
+    
+    # tangle emacs config
+    $HOME/git/lab/dotemacs/tangle-config-org.sh
+    emacs --daemon &
+    
+    notify-send "GIT PULL" "All repos should be updated now"
+}
 
+main
