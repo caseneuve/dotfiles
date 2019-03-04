@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-03-04, 13:13:17 @x200
+# Last update: 2019-03-04, 21:34:36 @x200
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -580,7 +580,8 @@ set $rofi-theme i3orange
 bindsym $mod+d $exe rofi -show drun -modi drun -theme $rofi-theme
 bindsym $mod+semicolon $exe rofi -show window -modi window -window-format {c:15}{t:25} -theme $rofi-theme
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
-bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
+#bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
+bindsym $mod+bracketleft $exe ~/.dotfiles/dmenu/dmenu-choose-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh $rofi-theme
 
 #bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
