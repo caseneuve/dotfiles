@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/gitpull.sh
 # Created:     2019-03-04, 12:39    @x200
-# Last update: 2019-03-04, 13:17:40 @x200
+# Last update: 2019-03-04, 16:48:50 @x200
 # Doc:         update all active repos
 
 DOT=$HOME/.dotfiles
@@ -24,9 +24,11 @@ gitpull(){
 }
 
 main() {
-    # update dotfiles and bashrc
+    # update dotfiles, bashrc and Xresources
     gitpull $DOT
     . $HOME/.bashrc
+    cp $HOME/.dotfiles/Xresources/Xresources $HOME/.Xresources \
+        && xrdb $HOME/.Xresources
         
     # update other repos
     for dir in $SCHOLE $LAB $HUB
