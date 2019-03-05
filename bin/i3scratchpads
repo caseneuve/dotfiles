@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     13.10.18, 01:19    @lenovo
-# Last update: 24.01.19, 18:03:25 @toshiba
+# Last update: 2019-03-05, 19:06:04 @toshiba
 
 # >> DOC: 
 # i3config helper: start tmux scratchpad if doesn't exist or show it
@@ -10,7 +10,7 @@
 
 # >> VARIABLES:
 TRMNL=st
-ST_CFG=~/git/hub/st/config.def.h
+ST_CFG=$HOME/.config/st/config.h
 
 if [[ $TRMNL == st ]]; then
     font=$(awk '/^static char \*font/ {print $5}' $ST_CFG)
@@ -43,7 +43,7 @@ while getopts "ufcot:" flag; do
            ;;
         # >>> quick scratch
         f) if [[ ! $(ps aux | grep myquickterm | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $TRMNL -c myquickterm -f '$font:size=13'" &&\
+               i3-msg -q "exec --no-startup-id $TRMNL -c myquickterm -f '$font:size=12.5'" &&\
                    sleep 0.1
            fi
            i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&
