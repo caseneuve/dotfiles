@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 2019-03-06, 11:51:00 @toshiba
+# Last update: 2019-03-06, 15:56:52 @x200
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -92,6 +92,7 @@ if status --is-interactive
   abbr --add mkd 'mkdir -p'
   abbr --add compton 'compton --config ~/.config/compton/compton.conf'
   abbr --add sqlb sqlitebrowser
+  abbr --add hs hugo server -vw
 
 end
 
