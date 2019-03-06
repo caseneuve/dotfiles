@@ -2,9 +2,10 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3wifi
 # Created:     2018-07-10, 14:37    @x200
-# Last update: 2019-03-02, 23:03:49 @x200
+# Last update: 2019-03-06, 17:27:17 @x200
 # Doc:         wifi status indicator for i3blocks
 
+DEST=1.1.1.1
 IF=$(ip route | awk '/^default/ { print $5 ; exit }')
 [[ -z $IF ]] && echo "OFF"
 
@@ -18,7 +19,8 @@ else
     QUALITY=$(grep $IF /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 fi
 
-CONN=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3 | head -n 1))
+#CONN=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3 | head -n 1))
+CONN=$(ping -c 1 -q -w 1 $DEST)
 #CONN=$(ping -c 1 1.1.1.1 2>/dev/null)
 
 #PAC_LOSS=$(ping -q -w 1 -c 1 $(ip r | grep default | cut -d ' ' -f 3) | awk 'NR==4 {print $6}' | sed 's/%//g')
