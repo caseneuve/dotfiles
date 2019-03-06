@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/gitpull.sh
 # Created:     2019-03-04, 12:39    @x200
-# Last update: 2019-03-05, 21:01:07 @toshiba
+# Last update: 2019-03-06, 12:10:00 @lenovo
 # Doc:         update all active repos
 
 DOT=$HOME/.dotfiles
@@ -20,6 +20,7 @@ gitpull(){
         echo
     else
         echo "!! $1 is not a git repo"
+        echo
     fi
 }
 
@@ -28,6 +29,7 @@ main() {
     gitpull $DOT
     . $HOME/.bashrc
     cp $HOME/.dotfiles/Xresources/Xresources $HOME/.Xresources \
+       > /dev/null 2>&1 \
         && xrdb $HOME/.Xresources
         
     # update other repos
@@ -38,12 +40,20 @@ main() {
             gitpull $repo
         done
     done
+
+    notify-send "GIT PULL" "All repos should be updated now"
     
     # tangle emacs config
+    echo "## Updating emacs config files"
     $HOME/git/lab/dotemacs/tangle-config-org.sh
-    emacs --daemon=term &
+
+    if [[ -S /tmp/emacs1000/term ]]
+    then
+        emacsclient -s term --eval "(save-some-buffers t)" \
+            && rm /tmp/emacs1000/term
+    fi
     
-    notify-send "GIT PULL" "All repos should be updated now"
+    emacs --daemon=term && exit
 }
 
 main
