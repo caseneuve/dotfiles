@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/gitpull.sh
 # Created:     2019-03-04, 12:39    @x200
-# Last update: 2019-03-04, 16:48:50 @x200
+# Last update: 2019-03-05, 21:01:07 @toshiba
 # Doc:         update all active repos
 
 DOT=$HOME/.dotfiles
@@ -41,7 +41,7 @@ main() {
     
     # tangle emacs config
     $HOME/git/lab/dotemacs/tangle-config-org.sh
-    emacs --daemon &
+    emacs --daemon=term &
     
     notify-send "GIT PULL" "All repos should be updated now"
 }
