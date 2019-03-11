@@ -775,7 +775,7 @@ c.downloads.position = 'bottom'
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-c.editor.command = ['st', '-e', 'emacsclient', '-t', '{}']
+c.editor.command = ['st', '-e', 'emacsclient', '-nw', '-s', 'term', '{}']
 
 # Encoding to use for the editor.
 ## Type: Encoding
