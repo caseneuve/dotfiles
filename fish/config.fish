@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 2019-03-06, 15:56:52 @x200
+# Last update: 2019-03-11, 16:14:04 @toshiba
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -19,6 +19,7 @@ set -e EDITOR
 set -gx BROWSER /usr/bin/qutebrowser
 set -gx EDITOR emacsclient -nw -s term
 set -gx VIRTUAL_ENV_DISABLE_PROMPT no # https://github.com/fish-shell/fish-shell/pull/1795
+set -gx TERM xterm-256color
 
 # >>> fish vars
 #set -e fish_greeting
