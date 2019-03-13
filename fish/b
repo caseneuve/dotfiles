@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Path:        ~/.dotfiles/fish/b
+# Created:     2019-03-13, 08:58    @toshiba
+# Last update: 2019-03-13, 09:11:44 @toshiba
+# Doc:         bash wrapper for fish
+
+eval "$@"
