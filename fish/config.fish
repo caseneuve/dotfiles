@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 2019-03-11, 16:14:04 @toshiba
+# Last update: 2019-03-13, 10:11:58 @toshiba
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -82,6 +82,7 @@ if status --is-interactive
   abbr --add gitp git push
   abbr --add gita git add
   abbr --add gitc 'git commit -m'
+  abbr --add gitca 'git commit -am'
   abbr --add mk mkdir -p
   abbr --add lg ls --group-directories-first --color="always"
   abbr --add mejk 'make && sudo make install'
