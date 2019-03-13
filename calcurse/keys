@@ -1,3 +1,4 @@
+# -*- mode: conf -*- 
 #
 # Calcurse keys configuration file
 #
@@ -37,9 +38,9 @@ generic-scroll-up  ^P
 generic-goto-today  ^G 
 generic-command  : 
 move-right  l L RGT 
-move-left  j J LFT 
-move-down  k K DWN 
-move-up  i I UP 
+move-left  h H LFT 
+move-down  j J DWN 
+move-up  k K UP 
 start-of-week  0 
 end-of-week  $ 
 add-item  a A 
