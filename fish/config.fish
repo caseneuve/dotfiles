@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 2019-03-13, 10:11:58 @toshiba
+# Last update: 2019-03-15, 10:41:53 @toshiba
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -117,8 +117,8 @@ function p1 -d 'Ping 1.1.1.1'
 end
 
 # >>> yayup
-function yyy -d 'Update packages'
-    yay -Syu && pkill -RTMIN+12 i3blocks
+function ya -d 'Update packages'
+    yay && pkill -RTMIN+12 i3blocks
 end
 
 # >>> psaux / psauk
