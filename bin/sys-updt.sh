@@ -1,49 +1,28 @@
 #!/bin/bash
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
-# Created:     30.05.18, 16:02    @x200
-# Last update: 14.02.19, 22:08:05 @lenovo
+# Created:     2018-05-30, 16:02    @x200
+# Last update: 2019-03-14, 22:30:34 @lenovo
+# Doc:         Primitive pamac-tray replacement
+#              requires pacman-contrib package (`checkupdates` command)
 
-# >> DOC:
-# Primitive pamac-tray replacement
-
-# >> TODOs
-# note: uses pacman-contrib package! (`checkupdates` command)
-
-# >> VARIABLES
 FILE=/tmp/sysupdt
 checkupdates > $FILE
 
-CHECK=$(cat $FILE)
-NUM=$(cat $FILE | wc -l)
+NUM=$(cat $FILE | wc -l )
 GLYPH=' '
-#COLOR='#C0392B'
-COLOR='#ff5252'
+FGCOLOR=$(awk '/^*urgent/ {print $2}' $HOME/.Xresources)
+#COLOR='#C0392B' # COLOR='#ff5252'
 
-# >> i3blocks OUTPUT
 if [[ -n $NUM ]]; then
     if (( $NUM > 0 )); then
-        # <span bgcolor='#00001f26'>
-        [[ $(cat $FILE | grep -o linux-lts) ]] &&\
+        [[ $(grep -o linux-lts $FILE) ]] &&\
             echo -e " <span color='$COLOR' weight='bold'>$GLYPH$NUM</span> " ||\
                 echo -e " $GLYPH$NUM "
     fi
 fi
 
-# >> MOUSE BEHAVIOUR [off]
-# case $BLOCK_BUTTON in
-#     # left click 
-#     1) notify-send -u critical "System update:
-# --------------" "$CHECK" 
-#        pkill -RTMIN+12 i3blocks && exit 0
-#        ;;
-#     # right click
-#     3) rm $FILE
-#        #st -t sysupdt -e sudo pacman --noconfirm -Syyu
-#        st -c sysupdt -e yay --noconfirm -Syu &\
-#            [[ $(~/git/hub/i3/i3get.sh -c) == sysupdt ]] &&\
-#                ~/bin/i3move -p 35 -g 10 -m ne && pkill -RTMIN+12 i3blocks
-#        exit 0
-#        ;;
-# esac
+case $BLOCK_BUTTON in
+    1) pkill -RTMIN+12 i3blocks && exit 0 ;;
+esac
 
