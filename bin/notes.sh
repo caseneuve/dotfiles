@@ -1,9 +1,8 @@
 #!/bin/bash
-# Last update: 30.07.18, 00:38:35 @x200
+# Last update: 2019-03-23, 19:35:04 @toshiba
 # Doc: dodaje wpis do notesu z dp, który jest symlinkowany do każdej maszyny
 
 NOTES=~/org/quicknotes.txt
 
-printf "* $(date) @$HOSTNAME -- " >> $NOTES
-emacsclient -nw +10000 $NOTES
-
+printf "* [$(date +'%d %b %Y, %H:%M') @$HOSTNAME] -- " >> $NOTES
+$EDITOR +10000 $NOTES
