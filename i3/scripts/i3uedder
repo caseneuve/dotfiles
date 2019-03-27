@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-25, 21:06:34 @lenovo
+# Last update: 2019-03-27, 10:40:00 @toshiba
 # Doc:
 
 OUTPUT=$(
@@ -10,11 +10,12 @@ OUTPUT=$(
       )
 
 case $OUTPUT in
-    Sunny|Clear)      INDICATOR="🌣 ";;
-    *Cloudy*) INDICATOR="🌤 ";;
-    *Rain*)  INDICATOR="🌧 ";;
-    Overcast)   INDICATOR="☁ ";;
-    *)          INDICATOR="⛅ " ;;
+    Sunny|Clear) INDICATOR=" ";;
+    *cloudy*) INDICATOR=" ";;
+    *Rain*) INDICATOR=" ";;
+    Overcast) INDICATOR=" ";;
+    Snow) INDICATOR=" ";;
+    *) INDICATOR=" " ;;
 esac
 
 echo $INDICATOR
