@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-03-27, 13:04:53 @toshiba
+# Last update: 2019-03-27, 15:30:37 @lenovo
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -543,6 +543,8 @@ bindsym Print $exe $dot/screenshot.sh
 bindsym $mod+Print $exe $dot/screenshot.sh active
 # zrzut wybranego okna
 bindsym $mod+Shift+Print $exe $dot/screenshot.sh select
+# zrzut i edycja
+bindsym $mod+Control+Print $exe $dot/screenshot.sh edit
 
 # old: scrot
 # bindsym Print $exe scrot '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
