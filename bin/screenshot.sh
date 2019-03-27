@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-03-27, 13:21:50 @toshiba
+# Last update: 2019-03-27, 13:25:06 @toshiba
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
 # Todo:        27/03/2019 install i3move (?)
 # Todo:        27/03/2019 add x and y gaps to i3move
@@ -23,7 +23,7 @@ setup(){
 }
 
 show_and_move() {
-    sxiv -b $FILE &
+    sxiv -b -s f $FILE &
     $HOME/git/hub/i3/i3move.py -p 33 -g 30 -m nw
     i3-msg -q move left 20
 }
