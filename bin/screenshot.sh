@@ -2,9 +2,9 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-03-27, 15:42:43 @lenovo
+# Last update: 2019-03-27, 17:39:41 @lenovo
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
-# Requires:    [maim, sxiv, mypaint, xdotool]
+# Requires:    [maim, sxiv, dmenu, xdotool, mypaint]
 # Todo:        27/03/2019 install i3move in the system? path? (?)
 # Todo:        27/03/2019 add x and y gaps to i3move
 
