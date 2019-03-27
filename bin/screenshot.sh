@@ -2,8 +2,9 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-03-27, 14:22:30 @lenovo
+# Last update: 2019-03-27, 15:21:46 @lenovo
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
+# Requires:    [maim, sxiv, mypaint, xdotool]
 # Todo:        27/03/2019 install i3move (?)
 # Todo:        27/03/2019 add x and y gaps to i3move
 
@@ -34,9 +35,15 @@ ask() {
     if [[ $save == yes ]]; then
         rename=$(echo -e "no" | dmenu -p "rename shot?")
         case $rename in
-            no) cp $FILE $DIR ;;
-            *) cp $FILE $DIR/${rename}.png
+            no) SAVED=$DIR/$(basename $FILE) ;;
+            *) SAVED=$DIR/${rename}.png
+                cp $FILE $SAVED;;
         esac
+        cp $FILE $SAVED
+        cleanup
+    else
+        cleanup
+        exit 1
     fi
 }
 
@@ -45,12 +52,20 @@ cleanup() {
     ps aux | rg sxiv | rg $FILE | awk '{print $2}' | xargs kill -9
 }
 
+edit() {
+    edit=$(echo -e "no\nyes" | dmenu -p "edit shot?")
+    if [[ $edit == yes ]]; then
+        mypaint $LOC &
+        i3-msg -q "workspace number 6"
+    fi
+}
+
 main() {
     setup
     if $SHOT; then
         show_and_move
         ask
-        cleanup
+        edit
     else
         exit 1
     fi
