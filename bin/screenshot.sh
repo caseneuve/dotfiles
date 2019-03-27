@@ -2,15 +2,16 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-03-27, 13:09:34 @toshiba
+# Last update: 2019-03-27, 13:21:50 @toshiba
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
 # Todo:        27/03/2019 install i3move (?)
 # Todo:        27/03/2019 add x and y gaps to i3move
 
+ARG=${1:-}
+
 setup(){
     DIR=$HOME/obr/maim
     FILE=/tmp/$(date +%Y%b%d_%H.%M.%S).maim.png
-    ARG=${1:-}
 
     case $ARG in
         -i|i|'active') ARG="-u -i $(xdotool getactivewindow)" ;;
