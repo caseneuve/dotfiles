@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-03-04, 21:34:36 @x200
+# Last update: 2019-03-27, 13:04:53 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -538,11 +538,11 @@ bindsym XF86AudioPrev $exe mocp -r
 
 # >>> {{ zrzut ekranu: maim }}
 # zrzut calego ekranu
-bindsym Print $exe maim -u ~/obr/maim/$(date +%Y%b%d_%H.%M.%S).maim.png && notify-send "Maim:" "screenshot taken"
+bindsym Print $exe $dot/screenshot.sh 
 # zrzut tylko aktywnego okna
-bindsym $mod+Print $exe maim -u -i $(xdotool getactivewindow) ~/obr/maim/$(date +%Y%b%d_%H.%M.%S).maim.png && notify-send "Maim:" "screenshot taken"
+bindsym $mod+Print $exe $dot/screenshot.sh active
 # zrzut wybranego okna
-bindsym $mod+Shift+Print $exe maim -s -u ~/obr/maim/$(date +%Y%b%d_%H.%M.%S).maim.png
+bindsym $mod+Shift+Print $exe $dot/screenshot.sh select
 
 # old: scrot
 # bindsym Print $exe scrot '%Y%b%d_%H.%M.%S.scrot.png' -e 'mv $f ~/obr/scrot/' && notify-send "Scrot:" "screenshot taken"
