@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3wifi
 # Created:     2018-07-10, 14:37    @x200
-# Last update: 2019-03-06, 17:27:17 @x200
+# Last update: 2019-03-26, 13:01:25 @x200
 # Doc:         wifi status indicator for i3blocks
 
 DEST=1.1.1.1
@@ -56,7 +56,7 @@ case $BLOCK_BUTTON in
     # left click 
     1) notify-send -u low "Dropbox status:
 --------------" "$(dropbox-cli status)" -i ~/box/Dropbox/.Config/dropbox-logo.png && exit 0
-       # update dropbox status @i3blocks
-       pkill -RTMIN+13 i3blocks
+       pkill -RTMIN+13 i3blocks        # update dropbox status @i3blocks
+       pkill -RTMIN+5 i3blocks         # refresh uedder script
        ;;
 esac
