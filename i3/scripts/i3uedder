@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-28, 06:44:00 @x200
+# Last update: 2019-03-28, 07:36:23 @x200
 # Doc:
 # Todo:        28/03/2019, dodać warunek, gdyby nie było netu
 #                          lub suntimes.py zawiedzie
@@ -47,7 +47,11 @@ COL=$((${#OUTPUT} - 6))
 
 case $BLOCK_BUTTON in
     #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
-    1) notify-send "$(printf '%s%*s%s' Wttr.in $col $INDICATOR)" \
-                   "$OUTPUT\n  $RISE_H:$RISE_M\n $SET_H:$SET_M" &&\
+    1) notify-send \
+           -t 3000 \
+           "$(printf '%s%*s%s' Wttr.in $col $INDICATOR)" \
+           "$OUTPUT
+  $RISE_H:$RISE_M
+   $SET_H:$SET_M" &&\
              pkill -RTMIN+5 i3blocks ;;
 esac
