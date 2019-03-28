@@ -2,11 +2,10 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3screencast-indicator
 # Created:     2018-08-24, 23:09    @x200
-# Last update: 2019-03-02, 23:05:39 @x200
+# Last update: 2019-03-27, 18:06:35 @lenovo
 # Doc:         i3blocks screencast indicator; runs with screencast.sh
 
 FGCOLOR=$(awk '/^*urgent/ {print $2}' $HOME/.Xresources)
 
 [[ $(ps aux | grep ffmpeg | grep -v grep) ]] &&\
-    echo -e "<span color='$FGCOLOR'> </span>" || echo ""
-
+    echo -e "<span color='$FGCOLOR'>  </span>" || echo ""

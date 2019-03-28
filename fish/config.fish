@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 2019-03-25, 17:04:52 @lenovo
+# Last update: 2019-03-27, 13:13:56 @toshiba
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -97,6 +97,7 @@ if status --is-interactive
   abbr --add compton 'compton --config ~/.config/compton/compton.conf'
   abbr --add sqlb sqlitebrowser
   abbr --add hs hugo server -vw
+  abbr --add fdf fd -d 1 -t f 
 
 end
 

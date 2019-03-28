@@ -2,19 +2,41 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-26, 12:59:28 @x200
+# Last update: 2019-03-28, 06:30:20 @x200
 # Doc:
 
 OUTPUT=$(
     curl -Ss 'https://wttr.in?0&T&Q' 2>/dev/null | cut -c 16- | head -2 | xargs echo
       )
+SUNFILE=/tmp/suntimes.txt
+VENV=~/.virtualenvs/sth/bin/python
+SCRIPT=~/git/lab/py-exercises/suntimes.py
+
+[[ -f $SUNFILE ]] || $VENV $SCRIPT > $
+RISE_H=$(awk '/sunrise/ {print $2}' $SUNFILE)
+RISE_M=$(awk '/sunrise/ {print $3}' $SUNFILE)
+RISE=$(( $RISE_H * 60 + $RISE_M ))
+SET_H=$(awk '/sunset/ {print $2}' $SUNFILE)
+SET_M=$(awk '/sunset/ {print $3}' $SUNFILE)
+SET=$(( $SET_H * 60 + $SET_M ))
+TIME=$(( $(date +'%H') * 60 + $(date +'%M') ))
+
+if (( $TIME > $SET )) || (( $TIME < $RISE )); then
+    NIGHT=true
+else
+    NIGHT=false
+fi
+
+night_or_day() {
+    $NIGHT && INDICATOR=$1 || INDICATOR=$2
+}
 
 case $OUTPUT in
-    Sunny|Clear)      INDICATOR="🌣 ";;
-    *cloudy*) INDICATOR="🌤 ";;
-    *Rain*)  INDICATOR="🌧 ";;
-    Overcast)   INDICATOR="☁ ";;
-    *)          INDICATOR="⛅ " ;;
+    *Sunny*|*Clear*) night_or_day "" "";;
+    *cloudy*|*Overcast*) INDICATOR="";;
+    *Rain*) INDICATOR="☔";;
+    *Snow*) INDICATOR="";;
+    *) night_or_day "" "" ;;
 esac
 COL=$((${#OUTPUT} - 6))
 
@@ -22,6 +44,7 @@ COL=$((${#OUTPUT} - 6))
 
 case $BLOCK_BUTTON in
     #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
-    1) notify-send "$(printf '%s%*s%s' Wttr.in $COL $INDICATOR)" \
-                   "$OUTPUT" &&  pkill -RTMIN+5 i3blocks
+    1) notify-send "$(printf '%s%*s%s' Wttr.in $col $INDICATOR)" \
+                   "$OUTPUT\n  $RISE_H:$RISE_M\n $SET_H:$SET_M" &&\
+             pkill -RTMIN+5 i3blocks ;;
 esac
