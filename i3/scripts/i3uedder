@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-28, 23:04:46 @lenovo
+# Last update: 2019-03-29, 11:40:44 @toshiba
 # Doc:
 # Todo:        28/03/2019, dodać warunek, gdyby nie było netu
 #                          lub suntimes.py zawiedzie
@@ -10,21 +10,20 @@
 OUTPUT=$(
     curl -Ss 'https://wttr.in?0&T&Q' 2>/dev/null | cut -c 16- | head -2 | xargs echo
       )
-SUNFILE=/tmp/suntimes.txt
-VENV=$HOME/.virtualenvs/sth/bin/python
-SCRIPT=$HOME/git/lab/py-exercises/suntimes.py
+SUNFILE=/tmp/suntimes
+SCRIPT=$HOME/git/lab/py-exercises/suntimes.sh
 
-[[ -f $SUNFILE ]] || $VENV $SCRIPT > $SUNFILE
+if [[ -f $SUNFILE ]]; then
+    [[ $(date +'%d %m') == $(sed 1q $SUNFILE) ]] || $SCRIPT
+else
+    $SCRIPT
+fi
 
-RISE_H=$(awk '/sunrise/ {print $2}' $SUNFILE)
-RISE_M=$(awk '/sunrise/ {print $3}' $SUNFILE)
-RISE=$(( $RISE_H * 60 + $RISE_M ))
-SET_H=$(awk '/sunset/ {print $2}' $SUNFILE)
-SET_M=$(awk '/sunset/ {print $3}' $SUNFILE)
-SET=$(( $SET_H * 60 + $SET_M ))
-TIME=$(( $(date +'%H') * 60 + $(date +'%M') ))
+RISE=$(awk '/sunrise/ {print $2}' $SUNFILE)
+SET=$(awk '/sunset/ {print $2}' $SUNFILE)
+TIME=$(date +'%H:%M')
 
-if (( $TIME > $SET )) || (( $TIME < $RISE )); then
+if [[ $TIME > $SET  && $TIME < $RISE ]]; then
     NIGHT=true
 else
     NIGHT=false
@@ -51,7 +50,7 @@ case $BLOCK_BUTTON in
            -t 3000 \
            "$(printf '%s%*s%s' Wttr.in $COL $INDICATOR)" \
            "$OUTPUT
-  $RISE_H:$RISE_M
-  $SET_H:$SET_M" &&\
+  $RISE
+  $SET" &&\
              pkill -RTMIN+5 i3blocks ;;
 esac
