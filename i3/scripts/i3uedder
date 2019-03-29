@@ -2,26 +2,31 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-29, 11:40:44 @toshiba
+# Last update: 2019-03-29, 19:46:50 @lenovo
 # Doc:
-# Todo:        28/03/2019, dodać warunek, gdyby nie było netu
-#                          lub suntimes.py zawiedzie
+# Todo:        28/03/2019, condition when no wifi
+#              29/03/2019, integrate wttr.in with sunapi.py (location)
 
-OUTPUT=$(
-    curl -Ss 'https://wttr.in?0&T&Q' 2>/dev/null | cut -c 16- | head -2 | xargs echo
-      )
 SUNFILE=/tmp/suntimes
-SCRIPT=$HOME/git/lab/py-exercises/suntimes.sh
+SCRIPT=$HOME/git/lab/sunapi/sunapi.sh
 
 if [[ -f $SUNFILE ]]; then
-    [[ $(date +'%d %m') == $(sed 1q $SUNFILE) ]] || $SCRIPT
+    [[ $(date +'%Y-%d-%m') == $(sed 1q $SUNFILE) ]] \
+        || $SCRIPT > $SUNFILE
 else
-    $SCRIPT
+    $SCRIPT > $SUNFILE
 fi
+
+OUTPUT=$(
+    curl -Ss 'https://wttr.in?0&T&Q' 2>/dev/null |\
+        cut -c 16- |\
+        head -2 |\
+        xargs echo
+      )
 
 RISE=$(awk '/sunrise/ {print $2}' $SUNFILE)
 SET=$(awk '/sunset/ {print $2}' $SUNFILE)
-TIME=$(date +'%H:%M')
+TIME=$(date +'%H:%M:%S')
 
 if [[ $TIME > $SET  && $TIME < $RISE ]]; then
     NIGHT=true
@@ -40,6 +45,7 @@ case $OUTPUT in
     *Snow*) INDICATOR="";;
     *) night_or_day "" "" ;;
 esac
+
 COL=$((${#OUTPUT} - 6))
 
 [[ -n $OUTPUT ]] && echo $INDICATOR
