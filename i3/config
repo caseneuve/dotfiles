@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-03-27, 15:30:37 @lenovo
+# Last update: 2019-03-29, 08:28:43 @lenovo
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -190,16 +190,16 @@ bindsym $mod+Tab workspace prev
 
 # >>> {{ reguły dla monitorów: }}
 # workspace 2 output primary
-workspace 3 output primary
-workspace 4 output primary
-workspace 9 output primary
-workspace 10 output primary
+# workspace 3 output primary
+# workspace 4 output primary
+# workspace 9 output primary
+# workspace 10 output primary
 
-workspace 1 output secondary
-workspace 5 output secondary
-workspace 6 output secondary
-workspace 7 output secondary
-workspace 8 output secondary
+# workspace 1 output secondary
+# workspace 5 output secondary
+# workspace 6 output secondary
+# workspace 7 output secondary
+# workspace 8 output secondary
 
 # >>> {{ reguły dla aplikacji: }}
 assign [class="Emacs"]                 $ws1
