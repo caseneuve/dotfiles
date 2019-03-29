@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-28, 15:05:24 @toshiba
+# Last update: 2019-03-28, 23:04:46 @lenovo
 # Doc:
 # Todo:        28/03/2019, dodać warunek, gdyby nie było netu
 #                          lub suntimes.py zawiedzie
@@ -49,7 +49,7 @@ case $BLOCK_BUTTON in
     #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
     1) notify-send \
            -t 3000 \
-           "$(printf '%s%*s%s' Wttr.in $col $INDICATOR)" \
+           "$(printf '%s%*s%s' Wttr.in $COL $INDICATOR)" \
            "$OUTPUT
   $RISE_H:$RISE_M
   $SET_H:$SET_M" &&\
