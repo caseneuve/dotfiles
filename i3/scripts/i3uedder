@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-30, 01:13:19 @lenovo
+# Last update: 2019-03-30, 01:18:52 @lenovo
 # Doc:
 # Todo:        28/03/2019, condition when no wifi
 #              29/03/2019, integrate wttr.in with sunapi.py (location)
@@ -50,13 +50,12 @@ case $OUTPUT in
     *) night_or_day "" "" ;;
 esac
 
-COL=$((${#OUTPUT} - 6))
-
 [[ -n $OUTPUT ]] && echo $INDICATOR
 
 case $BLOCK_BUTTON in
     #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
-    1) notify-send \
+    1) COL=$((${#OUTPUT} - 6))
+       notify-send \
            -t 3000 \
            "$(printf '%s%*s%s' Wttr.in $COL $INDICATOR)" \
            "$OUTPUT
