@@ -2,64 +2,75 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-30, 11:33:07 @toshiba
+# Last update: 2019-03-30, 23:31:31 @toshiba
 # Doc:
 # Todo:        28/03/2019, condition when no wifi
-#              29/03/2019, integrate wttr.in with sunapi.py (location)
 
 SUNFILE=/tmp/suntimes
 SCRIPT=$HOME/git/lab/sunapi/sunapi.sh
 
-if [[ -f $SUNFILE ]]; then
-    if [[ ! $(date +'%Y-%m-%d') ==\
-            $(awk '/today:/ {print $2}' $SUNFILE) ]]
-    then
+ensure_data() {
+    if [[ -f $SUNFILE ]]; then
+        if [[ ! $(date +'%Y-%m-%d') ==\
+                $(awk '/today:/ {print $2}' $SUNFILE) ]]
+        then
+            $SCRIPT > $SUNFILE
+        fi
+    else
         $SCRIPT > $SUNFILE
     fi
-else
-    $SCRIPT > $SUNFILE
-fi
-
-OUTPUT=$(
-    curl -Ss 'https://wttr.in' 2>/dev/null |\
-        cut -c 16- |\
-        head -2 |\
-        xargs echo
-      )
-
-RISE=$(awk '/sunrise/ {print $2}' $SUNFILE)
-SET=$(awk '/sunset/ {print $2}' $SUNFILE)
-TWILIGHT=$(awk '/twilight/ {print $2}')
-TIME=$(date +'%H:%M:%S')
-
-if [[ $TIME > $TWILIGHT  && $TIME < $RISE ]]; then
-    NIGHT=true
-else
-    NIGHT=false
-fi
-
-night_or_day() {
-    $NIGHT && INDICATOR=$1 || INDICATOR=$2
 }
 
-case $OUTPUT in
-    *Sunny*|*Clear*) night_or_day "" "";;
-    *cloudy*|*Overcast*) INDICATOR="";;
-    *Rain*) INDICATOR="☔";;
-    *Snow*) INDICATOR="";;
-    *) night_or_day "" "" ;;
-esac
+forecast() {
+    OUTPUT=$($HOME/git/lab/sunapi/openweather.sh "$@")
+    LOCATION=$(echo "$OUTPUT" | awk '/location/ {print $2}')
+    DESCRIPTION=$(echo "$OUTPUT" | awk '/description/ {$1=""; print $0}')
+    TEMPERATURE=$(echo "$OUTPUT" | awk '/temperature/ {$1=""; print $0}')
+}
 
-[[ -n $OUTPUT ]] && echo $INDICATOR
+what_time_is_it() {
+    RISE=$(awk '/sunrise/ {print $2}' $SUNFILE)
+    SET=$(awk '/sunset/ {print $2}' $SUNFILE)
+    TWILIGHT=$(awk '/twilight/ {print $2}' $SUNFILE)
+    TIME=$(date +'%H:%M:%S')
 
-case $BLOCK_BUTTON in
-    #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
-    1) COL=$((${#OUTPUT} - 6))
-       notify-send \
-           -t 3000 \
-           "$(printf '%s%*s%s' Wttr.in $COL $INDICATOR)" \
-           "$OUTPUT
-  $RISE
-  $SET" &&\
-             pkill -RTMIN+5 i3blocks ;;
-esac
+    if [[ $TIME > $TWILIGHT ]] || [[ $TIME < $RISE ]]; then
+        NIGHT=true
+    else
+        NIGHT=false
+    fi
+}
+
+set_icon() {
+    night_or_day() {
+        $NIGHT && INDICATOR=$1 || INDICATOR=$2
+    }
+
+    case "$DESCRIPTION" in
+        *sunny*|*clear*) night_or_day "" "";;
+        *cloudy*|*overcast*) INDICATOR="";;
+        *rain*) INDICATOR="☔";;
+        *snow*) INDICATOR="";;
+        *mist*|*fog*) INDICATOR="🌫";;
+        *) night_or_day "" "" ;;
+    esac
+    [[ -n $OUTPUT ]] && echo $INDICATOR
+}
+
+main(){
+    ensure_data
+    forecast "$@"
+    what_time_is_it
+    set_icon
+    case $BLOCK_BUTTON in
+        #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
+        1) notify-send \
+               -t 6000 \
+               "Weather for $LOCATION" \
+               "$DESCRIPTION\n$TEMPERATURE\n   $RISE\n   $SET" \
+                 && pkill -RTMIN+5 i3blocks ;;
+        *) pkill -RTMIN+5 i3blocks ;;
+    esac
+}
+
+main "$@"
