@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-29, 19:46:50 @lenovo
+# Last update: 2019-03-30, 00:24:09 @lenovo
 # Doc:
 # Todo:        28/03/2019, condition when no wifi
 #              29/03/2019, integrate wttr.in with sunapi.py (location)
@@ -11,8 +11,11 @@ SUNFILE=/tmp/suntimes
 SCRIPT=$HOME/git/lab/sunapi/sunapi.sh
 
 if [[ -f $SUNFILE ]]; then
-    [[ $(date +'%Y-%d-%m') == $(sed 1q $SUNFILE) ]] \
-        || $SCRIPT > $SUNFILE
+    if [[ ! $(date +'%Y-%m-%d') ==\
+            $(cat $SUNFILE | awk '/today:/ {print $2}') ]]
+    then
+        $SCRIPT > $SUNFILE
+    fi
 else
     $SCRIPT > $SUNFILE
 fi
