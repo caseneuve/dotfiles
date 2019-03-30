@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Path:        ~/bin/agenda.sh
-# Created:     17.07.18, 01:36    @toshiba
-# Last update: 17.07.18, 01:36:26 @toshiba
-
+# Path:        ~/bin/agenda
+# Created:     2018-07-17, 01:36    @toshiba
+# Last update: 2019-03-29, 23:44:42 @lenovo
 # Doc:
 
-term=st
-
-$term -t agenda -e emacsclient -nw --eval "(org-agenda t \"a\")" &
+TERM=st
+$TERM -t agenda -e $EDITOR --eval "(org-agenda t \"a\")" &
 
