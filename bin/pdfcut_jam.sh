@@ -1,19 +1,24 @@
 #!/bin/bash
 
 # Path:        ~/.dotfiles/bin/pdfcut_jam.sh
-# Created:     18.10.18, 23:40    @lenovo
-# Last update: 28.11.18, 12:54:13 @lenovo
-# >> DOC: 
+# Created:     2018-10-18, 23:40    @lenovo
+# Last update: 2019-04-01, 21:58:52 @toshiba
+# Doc:         intelligently cut pdfs (used in ranger)
 
-# >> TODOS: 
-
-# >> VARIABLES: 
-
-# >> RUN: 
 if pacman -Qs pdfjam > /dev/null ; then
-    [[ "${3:$#}" = *".pdf" ]] && out="${3}" || out="${3}.pdf"
-    [[ -n $4 ]] && opt=--landscape || opt=
-    pdfjam "$1" "${2}" -o "$out" $opt
+    # set output title
+    if [[ $# > 2 ]]; then
+        [[ "$3" == *".pdf" ]] && out="$3" || out="$3.pdf"
+    else
+        out="${1%.pdf}"_$2.pdf
+    fi
+    # check pdf orientation
+    opt=$(
+        pdfinfo "$1" |\
+            awk '/Page size:/ {if ($3 > $5) print "--landscape"}'
+       )
+    # run cut command
+    pdfjam "$1" "$2" -o "$out" $opt
 else
-    echo "pdfjam not installed"
+    echo "pdfjam not installed" && exit 1
 fi
