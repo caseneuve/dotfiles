@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-04-05, 21:26:45 @x200
+# Last update: 2019-04-05, 21:29:46 @x200
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -74,7 +74,8 @@ main() {
                        ARGS="-c whit4ker -t w0rds -e words"
                        i3msg "$I3EXEC $TRM $ARGS"
                    fi
-                   i3msg "[title=\"w0rds\"] scratchpad show"
+                   i3msg "[title=\"w0rds\"] scratchpad show" \
+                         && $I3MOVE -p 40 -m sw -g 15
                    ;;
                 # clock
                 t) if [[ ! $(is_running tty-clock) ]]; then
