@@ -1,88 +1,96 @@
 #!/bin/bash
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
-# Created:     13.10.18, 01:19    @lenovo
-# Last update: 2019-03-05, 19:06:04 @toshiba
+# Created:     2018-10-13, 01:19    @lenovo
+# Last update: 2019-04-05, 21:26:45 @x200
+# Doc:         start tmux scratchpad if doesn't exist or show it
+# Requires:    i3move; i3get
 
-# >> DOC: 
-# i3config helper: start tmux scratchpad if doesn't exist or show it
-# requires: i3move; i3get
+I3MOVE=$HOME/bin/i3move
+I3GET=$HOME/git/lab/py-exercises/i3get.py
+I3EXEC="exec --no-startup-id"
+TRM=st
 
-# >> VARIABLES:
-TRMNL=st
-ST_CFG=$HOME/.config/st/config.h
+i3msg() {
+    i3-msg -q "$@" && sleep 0.1
+}
 
-if [[ $TRMNL == st ]]; then
-    font=$(awk '/^static char \*font/ {print $5}' $ST_CFG)
-    font=${font%%:*}
-    font=${font/\"/}
-fi
+is_running() {
+    ps aux | grep $1 | grep -v grep
+}
 
-# >> RUN:
-while getopts "ufcot:" flag; do
-    case "${flag}" in
-        # >>> tmux
-        u) if [[ ! $(ps aux | grep dropdown | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $TRMNL -c scratch -t dropdown -e ~/.dotfiles/bin/tmux-starter.sh" &&\
-                   sleep 0.1
-               i3-msg -q "[title=\"dropdown\"] scratchpad show"
-               ~/bin/i3move -p 70 -m c
-           else
-               i3-msg -q "[title=\"dropdown\"] scratchpad show"
-               [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]] && ~/bin/i3move -p 70 -m c
-               # wwid=$(~/git/lab/py-exercises/i3get.py -g | awk 'NR==3 {print $2}')
-               # swid=$(~/git/lab/py-exercises/i3get.py -G | awk 'NR==3 {print $2}')
-               # proc=$(bc -l <<< $wwid/$swid)
-               # if [[ $(echo $proc'==0.7' | bc -l) == 0 ]] && [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]]; then
-               #     ~/bin/i3move -p 70 -m c
-               # fi
-               # if [[ $(~/git/lab/py-exercises/i3get.py -n) =~ "dropdown" ]]; then
-               #     i3-msg -q "border pixel 1"
-               # fi
-           fi
-           ;;
-        # >>> quick scratch
-        f) if [[ ! $(ps aux | grep myquickterm | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $TRMNL -c myquickterm -f '$font:size=12.5'" &&\
-                   sleep 0.1
-           fi
-           i3-msg -q "[class=\"myquickterm\"] scratchpad show" &&
-               if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ myquickterm ]]; then
-                   ~/bin/i3move -s -m 3;
-                   # i3-msg -q "border pixel 1"
-               fi
-           ;;
-        # >>> calc
-        c) if [[ ! $(ps aux | grep m4ath | grep -v grep ) ]]; then
-               i3-msg -q "exec --no-startup-id $TRMNL -c calculator -t m4ath -e R -q" &&\
-                   sleep 0.1
-           fi
-           i3-msg -q "[class=\"calculator\"] scratchpad show" &&
-               if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ calculator ]]; then
-                   ~/bin/i3move -m c;
-                   # i3-msg -q "border pixel 1"
-               fi
-           ;;
-        # >>> words
-        o) if [[ ! $(ps aux | grep w0rds | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $TRMNL -c whit4ker -t w0rds -e words" &&\
-                   sleep 0.1
-           fi
-           i3-msg -q "[title=\"w0rds\"] scratchpad show" &&
-               if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ whit4ker ]]; then
-                   ~/bin/i3move -p 35 -g 10 -m sw
-                   # i3-msg -q "border pixel 1"
-               fi
-           ;;
-        # >>> clock
-        t) if [[ ! $(ps aux | grep cl0ck | grep -v grep) ]]; then
-               i3-msg -q "exec --no-startup-id $TRMNL -c cl0ck -t tty-clock -f '$font:size=10' -e tty-clock -C $OPTARG -c -b" &&\
-                   sleep 0.1
-           fi
-           if [[ $(~/git/lab/py-exercises/i3get.py -c) =~ cl0ck ]]; then
-               ~/bin/i3move -p 22 -g 15 -m se
-               i3-msg -q "sticky enable"
-           fi
-           ;;
-    esac
-done
+usage() {
+    cat <<EOF
+usage:   $0 [-u][-f][-c][-o][-t][-h]
+
+ options:
+  -u     run tmux 
+  -f     run quickterm (bottom of screen) 
+  -c     run calculator
+  -o     run whitaker words 
+  -t     run clock
+
+EOF
+}
+
+main() {
+    if [[ -n $1 ]]; then
+        while getopts "ufcot:" flag; do
+            case "${flag}" in
+                # tmux
+                u) if [[ ! $(is_running dropdown) ]]; then 
+                       ARGS="-c scratch -t dropdown"
+                       COMMAND="-e ~/.dotfiles/bin/tmux-starter.sh"
+                       i3msg "$I3EXEC $TRM $ARGS $COMMAND"
+                       i3msg "[title=\"dropdown\"] scratchpad show" \
+                             && $I3MOVE -p 70 -m c
+                       pkill -RTMIN+10 i3blocks  # refresh mail count
+                   else
+                       i3msg "[title=\"dropdown\"] scratchpad show"
+                       [[ $($I3GET -n) =~ "dropdown" ]] \
+                           && $i3MOVE -p 70 -m c
+                   fi
+                   ;;
+                # quick scratch
+                f) if [[ ! $(is_running myquickterm) ]]; then
+                       ARGS="-c myquickterm"
+                       i3msg "$I3EXEC $TRM $ARGS"
+                   fi
+                   i3msg "[class=\"myquickterm\"] scratchpad show" \
+                       && [[ $($I3GET -c) =~ myquickterm ]] \
+                       && $I3MOVE -s -m 3
+                   ;;
+                # calc
+                c) if [[ ! $(is_running m4ath) ]]; then
+                       ARGS="-c calculator -t m4ath -e R -q"
+                       i3msg "$I3EXEC $TRM $ARGS"
+                   fi
+                   i3msg "[class=\"calculator\"] scratchpad show" \
+                       && [[ $($I3GET -c) =~ calculator ]] \
+                       && $I3MOVE -m c
+                   ;;
+                # whitaker words
+                o) if [[ ! $(is_running w0rds) ]]; then
+                       ARGS="-c whit4ker -t w0rds -e words"
+                       i3msg "$I3EXEC $TRM $ARGS"
+                   fi
+                   i3msg "[title=\"w0rds\"] scratchpad show"
+                   ;;
+                # clock
+                t) if [[ ! $(is_running tty-clock) ]]; then
+                       ARGS="-c cl0ck -t tty-clock -f 'monospace:size=10' -e tty-clock -C $OPTARG -c -b "
+                       i3msg "$I3EXEC $TRM $ARGS"
+                   fi
+                   if [[ $($I3GET -c) == cl0ck ]]; then
+                       $I3MOVE -p 22 -g 15 -m se
+                       i3msg "sticky enable"
+                   fi
+                   ;;
+            esac
+        done
+    else
+        usage
+    fi
+}
+
+main "$@"
