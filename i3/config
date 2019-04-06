@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-03-29, 08:28:43 @lenovo
+# Last update: 2019-04-06, 13:55:03 @x200
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -102,7 +102,7 @@ bindsym $mod+grave $exe bash $i3scr/flash.sh
 # >>> {{ dropdown → tmux: }}
 for_window [title="dropdown"] floating enable
 for_window [title="dropdown"] move scratchpad
-bindsym $mod+u $exe $dot/i3scratchpads -u
+bindsym $mod+u $exe $dot/i3scratchpads -u 1
 
 # >>> {{ math calculator }}
 for_window [title="m4ath"] floating enable
@@ -560,11 +560,14 @@ bindsym $mod+Shift+z exec synclient TouchpadOff=0
 bindsym $mod+Return $exe $dot/i3startterminemacsdir.sh
 bindsym $mod+Shift+Return split toggle $exe $dot/i3startterminemacsdir.sh
 bindsym $mod+b $app qutebrowser
-bindsym $mod+Shift+b $exe qutebrowser
-bindsym $mod+p $exe qutebrowser :command ":open -p"
+bindsym $mod+Shift+b $app qutebrowser-window
+bindsym $mod+p $app qutebrowser-private
 bindsym $mod+e $app emacs
 bindsym $mod+n $app newsboat
-bindsym $mod+m $app neomutt
+#bindsym $mod+m $app neomutt
+bindsym $mod+m $exe $dot/i3scratchpads -u mail
+bindsym $mod+r $exe $dot/i3scratchpads -u rng
+bindsym $mod+w $exe $dot/i3scratchpads -u wee
 bindsym $mod+t $exe thunar
 bindsym $mod+h bar mode toggle
 bindsym Scroll_Lock $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
