@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-04-05, 21:29:46 @x200
+# Last update: 2019-04-06, 09:59:41 @x200
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -44,12 +44,12 @@ main() {
                        i3msg "$I3EXEC $TRM $ARGS $COMMAND"
                        i3msg "[title=\"dropdown\"] scratchpad show" \
                              && $I3MOVE -p 70 -m c
-                       pkill -RTMIN+10 i3blocks  # refresh mail count
                    else
                        i3msg "[title=\"dropdown\"] scratchpad show"
                        [[ $($I3GET -n) =~ "dropdown" ]] \
                            && $i3MOVE -p 70 -m c
                    fi
+                   pkill -RTMIN+10 i3blocks  # refresh mail count
                    ;;
                 # quick scratch
                 f) if [[ ! $(is_running myquickterm) ]]; then
