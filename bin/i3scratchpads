@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-04-06, 09:59:41 @x200
+# Last update: 2019-04-06, 14:48:08 @x200
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -35,19 +35,38 @@ EOF
 
 main() {
     if [[ -n $1 ]]; then
-        while getopts "ufcot:" flag; do
+        while getopts "u:fcot:" flag; do
             case "${flag}" in
                 # tmux
-                u) if [[ ! $(is_running dropdown) ]]; then 
+                u) if [[ ! $(is_running dropdown) ]]
+                   then
                        ARGS="-c scratch -t dropdown"
                        COMMAND="-e ~/.dotfiles/bin/tmux-starter.sh"
                        i3msg "$I3EXEC $TRM $ARGS $COMMAND"
                        i3msg "[title=\"dropdown\"] scratchpad show" \
-                             && $I3MOVE -p 70 -m c
+                           && $I3MOVE -p 70 -m c
+                       tmux select-window -t "tmux:$OPTARG" 
                    else
-                       i3msg "[title=\"dropdown\"] scratchpad show"
-                       [[ $($I3GET -n) =~ "dropdown" ]] \
-                           && $i3MOVE -p 70 -m c
+                       # when scratchpad is focused
+                       if [[ $($I3GET -n) =~ "dropdown" ]]; then
+                           # when we're already there or mod+u is pressed
+                           if [[ $(echo $(tmux display-message -pt \
+                                               "$TMUX_PANE" \
+                                               '#{window_name} #{window_index}' ) \
+                                       | grep "$OPTARG" ) \
+                                     || $OPTARG =~ 1 # = mod+u
+                               ]]; then
+                               i3msg "[title=\"dropdown\"] scratchpad show"
+                           else
+                               tmux select-window -t "tmux:$OPTARG"
+                           fi
+                       # when scratchpad is hidden    
+                       else
+                               tmux select-window -t "tmux:$OPTARG"
+                               i3msg "[title=\"dropdown\"] scratchpad show"
+                               [[ $($I3GET -n) =~ "dropdown" ]] \
+                                   && $I3MOVE -p 70 -m c
+                       fi
                    fi
                    pkill -RTMIN+10 i3blocks  # refresh mail count
                    ;;
