@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Path:        ~/.tmux/tmux-hg.sh
-# Created:     13.03.18, 10:30    @x200
-# Last update: 2019-04-06, 10:28:52 @x200
-
-# Doc: starts tmux with 3 windows, the second one named "hg" with HANGUPS and the third "cal" with CALCURSE running
+# Created:     2018-03-13, 10:30    @x200
+# Last update: 2019-04-06, 15:19:33 @x200
+# Doc:         start tmux with apps: simple terminal window, weechat, ranger, calcurse, mocp, htop and neomutt
+#              or attach to existing instance
 # https://stackoverflow.com/questions/5609192/how-to-set-up-tmux-so-that-it-starts-up-with-specified-windows-opened
 
 if [[ ! $(tmux ls | grep tmux ) ]]; then
@@ -12,7 +12,6 @@ if [[ ! $(tmux ls | grep tmux ) ]]; then
     EDITOR='emacsclient -nw -s term'
     tmux new-session -s 'tmux' -d
     # source ~/.virtualenvs/weechatpy2/bin/activate
-    #    tmux new-window -n 'hg' 'hangups'
     tmux new-window -n 'wee' 'weechat'
     tmux new-window -n 'rng' 'ranger'
     tmux new-window -n 'cal' 'calcurse'
@@ -24,7 +23,6 @@ if [[ ! $(tmux ls | grep tmux ) ]]; then
     tmux splitw -h -p 20
     tmux clock-mode
     tmux select-pane -L
-    #tmux select-window -t 'tmux:cal'
     tmux -2 attach -d
 else
     tmux -2 attach -d
