@@ -2,30 +2,33 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-03-30, 23:31:31 @toshiba
-# Doc:
+# Last update: 2019-04-07, 21:48:23 @x200
+# Doc:         Display sun & weather info in i3bar(blocks)
+# Requires:    Cronjob advised
 # Todo:        28/03/2019, condition when no wifi
 
 SUNFILE=/tmp/suntimes
-SCRIPT=$HOME/git/lab/sunapi/sunapi.sh
-
+FORECAST=/tmp/forecast
+SUNTIMES=$HOME/git/lab/sunapi/sunapi.sh       # run this script as cronjob after midnight
+WEATHER=$HOME/git/lab/sunapi/openweather.sh   # --"-- (e.g.) every 15 mins
 ensure_data() {
     if [[ -f $SUNFILE ]]; then
         if [[ ! $(date +'%Y-%m-%d') ==\
                 $(awk '/today:/ {print $2}' $SUNFILE) ]]
         then
-            $SCRIPT > $SUNFILE
+            $SUNTIMES > $SUNFILE
         fi
     else
-        $SCRIPT > $SUNFILE
+        $SUNTIMES > $SUNFILE
     fi
 }
 
 forecast() {
-    OUTPUT=$($HOME/git/lab/sunapi/openweather.sh "$@")
-    LOCATION=$(echo "$OUTPUT" | awk '/location/ {print $2}')
-    DESCRIPTION=$(echo "$OUTPUT" | awk '/description/ {$1=""; print $0}')
-    TEMPERATURE=$(echo "$OUTPUT" | awk '/temperature/ {$1=""; print $0}')
+    [[ ! -f $FORECAST ]] && $WEATHER "$@" > $FORECAST
+    LAST_CHECK=$(sed 1q $FORECAST)
+    LOCATION=$(awk '/location/ {print $2}' $FORECAST)
+    DESUNTIMESION=$(awk '/description/ {$1=""; print $0}' $FORECAST)
+    TEMPERATURE=$(awk '/temperature/ {$1=""; print $0}' $FORECAST)
 }
 
 what_time_is_it() {
@@ -54,7 +57,7 @@ set_icon() {
         *mist*|*fog*) INDICATOR="🌫";;
         *) night_or_day "" "" ;;
     esac
-    [[ -n $OUTPUT ]] && echo $INDICATOR
+    [[ -f $FORECAST ]] && echo $INDICATOR || echo ❓
 }
 
 main(){
@@ -64,11 +67,10 @@ main(){
     set_icon
     case $BLOCK_BUTTON in
         #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
-        1) notify-send \
-               -t 6000 \
-               "Weather for $LOCATION" \
-               "$DESCRIPTION\n$TEMPERATURE\n   $RISE\n   $SET" \
-                 && pkill -RTMIN+5 i3blocks ;;
+        1) notify-send -t 6000 \
+                       "Weather for $LOCATION" \
+                       "$DESUNTIMESION\n$TEMPERATURE\n   $RISE\n   $SET\n(last check: $LAST_CHECK)" \
+               && pkill -RTMIN+5 i3blocks ;;
         *) pkill -RTMIN+5 i3blocks ;;
     esac
 }
