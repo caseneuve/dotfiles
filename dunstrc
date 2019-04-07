@@ -168,7 +168,7 @@
     #32
 
     # Paths to default icons.
-    icon_path = /home/piotr/Obrazy/
+    #icon_path = /home/piotr/Obrazy/
     # /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### { History } ###
