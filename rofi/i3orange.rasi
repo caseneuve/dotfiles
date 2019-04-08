@@ -1,16 +1,18 @@
 /* -*- mode: css -*- */
 
 /**
- * ROFI mytheme ... pink
+ * ROFI mytheme ... red
  */
 
 * {
     /* background-color:      #9B9B9B; */
-    /* border-color:          #111;  */
+    /* border-color:          #ffb142; */
     /* text-color:            #191f26; */
     /* background-color:      #F79F1F; */
-    background-color:      #F06292;
-    text-color:            #191f26;
+    /* background-color:      #ffb142; */
+    /* background-color:      #191f26; */
+    background-color:      #ff5252;
+    text-color:            white;
     font:                  "monospace 10";
 }
 
@@ -32,8 +34,7 @@
 }
 
 #prompt {
-    /* font: "Inconsolata Bold 10"; */
-    font: "Monospace 10";
+    font: "Monospace Bold 10";
 }
 
 #listview {
@@ -43,8 +44,7 @@
 }
 
 #entry {
-    /* font: "monospace 10"; */
-    text-color: #191f26;
+    text-color: white;
     expand:     false;
     width:      10em;
 }
@@ -54,9 +54,6 @@
 }
 
 #element selected {
-    /* background-color: #ff6347; */
-    /* background-color: #b33939; */
-    /* background-color: #b33939; */
-    /* text-color: #111; */
-    text-color: #ffffff;
+    text-color: #111;
+    /* background-color: #e1e1e0; */
 }
