@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-04-08, 21:16:27 @toshiba
+# Last update: 2019-04-08, 22:03:28 @lenovo
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -75,7 +75,7 @@ main() {
                                i3msg "[title=\"dropdown\"] scratchpad show"
                            else
                                tmux_select "$OPTARG"
-                               sleep 0.1  # helps @toshiba (wtf?)
+                               sleep 0.3
                                [[ $OPTARG =~ mail ]] && xdotool key dollar # $ = refresh mailbox → mutt config
                            fi
                        # when scratchpad is hidden    
