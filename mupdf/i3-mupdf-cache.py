@@ -1,6 +1,6 @@
 #!/bin/env python
 
-# Last update: 30.09.18, 23:36:08 @x200
+# Last update: 2019-04-09, 07:59:13 @x200
 # >> DOC: 
 # Save current state of files open in mupdf (i.e. page number, dpi etc.),
 # load recently saved or open selected file from $HOME/pdf.
@@ -31,7 +31,7 @@ i3ws = i3.get_tree().find_focused().workspace().num
 cache_dir = '/home/piotr/.cache/mupdf-cache'
 
 # >> VARIABLES: rofi theme
-r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/mytheme.rasi'])
+r = Rofi(rofi_args=['-theme', '/home/piotr/.config/rofi/i3orange.rasi'])
 
 # >> FUNCTIONS
 # >> 0. HELPER: NOTIFY
