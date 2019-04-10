@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-04-08, 18:59:40 @x200
+# Last update: 2019-04-10, 20:29:32 @lenovo
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -557,8 +557,8 @@ bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 
 ## >> { KBD }
-bindsym $mod+Return $exe $dot/i3startterminemacsdir.sh
-bindsym $mod+Shift+Return split toggle $exe $dot/i3startterminemacsdir.sh
+bindsym $mod+Return split horizontal $exe $dot/i3startterminemacsdir.sh
+bindsym $mod+Shift+Return split vertical $exe $dot/i3startterminemacsdir.sh
 bindsym $mod+b $app qutebrowser
 bindsym $mod+Shift+b $app qutebrowser-window
 bindsym $mod+p $app qutebrowser-private
