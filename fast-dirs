@@ -5,7 +5,7 @@
 # - ranger
 # - fish
 
-# Last update: 20.01.19, 12:07:49 @lenovo
+# Last update: 2019-04-10, 20:37:50 @lenovo
 
 # key  # path
 
@@ -42,6 +42,7 @@ ggh -- /home/piotr/git/hub
 ggl -- /home/piotr/git/lab
 ggp -- /home/piotr/git/lab/py-exercises
 ggs -- /home/piotr/git/hub/st
+ggo -- /home/piotr/go
 gh -- /home/piotr
 gm -- /home/piotr/muz
 gob -- /home/piotr/obr

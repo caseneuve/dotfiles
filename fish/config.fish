@@ -67,8 +67,8 @@ if status --is-interactive
   #echo -n Setting abbreviations...
 
   # >>> source fast dirs
-  if test -f fast-dirs.fish
-      source fast-dirs.fish
+  if test -f $HOME/.dotfiles/fish/fast-dirs.fish
+      source $HOME/.dotfiles/fish/fast-dirs.fish
   end
 
   abbr --add klr ' clear'

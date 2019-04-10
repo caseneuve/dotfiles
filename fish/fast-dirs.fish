@@ -33,6 +33,7 @@ abbr --add ggh /home/piotr/git/hub
 abbr --add ggl /home/piotr/git/lab
 abbr --add ggp /home/piotr/git/lab/py-exercises
 abbr --add ggs /home/piotr/git/hub/st
+abbr --add ggo /home/piotr/go
 abbr --add gh /home/piotr
 abbr --add gm /home/piotr/muz
 abbr --add gob /home/piotr/obr
