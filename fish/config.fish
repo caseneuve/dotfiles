@@ -5,7 +5,7 @@
  #   ## ##  # #     
 ##               #  
 
-# Last update: 2019-03-27, 13:13:56 @toshiba
+# Last update: 2019-04-10, 20:41:14 @lenovo
 
 # TODOS:
 # todo: 20/01/2019, move all global vars to universal vars:
@@ -22,6 +22,8 @@ set -gx EDITOR emacsclient -nw -s term
 set -gx VISUAL $EDITOR
 set -gx VIRTUAL_ENV_DISABLE_PROMPT no # https://github.com/fish-shell/fish-shell/pull/1795
 set -gx TERM xterm-256color
+set -gx GOPATH $HOME/go
+set -gx PATH $PATH $GOPATH/bin
 
 # >>> fish vars
 #set -e fish_greeting
