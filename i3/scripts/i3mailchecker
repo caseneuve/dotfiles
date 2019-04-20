@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-04-21, 00:44:51 @lenovo
+# Last update: 2019-04-21, 00:52:09 @lenovo
 # Doc:         
 
 GLYPH=
@@ -18,7 +18,7 @@ new_mail_msg(){
     from=$(awk '/^From:/ {$1=""; print}' $1 2>/dev/null)
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
     [[ -n $from || -n $subject ]] &&\
-        notify-send "<b>NEW MAIL ($3)</b>"\
+        notify-send "<b>NEW MAIL ($2)</b>"\
                     "FROM: $from\nSUBJECT:$subject"
 }
 
@@ -46,7 +46,7 @@ for dir in $MAILBOXES; do
     elif [[ $unread -gt $unread_before ]]; then
         new=true
         for file in $(ls -ltcr $dir | awk '{print $8}'); do
-            new_mail_msg "$dir/$file"
+            new_mail_msg "$dir/$file" $box_name
         done
 
     else
@@ -55,7 +55,7 @@ for dir in $MAILBOXES; do
             file_date=$(ls $dir/$file | grep -o "[0-9]\{10\}")
             if [[ $file_date -gt $date_before ]]; then
                 new=true
-                new_mail_msg "$dir/$file"
+                new_mail_msg "$dir/$file" $box_name
             else
                 break
             fi
