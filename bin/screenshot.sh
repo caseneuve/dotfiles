@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-03-28, 07:07:36 @x200
+# Last update: 2019-04-14, 00:55:15 @toshiba
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
 # Requires:    [maim, sxiv, dmenu, xdotool, mypaint, notify-send]
 # Todo:        27/03/2019 install i3move in the system? path? (?)
@@ -10,6 +10,7 @@
 
 ARG=${1:-}
 EDIT=false
+MOVE=$HOME/git/hub/i3/i3move.py
 
 setup(){
     DIR=$HOME/obr/maim
@@ -35,8 +36,8 @@ setup(){
 
 show_and_move() {
     sxiv -b -s f $FILE &
-    sleep .1
-    $HOME/git/hub/i3/i3move.py -p 33 -g 30 -m nw
+    sleep .2
+    $MOVE -p 33 -g 30 -m nw
     i3-msg -q move left 20
 }
 
