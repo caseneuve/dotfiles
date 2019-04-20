@@ -1,6 +1,6 @@
 # -*- mode:conf-space eval:(display-line-numbers-mode) -*-
 # Mutt keybindings
-# Last update: 2019-04-20, 23:50:29 @lenovo
+# Last update: 2019-04-21, 01:16:06 @lenovo
 
 source unbind
 
@@ -23,6 +23,9 @@ bind generic,index,browser        j          next-entry
 bind generic <Return> select-entry
 bind generic <Right>  select-entry
 
+bind index   1          jump
+bind index   2          jump
+bind index   3          jump
 bind index   =          next-page
 bind index   \Cn        next-page
 bind index   \Cp        previous-page
