@@ -2,12 +2,13 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-04-09, 20:25:05 @toshiba
+# Last update: 2019-04-11, 00:26:42 @lenovo
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
 I3MOVE=$HOME/bin/i3move
-I3GET=$HOME/git/lab/py-exercises/i3get.py
+#I3GET=$HOME/git/lab/py-exercises/i3get.py
+I3GET=$HOME/go/bin/i3getgo
 I3EXEC="exec --no-startup-id"
 TRM=st
 
@@ -64,7 +65,7 @@ main() {
                        #tmux select-window -t "tmux:$OPTARG" 
                    else
                        # when scratchpad is focused
-                       if [[ $($I3GET -n) =~ "dropdown" ]]; then
+                       if [[ $($I3GET -t) =~ "dropdown" ]]; then
                            # when we're already there or mod+u is pressed
                            if [[ $(echo $(tmux display-message -pt \
                                                "$TMUX_PANE" \
@@ -84,7 +85,7 @@ main() {
                        else
                            tmux_select $OPTARG
                            i3msg "[title=\"dropdown\"] scratchpad show"
-                           [[ $($I3GET -n) =~ "dropdown" ]] \
+                           [[ $($I3GET -t) =~ "dropdown" ]] \
                                && $I3MOVE -p 70 -m c
                            [[ $OPTARG =~ mail ]] && xdotool key dollar
                        fi

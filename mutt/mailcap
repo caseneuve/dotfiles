@@ -1,34 +1,22 @@
-############################################
-###            MUTT: MY MAILCAP
-############################################
-# Last update: 17.09.18, 12:10:43 @x200
+# -*- mode:conf -*-
+#
+# Description: MUTT - MAILCAP
+# Last update: 2019-04-20, 16:50:22 @lenovo
+# Doc:         Tells mutt how to open/view attachements
 
-# Doc: Tells mutt how to open/view attachements
+image/*; ~/.config/neomutt/viewimagefeh.sh %s &
 
-# {all images}
-image/*; ~/.config/neomutt/viewimagefeh.sh %s
-#image/*; ~/.config/neomutt/muttimage.sh %s ; copiousoutput
-
-# {pdf}
 application/pdf; ~/.config/neomutt/viewpdf.sh %s
 application/x-pdf; ~/.config/neomutt/viewpdf.sh %s
 
-# {view html messages}
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
-# lynx źle renderuje polskie znaki
-#text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput 
 
-# {open office}
+# doc(x), odt, rtf
 application/vnd.oasis.opendocument.text; odt2txt '%s' | less
-
-# {docx & word}
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt < '%s' | less
 application/msword; antiword %s; copiousoutput
-
-# {rtf}
 application/rtf; unrtf --text '%s' | less
 application/msword; unrtf --text '%s' | less
 
-# {audio}
 audio/*; ~/.config/neomutt/listenaudio.sh %s
 

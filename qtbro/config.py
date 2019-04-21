@@ -264,13 +264,15 @@ c.colors.messages.info.bg = 'green'
 ## Type: QssColor
 # c.colors.statusbar.command.bg = '#2c3e50'
 # c.colors.statusbar.command.bg = 'grey'
-c.colors.statusbar.command.bg = '#F7F7F7'
+#c.colors.statusbar.command.bg = '#F7F7F7'
+c.colors.statusbar.command.bg = '#b33939'
 
 # >> Foreground color of the statusbar in command mode.
 ## Type: QssColor
 # c.colors.statusbar.command.fg = 'white'
 # c.colors.statusbar.command.fg = '#2980b9'
 c.colors.statusbar.command.fg = '#104e8b'
+c.colors.statusbar.command.fg = '#F7F7F7'
 
 # >> Background color of the statusbar in private browsing + command mode.
 ## Type: QssColor
@@ -291,7 +293,8 @@ c.colors.statusbar.command.private.bg = 'purple'
 
 # Background color of the statusbar.
 ## Type: QssColor
-# c.colors.statusbar.normal.bg = 'black'
+#c.colors.statusbar.normal.bg = '#2c3e50'
+c.colors.statusbar.normal.bg = '#14191f'
 
 # Foreground color of the statusbar.
 ## Type: QssColor
@@ -324,13 +327,13 @@ c.colors.statusbar.progress.bg = '#104e8b'
 
 # >> Default foreground color of the URL in the statusbar.
 ## Type: QssColor
-# c.colors.statusbar.url.fg = 'white'
-c.colors.statusbar.url.fg = 'black'
+c.colors.statusbar.url.fg = 'white'
+#c.colors.statusbar.url.fg = 'black'
 
 # >> Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
-# c.colors.statusbar.url.hover.fg = 'aqua'
-c.colors.statusbar.url.hover.fg = 'blue'
+c.colors.statusbar.url.hover.fg = 'aqua'
+#c.colors.statusbar.url.hover.fg = 'blue'
 
 # >> Foreground color of the URL in the statusbar on successful load
 # (http).
@@ -340,8 +343,8 @@ c.colors.statusbar.url.success.http.fg = 'orange'
 # >> Foreground color of the URL in the statusbar on successful load
 # (https).
 ## Type: QssColor
-# c.colors.statusbar.url.success.https.fg = 'lime'
-c.colors.statusbar.url.success.https.fg = 'green'
+c.colors.statusbar.url.success.https.fg = 'lime'
+#c.colors.statusbar.url.success.https.fg = 'green'
 
 # Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
@@ -1171,8 +1174,8 @@ c.statusbar.hide = True
 ##   - top
 ##   - bottom
 # c.statusbar.position = 'bottom'
-c.statusbar.position = 'top'
-
+#c.statusbar.position = 'top'
+c.statusbar.position = 'bottom'
 # List of widgets displayed in the statusbar.
 # Type: List of String
 # Valid values:
@@ -1637,6 +1640,8 @@ config.bind('<F3>', 'record-macro')
 # >> save bindings
 config.bind('sf', 'save')
 config.bind('sd', 'session-save')
+config.bind('sh', ':config-cycle statusbar.hide')
+config.bind('st', ':config-cycle statusbar.position top bottom')
 # config.bind('sk', 'set-cmd-text -s :bind')
 # config.bind('sl', 'set-cmd-text -s :set -t')
 # config.bind('ss', 'set-cmd-text -s :set')
@@ -1664,7 +1669,8 @@ config.bind('wf', 'hint all window')
 config.bind('wh', 'back -w')
 config.bind('wi', 'inspector')
 config.bind('wl', 'forward -w')
-config.bind('wo', 'set-cmd-text -s :open -w')
+config.bind('wo', ':open -w {url}')
+config.bind('ww', ':open -w')
 config.bind('wp', 'open -w -- {clipboard}')
 config.bind('xO', 'set-cmd-text :open -b -r {url:pretty}')
 config.bind('xo', 'set-cmd-text -s :open -b')
@@ -1714,7 +1720,7 @@ config.bind('}', 'move-to-end-of-next-block', mode='caret')
 # config.bind('<Alt-Backspace>', 'rl-backward-kill-word', mode='command')
 # config.bind('<Alt-D>', 'rl-kill-word', mode='command')
 # config.bind('<Alt-F>', 'rl-forward-word', mode='command')
-# config.bind('<Ctrl-?>', 'rl-delete-char', mode='command')
+config.bind('<Ctrl-d>', 'rl-delete-char', mode='command')
 # config.bind('<Ctrl-A>', 'rl-beginning-of-line', mode='command')
 # config.bind('<Ctrl-B>', 'rl-backward-char', mode='command')
 # config.bind('<Ctrl-C>', 'completion-item-yank', mode='command')

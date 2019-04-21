@@ -1,0 +1,95 @@
+# -*- mode:conf-space eval:(display-line-numbers-mode) -*-
+# Mutt keybindings
+# Last update: 2019-04-21, 01:16:06 @lenovo
+
+source unbind
+
+bind  generic,index,pager,index Q exit
+bind  pager,attach              q exit
+
+bind generic,index,browser,pager  <Up>       previous-entry
+bind generic,index,browser,pager  <Down>     next-entry
+bind generic,index,browser,pager  <PageUp>   previous-page
+bind generic,index,browser,pager  <PageDown> next-page
+bind generic,browser,index,pager  B          sidebar-toggle-visible
+bind generic,browser,index,pager  -          previous-page
+bind generic,browser,index,pager  <Space>    next-page
+
+bind generic,index,browser        0          first-entry
+bind generic,index,browser        !          last-entry
+bind generic,index,browser        k          previous-entry
+bind generic,index,browser        j          next-entry
+
+bind generic <Return> select-entry
+bind generic <Right>  select-entry
+
+bind index   1          jump
+bind index   2          jump
+bind index   3          jump
+bind index   =          next-page
+bind index   \Cn        next-page
+bind index   \Cp        previous-page
+bind index   l          display-message
+bind index   <Return>   display-message
+bind index   <Right>    display-message
+bind index   d          delete-message
+bind index   u          undelete-message
+bind index   N          toggle-new
+bind index   \Cl        limit
+bind index   <Tab>      collapse-thread
+bind index   t          tag-thread
+bind index   T          tag-pattern
+bind index   \Ct        untag-pattern
+bind index   S          save-message
+bind index   |          pipe-message
+bind index   $          sync-mailbox
+bind index   m          mail
+bind index   r          reply
+bind index   R          group-reply
+bind index   n          next-unread
+bind index   a          create-alias
+
+macro index   \Co  "\cl.*<enter>" "clear filters"
+macro index   f    "<set-flag>!"
+macro index   F    "<clear-flag>!"
+macro index   c    "<change-folder>?"
+macro index   D "<save-message><kill-line>=Trash<return><return><sync-mailbox><return>"
+
+bind editor   <Tab>    complete
+bind editor   \Ct      complete-query
+bind editor   \Ck      kill-line
+
+bind browser  <Space>  check-new
+bind browser  N        select-new
+bind browser  q        exit
+bind browser  j        next-entry
+bind browser  k        previous-entry
+bind browser  l        select-entry
+
+bind pager    l        view-attachments
+bind pager    j        next-line
+bind pager    k        previous-line
+bind pager    r        reply
+bind pager    R        group-reply
+bind pager    m        mail
+bind pager    a        create-alias
+bind pager    \Cn      next-entry
+bind pager    \Cp      previous-entry      
+bind pager    \Cd      delete-message
+
+bind attach   a        save-entry
+macro attach  s        "a/home/piotr/dwl/att<enter>t"
+
+bind alias x exit
+
+# sidebar
+bind index,pager <Esc>k sidebar-prev
+bind index,pager <Esc>j sidebar-next
+bind index,pager <Esc>o sidebar-open
+
+bind index <Esc>w what-key
+
+# reload config
+macro generic,index <Esc>r ":source ~/.config/neomutt/muttrc<enter><sidebar-open>" "Reload neomutt's configuration file"
+
+bind query q exit
