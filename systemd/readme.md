@@ -1,5 +1,4 @@
-Assuming `isync` is installed and `~/.mbsyncrc` file is configured.
-(https://wiki.archlinux.org/index.php/Isync#Configuring)[check wiki]
+Assuming `isync` is installed and `~/.mbsyncrc` file is configured [wiki](https://wiki.archlinux.org/index.php/Isync#Configuring).
 
 Symlink those files to:
 
