@@ -4,7 +4,7 @@
 # MY ZATHURA CONFIG FILE #
 ##########################
 
-# Last update: 28.11.18, 18:13:28 @x200
+# Last update: 2019-04-21, 19:39:34 @x200
 # Docs: https://pwmt.org/projects/zathura/documentation/
 
 # >> init options
@@ -32,7 +32,7 @@ map P print
 map R rotate
 map r reload
 map = zoom in
-map 0 zoom 100
+map ) zoom 100
 
 # available function shortcuts:
 # ----------------------------
