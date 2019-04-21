@@ -2,7 +2,7 @@
 
 # Path:        ~/biu/bash/cdemacsdir.sh
 # Created:     26.08.18, 15:00    @x200
-# Last update: 2019-04-10, 17:04:13 @x200
+# Last update: 2019-04-21, 18:42:27 @x200
 # Doc:
 # Requires:
 # - i3get.py → git: py-exercises (26/08/2018)
@@ -12,16 +12,16 @@
 # open the terminal in the working directory; 
 # else, open in $HOME.
 
-# >> VARIABLES:
-FULL=$(wmctrl -lx | awk '/emacs.Emacs/ {print $5}')
-FILE=$(basename "$FULL")
-DIR=${FULL%$FILE}
-#FOC=$(~/git/hub/i3/i3get.sh -c)
-FOC=$(~/git/lab/py-exercises/i3get.py -c)
+[[ -z $GOTPATH ]] && GOPATH=$HOME/go
+GET=$GOPATH/bin/i3getgo
 
-# >> RUN:
-if [[ $FOC =~ "Emacs" && -d $DIR ]]; then
-    cd $DIR && st -c term -t "st @$(date +%H:%M:%S)" &
+if [[ $($GET -c) =~ "Emacs" ]]; then
+    FULL=$($GET -t)
+    FILE=$(basename "$FULL")
+    DIR=${FULL%$FILE}
+    [[ -d $DIR ]] && cd $DIR
+    st -c term -t "st @$(date +%H:%M:%S)" &
 else
+    #cd $HOME
     st -c term -t "st @$(date +%H:%M:%S)" &
 fi
