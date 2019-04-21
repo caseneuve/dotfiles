@@ -169,7 +169,7 @@
 
     # Paths to default icons.
     #icon_path = /home/piotr/Obrazy/
-    # /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### { History } ###
     # Should a notification popped up from history be sticky or timeout
