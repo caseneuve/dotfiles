@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-04-21, 00:52:09 @lenovo
+# Last update: 2019-04-21, 23:14:48 @x200
 # Doc:         
 
 GLYPH=
@@ -18,7 +18,7 @@ new_mail_msg(){
     from=$(awk '/^From:/ {$1=""; print}' $1 2>/dev/null)
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
     [[ -n $from || -n $subject ]] &&\
-        notify-send "<b>NEW MAIL ($2)</b>"\
+        notify-send "NEW MAIL ($2)"\
                     "FROM: $from\nSUBJECT:$subject"
 }
 
