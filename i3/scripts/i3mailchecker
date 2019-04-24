@@ -2,10 +2,12 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-04-21, 23:14:48 @x200
+# Last update: 2019-04-23, 03:41:42 @x200
 # Doc:         
 
-GLYPH=
+#GLYPH=""
+DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
+GLYPH=""
 MAILBOXES=$HOME/.mail/*/INBOX/new
 count=0
 new=false
@@ -15,11 +17,15 @@ get_date(){
 }
 
 new_mail_msg(){
+    to=$(awk '/^Delivered-To:/ {$1=""; print}' $1 2>/dev/null)
+    to_readable=$($DECODE "$to")
     from=$(awk '/^From:/ {$1=""; print}' $1 2>/dev/null)
+    from_readable=$($DECODE "$from")
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
+    subject_readable=$($DECODE "$subject")
     [[ -n $from || -n $subject ]] &&\
-        notify-send "NEW MAIL ($2)"\
-                    "FROM: $from\nSUBJECT:$subject"
+        notify-send "NEW MAIL ($to_readable)"\
+                    "FROM: $from_readable\nSUBJECT: $subject_readable"
 }
 
 for dir in $MAILBOXES; do
@@ -45,17 +51,11 @@ for dir in $MAILBOXES; do
 
     elif [[ $unread -gt $unread_before ]]; then
         new=true
-        for file in $(ls -ltcr $dir | awk '{print $8}'); do
-            new_mail_msg "$dir/$file" $box_name
-        done
-
-    else
-        for ((i=2; ; i++)); do
-            file=$(ls -ltcr $dir | sed -n "$i"p | awk '{print $8}')
+        for file in $(ls -ltc $dir | sed /^total/d | awk '{print $8}')
+        do
             file_date=$(ls $dir/$file | grep -o "[0-9]\{10\}")
             if [[ $file_date -gt $date_before ]]; then
-                new=true
-                new_mail_msg "$dir/$file" $box_name
+                new_mail_msg "$dir/$file"
             else
                 break
             fi
@@ -63,10 +63,35 @@ for dir in $MAILBOXES; do
     fi
 done
 
-
 if $new; then
     COLOR=$(awk '/^*blue/ {print $2}' $HOME/.Xresources)
     echo "<span fgcolor='$COLOR'>$GLYPH $count</span>"
 else
     echo "$GLYPH $count"
 fi
+
+case $BLOCK_BUTTON in
+    1) last=$(journalctl --user -b -r -u mbsync.service | awk 'NR<11 && /Succeeded/ {print $2,$1,$3}')
+       notify-send "MAIL" "Last check: $last"
+       pkill -RTMIN+10 i3blocks ;;
+    3) mbsync gmail-default; mbsync schole-default ;;
+esac
+
+# elif [[ $unread -gt $unread_before ]]; then
+    #     new=true
+    #     for file in $(ls -ltcr $dir | awk '{print $8}'); do
+    #         new_mail_msg "$dir/$file"
+    #     done
+
+    # else
+    #     for ((i=2; ; i++)); do
+    #         file=$(ls -ltcr $dir | sed -n "$i"p | awk '{print $8}')
+    #         file_date=$(ls $dir/$file | grep -o "[0-9]\{10\}")
+    #         if [[ $file_date -gt $date_before ]]; then
+    #             new=true
+    #             new_mail_msg "$dir/$file"
+    #         else
+    #             break
+    #         fi
+    #     done
+    # fi

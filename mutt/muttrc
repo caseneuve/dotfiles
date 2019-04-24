@@ -5,7 +5,7 @@
 #     | | | | | | |_| | |_| |_
 #     |_| |_| |_|\__,_|\__|\__|
 #
-# Last update: 2019-04-20, 23:57:52 @lenovo
+# Last update: 2019-04-22, 10:51:43 @x200
 # Doc:         http://www.mutt.org/doc/manual
 # Todos:
 
@@ -50,7 +50,7 @@ set index_format="%2C %S %?X?A& ? %D %-25.25F%-200.200s"
 
 set sidebar_visible=yes
 set sidebar_delim_chars='/'
-set sidebar_width = 26
+set sidebar_width = 24
 set sidebar_on_right = no
 set sidebar_short_path = no
 set sidebar_component_depth = 4
