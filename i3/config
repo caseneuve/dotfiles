@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-04-10, 20:29:32 @lenovo
+# Last update: 2019-04-24, 10:10:24 @lenovo
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -109,6 +109,7 @@ for_window [title="m4ath"] floating enable
 for_window [title="m4ath"] resize set 600 200
 for_window [title="m4ath"] move scratchpad
 bindsym $mod+c $exe $dot/i3scratchpads -c
+bindsym XF86Calculator $exe $dot/i3scratchpads -c
 
 # >>> {{ whitaker words }}
 for_window [title="w0rds"] move scratchpad
