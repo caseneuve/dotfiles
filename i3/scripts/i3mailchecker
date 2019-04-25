@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-04-23, 03:41:42 @x200
+# Last update: 2019-04-25, 07:44:34 @x200
 # Doc:         
 
 #GLYPH=""
@@ -19,6 +19,7 @@ get_date(){
 new_mail_msg(){
     to=$(awk '/^Delivered-To:/ {$1=""; print}' $1 2>/dev/null)
     to_readable=$($DECODE "$to")
+    read  -rd '' to_readable <<< $to_readable
     from=$(awk '/^From:/ {$1=""; print}' $1 2>/dev/null)
     from_readable=$($DECODE "$from")
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
