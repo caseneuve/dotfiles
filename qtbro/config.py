@@ -6,9 +6,7 @@
 ##      |_|                                               ##
 ##                                                        ##
 ############################################################
-
-# My Qutebrowser Config
-# Last update: 2019-04-25, 22:18:50 @toshiba
+# Last update: 2019-04-25, 22:24:23 @toshiba
 
 c.backend = 'webengine'
 
