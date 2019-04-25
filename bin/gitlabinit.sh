@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/gitlabinit.sh
 # Created:     17.11.18, 19:53    @lenovo
-# Last update: 16.01.19, 11:53:17 @x200
+# Last update: 2019-04-25, 20:59:10 @toshiba
 
 # >> DOC:
 # init nonexistent repo on gitlab
@@ -50,6 +50,7 @@ while true; do
         git add .
         git commit -m 'GitLab initial commit'
         git push --set-upstream git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git master
+        git git remote add origin git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git
         git status
         exit 0
     elif [[ $answer =~ n|N ]]; then
