@@ -1,6 +1,6 @@
 # -*- mode:conf-space eval:(display-line-numbers-mode) -*-
 # Mutt keybindings
-# Last update: 2019-04-22, 12:03:36 @x200
+# Last update: 2019-04-25, 20:24:38 @toshiba
 
 source unbind
 
@@ -22,6 +22,9 @@ bind generic,index,browser        j          next-entry
 
 bind generic <Return> select-entry
 bind generic <Right>  select-entry
+
+macro index,generic,pager         \Cv     "/<enter>"      "search next"
+macro index,generic,pager         <Esc>v  "<Esc>/<enter>" "search previous"
 
 bind index   1          jump
 bind index   2          jump
@@ -49,11 +52,19 @@ bind index   R          group-reply
 bind index   n          next-unread
 bind index   a          create-alias
 
+macro index   gi   "<change-folder>=INBOX<enter>0"  "Go to INBOX"
+macro index   gs   "<change-folder>=Sent<enter>0" "Go to SENT"
+macro index   ga   "<change-folder>=All<enter>0" "Go to ALL MAIL"
+macro index   gd   "<change-folder>=Drafts<enter>0" "Go to DRAFTS"
+macro index   gt   "<change-folder>=Trash<enter>0" "Go to TRASH"
+macro index   gu   "<limit>~U<enter>0" "Show all UNREAD messages"
+macro index   gf   "<limit>~F<enter>0" "Show all FLAGGED"
+
 macro index   \Co  "\cl.*<enter>" "clear filters"
 macro index   f    "<set-flag>!"
 macro index   F    "<clear-flag>!"
 macro index   c    "<change-folder>?"
-macro index   D "<save-message><kill-line>=Trash<return><return><sync-mailbox><return>"
+macro index   D    "<save-message><kill-line>=Trash<return><return><sync-mailbox><return>"
 
 bind index,pager \Cf   forward-message
 
