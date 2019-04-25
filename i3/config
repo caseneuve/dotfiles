@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-04-24, 10:10:24 @lenovo
+# Last update: 2019-04-24, 16:29:25 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -14,7 +14,7 @@
 # todo: (goto-line 544) → i3-qtb-launcher
 # todo: (goto-line 552) → i3-emacs-launcher
 
-## >> { VARIABLES & general SETTINGS } 
+## >> { VARIABLES & general SETTINGS }
 set $mod Mod4
 set $term st
 set $browser qutebrowser
@@ -54,7 +54,7 @@ $exe  dunst                                             # notifier
 $exea amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
 $exea $hub/i3listen.py      # manage workspace names and window titles in bar
 
-## >> { NAVIG } 
+## >> { NAVIG }
 # >>> {{ change focus: }}
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -124,7 +124,7 @@ bindsym $mod+slash $exe $dot/i3scratchpads -f
 for_window [class="cl0ck"] floating enable
 bindsym $mod+Shift+t $exe $dot/i3scratchpads -t 1
 
-## >> { WORKSPACES }                
+## >> { WORKSPACES }
 workspace_auto_back_and_forth no
 
 set $ws1 workspace number 1
@@ -148,18 +148,18 @@ bindsym $mod+5 $ws5;
 bindsym $mod+6 $ws6;
 bindsym $mod+7 $ws7;
 bindsym $mod+8 $ws8;
-bindsym $mod+9 $ws9; 
+bindsym $mod+9 $ws9;
 bindsym $mod+0 $ws10;
 
 bindsym Control+1 $ws1;
 bindsym Control+2 $ws2;
 bindsym Control+3 $ws3;
 bindsym Control+4 $ws4;
-bindsym Control+5 $ws5; 
+bindsym Control+5 $ws5;
 bindsym Control+6 $ws6;
 bindsym Control+7 $ws7;
 bindsym Control+8 $ws8;
-bindsym Control+9 $ws9; 
+bindsym Control+9 $ws9;
 
 # >>> {{ move focused container to $ws: }}
 bindsym $mod+Shift+1 move container to $ws1
@@ -245,7 +245,7 @@ mode "resize" {
         bindsym k        resize shrink height 10 px or 10 ppt
         bindsym l        resize grow width 10 px or 10 ppt
         bindsym m        resize set 600 400
-        bindsym d        resize set 1000 600; move position center     
+        bindsym d        resize set 1000 600; move position center
         bindsym c        move position center
         bindsym f        resize set 1280 820; move position center
         bindsym v        resize set 400 225
@@ -274,7 +274,7 @@ mode "moveit" {
     bindsym d           resize set 1000 600
     bindsym v           resize set 400 225
     bindsym y           resize set 600 338
-    
+
     bindsym Shift+i     move container to output VGA1
     bindsym Shift+k     move container to output primary
     bindsym Shift+x     move position mouse
@@ -346,7 +346,7 @@ mode "i3move" {
      bindsym Shift+c $i3move -s -m 5 -g 15
      bindsym 5 $i3move -m 5
 
-     bindsym i $i3move -m 1 -s 
+     bindsym i $i3move -m 1 -s
      bindsym l $i3move -m 2 -s
      bindsym k $i3move -m 3 -s
      bindsym j $i3move -m 4 -s
@@ -418,11 +418,11 @@ bindsym $mod+Shift+v $exe $dot/i3video
 # borders
 set $bra   #191f26
 set $bri   #191f26
-set $bru   #191f26 
+set $bru   #191f26
 set $brur  #ffffff
 # background
 set $bgf    #218c74
-set $bgfi  #323f4d 
+set $bgfi  #323f4d
 set $bgi   #191f26
 set $bgur  #ffffff
 # text
@@ -431,11 +431,11 @@ set $txti  #ececec
 set $txtu  #ececec
 set $txtur #F06292
 
-# class                   border  bg     text   
+# class                   border  bg     text
 client.focused            $bra    $bgf   $txtf
 client.focused_inactive   $bri    $bgfi  $txti
-client.unfocused          $bru    $bgi   $txtu 
-client.urgent             $brur   $bgur  $txtur 
+client.unfocused          $bru    $bgi   $txtu
+client.urgent             $brur   $bgur  $txtur
 
 ## >> { BAR }
 # use fonts.conf configuration
@@ -449,7 +449,7 @@ font pango:monospace 9
 # >>>> {{ dark theme [off] }}
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
 # dark theme start #EC407A #b1becd
-# set $sbbg   #0a0c10 
+# set $sbbg   #0a0c10
 # set $sbwfbg #0a0c10
 # set $sbwabg #0a0c10
 # set $sbsl   #3b475e
@@ -463,7 +463,7 @@ font pango:monospace 9
 # >>>> {{ light theme [off] }}
 # light theme start
 # sb=status bar; w=workspace; f=focused; tx=text; br=border; u=urgent; sl=status line
-# set $sbbg   #9B9B9B 
+# set $sbbg   #9B9B9B
 # set $sbwfbg #9B9B9B
 # set $sbwabg #9B9B9B
 # set $sbsl   #191f26
@@ -477,7 +477,7 @@ font pango:monospace 9
 # >> set colors from Xresources
 # command          | variable | Xresources var | fallback |
 # ========================================================|
-set_from_resource  $sbbg        i3wm.bgcolor     #9B9B9B 
+set_from_resource  $sbbg        i3wm.bgcolor     #9B9B9B
 set_from_resource  $sbwfbg      i3wm.bgcolor     #9B9B9B
 set_from_resource  $sbwabg      i3wm.bgcolor     #9B9B9B
 set_from_resource  $sbsl        i3wm.bgcolor     #191f26
@@ -489,16 +489,16 @@ set_from_resource  $sbwbr       i3wm.bgcolor     #9B9B9B
 set_from_resource  $sbwubr      i3wm.light       #ececec
 
 
-# >>> {{ bar: primary }} 
+# >>> {{ bar: primary }}
 bar {
         output primary
         tray_output none
-        modifier $mod 
+        modifier $mod
         status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
         i3bar_command i3bar -t
         position top
         height 20
-        # status_command i3status 
+        # status_command i3status
 
         colors {
                background $sbbg
@@ -509,7 +509,7 @@ bar {
                focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
                active_workspace     $sbwbr     $sbwabg    $sbowtx
                inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $sbwubr    $sbwubr    $sbuwtx 
+               urgent_workspace     $sbwubr    $sbwubr    $sbuwtx
                }
 }
 
@@ -532,14 +532,14 @@ bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -- -10% && pkill -RTMI
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 bindsym $mod+Shift+m  $exe pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute $exe amixer set Master toggle && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioPlay $exe mocp -G 
-bindsym XF86AudioStop $exe mocp -s 
+bindsym XF86AudioPlay $exe mocp -G
+bindsym XF86AudioStop $exe mocp -s
 bindsym XF86AudioNext $exe mocp -f
 bindsym XF86AudioPrev $exe mocp -r
 
 # >>> {{ zrzut ekranu: maim }}
 # zrzut calego ekranu
-bindsym Print $exe $dot/screenshot.sh 
+bindsym Print $exe $dot/screenshot.sh
 # zrzut tylko aktywnego okna
 bindsym $mod+Print $exe $dot/screenshot.sh active
 # zrzut wybranego okna
@@ -567,13 +567,14 @@ bindsym $mod+e $app emacs
 bindsym $mod+n $app newsboat
 #bindsym $mod+m $app neomutt
 bindsym $mod+m $exe $dot/i3scratchpads -u mail
-bindsym $mod+r $exe $dot/i3scratchpads -u rng
+#bindsym $mod+r $exe $dot/i3scratchpads -u rng
 bindsym $mod+w $exe $dot/i3scratchpads -u wee
 bindsym $mod+t $exe thunar
 bindsym $mod+h bar mode toggle
 bindsym Scroll_Lock $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+x $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
-bindsym $mod+Shift+x exec systemctl suspend      
+bindsym $mod+Shift+x exec systemctl suspend
+bindsym Pause exec systemctl suspend
 bindsym $mod+Ctrl+F2 $exe compton
 bindsym $mod+F2 $exe pkill compton
 bindsym $mod+F1 $exe $dot/i3quick-help.sh
@@ -596,7 +597,7 @@ bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh $rofi-
 #bindsym $mod+Shift+d $exe dmenu_run -nb '#191f26' -nf '#ececec' -sb '#ff6347' -p 'run:'
 #bindsym $mod+Shift+d $exe j4-dmenu-desktop --dmenu="dmenu -i -nf '#2980b9' -nb '#34495E' -sb '#2980b9' -p 'run:'" --term="st"
 #bindsym $mod+d $exe rofi -combi-modi cli#sys#drun -show combi -modi cli:~/.dotfiles/rofi/scripts/rofi-cli-starter.sh#drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
-#bindsym $mod+d $exe rofi -combi-modi sys#drun -show combi -modi drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh 
+#bindsym $mod+d $exe rofi -combi-modi sys#drun -show combi -modi drun#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
 
 # >>> {{ screencasting:}}
 bindsym $mod+F12 $exe $dot/screencast.sh $(date "+%d%h%H%M")
@@ -617,4 +618,3 @@ bindsym $mod+Control+Left $exe $dot/xdo-sent-control.sh -r
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
 ##################################################
-
