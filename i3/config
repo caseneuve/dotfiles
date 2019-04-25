@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-04-24, 16:29:25 @toshiba
+# Last update: 2019-04-25, 19:40:26 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -398,7 +398,7 @@ bindsym $mod+g gaps inner current set 0; gaps outer current set 0
 
 # >>>> borders exclude
 for_window [class="^.*"] border pixel 0
-for_window [class="myquickterm"] border pixel 0
+for_window [class="myquickterm"] border pixel 2
 for_window [class="scratch"] border pixel 1
 
 # >>>> borders for scratchpads and terms only
