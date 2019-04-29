@@ -1,13 +1,10 @@
 # -*- mode: conf-space -*-
-
 ##########################
-# MY ZATHURA CONFIG FILE #
+#   MY ZATHURA CONFIG    #
 ##########################
+# Last update: 2019-04-29, 12:13:41 @toshiba
+# Docs:        https://pwmt.org/projects/zathura/documentation/
 
-# Last update: 2019-04-21, 19:39:34 @x200
-# Docs: https://pwmt.org/projects/zathura/documentation/
-
-# >> init options
 set selection-clipboard clipboard
 set window-title-basename true
 set window-title-home-tilde true
@@ -17,7 +14,6 @@ set window-title-page true
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 
-# >> kbd
 # map W zoom width
 map S toggle_statusbar
 map [fullscreen] S toggle_statusbar
@@ -27,12 +23,15 @@ map J scroll full-down
 map K scroll full-up
 map <A-j> scroll half-down
 map <A-k> scroll half-up
-map I recolor
+map i recolor
+map [fullscreen] i recolor
 map P print
 map R rotate
 map r reload
 map = zoom in
 map ) zoom 100
+map F toggle_fullscreen
+map [fullscreen] F toggle_fullscreen
 
 # available function shortcuts:
 # ----------------------------
@@ -50,7 +49,6 @@ map ) zoom 100
 # rotate
 # search
 # set
-# toggle_fullscreen
 # toggle_index
 # toggle_inputbar
 # toggle_statusbar
