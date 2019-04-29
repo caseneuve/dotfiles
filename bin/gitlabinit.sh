@@ -2,59 +2,72 @@
 
 # Path:        ~/.dotfiles/bin/gitlabinit.sh
 # Created:     17.11.18, 19:53    @lenovo
-# Last update: 2019-04-25, 20:59:10 @toshiba
+# Last update: 2019-04-29, 12:08:40 @toshiba
+# Doc:         init (nonexistent) repo on gitlab
+# Todo:        26/04/2019 set local user.name/mail if ≠ global
 
-# >> DOC:
-# init nonexistent repo on gitlab
+SSH=~/.ssh
+PROJECT_NAME=${PWD##*/}
+NAMESPACE=$(git config --global --get user.name)
 
-# >> VARIABLES:
 usage(){
     cat << EOF
- INIT A GITLAB REPOSITORY IN EXISTING DIRECTORY
- ==============================================
- usage: ${0##*/} [proj. name] [namespace]
+ gitlabinit: init a gitlab repository in existing directory
+ 
+ usage: ${0##*/} [[-p <project name>][-n <namespace>]]
 
- > project name  defaults to working directory
- > namespace     defaults to 'caseneuve'
+  - project name  defaults to working directory
+  - namespace     defaults to user.name set in git config file
 
 EOF
     exit 0
 }
 
-if [[ -z $1 ]]; then
-    PROJECT_NAME=${PWD##*/}
-else
-    if [[ $1 =~ -h|--help ]]; then
-        usage
-    else
-        PROJECT_NAME=$1
-    fi
-fi
+while getopts "n:p:h" args; do
+    case "${args}" in
+        n) NAMESPACE="$OPTARG" ;;
+        p) PROJECT_NAME="$OPTARG" ;;
+        *) usage ;;
+    esac
+done
 
-if [[ -z $2 ]]; then
-    NAMESPACE=caseneuve
-else
-    NAMESPACE=$2
-fi
-
-
-# >> RUN:
 while true; do
-    read -p "## Im going to initialize a git repo on GitLab:
+    read -p "## Initializing a git repo on GitLab:
 >  user:    $NAMESPACE
 >  project: $PROJECT_NAME
 >
 >  Proceed? [Y/n] " answer
     if [[ $answer =~ y|Y ]] || [[ -z $answer ]]; then
-        [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) ]] || git init
-        git add .
-        git commit -m 'GitLab initial commit'
-        git push --set-upstream git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git master
-        git git remote add origin git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git
+        echo ">  Select ssh key: "
+        PS3=">  "
+        select ssh_key in $(fd -t f -E "*.pub" -E "config" -E "known_hosts" -E "xclip" . $SSH | sed "s|$SSH/||g"); do
+            if [ -n "$ssh_key" ]; then
+                git remote rm origin
+                [[ $(git config --local --list | grep "sshcommand") ]] \
+                    && git config --local --unset core.sshCommand
+                git config --local --add core.sshCommand "ssh -i ~/.ssh/$ssh_key"
+            else
+                echo ">  No key specified, using default..."
+            fi
+            break
+        done
+        if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) ]]; then
+            git add .
+            git commit -m 'GitLab committing to $NAMESPACE/$PROJECT_NAME'
+        else
+            git init
+            git add .
+            git commit -m 'GitLab initial commit'
+        fi
+        # HACK? intended for patched repos
+        # [[ $(git branch | wc -l) -eq 1 ]] && branch=$(git branch | sed 's/* //') || branch=master 
+        git push --all --set-upstream \
+            git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git master 
+        git remote add origin git@gitlab.com:$NAMESPACE/$PROJECT_NAME.git
         git status
         exit 0
     elif [[ $answer =~ n|N ]]; then
-        echo ">   Quit!"
+        echo ">  Quit!"
         exit 1
     fi
 done
