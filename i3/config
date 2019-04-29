@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-04-25, 19:40:26 @toshiba
+# Last update: 2019-04-26, 20:18:41 @toshiba
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -567,7 +567,7 @@ bindsym $mod+e $app emacs
 bindsym $mod+n $app newsboat
 #bindsym $mod+m $app neomutt
 bindsym $mod+m $exe $dot/i3scratchpads -u mail
-#bindsym $mod+r $exe $dot/i3scratchpads -u rng
+bindsym $mod+r $exe $dot/i3scratchpads -u rng
 bindsym $mod+w $exe $dot/i3scratchpads -u wee
 bindsym $mod+t $exe thunar
 bindsym $mod+h bar mode toggle
