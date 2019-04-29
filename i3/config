@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-04-26, 20:18:41 @toshiba
+# Last update: 2019-04-29, 13:34:27 @x200
 
 ## >> TODO
 # todo: 27/12/2018 ujednolicić zmienne kolorów
@@ -562,7 +562,8 @@ bindsym $mod+Return split horizontal $exe $dot/i3startterminemacsdir.sh
 bindsym $mod+Shift+Return split vertical $exe $dot/i3startterminemacsdir.sh
 bindsym $mod+b $app qutebrowser
 bindsym $mod+Shift+b $app qutebrowser-window
-bindsym $mod+p $app qutebrowser-private
+bindsym $mod+Shift+p $app qutebrowser-private
+#bindsym $mod+p $app qutebrowser-private
 bindsym $mod+e $app emacs
 bindsym $mod+n $app newsboat
 #bindsym $mod+m $app neomutt
