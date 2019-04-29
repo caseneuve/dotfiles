@@ -160,16 +160,14 @@
 
     ### { Icons } ###
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
     #left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 0
-    #32
+    max_icon_size = 16
 
     # Paths to default icons.
-    #icon_path = /home/piotr/Obrazy/
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
 
     ### { History } ###
     # Should a notification popped up from history be sticky or timeout
@@ -254,7 +252,7 @@
     frame_color = "#9B9B9B"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
-    # icon = /path/to/icon
+    icon = /usr/share/icons/Adwaita/32x32/status/dialog-question-symbolic.symbolic.png
 
 [urgency_normal]
     background = "#9B9B9B"
@@ -263,16 +261,14 @@
     frame_color = "#9B9B9B"   
     #frame_color = "#44599E"
     timeout = 10
-    # Icon for notifications with normal urgency, uncomment to enable
-    # icon = /path/to/icon
+    icon = /usr/share/icons/Adwaita/32x32/status/dialog-information-symbolic.symbolic.png
 
 [urgency_critical]
     background = "#C0392B"
     foreground = "#ffffff"
     frame_color = "#8E2A20"
     timeout = 0
-    # Icon for notifications with critical urgency, uncomment to enable
-    # icon = /path/to/icon
+    icon = /usr/share/icons/Adwaita/32x32/status/dialog-warning-symbolic.symbolic.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3uedder
 # Created:     2019-03-25, 10:13    @lenovo
-# Last update: 2019-04-08, 11:50:18 @x200
+# Last update: 2019-04-29, 15:16:04 @x200
 # Doc:         Display sun & weather info in i3bar(blocks)
 # Requires:    Cronjob advised
 # Todo:        28/03/2019, condition when no wifi
@@ -11,6 +11,8 @@ SUNFILE=/tmp/suntimes
 FORECAST=/tmp/forecast
 SUNTIMES=$HOME/git/lab/sunapi/sunapi.sh       # run this script as cronjob after midnight
 WEATHER=$HOME/git/lab/sunapi/openweather.sh   # --"-- (e.g.) every 15 mins
+ICON=/usr/share/icons/Adwaita/16x16/status/weather-few-clouds-symbolic.symbolic.png
+
 ensure_data() {
     if [[ -f $SUNFILE ]]; then
         if [[ ! $(date +'%Y-%m-%d') ==\
@@ -67,7 +69,7 @@ main(){
     set_icon
     case $BLOCK_BUTTON in
         #1 = Left, 2 = Middle, 3 = Right, 4 = Scroll Up, 5 = Scroll Down
-        1) notify-send -t 6000 \
+        1) notify-send -t 6000 -i $ICON \
                        "Weather for $LOCATION" \
                        "$DESCRIPTION\n$TEMPERATURE\n   $RISE\n   $SET\n(last check: $LAST_CHECK)" \
                  && pkill -RTMIN+5 i3blocks ;;
