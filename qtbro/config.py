@@ -7,7 +7,7 @@
 ##      |_|                                               ##
 ##                                                        ##
 ############################################################
-# Last update: 2019-04-25, 22:25:04 @toshiba
+# Last update: 2019-04-26, 12:24:15 @toshiba
 
 c.backend = 'webengine'
 
@@ -35,7 +35,7 @@ c.colors.statusbar.private.bg           = 'grey'
 c.colors.statusbar.progress.bg          = '#e1e1e0'
 c.colors.statusbar.progress.bg          = '#104e8b'
 c.colors.statusbar.url.fg               = '#e1e1e0'
-c.colors.statusbar.url.hover.fg         = '#ffda79'
+c.colors.statusbar.url.hover.fg         = '#00E5FF'
 c.colors.statusbar.url.success.http.fg  = '#e1e1e0'
 c.colors.statusbar.url.success.https.fg = '#e1e1e0'
 
