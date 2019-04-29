@@ -2,13 +2,14 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-04-29, 15:03:25 @x200
+# Last update: 2019-04-29, 15:50:09 @x200
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
 MAILBOXES=$HOME/.mail/*/INBOX/new
 UNREAD=/usr/share/icons/Adwaita/16x16/status/mail-unread-symbolic.symbolic.png
 READ=/usr/share/icons/Adwaita/16x16/status/mail-read-symbolic.symbolic.png
+SYNC=/usr/share/icons/Adwaita/16x16/status/rotation-allowed-symbolic.symbolic.png
 
 service_check() {
     last_service=$(
@@ -98,7 +99,10 @@ case $BLOCK_BUTTON in
            notify-send -u critical "MAIL" "Synchronization error. Restarting service"
        fi
        pkill -RTMIN+10 i3blocks ;;
-    3) mbsync gmail-default; mbsync schole-default ;;
+    3) notify-send -i $SYNC "MIAL" "Checking mail..."
+       mbsync gmail-default
+       mbsync schole-default
+       ;;
 esac
 
 main
