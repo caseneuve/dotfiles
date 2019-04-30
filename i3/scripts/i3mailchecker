@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-04-29, 15:50:09 @x200
+# Last update: 2019-04-30, 09:25:49 @x200
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -32,13 +32,14 @@ new_mail_msg(){
     to=$(awk '/^Delivered-To:/ {$1=""; print}' $1 2>/dev/null)
     to_readable=$($DECODE "$to")
     read  -rd '' to_readable <<< $to_readable
-    from=$(awk '/^From:/ {$1=""; print}' $1 2>/dev/null)
+    from=$(awk '/^From:/ {$1=""; print}' $1 2>/dev/null \
+               | sed 's/<\|>//g')
     from_readable=$($DECODE "$from")
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
     subject_readable=$($DECODE "$subject")
     [[ -n $from || -n $subject ]] &&\
         notify-send -t 4000 -i $UNREAD "NEW MAIL ($to_readable)"\
-                    "FROM: $from_readable\nSUBJECT: $subject_readable"
+                    "FROM: $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
 }
 
 main() {
