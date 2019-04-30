@@ -2,7 +2,7 @@
 ##########################
 #   MY ZATHURA CONFIG    #
 ##########################
-# Last update: 2019-04-29, 12:13:41 @toshiba
+# Last update: 2019-04-30, 07:54:00 @x200
 # Docs:        https://pwmt.org/projects/zathura/documentation/
 
 set selection-clipboard clipboard
@@ -15,23 +15,34 @@ set statusbar-h-padding 0
 set statusbar-v-padding 0
 
 # map W zoom width
-map S toggle_statusbar
-map [fullscreen] S toggle_statusbar
-map f follow
+map b toggle_statusbar
+map <C-f> follow
 map <Return> goto
+map <C-n> scroll down
+map <C-p> scroll up
 map J scroll full-down
 map K scroll full-up
 map <A-j> scroll half-down
 map <A-k> scroll half-up
+
 map i recolor
-map [fullscreen] i recolor
 map P print
 map R rotate
 map r reload
 map = zoom in
 map ) zoom 100
-map F toggle_fullscreen
-map [fullscreen] F toggle_fullscreen
+map f toggle_fullscreen
+
+map [fullscreen] b toggle_statusbar
+map [fullscreen] <C-f> follow
+map [fullscreen] <C-n> scroll down
+map [fullscreen] <C-p> scroll up
+map [fullscreen] J scroll full-down
+map [fullscreen] K scroll full-up
+map [fullscreen] <A-j> scroll half-down
+map [fullscreen] <A-k> scroll half-up
+map [fullscreen] i recolor
+map [fullscreen] f toggle_fullscreen
 
 # available function shortcuts:
 # ----------------------------
