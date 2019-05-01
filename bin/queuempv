@@ -1,18 +1,17 @@
 #!/bin/bash
 
-# Path:        ~/biurko/bash/queuempv.sh
-# Created:     11.07.18, 01:26    @x200
-# Last update: 25.07.18, 21:25:25 @x200
-
-# Doc: For now it only allows to append video urls or launching one audio stream per session (no appending) 
-# FIXME: poprawić warunki dla audio i video
+# Path:        ~/.dotfiles/bin/queuempv
+# Created:     2018-07-11, 01:26    @x200
+# Last update: 2019-05-01, 12:34:42 @x200
+# Doc:         For now it only allows to append video urls
+#              or launching one audio stream per session (no appending) 
+# FIXME:       poprawić warunki dla audio i video
 
 SOC=/tmp/mpv
 MOC_STATUS=$(mocp -i | awk 'NR==1 {print $2}')
 MPV_STATUS=$(~/bin/mpv-socket -s)
-[[ "$MOC_STATUS" = "PLAY" ]] && mocp -P
 
-#VIDEOP=`echo '{ "command": ["get_property", "video"] }' | socat - $SOC 2>/dev/null | jq .data`
+[[ "$MOC_STATUS" = "PLAY" ]] && mocp -P
 
 if (( $# > 1 )); then
     len=$(($#-1))
@@ -24,33 +23,19 @@ fi
 
 [[ $OPT = "--no-video" ]] && MEDIA="Audio from:" || MEDIA="Video:"
 
-# if [[ ! `mpv-socket -s` = "NOT ACTIVE" ]]; then
-#     if [[ $OPT = "--no-video" ]]; then
-#         MEDIA="Audio from"
-#     else
-#         MEDIA="Video"
-#     fi
-# else
-#     if [[ $OPT = "--no-video" ]]; then
-#         if [[ $VIDEOP = 1 ]]; then
-#             notify-send -u critical "Queuempv:
-# ---------" "Can't append audio to active video stream!";
-#             exit 1;
-#         else
-#             notify-send -u critical "Queuempv:
-# ---------" "Appending video files to audio stream is currently not supported ( #TODO )!";
-#             exit 1;
-#         fi
-#     fi
-# fi
+msg() {
+    ICON=/usr/share/icons/Adwaita/16x16/places/folder-videos-symbolic.symbolic.png
+    TITLE=$(curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)')
+    notify-send -i $ICON \
+                "Queuempv:" \
+                "<b>---------</b>\n$MEDIA\n\n<i>${TITLE}</i>\n\n${1}." &
+}
 
 if [[ "$MPV_STATUS" = "NOT ACTIVE" ]]; then
     mpv "$TARGET" --save-position-on-quit --input-ipc-server=$SOC $OPT &
-    notify-send -u low "Queuempv:
----------" "$MEDIA\n\n<i>$(curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)')</i>\n\nis loading."
+    msg "is loading"
 else
     echo "{ \"command\": [ \"loadfile\", \"$TARGET\", \"append-play\" ] }" | socat - $SOC &
-    notify-send -u low "Queuempv:
----------" "$MEDIA\n\n<i>$(curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)')</i>\n\nappended to playlist"
+    msg "appended to playlist"
 fi
 
