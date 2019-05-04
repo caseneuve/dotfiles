@@ -6,7 +6,7 @@
 ###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
 ###                                     |___/    ###
 ####################################################
-# Last update: 2019-05-01, 20:59:24 @x200
+# Last update: 2019-05-04, 20:52:20 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -549,8 +549,8 @@ bindsym $mod+z exec synclient TouchpadOff=1
 bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 #* KBD
-bindsym $mod+Return split horizontal $exe $dot/i3startterminemacsdir.sh
-bindsym $mod+Shift+Return split vertical $exe $dot/i3startterminemacsdir.sh
+bindsym $mod+Return split horizontal $exe $dot/i3startterminemacsdir.sh fish
+bindsym $mod+Shift+Return split vertical $exe $dot/i3startterminemacsdir.sh fish
 bindsym $mod+b $app qutebrowser
 bindsym $mod+Shift+b $app qutebrowser-window
 bindsym $mod+Shift+p $app qutebrowser-private
