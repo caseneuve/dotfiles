@@ -7,26 +7,25 @@
 ###                                      ###
 ############################################
 
-# Created:     26.06.18, 13:16    @lenovo
-# Last update: 20.02.19, 14:15:24 @x200
-
-## >> DOC:
+# Created:     2018-06.18, 13:16    @lenovo
+# Last update: 2019-05-04, 21:05:29 @x200
+# Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
 # note: lack of escape characters results in strange behaviour, e.g. not going to next line with input etc.
 
-## >> PRELIM:
+#* PRELIM:
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# >>> disable C-s, C-q
+#** disable C-s, C-q
 stty -ixon
 
-## >> HISTORY
+#* HISTORY
 export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="klr:q:ls:sbr:history:clear:exit"
 
-## >> COMMAND PROMPT
-# >>> prompt colors
+#* COMMAND PROMPT
+#** prompt colors
 BLUE="$(tput setaf 4)"
 #BLUEBG="$(tput setab 4)"
 GREEN="$(tput setaf 2)"
@@ -45,7 +44,7 @@ MAGENTA="$(tput setaf 13)"
 #PSGIT="$(tput setaf 197)"
 PSGIT="$(tput setaf 2)"
 
-# >>> command prompt func
+#** command prompt func
 __command_prompt () {
     code=$?
     if [[ $PWD == $HOME ]]; then
@@ -87,7 +86,7 @@ __command_prompt () {
     fi
 }
 
-# >>> prompt string format
+#** prompt string format
 if [[ $(tty) =~ "/dev/tty" ]]; then
     export PS1='\[$RED\]\u\[$RESET\]@\h \[$BOLD\]\[$BLUE\]\w\[$RESET\] \$ '
 else
@@ -95,14 +94,14 @@ else
     export PS2='\[$GREEN\]… \[$RESET\]'
 fi
 
-# >> auto cd
+#* auto cd
 shopt -s autocd
 
-# >> bind TAB to autocomplete
+#* bind TAB to autocomplete
 bind TAB:menu-complete
 
-## >> ENV VARIABLES:
-# >>> path:
+#* ENV VARIABLES:
+#** path:
 export PATH=$PATH:~/bin:~/scr:~/.cargo/bin
 export LC_MESSAGES=C # let command line messages be in English
 export BROWSER=/usr/bin/qutebrowser
@@ -115,7 +114,7 @@ LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
 # set grep match color to bold, blue (default red bold)
 export GREP_COLORS="mt=01;34"
 
-## >> LESS COLORS for MAN 
+#* LESS COLORS for MAN 
 export LESS=-R
 export LESS_TERMCAP_so=$'\E[01;37;31m' # begin reverse video
 export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
@@ -125,35 +124,34 @@ export LESS_TERMCAP_mb=$'\E[1;36m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;34m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
 
-## >> VARIOUS:
-# >>>  mutt background fix
+#* VARIOUS:
+#** mutt background fix
 COLORFGBG="default;default"
 
-# >>  - bc calc
+#** bc calc
 export BC_ENV_ARGS=$HOME/.bc
 
 TERM=xterm-256color
 export TERMINAL=st
 
-## >> SOURCE:
-# >>> source aliases
+#* SOURCE:
+#** source aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# >>> source fzf
+#*** source fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# >> AKCJE / FUNKCJE
-# >> dynamic terminal title (not in tmux!)
+#* AKCJE / FUNKCJE
+#** dynamic terminal title (not in tmux!)
 function automatic_title {
-    #[[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$BASH_COMMAND ($(date +%H:%M))\007"' DEBUG
-    #[[ -n "$TMUX" ]] || trap 'echo -ne "\033]0;$PWD ($(date +%H:%M))\007"' DEBUG
     # https://stackoverflow.com/a/7110386/9536161
-    [[ -n "$TMUX" ]] ||  trap 'echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g") ($(date +%H:%M))\007"' DEBUG
+    [[ -n "$TMUX" ]] ||  trap 'echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g") ($(date +%H:%M)) $(pwd)\007"' DEBUG
 }
 
 automatic_title
 
-[[ $(which fish 2>/dev/null) ]] && exec fish
+#* Fish (off)
+# [[ $(which fish 2>/dev/null) ]] && exec fish
 

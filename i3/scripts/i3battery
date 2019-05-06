@@ -2,12 +2,17 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3battery.sh
 # Created:     2018-07-16, 14:17    @x200
-# Last update: 2019-03-02, 23:05:24 @x200
+# Last update: 2019-04-29, 15:35:36 @x200
 # Doc:         get battery info for i3blocks
 
-ACPI=`acpi -b | sed 's/,//g'`
-STATE=`echo $ACPI | awk '{print $3}'`
-TIME=`echo $ACPI | awk '{print $5}'`
+ICON=/usr/share/icons/Adwaita/16x16/status/battery-empty-symbolic.symbolic.png
+ACPI=$(acpi -b | sed 's/,//g')
+STATE=$(echo $ACPI | awk '{print $3}')
+if [[ "$STATE" =~ "Unknown" ]]; then
+    TIME=?
+else
+    TIME=$(echo $ACPI | awk '{print $5}')
+fi
 TIME="${TIME%:*}"
 [[ "$STATE" = "Discharging" ]] && STATE="" || STATE=" " 
 PERCENT=`echo $ACPI | awk '{print $4}'`
@@ -27,6 +32,10 @@ elif (( $PERC <= 100 )); then
 fi
 
 case $BLOCK_BUTTON in
-    1) [[ -z $STATE ]] && notify-send "BATTERY:" "$TIME left to discharge" || notify-send "BATTERY:" "$TIME left to full charge";;
+    1) if [[ $STATE =~ Discharging ]]; then
+           notify-send -i $ICON "BATTERY:" "$TIME left to discharge"
+       else
+           notify-send -i $ICON "BATTERY:" "$TIME left to full charge"
+       fi ;;
 esac
 

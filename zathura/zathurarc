@@ -1,13 +1,10 @@
 # -*- mode: conf-space -*-
-
 ##########################
-# MY ZATHURA CONFIG FILE #
+#   MY ZATHURA CONFIG    #
 ##########################
+# Last update: 2019-04-30, 07:54:00 @x200
+# Docs:        https://pwmt.org/projects/zathura/documentation/
 
-# Last update: 2019-04-21, 19:39:34 @x200
-# Docs: https://pwmt.org/projects/zathura/documentation/
-
-# >> init options
 set selection-clipboard clipboard
 set window-title-basename true
 set window-title-home-tilde true
@@ -17,22 +14,35 @@ set window-title-page true
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 
-# >> kbd
 # map W zoom width
-map S toggle_statusbar
-map [fullscreen] S toggle_statusbar
-map f follow
+map b toggle_statusbar
+map <C-f> follow
 map <Return> goto
+map <C-n> scroll down
+map <C-p> scroll up
 map J scroll full-down
 map K scroll full-up
 map <A-j> scroll half-down
 map <A-k> scroll half-up
-map I recolor
+
+map i recolor
 map P print
 map R rotate
 map r reload
 map = zoom in
 map ) zoom 100
+map f toggle_fullscreen
+
+map [fullscreen] b toggle_statusbar
+map [fullscreen] <C-f> follow
+map [fullscreen] <C-n> scroll down
+map [fullscreen] <C-p> scroll up
+map [fullscreen] J scroll full-down
+map [fullscreen] K scroll full-up
+map [fullscreen] <A-j> scroll half-down
+map [fullscreen] <A-k> scroll half-up
+map [fullscreen] i recolor
+map [fullscreen] f toggle_fullscreen
 
 # available function shortcuts:
 # ----------------------------
@@ -50,7 +60,6 @@ map ) zoom 100
 # rotate
 # search
 # set
-# toggle_fullscreen
 # toggle_index
 # toggle_inputbar
 # toggle_statusbar
