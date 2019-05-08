@@ -1,19 +1,14 @@
+  #    #           #       #   
+ # #               #       #   
+ #    ##     ###   ###     #   
+###    #    ##     #  #    #   
+ #     #      ##   #  #        
+ #    ###   ###    #  #    #   
 
- ##  #      #    #  
- #       ## ###  #  
-###  #   #  # #  #  
- #   ## ##  # #     
-##               #  
+# Last update: 2019-05-08, 12:43:34 @lenovo
 
-# Last update: 2019-04-10, 20:41:14 @lenovo
-
-# TODOS:
-# todo: 20/01/2019, move all global vars to universal vars:
-# - https://fishshell.com/docs/current/tutorial.html#tut_universal
-# - https://stackoverflow.com/questions/25632846/how-to-set-environment-variables-in-fish-shell#comment75000885_30187924
-
-## >> VARIABLES
-# >>> env vars
+#* VARIABLES
+#** env vars
 set -e BROWSER
 set -e EDITOR
 set -e VISUAL
@@ -25,12 +20,12 @@ set -gx TERM xterm-256color
 set -gx GOPATH $HOME/go
 set -gx PATH $PATH $GOPATH/bin
 
-# >>> fish vars
+#** fish vars
 #set -e fish_greeting
 set -gx fish_greeting
 set -gx fish_color_cancel brcyan
 
-# >>> color theme
+#** color theme
 set fish_color_comment        magenta
 set fish_color_command        brblue --bold
 set fish_color_cancel         brred
@@ -46,27 +41,37 @@ set fish_color_selection      -r
 set fish_color_valid_path     green
 set fish_color_escape         brcyan
 
-## >> SOURCE:
-# >>> source funcs
+#** colors for pager
+set -gx LESS -R
+set -gx LESS_TERMCAP_so \e'[01;37;31m' # begin reverse video
+set -gx LESS_TERMCAP_se \e'[0m'        # reset reverse video
+set -gx LESS_TERMCAP_us \e'[1;33m'     # begin underline
+set -gx LESS_TERMCAP_ue \e'[0m'        # reset underline
+set -gx LESS_TERMCAP_mb \e'[1;36m'     # begin bold
+set -gx LESS_TERMCAP_md \e'[1;34m'     # begin blink
+set -gx LESS_TERMCAP_me \e'[0m'        # reset bold/blink
+
+#* SOURCE:
+#** source funcs
 # if test -d ~/.config/fish/functions
 #     source ~/.config/fish/functions/*
 # end
 
-# >>> source fzf
+#** source fzf
 if test -d ~/.fzf
     source ~/.fzf/shell/key-bindings.fish
     fzf_key_bindings
 end
 
 
-## >> ABBREVS (~ aliases)
+#* ABBREVS (~ aliases)
 #if not set -q abbrs_initialized
 if status --is-interactive
   #set -U abbrs_initialized
   set -g fish_user_abbreviations
   #echo -n Setting abbreviations...
 
-  # >>> source fast dirs
+  #** source fast dirs
   if test -f $HOME/.dotfiles/fish/fast-dirs.fish
       source $HOME/.dotfiles/fish/fast-dirs.fish
   end
@@ -103,8 +108,8 @@ if status --is-interactive
 
 end
 
-# >> FUNCTIONS
-# >>> reload config 
+#* FUNCTIONS
+#** reload config 
 function sfc -d 'Reload fish config'
     update_functions
     source ~/.config/fish/config.fish >/dev/null
@@ -121,12 +126,12 @@ function p1 -d 'Ping 1.1.1.1'
     ping 1.1.1.1
 end
 
-# >>> yayup
+#** yayup
 function ya -d 'Update packages'
     yay && pkill -RTMIN+12 i3blocks
 end
 
-# >>> psaux / psauk
+#** psaux / psauk
 function psaux -d 'Look for process id with ps'
     ps aux | grep $argv | grep -v grep
 end
@@ -135,12 +140,12 @@ function psauk -d 'Kill all processes for the app name'
     psaux $argv | awk '{print $2}' | xargs kill -9
 end
 
-# >>> make symlink from pwd
+#** make symlink from pwd
 function lns -d 'Make a symbolic link from current working dir'
     ln -s $PWD/$argv[1] $argv[2]
 end
 
-# >>> copy (path) to clipboard
+#** copy (path) to clipboard
 function xc -d 'Copy arg to clipboard'
     command $argv | xclip -sel clip
 end
@@ -149,7 +154,7 @@ function xp -d 'Copy full path to clipboard'
     command pwd | xclip -sel clip
 end
 
-# >>> update functions
+#** update functions
 function update_functions -d 'Update function files'
     set -l DOT ~/.dotfiles/fish/functions/
     set -l CFG ~/.config/fish/functions/
@@ -176,3 +181,9 @@ function update_functions -d 'Update function files'
 end
 
 update_functions
+                
+                
+                
+                
+                
+                               
