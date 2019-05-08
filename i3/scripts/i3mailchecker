@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-04-30, 09:25:49 @x200
+# Last update: 2019-05-08, 21:39:35 @lenovo
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -100,10 +100,10 @@ case $BLOCK_BUTTON in
            notify-send -u critical "MAIL" "Synchronization error. Restarting service"
        fi
        pkill -RTMIN+10 i3blocks ;;
-    3) notify-send -i $SYNC "MIAL" "Checking mail..."
+    3) notify-send -i $SYNC "MAIL" "Checking mail..."
        mbsync gmail-default
        mbsync schole-default
-       ;;
+       pkill -RTMIN+10 i3blocks ;;
 esac
 
 main
