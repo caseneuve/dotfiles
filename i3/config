@@ -1,12 +1,12 @@
-####################################################
-###    _ _____                     __ _          ###
-###   (_)___ /     ___ ___  _ __  / _(_) __ _    ###
-###   | | |_ \    / __/ _ \| '_ \| |_| |/ _` |   ###
-###   | |___) |  | (_| (_) | | | |  _| | (_| |   ###
-###   |_|____/    \___\___/|_| |_|_| |_|\__, |   ###
-###                                     |___/    ###
-####################################################
-# Last update: 2019-05-04, 20:52:20 @x200
+###    #    ####                            #    #          
+###            #                           # #              
+###   ##     ##          ##    ##   ###    #    ##     ###  
+###    #       #        #     #  #  #  #  ###    #    #  #  
+###    #    #  #        #     #  #  #  #   #     #     ##   
+###   ###    ##          ##    ##   #  #   #    ###   #     
+###                                                    ###  
+
+# Last update: 2019-05-10, 22:36:28 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -431,7 +431,11 @@ client.urgent             $brur   $bgur  $txtur
 
 #* BAR
 # use fonts.conf configuration
-font pango:monospace 9
+font pango:Monoid 8
+#font pango:monospace 9
+#font pango:Nova Mono 9
+#font pango:Roboto Condensed 9
+#font pango:Lekton 9
 #font pango:Iosevka 9
 #font pango:Lato Thin 8
 #font pango:Inconsolata 9
@@ -608,3 +612,10 @@ bindsym $mod+Control+Left $exe $dot/xdo-sent-control.sh -r
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
 ##################################################
+ #    ####                            #    #          
+         #                           # #              
+##     ##          ##    ##   ###    #    ##     ###  
+ #       #        #     #  #  #  #  ###    #    #  #  
+ #    #  #        #     #  #  #  #   #     #     ##   
+###    ##          ##    ##   #  #   #    ###   #     
+                                                 ###  
