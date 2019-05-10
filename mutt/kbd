@@ -1,6 +1,6 @@
 # -*- mode:conf-space eval:(display-line-numbers-mode) -*-
 # Mutt keybindings
-# Last update: 2019-04-29, 12:12:29 @toshiba
+# Last update: 2019-05-10, 22:33:43 @lenovo
 
 source unbind
 
@@ -51,8 +51,8 @@ bind index   r          reply
 bind index   R          group-reply
 bind index   n          next-unread
 bind index   a          create-alias
-bind index   \Cd        purge-message
 
+macro index   \Cd    "<purge-message><sync-mailbox><enter>"
 macro index   <Esc>1 "<change-folder>~/.mail/gmail/INBOX<enter>0"
 macro index   <Esc>2 "<change-folder>~/.mail/schole/INBOX<enter>0"
 
@@ -93,6 +93,8 @@ bind pager    a        create-alias
 bind pager    \Cn      next-entry
 bind pager    \Cp      previous-entry      
 bind pager    \Cd      delete-message
+bind pager    gg       top
+bind pager    G        bottom
 
 bind attach   a        save-entry
 macro attach  s        "a/home/piotr/dwl/att<enter>t"
