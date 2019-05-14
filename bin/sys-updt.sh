@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     2018-05-30, 16:02    @x200
-# Last update: 2019-05-13, 14:43:00 @lenovo
+# Last update: 2019-05-14, 16:02:55 @lenovo
 # Doc:         Primitive pamac-tray replacement
 #              requires pacman-contrib package (`checkupdates` command)
 
@@ -21,7 +21,7 @@ if [[ -n $NUM ]]; then
                 echo -e " <span color='$COLOR' weight='bold'>$GLYPH$NUM</span> " ||\
                     echo -e " $GLYPH$NUM "
         elif [[ $(pgrep polybar) ]]; then
-            echo "%{T4}%{T-} $NUM"
+            echo "$NUM"
         fi
     fi
 fi
