@@ -14,7 +14,9 @@ SECONDARY=$(xrandr -q | awk '/ connected [0-9]/ {print $1}')
 MONITOR=$PRIMARY polybar -r primary &
 ln -sf /tmp/polybar_mqueue.$! /tmp/ipc-primary
 
-EXTERNAL=$SECONDARY polybar -r secondary &
-ln -sf /tmp/polybar_mqueue.$! /tmp/ipc-secondary
+if [[ -n $SECONDARY ]]; then
+    EXTERNAL=$SECONDARY polybar -r secondary &
+    ln -sf /tmp/polybar_mqueue.$! /tmp/ipc-secondary
+fi
 
 #notify-send "polybar" "Bars launched..."
