@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-05-08, 21:39:35 @lenovo
+# Last update: 2019-05-12, 14:45:03 @lenovo
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -10,6 +10,7 @@ MAILBOXES=$HOME/.mail/*/INBOX/new
 UNREAD=/usr/share/icons/Adwaita/16x16/status/mail-unread-symbolic.symbolic.png
 READ=/usr/share/icons/Adwaita/16x16/status/mail-read-symbolic.symbolic.png
 SYNC=/usr/share/icons/Adwaita/16x16/status/rotation-allowed-symbolic.symbolic.png
+POLYBAR=$(pgrep -x polybar)
 
 service_check() {
     last_service=$(
@@ -85,7 +86,11 @@ main() {
 
     if $new; then
         COLOR=$(awk '/^*blue/ {print $2}' $HOME/.Xresources)
-        echo "<span fgcolor='$COLOR'>$GLYPH $count</span>"
+        if $POLY; then
+            echo "%{F$COLOR}$GLYPH $count"
+        else
+            echo "<span fgcolor='$COLOR'>$GLYPH $count</span>"
+        fi
     else
         echo "$GLYPH $count"
     fi

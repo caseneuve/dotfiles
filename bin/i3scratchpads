@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-04-11, 00:26:42 @lenovo
+# Last update: 2019-05-13, 13:00:34 @lenovo
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -90,7 +90,12 @@ main() {
                            [[ $OPTARG =~ mail ]] && xdotool key dollar
                        fi
                    fi
-                   pkill -RTMIN+10 i3blocks  # refresh mail count
+                   # refresh mail count in i3blocks / polybar
+                   if [[ $(pgrep i3blocks) ]]; then
+                       pkill -RTMIN+10 i3blocks  
+                   elif [[ $(pgrep polybar) ]]; then
+                       polybar-msg hook mail 1
+                   fi
                    ;;
                 # quick scratch
                 f) if [[ ! $(is_running myquickterm) ]]; then

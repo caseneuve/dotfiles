@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-10, 22:36:28 @lenovo
+# Last update: 2019-05-13, 15:41:53 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -21,6 +21,7 @@ set $exea    exec_always --no-startup-id
 #** shortcuts
 set $i3scr   ~/.dotfiles/i3/scripts
 set $dot     ~/.dotfiles/bin
+set $poly    ~/.dotfiles/polybar
 set $hub     ~/git/hub/i3
 set $app     exec --no-startup-id ~/git/hub/i3/i3applauncher
 set $i3move  exec --no-startup-id ~/git/hub/i3/i3move.py
@@ -32,12 +33,12 @@ bindsym $mod+Escape reload
 bindsym $mod+Shift+Escape restart
 
 #* STARTUP & PROGRAMS
-#** startup scripts
-$exe  $dot/gitpull.sh    # git
+#** screens
 $exe  $dot/monitoryUP.sh # monitors
 # exec_always --no-startup-id $hub/i3catch.py
 
 #** startup apps & deamons
+$exea $poly/polybarstart
 # off: nm-applet, pamac-tray start
 #$exea dropbox-cli start
 $exe  dropbox start -i
@@ -47,6 +48,9 @@ $exe  mocp -S
 $exea dunst                                            # notifier
 $exea amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
 $exea $hub/i3listen.py      # manage workspace names and window titles in bar
+
+#** git!
+$exe  $dot/gitpull.sh    # git
 
 #* NAVIG
 #** change focus:
@@ -379,9 +383,9 @@ for_window [class="YTBDWL"] move scratchpad
 # for_window [title="youtube-dl"] move window to position $yright 10
 
 #* GAPS & BORDERS
-smart_gaps on
+smart_gaps out
 set $gaps_in  6
-set $gaps_out 4
+set $gaps_out 6
 gaps inner $gaps_in
 gaps outer $gaps_out
 
@@ -486,28 +490,28 @@ set_from_resource  $sbwubr      i3wm.light       #ececec
 
 
 #** bar: primary
-bar {
-        output primary
-        tray_output none
-        modifier $mod
-        status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
-        i3bar_command i3bar -t
-        position top
-        height 20
-        # status_command i3status
+# bar {
+#         output primary
+#         tray_output none
+#         modifier $mod
+#         status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
+#         i3bar_command i3bar -t
+#         position top
+#         height 20
+#         # status_command i3status
 
-        colors {
-               background $sbbg
-               statusline $sbsl
-               separator  $sbwabg
+#         colors {
+#                background $sbbg
+#                statusline $sbsl
+#                separator  $sbwabg
 
-               # colorclass         border     backgro    text
-               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
-               active_workspace     $sbwbr     $sbwabg    $sbowtx
-               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $sbwubr    $sbwubr    $sbuwtx
-               }
-}
+#                # colorclass         border     backgro    text
+#                focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
+#                active_workspace     $sbwbr     $sbwabg    $sbowtx
+#                inactive_workspace   $sbwbr     $sbwabg    $sbowtx
+#                urgent_workspace     $sbwubr    $sbwubr    $sbuwtx
+#                }
+# }
 
 #** bar: secondary → local
 # moved to local files!
@@ -580,8 +584,8 @@ bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 
 #** rofi/dmenu scpripts
 set $rofi-theme i3orange
-bindsym $mod+d $exe rofi -show drun -modi drun -theme $rofi-theme
-bindsym $mod+semicolon $exe rofi -show window -modi window -window-format "[{n:3}: {t:18}]" -theme $rofi-theme
+bindsym $mod+d $exe rofi -show drun -modi drun -columns 2 #-theme $rofi-theme
+bindsym $mod+semicolon $exe rofi -show window -modi window #-window-format "[{n:3}: {t:18}]" #-theme $rofi-theme
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 #bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
 bindsym $mod+bracketleft $exe ~/.dotfiles/dmenu/dmenu-choose-script.sh

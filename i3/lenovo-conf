@@ -2,7 +2,7 @@
 
 # lenovo local settings:
 # =====================
-# Last update: 2019-04-26, 23:00:09 @lenovo
+# Last update: 2019-05-11, 22:02:23 @lenovo
 
 bindsym $mod+Shift+Delete       exec shutdown now
 bindsym $mod+Shift+Home         exec systemctl hibernate
@@ -33,24 +33,24 @@ for_window [class="Skype"] move window to position 1070 20
 # bindsym Mod3+space workspace next
 # bindsym Mod3+slash workspace prev
 
-bar {
-        output VGA1
-        tray_output none
-        modifier $mod
-        status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
-        i3bar_command i3bar -t
-        position top
-        height 20
+# bar {
+#         output VGA1
+#         tray_output none
+#         modifier $mod
+#         status_command i3blocks -c ~/.dotfiles/i3/i3blocks-secondary.conf
+#         i3bar_command i3bar -t
+#         position top
+#         height 20
 
-        colors {
-               background $sbbg
-               statusline $sbsl
-               separator  $sbwabg
+#         colors {
+#                background $sbbg
+#                statusline $sbsl
+#                separator  $sbwabg
 
-               # colorclass         border     backgro    text
-               focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
-               active_workspace     $sbwbr     $sbwabg    $sbowtx
-               inactive_workspace   $sbwbr     $sbwabg    $sbowtx
-               urgent_workspace     $brur      $bgur      $sbuwtx
-        }
-}
+#                # colorclass         border     backgro    text
+#                focused_workspace    $sbwfbg    $sbwfbg    $sbwtx
+#                active_workspace     $sbwbr     $sbwabg    $sbowtx
+#                inactive_workspace   $sbwbr     $sbwabg    $sbowtx
+#                urgent_workspace     $brur      $bgur      $sbuwtx
+#         }
+# }
