@@ -60,7 +60,7 @@ font-0 = VT323:style=Regular:pixelsize=12;1
 font-1 = FontAwesome:style=Regular:pixelsize=8:antialias=false;1
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
 font-3 = siji:pixelsize=12;1
-font-4 = file\-icons:style=icons:pixelsize=8;1
+font-4 = file\-icons:style=icons:pixelsize=8;2
 
 ;font-1 = monospace:pixelsize=10;1
 ;font-0 = Monoid:pixelsize=8;2
@@ -72,7 +72,7 @@ font-4 = file\-icons:style=icons:pixelsize=8;1
 ;*** modules 1
 modules-left =  i3 
 modules-center = wintitle
-modules-right = alsa filesystem memory cpu loadavg battery wlan eth sysupdt mail date
+modules-right = alsa disk memory cpu loadavg battery wlan eth sysupdt mail date
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -111,10 +111,11 @@ module-margin-left = 1
 module-margin-right = 1
 
 ;*** fonts 2
-font-0 = VT323:style=Regular:pixelsize=14:antialias=false;2
+font-0 = VT323:style=Regular:pixelsize=13:antialias=false;2
 font-1 = FontAwesome:style=Regular:pixelsize=10:antialias=false;3
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;4
 font-3 = siji:pixelsize=12;1
+font-4 = file\-icons:style=icons:pixelsize=9;3
 
 ;*** modules 2
 modules-left = i3
@@ -153,16 +154,22 @@ format-foreground = #ececec
 ; label-indicator-underline = ${colors.secondary}
 
 ;** disk filesystem
-[module/filesystem]
-type = internal/fs
-interval = 25
+; [module/filesystem]
+; type = internal/fs
+; interval = 25
+; mount-0 = /
 
-mount-0 = /
+; ;label-mounted = %{F#0a81f5}%{F-} %free:3:3%
+; label-mounted = %{T4}%{T-} %free:3:3%
+; label-unmounted = %mountpoint% not mounted
+; label-unmounted-foreground = ${colors.foreground-alt}
 
-;label-mounted = %{F#0a81f5}%{F-} %free:3:3%
-label-mounted = %{T4}%{T-} %free:3:3%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+;** disk custom
+[module/disk]
+type = custom/script
+exec = ~/.dotfiles/polybar/poly-diskinfo.sh
+interval = 30
+label = %{T4}%{T-} %output%
 
 ; [module/bspwm]
 ; type = internal/bspwm
@@ -204,7 +211,7 @@ label-mode-foreground = #ececec
 ;label-focused = %{F#33d9b2}%index%/%{F#ececec}%name%
 label-focused = %index%
 label-focused-foreground = #ececec
-label-focused-background = #50191f26
+label-focused-background = #50227093
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -214,15 +221,15 @@ label-unfocused-padding = 1
 label-unfocused-foreground = #aaa69d
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %{F#D980FA}%index%/%{F#aaa69d}%name%
-label-visible-background =
+label-visible = %index%
+label-visible-background = #5040407a
 label-visible-foreground = #aaa69d
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background =
-label-urgent-foreground = #b33939
+label-urgent-background = #b33939
+label-urgent-foreground = #ececec
 label-urgent-padding = 
 
 ; Separator in between workspaces

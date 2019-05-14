@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/monitory-UP.sh
 # Created:     06.07.18, 09:47    @toshiba
-# Last update: 24.11.18, 10:53:42 @x200
+# Last update: 2019-05-14, 17:28:09 @x200
 
 # Doc: default setting for 2 monitors (primary down, secondary up)
 #xrandr --current | grep -A 1 primary | awk -F"x" 'NR==2 {gsub(/^ */,""); print $1}'
@@ -30,6 +30,8 @@ fi
 if [ -n $extern ] && [ -n $intern ]; then
     ~/.fehbg;
     pkill dunst && dunst &
+    ~/.dotfiles/polybar/polystart.sh
+    pkill i3listen-poly && ~/git/hub/i3/i3listen-poly.py &
 fi
 
 echo "num=$(xrandr --listmonitors | awk 'NR==1 {print $2}')" > $log_file
