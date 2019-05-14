@@ -1,29 +1,29 @@
 # -*- mode:conf -*-
-# Default index colors:
+#* Default index colors:
 color index red default '.*'
 color index_author green default '.*'
 color index_number brightblack default
 color index_subject magenta default '.*'
 
-# For new mail:
+#* For new mail:
 color index brightred brightblack "~N|~O" 
-color index_author brightgreen brightblack "~N|~O"
-color index_subject brightmagenta brightblack "~N|~O"
+color index_author brightgreen default "~N|~O"
+color index_subject brightmagenta default "~N|~O"
 
-# Flagged
-color index brightred magenta "~F" 
-color index_author brightgreen magenta "~F"
-color index_subject brightmagenta magenta "~F"
+#* Flagged
+color index brightblue brightblack "~F" 
+color index_author brightgreen default "~F"
+color index_subject brightmagenta default "~F"
 
-# Deleted
+#* Deleted
 color index brightred yellow "~D" 
 color index_author brightgreen yellow "~D"
 color index_subject brightmagenta yellow "~D"
 
-# tagged messages
+#* tagged messages
 color index yellow black "~T"  
 
-# Header colors:
+#* Header colors:
 color header default black ".*"
 color header red black "^(Date)"
 color header green black "^(From)"
@@ -64,9 +64,9 @@ color normal default default
 color body yellow default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
 color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
 color body green default "\`[^\`]*\`" # Green text between ` and `
-color body brightblue default "^# \.*" # Headings as bold blue
-color body brightcyan default "^## \.*" # Subheadings as bold cyan
-color body brightgreen default "^### \.*" # Subsubheadings as bold green
+color body brightblue default "^#* \.*" # Headings as bold blue
+color body brightcyan default "^##* \.*" # Subheadings as bold cyan
+color body brightgreen default "^###* \.*" # Subsubheadings as bold green
 color body yellow default "^(\t| )*(-|\\*) \.*" # List items as yellow
 color body brightcyan default "[;:][-o][)/(|]" # emoticons
 color body brightcyan default "[;:][)(|]" # emoticons
