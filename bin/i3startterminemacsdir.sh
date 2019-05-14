@@ -2,7 +2,7 @@
 
 #* Path:        ~/.dotfiles/bin/i3startterminemacsdir.sh
 #  Created:     26.08.18, 15:00    @x200
-#  Last update: 2019-05-08, 12:08:20 @lenovo
+#  Last update: 2019-05-13, 12:51:51 @lenovo
 #  Doc:         If an Emacs window is focused with a file in active buffer,
 #               open the terminal in the working directory; 
 #               else, open in $HOME.
@@ -28,7 +28,7 @@ if [[ $class =~ "Emacs" ]]; then
     [[ -d $DIR ]] && cd $DIR
     st -c term -t "st @$(date +%H:%M:%S)" $FONT $EXEC &
 else
-    [[ $class == term ]] && DIR=$(echo $title | awk '{print $NF}') || DIR=$PWD
+    [[ $class == term ]] && DIR=$(echo $title | awk '{print $2}') || DIR=$PWD
     cd $DIR
     st -c term -t "st @$(date +%H:%M:%S)" $FONT $EXEC &
 fi
