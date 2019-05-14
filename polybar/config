@@ -278,7 +278,7 @@ label = %percentage_used:3:3%
 ;** network: wifi
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = ${env:WLAN:wls1}
 interval = 3.0
 
 format-connected = <label-connected>
@@ -408,8 +408,8 @@ ramp-volume-2 = 
 ;** battery
 [module/battery]
 type = internal/battery
-battery = BAT1
-adapter = ACAD
+battery = ${env:BATTERY:BAT0}
+adapter = ${env:ADAPTER:AC}
 full-at = 99
 poll-interval = 5
 
