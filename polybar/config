@@ -11,14 +11,9 @@
 ;   go to https://github.com/jaagr/polybar
 
 ;* GENERAL
-;** ipc socket
-
 ;** colors
 [colors]
 ;background = ${xrdb:color0:#222}
-;background = #34ace0
-;background = #218c74
-;background = #EE14191f
 background = #00708B98
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
@@ -40,7 +35,7 @@ height = 20
 ;offset-y = 1%
 radius = 0.0
 fixed-center = false
-bottom = true  
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -56,10 +51,10 @@ module-margin-right = 1
 
 ;*** fonts 1
 ;font-0 = Ubuntu Condensed:style=Regular:pixelsize=10;2
-font-0 = VT323:style=Regular:pixelsize=12;1
+font-0 = VT323:style=Regular:pixelsize=12;2
 font-1 = FontAwesome:style=Regular:pixelsize=8:antialias=false;1
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
-font-3 = siji:pixelsize=12;1
+font-3 = siji:pixelsize=12;2
 font-4 = file\-icons:style=icons:pixelsize=8;2
 
 ;font-1 = monospace:pixelsize=10;1
@@ -70,7 +65,7 @@ font-4 = file\-icons:style=icons:pixelsize=8;2
 ;font-2 = siji:pixelsize=10;1
 
 ;*** modules 1
-modules-left =  i3 
+modules-left =  i3
 modules-center = wintitle
 modules-right = alsa disk memory cpu loadavg battery wlan eth sysupdt mail date
 
@@ -89,7 +84,7 @@ cursor-scroll = ns-resize
 
 ;** BAR 2
 [bar/secondary]
-enable-ipc = true 
+enable-ipc = true
 monitor = ${env:EXTERNAL:VGA1}
 width = 100%
 height = 20
@@ -111,59 +106,22 @@ module-margin-left = 1
 module-margin-right = 1
 
 ;*** fonts 2
-font-0 = VT323:style=Regular:pixelsize=13:antialias=false;2
+font-0 = VT323:style=Regular:pixelsize=13:antialias=false;3
 font-1 = FontAwesome:style=Regular:pixelsize=10:antialias=false;3
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;4
-font-3 = siji:pixelsize=12;1
+font-3 = siji:pixelsize=12;2
 font-4 = file\-icons:style=icons:pixelsize=9;3
 
 ;*** modules 2
 modules-left = i3
 modules-center = wintitle
 modules-right = alsa wlan eth date
-; modules-left = i3  
-; modules-center = xwindow
-; modules-right = pulseaudio date
 
 override-redirect = false
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 ;* MODULES
-;** win title xwindow
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:80:...%
-label-empty = 
-format-foreground = #ececec
-
-; [module/xkeyboard]
-; type = internal/xkeyboard
-; blacklist-0 = num lock
-
-; format-prefix = " "
-; format-prefix-foreground = ${colors.foreground-alt}
-; format-prefix-underline = ${colors.secondary}
-
-; label-layout = %layout%
-; label-layout-underline = ${colors.secondary}
-
-; label-indicator-padding = 2
-; label-indicator-margin = 1
-; label-indicator-background = ${colors.secondary}
-; label-indicator-underline = ${colors.secondary}
-
-;** disk filesystem
-; [module/filesystem]
-; type = internal/fs
-; interval = 25
-; mount-0 = /
-
-; ;label-mounted = %{F#0a81f5}%{F-} %free:3:3%
-; label-mounted = %{T4}%{T-} %free:3:3%
-; label-unmounted = %mountpoint% not mounted
-; label-unmounted-foreground = ${colors.foreground-alt}
-
 ;** disk custom
 [module/disk]
 type = custom/script
@@ -171,32 +129,10 @@ exec = ~/.dotfiles/polybar/poly-diskinfo.sh
 interval = 30
 label = %{T4}%{T-} %output%
 
-; [module/bspwm]
-; type = internal/bspwm
-
-; label-focused = %index%
-; label-focused-background = ${colors.background-alt}
-; label-focused-underline= ${colors.primary}
-; label-focused-padding = 2
-
-; label-occupied = %index%
-; label-occupied-padding = 2
-
-; label-urgent = %index%!
-; label-urgent-background = ${colors.alert}
-; label-urgent-padding = 2
-
-; label-empty = %index%
-; label-empty-foreground = ${colors.foreground-alt}
-; label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
 ;** workspaces i3 module
 [module/i3]
 type = internal/i3
-;format = <label-state> <label-mode>
+format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 strip-wsnumbers = true
@@ -204,18 +140,14 @@ pin-workspaces = true
 
 label-mode-padding = 1
 label-mode-foreground = #ececec
-;label-mode-background = 
 
 ; focused = Active workspace on focused monitor
-;label-focused = %name%
-;label-focused = %{F#33d9b2}%index%/%{F#ececec}%name%
 label-focused = %index%
 label-focused-foreground = #ececec
 label-focused-background = #50227093
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-;label-unfocused = %{F#40407a}%index%/%{F#aaa69d}%name%
 label-unfocused = %index%
 label-unfocused-padding = 1
 label-unfocused-foreground = #aaa69d
@@ -230,10 +162,10 @@ label-visible-padding = 1
 label-urgent = %index%
 label-urgent-background = #b33939
 label-urgent-foreground = #ececec
-label-urgent-padding = 
+label-urgent-padding = 1
 
 ; Separator in between workspaces
-label-separator = 
+label-separator =
 
 ; [module/mpd]
 ; type = internal/mpd
@@ -248,28 +180,6 @@ label-separator =
 ; label-song-maxlen = 25
 ; label-song-ellipsis = true
 
-; [module/xbacklight]
-; type = internal/xbacklight
-
-; format = <label> <bar>
-; label = BL
-
-; bar-width = 10
-; bar-indicator = |
-; bar-indicator-foreground = #fff
-; bar-indicator-font = 2
-; bar-fill = ─
-; bar-fill-font = 2
-; bar-fill-foreground = #9f78e1
-; bar-empty = ─
-; bar-empty-font = 2
-; bar-empty-foreground = ${colors.foreground-alt}
-
-; [module/backlight-acpi]
-; inherit = module/xbacklight
-; type = internal/backlight
-; card = intel_backlight
-
 ;** cpu
 [module/cpu]
 type = internal/cpu
@@ -283,8 +193,6 @@ label = %percentage:2:2%
 type = internal/memory
 interval = 2
 format-prefix = %{T4}%{T-}
-;""
-; format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used:3:3%
 
 ;** network: wifi
@@ -296,16 +204,11 @@ interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 label-connected = %signal%
 format-disconnected =
- 
+
 ; sigi font!
 ramp-signal-0 = %{T4}%{T-}
 ramp-signal-1 = %{T4}%{T-}
 ramp-signal-2 = %{T4}%{T-}
-
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 ;** network: ethernet
 [module/eth]
@@ -314,13 +217,8 @@ interface = enp5s0
 interval = 3.0
 
 format-connected-prefix = %{T4} %{T-}
-; format-connected-prefix-foreground = ${colors.foreground-alt}
-
 label-connected = %linkspeed%
-format-disconnected = 
-; format-disconnected-underline = ${self.format-connected-underline}
-; label-disconnected = %ifname% disconnected
-; label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected =
 
 ;** date
 [module/date]
@@ -329,16 +227,11 @@ interval = 5
 
 date =
 date-alt = "%a, %d %B "
-
 time = %H:%M
 time-alt = %H:%M:%S
-
-;format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-
 label = %date%%time%
 
-;** volume pulseaudio
+;** volume alsa
 [module/alsa]
 type = internal/alsa
 
@@ -346,71 +239,11 @@ format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%
 label-volume-foreground = ${root.foreground}
 
-label-muted = %{T4}%{T-} %percentage% 
+label-muted = %{T4}%{T-} %percentage%
 label-muted-foreground = #666
 
 ramp-volume-0 = %{T4}%{T-}
 ramp-volume-1 = %{T4}%{T-}
-;ramp-volume-2 = 
-
-; [module/volume]
-; type = internal/volume
-
-; format-volume = <ramp-volume> <label-volume>
-; label-volume = %percentage%
-; label-volume-foreground = ${root.foreground}
-
-; label-muted =  %percentage% 
-; label-muted-foreground = #666
-
-; ramp-volume-0 = 
-; ramp-volume-1 = 
-; ramp-volume-2 = 
-
-; bar-volume-width = 10
-; bar-volume-foreground-0 = #55aa55
-; bar-volume-foreground-1 = #55aa55
-; bar-volume-foreground-2 = #55aa55
-; bar-volume-foreground-3 = #55aa55
-; bar-volume-foreground-4 = #55aa55
-; bar-volume-foreground-5 = #f5a70a
-; bar-volume-foreground-6 = #ff5555
-; bar-volume-gradient = false
-; bar-volume-indicator = |
-; bar-volume-indicator-font = 2
-; bar-volume-fill = ─
-; bar-volume-fill-font = 2
-; bar-volume-empty = ─
-; bar-volume-empty-font = 2
-; bar-volume-empty-foreground = ${colors.foreground-alt}
-
-; [module/alsa]
-; type = internal/alsa
-
-; format-volume = <label-volume>
-; label-volume = %percentage%%
-; label-volume-foreground = ${root.foreground}
-
-; format-muted-prefix = " "
-; format-muted-foreground = ${colors.foreground-alt}
-; label-muted = sound muted
-
-; bar-volume-width = 10
-; bar-volume-foreground-0 = #55aa55
-; bar-volume-foreground-1 = #55aa55
-; bar-volume-foreground-2 = #55aa55
-; bar-volume-foreground-3 = #55aa55
-; bar-volume-foreground-4 = #55aa55
-; bar-volume-foreground-5 = #f5a70a
-; bar-volume-foreground-6 = #ff5555
-; bar-volume-gradient = false
-; bar-volume-indicator = |
-; bar-volume-indicator-font = 2
-; bar-volume-fill = ─
-; bar-volume-fill-font = 2
-; bar-volume-empty = ─
-; bar-volume-empty-font = 2
-; bar-volume-empty-foreground = ${colors.foreground-alt}
 
 ;** battery
 [module/battery]
@@ -422,13 +255,11 @@ poll-interval = 5
 
 format-charging = <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-charging-prefix = %{T4} %{T-} 
+format-charging-prefix = %{T4} %{T-}
 label-charging = %percentage%
 label-discharging = %percentage%
 
-label-full = %{T4} %{T-} %percentage% 
-; format-full-prefix-foreground = ${colors.foreground-alt}
-; format-full-underline = ${self.format-charging-underline}
+label-full = %{T4}%{T-} %percentage%
 
 ramp-capacity-0 = %{T4}%{T-}
 ramp-capacity-1 = %{T4}%{T-}
@@ -440,7 +271,6 @@ ramp-capacity-6 = %{T4}%{T-}
 ramp-capacity-7 = %{T4}%{T-}
 ramp-capacity-8 = %{T4}%{T-}
 ramp-capacity-9 = %{T4}%{T-}
-;ramp-capacity-foreground = ${colors.foreground-alt}
 
 ;** mail
 [module/mail]
@@ -467,60 +297,11 @@ label = %output:5:5%
 margin-top = 5
 margin-bottom = 5
 
-; [module/menu-apps]
-; type = custom/menu
-
-; ; If true, <label-toggle> will be to the left of the menu items (default).
-; ; If false, it will be on the right of all the items.
-; expand-right = true
-
-; ; "menu-LEVEL-N" has the same properties as "label-NAME" with
-; ; the additional "exec" property
-; ;
-; ; Available exec commands:
-; ;   menu-open-LEVEL
-; ;   menu-close
-; ; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
-
-; menu-0-0 = Browsers
-; menu-0-0-exec = menu-open-1
-; menu-0-1 = Multimedia
-; menu-0-1-exec = menu-open-2
-
-; menu-1-0 = Firefox
-; menu-1-0-exec = firefox &
-; menu-1-1 = Chromium
-; menu-1-1-exec = chromium &
-
-; menu-2-0 = Gimp
-; menu-2-0-exec = gimp &
-; menu-2-1 = Scrot
-; menu-2-1-exec = scrot &
-; ; Available tags:
-; ;   <label-toggle> (default) - gets replaced with <label-(open|close)>
-; ;   <menu> (default)
-; ; Note that if you use <label-toggle> you must also include
-; ; the definition for <label-open>
-; ;format = <label-toggle> <menu>
-
-; label-open = Apps
-; label-close = x
-
-; ; Optional item separator
-; ; Default: none
-
 ;** wintitle
 [module/wintitle]
 type = custom/ipc
 hook-0 = ~/git/hub/i3/i3wintitle.py
 initial = 1
-
-; [module/poweroff]
-; type = custom/menu
-; menu-0-0 = Poweroff
-; menu-0-0-exec = systemctl suspend
-; tail = true
-; label = 
 
 ;** sysupdt
 [module/sysupdt]
