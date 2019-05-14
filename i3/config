@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-14, 07:26:46 @x200
+# Last update: 2019-05-14, 18:28:07 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -584,7 +584,7 @@ bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 
 #** rofi/dmenu scpripts
 set $rofi-theme i3orange
-bindsym $mod+d $exe rofi -show drun -modi drun -columns 2 #-theme $rofi-theme
+bindsym $mod+d $exe rofi -show drun -modi drun -columns 1 -width 35 #-theme $rofi-theme
 bindsym $mod+semicolon $exe rofi -show window -modi window #-window-format "[{n:3}: {t:18}]" #-theme $rofi-theme
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 #bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme

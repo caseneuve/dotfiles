@@ -5,7 +5,7 @@
 #     #  #   #     #
 #      ##    #    ###
 
-# Last update: 2019-05-13, 14:01:32 @lenovo
+# Last update: 2019-05-14, 18:34:14 @x200
 # Doc:         default themes: /usr/share/rofi/themes/
 # Fix:         należy napisać skrypty dla różnych komend, żeby respektowały różne
 #              monitory; tutaj zostawić tylko kolory i fullscreen
@@ -14,61 +14,19 @@
 rofi.combi-modi:    window,drun,run
 rofi.modi:          window
 
-#* COLORS
-#! State:          'bg',       'fg',      'bgalt',    'hlbg',     'hlfg'
-# rofi.color-normal: #586e75,    #fdf6e3,   #191f26,    #586e75,    #eee8d5
-# rofi.color-urgent: #586e75,    #dc322f,   #191f26,    #dc322f,    #fdf6e3
-# rofi.color-active: #586e75,    #268bd2,   #191f26,    #268bd2,    #fdf6e3
-
-# rofi.color-normal: #aa000000,  #ffffff,   #aa444444,  #aa000000,  #aa000000
-# rofi.color-normal: #aa000000,  #fdf6e3,   #aa444444,  #aa268bd2,  #eee8d5
-# rofi.color-urgent: #aa000000,  #dc322f,   #aa444444,  #aa268bd2,  #fdf6e3
-# rofi.color-active: #aa000000,  #aa268bd2, #aa444444,  #aa268bd2,  #fdf6e3
-
-#!                  'background',  'border',  'separator'
-# rofi.color-window:  #191f26,      #191f26,    #191f26
-# rofi.color-window:  #cc444444,    #aa000000,  #aa000000
-# rofi.color-window:  #aa444444,    #aa444444,  #aa444444
-
-#* APPEARANCE
-# rofi.hide-scrollbar:    true
-# rofi.fake-transparency: false
-# rofi.lines:             10
-# rofi.bw:                0
-# rofi.location:          0
-# rofi.opacity:           80
-# rofi.fullscreen:        true
-# rofi.width:             300
-# rofi.padding:           5
-# rofi.font:              monospace 12
-
-#rofi.run-command: {cmd}
-#rofi.separator-style: dash
-
 #* MATCHING
 # opts: normal, fuzzy, regex, glob
 rofi.matching: regex
 
 #* KBD
-rofi.kb-row-up: Alt-j,Control-Tab
-rofi.kb-row-down: Alt-l
+rofi.kb-row-up: Alt-k,Control-Tab
+rofi.kb-row-down: Alt-j
 rofi.kb-delete-entry: Alt-d
 rofi.kb-accept-entry: Alt-a,Return
 rofi.kb-mode-next: Alt-o
 rofi.kb-mode-previous: Alt-u
 
 rofi.color-enabled: true
-
-#* COLORS
-# ! Window:           'background',  'border', 'separator'
-# rofi.color-window:  argb:f214191f,        #9575cd, #4682b4
-# !rofi.color-window: argb:cc252936,  #9575cd, #4682b4
-# !argb:ffffffff
-
-# !   State:              'bg',       'fg',   'altbg',        'hlbg',         hlfg
-# rofi.color-normal: argb:00252936, #ffffff, argb:00252936, argb:009575cd, #00ff7f
-# rofi.color-active: argb:00252936, #708090, argb:00252936, argb:009575cd, #ffc000
-# rofi.color-urgent: argb:00252936, #ff0000, argb:00252936, argb:00252936, #ff0000
 
 #* FORMAT
 rofi.width: 50
@@ -83,7 +41,7 @@ rofi.bw: 1
 rofi.eh: 1
 rofi.hide-scrollbar: true
 rofi.auto-select: false
-rofi.display-drun: run
-rofi.display-window: window
+rofi.display-drun: Apps
+rofi.display-window: Windows
 rofi.fullscreen: false
 rofi.theme: floating.rasi
