@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-13, 15:41:53 @lenovo
+# Last update: 2019-05-14, 07:26:46 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -383,7 +383,7 @@ for_window [class="YTBDWL"] move scratchpad
 # for_window [title="youtube-dl"] move window to position $yright 10
 
 #* GAPS & BORDERS
-smart_gaps out
+#smart_gaps out
 set $gaps_in  6
 set $gaps_out 6
 gaps inner $gaps_in
