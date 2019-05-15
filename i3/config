@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-14, 18:28:07 @x200
+# Last update: 2019-05-14, 19:30:50 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -435,7 +435,7 @@ client.urgent             $brur   $bgur  $txtur
 
 #* BAR
 # use fonts.conf configuration
-font pango:Monoid 8
+font pango:VT323 12
 #font pango:monospace 9
 #font pango:Nova Mono 9
 #font pango:Roboto Condensed 9
