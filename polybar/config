@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-05-14, 16:41:00 @lenovo
+; Last update: 2019-05-15, 00:45:24 @x200
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -278,7 +278,6 @@ type = custom/ipc
 hook-0 = ~/.dotfiles/i3/scripts/i3mailchecker
 hook-1 = mbsync gmail-default
 initial = 1
-interval = 300
 click-left = mbsync gmail-default
 click-right = polybar-msg hook mail 1
 format-prefix = %{T4} %{T-}
