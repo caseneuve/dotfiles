@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-05-15, 00:45:24 @x200
+; Last update: 2019-05-15, 13:52:00 @lenovo
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -304,10 +304,8 @@ initial = 1
 
 ;** sysupdt
 [module/sysupdt]
-type = custom/script
-exec = ~/.dotfiles/bin/sys-updt.sh
-interval = 216000
+type = custom/ipc
+hook-0 = ~/.dotfiles/bin/sys-updt.sh
+initial = 1
 format-prefix = %{T4} %{T-}
 label = %output%
-tail = true
-click-left = ~/.dotfiles/bin/sys-updt.sh

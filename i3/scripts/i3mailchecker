@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-05-14, 17:19:25 @x200
+# Last update: 2019-05-15, 13:34:18 @lenovo
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -85,10 +85,10 @@ main() {
     done
 
     if $new; then
-        FG_COLOR=$(awk '/^*blue/ {print $2}' $HOME/.Xresources)
-        BG_COLOR=#50227093
+        FG_COLOR=$(awk '/^*urgent/ {print $2}' $HOME/.Xresources)
+        #BG_COLOR=#50227093
         if $POLY; then
-            echo "%{B$BG_COLOR}%{F$FG_COLOR} $count %{F-}%{B-}"
+            echo "%{F$FG_COLOR}$count%{F-}"
         else
             echo "<span fgcolor='$FG_COLOR'>$GLYPH $count</span>"
         fi

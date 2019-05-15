@@ -1,11 +1,11 @@
-  #    #           #       #   
- # #               #       #   
- #    ##     ###   ###     #   
-###    #    ##     #  #    #   
- #     #      ##   #  #        
- #    ###   ###    #  #    #   
+    #    #           #       #
+   # #               #       #
+   #    ##     ###   ###     #
+  ###    #    ##     #  #    #
+   #     #      ##   #  #
+   #    ###   ###    #  #    #
 
-# Last update: 2019-05-08, 12:43:34 @lenovo
+# Last update: 2019-05-15, 13:51:41 @lenovo
 
 #* VARIABLES
 #** env vars
@@ -71,7 +71,7 @@ if status --is-interactive
   set -g fish_user_abbreviations
   #echo -n Setting abbreviations...
 
-  #** source fast dirs
+#** source fast dirs
   if test -f $HOME/.dotfiles/fish/fast-dirs.fish
       source $HOME/.dotfiles/fish/fast-dirs.fish
   end
@@ -104,12 +104,12 @@ if status --is-interactive
   abbr --add compton 'compton --config ~/.config/compton/compton.conf'
   abbr --add sqlb sqlitebrowser
   abbr --add hs hugo server -vw
-  abbr --add fdf fd -d 1 -t f 
+  abbr --add fdf fd -d 1 -t f
 
 end
 
 #* FUNCTIONS
-#** reload config 
+#** reload config
 function sfc -d 'Reload fish config'
     update_functions
     source ~/.config/fish/config.fish >/dev/null
@@ -128,7 +128,7 @@ end
 
 #** yayup
 function ya -d 'Update packages'
-    yay && pkill -RTMIN+12 i3blocks
+    yay && echo hook:module/sysupdt1 >> /tmp/polybar-ipc-primary
 end
 
 #** psaux / psauk
@@ -163,7 +163,7 @@ function update_functions -d 'Update function files'
     if ! test -d $CFG
         mkdir -p $CFG
     end
-    
+
     for file in (ls $DOT)
         if test -L $CFG$file
             continue
@@ -171,7 +171,7 @@ function update_functions -d 'Update function files'
             ln -s $DOT$file $CFG
             set_color -i blue
             echo "* Missing file '$file' symlinked... *"
-            set updt true 
+            set updt true
         end
     end
     if $updt
@@ -181,9 +181,3 @@ function update_functions -d 'Update function files'
 end
 
 update_functions
-                
-                
-                
-                
-                
-                               
