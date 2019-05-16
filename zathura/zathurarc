@@ -2,11 +2,11 @@
 ##########################
 #   MY ZATHURA CONFIG    #
 ##########################
-# Last update: 2019-04-30, 07:54:00 @x200
+# Last update: 2019-05-15, 22:39:41 @lenovo
 # Docs:        https://pwmt.org/projects/zathura/documentation/
 
 set selection-clipboard clipboard
-set window-title-basename true
+set window-title-basename false
 set window-title-home-tilde true
 set statusbar-basename true
 set statusbar-home-tilde true

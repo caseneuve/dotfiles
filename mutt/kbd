@@ -1,6 +1,6 @@
 # -*- mode:conf-space eval:(display-line-numbers-mode) -*-
 # Mutt keybindings
-# Last update: 2019-05-10, 22:33:43 @lenovo
+# Last update: 2019-05-16, 07:59:37 @lenovo
 
 source unbind
 
@@ -95,6 +95,7 @@ bind pager    \Cp      previous-entry
 bind pager    \Cd      delete-message
 bind pager    gg       top
 bind pager    G        bottom
+bind pager    S        save-message
 
 bind attach   a        save-entry
 macro attach  s        "a/home/piotr/dwl/att<enter>t"
