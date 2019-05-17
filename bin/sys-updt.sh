@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     2018-05-30, 16:02    @x200
-# Last update: 2019-05-14, 16:02:55 @lenovo
+# Last update: 2019-05-17, 13:01:11 @lenovo
 # Doc:         Primitive pamac-tray replacement
 #              requires pacman-contrib package (`checkupdates` command)
 
@@ -23,6 +23,8 @@ if [[ -n $NUM ]]; then
         elif [[ $(pgrep polybar) ]]; then
             echo "$NUM"
         fi
+    else
+        echo ""
     fi
 fi
 

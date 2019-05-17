@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-14, 19:30:50 @lenovo
+# Last update: 2019-05-17, 09:04:16 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -47,7 +47,7 @@ $exe  mocp -S
 #$exe  emacs --daemon
 $exea dunst                                            # notifier
 $exea amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
-$exea $hub/i3listen.py      # manage workspace names and window titles in bar
+$exea $hub/i3listen-poly.py      # manage workspace names and window titles in bar
 
 #** git!
 $exe  $dot/gitpull.sh    # git

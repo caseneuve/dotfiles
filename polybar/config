@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-05-15, 13:52:00 @lenovo
+; Last update: 2019-05-17, 12:48:25 @lenovo
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -201,14 +201,21 @@ type = internal/network
 interface = ${env:WLAN:wls1}
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-label-connected = %signal%
+;format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal>
+;label-connected = %signal%
 format-disconnected =
 
 ; sigi font!
-ramp-signal-0 = %{T4}%{T-}
-ramp-signal-1 = %{T4}%{T-}
-ramp-signal-2 = %{T4}%{T-}
+; ramp-signal-0 = %{T4}%{T-}
+; ramp-signal-1 = %{T4}%{T-}
+; ramp-signal-2 = %{T4}%{T-}
+
+ramp-signal-0 = %{T4}%{T-}
+ramp-signal-1 = %{T4}%{T-}
+ramp-signal-2 = %{T4}%{T-}
+ramp-signal-3 = %{T4}%{T-}
+ramp-signal-4 = %{T4}%{T-}
 
 ;** network: ethernet
 [module/eth]
@@ -253,13 +260,16 @@ adapter = ${env:ADAPTER:AC}
 full-at = 99
 poll-interval = 5
 
-format-charging = <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
+;format-charging = <label-charging>
+format-charging = <ramp-capacity>
+;format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity>
 format-charging-prefix = %{T4} %{T-}
-label-charging = %percentage%
-label-discharging = %percentage%
+;label-charging = %percentage%
+;label-discharging = %percentage%
 
-label-full = %{T4}%{T-} %percentage%
+;label-full = %{T4}%{T-} %percentage%
+label-full = %{T4}%{T-}
 
 ramp-capacity-0 = %{T4}%{T-}
 ramp-capacity-1 = %{T4}%{T-}
