@@ -2,9 +2,13 @@
 
 #define foreground #4d4d4d
 #define background #fffafa
+#define dark2      #e1e1e0
+
+#define red_alt    #ff5252
+#define grey       #aaa69d
 
 #define black      #fff8e7   
-#define red        #F06292 
+#define red        #F06292
 #define green      #218c74 
 #define yellow     #ffb142 
 #define blue       #227093 
