@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-05-15, 13:51:41 @lenovo
+# Last update: 2019-05-19, 14:00:54 @lenovo
 
 #* VARIABLES
 #** env vars
@@ -128,7 +128,7 @@ end
 
 #** yayup
 function ya -d 'Update packages'
-    yay && echo hook:module/sysupdt1 >> /tmp/polybar-ipc-primary
+    yay; echo hook:module/sysupdt1 >> /tmp/polybar-ipc-primary
 end
 
 #** psaux / psauk
