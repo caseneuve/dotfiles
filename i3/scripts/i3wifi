@@ -2,14 +2,14 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3wifi
 # Created:     2018-07-10, 14:37    @x200
-# Last update: 2019-03-30, 01:20:02 @lenovo
+# Last update: 2019-05-19, 16:38:11 @lenovo
 # Doc:         wifi status indicator for i3blocks
 
 DEST=1.1.1.1
 IF=$(ip route | awk '/^default/ { print $5 ; exit }')
 [[ -z $IF ]] && echo "OFF"
 
-COLOR=$(awk '/^*urgent/ {print $2}' $HOME/.Xresources)
+COLOR=$(awk '/^*i3urgent/ {print $2}' $HOME/.Xresources)
 
 if [[ $IF == "enp0s25" ]]; then
     GLYPH=""

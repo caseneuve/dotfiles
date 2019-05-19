@@ -1,0 +1,26 @@
+! -*- eval:(rainbow-mode); -*-
+! default Xresources colors (do not change this file, it will be overwritten)
+
+#define foreground #a2adc3
+#define background #14191f
+#define dark2      #191f26
+
+#define red_alt    #C0392B
+#define grey       #3b475e
+
+#define black      #0a0c10
+#define red        #EC407A
+#define green      #218c74
+#define yellow     #ffb142
+#define blue       #227093
+#define magenta    #40407a
+#define cyan       #00B8D4
+#define white      #e1e1e0
+#define br_black   #2d2c37
+#define br_red     #F06292
+#define br_green   #33d9b2
+#define br_yellow  #ffda79
+#define br_blue    #34ace0
+#define br_magenta #D980FA
+#define br_cyan    #00E5FF
+#define br_white   #f7f1e3

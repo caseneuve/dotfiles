@@ -2,7 +2,7 @@
 #* Default index colors:
 color index red default '.*'
 color index_author green default '.*'
-color index_number brightblack default
+color index_number magenta default
 color index_subject magenta default '.*'
 
 #* For new mail:
@@ -24,11 +24,11 @@ color index_subject brightmagenta yellow "~D"
 color index yellow black "~T"  
 
 #* Header colors:
-color header default black ".*"
-color header red black "^(Date)"
-color header green black "^(From)"
-color header cyan black "^(Subject)"
-color header magenta black "^(CC|BCC)"
+color header default brightblack ".*"
+color header red     brightblack "^(Date)"
+color header green   brightblack "^(From)"
+color header cyan    brightblack "^(Subject)"
+color header magenta brightblack "^(CC|BCC)"
 
 mono bold bold
 mono underline underline

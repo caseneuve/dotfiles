@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-17, 09:04:16 @lenovo
+# Last update: 2019-05-19, 16:35:00 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -477,16 +477,15 @@ font pango:VT323 12
 #*** set colors from Xresources
 # command          | variable | Xresources var | fallback |
 # ========================================================|
-set_from_resource  $sbbg        i3wm.bgcolor     #9B9B9B
-set_from_resource  $sbwfbg      i3wm.bgcolor     #9B9B9B
-set_from_resource  $sbwabg      i3wm.bgcolor     #9B9B9B
-set_from_resource  $sbsl        i3wm.bgcolor     #191f26
-set_from_resource  $sbwtx       i3wm.white       #ececec
-# set_from_resource  $sbwtx       i3wm.blue        #ececec
-set_from_resource  $sbowtx      i3wm.grey        #191f26
-set_from_resource  $sbuwtx      i3wm.pink        #F06292
-set_from_resource  $sbwbr       i3wm.bgcolor     #9B9B9B
-set_from_resource  $sbwubr      i3wm.light       #ececec
+set_from_resource  $sbbg        i3wm.i3bgcolor     #9B9B9B
+set_from_resource  $sbwfbg      i3wm.i3bgcolor     #9B9B9B
+set_from_resource  $sbwabg      i3wm.i3bgcolor     #9B9B9B
+set_from_resource  $sbsl        i3wm.i3bgcolor     #191f26
+set_from_resource  $sbwtx       i3wm.i3white       #ececec
+set_from_resource  $sbowtx      i3wm.i3grey        #191f26
+set_from_resource  $sbuwtx      i3wm.i3pink        #F06292
+set_from_resource  $sbwbr       i3wm.i3bgcolor     #9B9B9B
+set_from_resource  $sbwubr      i3wm.i3light       #ececec
 
 
 #** bar: primary

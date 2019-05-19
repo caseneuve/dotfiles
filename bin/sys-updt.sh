@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     2018-05-30, 16:02    @x200
-# Last update: 2019-05-17, 13:01:11 @lenovo
+# Last update: 2019-05-19, 16:39:20 @lenovo
 # Doc:         Primitive pamac-tray replacement
 #              requires pacman-contrib package (`checkupdates` command)
 
@@ -11,7 +11,7 @@ checkupdates > $FILE
 
 NUM=$(cat $FILE | wc -l )
 GLYPH=' '
-FGCOLOR=$(awk '/^*urgent/ {print $2}' $HOME/.Xresources)
+FGCOLOR=$(awk '/^*i3urgent/ {print $2}' $HOME/.Xresources)
 #COLOR='#C0392B' # COLOR='#ff5252'
 
 if [[ -n $NUM ]]; then

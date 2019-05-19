@@ -2,14 +2,13 @@
 ! -----------------------------------------
 !                 XRESOURCES
 ! -----------------------------------------
-! Last update: 2019-05-19, 13:31:37 @lenovo
-! Docs:
-
-!* syntax
+! Last update: 2019-05-19, 16:34:31 @lenovo
+!* Docs:
+!** syntax
 ! #define black_normal #000000
 ! then use black_normal as value
 
-!* i3docs
+!** i3docs
 ! from i3wm docs: https://i3wm.org/docs/userguide.html#xresources
 ! The ~/.Xresources should contain a line such as
 !      *color0: #121212
@@ -19,55 +18,51 @@
 ! and can be used in i3 like this:
 ! set_from_resource $black i3wm.color0 #000000
 
-!** i3blocks
-!*** dark colors start
-! *bgcolor:   #0a0c10 
-! *dark1:     #0a0c10
-! *dark2:     #3b475e
-! *pink:      #EC407A
-! *light:     #ececec
-! dark colors end
+!* DEFINITIONS
+#include ".xfiles/colors"
 
+!* COLORS
+!** default st colors
+*color0:     black
+*color1:     red
+*color2:     green
+*color3:     yellow
+*color4:     blue
+*color5:     magenta
+*color6:     cyan
+*color7:     white
+*color8:     br_black
+*color9:     br_red
+*color10:    br_green
+*color11:    br_yellow
+*color12:    br_blue
+*color13:    br_magenta
+*color14:    br_cyan
+*color15:    br_white
+*color256:   foreground
+*color257:   background
+
+!** gruvbox:
+!#include "~/.xfiles/gruvbox"  ! or `cp gruvbox colors`
+
+!** i3blocks
 !*** light colors start 
-!#9B9B9B
-*bgcolor:  #ffb142
-*dark1:    #0a0c10
-*dark2:    #191f26
-*pink:     #EC407A
-*light:    #ececec
-*blue:     #227093
-*grey:     #3b475e
-*white:    #ffffff
-*urgent:   #C0392B
+*i3bgcolor:  yellow
+*i3dark1:    black
+*i3dark2:    dark2
+*i3pink:     red
+*i3light:    white
+*i3blue:     blue
+*i3grey:     grey
+*i3white:    br_white
+*i3urgent:   red_alt
 ! light colors end
 
-!** st variables
-!*** transparency (0.0-1)
+!* PROGRAMS
+!** st terminal transparency (0.0-1)
 *.alpha: 0.9
 
-!** colors:
-! gruvbox:
-! *color0:     #282828
-! *color1:     #cc241d
-! *color2:     #98971a
-! *color3:     #d79921
-! *color4:     #458588
-! *color5:     #b16286
-! *color6:     #689d6a
-! *color7:     #a89984
-! *color8:     #928374
-! *color9:     #fb4934
-! *color10:    #b8bb26
-! *color11:    #fabd2f
-! *color12:    #83a598
-! *color13:    #d3869b
-! *color14:    #8ec07c
-! *color15:    #ebdbb2
-! *background:    STRING,  &colorname[256] },
-! *foreground:    STRING,  &colorname[257] },
-! *cursorColor:   STRING,  &colorname[258] },
-
-!* polybar
+!** polybar
 #include ".xfiles/x-polybar"
 
 ! Local variables:

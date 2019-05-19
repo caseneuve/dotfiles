@@ -1,0 +1,22 @@
+! -*- eval:(rainbow-mode) -*-
+
+#define foreground #4d4d4d
+#define background #fffafa
+
+#define black      #fff8e7   
+#define red        #F06292 
+#define green      #218c74 
+#define yellow     #ffb142 
+#define blue       #227093 
+#define magenta    #D980FA 
+#define cyan       #ff5252 
+#define white      #485a62 
+#define br_black   #63757e 
+#define br_red     #EC407A 
+#define br_green   #218c74 
+#define br_yellow  #cc8e35 
+#define br_blue    #34ace0 
+#define br_magenta #40407a 
+#define br_cyan    #b33939 
+#define br_white   #364850 
+

@@ -2,13 +2,13 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mocp
 # Created:     2018-04-25, 09:30    @manjaroi3
-# Last update: 2019-03-02, 23:04:52 @x200
+# Last update: 2019-05-19, 16:38:00 @lenovo
 # Doc:         script to display in i3 status bar (i3blocks)
 #              the currently playing track (via mocp) 
 #              <span> markup is used for pango markup
 
-ACT_COLOR=$(awk   '/^*blue/ {print $2}' $HOME/.Xresources)
-INACT_COLOR=$(awk '/^*grey/ {print $2}' $HOME/.Xresources)
+ACT_COLOR=$(awk   '/^*i3blue/ {print $2}' $HOME/.Xresources)
+INACT_COLOR=$(awk '/^*i3grey/ {print $2}' $HOME/.Xresources)
 
 if [[ $HOSTNAME == toshiba ]]; then
     GLYPH="♫"

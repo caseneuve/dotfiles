@@ -2,13 +2,13 @@
 
 # Path:        ~/.dotfiles/i3/bin/i3loadaverage.sh
 # Created:     2018-08-16, 15:16    @x200
-# Last update: 2019-05-14, 15:36:24 @lenovo
+# Last update: 2019-05-19, 16:37:38 @lenovo
 # Doc:         load average indicator for i3blocks
 
 LOAD=$(cut -d ' ' -f1 /proc/loadavg)
 CPUS=$(nproc)
 WEIGHT=normal
-FGCOLOR=$(awk '/^*urgent/ {print $2}' $HOME/.Xresources)
+FGCOLOR=$(awk '/^*i3urgent/ {print $2}' $HOME/.Xresources)
 GLYPH=' '
 
 if [[ $(pgrep i3blocks) ]]; then
