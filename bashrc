@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     2018-06.18, 13:16    @lenovo
-# Last update: 2019-05-04, 21:05:29 @x200
+# Last update: 2019-05-19, 13:57:03 @lenovo
 # Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
 # note: lack of escape characters results in strange behaviour, e.g. not going to next line with input etc.
@@ -113,6 +113,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
 # set grep match color to bold, blue (default red bold)
 export GREP_COLORS="mt=01;34"
+export XPOLYBAR_COLORS="opaque"
 
 #* LESS COLORS for MAN 
 export LESS=-R

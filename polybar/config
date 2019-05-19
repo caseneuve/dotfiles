@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-05-17, 12:48:25 @lenovo
+; Last update: 2019-05-19, 13:33:32 @lenovo
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -14,10 +14,10 @@
 ;** colors
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #00708B98
+background = ${xrdb:poly_bg:#00708B98}
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #aaa69d
+foreground = ${xrdb:poly_fg:#aaa69d}
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -144,7 +144,7 @@ label-mode-foreground = #ececec
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-foreground = #ececec
-label-focused-background = #50227093
+label-focused-background = ${xrdb:poly_foc_bg:#50227093}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -154,7 +154,7 @@ label-unfocused-foreground = #aaa69d
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-background = #5040407a
+label-visible-background = ${xrdb:poly_vis_bg:#5040407a}
 label-visible-foreground = #aaa69d
 label-visible-padding = 1
 
@@ -319,3 +319,8 @@ hook-0 = ~/.dotfiles/bin/sys-updt.sh
 initial = 1
 format-prefix = %{T4} %{T-}
 label = %output%
+
+; [module/wint]
+; type = custom/ipc
+; hook-0 = ~/biu/py/i3lis.py
+; label = %output&

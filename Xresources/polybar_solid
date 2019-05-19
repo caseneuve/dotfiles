@@ -1,0 +1,7 @@
+! -*- eval:(rainbow-mode 1) -*-
+
+poly_bg:     #14191f
+poly_fg:     #aaa69d
+poly_foc_bg: #227093
+poly_foc_fg: #ffffff
+poly_vis_bg: #3b475e

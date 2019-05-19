@@ -2,7 +2,7 @@
 ! -----------------------------------------
 !                 XRESOURCES
 ! -----------------------------------------
-! Last update: 2019-05-10, 01:31:29 @lenovo
+! Last update: 2019-05-19, 13:31:37 @lenovo
 ! Docs:
 
 !* syntax
@@ -67,7 +67,9 @@
 ! *foreground:    STRING,  &colorname[257] },
 ! *cursorColor:   STRING,  &colorname[258] },
 
+!* polybar
+#include ".xfiles/x-polybar"
 
 ! Local variables:
-! eval:(add-hook 'after-save-hook (lambda () (shell-command "xrdb ~/.Xresources > /dev/null 2>&1")) nil t)
+! eval:(add-hook 'after-save-hook (lambda () (shell-command "xrdb ~/.Xresources > /dev/null 2>&1")) nil t) !'
 ! End:
