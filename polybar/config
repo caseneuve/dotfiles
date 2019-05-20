@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-05-19, 13:33:32 @lenovo
+; Last update: 2019-05-20, 19:32:54 @x200
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -51,7 +51,8 @@ module-margin-right = 1
 
 ;*** fonts 1
 ;font-0 = Ubuntu Condensed:style=Regular:pixelsize=10;2
-font-0 = VT323:style=Regular:pixelsize=12;2
+;font-0 = VT323:style=Regular:pixelsize=12;2
+font-0 = Inconsolata:style=Regular:pixelsize=9;2
 font-1 = FontAwesome:style=Regular:pixelsize=8:antialias=false;1
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
 font-3 = siji:pixelsize=12;2
