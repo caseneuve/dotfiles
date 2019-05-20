@@ -6,11 +6,12 @@
 ### ###  ## ### ### #   ### ### ##  ### #
   #
 
-# Last update: 2019-05-14, 18:08:40 @x200
+# Last update: 2019-05-20, 19:30:20 @x200
 
+#* BACKEND
 c.backend = 'webengine'
 
-# >> COLORS
+#* COLORS
 c.colors.completion.category.bg         = '#888888'
 c.colors.completion.even.bg             = '#505050'
 c.colors.completion.odd.bg              = '#505050'
@@ -51,20 +52,20 @@ c.colors.tabs.selected.odd.fg           = 'black'
 
 c.colors.webpage.bg                     = '#F7F7F7'
 
-# >> COMPLETION
+#* COMPLETION
 c.completion.height            = '50%'
 c.completion.scrollbar.padding = 0
 c.completion.scrollbar.width   = 0
 c.completion.show              = 'auto'
 
-# >> CONFIRM
+#* CONFIRM
 c.confirm_quit = ['always']
 
-# >> CONTENT
+#* CONTENT
 c.content.cache.size    = None
 c.content.cookies.store = True
 
-# >> DOWNLOADS
+#* DOWNLOADS
 c.downloads.location.directory  = '~/dwl'
 c.downloads.location.prompt     = True
 c.downloads.location.remember   = True
@@ -72,10 +73,10 @@ c.downloads.location.suggestion = 'path'
 c.downloads.open_dispatcher     = None
 c.downloads.position            = 'bottom'
 
-# >> EDITOR
+#* EDITOR
 c.editor.command = ['st', '-e', 'emacsclient', '-nw', '-s', 'term', '{}']
 
-# >> FONTS
+#* FONTS
 c.fonts.completion.category = '11pt Monospace'
 c.fonts.completion.entry    = '11pt Monospace'
 c.fonts.debug_console       = '11pt Monospace'
@@ -89,7 +90,7 @@ c.fonts.prompts             = '11pt Monospace'
 c.fonts.statusbar           = '11pt Monospace'
 c.fonts.tabs                = '10pt Roboto Condensed'
 
-# >> HINTS
+#* HINTS
 c.hints.border     = '1px solid #E3BE23'
 c.hints.chars      = 'asdfghjkl'
 c.hints.dictionary = '/usr/share/dict/words'
@@ -97,20 +98,20 @@ c.hints.min_chars  = 1
 c.hints.hide_unmatched_rapid_hints = True
 
 
-# >> PROMPT
+#* PROMPT
 c.prompt.filebrowser = True
 
-# >> SEARCH
+#* SEARCH
 c.search.ignore_case = 'always'
 
-# >> SESSION
+#* SESSION
 c.session.default_name = None
 
-# >> STATUS BAR
+#* STATUS BAR
 c.statusbar.hide     = False
 c.statusbar.position = 'bottom'
 
-# >> TABS
+#* TABS
 c.tabs.background         = True
 c.tabs.close_mouse_button = 'middle'
 c.tabs.last_close         = 'close'
@@ -118,7 +119,7 @@ c.tabs.position           = 'top'
 c.tabs.select_on_remove   = 'prev'
 c.tabs.show               = 'multiple'
 
-# >> URL
+#* URL
 c.url.auto_search   = 'naive'
 c.url.start_pages   = 'file:///home/piotr/.dotfiles/qtbro/startpage.html'
 c.url.default_page  = 'file:///home/piotr/.dotfiles/qtbro/newtab.html'
@@ -147,13 +148,13 @@ c.url.searchengines = {
     'yt': 'https://www.youtube.com/results?search_query={}&page=&utm_source=opensearch',
 }
 
-# >> ZOOM LEVELS
+#* ZOOM LEVELS
 c.zoom.levels = [
     '25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%',
     '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%'
 ]
 
-# >> KEY BINDINGS
+#* KEY BINDINGS
 c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
 
 config.bind('<Ctrl-G>', 'leave-mode', mode='insert')
