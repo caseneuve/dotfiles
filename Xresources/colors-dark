@@ -2,13 +2,13 @@
 ! default Xresources colors (do not change this file, it will be overwritten)
 
 #define foreground #a2adc3
-#define background #14191f
+#define background #0a0c10
 #define dark2      #191f26
 
 #define red_alt    #C0392B
 #define grey       #3b475e
 
-#define black      #0a0c10
+#define black      #14191f
 #define red        #EC407A
 #define green      #218c74
 #define yellow     #ffb142
