@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-19, 16:35:00 @lenovo
+# Last update: 2019-05-20, 17:37:10 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -375,6 +375,7 @@ for_window [class="Catfish"]             floating enable
 for_window [class="Gpick"]               floating enable
 for_window [class="Gpick"]               resize set 675 200
 for_window [class="Gpick"]               move position center
+for_window [class="Surf"]                floating enable
 
 # dialog window for qutebrowser downloads via youtube-dl
 for_window [class="YTBDWL"] floating enable
@@ -584,6 +585,7 @@ bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 #** rofi/dmenu scpripts
 set $rofi-theme i3orange
 bindsym $mod+d $exe rofi -show drun -modi drun -columns 1 -width 35 #-theme $rofi-theme
+bindsym $mod+Shift+d $exe dmenu_run
 bindsym $mod+semicolon $exe rofi -show window -modi window #-window-format "[{n:3}: {t:18}]" #-theme $rofi-theme
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 #bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
