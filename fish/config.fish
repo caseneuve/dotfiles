@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-05-19, 14:00:54 @lenovo
+# Last update: 2019-05-26, 22:20:56 @x200
 
 #* VARIABLES
 #** env vars
@@ -18,7 +18,7 @@ set -gx VISUAL $EDITOR
 set -gx VIRTUAL_ENV_DISABLE_PROMPT no # https://github.com/fish-shell/fish-shell/pull/1795
 set -gx TERM xterm-256color
 set -gx GOPATH $HOME/go
-set -gx PATH $PATH $GOPATH/bin
+set -gx PATH $PATH $GOPATH/bin $HOME/.local/bin
 
 #** fish vars
 #set -e fish_greeting
@@ -128,7 +128,7 @@ end
 
 #** yayup
 function ya -d 'Update packages'
-    yay; echo hook:module/sysupdt1 >> /tmp/polybar-ipc-primary
+    yay && echo hook:module/sysupdt1 >> /tmp/polybar-ipc-primary
 end
 
 #** psaux / psauk
