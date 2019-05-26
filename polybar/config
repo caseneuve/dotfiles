@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-05-20, 19:32:54 @x200
+; Last update: 2019-05-21, 22:05:40 @x200
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -282,6 +282,8 @@ ramp-capacity-6 = %{T4}%{T-}
 ramp-capacity-7 = %{T4}%{T-}
 ramp-capacity-8 = %{T4}%{T-}
 ramp-capacity-9 = %{T4}%{T-}
+
+ramp-capacity-0-foreground = ${xrdb:poly_urgent_fg:#C0392B}
 
 ;** mail
 [module/mail]
