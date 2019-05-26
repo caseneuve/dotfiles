@@ -5,3 +5,4 @@ poly_fg:     #aaa69d
 poly_foc_bg: #50227093
 poly_foc_fg: #ffffff
 poly_vis_bg: #503b475e
+poly_urgent_fg: red_alt

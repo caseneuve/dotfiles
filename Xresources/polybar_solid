@@ -5,3 +5,4 @@ poly_fg:     foreground
 poly_foc_bg: blue
 poly_foc_fg: white
 poly_vis_bg: grey
+poly_urgent_fg: red_alt
