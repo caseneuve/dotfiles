@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-20, 19:31:48 @x200
+# Last update: 2019-05-22, 17:48:18 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -46,7 +46,7 @@ $exea compton --config ~/.config/compton/compton.conf
 $exe  mocp -S
 #$exe  emacs --daemon
 $exea dunst                                            # notifier
-$exea amixer set Master 50% && pkill -RTMIN+1 i3blocks # set volume to 50
+$exea amixer set Master 50% 
 $exea $hub/i3listen-poly.py      # manage workspace names and window titles in bar
 
 #** git!
@@ -418,7 +418,7 @@ set $bri   #191f26
 set $bru   #191f26
 set $brur  #ffffff
 # background
-set $bgf    #218c74
+set $bgf   #218c74
 set $bgfi  #323f4d
 set $bgi   #191f26
 set $bgur  #ffffff
@@ -522,16 +522,16 @@ bindsym XF86MonBrightnessUp $exe xbacklight -inc 15   # increase screen brightne
 bindsym XF86MonBrightnessDown $exe xbacklight -dec 15 # decrease screen brightness
 
 #** VOLUME / regulacja głośności:
-bindsym $mod+plus $exe pactl set-sink-volume 0 +5%  && pkill -RTMIN+1 i3blocks
-bindsym $mod+minus $exe pactl set-sink-volume 0 -5%  && pkill -RTMIN+1 i3blocks
-bindsym $mod+Shift+plus $exe pactl set-sink-volume 0 +10% && pkill -RTMIN+1 i3blocks
-bindsym $mod+Shift+minus $exe pactl set-sink-volume 0 -10% && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume 0 -- +10% && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -- -10% && pkill -RTMIN+1 i3blocks
+bindsym $mod+plus $exe pactl set-sink-volume 0 +5%
+bindsym $mod+minus $exe pactl set-sink-volume 0 -5%
+bindsym $mod+Shift+plus $exe pactl set-sink-volume 0 +10%
+bindsym $mod+Shift+minus $exe pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume 0 -- +10%
+bindsym XF86AudioLowerVolume $exe pactl set-sink-volume 0 -- -10%
 
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
-bindsym $mod+Shift+m  $exe pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute $exe amixer set Master toggle && pkill -RTMIN+1 i3blocks
+bindsym $mod+Shift+m  $exe pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute $exe amixer set Master toggle
 bindsym XF86AudioPlay $exe mocp -G
 bindsym XF86AudioStop $exe mocp -s
 bindsym XF86AudioNext $exe mocp -f
@@ -573,8 +573,8 @@ bindsym $mod+t $exe thunar
 bindsym $mod+h bar mode toggle
 bindsym Scroll_Lock $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+x $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
-bindsym $mod+Shift+x exec systemctl suspend
-bindsym Pause exec systemctl suspend
+bindsym $mod+Shift+x exec systemctl suspend -i
+bindsym Pause exec systemctl suspend -i
 bindsym $mod+Ctrl+F2 $exe compton
 bindsym $mod+F2 $exe pkill compton
 bindsym $mod+F1 $exe $dot/i3quick-help.sh
