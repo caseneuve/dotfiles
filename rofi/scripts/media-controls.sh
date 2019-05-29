@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 08.12.18, 11:35:34 @lenovo
+# Last update: 2019-05-29, 16:04:08 @x200
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
@@ -34,7 +34,7 @@ mpv_commands(){
 [2] stop
 [4] stream audio yank
 [3] load video stream
-[5] show playlist" | rofi -theme $THEME -dmenu -p "$GLYPH  MPV:")
+[5] show playlist" | dmenu -p "$GLYPH  MPV:" -l 9) # rofi -theme $THEME -dmenu
     case "$selected" in
         '[>] forward 30s.') echo '{ "command": [ "seek", "30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
         '[<] rewind 30s.') echo '{ "command": [ "seek", "-30" ] }' | socat - $SOC 2>/dev/null && exit 0 ;;
@@ -66,7 +66,7 @@ moc_commands(){
 [!] play (list)
 [>] forward 30s.
 [<] rewind 30s.
-info" | rofi -theme $THEME -dmenu -p "$GLYPH  MOCP:")
+info" | dmenu -p "$GLYPH  MOCP:" -l 10) # rofi -theme $THEME -dmenu
     
     case "$selected" in
         '[1] pause toggle') mocp -G ;;
