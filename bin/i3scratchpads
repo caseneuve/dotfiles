@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-05-13, 13:00:34 @lenovo
+# Last update: 2019-05-29, 13:02:02 @x200
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -99,7 +99,7 @@ main() {
                    ;;
                 # quick scratch
                 f) if [[ ! $(is_running myquickterm) ]]; then
-                       ARGS="-c myquickterm"
+                       ARGS="-c myquickterm -e fish"
                        i3msg "$I3EXEC $TRM $ARGS"
                    fi
                    i3msg "[class=\"myquickterm\"] scratchpad show" \
