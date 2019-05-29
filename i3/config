@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-05-22, 17:48:18 @x200
+# Last update: 2019-05-29, 21:50:16 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -570,7 +570,7 @@ bindsym $mod+m $exe $dot/i3scratchpads -u mail
 bindsym $mod+r $exe $dot/i3scratchpads -u rng
 bindsym $mod+w $exe $dot/i3scratchpads -u wee
 bindsym $mod+t $exe thunar
-bindsym $mod+h bar mode toggle
+bindsym $mod+h $exe $poly/polybar-toggle.sh
 bindsym Scroll_Lock $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+x $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+Shift+x exec systemctl suspend -i
