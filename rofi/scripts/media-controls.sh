@@ -2,7 +2,7 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 2019-05-29, 16:04:08 @x200
+# Last update: 2019-05-29, 16:14:34 @x200
 
 ## Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
@@ -87,7 +87,7 @@ info" | dmenu -p "$GLYPH  MOCP:" -l 10) # rofi -theme $THEME -dmenu
 
 # >> PAUSE FUNC
 pause_commands(){
-    selected=$(echo -e "[a] mocp\n[f] mpv" | rofi -theme $THEME -dmenu -p "$GLYPH CHOOSE:")
+    selected=$(echo -e "[a] mocp\n[f] mpv" |  dmenu -p "$GLYPH CHOOSE:") #rofi -theme $THEME -dmenu
     case "$selected" in
         '[a] mocp') moc_commands;;
         '[f] mpv') mpv_commands;;
