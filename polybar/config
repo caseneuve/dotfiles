@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-05-21, 22:05:40 @x200
+; Last update: 2019-05-30, 20:29:36 @toshiba
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -66,8 +66,8 @@ font-4 = file\-icons:style=icons:pixelsize=8;2
 ;font-2 = siji:pixelsize=10;1
 
 ;*** modules 1
-modules-left =  i3
-modules-center = wintitle
+modules-left =  i3 wintitle
+; modules-center = wintitle
 modules-right = alsa disk memory cpu loadavg battery wlan eth sysupdt mail date
 
 ;wm-restack = bspwm
@@ -145,7 +145,7 @@ label-mode-foreground = #ececec
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-foreground = #ececec
-label-focused-background = ${xrdb:poly_foc_bg:#50227093}
+label-focused-background = ${xrdb:poly_ws_bg:#50227093}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -187,7 +187,7 @@ type = internal/cpu
 interval = 2
 format-prefix = %{T4}%{T-}
 ; format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage:2:2%
+label = %percentage:3:3%
 
 ;** memory
 [module/memory]

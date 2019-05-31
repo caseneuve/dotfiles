@@ -2,6 +2,7 @@
 
 poly_bg:     #0014191f
 poly_fg:     #aaa69d
+poly_ws_bg:  #50ffb142
 poly_foc_bg: #50227093
 poly_foc_fg: #ffffff
 poly_vis_bg: #503b475e
