@@ -1,23 +1,10 @@
 /* -*- mode: css -*- */
 
-/**
- * ROFI mytheme ... red
- */
-
 * {
-    /* background-color:      #9B9B9B; */
-    /* border-color:          #ffb142; */
-    /* text-color:            #191f26; */
-    /* background-color:      #F79F1F; */
-    /* background-color:      #ffb142; */
-    /* background-color:      #191f26; */
     background-color:      #227093;
     text-color:            #dddddd;
     font:                  "Inconsolata 10";
 }
-
-/* configuration { */
-/* } */
 
 #window {
     anchor:     north;
@@ -56,5 +43,4 @@
 #element selected {
     text-color: #ffffff;
     font: "Inconsolata Bold 10";
-    /* background-color: #e1e1e0; */
 }
