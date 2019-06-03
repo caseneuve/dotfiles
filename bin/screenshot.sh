@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-04-19, 12:40:36 @toshiba
+# Last update: 2019-06-02, 23:26:34 @toshiba
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
 # Requires:    [maim, sxiv, dmenu, xdotool, mypaint, notify-send]
 # Todo:        27/03/2019 install i3move in the system? path? (?)
@@ -11,6 +11,8 @@
 ARG=${1:-}
 EDIT=false
 MOVE=$HOME/git/hub/i3/i3move.py
+SOUND="/usr/share/sounds/freedesktop/stereo/screen-capture.oga"
+MENU="rofi -theme i3orange -monitor -2 -dmenu -p"  # was: dmenu -p
 
 setup(){
     DIR=$HOME/obr/maim
@@ -38,21 +40,22 @@ show_and_move() {
     sxiv -b -s f $FILE &
     sleep .3
     i3-msg -q border pixel 2
-    $MOVE -p 33 -g 30 -m nw
-    i3-msg -q move left 20
+    #$MOVE -p 33 # -g 30 -m nw
+    $MOVE -p 65 -m c
+    #i3-msg -q move left 20
+    #i3-msg -q move center
 }
 
 ask() {
-    $EDIT || save=$(echo -e "yes\nno" | dmenu -p "save shot?")
+    $EDIT || save=$(echo -e "yes\nno" | $MENU "save this shot?") # dmenu -p
     if $EDIT || [ $save == yes ]; then
-        rename=$(echo -e "no" | dmenu -p "rename shot?")
+        rename=$(echo -e "no" | $MENU "rename shot?")
         case $rename in
             no) SAVED=$DIR/$(basename $FILE) ;;
             *) SAVED=$DIR/${rename}.png
                 cp $FILE $SAVED;;
         esac
         cp $FILE $SAVED
-        cleanup
     else
         cleanup
         exit 1
@@ -69,10 +72,9 @@ edit() {
         if $EDIT; then
             mypaint $SAVED &
             i3-msg -q "workspace number 6"
-            exit
         else
-            edit=$(echo -e "no\nyes" | dmenu -p "edit shot?")
-            [[ $edit == yes ]] && EDIT=true || exit
+            edit=$(echo -e "no\nyes" | $MENU "edit shot?")
+            [[ $edit == yes ]] && EDIT=true || break
         fi
     done
 }
@@ -80,9 +82,11 @@ edit() {
 main() {
     setup
     if $SHOT; then
+        paplay --volume 40000 $SOUND
         show_and_move
         ask
         edit
+        cleanup
     else
         exit 1
     fi
