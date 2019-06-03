@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/queuempv
 # Created:     2018-07-11, 01:26    @x200
-# Last update: 2019-06-03, 13:44:47 @toshiba
+# Last update: 2019-06-04, 00:22:03 @x200
 # Doc:         For now it only allows to append video urls
 #              or launching one audio stream per session (no appending) 
 # FIXME:       poprawić warunki dla audio i video
@@ -28,7 +28,7 @@ msg() {
     TITLE=$(curl $TARGET -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)')
     notify-send -i $ICON \
                 "Queuempv:" \
-                "\n$MEDIA\n\n<i>${TITLE}</i>\n\n${1}." &
+                "$MEDIA <i>${TITLE}</i> ${1}." &
 }
 
 if [[ "$MPV_STATUS" = "NOT ACTIVE" ]]; then
