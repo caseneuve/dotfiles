@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-06-02, 23:26:34 @toshiba
+# Last update: 2019-06-03, 13:14:01 @toshiba
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
 # Requires:    [maim, sxiv, dmenu, xdotool, mypaint, notify-send]
 # Todo:        27/03/2019 install i3move in the system? path? (?)
@@ -82,7 +82,7 @@ edit() {
 main() {
     setup
     if $SHOT; then
-        paplay --volume 40000 $SOUND
+        paplay --volume 60000 $SOUND
         show_and_move
         ask
         edit

@@ -11,9 +11,9 @@
     /* background-color:      #F79F1F; */
     /* background-color:      #ffb142; */
     /* background-color:      #191f26; */
-    background-color:      #ff5252;
-    text-color:            white;
-    font:                  "monospace 10";
+    background-color:      #227093;
+    text-color:            #dddddd;
+    font:                  "Inconsolata 10";
 }
 
 /* configuration { */
@@ -34,7 +34,7 @@
 }
 
 #prompt {
-    font: "Monospace Bold 10";
+    font: "Inconsolata Bold 10";
 }
 
 #listview {
@@ -44,7 +44,7 @@
 }
 
 #entry {
-    text-color: white;
+    text-color: #dddddd;
     expand:     false;
     width:      10em;
 }
@@ -54,6 +54,7 @@
 }
 
 #element selected {
-    text-color: #111;
+    text-color: #ffffff;
+    font: "Inconsolata Bold 10";
     /* background-color: #e1e1e0; */
 }
