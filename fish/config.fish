@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-05-26, 22:20:56 @x200
+# Last update: 2019-06-03, 17:51:40 @toshiba
 
 #* VARIABLES
 #** env vars
@@ -105,7 +105,8 @@ if status --is-interactive
   abbr --add sqlb sqlitebrowser
   abbr --add hs hugo server -vw
   abbr --add fdf fd -d 1 -t f
-
+  abbr --add l1 ls -1
+  abbr --add lg1 ls --group-directories-first -1
 end
 
 #* FUNCTIONS

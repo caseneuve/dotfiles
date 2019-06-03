@@ -1,4 +1,5 @@
-# Last update: 20.01.19, 12:45:50 @lenovo
+# Last update: 2019-06-03, 17:59:31 @toshiba
+# Doc:         This functionality has been moved to normal prompt
 
 function fish_right_prompt -d "My right prompt: show last command duration time"
     function convert_ms -d "Convert milisecond to seconds/minutes"
