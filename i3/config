@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-06-03, 10:21:19 @toshiba
+# Last update: 2019-06-03, 13:24:18 @toshiba
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -583,7 +583,7 @@ bindsym $mod+Shift+s move scratchpad
 bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 
 #** rofi/dmenu scpripts
-set $rofi-theme i3orange
+set $rofi-theme i3on-window
 bindsym $mod+d $exe rofi -show drun -modi drun -columns 1 -width 100 #-theme $rofi-theme
 bindsym $mod+Shift+d $exe ~/.dotfiles/dmenu/dmenu-cmd.sh
 bindsym $mod+semicolon $exe rofi -show window -modi window -width 100 #-window-format "[{n:3}: {t:18}]" #-theme $rofi-theme

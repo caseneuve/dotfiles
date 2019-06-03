@@ -2,14 +2,14 @@
 
 # Path:        ~/scr/gdocs.sh
 # Created:     28.12.18, 15:20    @x200
-# Last update: 28.12.18, 16:35:20 @x200
+# Last update: 2019-06-03, 13:22:27 @toshiba
 
 # >> DOC: 
 # Downloads file from Google Docs in a chosen format (html or txt); when 
 
 # >> VARIABLES: 
 OUTDIR="$HOME/dwl/gdoc"
-ROFI_ARGS="-theme i3orange -monitor -2 -dmenu -p"
+ROFI_ARGS="-theme i3on-window -monitor -2 -dmenu -p"
 
 # >> RUN:
 answ=$(echo -e "tak\nnie" | rofi $ROFI_ARGS "Zapisać plik na dysku? ")

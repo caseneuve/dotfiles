@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-06-03, 13:14:01 @toshiba
+# Last update: 2019-06-03, 13:22:07 @toshiba
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
 # Requires:    [maim, sxiv, dmenu, xdotool, mypaint, notify-send]
 # Todo:        27/03/2019 install i3move in the system? path? (?)
@@ -12,7 +12,7 @@ ARG=${1:-}
 EDIT=false
 MOVE=$HOME/git/hub/i3/i3move.py
 SOUND="/usr/share/sounds/freedesktop/stereo/screen-capture.oga"
-MENU="rofi -theme i3orange -monitor -2 -dmenu -p"  # was: dmenu -p
+MENU="rofi -theme i3on-window -monitor -2 -dmenu -p"  # was: dmenu -p
 
 setup(){
     DIR=$HOME/obr/maim
