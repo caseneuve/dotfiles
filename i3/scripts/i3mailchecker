@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-06-03, 10:54:30 @toshiba
+# Last update: 2019-06-03, 12:08:47 @toshiba
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -11,6 +11,7 @@ UNREAD=/usr/share/icons/Adwaita/16x16/status/mail-unread-symbolic.symbolic.png
 READ=/usr/share/icons/Adwaita/16x16/status/mail-read-symbolic.symbolic.png
 SYNC=/usr/share/icons/Adwaita/16x16/status/rotation-allowed-symbolic.symbolic.png
 POLYBAR=$(pgrep -x polybar)
+SOUND="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
 service_check() {
     last_service=$(
@@ -39,8 +40,9 @@ new_mail_msg(){
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
     subject_readable=$($DECODE "$subject")
     [[ -n $from || -n $subject ]] &&\
+        paplay --volume 40000 $SOUND
         notify-send -u low -t 6000 -i $UNREAD "NEW MAIL ($to_readable)"\
-                    "\nFROM: $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
+                    "\nFROM:    $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
 }
 
 main() {
