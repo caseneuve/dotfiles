@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-06-03, 11:20:25 @toshiba
+; Last update: 2019-06-03, 22:48:16 @x200
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -261,15 +261,10 @@ adapter = ${env:ADAPTER:AC}
 full-at = 99
 poll-interval = 5
 
-;format-charging = <label-charging>
-format-charging = <ramp-capacity>
-;format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <label-charging>
 format-discharging = <ramp-capacity>
-format-charging-prefix = %{T4} %{T-}
-;label-charging = %percentage%
-;label-discharging = %percentage%
 
-;label-full = %{T4}%{T-} %percentage%
+label-charging = %{T4}%{T-}
 label-full = %{T4}%{T-}
 
 ramp-capacity-0 = %{T4}%{T-}
