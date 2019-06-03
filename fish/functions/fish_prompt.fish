@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##  
                                #                       #           
 
-# Last update: 2019-06-03, 17:57:07 @toshiba
+# Last update: 2019-06-03, 20:01:32 @toshiba
 
 #* 1 HELPERS
 #**  line beg
@@ -22,7 +22,7 @@ end
 #**  virtual env / venv
 function venv_info -d "Show virtual env if active"
     if set -q VIRTUAL_ENV
-        printf "%s%s ║ %s" (set_color magenta) (basename "$VIRTUAL_ENV") \
+        printf " %s(%s)%s" (set_color --bold magenta) (basename "$VIRTUAL_ENV") \
         (set_color normal)
     end
 end
@@ -39,57 +39,72 @@ end
 #**  git status
 function git_status
     set -l GB (git branch 2>/dev/null | grep '^*' | colrm 1 2)
-    if ! test -z $GB
+
+    function git_format
+        printf " %s[%s]%s %s%s " (set_color -o blue) $argv[1] (set_color normal) (set_color $argv[2..3]) $argv[4..-1]
+    end
+    
+    if test -n $GB
+        set -l CLEAN ✔
+        set -l DIRTY ✗
         set -l GIT (git status 2>/dev/null)
         switch "$GIT"
+            # case '*Changes to be committed*'
+            #     set -l tocommit (count (echo $GIT | grep "new file"))
+            #     set -l GB master
+            #     git_format $GB -r brblack " $tocommit to commit"
+            # case '*Untracked files*'
+            #     set -l untracked (count (echo $GIT | grep "\t"))
+            #     git_format master -dr magenta " $untracked untracked"
+            case '*No commits yet*'
+                git_format master -o magenta " no commits yet"
             case '*use "git push"*'
-                set -l GS "✔"
-                printf "  %s  %s %s%s " (set_color blue) $GB  (set_color yellow) $GS
+                git_format $GB -o yellow $CLEAN
             case '*nothing to commit*'
-                set -l GS "✔"
-                printf "  %s  %s %s%s " (set_color blue) $GB  (set_color green) $GS
+                git_format $GB -o green $CLEAN
             case '*not staged*' \| \
                 '*Untracked*' \| \
                 '*modified*' \| \
                 '*to be committed*' \
                 \| '*deleted*'
-                set -l GS "✗"
-                printf "  %s  %s %s%s " (set_color blue) $GB (set_color red) $GS
+                git_format $GB -o red $DIRTY
         end
     end
+    set_color normal
 end
 
-#**  cmd duration
+#** cmd duration time
 # set colors for different periods
 function cmd_duration
     function convert_ms -d "Convert milisecond to seconds/minutes"
-        set -l ms $argv
-        if test $ms -lt 1000
-            echo $ms
-        else if test $ms -lt 60000
-            echo (math -s2 "$ms/1000") s
-        else if test $ms -le 3600000
-            echo (math -s2 "$ms/60000") m
-        else if test $ms -le 86400000
-            echo (math -s2 "$ms/3600000") h
+        if test $argv -lt 1000
+            printf "%03d" $argv
+        else if test $argv -lt 60000
+            printf "%2ss" (math -s0 $argv/1000.0) 
+        else if test $argv -le 3600000
+            printf "%2sm" (math -s0 $argv/60000) 
+        else if test $argv -le 86400000
+            printf "%3sh" (math -s1 $argv/3600000) 
         else
-            echo (math -s2 "$ms/86400000") d
+            printf "%3sd" (math -s1 $argv/86400000)
         end
     end
 
     set -l time $CMD_DURATION
     if test $time -lt 100
-        printf "%s%s " (set_color green)(convert_ms $time)
+        printf "%s%s " (set_color --bold green)(convert_ms $time)
     else if test $time -lt 250
-        printf "%s%s " (set_color brgreen)(convert_ms $time)
+        printf "%s%s " (set_color --bold brgreen)(convert_ms $time)
     else if test $time -lt 500
-        printf "%s%s " (set_color bryellow)(convert_ms $time)
+        printf "%s%s " (set_color --bold bryellow)(convert_ms $time)
     else if test $time -lt 1000
-        printf "%s%s " (set_color yellow)(convert_ms $time)
+        printf "%s%s " (set_color --bold yellow)(convert_ms $time)
     else if test $time -lt 1500
-        printf "%s%s " (set_color brred)(convert_ms $time)
+        printf "%s%s " (set_color --bold brred)(convert_ms $time)
+    else if test $time -lt 60000
+        printf "%s%s " (set_color --bold red)(convert_ms $time)
     else
-        printf "%s%s " (set_color red)(convert_ms $time)
+        printf "%s%s " (set_color -o --bold brblack)(convert_ms $time)
     end
 end
 
@@ -99,12 +114,12 @@ function fish_prompt -d "My fish prompt"
     set -l TOP "╭╴"
     set -l BOTTOM "╰╴"
     line_beg $TOP $STAT
-    venv_info
+    cmd_duration
     pwd_dwim
+    venv_info
     git_status
     printf "\n"
     line_beg $BOTTOM $STAT
-    cmd_duration
 end
 
 #* 3 END
