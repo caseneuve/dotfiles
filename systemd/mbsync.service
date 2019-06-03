@@ -3,4 +3,4 @@ Description=Mailbox synchronization service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/mbsync -Va && /usr/bin/polybar-msg hook mail 1
+ExecStart=/usr/bin/mbsync -Va

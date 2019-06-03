@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-06-03, 12:08:47 @toshiba
+# Last update: 2019-06-03, 12:46:13 @toshiba
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -43,6 +43,7 @@ new_mail_msg(){
         paplay --volume 40000 $SOUND
         notify-send -u low -t 6000 -i $UNREAD "NEW MAIL ($to_readable)"\
                     "\nFROM:    $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
+        polybar-msg hook mail 1
 }
 
 main() {

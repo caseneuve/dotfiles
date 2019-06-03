@@ -1,14 +1,14 @@
 # -*- mode: conf-space -*-
 
-   #                      #    
-   #                      #    
- ###  #  #  ###    ###   ###   
-#  #  #  #  #  #  ##      #    
-#  #  #  #  #  #    ##    #    
- ###   ###  #  #  ###      ##  
+   #                      #
+   #                      #
+ ###  #  #  ###    ###   ###
+#  #  #  #  #  #  ##      #
+#  #  #  #  #  #    ##    #
+ ###   ###  #  #  ###      ##
 
-# Path:        ~/.dotfiles/dunstrc 
-# Last update: 2019-06-03, 10:51:37 @toshiba
+# Path:        ~/.dotfiles/dunstrc
+# Last update: 2019-06-03, 13:06:00 @toshiba
 
 #* Global settings
 [global]
@@ -28,7 +28,7 @@
 # will be ignored.
 follow = mouse
 
-#** Notificaton window properties  
+#** Notificaton window properties
 #*** The geometry of the window:
 #   [{width}]x{height}[+/-{x}+/-{y}]
 # The geometry of the message window.
@@ -82,7 +82,7 @@ horizontal_padding = 10
 #frame_width = 1
 frame_width = 0
 
-#*** Colors
+#*** Frame, separator, sort etc.
 # Defines color of the frame around the notification window.
 # frame_color = "#ffd700"
 
@@ -92,7 +92,7 @@ frame_width = 0
 #  * foreground: use the same color as the foreground;
 #  * frame: use the same color as the frame;
 #  * anything else will be interpreted as a X color.
-separator_color = auto 
+separator_color = auto
 
 # Sort messages by urgency.
 sort = yes
@@ -241,28 +241,17 @@ context = ctrl+shift+period
 #* Urgencies
 #** - low
 [urgency_low]
-#background = "#9B9B9B"
-#background = "#0a0c10"
 background = "#227093"
-#background = "#749A48"
-#foreground = "#191f26"
 foreground = "#ffffff"
-#foreground = "#000000"
-#frame_color = "#4E802D"
-frame_color = "#9B9B9B"
+frame_color = "#227093"
 timeout = 5
 icon = /usr/share/icons/Adwaita/32x32/status/dialog-question-symbolic.symbolic.png
 
 #** - normal
 [urgency_normal]
-#background = "#9B9B9B"
 background = "#0a0c10"
-#background = "#227093"
-# background = "#48749A"
-#foreground = "#191f26"
 foreground = "#ffffff"
-frame_color = "#9B9B9B"   
-#frame_color = "#44599E"
+frame_color = "#0a0c10"
 timeout = 5
 icon = /usr/share/icons/Adwaita/32x32/status/dialog-information-symbolic.symbolic.png
 
@@ -280,7 +269,6 @@ icon = /usr/share/icons/Adwaita/32x32/status/dialog-warning-symbolic.symbolic.pn
 # "msg_urgency" and you can override the "timeout", "urgency", "foreground",
 # "background", "new_icon" and "format".
 # Shell-like globbing will get expanded.
-
 
 #* SCRIPTING
 # You can specify a script that gets run when the rule matches by
@@ -331,4 +319,3 @@ icon = /usr/share/icons/Adwaita/32x32/status/dialog-warning-symbolic.symbolic.pn
 #    appname = Pidgin
 #    summary = *twitter.com*
 #    urgency = normal
-                               
