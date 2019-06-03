@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Last update: 2019-04-21, 00:02:07 @lenovo
+# Last update: 2019-06-03, 14:29:39 @toshiba
 # Doc:         open pdf in mutt
 
-WS_PDF=$(i3-msg -t get_config | grep 'set \$ws5' | awk '{$1=$2=""; print}')
-i3-msg -q "$WS_PDF" && mupdf "$1" 
+DATE=$(date "+%m%d%H%M")
+cp "$1" /tmp/$DATE-mutt.pdf && zathura /tmp/$DATE-mutt.pdf
 

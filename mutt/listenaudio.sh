@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# Last update: 11.07.18, 17:33:08 @x200
+# Last update: 2019-06-03, 14:31:43 @toshiba
 
-# Docs: FIXME: wtf?? zmienić (spr. czy coś z tego korzysta)
-
-#clear;
-#mpv $1 & 
-cp $1 /tmp/mutt_music.mp3 &&\
-mocp -l /tmp/mutt_music.mp3
+DATE=$(date "+%m%d%H%M")
+cp "$1" /tmp/$DATE-mutt.mp3 && mocp -l /tmp/$DATE-mutt.mp3
 

@@ -1,22 +1,26 @@
 # -*- mode:conf -*-
 #
 # Description: MUTT - MAILCAP
-# Last update: 2019-04-20, 16:50:22 @lenovo
+# Last update: 2019-06-03, 14:53:36 @toshiba
 # Doc:         Tells mutt how to open/view attachements
 
-image/*; ~/.config/neomutt/viewimagefeh.sh %s &
+#* img
+image/*; nohup sxiv -a -- %s
 
-application/pdf; ~/.config/neomutt/viewpdf.sh %s
+#* pdf
 application/x-pdf; ~/.config/neomutt/viewpdf.sh %s
+application/pdf;   ~/.config/neomutt/viewpdf.sh %s
 
+#* html
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
-# doc(x), odt, rtf
+#* doc(x), odt, rtf
 application/vnd.oasis.opendocument.text; odt2txt '%s' | less
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt < '%s' | less
 application/msword; antiword %s; copiousoutput
 application/rtf; unrtf --text '%s' | less
 application/msword; unrtf --text '%s' | less
 
+#* audio
 audio/*; ~/.config/neomutt/listenaudio.sh %s
 
