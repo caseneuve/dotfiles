@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-05-19, 16:37:54 @lenovo
+# Last update: 2019-06-03, 10:54:30 @toshiba
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -39,8 +39,8 @@ new_mail_msg(){
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
     subject_readable=$($DECODE "$subject")
     [[ -n $from || -n $subject ]] &&\
-        notify-send -t 4000 -i $UNREAD "NEW MAIL ($to_readable)"\
-                    "FROM: $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
+        notify-send -u low -t 6000 -i $UNREAD "NEW MAIL ($to_readable)"\
+                    "\nFROM: $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
 }
 
 main() {
@@ -105,12 +105,12 @@ main() {
 case $BLOCK_BUTTON in
     1) service_check
        if [[ -n $last_service ]]; then
-           notify-send -i $READ "MAIL" "Last check:\n$last_service"
+           notify-send -u low -i $READ "MAIL" "Last check:\n$last_service"
        else
            notify-send -u critical "MAIL" "Synchronization error. Restarting service"
        fi
        pkill -RTMIN+10 i3blocks ;;
-    3) notify-send -i $SYNC "MAIL" "Checking mail..."
+    3) notify-send -u critical -i $SYNC "MAIL" "Checking mail..."
        mbsync gmail-default
        mbsync schole-default
        pkill -RTMIN+10 i3blocks ;;
