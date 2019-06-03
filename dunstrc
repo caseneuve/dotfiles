@@ -8,7 +8,7 @@
  ###   ###  #  #  ###      ##  
 
 # Path:        ~/.dotfiles/dunstrc 
-# Last update: 2019-05-08, 22:16:59 @lenovo
+# Last update: 2019-06-03, 10:51:37 @toshiba
 
 #* Global settings
 [global]
@@ -41,7 +41,8 @@ follow = mouse
 # the top and down respectively.
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
-geometry = "300x5-20-20"
+#geometry = "300x5-20-20"
+geometry = "x2-0-1"
 
 # Show how many messages are currently hidden (because of geometry).
 indicate_hidden = yes
@@ -65,17 +66,21 @@ notification_height = 0
 # Draw a line of "separator_height" pixel height between two
 # notifications.
 # Set to 0 to disable.
-separator_height = 2
+#separator_height = 2
+separator_height = 0
 
 # Padding between text and separator.
-padding = 10
+#padding = 10
+padding = 3
 
 # Horizontal padding.
+#horizontal_padding = 10
 horizontal_padding = 10
 
 # Defines width in pixels of frame around the notification window.
 # Set to 0 to disable.
-frame_width = 1
+#frame_width = 1
+frame_width = 0
 
 #*** Colors
 # Defines color of the frame around the notification window.
@@ -99,7 +104,8 @@ sort = yes
 idle_threshold = 120
 
 #** Formatting
-font = Monospace 10
+#font = Monospace 10
+font = Inconsolata 11
 
 # The spacing between lines.  If the height is smaller than the
 # font height, it will get raised to the font height.
@@ -140,10 +146,12 @@ markup = full
 #   %%  Literal %
 # Markup is allowed
 # format = "<b>%s</b>\n%b\n\n<i>-- %a</i>"
-format = "<b>%s</b>\n%b\n"
+#format = "<b>%s</b>\n%b\n"
+format = "<b>%s</b>  %b"
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
+#alignment = left
 alignment = left
 
 # Show age of message if message is older than show_age_threshold
@@ -174,8 +182,8 @@ show_indicators = yes
 
 #** Icons
 # Align icons left/right/off
-icon_position = left
-#left
+#icon_position = left
+icon_position = off
 
 # Scale larger icons down to this size, set to 0 to disable
 max_icon_size = 16
@@ -233,9 +241,12 @@ context = ctrl+shift+period
 #* Urgencies
 #** - low
 [urgency_low]
-background = "#9B9B9B"
+#background = "#9B9B9B"
+#background = "#0a0c10"
+background = "#227093"
 #background = "#749A48"
-foreground = "#191f26"  
+#foreground = "#191f26"
+foreground = "#ffffff"
 #foreground = "#000000"
 #frame_color = "#4E802D"
 frame_color = "#9B9B9B"
@@ -244,9 +255,12 @@ icon = /usr/share/icons/Adwaita/32x32/status/dialog-question-symbolic.symbolic.p
 
 #** - normal
 [urgency_normal]
-background = "#9B9B9B"
+#background = "#9B9B9B"
+background = "#0a0c10"
+#background = "#227093"
 # background = "#48749A"
-foreground = "#191f26"
+#foreground = "#191f26"
+foreground = "#ffffff"
 frame_color = "#9B9B9B"   
 #frame_color = "#44599E"
 timeout = 5
@@ -254,7 +268,7 @@ icon = /usr/share/icons/Adwaita/32x32/status/dialog-information-symbolic.symboli
 
 #** - critical
 [urgency_critical]
-background = "#C0392B"
+background = "#b33939"
 foreground = "#ffffff"
 frame_color = "#8E2A20"
 timeout = 10
@@ -317,5 +331,4 @@ icon = /usr/share/icons/Adwaita/32x32/status/dialog-warning-symbolic.symbolic.pn
 #    appname = Pidgin
 #    summary = *twitter.com*
 #    urgency = normal
-#
                                

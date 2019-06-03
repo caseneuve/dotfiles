@@ -5,7 +5,7 @@
 #     #  #   #     #
 #      ##    #    ###
 
-# Last update: 2019-05-14, 18:34:14 @x200
+# Last update: 2019-06-03, 10:03:51 @toshiba
 # Doc:         default themes: /usr/share/rofi/themes/
 # Fix:         należy napisać skrypty dla różnych komend, żeby respektowały różne
 #              monitory; tutaj zostawić tylko kolory i fullscreen
@@ -29,14 +29,15 @@ rofi.kb-mode-previous: Alt-u
 rofi.color-enabled: true
 
 #* FORMAT
-rofi.width: 50
-rofi.location: 0
+#rofi.width: 50
+rofi.location: 5
 rofi.padding: 10
 rofi.line-margin: 5
 rofi.lines: 10
 rofi.separator-style: solid
 rofi.columns: 1
-rofi.font: Iosevka 14
+#rofi.font: Iosevka 14
+rofi.font: Inconsolata 12
 rofi.bw: 1
 rofi.eh: 1
 rofi.hide-scrollbar: true

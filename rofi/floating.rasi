@@ -1,11 +1,13 @@
 * {
-    text-color:                  #f2f2f2;
-    background-color:            #227093;
-    lightbg:                     #34ace0;
+    text-color:                  #dddddd;
+    /* background-color:            #227093; */
+    background-color:            #0a0c10;
+    lightbg:                     #0a0c10; /*#34ace0*/
     red:                         #ff5252;
     magenta:                     #34ace0; 
-    orange:                      #ffb142;
-    fg-selected:                 #1e252f;
+    /* orange:                      #ffb142; */
+    orange:                      #14191f;
+    fg-selected:                 #ffffff;
 
     selected-normal-foreground:  @fg-selected;
     normal-foreground:           @foreground;
@@ -13,8 +15,8 @@
     selected-urgent-foreground:  @fg-selected;
     urgent-foreground:           @foreground;
     alternate-urgent-background: @background;
-    active-foreground:           @foreground;
-    selected-active-foreground:  @fg-selected;
+    active-foreground:           @magenta;
+    selected-active-foreground:  @magenta;
     alternate-normal-foreground: @foreground;
     alternate-active-background: @lightbg;
     bordercolor:                 @foreground;
@@ -34,7 +36,7 @@
     text-color: @foreground;
     background-color: rgba ( 0, 0, 0, 0 % );
     padding:    10;
-    text-color: @bordercolor;
+    /* text-color: @bordercolor; */
     background-color: @background;
 }
 #mainbox {
