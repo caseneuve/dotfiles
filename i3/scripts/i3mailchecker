@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-06-03, 12:46:13 @toshiba
+# Last update: 2019-06-03, 14:08:41 @toshiba
 # Doc:         alt glyph=""
 
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
@@ -32,16 +32,15 @@ get_date(){
 
 new_mail_msg(){
     to=$(awk '/^Delivered-To:/ {$1=""; print}' $1 2>/dev/null)
-    to_readable=$($DECODE "$to")
-    read  -rd '' to_readable <<< $to_readable
+    read  -rd '' to_readable <<< $($DECODE "$to")
     from=$(awk '/^From:/ {$1=""; print}' $1 2>/dev/null \
                | sed 's/<\|>//g')
-    from_readable=$($DECODE "$from")
+    read  -rd '' from_readable <<< $($DECODE "$from")
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
     subject_readable=$($DECODE "$subject")
     [[ -n $from || -n $subject ]] &&\
         paplay --volume 40000 $SOUND
-        notify-send -u low -t 6000 -i $UNREAD "NEW MAIL ($to_readable)"\
+        notify-send -u low -t 6000 -i $UNREAD "NEW MAIL $to_readable"\
                     "\nFROM:    $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
         polybar-msg hook mail 1
 }
