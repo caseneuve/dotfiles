@@ -3,7 +3,7 @@
 #* ---------------------------------------
 # Path:        ~/scr/mocp-poly.sh
 # Created:     2019-06-05, 21:32    @x200
-# Last update: 2019-06-05, 22:34:25 @x200
+# Last update: 2019-06-05, 22:59:51 @x200
 # Doc:         check mocp config and
 #              OnSongChange property
 #* ----------------------------------------
@@ -22,3 +22,5 @@ do
         prev=PAUSE
     fi
 done
+
+[[ $(mocp -Q %state) = STOP ]] && echo hook:module/moc3 >> $socket

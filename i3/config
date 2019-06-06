@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-06-03, 13:24:18 @toshiba
+# Last update: 2019-06-05, 23:45:31 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -569,8 +569,9 @@ bindsym $mod+n $app newsboat
 bindsym $mod+m $exe $dot/i3scratchpads -u mail
 bindsym $mod+r $exe $dot/i3scratchpads -u rng
 bindsym $mod+w $exe $dot/i3scratchpads -u wee
+bindsym $mod+h $exe $dot/i3scratchpads -u mocp
 bindsym $mod+t $exe thunar
-bindsym $mod+h $exe $poly/polybar-toggle.sh
+bindsym $mod+Shift+u $exe $poly/polybar-toggle.sh
 bindsym Scroll_Lock $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+x $exe ~/.dotfiles/i3/i3lock/i3betterlock.sh
 bindsym $mod+Shift+x exec systemctl suspend -i
@@ -590,7 +591,7 @@ bindsym $mod+semicolon $exe rofi -show window -modi window -width 100 #-window-f
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 #bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
 bindsym $mod+bracketleft $exe ~/.dotfiles/dmenu/dmenu-choose-script.sh
-bindsym $mod+bracketright $exe ~/.dotfiles/rofi/scripts/media-controls.sh $rofi-theme
+bindsym $mod+bracketright $exe ~/.dotfiles/dmenu/dmenu-media.sh
 
 #bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
 #bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh

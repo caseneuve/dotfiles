@@ -2,18 +2,18 @@
 
 # Path:        ~/scr/mpv-commands.sh
 # Created:     14.07.18, 22:09    @x200
-# Last update: 2019-05-29, 16:14:34 @x200
+# Last update: 2019-06-05, 10:55:56 @x200
 
-## Doc: MOCP & MPV controls for rofi
+# Doc: MOCP & MPV controls for rofi
 # TODO: get current position > notify send
 # TODO: set position to go
 # TODO: change mode from video to audio ???
 # TODO: 25/07/2018 POPRAWIĆ WARUNKI!!! | done: problem - skrypty nie czytają /bin, trzeba podawać pełną ścieżkę
 
-# >> VARIABLES
+#* VARIABLES
 CLIP="$(xclip -o -selection clipboard)"
 MOC=$(mocp -Q %state)
-MPV=$(~/bin/mpv-socket -s)
+#MPV=$(~/bin/mpv-socket -s)
 if [[ $HOSTNAME == toshiba ]]; then
     GLYPH=
 else
@@ -21,7 +21,7 @@ else
 fi
 [[ -z $1 ]] && THEME=mytheme || THEME=$1
 
-# >> MPV FUNC
+#* MPV FUNC
 mpv_commands(){
     SOC=/tmp/mpv
     POSITION=$(echo '{ "command": ["get_property_string", "time-pos"] }' | socat - $SOC 2>/dev/null | jq .data | xargs | cut -d'.' -f 1)
@@ -53,7 +53,7 @@ mpv_commands(){
     esac
 }
 
-# >> MOC FUNC
+#* MOC FUNC
 moc_commands(){
     selected=$(echo -e \
                     "[1] pause toggle
@@ -85,7 +85,7 @@ info" | dmenu -p "$GLYPH  MOCP:" -l 10) # rofi -theme $THEME -dmenu
     esac
 }
 
-# >> PAUSE FUNC
+#* PAUSE FUNC
 pause_commands(){
     selected=$(echo -e "[a] mocp\n[f] mpv" |  dmenu -p "$GLYPH CHOOSE:") #rofi -theme $THEME -dmenu
     case "$selected" in
@@ -95,7 +95,7 @@ pause_commands(){
     esac
 }
 
-# >> CONDITIONS
+#* CONDITIONS
 if [[ "$MOC" = "STOP" && "$MPV" = "NOT ACTIVE" || "$MOC" = "PAUSE" && "$MPV" = "PAUSE" ]]; then 
     pause_commands;
 elif [[ "$MOC" = "STOP" && "$MPV" = "PLAY" || "$MOC" = "PAUSE" && "$MPV" = "PLAY" || "$MOC" = "STOP" && "$MPV" = "PAUSE" ]]; then

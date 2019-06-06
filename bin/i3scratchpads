@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-05-29, 13:02:02 @x200
+# Last update: 2019-06-05, 23:43:18 @x200
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -43,6 +43,7 @@ tmux_select(){
             mail) app=neomutt ;;
             rng) app=ranger ;;
             wee) app=weechat ;;
+            mocp) app=mocp ;;
             *) app= ;;
         esac
         tmux new-window -n "$1" "$app"

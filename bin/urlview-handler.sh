@@ -2,14 +2,14 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 28.12.18, 16:36:54 @x200
+# Last update: 2019-06-04, 22:57:34 @x200
 
 # Doc: via Luke Smith github
 # note: replacing feh with sxiv
 # done: problem na współpracy z queuemv → argument sie nie rozwija, lecz cytuje się nazwa (należy cytuwać podwójnymi nawiasami)
 
 ext="${1##*.}"
-mpvFiles="mkv mp4 avi mov wmv flv"
+mpvFiles="mkv mp4 avi mov wmv flv ogg"
 fehFiles="png jpg jpeg jpe gif"
 wgetFiles="mp3 mp3?source=feed pdf"
 em="email"

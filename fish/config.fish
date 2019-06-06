@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-06-03, 17:51:40 @toshiba
+# Last update: 2019-06-05, 22:42:13 @x200
 
 #* VARIABLES
 #** env vars
@@ -129,7 +129,9 @@ end
 
 #** yayup
 function ya -d 'Update packages'
-    yay && echo hook:module/sysupdt1 >> /tmp/polybar-ipc-primary
+    yay
+    checkupdates > /tmp/sysupdt
+    echo hook:module/sysupdt1 >> /tmp/polybar-ipc-primary
 end
 
 #** psaux / psauk

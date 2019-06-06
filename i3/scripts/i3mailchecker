@@ -2,16 +2,25 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-06-03, 22:41:40 @x200
+# Last update: 2019-06-06, 00:41:32 @x200
 # Doc:         alt glyph=""
 
+#* env
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+XDG_RUNTIME_DIR=/run/user/1000
+DISPLAY=:0.0
+
+#* paths
 DECODE=$HOME/.dotfiles/i3/scripts/i3mail-decode.py
 MAILBOXES=$HOME/.mail/*/INBOX/new
+SOUND="/usr/share/sounds/freedesktop/stereo/complete.oga"
+
+#* icons
 UNREAD=/usr/share/icons/Adwaita/16x16/status/mail-unread-symbolic.symbolic.png
 READ=/usr/share/icons/Adwaita/16x16/status/mail-read-symbolic.symbolic.png
 SYNC=/usr/share/icons/Adwaita/16x16/status/rotation-allowed-symbolic.symbolic.png
+
 POLYBAR=$(pgrep -x polybar)
-SOUND="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
 service_check() {
     last_service=$(
@@ -41,7 +50,7 @@ new_mail_msg(){
     [[ -n $from || -n $subject ]] &&\
         paplay --volume 40000 $SOUND
         notify-send -u low -t 6000 -i $UNREAD "NEW MAIL  $to_readable"\
-                    "\nFROM:    $from_readable\nSUBJECT: $subject_readable" 2>/dev/null
+                    "\nFROM:     $from_readable\nSUBJECT:  $subject_readable" 2>/dev/null
         polybar-msg hook mail 1
 }
 
@@ -87,10 +96,11 @@ main() {
     done
 
     if $new; then
-        FG_COLOR=$(awk '/^*i3urgent/ {print $2}' $HOME/.Xresources)
+        #FG_COLOR=$(awk '/^*i3urgent/ {print $2}' $HOME/.Xresources)
         #BG_COLOR=#50227093
         if $POLY; then
-            echo "%{F$FG_COLOR}$count%{F-}"
+            #echo "%{F$FG_COLOR}$count%{F-}"
+            echo "$count"
         else
             echo "<span fgcolor='$FG_COLOR'>$GLYPH $count</span>"
         fi

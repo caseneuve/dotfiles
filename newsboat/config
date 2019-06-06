@@ -6,18 +6,18 @@
 ##                                                 ##
 #####################################################
 
-# Last update: 2019-04-20, 11:27:42 @lenovo
+# Last update: 2019-06-04, 22:52:43 @x200
 
-## >> {DOC}
+#* DOC
 # https://newsboat.org/releases/2.11.1/docs/newsboat.html
 
-## >> {GENERAL}
+#* GENERAL
 auto-reload yes
 external-url-viewer "urlview"
 browser qutebrowser
 show-keymap-hint no
 
-## >> {BINDINGS}
+#* BINDINGS
 bind-key j down
 bind-key k up
 bind-key n next articlelist
@@ -44,13 +44,13 @@ bind-key O open-in-browser
 bind-key C mark-feed-read
 bind-key f edit-flags
 
-## >> {STRING FORMAT}
+#* STRING FORMAT
 articlelist-title-format "  %T (%u nieprzeczytane)"
 itemview-title-format    "%F: %T"
 feedlist-title-format    "  RSS: %u nieprzeczytane, %t wszystkie%?T? - tag `%T'&?"
 
-## >> {COLORS}
-#  >>> {{main}}
+#* COLORS
+#** main
 color listnormal        blue  default
 color listfocus         blue  black    bold
 color listnormal_unread cyan  default  
@@ -60,7 +60,7 @@ color article           white default
 #color listfocus         black   yellow   standout bold
 #color listfocus_unread  yellow  default  bold
 
-#  >>> {{highligh text}}
+#** highligh text
 highlight article "^Kanał:.*\|^Feed:.*"   red black bold
 highlight article "^Tytuł:.*\|^Title:.*"  yellow black bold
 highlight article "^Autor:.*\|^Author:.*" green black bold

@@ -1,9 +1,16 @@
-########################
-###   MY MOCP CONFIG
-########################
-# Last update: 06.08.18, 12:18:39 @x200
+                            
+ ## #    ###    ###   # ##  
+ # # #  #   #  #   #  ##  # 
+ # # #  #   #  #      ##  # 
+ # # #  #   #  #   #  # ##  
+ #   #   ###    ###   #     
+                      #     
+                      #     
 
-# {INTRO}
+# Last update: 2019-06-05, 22:25:56 @x200
+# Todo:        [ ] 05/06/2019 cleanup
+
+#* INTRO
 # This is a configuration file for the MOC player.  It should be named
 # 'config' and placed in the ~/.moc directory.  As this file can specify
 # commands which invoke other applications, MOC will refuse to start if it
@@ -662,8 +669,8 @@ PlaylistFullPaths = no
 # and 0; these are now deprecated in favour of 'yes' and 'no'.)
 #SidPlay2_PlaySubTunes = yes
 
-# { ON SONG CHANGE COMMAND ? }
-# {{ script }}
+#* ON SONG CHANGE COMMAND
+#** script
 # Run the OnSongChange command when a new song starts playing.
 # Specify the full path (i.e. no leading '~') of an executable to run.
 # Arguments will be passed, and you can use the following escapes:
@@ -681,21 +688,22 @@ PlaylistFullPaths = no
 #
 # Example:    OnSongChange = "/home/jack/.moc/myscript %a %r"
 #
-#OnSongChange =
+OnSongChange = "/home/piotr/.dotfiles/moc/mocp-poly.sh"
 
-# {{ repeat ? }}
+#** repeat
 # If RepeatSongChange is 'yes' then MOC will execute the command every time
 # a song starts playing regardless of whether or not it is just repeating.
 # Otherwise the command will only be executed when a different song is
 # started.
 #RepeatSongChange = no
 
-# {{ stop ? }}
+#** stop ?
 # Run the OnStop command (full path, no arguments) when MOC changes state
 # to stopped (i.e., when user stopped playing or changes a song).
-#OnStop = "/home/jack/.moc/myscript_on_stop"
+#OnStop = "/home/piotr/scr/mocp-stop.sh"
 
-# { WHAT TO PLAY WHEN QUEUE FINISHES }
+
+#* WHAT TO PLAY WHEN QUEUE FINISHES 
 # This option determines which song to play after finishing all the songs
 # in the queue.  Setting this to 'yes' causes MOC to play the song which
 # follows the song being played before queue playing started. If set to
@@ -707,3 +715,5 @@ PlaylistFullPaths = no
 
 
 
+                            
+                            

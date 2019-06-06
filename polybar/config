@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-06-03, 22:48:16 @x200
+; Last update: 2019-06-05, 22:40:47 @x200
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -68,7 +68,7 @@ font-4 = file\-icons:style=icons:pixelsize=8;2
 ;*** modules 1
 modules-left =  i3 wintitle
 ; modules-center = wintitle
-modules-right = alsa disk memory cpu loadavg battery wlan eth sysupdt mail date
+modules-right = moc mpv alsa disk memory cpu loadavg battery wlan eth sysupdt mail date
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -313,10 +313,25 @@ initial = 1
 ;** sysupdt
 [module/sysupdt]
 type = custom/ipc
+initial = 1 
 hook-0 = ~/.dotfiles/bin/sys-updt.sh
-initial = 1
 format-prefix = %{T4} %{T-}
 label = %output%
+
+;** mpv
+[module/mpv]
+type = custom/ipc
+hook-0 = ~/.dotfiles/bin/mpv-socket2.sh -i 
+hook-1 = echo ""
+; hook-2 = echo "pause" 
+
+
+;** mocp
+[module/moc]
+type = custom/ipc
+hook-0 = echo "%{F#ffffff}$(basename $(mocp -Q %file)) $(mocp -Q %ct)"
+hook-1 = echo "$(basename $(mocp -Q %file)) $(mocp -Q -%tl)"
+hook-2 = echo ""
 
 ; [module/wint]
 ; type = custom/ipc
