@@ -7,7 +7,7 @@
                       #     
                       #     
 
-# Last update: 2019-06-05, 22:25:56 @x200
+# Last update: 2019-06-07, 10:45:25 @toshiba
 # Todo:        [ ] 05/06/2019 cleanup
 
 #* INTRO
@@ -700,7 +700,7 @@ OnSongChange = "/home/piotr/.dotfiles/moc/mocp-poly.sh"
 #** stop ?
 # Run the OnStop command (full path, no arguments) when MOC changes state
 # to stopped (i.e., when user stopped playing or changes a song).
-#OnStop = "/home/piotr/scr/mocp-stop.sh"
+OnStop = "/home/piotr/.dotfiles/moc/mocp-poly.sh"
 
 
 #* WHAT TO PLAY WHEN QUEUE FINISHES 

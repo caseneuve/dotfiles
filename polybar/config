@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-06-05, 22:40:47 @x200
+; Last update: 2019-06-07, 09:32:37 @toshiba
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -329,8 +329,8 @@ hook-1 = echo ""
 ;** mocp
 [module/moc]
 type = custom/ipc
-hook-0 = echo "%{F#ffffff}$(basename $(mocp -Q %file)) $(mocp -Q %ct)"
-hook-1 = echo "$(basename $(mocp -Q %file)) $(mocp -Q -%tl)"
+hook-0 = ~/.dotfiles/moc/moc-showtitle.sh play
+hook-1 = ~/.dotfiles/moc/moc-showtitle.sh pause
 hook-2 = echo ""
 
 ; [module/wint]
