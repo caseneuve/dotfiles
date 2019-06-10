@@ -3,7 +3,7 @@
 #* -------------------------------------------------------------------
 # Path:        ~/.dotfiles/bin/mpv-socket2.sh
 # Created:     2019-06-05, 11:06    @x200
-# Last update: 2019-06-05, 20:42:12 @x200
+# Last update: 2019-06-08, 21:35:27 @toshiba
 # Doc:
 # Todos:       [ ] 05/06: cant pass file with spaces in name
 #              [ ]        notifications
@@ -20,7 +20,7 @@ SOC=/tmp/mpv; ! [[ -S $SOC ]] && exit 1
 #** usage
 usage(){
     cat <<EOF
-Usage:   $0 [-pSish] [-j <seconds>] [-v|-a <address>]
+Usage:  $(basename $0) [-pSish] [-j <seconds>] [-v|-a <address>]
 
 Options:
  -v URL/PATH  mpv play video (or append to playlist)
@@ -31,11 +31,13 @@ Options:
  -P           toggle pause
  -j INT       jump INT seconds forward
               (or backward for negative number)
+ -d NUM       stream speed (where 1 = normal, 0.5 = 50%,
+              1.2 = 20% faster than normal, etc.)
 
 EOF
 }
 
-#** socet get
+#** socket get
 socket_get(){
     case $1 in
         property) verb=get_property ;;
@@ -134,7 +136,7 @@ info(){
     if [[ $(command time-pos) ]]
     then
         speed=$(command speed)
-        ((speed == 1)) && speed= || speed=" x$speed"
+        [[ $speed = 1 ]] && speed= || speed=" x$speed"
         # what="$(command media-title)";
         # [[ $what = null ]] && what=$(basename $(command current))
         printf "%.1s %s %s [%d/%d]%s" \
@@ -148,9 +150,27 @@ info(){
     fi
 }
 
+
+#** polybar info
+polybar_info(){
+    if [[ $(command time-pos) ]]; then
+        speed=$(command speed)
+        [[ $speed = 1 ]] && speed= || speed=" x$speed"
+        [[ $(command status) = PLAY ]] && color="#ffffff" || color="-"
+        [[ $(command medium) = VIDEO ]] && icon="%%{T4}%%{T-}" || icon="%%{T4}%%{T-}"
+            printf "%%{F$color}$icon %s [%d/%d]%s" \
+               $(command time-pos) \
+               $(command playlist-pos) \
+               $(command playlist-count) \
+               "$speed"
+    else exit 1
+    fi
+}
+
+
 #** main
 main(){
-    while getopts 'pnucqQishv:a:j:d:' flag; do
+    while getopts 'PpnucqQishv:a:j:d:' flag; do
         shift
         case "$flag" in
             s) if [[ $(command time-pos) ]]; then
@@ -179,6 +199,7 @@ main(){
                     | socat - $SOC >/dev/null
                ;;
             i) info ;;
+            P) polybar_info ;;
             h|*) usage ;;
         esac
     done

@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-06-07, 09:32:37 @toshiba
+; Last update: 2019-06-08, 21:06:19 @toshiba
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -321,7 +321,7 @@ label = %output%
 ;** mpv
 [module/mpv]
 type = custom/ipc
-hook-0 = ~/.dotfiles/bin/mpv-socket2.sh -i 
+hook-0 = ~/.dotfiles/bin/mpv-socket2.sh -P 
 hook-1 = echo ""
 ; hook-2 = echo "pause" 
 

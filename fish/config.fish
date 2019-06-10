@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-06-05, 22:42:13 @x200
+# Last update: 2019-06-08, 21:46:28 @toshiba
 
 #* VARIABLES
 #** env vars
@@ -18,7 +18,7 @@ set -gx VISUAL $EDITOR
 set -gx VIRTUAL_ENV_DISABLE_PROMPT no # https://github.com/fish-shell/fish-shell/pull/1795
 set -gx TERM xterm-256color
 set -gx GOPATH $HOME/go
-set -gx PATH $PATH $GOPATH/bin $HOME/.local/bin
+set -gx PATH $PATH $GOPATH/bin $HOME/.local/bin $HOME/.scripts
 
 #** fish vars
 #set -e fish_greeting

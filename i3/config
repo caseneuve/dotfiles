@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-06-05, 23:45:31 @x200
+# Last update: 2019-06-09, 12:13:36 @toshiba
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -406,6 +406,7 @@ hide_edge_borders both
 for_window [class="^term"] border pixel 1
 for_window [class="whit4ker"] border pixel 1
 for_window [class="^calculator$"] border pixel 1
+for_window [class="^Emacs$"] border pixel 1
 
 #** sticky windows
 bindsym $mod+v sticky toggle
