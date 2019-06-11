@@ -3,7 +3,7 @@
 #* -------------------------------------------------------------------
 # Path:        ~/.dotfiles/bin/mpv-socket2.sh
 # Created:     2019-06-05, 11:06    @x200
-# Last update: 2019-06-08, 21:35:27 @toshiba
+# Last update: 2019-06-11, 12:22:23 @x200
 # Doc:
 # Todos:       [ ] 05/06: cant pass file with spaces in name
 #              [ ]        notifications
@@ -14,7 +14,7 @@
 
 #* initial conditions
 ! [[ $(pacman -Q jq) ]] && exit 1
-SOC=/tmp/mpv; ! [[ -S $SOC ]] && exit 1
+#SOC=/tmp/mpv; ! [[ -S $SOC ]] && exit 1
 
 #* FUNCS
 #** usage
