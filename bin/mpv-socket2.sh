@@ -3,7 +3,7 @@
 #* -------------------------------------------------------------------
 # Path:        ~/.dotfiles/bin/mpv-socket2.sh
 # Created:     2019-06-05, 11:06    @x200
-# Last update: 2019-06-11, 12:22:23 @x200
+# Last update: 2019-06-11, 12:43:16 @x200
 # Doc:
 # Todos:       [ ] 05/06: cant pass file with spaces in name
 #              [ ]        notifications
@@ -14,7 +14,7 @@
 
 #* initial conditions
 ! [[ $(pacman -Q jq) ]] && exit 1
-#SOC=/tmp/mpv; ! [[ -S $SOC ]] && exit 1
+SOC=/tmp/mpv #; ! [[ -S $SOC ]] && exit 1
 
 #* FUNCS
 #** usage
@@ -48,6 +48,14 @@ socket_get(){
                  | jq .data -r )
     [[ -n $3 ]] && result=$(cut -d'.' -f 1 <<< $result)
     echo $result
+}
+
+#** socket set
+socket_set(){
+    property=$1
+    value=$2
+    echo "{ \"command\": [\"set_property\", \"$property\", \"$value\"] }" \
+        | socat - $SOC >/dev/null
 }
 
 #** command
@@ -86,6 +94,7 @@ command(){
                     && echo "AUDIO" || echo "VIDEO"
                 ;;
         speed) socket_get property $1 ;;
+        set-pos) socket_set time-pos $2
     esac
 }
 
@@ -170,7 +179,7 @@ polybar_info(){
 
 #** main
 main(){
-    while getopts 'PpnucqQishv:a:j:d:' flag; do
+    while getopts 'PpnucqQishv:a:j:d:t:' flag; do
         shift
         case "$flag" in
             s) if [[ $(command time-pos) ]]; then
@@ -200,6 +209,7 @@ main(){
                ;;
             i) info ;;
             P) polybar_info ;;
+            t) socket_set time-pos $OPTARG ;;
             h|*) usage ;;
         esac
     done
