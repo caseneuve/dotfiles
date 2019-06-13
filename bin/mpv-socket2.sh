@@ -3,7 +3,7 @@
 #* -------------------------------------------------------------------
 # Path:        ~/.dotfiles/bin/mpv-socket2.sh
 # Created:     2019-06-05, 11:06    @x200
-# Last update: 2019-06-11, 12:43:16 @x200
+# Last update: 2019-06-13, 10:20:33 @x200
 # Doc:
 # Todos:       [ ] 05/06: cant pass file with spaces in name
 #              [ ]        notifications
@@ -115,6 +115,8 @@ loop(){
         elif ! [[ $prev = PAUSE ]]; then
             echo hook:module/mpv1 >> /tmp/polybar-ipc-primary
             prev=PAUSE
+        else
+            sleep 1
         fi
     done
     echo hook:module/mpv2 >> /tmp/polybar-ipc-primary
@@ -123,19 +125,25 @@ loop(){
 #** play
 play(){
     if [[ $(command time-pos) ]]; then
-        echo "{ \"command\": [ \"loadfile\", \"$2\", \"append-play\" ] }" \
-            | socat - $SOC >/dev/null & disown
+        if $(echo "{ \"command\": [ \"loadfile\", \"$2\", \"append-play\" ] }" \
+                 | socat - $SOC >/dev/null & disown)
+        then notify-send -u low "Video has been appended to playlist" &
+        fi
     else
         if [[ -n "$2" ]]; then
             [[ $1 = audio ]] && ARG=--no-video
             input="${@:2}"
             [[ "$input" =~ http ]] && address=$input || address=$(readlink -f "$input")
+
+            notify-send -u low "Video is loading..." &
+
             mpv "$address" \
                 --input-ipc-server=$SOC \
                 --save-position-on-quit \
                 --really-quiet \
-                $ARG 2>/dev/null & disown
-           loop $! & disown
+                $ARG &  # 2>/dev/null //disown
+
+            loop $! & #disown
         fi
     fi
 }
@@ -148,6 +156,7 @@ info(){
         [[ $speed = 1 ]] && speed= || speed=" x$speed"
         # what="$(command media-title)";
         # [[ $what = null ]] && what=$(basename $(command current))
+
         printf "%.1s %s %s [%d/%d]%s" \
                $(command medium) \
                $(command status) \
