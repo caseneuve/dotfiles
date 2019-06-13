@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-06-08, 21:46:28 @toshiba
+# Last update: 2019-06-11, 21:48:21 @toshiba
 
 #* VARIABLES
 #** env vars
@@ -94,6 +94,8 @@ if status --is-interactive
   abbr --add gitca 'git commit -am'
   abbr --add mk mkdir -p
   abbr --add lg ls --group-directories-first --color="always"
+  abbr --add els exa
+  abbr --add elg exa --group-directories-first
   abbr --add mejk 'make && sudo make install'
   abbr --add sp sudo pacman -S
   abbr --add sr sudo pacman -R
