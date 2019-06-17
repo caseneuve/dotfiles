@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-06-08, 21:06:19 @toshiba
+; Last update: 2019-06-17, 19:16:31 @lenovo
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -155,7 +155,7 @@ label-unfocused-foreground = #aaa69d
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-background = ${xrdb:poly_vis_bg:#5040407a}
+; label-visible-background = ${xrdb:poly_vis_bg:#5040407a}
 label-visible-foreground = #aaa69d
 label-visible-padding = 1
 
