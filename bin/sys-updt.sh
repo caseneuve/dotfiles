@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sys-updt.sh
 # Created:     2018-05-30, 16:02    @x200
-# Last update: 2019-06-12, 13:51:39 @toshiba
+# Last update: 2019-06-20, 18:57:00 @lenovo
 # Doc:         Primitive pamac-tray replacement
 #              requires pacman-contrib package (`checkupdates` command)
 
@@ -16,7 +16,7 @@ FILE=/tmp/sysupdt
 
 if [ -n $NUM ]; then
     if (( $NUM > 0 )); then
-        if [ $(pgrep polybar) ]; then
+        if [[ $(pgrep polybar) ]]; then
             echo "$NUM"
         # elif [[ $(pgrep i3blocks) ]]; then
         #     [[ $(grep -o linux-lts $FILE) ]] &&\
