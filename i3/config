@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #     
 ###                                                    ###  
 
-# Last update: 2019-06-09, 12:13:36 @toshiba
+# Last update: 2019-06-26, 02:49:41 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -619,10 +619,3 @@ bindsym $mod+Control+Left $exe $dot/xdo-sent-control.sh -r
 ##################################################
 # > tu koniec pliku wspólnego, poniżej append  < #
 ##################################################
- #    ####                            #    #          
-         #                           # #              
-##     ##          ##    ##   ###    #    ##     ###  
- #       #        #     #  #  #  #  ###    #    #  #  
- #    #  #        #     #  #  #  #   #     #     ##   
-###    ##          ##    ##   #  #   #    ###   #     
-                                                 ###  

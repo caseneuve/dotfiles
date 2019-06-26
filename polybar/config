@@ -6,7 +6,7 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-; Last update: 2019-06-17, 19:16:31 @lenovo
+; Last update: 2019-06-21, 19:58:34 @lenovo
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -101,8 +101,8 @@ line-size = 0
 border-size = 0
 ;border-color = #000000
 
-padding-left = 2
-padding-right = 3
+padding-left = 1
+padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
