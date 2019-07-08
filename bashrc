@@ -8,7 +8,7 @@
 ############################################
 
 # Created:     2018-06.18, 13:16    @lenovo
-# Last update: 2019-05-26, 22:19:02 @x200
+# Last update: 2019-07-08, 14:34:10 @lenovo
 # Doc:
 # note: escape chars for bash prompt have been put into format string, because the string has to be in single quote (not double) to make evaluation of git command inside it possible
 # note: lack of escape characters results in strange behaviour, e.g. not going to next line with input etc.
@@ -110,7 +110,7 @@ export VISUAL=""
 export EDITOR=emacsclient
 export ALTERNATE_EDITOR=nano
 export RANGER_LOAD_DEFAULT_RC=FALSE
-LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=1;34:*.mp3=00;35' ; export LS_COLORS
 # set grep match color to bold, blue (default red bold)
 export GREP_COLORS="mt=01;34"
 export XPOLYBAR_COLORS="opaque"
