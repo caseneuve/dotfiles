@@ -14,7 +14,7 @@
 #define  yellow     #96a62d
 #define  blue       #385e6b
 #define  magenta    #7f355e
-#define  cyan       #34676f
+#define  cyan       #19b5fe
 #define  white      #c6a57b
 #define  br_black   #202020
 #define  br_red     #ba5b34
@@ -22,5 +22,8 @@
 #define  br_yellow  #909737
 #define  br_blue    #5c737c
 #define  br_magenta #d3869b
-#define  br_cyan    #34676f
+#define  br_cyan    #81cfe0
 #define  br_white   #f5deb3
+
+! old cyan = #34676f
+
