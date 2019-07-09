@@ -6,7 +6,7 @@
 #   ### ###  ## ### ### #   ### ### ##  ### #
 #     #
 
-# Last update: 2019-06-11, 22:17:29 @toshiba
+# Last update: 2019-07-09, 21:17:02 @lenovo
 
 # * MY VARIABLES
 mpv_script_video = "~/.scripts/mpvsoc -v "
@@ -307,6 +307,7 @@ config.bind("st", ":config-cycle statusbar.position top bottom")
 config.bind("tt", ":config-cycle tabs.show never multiple")
 config.bind("u", "move-to-prev-word", mode="caret")
 config.bind("v", "toggle-selection", mode="caret")
+config.bind("W", "open -w")
 config.bind("wB", "set-cmd-text -s :bookmark-load -w")
 config.bind("wO", "set-cmd-text :open -w {url:pretty}")
 config.bind("wP", "open -w -- {primary}")
