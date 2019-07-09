@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-06-11, 21:48:21 @toshiba
+# Last update: 2019-07-08, 22:28:20 @lenovo
 
 #* VARIABLES
 #** env vars
@@ -19,6 +19,7 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT no # https://github.com/fish-shell/fish-shell
 set -gx TERM xterm-256color
 set -gx GOPATH $HOME/go
 set -gx PATH $PATH $GOPATH/bin $HOME/.local/bin $HOME/.scripts
+set -gx LS_COLORS "$LS_COLORS:*.pdf=00;91:ln=00;36:*.m3u=01;35:*.mp3=00;35:*.wav=00;35:*.7z=01;31:*.zip=01;31:*.rar=01;31:"
 
 #** fish vars
 #set -e fish_greeting
