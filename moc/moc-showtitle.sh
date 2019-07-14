@@ -2,19 +2,13 @@
 
 # Path:        ~/.dotfiles/moc/moc-showtitle.sh
 # Created:     2019-06-07, 09:10    @toshiba
-# Last update: 2019-06-08, 22:04:57 @toshiba
+# Last update: 2019-07-14, 11:41:31 @lenovo
 
-song="$(mocp -Q %song)"
 icon="%{T4}%{T-}"
+song="$(mocp -Q %song)"
 
-if [[ -n $song ]]; then
-    [[ ${#song} -gt 25 ]] && song="${song:0:25}…"
-else
-    song="$(basename "$(mocp -Q %file)")"
-fi
+[ -z $song ] && song="$(basename "$(mocp -Q %file)")"
+[ ${#song} -gt 25 ] && song="${song:0:25}…"
+[ $1 = play ] && color="%{F#ffffff}"
 
-if [[ $1 = play ]]; then
-    echo "%{F#ffffff}$icon $song $(mocp -Q %ct)"
-else
-    echo "$icon $song $(mocp -Q %ct)"
-fi
+echo "$color$icon $song $(mocp -Q %ct)"
