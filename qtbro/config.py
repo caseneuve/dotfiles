@@ -6,7 +6,7 @@
 #   ### ###  ## ### ### #   ### ### ##  ### #
 #     #
 
-# Last update: 2019-07-09, 21:17:02 @lenovo
+# Last update: 2019-07-15, 21:57:31 @lenovo
 
 # * MY VARIABLES
 mpv_script_video = "~/.scripts/mpvsoc -v "
@@ -172,7 +172,7 @@ c.zoom.levels = [
     "500%",
 ]
 
-# * KEY BINDINGS
+# * KEY BINDINGS (KBD)
 c.aliases = {"w": "session-save", "q": "quit", "wq": "quit --save"}
 
 config.bind(",", "enter-mode insert")
@@ -240,6 +240,9 @@ config.bind("K", "scroll down", mode="caret")
 config.bind("L", "scroll right")
 config.bind("L", "scroll right", mode="caret")
 config.bind("M", "set-cmd-text -s :bookmark-load -t")
+config.unbind("O", "normal")
+config.bind("Oc", "open -t {clipboard}")
+config.bind("Op", "open -t {primary}")
 config.bind("P", "open -p")
 config.bind("Sm", "open -t ;; set-cmd-text -s :messages ;; command-accept")
 config.bind("Y", "yank selection -s", mode="caret")
