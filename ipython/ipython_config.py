@@ -29,13 +29,13 @@
 #c.InteractiveShellApp.exec_files = []
 
 # lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = ['import i3ipc',
-                                    'i3 = i3ipc.Connection()',
-                                    'root = i3.get_tree()',
-                                    'import os',
-                                    'import subprocess as sp',
-                                    'from subprocess import Popen as pop',
-                                    ]
+# c.InteractiveShellApp.exec_lines = ['import i3ipc',
+#                                     'i3 = i3ipc.Connection()',
+#                                     'root = i3.get_tree()',
+#                                     'import os',
+#                                     'import subprocess as sp',
+#                                     'from subprocess import Popen as pop',
+#                                     ]
 
 # A list of dotted module names of IPython extensions to load.
 #c.InteractiveShellApp.extensions = []
