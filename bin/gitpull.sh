@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/gitpull.sh
 # Created:     2019-03-04, 12:39    @x200
-# Last update: 2019-03-06, 12:10:00 @lenovo
+# Last update: 2019-07-24, 14:34:00 @x200
 # Doc:         update all active repos
 
 DOT=$HOME/.dotfiles
@@ -45,7 +45,7 @@ main() {
     
     # tangle emacs config
     echo "## Updating emacs config files"
-    $HOME/git/lab/dotemacs/tangle-config-org.sh
+    $HOME/git/lab/dotemacs/update-config.sh -ts
 
     if [[ -S /tmp/emacs1000/term ]]
     then
