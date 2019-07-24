@@ -1,12 +1,12 @@
-###    #    ####                            #    #          
-###            #                           # #              
-###   ##     ##          ##    ##   ###    #    ##     ###  
-###    #       #        #     #  #  #  #  ###    #    #  #  
-###    #    #  #        #     #  #  #  #   #     #     ##   
-###   ###    ##          ##    ##   #  #   #    ###   #     
-###                                                    ###  
+###    #    ####                            #    #
+###            #                           # #
+###   ##     ##          ##    ##   ###    #    ##     ###
+###    #       #        #     #  #  #  #  ###    #    #  #
+###    #    #  #        #     #  #  #  #   #     #     ##
+###   ###    ##          ##    ##   #  #   #    ###   #
+###                                                    ###
 
-# Last update: 2019-06-26, 16:05:59 @lenovo
+# Last update: 2019-07-24, 10:04:40 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -46,7 +46,7 @@ $exea compton --config ~/.config/compton/compton.conf
 $exe  mocp -S
 #$exe  emacs --daemon
 $exea dunst                                            # notifier
-$exea amixer set Master 50% 
+$exea amixer set Master 50%
 $exea $hub/i3listen-poly.py      # manage workspace names and window titles in bar
 
 #** git!
@@ -432,7 +432,7 @@ set $txtur #F06292
 # command          | variable | Xresources var | fallback |
 # ========================================================|
 set_from_resource    $bgf       i3wm.i3blue      #385e6b
-
+set_from_resource    $brur      i3wm.i3urgent    #ba5b34
 
 # class                   border  bg     text
 client.focused            $bra    $bgf   $txtf
