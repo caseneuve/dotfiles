@@ -8,7 +8,7 @@
  ###   ###  #  #  ###      ##
 
 # Path:        ~/.dotfiles/dunstrc
-# Last update: 2019-06-04, 07:04:23 @x200
+# Last update: 2019-07-25, 09:43:10 @lenovo
 
 #* Global settings
 [global]
@@ -249,9 +249,9 @@ icon = /usr/share/icons/Adwaita/32x32/status/dialog-question-symbolic.symbolic.p
 
 #** - normal
 [urgency_normal]
-background = "#0a0c10"
-foreground = "#ffffff"
-frame_color = "#0a0c10"
+background = "#96a62d"
+foreground = "#101010"
+frame_color = "#96a62d"
 timeout = 8
 icon = /usr/share/icons/Adwaita/32x32/status/dialog-information-symbolic.symbolic.png
 
