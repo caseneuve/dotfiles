@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-06-05, 23:43:18 @x200
+# Last update: 2019-07-25, 11:47:38 @lenovo
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3move; i3get
 
@@ -38,6 +38,7 @@ tmux_select(){
     if [[ $(echo $(tmux list-windows -a -t tmux -F '#{window_name}') | grep $1) \
         || $1 =~ 1 ]]; then
         tmux select-window -t "tmux:$1"
+        i3-msg -t send_tick "tmux"
     else
         case $1 in
             mail) app=neomutt ;;
@@ -73,7 +74,8 @@ main() {
                                                '#{window_name} #{window_index}' ) \
                                        | grep "$OPTARG" ) \
                                      || $OPTARG =~ 1 # = mod+u
-                               ]]; then
+                               ]]
+                           then
                                [[ $OPTARG =~ mail ]] && ID=$(xdotool getactivewindow)
                                i3msg "[title=\"dropdown\"] scratchpad show"
                                [[ -n $ID ]] && xdotool key --window $ID dollar
