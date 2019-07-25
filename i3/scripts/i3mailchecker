@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-07-25, 00:11:23 @lenovo
+# Last update: 2019-07-25, 15:20:55 @lenovo
 # Doc:         alt glyph=""
 
 #* env
@@ -49,7 +49,7 @@ new_mail_msg(){
     read -rd '' subject_readable <<< $($DECODE "$subject")
     [[ -n $from || -n $subject ]] &&\
         paplay --volume 40000 $SOUND
-        notify-send -u low -t 6000 -i $UNREAD "NEW MAIL  $to_readable"\
+        notify-send -t 6000 -i $UNREAD "NEW MAIL  $to_readable"\
                     "\nFROM:     $from_readable\nSUBJECT:  $subject_readable" 2>/dev/null
         polybar-msg hook mail 1
 }
@@ -117,7 +117,7 @@ main() {
 case $BLOCK_BUTTON in
     1) service_check
        if [[ -n $last_service ]]; then
-           notify-send -u low -i $READ "MAIL" "Last check:\n$last_service"
+           notify-send -i $READ "MAIL" "Last check:\n$last_service"
        else
            notify-send -u critical "MAIL" "Synchronization error. Restarting service"
        fi
