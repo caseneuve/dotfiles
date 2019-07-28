@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-07-24, 10:04:40 @x200
+# Last update: 2019-07-28, 15:22:39 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -441,15 +441,16 @@ client.unfocused          $bru    $bgi   $txtu
 client.urgent             $brur   $bgur  $txtur
 
 #* BAR
+#** fonts
 # use fonts.conf configuration
 #font pango:VT323 12
-#font pango:monospace 9
+font pango:monospace 9
 #font pango:Nova Mono 9
 #font pango:Roboto Condensed 9
-#font pango:Lekton 9
+#font Lekton 9
 #font pango:Iosevka 9
 #font pango:Lato 8
-font pango:Inconsolata 9
+#font pango:Inconsolata 9
 #font pango: DejaVu Sans Mono 8
 
 #** bar color variables

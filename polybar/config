@@ -1,12 +1,13 @@
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-; Last update: 2019-07-11, 23:22:17 @lenovo
+
+;                     _|  _|  _|                            
+; _|_|_|      _|_|    _|      _|_|_|      _|_|_|  _|  _|_|  
+; _|    _|  _|    _|  _|  _|  _|    _|  _|    _|  _|_|      
+; _|    _|  _|    _|  _|  _|  _|    _|  _|    _|  _|        
+; _|_|_|      _|_|    _|  _|  _|_|_|      _|_|_|  _|        
+; _|                                                        
+; _|                                                        
+
+; Last update: 2019-07-28, 22:41:44 @x200
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -42,28 +43,28 @@ foreground = ${colors.foreground}
 line-size = 0
 border-size = 0
 
-padding-left = 1
-padding-right = 2
+padding-left = 0
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
 
 ;*** fonts 1
-;font-0 = Ubuntu Condensed:style=Regular:pixelsize=10;2
-;font-0 = VT323:style=Regular:pixelsize=12;2
-
-font-0 = Inconsolata:style=Regular:pixelsize=9;2
-font-1 = FontAwesome:style=Regular:pixelsize=8:antialias=false;1
+;font-0 = Roboto Condensed:style=Regular:pixelsize=9;3
+font-0 = monospace:pixelsize=9;3
+font-1 = FontAwesome:style=Regular:pixelsize=8:antialias=false;2
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
-font-3 = siji:pixelsize=12;2
-font-4 = file\-icons:style=icons:pixelsize=8;2
+font-3 = siji:pixelsize=12;3
+font-4 = file\-icons:style=icons:pixelsize=7;3.5
+;font-5 = Roboto Mono:style=Regular:pixelsize=9;3
 
-;font-1 = monospace:pixelsize=10;1
-;font-0 = Monoid:pixelsize=8;2
-;font-3 = Monoid:style=Bold:pixelsize=8;2
-;font-3 = "Roboto Condensed:style=Bold:pixelsize=9;1"
+;font-0 = VT323:style=Regular:pixelsize=12;2
+;font-0 = Ubuntu Condensed:style=Regular:pixelsize=10;2
+;font-0 = Iosevka Light:style=Light:pixelsize=8;3
+;font-0 = Ubuntu Mono:style=Regular:pixelsize=9;3
+;font-0 = Monoid:style=Regular:pixelsize=7;3
+;font-0 = Inconsolata:style=Regular:pixelsize=9;3
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = siji:pixelsize=10;1
 
 ;*** modules 1
 modules-left =  i3 wintitle
@@ -100,17 +101,23 @@ line-size = 0
 border-size = 0
 ;border-color = #000000
 
-padding-left = 1
-padding-right = 2
+padding-left = 0
+padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
 ;*** fonts 2
-font-0 = Inconsolata:style=Regular:pixelsize=10;2
+;font-0 = Roboto Condensed:style=Regular:pixelsize=10;3
+font-0 = monospace:pixelsize=10;4
+;font-0 = Iosevka Light:style=Light:pixelsize=9;3
+;font-0 = Ubuntu Mono:style=Regular:pixelsize=10;3
+;font-0 = Monoid:style=Regular:pixelsize=8;3
+;font-0 = Inconsolata:style=Regular:pixelsize=10;3
+;font-0 = VT323:style=Regular:pixelsize=14;2
 font-1 = FontAwesome:style=Regular:pixelsize=10:antialias=false;3
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;4
-font-3 = siji:pixelsize=12;2
-font-4 = file\-icons:style=icons:pixelsize=9;3
+font-3 = siji:pixelsize=12;3
+font-4 = file\-icons:style=icons:pixelsize=8;3
 
 ;*** modules 2
 modules-left = i3 wintitle
@@ -335,4 +342,4 @@ hook-2 = echo ""
 ; [module/wint]
 ; type = custom/ipc
 ; hook-0 = ~/biu/py/i3lis.py
-; label = %output&
+; label = %output&                                                          
