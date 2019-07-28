@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-07-28, 15:22:39 @x200
+# Last update: 2019-07-28, 22:46:39 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -445,9 +445,7 @@ client.urgent             $brur   $bgur  $txtur
 # use fonts.conf configuration
 #font pango:VT323 12
 font pango:monospace 9
-#font pango:Nova Mono 9
 #font pango:Roboto Condensed 9
-#font Lekton 9
 #font pango:Iosevka 9
 #font pango:Lato 8
 #font pango:Inconsolata 9
