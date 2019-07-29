@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-07-28, 22:46:39 @x200
+# Last update: 2019-07-29, 13:59:50 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -562,8 +562,8 @@ bindsym $mod+z exec synclient TouchpadOff=1
 bindsym $mod+Shift+z exec synclient TouchpadOff=0
 
 #* KBD
-bindsym $mod+Return split horizontal $exe $dot/i3startterminemacsdir.sh fish
-bindsym $mod+Shift+Return split vertical $exe $dot/i3startterminemacsdir.sh fish
+bindsym $mod+Return split horizontal $exe $dot/i3startterminemacsdir.sh -e fish
+bindsym $mod+Shift+Return split vertical $exe $dot/i3startterminemacsdir.sh -e fish
 bindsym $mod+b $app qutebrowser
 bindsym $mod+Shift+b $app qutebrowser-window
 bindsym $mod+Shift+p $app qutebrowser-private
