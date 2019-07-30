@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-07-24, 10:14:40 @x200
+# Last update: 2019-07-30, 11:13:57 @x200
 
 #* VARIABLES
 #** env vars
@@ -110,6 +110,12 @@ if status --is-interactive
   abbr --add fdf fd -d 1 -t f
   abbr --add l1 ls -1
   abbr --add lg1 ls --group-directories-first -1
+  # Django abbrevs:
+  abbr --add ms ./manage.py shell
+  abbr --add mt ./manage.py test -v 2
+  abbr --add mt1 ./manage.py test
+  abbr --add mms ./manage.py makemigrations
+  abbr --add mmg ./manage.py migrate
 end
 
 #* FUNCTIONS
