@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-07-30, 11:13:57 @x200
+# Last update: 2019-08-02, 14:48:26 @lenovo
 
 #* VARIABLES
 #** env vars
@@ -77,6 +77,7 @@ if status --is-interactive
       source $HOME/.dotfiles/fish/fast-dirs.fish
   end
 
+#** abbrev list
   abbr --add klr ' clear'
   abbr --add q ' exit'
   # abbr --add e $EDITOR
@@ -93,6 +94,7 @@ if status --is-interactive
   abbr --add gita git add
   abbr --add gitc 'git commit -m'
   abbr --add gitca 'git commit -am'
+  abbr --add gitcs 'git commit --author=schole -m'
   abbr --add mk mkdir -p
   abbr --add lg ls --group-directories-first --color="always"
   abbr --add els exa
