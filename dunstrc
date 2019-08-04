@@ -8,7 +8,7 @@
  ###   ###  #  #  ###      ##
 
 # Path:        ~/.dotfiles/dunstrc
-# Last update: 2019-07-25, 09:43:10 @lenovo
+# Last update: 2019-08-01, 15:36:59 @lenovo
 
 #* Global settings
 [global]
@@ -104,7 +104,7 @@ sort = yes
 idle_threshold = 120
 
 #** Formatting, font etc.
-font = Monospace 10
+font = Monospace 8
 #font = Inconsolata 11
 
 # The spacing between lines.  If the height is smaller than the

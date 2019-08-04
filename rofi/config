@@ -5,7 +5,7 @@
 #     #  #   #     #
 #      ##    #    ###
 
-# Last update: 2019-06-04, 07:13:26 @x200
+# Last update: 2019-08-01, 15:38:07 @lenovo
 # Doc:         default themes: /usr/share/rofi/themes/
 # Fix:         należy napisać skrypty dla różnych komend, żeby respektowały różne
 #              monitory; tutaj zostawić tylko kolory i fullscreen
@@ -36,7 +36,7 @@ rofi.line-margin: 5
 rofi.lines: 10
 rofi.separator-style: solid
 rofi.columns: 1
-rofi.font: Monospace 11
+rofi.font: Monospace 8
 rofi.bw: 1
 rofi.eh: 1
 rofi.hide-scrollbar: true

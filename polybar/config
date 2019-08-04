@@ -7,7 +7,7 @@
 ; _|                                                        
 ; _|                                                        
 
-; Last update: 2019-07-29, 10:40:54 @x200
+; Last update: 2019-08-01, 15:41:31 @lenovo
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -50,7 +50,8 @@ module-margin-left = 1
 module-margin-right = 1
 
 ;*** fonts 1
-font-0 = Lekton:style=Regular:pixelsize=9;3
+font-0 = Monoid:style=Regular:pixelsize=8;3
+;font-0 = Lekton:style=Regular:pixelsize=9;3
 font-1 = FontAwesome:style=Regular:pixelsize=8:antialias=false;3
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
 font-3 = siji:pixelsize=12;3
@@ -108,7 +109,8 @@ module-margin-left = 1
 module-margin-right = 1
 
 ;*** fonts 2
-font-0 = Lekton:style=Retular:pixelsize=10=;3
+font-0 = Monoid:style=Regular:pixelsize=8;3
+;font-0 = Lekton:style=Retular:pixelsize=10=;3
 font-1 = FontAwesome:style=Regular:pixelsize=10:antialias=false;3
 font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
 font-3 = siji:pixelsize=12;2

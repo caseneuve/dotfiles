@@ -1,12 +1,12 @@
 # -*- eval:(rainbow-mode) -*-
 
-#             #      #
+#            #      #
 #   ### # # ### ### ### ### ### # #  ## ### ###
 #   # # # #  #  ##  # # #   # # ###  #  ##  #
 #   ### ###  ## ### ### #   ### ### ##  ### #
 #     #
 
-# Last update: 2019-07-15, 21:57:31 @lenovo
+# Last update: 2019-08-01, 17:17:00 @lenovo
 
 # * MY VARIABLES
 mpv_script_video = "~/.scripts/mpvsoc -v "
@@ -81,17 +81,17 @@ c.downloads.position = "bottom"
 c.editor.command = ["st", "-e", "emacsclient", "-nw", "-s", "term", "{}"]
 
 # * FONTS
-c.fonts.completion.category = "11pt Monospace"
-c.fonts.completion.entry = "11pt Monospace"
-c.fonts.debug_console = "11pt Monospace"
-c.fonts.downloads = "10pt Monospace"
-c.fonts.hints = "10pt Monospace"
-c.fonts.keyhint = "11pt Monospace"
-c.fonts.messages.error = "10pt Monospace"
-c.fonts.messages.info = "10pt Monospace"
-c.fonts.messages.warning = "10pt Monospace"
-c.fonts.prompts = "11pt Monospace"
-c.fonts.statusbar = "11pt Monospace"
+c.fonts.completion.category = "9pt Monospace"
+c.fonts.completion.entry = "9pt Monospace"
+c.fonts.debug_console = "9pt Monospace"
+c.fonts.downloads = "8pt Monospace"
+c.fonts.hints = "9pt Roboto"
+c.fonts.keyhint = "9pt Monospace"
+c.fonts.messages.error = "8pt Monospace"
+c.fonts.messages.info = "8pt Monospace"
+c.fonts.messages.warning = "8pt Monospace"
+c.fonts.prompts = "9pt Monospace"
+c.fonts.statusbar = "9pt Monospace"
 c.fonts.tabs = "10pt Roboto Condensed"
 
 # * HINTS

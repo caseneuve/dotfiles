@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-07-29, 13:59:50 @x200
+# Last update: 2019-08-01, 15:30:56 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -443,13 +443,15 @@ client.urgent             $brur   $bgur  $txtur
 #* BAR
 #** fonts
 # use fonts.conf configuration
+font pango:Monoid 8
+#font pango:Overpass Mono 9
 #font pango:VT323 12
-font pango:monospace 9
+#font pango:monospace 9
 #font pango:Roboto Condensed 9
 #font pango:Iosevka 9
 #font pango:Lato 8
 #font pango:Inconsolata 9
-#font pango: DejaVu Sans Mono 8
+#font pango:DejaVu Sans Mono 8
 
 #** bar color variables
 #*** dark theme [off]
