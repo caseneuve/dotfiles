@@ -3,7 +3,7 @@
 #* -------------------------------------------------------------------
 # Path:        ~/.dotfiles/bin/mpv-socket2.sh
 # Created:     2019-06-05, 11:06    @x200
-# Last update: 2019-06-13, 10:20:33 @x200
+# Last update: 2019-08-01, 21:25:13 @lenovo
 # Doc:
 # Todos:       [ ] 05/06: cant pass file with spaces in name
 #              [ ]        notifications
@@ -188,7 +188,7 @@ polybar_info(){
 
 #** main
 main(){
-    while getopts 'PpnucqQishv:a:j:d:t:' flag; do
+    while getopts 'PpnucqQishv:a:j:d:t:T' flag; do
         shift
         case "$flag" in
             s) if [[ $(command time-pos) ]]; then
@@ -219,6 +219,7 @@ main(){
             i) info ;;
             P) polybar_info ;;
             t) socket_set time-pos $OPTARG ;;
+            T) socket_get property "title" ;;
             h|*) usage ;;
         esac
     done
