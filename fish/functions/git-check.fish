@@ -1,14 +1,35 @@
 function git-check -d "check git status for some projects"
-    # check args for -e flag
+    # parse args
     set -l options (fish_opt -s e -l exclude --required-val)
+    set options (fish_opt -s v -l verbose --optional-val) $options
+
     argparse -n git-check $options -- $argv
     if test $status -ne 0; return 1; end
 
+    if set -q _flag_verbose
+        set -g verbose true
+    else
+        set -g verbose false
+    end
+    
     function porcelain
-        set -l porcelain (git sp)
+        set -l porcelain (git sp 2>/dev/null)
+
+        if test $status -ne 0
+            if $argv
+                set -l failed (string replace $HOME "~" (pwd))
+                printf "\n!! Not git repo: $failed\n"
+            else
+                echo -n "#"
+            end
+            
+            return
+        end
+        
         if test -n "$porcelain"
             printf "\n\n"
-            string replace $HOME/ "" (pwd)
+            string replace $HOME/ "~/" (pwd)
+            set porcelain (string replace -a "D  " " D " "$porcelain")
             set porcelain (string replace -a "  " "\n " "$porcelain")
             set porcelain (string replace -a " ?" "\n " "$porcelain")
             printf "$porcelain\n"
@@ -32,14 +53,14 @@ function git-check -d "check git status for some projects"
                 end
                 # else: print git status porcelain info
                 cd $project
-                porcelain
+                porcelain $verbose
                 cd ..
             end
         end
     end
 
     cd $HOME/.dotfiles
-    porcelain
+    porcelain $verbose
 
     echo
 end
