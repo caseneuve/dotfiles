@@ -7,11 +7,13 @@ function git-check -d "check git status for some projects"
     function porcelain
         set -l porcelain (git sp)
         if test -n "$porcelain"
+            printf "\n\n"
             string replace $HOME/ "" (pwd)
             set porcelain (string replace -a "  " "\n " "$porcelain")
             set porcelain (string replace -a " ?" "\n " "$porcelain")
-            echo -e "$porcelain"
-            echo
+            printf "$porcelain\n"
+        else
+            printf .
         end
     end
 
@@ -40,9 +42,7 @@ function git-check -d "check git status for some projects"
     cd $HOME/.dotfiles
     porcelain
 
-    echo ------------------------------------
-    echo ...DONE!
-
+    echo
 end
 
 
