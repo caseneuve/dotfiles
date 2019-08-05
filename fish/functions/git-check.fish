@@ -17,8 +17,7 @@ function git-check -d "check git status for some projects"
         end
     end
 
-    echo CHECKING GIT STATUS FOR CHOSEN REPOS
-    echo ------------------------------------
+    echo "Checking git status for chosen repos:"
 
     for dir in $HOME/git/lab $HOME/git/hub $HOME/web/schole
         cd $dir
