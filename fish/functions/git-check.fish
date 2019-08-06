@@ -16,7 +16,7 @@ function git-check -d "check git status for some projects"
         set -l porcelain (git sp 2>/dev/null)
 
         if test $status -ne 0
-            if $argv
+            if $verbose
                 set -l failed (string replace $HOME "~" (pwd))
                 printf "\n!! Not git repo: $failed\n"
             else
@@ -40,7 +40,7 @@ function git-check -d "check git status for some projects"
 
     echo "Checking git status for chosen repos:"
 
-    for dir in $HOME/git/lab $HOME/git/hub $HOME/web/schole
+    for dir in $HOME/git/* $HOME/web/schole
         cd $dir
         for project in (ls)
             if test -d $project
@@ -53,16 +53,19 @@ function git-check -d "check git status for some projects"
                 end
                 # else: print git status porcelain info
                 cd $project
-                porcelain $verbose
+                porcelain
                 cd ..
             end
         end
     end
 
     cd $HOME/.dotfiles
-    porcelain $verbose
+    porcelain
 
     echo
+
+    # cleanup global var
+    set -e verbose
 end
 
 
