@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-08-02, 14:48:26 @lenovo
+# Last update: 2019-08-08, 16:04:00 @x200
 
 #* VARIABLES
 #** env vars
@@ -78,46 +78,47 @@ if status --is-interactive
   end
 
 #** abbrev list
-  abbr --add klr ' clear'
-  abbr --add q ' exit'
+  # Django abbrevs:
   # abbr --add e $EDITOR
-  abbr --add e $EDITOR
-  abbr --add en emacsclient -n -a emacs
+  abbr --add battery "upower -i (upower -e | awk '/batter/') | awk '/percentage/ {print \$2}'"
   abbr --add cd. cd ..
   abbr --add cd.. cd ../..
   abbr --add cd... cd ../../..
-  abbr --add x xclip -selection c
-  abbr --add sc set_color
-  abbr --add gits git status
-  abbr --add gitl git pull
-  abbr --add gitp git push
+  abbr --add compton 'compton --config ~/.config/compton/compton.conf'
+  abbr --add dps 'dropbox-cli status'
+  abbr --add e $EDITOR
+  abbr --add elg exa --group-directories-first
+  abbr --add els exa
+  abbr --add en emacsclient -n -a emacs
+  abbr --add fdf fd -d 1 -t f
   abbr --add gita git add
   abbr --add gitc 'git commit -m'
   abbr --add gitca 'git commit -am'
   abbr --add gitcs 'git commit --author=schole -m'
-  abbr --add mk mkdir -p
-  abbr --add lg ls --group-directories-first --color="always"
-  abbr --add els exa
-  abbr --add elg exa --group-directories-first
-  abbr --add mejk 'make && sudo make install'
-  abbr --add sp sudo pacman -S
-  abbr --add sr sudo pacman -R
-  abbr --add dps 'dropbox-cli status'
-  abbr --add ipy ipython
-  abbr --add mdk 'mkdir -p'
-  abbr --add mkd 'mkdir -p'
-  abbr --add compton 'compton --config ~/.config/compton/compton.conf'
-  abbr --add sqlb sqlitebrowser
+  abbr --add gitl git pull
+  abbr --add gitp git push
+  abbr --add gits git status
   abbr --add hs hugo server -vw
-  abbr --add fdf fd -d 1 -t f
+  abbr --add ipy ipython
+  abbr --add klr ' clear'
   abbr --add l1 ls -1
+  abbr --add lg ls --group-directories-first --color="always"
   abbr --add lg1 ls --group-directories-first -1
-  # Django abbrevs:
+  abbr --add mdk 'mkdir -p'
+  abbr --add mejk 'make && sudo make install'
+  abbr --add mk mkdir -p
+  abbr --add mkd 'mkdir -p'
+  abbr --add mmg ./manage.py migrate
+  abbr --add mms ./manage.py makemigrations
   abbr --add ms ./manage.py shell
   abbr --add mt ./manage.py test -v 2
   abbr --add mt1 ./manage.py test
-  abbr --add mms ./manage.py makemigrations
-  abbr --add mmg ./manage.py migrate
+  abbr --add q ' exit'
+  abbr --add sc set_color
+  abbr --add sp sudo pacman -S
+  abbr --add sqlb sqlitebrowser
+  abbr --add sr sudo pacman -R
+  abbr --add x xclip -selection c
 end
 
 #* FUNCTIONS
