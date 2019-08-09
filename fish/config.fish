@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-08-08, 16:04:00 @x200
+# Last update: 2019-08-09, 19:30:12 @x200
 
 #* VARIABLES
 #** env vars
@@ -98,6 +98,7 @@ if status --is-interactive
   abbr --add gitl git pull
   abbr --add gitp git push
   abbr --add gits git status
+  abbr --add gitx git-check
   abbr --add hs hugo server -vw
   abbr --add ipy ipython
   abbr --add klr ' clear'
