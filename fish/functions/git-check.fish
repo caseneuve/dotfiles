@@ -12,7 +12,7 @@ function git-check -d "check git status for some projects"
         printf "Usage: git-check [-h] [-s] [-v] [-e <str>]\n
 Check git status for some repos.\n
 Options:
- -e/--exclude STR  exclude directory matching STR from output
+ -e/--exclude STR  exclude directory matching STR
  -h/--help         print this message and quit
  -s/--short        print short output, otherwise print full 
                    `git status --porcelain` info
@@ -27,8 +27,8 @@ Options:
     
     function porcelain -S
         set -l this (string replace $HOME "~" (pwd))
-        set -l porcelain (git status --porcelain 2>/dev/null)
 
+        set -l porcelain (git status --porcelain 2>/dev/null)
         if test $status -ne 0
             if set -q _flag_verbose
                 if $long
@@ -45,7 +45,8 @@ Options:
 
         if test -n "$porcelain"
             if set -q _flag_short
-                printf " [%2s] $this \n" (git status --porcelain 2>/dev/null | wc -l)
+                printf " [%2s] $this \n" \
+                (git status --porcelain 2>/dev/null | wc -l)
             else
                 printf "\n\n$this\n"
                 set porcelain (string replace -a "D  " " D " "$porcelain")
