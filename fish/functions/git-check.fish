@@ -2,18 +2,24 @@ function git-check -d "check git status for some projects"
     # parse args
     set -l options (fish_opt -s e -l exclude --required-val)
     set options (fish_opt -s v -l verbose --optional-val) $options
+    set options (fish_opt -s s -l short --optional-val) $options
 
     argparse -n git-check $options -- $argv
     if test $status -ne 0; return 1; end
 
+    set -g verbose false
+    set -g long true
+    
     if set -q _flag_verbose
         set -g verbose true
-    else
-        set -g verbose false
+    end
+
+    if set -q _flag_short
+        set -g long false
     end
     
     function porcelain
-        set -l porcelain (git sp 2>/dev/null)
+        set -l porcelain (git status --porcelain 2>/dev/null)
 
         if test $status -ne 0
             if $verbose
@@ -25,16 +31,22 @@ function git-check -d "check git status for some projects"
             
             return
         end
-        
+
         if test -n "$porcelain"
-            printf "\n\n"
-            string replace $HOME/ "~/" (pwd)
-            set porcelain (string replace -a "D  " " D " "$porcelain")
-            set porcelain (string replace -a "  " "\n " "$porcelain")
-            set porcelain (string replace -a " ?" "\n " "$porcelain")
-            printf "$porcelain\n"
+            set -l this (string replace $HOME/ "~/" (pwd))
+            if $long
+                printf "\n\n$this\n"
+                set porcelain (string replace -a "D  " " D " "$porcelain")
+                set porcelain (string replace -a "  " "\n " "$porcelain")
+                set porcelain (string replace -a " ?" "\n " "$porcelain")
+                printf "$porcelain\n"
+            else
+                printf " [%2s] $this \n" (git status --porcelain 2>/dev/null | wc -l)
+            end
         else
-            printf .
+            if $long
+                printf .
+            end
         end
     end
 
@@ -62,10 +74,11 @@ function git-check -d "check git status for some projects"
     cd $HOME/.dotfiles
     porcelain
 
-    echo
+    # echo
 
     # cleanup global var
     set -e verbose
+    set -e long
 end
 
 
