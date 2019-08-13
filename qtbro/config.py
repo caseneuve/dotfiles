@@ -6,7 +6,7 @@
 #   ### ###  ## ### ### #   ### ### ##  ### #
 #     #
 
-# Last update: 2019-08-01, 17:17:00 @lenovo
+# Last update: 2019-08-13, 10:44:32 @x200
 
 # * MY VARIABLES
 mpv_script_video = "~/.scripts/mpvsoc -v "
@@ -139,6 +139,7 @@ c.url.searchengines = {
     "img": "https://www.google.com/search?tbm=isch&source=hp&biw=1366&bih=688&ei=O4fEWo2xLYuQkwWI_q3gDA&q={}",
     "lat": "archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}",
     "map": "https://www.google.com/maps/place/{}",
+    "maps": "https://www.google.com/maps/place/{}",
     "mg": "https://www.google.com/maps/place/{}",
     "pers": "http://www.perseus.tufts.edu/hopper/searchresults?q={}",
     "py": "https://duckduckgo.com/?q=python+{}&ia=webqutebrowser+",
