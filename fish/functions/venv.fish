@@ -2,14 +2,18 @@ function venv -d 'create, activate or deactivate python virtualenv'
     set VENV_DIR "$HOME/.virtualenvs"
     switch $argv[1]
         case -n --new
-            set path "$VENV_DIR/$argv[2]"
+            if test -z $argv[3]
+                set path "$VENV_DIR/$argv[2]"
+            else
+                set path "$argv[2]"
+            end
             if test -d "$path"
                 echo "Venv already set up!"
             else
                 echo "Setting up venv..."
                 python3 -m venv $path \
-                && echo "Virtual env created in $path"
-                source $path/bin/activate.fish
+                && echo "Virtual env created in $path" \
+                && source $path/bin/activate.fish
             end
         case -r --requirements
             if test $VIRTUAL_ENV
@@ -49,9 +53,16 @@ function venv -d 'create, activate or deactivate python virtualenv'
             if test -z $argv[2]
                 set level 3
             else
-                set level $argv[2]
+                set level (math 3 + $argv[2])
             end
-            fd -H -p ".*/bin/python\$" -d $level
+            set venvs (fd -H -p ".*/bin/python\$" -d $level)
+            if test -z "$venvs"
+                echo "No virtual environments found while digging up to level" (math $level - 2)
+            else
+                printf "Python virtual environments under this location (digging to level %s)\n" \
+                (math $level - 2)
+                printf " %s\n" (string split " " (echo $venvs | sed "s|/bin/python||g"))
+            end
     end
 end
 
@@ -60,9 +71,9 @@ function venv_complete -d 'completions for venv'
     fd -H -p ".*/bin/python\$" -d 3 | sed "s|/.*||g"
 end
 
-complete -c venv -s r -l requirements -x -a '(fd -e txt .)' -d 'install requirements'
-complete -c venv -s n -l new -x -a '(basename (pwd))' -d 'new venv'
+complete -c venv -s r -l requirements -x -a '(fd -e txt .)' -d 'install requirements [from FILE]'
+complete -c venv -s n -l new -x -a '(basename (pwd))' -d 'new venv NAME [LOCALLY]'
 complete -c venv -s l -l list -x -d 'list venvs'
 complete -c venv -s d -l deactivate -x -d 'deactivate current venv'
 complete -c venv -s a -l activate -x -a '(venv_complete)' -d 'activate venv'
-complete -c venv -s s -l search -x -d 'search for venvs in this directory'
+complete -c venv -s s -l search -x -d 'search for venvs in this directory [DEPTH]'
