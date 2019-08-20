@@ -9,6 +9,7 @@ function venv -d 'create, activate or deactivate python virtualenv'
                 echo "Setting up venv..."
                 python3 -m venv $path \
                 && echo "Virtual env created at $path"
+                source $path/bin/activate.fish
             end
         case -r --requirements
             if test $VIRTUAL_ENV
