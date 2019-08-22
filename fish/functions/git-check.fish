@@ -34,7 +34,7 @@ Options:
                 if $long
                     printf "\n!! Not git repo: $this\n" 
                 else
-                    printf " [!!] $this * is not a git repo *\n" 
+                    printf " [!!] $this *is not a git repo*\n" 
                 end
             else
                 if $long; echo -n "#"; end

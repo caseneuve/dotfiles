@@ -6,7 +6,7 @@
 #   ### ###  ## ### ### #   ### ### ##  ### #
 #     #
 
-# Last update: 2019-08-13, 10:44:32 @x200
+# Last update: 2019-08-21, 13:14:08 @lenovo
 
 # * MY VARIABLES
 mpv_script_video = "~/.scripts/mpvsoc -v "
@@ -127,11 +127,14 @@ c.tabs.show = "multiple"
 c.url.auto_search = "naive"
 c.url.start_pages = "file:///home/piotr/.dotfiles/qtbro/startpage.html"
 c.url.default_page = "file:///home/piotr/.dotfiles/qtbro/newtab.html"
+
+# ** searchengines
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "aa": "https://allegro.pl/listing?string={}&order=d&bmatch=ss-base-relevance-floki-5-nga-hcp-wp-ele-1-1-0328",
     "al": "https://wiki.archlinux.org/index.php/{}",
     "bib": "http://katalogi.bn.org.pl/iii/encore/search/C__S{}__U?lang=pol&suite=cobalt",
+    "cam": "https://dictionary.cambridge.org/dictionary/english/{}",
     "et": "https://www.etymonline.com/word/{}",
     "gen": "http://gen.lib.rus.ec/search.php?req={}",
     "gg": "https://www.google.pl/search?dcr=0&source=hp&ei=_b_EWsi2DoHpsQG_t4-gBw&q={}",
