@@ -8,7 +8,8 @@ function venv -d 'create, activate or deactivate python virtualenv'
                 set path "$argv[2]"
             end
             if test -d "$path"
-                echo "Venv already set up!"
+                echo "Venv already set up! Activating instead."
+                source $path/bin/activate.fish
             else
                 echo "Setting up venv..."
                 python3 -m venv $path \
