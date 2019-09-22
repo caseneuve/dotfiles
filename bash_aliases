@@ -8,12 +8,12 @@
 ####################################################################
 
 # Doc: # ~/.dotfiles/bash_aliases
-# Last update: 03.01.19, 13:56:54 @x200
+# Last update: 2019-09-22, 15:17:05 @x200
 
-## >> VARIABLES:
+#* VARIABLES:
 MYTERM='st -c term'
 
-## >> KOMENDY TERMINALA 
+#* KOMENDY TERMINALA 
 alias mkd=mkdir
 alias ls='ls -hN --color=auto --group-directories-first'
 alias q=exit
@@ -42,7 +42,7 @@ alias treeno="tree | sed 's/-> [-/a-zA-Z0-9\.\_ ]*//g'"
 alias cl='i3-msg -q splith; cd $PWD && $MYTERM &'
 alias clo='i3-msg -q splitv; cd $PWD && $MYTERM &'
 
-## >> FUNKCJE
+#* FUNKCJE
 # >> F: is app running
 app_running_p(){
     ps aux | grep "$1" | grep -v grep
@@ -147,7 +147,7 @@ calcurse_search_future()
 alias calS=calcurse_search_future
 
 
-## >> POLECENIA 
+#* POLECENIA 
 alias sle='systemctl suspend'
 alias Reboot='systemctl reboot -i'
 alias sbr='source ~/.bashrc'
@@ -166,7 +166,7 @@ alias yt='youtube-dl --add-metadata -ic'
 alias ch7='chmod 750 $1'
 alias mejk='make && sudo make install'
 
-## >> PROGRAMY
+#* PROGRAMY
 alias hugop='rm -fr public && hugo'
 alias dps='dropbox-cli status'
 alias gromit=gromit-mpx
@@ -226,10 +226,10 @@ alias mt='cd ~/Pobrane; mutt'
 alias nf='clear; neofetch'
 alias h=cmdhelp
 
-## >> SYSTEM INFO 
+#* SYSTEM INFO 
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
-## >> SKRYPTY
+#* SKRYPTY
 alias wikd=/home/piotr/.dotfiles/other/wiki-date.sh
 alias check=checkupdates # from pacman-contrib
 alias wall='/home/piotr/.dotfiles/bin/wall.sh'
@@ -255,7 +255,7 @@ alias pdfs='/home/piotr/.dotfiles/bin/mupdf-cache.sh'
 alias pdfr='/home/piotr/.dotfiles/bin/mupdf-restore-session.sh'
 alias pdfrs='/home/piotr/.dotfiles/bin/mupdf_restore.sh'
 
-## >> DMENU (deprecated...)
+#* DMENU (deprecated...)
 alias emm='i3-msg -q "workspace 1; exec --no-startup-id emacs"'
 alias cu='i3-msg -q "exec --no-startup-id $TERMINAL -e calcurse"'
 alias dmo='i3-msg -q "workspace 8; exec --no-startup-id $TERMINAL -e mocp"'
@@ -270,7 +270,7 @@ alias nb='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 alias rss='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 alias news='i3-msg -q "workspace 10; exec --no-startup-id $TERMINAL -e newsboat"'
 
-## >> ZMIENNE 
+#* ZMIENNE 
 home=/home/piotr
 muz=/home/piotr/muz
 pob=/home/piotr/dwl
@@ -287,7 +287,7 @@ alias obr='cd /home/piotr/obr'
 alias wid='cd /home/piotr/wid'
 alias att='cd /home/piotr/dwl/att'
 
-## >> GIT 
+#* GIT 
 alias gito='git checkout'
 alias gts='/home/piotr/.dotfiles/bin/gitstatus.sh'
 alias push='/home/piotr/.dotfiles/bin/gitpush.sh'
@@ -301,11 +301,11 @@ alias gitp='git push'
 alias gitc='git commit -m'
 alias gitb='git branch'
 
-## >> PCCLOUD
+#* PCCLOUD
 alias ggl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
 alias gl='if [ -d /home/piotr/pcloud ]; then cd /home/piotr/pcloud; else echo "Na tym komputerze nie ma katalogu: ~/pcloud/"; fi'
 
-## >> GREP
+#* GREP
 mal=~/Dropbox/config/.mutt_aliases
 malias_func(){
     if [ "$(cat $mal | grep -i "$1")" ]; then
@@ -319,69 +319,59 @@ malias_func(){
 alias malias=malias_func
 alias mal=malias_func
 
+#* FAST DIRS
 # >> fast dirs start
 
-alias gB='cd /home/piotr/biu'
-alias gC='cd /home/piotr/.config'
-alias gD='cd /home/piotr/box/Dropbox/Dokumenty'
-alias gS='cd /home/piotr/szk'
-alias ga='cd /home/piotr/dwl'
-alias gaa='cd /home/piotr/dwl'
-alias gag='cd /home/piotr/dwl/att'
-alias gb='cd /home/piotr/bin'
-alias gbi='cd /home/piotr/bin'
-alias gcf='cd /home/piotr/.config/fish'
-alias gcm='cd /home/piotr/.config/neomutt'
-alias gcn='cd /home/piotr/.newsboat'
-alias gcq='cd /home/piotr/.config/qutebrowser'
-alias gcr='cd /home/piotr/.config/ranger'
-alias gct='cd /home/piotr/.config/termite'
-alias gcx='cd /home/piotr/.config/xfce4'
-alias gd='cd /home/piotr/.dotfiles'
-alias gdb='cd /home/piotr/.dotfiles/bin'
-alias gdd='cd /home/piotr/.dotfiles'
-alias gdf='cd /home/piotr/.dotfiles/fish'
-alias gdi='cd /home/piotr/.dotfiles/i3'
-alias gdq='cd /home/piotr/.dotfiles/qtbro'
-alias gdr='cd /home/piotr/.dotfiles/ranger'
-alias geH='cd /home/piotr/git/hub/hobbit'
-alias ged='cd /home/piotr/.emacs.d'
-alias geg='cd /home/piotr/git/hub/emacs'
-alias geh='cd /home/piotr/git/hub/heder'
-alias gf='cd /home/piotr/gfx'
-alias gg='cd /home/piotr/git'
-alias ggh='cd /home/piotr/git/hub'
-alias ggl='cd /home/piotr/git/lab'
-alias ggp='cd /home/piotr/git/lab/py-exercises'
-alias ggs='cd /home/piotr/git/hub/st'
-alias ggo='cd /home/piotr/go'
-alias gh='cd /home/piotr'
-alias gm='cd /home/piotr/muz'
-alias gob='cd /home/piotr/obr'
-alias goo='cd /home/piotr/org'
-alias gop='cd /home/piotr/org/pro'
-alias gp='cd /home/piotr/pdf'
-alias gsc='cd /home/piotr/scr'
-alias gsf='cd /home/piotr/szk/flz'
-alias gsr='cd /home/piotr/szk/rtk'
-alias gss='cd /home/piotr/szk'
-alias gsz='cd /home/piotr/szk/18-19'
-alias gwe='cd /home/piotr/web'
-alias gws='cd /home/piotr/web/schole'
-alias gww='cd /home/piotr/wid'
-alias gwt='cd /home/piotr/web/test'
-alias gx='cd /home/piotr/box/Dropbox'
-alias gxc='cd /home/piotr/box/Dropbox/.Config'
-alias gxd='cd /home/piotr/box/Dropbox/Dokumenty'
-alias gxs='cd /home/piotr/box/Dropbox/Szkoła'
-alias gxx='cd /home/piotr/box/Dropbox'
-alias gxw='cd /home/piotr/box/Dropbox/Wiki'
-alias gx@='cd /home/piotr/box/Dropbox/Web'
-alias gxb='cd /home/piotr/box/Dropbox/Biurko'
-alias gxp='cd /home/piotr/box/Dropbox/Programowanie'
+alias gB='cd ~/biu'
+alias gC='cd ~/.config'
+alias gD='cd ~/box/Dropbox/Dokumenty'
+alias gaa='cd ~/dwl'
+alias gag='cd ~/dwl/att'
+alias gcf='cd ~/.config/fish'
+alias gcm='cd ~/.config/neomutt'
+alias gcn='cd ~/.newsboat'
+alias gcq='cd ~/.config/qutebrowser'
+alias gcr='cd ~/.config/ranger'
+alias gct='cd ~/.config/termite'
+alias gcl='cd ~/.config/lf'
+alias gcx='cd ~/.config/xfce4'
+alias gdb='cd ~/.dotfiles/bin'
+alias gdd='cd ~/.dotfiles'
+alias gdf='cd ~/.dotfiles/fish'
+alias gdi='cd ~/.dotfiles/i3'
+alias gdq='cd ~/.dotfiles/qtbro'
+alias gdr='cd ~/.dotfiles/ranger'
+alias ged='cd ~/.emacs.d'
+alias geg='cd ~/git/hub/emacs'
+alias geh='cd ~/git/hub/heder'
+alias ggg='cd ~/git'
+alias ggh='cd ~/git/hub'
+alias ggl='cd ~/git/lab'
+alias ggp='cd ~/git/lab/py-exercises'
+alias ggs='cd ~/git/hub/st'
+alias ggo='cd ~/go'
+alias gh='cd ~'
+alias gm='cd ~/muz'
+alias gob='cd ~/obr'
+alias goo='cd ~/org'
+alias gp='cd ~/pdf'
+alias gsc='cd ~/scr'
+alias gwe='cd ~/web'
+alias gws='cd ~/web/schole'
+alias gww='cd ~/wid'
+alias gwt='cd ~/web/test'
+alias gxc='cd ~/box/Dropbox/.Config'
+alias gxd='cd ~/box/Dropbox/Dokumenty'
+alias gxs='cd ~/box/Dropbox/Szkoła'
+alias gxx='cd ~/box/Dropbox'
+alias gxw='cd ~/box/Dropbox/Wiki'
+alias gx@='cd ~/box/Dropbox/Web'
+alias gxb='cd ~/box/Dropbox/Biurko'
+alias gxp='cd ~/box/Dropbox/Programowanie'
+alias gxr='cd ~/box/Dropbox/Projekty'
 
 # >> fast dirs end
 
-# >> aliased added by `alias_add' func:
+#* aliased added by `alias_add' func:
 alias p1='ping 1.1.1.1'
 

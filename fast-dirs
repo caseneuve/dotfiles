@@ -1,74 +1,62 @@
 # -*- mode: conf-space;  -*-
+# Last update: 2019-09-22, 17:26:18 @x200
 
 # fast dirs shrotcuts for:
 # - bash_aliases
 # - ranger
 # - fish
-
-# Last update: 2019-04-10, 20:37:50 @lenovo
+# - lf
 
 # key  # path
-
-gB -- /home/piotr/biu
-gC -- /home/piotr/.config
-gD -- /home/piotr/box/Dropbox/Dokumenty
-gS -- /home/piotr/szk
-ga -- /home/piotr/dwl
-gaa -- /home/piotr/dwl
-gag -- /home/piotr/dwl/att
-gb -- /home/piotr/bin
-gbi -- /home/piotr/bin
-gcf -- /home/piotr/.config/fish
-gcm -- /home/piotr/.config/neomutt
-gcn -- /home/piotr/.newsboat
-gcq -- /home/piotr/.config/qutebrowser
-gcr -- /home/piotr/.config/ranger
-gct -- /home/piotr/.config/termite
-gcx -- /home/piotr/.config/xfce4
-gd -- /home/piotr/.dotfiles
-gdb -- /home/piotr/.dotfiles/bin
-gdd -- /home/piotr/.dotfiles
-gdf -- /home/piotr/.dotfiles/fish
-gdi -- /home/piotr/.dotfiles/i3
-gdq -- /home/piotr/.dotfiles/qtbro
-gdr -- /home/piotr/.dotfiles/ranger
-geH -- /home/piotr/git/hub/hobbit
-ged -- /home/piotr/.emacs.d
-geg -- /home/piotr/git/hub/emacs
-geh -- /home/piotr/git/hub/heder
-gf -- /home/piotr/gfx
-gg -- /home/piotr/git
-ggh -- /home/piotr/git/hub
-ggl -- /home/piotr/git/lab
-ggp -- /home/piotr/git/lab/py-exercises
-ggs -- /home/piotr/git/hub/st
-ggo -- /home/piotr/go
-gh -- /home/piotr
-gm -- /home/piotr/muz
-gob -- /home/piotr/obr
-goo -- /home/piotr/org
-gop -- /home/piotr/org/pro
-gp -- /home/piotr/pdf
-gsc -- /home/piotr/scr
-gsf -- /home/piotr/szk/flz
-gsr -- /home/piotr/szk/rtk
-gss -- /home/piotr/szk
-gsz -- /home/piotr/szk/18-19
-gwe -- /home/piotr/web
-gws -- /home/piotr/web/schole
-gww -- /home/piotr/wid
-gwt -- /home/piotr/web/test
-gx -- /home/piotr/box/Dropbox
-gxc -- /home/piotr/box/Dropbox/.Config
-gxd -- /home/piotr/box/Dropbox/Dokumenty
-gxs -- /home/piotr/box/Dropbox/Szkoła
-gxx -- /home/piotr/box/Dropbox
-gxw -- /home/piotr/box/Dropbox/Wiki
-gx@ -- /home/piotr/box/Dropbox/Web
-gxb -- /home/piotr/box/Dropbox/Biurko
-gxp -- /home/piotr/box/Dropbox/Programowanie
+gB -- ~/biu
+gC -- ~/.config
+gD -- ~/box/Dropbox/Dokumenty
+gaa -- ~/dwl
+gag -- ~/dwl/att
+gcf -- ~/.config/fish
+gcm -- ~/.config/neomutt
+gcn -- ~/.newsboat
+gcq -- ~/.config/qutebrowser
+gcr -- ~/.config/ranger
+gct -- ~/.config/termite
+gcl -- ~/.config/lf
+gcx -- ~/.config/xfce4
+gdb -- ~/.dotfiles/bin
+gdd -- ~/.dotfiles
+gdf -- ~/.dotfiles/fish
+gdi -- ~/.dotfiles/i3
+gdq -- ~/.dotfiles/qtbro
+gdr -- ~/.dotfiles/ranger
+ged -- ~/.emacs.d
+geg -- ~/git/hub/emacs
+geh -- ~/git/hub/heder
+ggg -- ~/git
+ggh -- ~/git/hub
+ggl -- ~/git/lab
+ggp -- ~/git/lab/py-exercises
+ggs -- ~/git/hub/st
+ggo -- ~/go
+gh -- ~
+gm -- ~/muz
+gob -- ~/obr
+goo -- ~/org
+gp -- ~/pdf
+gsc -- ~/scr
+gwe -- ~/web
+gws -- ~/web/schole
+gww -- ~/wid
+gwt -- ~/web/test
+gxc -- ~/box/Dropbox/.Config
+gxd -- ~/box/Dropbox/Dokumenty
+gxs -- ~/box/Dropbox/Szkoła
+gxx -- ~/box/Dropbox
+gxw -- ~/box/Dropbox/Wiki
+gx@ -- ~/box/Dropbox/Web
+gxb -- ~/box/Dropbox/Biurko
+gxp -- ~/box/Dropbox/Programowanie
+gxr -- ~/box/Dropbox/Projekty
 
 # Local variables:
-# eval: (load-file "/home/piotr/git/hub/emacs/fast-dirs.el")
+# eval: (load-file "~/git/hub/emacs/fast-dirs.el")
 # eval: (add-hook 'after-save-hook 'pk/sync-fastdirs nil t)
 # End:
