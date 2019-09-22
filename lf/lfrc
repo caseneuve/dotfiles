@@ -38,6 +38,18 @@ map st :{{
     set sortby time
     set info time
 }}
+
+# set ratios/preview
+map sr :{{
+    set nopreview
+    set ratios 1:2
+}}
+
+map sp :{{
+    set preview
+    set ratios 1:2:3
+}}
+
 # make/touch
 map ad push %mkdir<space>
 map at push %touch<space>
