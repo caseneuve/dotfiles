@@ -1,0 +1,141 @@
+# -*- mode: sh -*-
+
+  ##      ##  
+   #     #  # 
+   #     #    
+   #    ####  
+   #     #    
+   #     #    
+  ###    #    
+
+#* SETTINGS
+#** preview
+set previewer ~/.config/lf/scope.sh
+
+#* KBD
+# reload
+map <c-r> source ~/.config/lf/lfrc
+map <c-g> escape
+
+# default shell
+map w $fish
+# navig
+map K half-up
+map J half-down
+map <a-k> page-up
+map <a-j> page-down
+# select glob /unselect glob
+map sg push :glob-select<space>*.
+map su push :glob-unselect<space>*.
+# sort
+map st :{{
+    set sortby time
+    set info time
+}}
+
+# actions
+map se $emacsclient -n -a emacs "$f"
+map sc $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
+map \;c $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
+       
+#* CUSTOM COMMANDS
+#** fzf select
+map f $lf -remote "send $id select '$(fzf)'"
+
+#** custom 'open' command
+cmd open ${{
+    case $(file --mime-type "$f" -b) in
+        text/*) $EDITOR $fx;;
+        audio/*) /usr/bin/mocp -l -- "$f";;
+        image/*) sxiv $fx;;
+        application/pdf) mupdf $fx &;;
+        # *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+map <enter> open
+
+#** extract
+cmd extract ${{
+    set -f
+    case "$f" in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x "$f";;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+map E extract "$f"
+
+#** custom 'delete' command
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete? [y/n] "
+    read ans
+    [ $ans = "y" ] && rm -rf $fx
+}}
+
+map <c-d> delete
+
+#** custom 'trash' command
+$ {{ [ -d ~/.local/share/Trash ] || mkdir -p ~/.local/share/Trash }}
+cmd trash $IFS="`printf '\n\t'`"; mv $fx ~/.local/share/Trash
+
+map D trash
+              
+#* FAST DIRS
+# >> fast dirs start
+
+map gB $lf -remote "send $id cd ~/biu"
+map gC $lf -remote "send $id cd ~/.config"
+map gD $lf -remote "send $id cd ~/box/Dropbox/Dokumenty"
+map gaa $lf -remote "send $id cd ~/dwl"
+map gag $lf -remote "send $id cd ~/dwl/att"
+map gcf $lf -remote "send $id cd ~/.config/fish"
+map gcm $lf -remote "send $id cd ~/.config/neomutt"
+map gcn $lf -remote "send $id cd ~/.newsboat"
+map gcq $lf -remote "send $id cd ~/.config/qutebrowser"
+map gcr $lf -remote "send $id cd ~/.config/ranger"
+map gct $lf -remote "send $id cd ~/.config/termite"
+map gcl $lf -remote "send $id cd ~/.config/lf"
+map gcx $lf -remote "send $id cd ~/.config/xfce4"
+map gdb $lf -remote "send $id cd ~/.dotfiles/bin"
+map gdd $lf -remote "send $id cd ~/.dotfiles"
+map gdf $lf -remote "send $id cd ~/.dotfiles/fish"
+map gdi $lf -remote "send $id cd ~/.dotfiles/i3"
+map gdq $lf -remote "send $id cd ~/.dotfiles/qtbro"
+map gdr $lf -remote "send $id cd ~/.dotfiles/ranger"
+map ged $lf -remote "send $id cd ~/.emacs.d"
+map geg $lf -remote "send $id cd ~/git/hub/emacs"
+map geh $lf -remote "send $id cd ~/git/hub/heder"
+map ggg $lf -remote "send $id cd ~/git"
+map ggh $lf -remote "send $id cd ~/git/hub"
+map ggl $lf -remote "send $id cd ~/git/lab"
+map ggp $lf -remote "send $id cd ~/git/lab/py-exercises"
+map ggs $lf -remote "send $id cd ~/git/hub/st"
+map ggo $lf -remote "send $id cd ~/go"
+map gh $lf -remote "send $id cd ~"
+map gm $lf -remote "send $id cd ~/muz"
+map gob $lf -remote "send $id cd ~/obr"
+map goo $lf -remote "send $id cd ~/org"
+map gp $lf -remote "send $id cd ~/pdf"
+map gsc $lf -remote "send $id cd ~/scr"
+map gwe $lf -remote "send $id cd ~/web"
+map gws $lf -remote "send $id cd ~/web/schole"
+map gww $lf -remote "send $id cd ~/wid"
+map gwt $lf -remote "send $id cd ~/web/test"
+map gxc $lf -remote "send $id cd ~/box/Dropbox/.Config"
+map gxd $lf -remote "send $id cd ~/box/Dropbox/Dokumenty"
+map gxs $lf -remote "send $id cd ~/box/Dropbox/Szkoła"
+map gxx $lf -remote "send $id cd ~/box/Dropbox"
+map gxw $lf -remote "send $id cd ~/box/Dropbox/Wiki"
+map gx@ $lf -remote "send $id cd ~/box/Dropbox/Web"
+map gxb $lf -remote "send $id cd ~/box/Dropbox/Biurko"
+map gxp $lf -remote "send $id cd ~/box/Dropbox/Programowanie"
+map gxr $lf -remote "send $id cd ~/box/Dropbox/Projekty"
+
+# >> fast dirs end
