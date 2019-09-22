@@ -41,6 +41,7 @@ abbr --add gwt ~/web/test
 abbr --add gxc ~/box/Dropbox/.Config
 abbr --add gxd ~/box/Dropbox/Dokumenty
 abbr --add gxs ~/box/Dropbox/Szkoła
+abbr --add gxS ~/box/Dropbox/Szkoła/19-20
 abbr --add gxx ~/box/Dropbox
 abbr --add gxw ~/box/Dropbox/Wiki
 abbr --add gx@ ~/box/Dropbox/Web

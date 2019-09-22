@@ -8,6 +8,9 @@
    #     #    
   ###    #    
 
+#* DOC:
+# https://godoc.org/github.com/gokcehan/lf
+
 #* SETTINGS
 #** preview
 set previewer ~/.config/lf/scope.sh
@@ -17,26 +20,32 @@ set previewer ~/.config/lf/scope.sh
 map <c-r> source ~/.config/lf/lfrc
 map <c-g> escape
 
-# default shell
+# enter fish as shell
 map w $fish
+
 # navig
 map K half-up
 map J half-down
 map <a-k> page-up
 map <a-j> page-down
+
 # select glob /unselect glob
 map sg push :glob-select<space>*.
 map su push :glob-unselect<space>*.
+
 # sort
 map st :{{
     set sortby time
     set info time
 }}
+# make/touch
+map ad push %mkdir<space>
+map at push %touch<space>
 
 # actions
 map se $emacsclient -n -a emacs "$f"
 map sc $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
-map \;c $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
+#map \;c $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
        
 #* CUSTOM COMMANDS
 #** fzf select
@@ -131,6 +140,7 @@ map gwt $lf -remote "send $id cd ~/web/test"
 map gxc $lf -remote "send $id cd ~/box/Dropbox/.Config"
 map gxd $lf -remote "send $id cd ~/box/Dropbox/Dokumenty"
 map gxs $lf -remote "send $id cd ~/box/Dropbox/Szkoła"
+map gxS $lf -remote "send $id cd ~/box/Dropbox/Szkoła/19-20"
 map gxx $lf -remote "send $id cd ~/box/Dropbox"
 map gxw $lf -remote "send $id cd ~/box/Dropbox/Wiki"
 map gx@ $lf -remote "send $id cd ~/box/Dropbox/Web"

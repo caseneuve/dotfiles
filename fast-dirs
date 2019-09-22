@@ -1,5 +1,5 @@
 # -*- mode: conf-space;  -*-
-# Last update: 2019-09-22, 17:26:18 @x200
+# Last update: 2019-09-22, 18:37:59 @x200
 
 # fast dirs shrotcuts for:
 # - bash_aliases
@@ -49,6 +49,7 @@ gwt -- ~/web/test
 gxc -- ~/box/Dropbox/.Config
 gxd -- ~/box/Dropbox/Dokumenty
 gxs -- ~/box/Dropbox/Szkoła
+gxS -- ~/box/Dropbox/Szkoła/19-20
 gxx -- ~/box/Dropbox
 gxw -- ~/box/Dropbox/Wiki
 gx@ -- ~/box/Dropbox/Web
