@@ -46,7 +46,10 @@ map at push %touch<space>
 map se $emacsclient -n -a emacs "$f"
 map sc $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
 #map \;c $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
-       
+
+# alternative openers
+map oz $zathura -- "$fx" &
+
 #* CUSTOM COMMANDS
 #** fzf select
 map f $lf -remote "send $id select '$(fzf)'"
