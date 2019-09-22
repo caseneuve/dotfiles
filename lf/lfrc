@@ -57,7 +57,7 @@ cmd open ${{
         text/*) $EDITOR $fx;;
         audio/*) /usr/bin/mocp -l -- "$f";;
         image/*) sxiv $fx;;
-        application/pdf) mupdf $fx &;;
+        application/pdf) mupdf -- "$f" & ;;
         # *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
