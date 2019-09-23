@@ -15,10 +15,12 @@
 #** preview
 set previewer ~/.config/lf/scope.sh
 
+set reverse on
+
 #* KBD
 # reload
-map <c-r> source ~/.config/lf/lfrc
-map <c-g> escape
+map R source ~/.config/lf/lfrc
+map <c-r> reload
 
 # enter fish as shell
 map w $fish
@@ -50,14 +52,12 @@ map sp :{{
     set ratios 1:2:3
 }}
 
+# actions
+map ae $emacsclient -n -a emacs "$f"
+map ac $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
 # make/touch
 map ad push %mkdir<space>
 map at push %touch<space>
-
-# actions
-map se $emacsclient -n -a emacs "$f"
-map sc $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
-#map \;c $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
 
 # alternative openers
 map oz $zathura -- "$fx" &
@@ -74,6 +74,7 @@ cmd open ${{
         audio/*) /usr/bin/mocp -l -- "$f";;
         image/*) sxiv $fx;;
         application/pdf) mupdf -- "$f" & ;;
+        application/vnd.oasis.opendocument.text) libreoffice "$f" & ;;
         # *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
