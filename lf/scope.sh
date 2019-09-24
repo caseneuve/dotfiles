@@ -64,6 +64,16 @@ handle_extension() {
             odt2txt "${FILE_PATH}"
             exit 1;;
 
+        # Doc
+        doc)
+            antiword "${FILE_PATH}"
+            exit 1;;
+
+        # Rtf
+        rtf)
+            unrtf --text "${FILE_PATH}"
+            exit 1;;
+
         # HTML
         htm|html|xhtml)
             # Preview as text conversion

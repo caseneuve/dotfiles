@@ -70,12 +70,20 @@ map f $lf -remote "send $id select '$(fd . $HOME | fzf)'"
 #** custom 'open' command
 cmd open ${{
     case $(file --mime-type "$f" -b) in
-        text/*) $EDITOR $fx;;
-        audio/*) /usr/bin/mocp -l -- "$f";;
-        image/*) sxiv $fx;;
-        application/pdf) mupdf -- "$f" & ;;
-        application/vnd.oasis.opendocument.text) libreoffice "$f" & ;;
-        # *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+        application/vnd.oasis.opendocument.text\
+            |application/msword\
+            |application/vnd.ms-excel\
+            |text/rtf)
+            libreoffice "$f" & ;;
+        text/*)
+            $EDITOR "$fx";;
+        audio/*)
+            /usr/bin/mocp -l -- "$f";;
+        image/*)
+            sxiv $fx;;
+        application/pdf)
+            mupdf -- "$f" & ;;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
 
