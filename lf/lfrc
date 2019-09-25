@@ -12,10 +12,9 @@
 # https://godoc.org/github.com/gokcehan/lf
 
 #* SETTINGS
-#** preview
 set previewer ~/.config/lf/scope.sh
-
 set reverse on
+set ratios 1:3:2
 
 #* KBD
 # reload
@@ -44,12 +43,17 @@ map st :{{
 # set ratios/preview
 map sr :{{
     set nopreview
-    set ratios 1:2
+    set ratios 1:3
 }}
 
 map sp :{{
     set preview
-    set ratios 1:2:3
+    set ratios 1:3:2
+}}
+
+map sP :{{
+    set preview
+    set ratios 1:2
 }}
 
 # actions
