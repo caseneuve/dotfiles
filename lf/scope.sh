@@ -74,6 +74,10 @@ handle_extension() {
             unrtf --text "${FILE_PATH}"
             exit 1;;
 
+        docx)
+            docx2txt "${FILE_PATH}" -
+            exit 1;;
+
         # HTML
         htm|html|xhtml)
             # Preview as text conversion
@@ -81,6 +85,8 @@ handle_extension() {
             lynx -dump -- "${FILE_PATH}"
             elinks -dump "${FILE_PATH}"
             ;; # Continue with next handler on failure
+        txt|el|py|org)
+            cat "${FILE_PATH}";;
     esac
 }
 
