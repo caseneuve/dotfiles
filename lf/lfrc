@@ -17,30 +17,30 @@ set reverse on
 set ratios 1:3:2
 
 #* KBD
-# reload
+#** reload
 map R source ~/.config/lf/lfrc
 map <c-r> reload
 
-# enter fish as shell
+#** enter fish as shell
 map w $fish
 
-# navig
+#** navig
 map K half-up
 map J half-down
 map <a-k> page-up
 map <a-j> page-down
 
-# select glob /unselect glob
+#** select glob /unselect glob
 map sg push :glob-select<space>*.
 map su push :glob-unselect<space>*.
 
-# sort
+#** sort
 map st :{{
     set sortby time
     set info time
 }}
 
-# set ratios/preview
+#** set ratios/preview
 map sr :{{
     set nopreview
     set ratios 1:3
@@ -56,12 +56,16 @@ map sP :{{
     set ratios 1:2
 }}
 
-# actions
+#** actions
 map ae $emacsclient -n -a emacs "$f"
 map ac $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
 # make/touch
 map ad push %mkdir<space>
 map at push %touch<space>
+
+# pdf actions
+map apj push $~/.scripts/pdfcut_jam.sh<space>"$f"<space>
+map apt $pdftotext -nopgbrk "$f"
 
 # alternative openers
 map oz $zathura -- "$fx" &
