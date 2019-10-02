@@ -15,6 +15,7 @@
 set previewer ~/.config/lf/scope.sh
 set reverse on
 set ratios 1:3:2
+set wrapscroll on
 
 #* KBD
 #** reload
@@ -30,6 +31,10 @@ map J half-down
 map <a-k> page-up
 map <a-j> page-down
 
+map gg
+map <lt> top -- []
+map <gt> bottom -- []
+
 #** select glob /unselect glob
 map sg push :glob-select<space>*.
 map su push :glob-unselect<space>*.
@@ -40,10 +45,15 @@ map st :{{
     set info time
 }}
 
+
 #** set ratios/preview
 map sr :{{
     set nopreview
     set ratios 1:3
+}}
+
+map sR :{{
+    set reverse!
 }}
 
 map sp :{{
@@ -51,17 +61,25 @@ map sp :{{
     set ratios 1:3:2
 }}
 
+map s<a-p> :{{
+    set preview
+    set ratios 1:1:2
+}}
+
 map sP :{{
     set preview
     set ratios 1:2
 }}
 
+#** commands
+map <c-g> cmd-interrupt
+
 #** actions
-map ae $emacsclient -n -a emacs "$f"
-map ac $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
-# make/touch
-map ad push %mkdir<space>
-map at push %touch<space>
+map ";"
+map ";e" $emacsclient -n -a emacs "$f"
+map ";c" $echo "$f" | xclip -selection clipboard && notify-send "lf" "path to <i>$f</i> copied to clipboard"
+map ";d" push %mkdir<space>
+map ";t" push %touch<space>
 
 # pdf actions
 map apj push $~/.scripts/pdfcut_jam.sh<space>"$f"<space>
@@ -116,9 +134,9 @@ map E extract "$f"
 cmd delete ${{
     set -f
     printf "$fx\n"
-    printf "delete? [y/n] "
+    printf "delete? [Y/n] "
     read ans
-    [ $ans = "y" ] && rm -rf $fx
+    [[ $ans = "y" || $ans = "" ]] && rm -rf "$fx"
 }}
 
 map <c-d> delete

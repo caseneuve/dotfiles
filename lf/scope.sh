@@ -23,9 +23,9 @@ FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
 
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
-HIGHLIGHT_TABWIDTH=8
-HIGHLIGHT_STYLE='pablo'
-PYGMENTIZE_STYLE='autumn'
+HIGHLIGHT_TABWIDTH=4
+HIGHLIGHT_STYLE=dante
+HIGHLIGHT_FORMAT=ansi
 
 
 handle_extension() {
@@ -85,8 +85,8 @@ handle_extension() {
             lynx -dump -- "${FILE_PATH}"
             elinks -dump "${FILE_PATH}"
             ;; # Continue with next handler on failure
-        txt|el|py|org)
-            cat "${FILE_PATH}";;
+        # txt|el|py|org)
+        #     cat "${FILE_PATH}";;
     esac
 }
 
@@ -99,29 +99,26 @@ handle_mime() {
             if [ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]; then
                 exit 2
             fi
-            if [ "$( tput colors )" -ge 256 ]; then
-                local pygmentize_format='terminal256'
-                local highlight_format='xterm256'
-            else
-                local pygmentize_format='terminal'
-                local highlight_format='ansi'
-            fi
-            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
-                --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}"
-            # pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}"
+            # if [ "$( tput colors )" -ge 256 ]; then
+            #     local highlight_format='xterm256'
+            # else
+            #     local highlight_format='ansi'
+            # fi
+            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${HIGHLIGHT_FORMAT}" --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}"
             exit 2;;
 
         # Image
-        image/*)
-            # Preview as text conversion
-            # img2txt --gamma=0.6 -- "${FILE_PATH}" && exit 1
-            exiftool "${FILE_PATH}"
-            exit 1;;
+        # image/*)
+            #Preview as text conversion
+            #img2txt --gamma=0.6 -- "${FILE_PATH}" && exit 1
+            #exiftool "${FILE_PATH}"
+            # viu -w 50 "${FILE_PATH}" ;;
+            # exit 1;;
 
         # Video and audio
         video/* | audio/*|application/octet-stream)
-            mediainfo "${FILE_PATH}"
-            exiftool "${FILE_PATH}"
+            mediainfo "${FILE_PATH}" | sed 's/ //g' | sed 's/:/: /g'
+            # exiftool "${FILE_PATH}"
             exit 1;;
     esac
 }
