@@ -2,20 +2,18 @@
 
 # Path:        ~/scr/gdocs.sh
 # Created:     28.12.18, 15:20    @x200
-# Last update: 2019-06-03, 13:22:27 @toshiba
+# Last update: 2019-10-03, 22:29:44 @lenovo
+# Dox:         Downloads file from Google Docs in a chosen format (html or txt); when 
 
-# >> DOC: 
-# Downloads file from Google Docs in a chosen format (html or txt); when 
-
-# >> VARIABLES: 
 OUTDIR="$HOME/dwl/gdoc"
 ROFI_ARGS="-theme i3on-window -monitor -2 -dmenu -p"
 
-# >> RUN:
+
 answ=$(echo -e "tak\nnie" | rofi $ROFI_ARGS "Zapisać plik na dysku? ")
 if [[ $answ =~ n ]]; then
     qutebrowser "$1" > /dev/null &
 else
+    mkdir -p ~/dwl/gdoc
     form=$(echo -e "html\ntxt" | rofi $ROFI_ARGS "Wybierz format: ")
     LINK="${1%/*}/export?format=$form"
     FILE=$(date '+%y%m%d_%H%M%S_GDocs')
