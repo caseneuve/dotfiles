@@ -24,9 +24,9 @@ FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=4
-HIGHLIGHT_STYLE=dante
 HIGHLIGHT_FORMAT=ansi
-
+#HIGHLIGHT_STYLE=dante
+#HIGHLIGHT_BASE16=flat
 
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
@@ -96,15 +96,9 @@ handle_mime() {
         # Text
         text/* | */xml)
             # Syntax highlight
-            if [ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]; then
-                exit 2
-            fi
-            # if [ "$( tput colors )" -ge 256 ]; then
-            #     local highlight_format='xterm256'
-            # else
-            #     local highlight_format='ansi'
-            # fi
-            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${HIGHLIGHT_FORMAT}" --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}"
+            [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]] && exit 2
+            # [[ "$( tput colors )" -ge 256 ]] && local highlight_format='xterm256' || local highlight_format='ansi'
+            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${HIGHLIGHT_FORMAT}" --force -- "${FILE_PATH}"
             exit 2;;
 
         # Image
