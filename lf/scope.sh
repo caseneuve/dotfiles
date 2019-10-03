@@ -124,7 +124,7 @@ handle_mime() {
 }
 
 handle_fallback() {
-    echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}"
+    echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}" | sed 's/, /\n/g'
     exit 1
 }
 

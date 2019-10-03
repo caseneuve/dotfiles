@@ -13,6 +13,8 @@
 
 #* SETTINGS
 set previewer ~/.config/lf/scope.sh
+map i $~/.config/lf/scope.sh "$f" | less -R
+
 set reverse on
 set ratios 1:3:2
 set wrapscroll on
@@ -109,7 +111,7 @@ cmd open ${{
             sxiv $fx;;
         application/pdf)
             mupdf -- "$f" & ;;
-        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+        # *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
 
@@ -131,15 +133,34 @@ cmd extract ${{
 map E extract "$f"
 
 #** custom 'delete' command
-cmd delete ${{
+cmd delete %{{
     set -f
-    printf "$fx\n"
-    printf "delete? [Y/n] "
+    num_files=$(echo "$fx" | sed 's/ /\n/g' | wc -l)
+    printf "\e[1;41mdelete $num_files selected file(s)? [y/n]"
     read ans
-    [[ $ans = "y" || $ans = "" ]] && rm -rf "$fx"
+    if [ $ans = "y" ]; then
+        rm -rf $fx
+        printf "\e[1;42mdeleted $num_files file(s)"
+    else
+        printf "\e[1;45mdeletion cancelled"
+    fi
 }}
 
 map <c-d> delete
+
+#** symlink
+cmd symlnk ${{
+    set -f
+    for file in "$fx"
+    do
+        ln -s $file .
+    done
+}}
+
+map L :{{
+    symlnk
+    unselect
+}}
 
 #** custom 'trash' command
 $ {{ [ -d ~/.local/share/Trash ] || mkdir -p ~/.local/share/Trash }}
