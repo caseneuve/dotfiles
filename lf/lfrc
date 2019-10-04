@@ -167,7 +167,42 @@ $ {{ [ -d ~/.local/share/Trash ] || mkdir -p ~/.local/share/Trash }}
 cmd trash $IFS="`printf '\n\t'`"; mv $fx ~/.local/share/Trash
 
 map D trash
-              
+
+#** custom bulk rename
+# slightly edited version of script from here: https://github.com/gokcehan/lf/issues/149
+cmd bulk-rename ${{
+    set '-eu'                     
+    index=$(mktemp /tmp/lf-bulk-rename-index.XXXXXXXXXX)
+    dir=$(dirname "$f")
+    if [ -n "${fs}" ]; then
+        echo "$fs" > $index
+        sed -i "s|${dir}/||g" $index
+    else
+	echo "$(ls "${dir}" | tr ' ' "\n")" > $index
+    fi
+    index_edit=$(mktemp /tmp/lf-bulk-rename.XXXXXXXXXX)
+    cat $index > $index_edit
+    $EDITOR $index_edit
+    if [ $(cat $index | wc -l) -eq $(cat $index_edit | wc -l) ]; then
+	max=$(($(cat $index | wc -l)+1))
+	counter=1
+	while [ $counter -le $max ]; do
+	    a="$(cat $index | sed "${counter}q;d")"
+	    b="$(cat $index_edit | sed "${counter}q;d")"
+	    counter=$(($counter+1))
+	    
+	    [ "$a" = "$b" ] && continue
+	    [ -e "$b" ] && echo "File exists: $b" && continue
+	    mv "$a" "$b"
+	done
+    else
+	echo "Number of lines must stay the same"
+    fi
+    rm $index $index_edit
+}}
+
+map B bulk-rename
+
 #* FAST DIRS
 # >> fast dirs start
 
