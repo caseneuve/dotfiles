@@ -1,0 +1,79 @@
+#     -*- mode: conf-space -*-
+
+  #                      #                 #     #
+ #                        #                #     #
+ #    ###    ##    ##     #   # #   #  #  ###   ###
+ #    #  #  # ##  #  #    #   ####  #  #   #     #
+ #    #  #  ##    #  #    #   #  #  #  #   #     #
+  #   #  #   ##    ##    #    #  #   ###    ##    ##
+
+# Last update: 2019-10-05, 22:30:26 @x200
+# Doc:         http://www.mutt.org/doc/manual
+
+# load configs
+source colors
+source kbd
+
+set    mailcap_path=~/.config/neomutt/mailcap
+
+set    alias_file = ~/.config/neomutt/aliases
+set    sort_alias = alias
+set    reverse_alias=yes
+source $alias_file
+macro  generic,index,pager \ca "<shell-escape>$EDITOR ~/.config/neomutt/aliases <return>:source ~/.config/neomutt/aliases<return>" "edit aliases"
+
+set imap_keepalive = 300
+
+auto_view         text/html
+alternative_order text/plain text/enriched text/html
+
+set fast_reply=yes
+set include=yes
+
+set pager_context=3
+set pager_stop=yes
+set editor=$EDITOR
+
+set arrow_cursor
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+set help=no
+set status_chars=" #%A"
+set date_format="%d/%m/%y"
+set status_on_top=yes
+set status_format="%r %-34.34f %* %?V?F: %V? %?t?T:%t?%?d? D:%d? %M:%P"
+set pager_format="%-30.30a %-31s %* %{%d/%m/%y %H:%M} %?X? A:%X? %P"
+set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
+set compose_format="y:send q:exit enter:view a:add_att s:subject %* size: %l attachments: %a"
+set index_format="%2C %S %?X?A& ? %D %-25.25F%-200.200s"
+
+set sidebar_visible=yes
+set sidebar_delim_chars='/'
+set sidebar_width = 24
+set sidebar_on_right = no
+set sidebar_short_path = no
+set sidebar_component_depth = 4
+set sidebar_next_new_wrap = yes
+set sidebar_folder_indent = yes
+set sidebar_format = '%-14.14B %N %* %!'
+
+set mail_check_stats
+set mail_check_stats_interval = 1
+
+source ~/.config/neomutt/scholemail
+source ~/.config/neomutt/gmail
+
+set folder=~/.mail/
+mailboxes +gmail/INBOX +gmail/Sent +gmail/Drafts +gmail/Trash +schole/INBOX +schole/Sent +schole/Drafts +schole/Trash
+
+folder-hook +schole/INBOX  'source ~/.config/neomutt/scholemail'
+folder-hook +schole/Sent   'source ~/.config/neomutt/scholemail'
+folder-hook +schole/Drafts 'source ~/.config/neomutt/scholemail'
+folder-hook +schole/Trash  'source ~/.config/neomutt/scholemail'
+
+folder-hook +gmail/INBOX  'source ~/.config/neomutt/gmail'
+folder-hook +gmail/Sent   'source ~/.config/neomutt/gmail'
+folder-hook +gmail/Drafts 'source ~/.config/neomutt/gmail'
+folder-hook +gmail/Trash  'source ~/.config/neomutt/gmail'
