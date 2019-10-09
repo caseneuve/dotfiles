@@ -1,5 +1,5 @@
 # -*- mode: conf-space;  -*-
-# Last update: 2019-09-22, 18:37:59 @x200
+# Last update: 2019-10-09, 10:33:42 @lenovo
 
 # fast dirs shrotcuts for:
 # - bash_aliases
@@ -14,12 +14,12 @@ gD -- ~/box/Dropbox/Dokumenty
 gaa -- ~/dwl
 gag -- ~/dwl/att
 gcf -- ~/.config/fish
+gcl -- ~/.config/lf
 gcm -- ~/.config/neomutt
 gcn -- ~/.newsboat
 gcq -- ~/.config/qutebrowser
 gcr -- ~/.config/ranger
 gct -- ~/.config/termite
-gcl -- ~/.config/lf
 gcx -- ~/.config/xfce4
 gdb -- ~/.dotfiles/bin
 gdd -- ~/.dotfiles
@@ -33,9 +33,9 @@ geh -- ~/git/hub/heder
 ggg -- ~/git
 ggh -- ~/git/hub
 ggl -- ~/git/lab
+ggo -- ~/go
 ggp -- ~/git/lab/py-exercises
 ggs -- ~/git/hub/st
-ggo -- ~/go
 gh -- ~
 gm -- ~/muz
 gob -- ~/obr
@@ -44,18 +44,19 @@ gp -- ~/pdf
 gsc -- ~/scr
 gwe -- ~/web
 gws -- ~/web/schole
-gww -- ~/wid
 gwt -- ~/web/test
+gww -- ~/wid
+gx@ -- ~/box/Dropbox/Web
+gxS -- ~/box/Dropbox/Szkoła/19-20
+gxb -- ~/box/Dropbox/Biurko
 gxc -- ~/box/Dropbox/.Config
 gxd -- ~/box/Dropbox/Dokumenty
-gxs -- ~/box/Dropbox/Szkoła
-gxS -- ~/box/Dropbox/Szkoła/19-20
-gxx -- ~/box/Dropbox
-gxw -- ~/box/Dropbox/Wiki
-gx@ -- ~/box/Dropbox/Web
-gxb -- ~/box/Dropbox/Biurko
+gxj -- ~/box/Dropbox/Joby
 gxp -- ~/box/Dropbox/Programowanie
-gxr -- ~/box/Dropbox/Projekty
+gxr -- ~/box/Dropbox/Dokumenty/Projekty
+gxs -- ~/box/Dropbox/Szkoła
+gxw -- ~/box/Dropbox/Wiki
+gxx -- ~/box/Dropbox
 
 # Local variables:
 # eval: (load-file "~/git/hub/emacs/fast-dirs.el")
