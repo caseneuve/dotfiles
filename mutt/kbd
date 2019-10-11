@@ -1,6 +1,6 @@
 # -*- mode:conf-space eval:(display-line-numbers-mode) -*-
 # Mutt keybindings
-# Last update: 2019-05-16, 07:59:37 @lenovo
+# Last update: 2019-10-11, 17:09:57 @lenovo
 
 source unbind
 
@@ -69,6 +69,8 @@ macro index   f    "<set-flag>!"
 macro index   F    "<clear-flag>!"
 macro index   c    "<change-folder>?"
 macro index   D    "<save-message><kill-line>=Trash<return><return><sync-mailbox><return>"
+
+macro index   sf   "<search>~F<enter>"
 
 bind index,pager \Cf   forward-message
 
