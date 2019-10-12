@@ -7,7 +7,7 @@
  #    #  #  ##    #  #    #   #  #  #  #   #     #
   #   #  #   ##    ##    #    #  #   ###    ##    ##
 
-# Last update: 2019-10-05, 22:30:26 @x200
+# Last update: 2019-10-12, 11:53:49 @lenovo
 # Doc:         http://www.mutt.org/doc/manual
 
 # load configs
@@ -66,7 +66,7 @@ source ~/.config/neomutt/scholemail
 source ~/.config/neomutt/gmail
 
 set folder=~/.mail/
-mailboxes +gmail/INBOX +gmail/Sent +gmail/Drafts +gmail/Trash +schole/INBOX +schole/Sent +schole/Drafts +schole/Trash
+mailboxes +gmail/INBOX +gmail/Sent +gmail/Drafts +gmail/Trash +schole/INBOX +schole/Sent +schole/Drafts +schole/Trash +sarmata/INBOX +sarmata/Sent +sarmata/Drafts +sarmata/Trash
 
 folder-hook +schole/INBOX  'source ~/.config/neomutt/scholemail'
 folder-hook +schole/Sent   'source ~/.config/neomutt/scholemail'
@@ -77,3 +77,8 @@ folder-hook +gmail/INBOX  'source ~/.config/neomutt/gmail'
 folder-hook +gmail/Sent   'source ~/.config/neomutt/gmail'
 folder-hook +gmail/Drafts 'source ~/.config/neomutt/gmail'
 folder-hook +gmail/Trash  'source ~/.config/neomutt/gmail'
+
+folder-hook +sarmata/INBOX  'source ~/.config/neomutt/sarmata'
+folder-hook +sarmata/Sent   'source ~/.config/neomutt/sarmata'
+folder-hook +sarmata/Drafts 'source ~/.config/neomutt/sarmata'
+folder-hook +sarmata/Trash  'source ~/.config/neomutt/sarmata'

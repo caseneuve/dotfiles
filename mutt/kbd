@@ -1,6 +1,6 @@
 # -*- mode:conf-space eval:(display-line-numbers-mode) -*-
 # Mutt keybindings
-# Last update: 2019-10-11, 17:09:57 @lenovo
+# Last update: 2019-10-12, 12:13:16 @lenovo
 
 source unbind
 
@@ -55,6 +55,7 @@ bind index   a          create-alias
 macro index   \Cd    "<purge-message><sync-mailbox><enter>"
 macro index   <Esc>1 "<change-folder>~/.mail/gmail/INBOX<enter>0"
 macro index   <Esc>2 "<change-folder>~/.mail/schole/INBOX<enter>0"
+macro index   <Esc>3 "<change-folder>~/.mail/sarmata/INBOX<enter>0"
 
 macro index   gi   "<change-folder>=INBOX<enter>0"  "Go to INBOX"
 macro index   gs   "<change-folder>=Sent<enter>0" "Go to SENT"
