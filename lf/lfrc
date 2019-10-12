@@ -82,6 +82,7 @@ map ";e" $emacsclient -n -a emacs "$f"
 map ";c" $echo "$f" | xclip -selection clipboard && notify-send 'lf' "path to <i>$(basename "$f")</i> copied to clipboard"
 map ";d" push %mkdir<space>
 map ";t" push %touch<space>
+map ";m" $~/.dotfiles/bin/sendmail.sh "$fx"
 
 # pdf actions
 map apj push $~/.scripts/pdfcut_jam.sh<space>"$f"<space>
