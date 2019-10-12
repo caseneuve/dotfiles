@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/i3/scripts/i3mailchecker
 # Created:     2019-04-21, 00:43    @lenovo
-# Last update: 2019-07-25, 15:20:55 @lenovo
+# Last update: 2019-10-12, 13:17:31 @lenovo
 # Doc:         alt glyph=""
 
 #* env
@@ -48,7 +48,7 @@ new_mail_msg(){
     subject=$(awk '/^Subject:/ {$1=""; print}' $1 2>/dev/null)
     read -rd '' subject_readable <<< $($DECODE "$subject")
     [[ -n $from || -n $subject ]] &&\
-        paplay --volume 40000 $SOUND
+        [ $2 = true ] && paplay --volume 40000 $SOUND
         notify-send -t 6000 -i $UNREAD "NEW MAIL  $to_readable"\
                     "\nFROM:     $from_readable\nSUBJECT:  $subject_readable" 2>/dev/null
         polybar-msg hook mail 1
@@ -83,11 +83,13 @@ main() {
 
         elif [[ $unread -gt $unread_before ]]; then
             new=true
+            dong=true
             for file in $(ls -ltc $dir | sed /^total/d | awk '{print $8}')
             do
                 file_date=$(ls $dir/$file | grep -o "[0-9]\{10\}")
                 if [[ $file_date -gt $date_before ]]; then
-                    new_mail_msg "$dir/$file"
+                    new_mail_msg "$dir/$file" $dong
+                    dong=false
                 else
                     break
                 fi
