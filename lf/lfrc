@@ -137,12 +137,15 @@ map E extract "$f"
 #** custom 'delete' command
 cmd delete %{{
     set -f
-    num_files=$(echo "$fx" | sed 's/ /\n/g' | wc -l)
-    printf "\e[1;41mdelete $num_files selected file(s)? [y/n]"
+    IFS=$'\n' read -a files -d '' <<< "${fx}"
+    printf "\e[1;41mdelete ${#files[@]} selected file(s)? [y/n]"
     read ans
     if [ $ans = "y" ]; then
-        rm -rf $fx
-        printf "\e[1;42mdeleted $num_files file(s)"
+        counter=0
+        for file in "${files[@]}"; do
+            rm -rf "$file" && counter=$((counter+1))
+        done
+        printf "\e[1;42mdeleted $counter file(s)"
     else
         printf "\e[1;45mdeletion cancelled"
     fi
