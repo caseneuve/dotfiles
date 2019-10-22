@@ -5,7 +5,7 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-08-09, 19:30:12 @x200
+# Last update: 2019-10-16, 19:54:56 @lenovo
 
 #* VARIABLES
 #** env vars
@@ -111,7 +111,8 @@ if status --is-interactive
   abbr --add mkd 'mkdir -p'
   abbr --add mmg ./manage.py migrate
   abbr --add mms ./manage.py makemigrations
-  abbr --add ms ./manage.py shell
+  abbr --add mrs ./manage.py runserver
+  abbr --add ms ./manage.py shell_plus
   abbr --add mt ./manage.py test -v 2
   abbr --add mt1 ./manage.py test
   abbr --add q ' exit'
