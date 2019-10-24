@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-10-21, 06:02:30 @x200
+# Last update: 2019-10-24, 22:59:39 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -60,6 +60,7 @@ bindsym $mod+i focus up
 bindsym $mod+l focus right
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
+bindsym $mod+p focus parent
 
 #** moving windows:
 bindsym $mod+Shift+j move left
@@ -74,14 +75,15 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+f fullscreen toggle
 
 #** mark container
-bindsym $mod+Shift+a mark --toggle marked
-bindsym $mod+a [con_mark="marked"] focus
+bindsym $mod+a mark --toggle marked
+bindsym $mod+Ctrl+a move window to mark marked
+bindsym $mod+Shift+a [con_mark="marked"] focus
+bindsym $mod+apostrophe swap container with mark marked
 
 #** layouts:
-bindsym $mod+y layout tabbed
-bindsym $mod+Ctrl+y layout stacking
-bindsym $mod+Shift+y layout toggle split
-bindsym $mod+Control+t split toggle
+bindsym $mod+Ctrl+t layout tabbed
+bindsym $mod+Ctrl+s layout stacking
+bindsym $mod+y layout toggle all
 
 #** toggle tiling / floating:
 bindsym $mod+Shift+space floating toggle
@@ -594,7 +596,7 @@ bindsym $mod+F8 $exe $dot/i3-gromit-launcher.sh
 #** rofi/dmenu scpripts
 set $rofi-theme i3on-window
 bindsym $mod+d $exe rofi -show drun -modi drun -columns 1 -width 100 #-theme $rofi-theme
-bindsym $mod+Shift+d $exe ~/.dotfiles/dmenu/dmenu-cmd.sh
+bindsym $mod+Shift+d $exe dmenu_run #~/.dotfiles/dmenu/dmenu-cmd.sh
 bindsym $mod+semicolon $exe rofi -show window -modi window -width 100 #-window-format "[{n:3}: {t:18}]" #-theme $rofi-theme
 bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 #bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
@@ -612,7 +614,7 @@ bindsym $mod+bracketright $exe ~/.dotfiles/dmenu/dmenu-media.sh
 #** screencasting
 bindsym $mod+F12 $exe $dot/screencast.sh $(date "+%d%h%H%M")
 bindsym $mod+Ctrl+F12 exec pkill ffmpeg && notify-send "screencast" "screencast stopped"
-bindsym $mod+Ctrl+a $exe $dot/i3append.sh
+bindsym $mod+BackSpace $exe $dot/i3append.sh
 bindsym $mod+Right $exe $dot/xdo-sent-control.sh -n
 bindsym $mod+Left $exe $dot/xdo-sent-control.sh -p
 bindsym $mod+Shift+Right $exe $dot/xdo-sent-control.sh -g
