@@ -2,7 +2,7 @@
 
 #* Path:        ~/.dotfiles/bin/i3startterminemacsdir.sh
 #  Created:     2018-08-26, 15:00    @x200
-#  Last update: 2019-10-23, 19:18:08 @lenovo
+#  Last update: 2019-10-29, 09:01:41 @lenovo
 #  Doc:         If an Emacs window is focused with a file in active buffer,
 #               open the terminal in the working directory; 
 #               else, open in $HOME.
@@ -28,14 +28,22 @@ title=$($GET -t)
 if [[ $class =~ "Emacs" ]]; then
     FILE=$(basename "$title")
     DIR=${title%$FILE}
-    [[ -d $DIR ]] && cd $DIR
-    st -c term -t "st @$(date +%H:%M:%S)" $FONT $EXEC &
 else
-    if [[ -z $VIRTUAL_ENV ]]; then
-        [ $class = term ] && DIR=$(echo $title | awk '{print $2}') || DIR=$PWD
+    if [ $class = term ]; then
+        IFS=' ' read -r -a parts <<< "$title"
+        if [[ -n $(grep "(.*)" <<< "${parts[0]}") ]]; then
+            VENV=$(sed 's/(\|)//g' <<< "${parts[0]}")
+            DIR="${parts[2]}"
+        else
+            DIR="${parts[1]}"
+        fi
     else
-        [ $class = term ] && DIR=$(echo $title | awk '{print $3}') || DIR=$PWD
+        DIR="$PWD"
     fi
-    cd $DIR
-    st -c term -t "st @$(date +%H:%M:%S)" $FONT $EXEC &
+    
+    [[ -n "$VENV" ]] && source ~/.virtualenvs/$VENV/bin/activate
+    
 fi
+
+[[ -d $DIR ]] && cd $DIR
+st -c term -t "st @$(date +%H:%M:%S)" $FONT $EXEC &
