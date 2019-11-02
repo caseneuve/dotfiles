@@ -112,6 +112,9 @@ cmd open ${{
             sxiv $fx;;
         application/pdf)
             mupdf -- "$f" & ;;
+        video/*)
+            # bug: mpv blocks lf, disowning/sending to bg doesn't work
+            vlc "$f" --quiet & ;;
         # *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
@@ -181,10 +184,12 @@ cmd bulk-rename ${{
     dir=$(dirname "$f")
     if [ -n "${fs}" ]; then
         echo "$fs" > $index
-        sed -i "s|${dir}/||g" $index
     else
-	echo "$(ls "${dir}" | tr ' ' "\n")" > $index
+        # if no files selected, use only file under the cursor
+	# echo "$(ls "${dir}" | tr ' ' "\n")" > $index
+        echo "$f" > $index
     fi
+    sed -i "s|${dir}/||g" $index
     index_edit=$(mktemp /tmp/lf-bulk-rename.XXXXXXXXXX)
     cat $index > $index_edit
     $EDITOR $index_edit
