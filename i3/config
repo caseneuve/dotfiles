@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-10-24, 22:59:39 @lenovo
+# Last update: 2019-11-03, 19:50:47 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -602,6 +602,7 @@ bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 #bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
 bindsym $mod+bracketleft $exe ~/.dotfiles/dmenu/dmenu-choose-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/dmenu/dmenu-media.sh
+bindsym $mod+Shift+F11 $exe ~/box/Dropbox/Dokumenty/.Private/pass.sh
 
 #bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
 #bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
