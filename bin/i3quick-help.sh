@@ -2,13 +2,18 @@
 
 # Path:        ~/.dotfiles/i3quick-help.sh
 # Created:     20.05.18, 10:52    @lenovo
-# Last update: 02.02.19, 18:44:31 @lenovo
+# Last update: 2019-11-05, 23:15:54 @lenovo
+# Doc:         i3 kbd helper, mod+f1
 
-# Doc:
-# mod+f1
-
-notify-send "[i3 KBD HELPER]:" \
-"\===============
+notify-send -u low -t 10000 "i3 KBD HELPER" "\n===============
+focus parent   = W+p
+tabbed         = W+C+t
+stacked        = W+C+s
+toggle         = W+y
+mark           = W+a
+move to marked = W+C+a
+swap /w marked = W+'
+---------------
 log out       = W+S+bs
 change ws     = W+num
 launch an app = W+d
