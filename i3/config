@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-11-03, 19:50:47 @x200
+# Last update: 2019-11-08, 22:07:35 @x200
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -366,7 +366,7 @@ mode "i3move" {
 }
 
 bindsym $mod+Shift+F1 mode "i3move"
-bindsym $mod+F11 mode "i3move"
+bindsym $mod+Shift+F11 mode "i3move"
 
 #* FLOATING
 for_window [title="nmtui"]               floating enable
@@ -602,7 +602,7 @@ bindsym $mod+backslash $exe ~/.config/rofi/scripts/translate $rofi-theme
 #bindsym $mod+bracketleft $exe ~/.dotfiles/rofi/scripts/rofi-execute-script.sh $rofi-theme
 bindsym $mod+bracketleft $exe ~/.dotfiles/dmenu/dmenu-choose-script.sh
 bindsym $mod+bracketright $exe ~/.dotfiles/dmenu/dmenu-media.sh
-bindsym $mod+Shift+F11 $exe ~/box/Dropbox/Dokumenty/.Private/pass.sh
+bindsym $mod+F11 $exe ~/box/Dropbox/Dokumenty/.Private/pass.sh
 
 #bindsym $mod+d $exe rofi -show drun -modi drun -theme i3black_and_red
 #bindsym $mod+semicolon $exe rofi -show window -window-format {c:14}{t} -modi window#sys:~/.dotfiles/rofi/scripts/rofi-sys-dispatcher.sh
