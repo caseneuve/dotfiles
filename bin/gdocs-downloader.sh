@@ -2,12 +2,11 @@
 
 # Path:        ~/scr/gdocs.sh
 # Created:     28.12.18, 15:20    @x200
-# Last update: 2019-10-03, 22:29:44 @lenovo
+# Last update: 2019-11-09, 22:10:13 @lenovo
 # Dox:         Downloads file from Google Docs in a chosen format (html or txt); when 
 
 OUTDIR="$HOME/dwl/gdoc"
 ROFI_ARGS="-theme i3on-window -monitor -2 -dmenu -p"
-
 
 answ=$(echo -e "tak\nnie" | rofi $ROFI_ARGS "Zapisać plik na dysku? ")
 if [[ $answ =~ n ]]; then

@@ -2,7 +2,7 @@
 
 # Path:        ~/.bin/urlview-handler.sh
 # Created:     04.04.18, 11:48    @x200
-# Last update: 2019-06-12, 12:04:05 @toshiba
+# Last update: 2019-11-09, 22:26:55 @lenovo
 
 # Doc: via Luke Smith github
 # note: replacing feh with sxiv
@@ -13,42 +13,53 @@ mpvFiles="mkv mp4 avi mov wmv flv ogg"
 fehFiles="png jpg jpeg jpe gif"
 wgetFiles="mp3 mp3?source=feed pdf"
 em="email"
-#mpvscript=~/.dotfiles/bin/queuempv
 mpvscript=~/.scripts/mpvsoc
 [[ $mpvscript =~ mpvsoc ]] && mpvargs="-v" || mpvargs=
 
-if echo $1 | grep slack; then
+
+downloader(){
+    ROFI_ARGS="-theme i3on-window -monitor -2 -dmenu -p"
+    answ=$(echo -e "yes\nno" | rofi $ROFI_ARGS "Download to ~/dwl [yes] or xdg-open [no]? ")
+    case "${answ}" in
+        no) nohup wget -O /tmp/file.$ext "$1" > /dev/null
+            xdg-open /tmp/file.$ext &
+            ;;
+        yes) cd ~/dwl
+             filename=$(basename "$1")
+             nohup wget "$1" > /dev/null && notify-send "DOWNLOAD" "$filename --> ~/dwl"
+             ;;
+    esac
+}
+
+if grep slack <<< "$1" > /dev/null; then
     nohup xdg-open $1 > /dev/null &
-elif echo $fehFiles | grep -w $ext > /dev/null; then
+elif grep -w $ext <<< "$fehFiles" > /dev/null; then
+    # sxiv nie potrafi otwierać linków
     nohup feh -. -B -- "$1" > /dev/null &
-    # nohup sxiv -a -- "$1" > /dev/null & # sxiv nie potrafi otwierać linków
-elif echo $1 | grep "googleusercontent.com" >/dev/null; then
+elif grep "googleusercontent.com" <<< "$1" >/dev/null; then
     nohup feh -. -B -- "$1" > /dev/null &
-elif echo $mpvFiles | grep -w $ext > /dev/null; then
-    if [ -f $mpvscript ];
-    then nohup $mpvscript $mpvargs "$1" >/dev/null &
-    else nohup mpv --loop --quiet "$1" > /dev/null &
-    fi
-elif echo $wgetFiles | grep -w $ext > /dev/null; then
-    #nohup wget "$1" >/dev/null
-    nohup wget -O /tmp/file.$ext "$1" > /dev/null && xdg-open /tmp/file.$ext &
-    # [[ $ext == "pdf" ]] && mupdf /tmp/file.$ext || xdg-open /tmp/file.$ext &
-elif echo $1 | grep "youtube\.\|youtu\.be" > /dev/null; then
+elif grep -w $ext <<< "$mpvFiles" > /dev/null; then
     if [ -f $mpvscript ]; then
-        nohup $mpvscript "$mpvargs" "$1" & # > /dev/null
-        #notify-send -u low "Urlview" "Video:\n\n<i>`curl -s $1 | grep -o \"<title>[^<]*\" | tail -c+8`</i>\n\nis loading."
+        nohup $mpvscript $mpvargs "$1" >/dev/null &
+    else
+        nohup mpv --loop --quiet "$1" > /dev/null &
+    fi
+elif grep -w $ext <<< "$wgetFiles" > /dev/null; then
+    downloader "$1"
+    # nohup wget -O /tmp/file.$ext "$1" > /dev/null
+    # xdg-open /tmp/file.$ext &
+elif grep "youtube\.\|youtu\.be" <<< "$1" > /dev/null; then
+    if [ -f $mpvscript ]; then
+        nohup $mpvscript "$mpvargs" "$1" &
     else
         nohup mpv "$1" > /dev/null &
         notify-send "failur xxx"
     fi
-# elif echo $1 | grep youtu.be > /dev/null; then
-#      nohup mpv "$1" > /dev/null &
-elif echo $1 | grep vimeo > /dev/null; then
+elif grep vimeo <<< "$1" > /dev/null; then
     nohup mpv "$1" > /dev/null &
-elif echo $1 | grep "https://docs\.google\.com/document" > /dev/null; then
+elif grep "https://docs\.google\.com/document" <<< "$1" > /dev/null; then
     nohup ~/.dotfiles/bin/gdocs-downloader.sh $1 > /dev/null &
 else
-    #nohup qutebrowser --target window "$1" >/dev/null &
     nohup qutebrowser "$1" > /dev/null &
 fi
 
