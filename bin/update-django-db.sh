@@ -2,7 +2,7 @@
 
 # Path:        ~/git/lab/lex-crawler/update-db.sh
 # Created:     2019-11-06, 22:04    @lenovo
-# Last update: 2019-11-11, 13:30:19 @x200
+# Last update: 2019-11-11, 13:41:15 @x200
 
 DB=db.sqlite3
 
@@ -101,9 +101,8 @@ check_git(){
 }
 
 reset_git(){
-    check_git
-
     if [ $reset_git = true ]; then
+        check_git
         print_red "Resetting git to last commit"
         git reset --hard
         migrations "Re-making migrations" "Re-migrating"
