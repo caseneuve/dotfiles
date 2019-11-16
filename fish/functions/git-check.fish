@@ -1,4 +1,5 @@
 function git-check -d "check git status for some projects"
+    set -l CWD (pwd)
     # parse args
     set -l options (fish_opt -s e -l exclude --required-val)
     set options    (fish_opt -s v -l verbose --optional-val) $options
@@ -76,6 +77,9 @@ Options:
     cd $HOME/.dotfiles
     porcelain
 
+    # return to where started
+    cd $CWD
+    
     # cleanup global var
     set -e verbose
     set -e long
