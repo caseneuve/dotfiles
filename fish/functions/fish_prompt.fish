@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-16, 21:42:19 @lenovo
+# Last update: 2019-11-16, 22:18:15 @lenovo
 
 
 #* COLORS
@@ -56,9 +56,13 @@ function git_status
     set -g porcelain ""
 
     function git_format
-        printf " %sin branch %s%s%s%s%s%s%s" \
+        set -l loc ""
+        if test ! (git rev-parse --abbrev-ref --symbolic-full-name "@{u}" 2>/dev/null)
+            set -p loc "local "
+        end
+        printf " %sin %sbranch %s%s%s%s%s%s%s" \
         (set_color -o white) \
-        (set_color normal) \
+        $loc \
         (set_color -o $fish_prompt_branch_color) \
         $GB \
         (set_color normal) \
@@ -76,9 +80,10 @@ function git_status
         if test (git status 2>/dev/null | grep "use \"git push\""); set -a porcelain "P!"
         end
         update_changes " M "  "m"
-        update_changes "^M "  "c"
-        update_changes "^A "  "a"
+        update_changes "^M "  "C"
+        update_changes "^A "  "A"
         update_changes " D "  "d"
+        update_changes "^D "  "D"
         update_changes "[??]" "u"
 
         git_format     "$porcelain"
