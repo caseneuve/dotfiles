@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-16, 18:54:07 @lenovo
+# Last update: 2019-11-16, 20:07:33 @lenovo
 
 #* COLORS
 set fish_prompt_cwd_color    yellow
@@ -17,7 +17,7 @@ set fish_prompt_venv_color   brred
 #* HELPERS
 #** line beg
 function line_beg -d "Success sensitive line beginning"
-    if test $argv[2] = 0; printf '%s%s' (set_color brwhite) $argv[1]
+    if test $argv[2] = 0; printf '%s%s' (set_color -o brwhite) $argv[1]
     else;                 printf '%s%s' (set_color -o red)     $argv[1]
     end
     set_color normal

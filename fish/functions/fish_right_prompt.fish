@@ -1,4 +1,4 @@
-# Last update: 2019-11-16, 18:54:59 @lenovo
+# Last update: 2019-11-16, 20:07:45 @lenovo
 
 function fish_right_prompt -d "Custom right prompt: show last command duration time"
     function convert_ms -d "Convert milisecond to seconds/minutes"
@@ -25,7 +25,7 @@ function fish_right_prompt -d "Custom right prompt: show last command duration t
     else;                         colorize brblack  $time
     end
 
-    if test $STAT = 0; printf " %s<%s" (set_color brwhite) (set_color normal)
+    if test $STAT = 0; printf " %s<%s" (set_color -o brwhite) (set_color normal)
     else;              printf " %s<%s" (set_color -o red)  (set_color normal)
     end
         
