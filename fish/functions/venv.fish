@@ -52,7 +52,7 @@ function venv -d 'create, activate or deactivate python virtualenv'
                 (math $level - 2)
             else
                 printf "Python virtual environments under this location (digging to level %s)\n %s\n" \
-                (math $level - 2)
+                (math $level - 2) \
                 (string split " " (echo $venvs | sed "s|/bin/python||g"))
             end
     end
@@ -63,9 +63,9 @@ function venv_complete -d 'completions for venv'
     fd -H -p ".*/bin/python\$" -d 3 | sed "s|/.*||g"
 end
 
-complete -c venv -s r -l requirements -x -a '(fd -e txt .)' -d 'install requirements [from FILE]'
+complete -c venv -s r -l requirements -x -a '(fd -e txt .)'    -d 'install requirements [from FILE]'
 complete -c venv -s n -l new -x -a          '(basename (pwd))' -d 'new venv NAME [LOCALLY]'
 complete -c venv -s l -l list -x -d         'list venvs'
 complete -c venv -s d -l deactivate -x -d   'deactivate current venv'
-complete -c venv -s a -l activate -x -a     '(venv_complete)' -d 'activate venv'
+complete -c venv -s a -l activate -x -a     '(venv_complete)'  -d 'activate venv'
 complete -c venv -s s -l search -x -d       'search for venvs in this directory [DEPTH]'
