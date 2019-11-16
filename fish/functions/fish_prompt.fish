@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-16, 22:18:15 @lenovo
+# Last update: 2019-11-16, 22:56:18 @lenovo
 
 
 #* COLORS
@@ -77,8 +77,12 @@ function git_status
     end
 
     if test -n "$GB"
-        if test (git status 2>/dev/null | grep "use \"git push\""); set -a porcelain "P!"
+        if test (git status 2>/dev/null | grep "use \"git push\""); set -a porcelain "push"
         end
+        if test (git status --porcelain --branch 2>/dev/null | grep "ahead [0-9]*, behind")
+            set -a porcelain "diverged"
+        end
+
         update_changes " M "  "m"
         update_changes "^M "  "C"
         update_changes "^A "  "A"
