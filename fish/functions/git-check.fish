@@ -57,7 +57,7 @@ Options:
         end
     end
 
-    printf "Checking git status for chosen repos:"
+    printf "Checking git status for chosen repos:\n"
 
     for dir in $HOME/git/* $HOME/web/schole
         cd $dir
