@@ -16,6 +16,7 @@ function venv -d 'create, activate or deactivate python virtualenv'
             end
         case -r --requirements
             if test $VIRTUAL_ENV
+                pip install -U pip
                 if test $argv[2]; set reqs "$argv[2]"
                 else;             set reqs "requirements.txt"
                 end
