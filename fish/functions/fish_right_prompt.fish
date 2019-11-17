@@ -1,6 +1,7 @@
-# Last update: 2019-11-17, 15:11:50 @x200
+# Last update: 2019-11-17, 15:31:58 @x200
 
 function fish_right_prompt -d "Custom right prompt: show last command duration time"
+
     function convert_ms -d "Convert milisecond to seconds/minutes"
         if      test $argv -lt 1000;     printf "%03d" $argv
         else if test $argv -lt 60000;    printf "%2ss" (math -s0 $argv/1000.0)
@@ -25,7 +26,7 @@ function fish_right_prompt -d "Custom right prompt: show last command duration t
     else;                         colorize brblack  $time
     end
 
-    if test $STAT = 0; printf " %s<%s" (set_color -o $fish_prompt_success) (set_color normal)
+    if test $STAT = 0; printf " %s<%s" (set_color -o $fish_prompt_success)  (set_color normal)
     else;              printf " %s<%s" (set_color -o $fish_prompt_warning)  (set_color normal)
     end
         

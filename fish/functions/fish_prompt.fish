@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-17, 15:29:45 @x200
+# Last update: 2019-11-17, 16:03:07 @x200
 
 
 #* COLORS
@@ -56,10 +56,10 @@ end
 
 #** git branch and status
 function git_status
-    set -g GB (git branch 2>/dev/null | grep '^*' | colrm 1 2)
-    set -g porcelain
+    set -l GB (git branch 2>/dev/null | grep '^*' | colrm 1 2)
+    set -l porcelain
 
-    function git_format
+    function git_format --no-scope-shadowing
         set -l loc ""
         set -l space
 
@@ -81,7 +81,7 @@ function git_status
           (set_color normal)
     end
 
-    function update_changes
+    function update_changes --no-scope-shadowing
         set -l lookup (git status --porcelain 2>/dev/null | grep -o -c "$argv[1]")
         if test $lookup -gt 0; set -a porcelain (printf "%s%s" $argv[2] $lookup); end
     end
@@ -107,9 +107,11 @@ end
 
 
 #* FISH PROMPT
-function fish_prompt -d "My fish prompt"
+function fish_prompt -d "Custom fish prompt: shows CWD, branch and venv info, last command duration and exit success."
+    # note: this has to be globally set because right prompt uses is too
     set -g STAT $status
-    set -l TOP    "> "  # ╴ ╼ ☉ ╭╴╰╴
+    # ╴ ╼ ☉ ╭╴╰╴
+    set -l TOP    "> "
     set -l BOTTOM "> "
 
     line_beg $TOP $STAT
@@ -118,7 +120,5 @@ function fish_prompt -d "My fish prompt"
     venv_info
     printf "\n"
     line_beg $BOTTOM $STAT
-
-    set -e porcelain
 end
 
