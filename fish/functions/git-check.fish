@@ -60,7 +60,7 @@ Options:
     printf "Checking git status for chosen repos:\n"
 
     for dir in $HOME/git/* $HOME/web/schole
-        cd $dir
+        builtin cd $dir
         for project in (ls)
             if test -d $project
                 # if project was excluded, continue
@@ -69,16 +69,16 @@ Options:
                     if echo $project | grep "$excluded" >/dev/null; continue; end
                 end
                 # else: print git status porcelain info
-                cd $project; porcelain; cd ..
+                builtin cd $project; porcelain; builtin cd ..
             end
         end
     end
 
-    cd $HOME/.dotfiles
+    builtin cd $HOME/.dotfiles
     porcelain
 
     # return to where started
-    cd $CWD
+    builtin cd $CWD
     
     # cleanup global var
     set -e verbose
