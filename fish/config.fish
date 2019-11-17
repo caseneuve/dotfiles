@@ -5,13 +5,13 @@
    #     #      ##   #  #
    #    ###   ###    #  #    #
 
-# Last update: 2019-10-16, 19:54:56 @lenovo
+# Last update: 2019-11-17, 15:23:40 @x200
 
 #* VARIABLES
 #** env vars
-set -e BROWSER
-set -e EDITOR
-set -e VISUAL
+set -e  BROWSER
+set -e  EDITOR
+set -e  VISUAL
 set -gx BROWSER /usr/bin/qutebrowser
 set -gx EDITOR emacsclient -nw -s term
 set -gx VISUAL $EDITOR
@@ -20,6 +20,13 @@ set -gx TERM xterm-256color
 set -gx GOPATH $HOME/go
 set -gx PATH $PATH $GOPATH/bin $HOME/.local/bin $HOME/.scripts
 set -gx LS_COLORS "di=1;34:*.pdf=00;91:ln=00;36:*.m3u=01;35:*.mp3=00;35:*.wav=00;35:*.7z=01;31:*.zip=01;31:*.rar=01;31:"
+# prompt colors
+set -gx fish_prompt_cwd_color    brwhite
+set -gx fish_prompt_branch_color brblue
+set -gx fish_prompt_venv_color   brred
+set -gx fish_prompt_success      brgreen
+set -gx fish_prompt_warning      brred
+set -gx fish_prompt_commentary   white
 
 #** fish vars
 #set -e fish_greeting

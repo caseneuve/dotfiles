@@ -7,20 +7,22 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-17, 12:01:51 @lenovo
+# Last update: 2019-11-17, 15:29:45 @x200
 
 
 #* COLORS
-set fish_prompt_cwd_color    yellow
-set fish_prompt_branch_color brblue
-set fish_prompt_venv_color   brred
-
+if test ! (set -q fish_prompt_cwd_color);    set -gx fish_prompt_cwd_color    brwhite; end
+if test ! (set -q fish_prompt_branch_color); set -gx fish_prompt_branch_color brblue;  end
+if test ! (set -q fish_prompt_venv_color);   set -gx fish_prompt_venv_color   brred;   end
+if test ! (set -q fish_prompt_success);      set -gx fish_prompt_success      brgreen; end
+if test ! (set -q fish_prompt_warning);      set -gx fish_prompt_warning      brred;   end
+if test ! (set -q fish_prompt_commentary);   set -gx fish_prompt_commentary   white;   end
 
 #* HELPERS
 #** line beggining
 function line_beg -d "Success sensitive line beginning"
-    if test $argv[2] = 0; printf '%s%s' (set_color -o brwhite) $argv[1]
-    else;                 printf '%s%s' (set_color -o red)     $argv[1]
+    if test $argv[2] = 0; printf '%s%s' (set_color -o $fish_prompt_success) $argv[1]
+    else;                 printf '%s%s' (set_color -o $fish_prompt_warning) $argv[1]
     end
     set_color normal
 end
@@ -29,12 +31,13 @@ end
 #** venv info
 function venv_info -d "Show virtual env if active"
     if set -q VIRTUAL_ENV
-        printf " %sworkon%s %s%s%s" \
-        (set_color -o white) \
-        (set_color normal) \
-        (set_color -o $fish_prompt_venv_color) \
-        (basename "$VIRTUAL_ENV") \
-        (set_color normal)
+        printf " %sworkon%s %s%s" \
+          (set_color -o $fish_prompt_commentary) \
+          (set_color normal) \
+          (set_color -o $fish_prompt_venv_color) \
+          (basename "$VIRTUAL_ENV")
+
+        set_color normal
     end
 end
 
@@ -42,11 +45,12 @@ end
 #** print CWD dwim
 function pwd_dwim
     set -l PPWD (prompt_pwd)
-    printf "%s%s%s%s" \
-    (set_color -o white) \
-    (set_color -o $fish_prompt_cwd_color) \
-    (string replace -r "~/" "" -- $PPWD) \
-    (set_color normal)
+
+    printf "%s%s%s" \
+      (set_color -o $fish_prompt_cwd_color) \
+      (string replace -r "~/" "" -- $PPWD)
+
+    set_color normal
 end
 
 
@@ -66,15 +70,15 @@ function git_status
         if test -n "$argv[1]"; set -a space " "; end
 
         printf " %sin %sbranch %s%s%s%s%s%s%s%s" \
-        (set_color -o white) \
-        $loc \
-        (set_color -o $fish_prompt_branch_color) \
-        $GB \
-        $space \
-        (set_color normal) \
-        (set_color -b blue) \
-        $argv[1..-1] \
-        (set_color normal)
+          (set_color -o $fish_prompt_commentary) \
+          $loc \
+          (set_color -o $fish_prompt_branch_color) \
+          $GB \
+          $space \
+          (set_color normal) \
+          (set_color -b blue) \
+          $argv[1..-1] \
+          (set_color normal)
     end
 
     function update_changes
@@ -85,12 +89,13 @@ function git_status
     if test -n "$GB"
         if test (git status 2>/dev/null | grep "use \"git push\""); set -a porcelain "push"
         end
+
         if test (git status --porcelain --branch 2>/dev/null | grep "ahead [0-9]*, behind")
             set -a porcelain "diverged"
         end
 
         update_changes " M "  "m"
-        update_changes "^M "  "C"
+        update_changes "^M "  "c"
         update_changes "^A "  "A"
         update_changes " D "  "d"
         update_changes "^D "  "D"
