@@ -2,18 +2,17 @@
 
 # Path:        ~/.dotfiles/bin/screenshot.sh
 # Created:     2019-03-27, 10:48    @toshiba
-# Last update: 2019-06-11, 21:40:20 @toshiba
+# Last update: 2019-11-17, 19:24:06 @x200
 # Doc:         Take a screenshot with maim, show it and ask how to save it.
-# Requires:    [maim, sxiv, dmenu, xdotool, mypaint, notify-send]
-# Todo:        27/03/2019 install i3move in the system? path? (?)
-# Todo:        27/03/2019 add x and y gaps to i3move
+# Requires:    maim, sxiv, dmenu, xdotool, mypaint, notify-send, i3window
+# todo:        27/03/2019 add x and y gaps to i3move/i3window
 
 #* variables
 ARG=${1:-}
 EDIT=false
-MOVE=$HOME/git/hub/i3/i3move.py
 SOUND="/usr/share/sounds/freedesktop/stereo/screen-capture.oga"
 MENU="rofi -theme i3on-window -monitor -2 -dmenu -p"  # was: dmenu -p
+#MOVE=$HOME/git/hub/i3/i3move.py
 
 
 #* setup
@@ -45,10 +44,8 @@ show_and_move() {
     sxiv -b -s f $FILE &
     sleep .3
     i3-msg -q border pixel 2
-    #$MOVE -p 33 # -g 30 -m nw
-    $MOVE -p 65 -m c
-    #i3-msg -q move left 20
-    #i3-msg -q move center
+    i3window resize -r 0.65 move center
+    # $MOVE -p 65 -m c
 }
 
 #* ask

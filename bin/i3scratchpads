@@ -2,12 +2,10 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-09-22, 02:45:57 @x200
+# Last update: 2019-11-17, 17:37:05 @x200
 # Doc:         start tmux scratchpad if doesn't exist or show it
-# Requires:    i3move; i3get
+# Requires:    i3window installed; i3getgo
 
-I3MOVE=$HOME/bin/i3move
-#I3GET=$HOME/git/lab/py-exercises/i3get.py
 I3GET=$HOME/go/bin/i3getgo
 I3EXEC="exec --no-startup-id"
 TRM=st
@@ -63,7 +61,8 @@ main() {
                        COMMAND="-e ~/.dotfiles/bin/tmux-starter.sh"
                        i3msg "$I3EXEC $TRM $ARGS $COMMAND"
                        i3msg "[title=\"dropdown\"] scratchpad show" \
-                           && $I3MOVE -p 70 -m c
+                           && i3window resize -r 0.7 move center
+                       
                        tmux_select $OPTARG
                        #tmux select-window -t "tmux:$OPTARG" 
                    else
@@ -90,7 +89,7 @@ main() {
                            tmux_select $OPTARG
                            i3msg "[title=\"dropdown\"] scratchpad show"
                            [[ $($I3GET -t) =~ "dropdown" ]] \
-                               && $I3MOVE -p 70 -m c
+                               && i3window resize -r 0.7 move center
                            [[ $OPTARG =~ mail ]] && xdotool key dollar
                        fi
                    fi
@@ -108,7 +107,7 @@ main() {
                    fi
                    i3msg "[class=\"myquickterm\"] scratchpad show" \
                        && [[ $($I3GET -c) =~ myquickterm ]] \
-                       && $I3MOVE -s -m 3
+                       && i3window shape south       
                    ;;
                 # calc
                 c) if [[ ! $(is_running m4ath) ]]; then
@@ -117,7 +116,7 @@ main() {
                    fi
                    i3msg "[class=\"calculator\"] scratchpad show" \
                        && [[ $($I3GET -c) =~ calculator ]] \
-                       && $I3MOVE -m c
+                       && i3window move center
                    ;;
                 # whitaker words
                 o) if [[ ! $(is_running w0rds) ]]; then
@@ -125,7 +124,7 @@ main() {
                        i3msg "$I3EXEC $TRM $ARGS"
                    fi
                    i3msg "[title=\"w0rds\"] scratchpad show" \
-                         && $I3MOVE -p 40 -m sw -g 15
+                         && i3window resize -r 0.4 move -g 10 sw
                    ;;
                 # clock
                 t) if [[ ! $(is_running tty-clock) ]]; then
@@ -133,7 +132,7 @@ main() {
                        i3msg "$I3EXEC $TRM $ARGS"
                    fi
                    if [[ $($I3GET -c) == cl0ck ]]; then
-                       $I3MOVE -p 22 -g 15 -m se
+                       i3window resize -r 0.3 move -g 25 se
                        i3msg "sticky enable"
                    fi
                    ;;
