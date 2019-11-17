@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-17, 16:03:07 @x200
+# Last update: 2019-11-17, 22:57:50 @lenovo
 
 
 #* COLORS
@@ -31,11 +31,15 @@ end
 #** venv info
 function venv_info -d "Show virtual env if active"
     if set -q VIRTUAL_ENV
-        printf " %sworkon%s %s%s" \
+        printf " %sworkon%s %s%s %s%s(%s)" \
           (set_color -o $fish_prompt_commentary) \
           (set_color normal) \
           (set_color -o $fish_prompt_venv_color) \
-          (basename "$VIRTUAL_ENV")
+          (basename "$VIRTUAL_ENV") \
+          (set_color normal) \
+          # (set_color -b $fish_prompt_venv_color white) \
+          (set_color $fish_prompt_venv_color) \
+          (python --version | cut -d' ' -f2)
 
         set_color normal
     end
