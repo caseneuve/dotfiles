@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-16, 22:56:18 @lenovo
+# Last update: 2019-11-17, 12:01:51 @lenovo
 
 
 #* COLORS
@@ -53,20 +53,26 @@ end
 #** git branch and status
 function git_status
     set -g GB (git branch 2>/dev/null | grep '^*' | colrm 1 2)
-    set -g porcelain ""
+    set -g porcelain
 
     function git_format
         set -l loc ""
+        set -l space
+
         if test ! (git rev-parse --abbrev-ref --symbolic-full-name "@{u}" 2>/dev/null)
             set -p loc "local "
         end
-        printf " %sin %sbranch %s%s%s%s%s%s%s" \
+
+        if test -n "$argv[1]"; set -a space " "; end
+
+        printf " %sin %sbranch %s%s%s%s%s%s%s%s" \
         (set_color -o white) \
         $loc \
         (set_color -o $fish_prompt_branch_color) \
         $GB \
+        $space \
         (set_color normal) \
-        (set_color -o red) \
+        (set_color -b blue) \
         $argv[1..-1] \
         (set_color normal)
     end
