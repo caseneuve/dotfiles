@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-11-17, 17:37:05 @x200
+# Last update: 2019-11-17, 19:45:07 @x200
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3window installed; i3getgo
 
@@ -124,7 +124,7 @@ main() {
                        i3msg "$I3EXEC $TRM $ARGS"
                    fi
                    i3msg "[title=\"w0rds\"] scratchpad show" \
-                         && i3window resize -r 0.4 move -g 10 sw
+                         && i3window resize -r 0.4 move -g 5 22 sw
                    ;;
                 # clock
                 t) if [[ ! $(is_running tty-clock) ]]; then
@@ -132,7 +132,7 @@ main() {
                        i3msg "$I3EXEC $TRM $ARGS"
                    fi
                    if [[ $($I3GET -c) == cl0ck ]]; then
-                       i3window resize -r 0.3 move -g 25 se
+                       i3window resize -r 0.3 move -g 5 22 se
                        i3msg "sticky enable"
                    fi
                    ;;
