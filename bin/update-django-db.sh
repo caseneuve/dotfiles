@@ -2,7 +2,7 @@
 
 # Path:        ~/git/lab/lex-crawler/update-db.sh
 # Created:     2019-11-06, 22:04    @lenovo
-# Last update: 2019-11-11, 13:41:15 @x200
+# Last update: 2019-11-14, 08:07:17 @x200
 
 DB=db.sqlite3
 
@@ -40,7 +40,7 @@ EOF
 }
 
 check_venv(){
-    if [ -z $VIRTUAL_ENV ]; then
+    if [ -z "$VIRTUAL_ENV" ]; then
         alert(){ print_red "Activate virtual env first"; }
 
         while getopts "hbdrg" option; do
@@ -70,10 +70,12 @@ parse_args(){
             d) [[ -f $DB ]] && print_red "Deleting current database"; rm $DB ;;
             f) force_git=true ;;
             r) print_red "Deleting migrations"
-               rm */migrations/000*
+               rm -- */migrations/000*
                ;;
             g) reset_git=true ;;
             e) exit 0 ;;
+            *) usage
+               exit 1 ;;
         esac
     done
 }
@@ -93,7 +95,8 @@ create_superuser(){
 }
 
 check_git(){
-    status=$(git status | grep "Changes not staged")
+    ! [[ $(git status | grep -v " M .*/migrations/.*\.py") ]] && force_git=true
+
     if [[ $(git status | grep "Changes not staged") ]] && [[ $force_git != "true" ]]; then
         print_red "you have unstaged changes, stage them or provide flag -f"
         exit 1
