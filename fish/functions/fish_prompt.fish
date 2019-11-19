@@ -7,7 +7,7 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-17, 22:57:50 @lenovo
+# Last update: 2019-11-20, 00:44:28 @lenovo
 
 
 #* COLORS
@@ -73,16 +73,17 @@ function git_status
 
         if test -n "$argv[1]"; set -a space " "; end
 
-        printf " %sin %sbranch %s%s%s%s%s%s%s%s" \
+        printf " %sin %sbranch %s%s%s%s%s%s" \
           (set_color -o $fish_prompt_commentary) \
           $loc \
           (set_color -o $fish_prompt_branch_color) \
           $GB \
           $space \
           (set_color normal) \
-          (set_color -b blue) \
-          $argv[1..-1] \
-          (set_color normal)
+          (set_color brblue) \
+          $argv[1..-1]
+
+          set_color normal
     end
 
     function update_changes --no-scope-shadowing
