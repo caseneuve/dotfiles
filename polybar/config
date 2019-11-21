@@ -7,7 +7,7 @@
 ; _|                                                        
 ; _|                                                        
 
-; Last update: 2019-10-02, 09:57:39 @lenovo
+; Last update: 2019-11-21, 06:33:39 @lenovo
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 
@@ -127,7 +127,7 @@ font-4 = file\-icons:style=icons:pixelsize=8;3
 ;*** modules 2
 modules-left = i3 wintitle
 ;modules-center = wintitle
-modules-right = alsa wlan eth date
+modules-right = alsa wlan eth date-long
 
 override-redirect = false
 cursor-click = pointer
@@ -242,12 +242,23 @@ format-disconnected =
 ;** date
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date =
 date-alt = "%a, %d %B "
 time = %H:%M
 time-alt = %H:%M:%S
+label = %date%%time%
+
+;** date-long
+[module/date-long]
+type = internal/date
+interval = 1
+
+date = "%a, %d %B "
+date-alt = 
+time = "%H:%M"
+time-alt = %H:%M
 label = %date%%time%
 
 ;** volume alsa
