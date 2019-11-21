@@ -28,6 +28,7 @@ function venv -d 'create, activate or deactivate python virtualenv'
             if test $VIRTUAL_ENV
                 source "$VIRTUAL_ENV/bin/activate.fish"
                 deactivate
+                set -e PATH[1]
             else; printf "Venv not active."
             end
         case -l --list
