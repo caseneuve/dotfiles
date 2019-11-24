@@ -23,8 +23,14 @@ Options:
         return
     end
 
+    set found false
     set long true
+    set excluded
+    set counter 0
+    set clean 0
+    
     if set -q _flag_short; set long false; end
+    if set -q _flag_exclude; set excluded (string replace -a "," "|" "$_flag_exclude"); end
     
     function porcelain -S
         set -l this (string replace $HOME "~" (pwd))
@@ -42,45 +48,58 @@ Options:
         end
 
         if test -n "$porcelain"
-            if set -q _flag_short
+            set found true 
+            if ! $long
                 printf " [%2s] $this \n" \
                 (git status --porcelain 2>/dev/null | wc -l)
             else
-                printf "\n\n$this\n"
+                printf "\n\n%s$this%s\n" (set_color -ou white) (set_color normal)
                 set porcelain (string replace -a "D  " " D " "$porcelain")
                 set porcelain (string replace -a "  "  "\n " "$porcelain")
                 set porcelain (string replace -a " ?"  "\n " "$porcelain")
                 printf "$porcelain\n"
             end
         else
-            if not set -q _flag_short; printf . ; end
+            # if not set -q _flag_short; printf . ; end
+            if $long; printf . ; end
+            set clean (math $clean + 1)
         end
     end
 
-    printf "Checking git status for chosen repos:\n"
+    # printf "%sGIT CHECK%s\n" (set_color -o white) (set_color normal)
+    # figlet -f mini "GIT CHECK"
 
     for dir in $HOME/git/* $HOME/web/schole
         builtin cd $dir
         for project in (ls)
             if test -d $project
-                # if project was excluded, continue
-                if set -q _flag_exclude
-                    set -l excluded (string replace -a "," "\|" "$_flag_exclude")
-                    if echo $project | grep "$excluded" >/dev/null; continue; end
-                end
-                # else: print git status porcelain info
+                if test (string match -r "$excluded" "$project"); continue; end
                 builtin cd $project; porcelain; builtin cd ..
+                set counter (math $counter + 1)
             end
         end
     end
 
+    # treat .dotfiles as special to avoid checking all subdirectories
     builtin cd $HOME/.dotfiles
-    porcelain
+    if test ! (string match -r "$excluded" "$PWD")
+        porcelain
+        set found true
+        set counter (math $counter + 1)
+    end
+
+    # print closing message
+    if $long; printf "\n"; end
+    if test $counter -eq $clean; set clean all; end
+    printf "Checked %s%s%s repositories, %s%s%s clean" \
+    (set_color -o brred) \
+    $counter \
+    (set_color normal) \
+    (set_color -o yellow) \
+    $clean \
+    (set_color normal)
 
     # return to where started
     builtin cd $CWD
     
-    # cleanup global var
-    set -e verbose
-    set -e long
 end
