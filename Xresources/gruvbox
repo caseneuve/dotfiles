@@ -15,7 +15,7 @@
 #define  magenta    #b16286
 #define  cyan       #689d6a
 #define  white      #a89984
-#define  br_black   #928374
+#define  br_black   #282828 
 #define  br_red     #fb4934
 #define  br_green   #b8bb26
 #define  br_yellow  #fabd2f
