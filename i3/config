@@ -6,7 +6,7 @@
 ###   ###    ##          ##    ##   #  #   #    ###   #
 ###                                                    ###
 
-# Last update: 2019-11-08, 22:07:35 @x200
+# Last update: 2019-11-24, 17:50:47 @lenovo
 
 #* VARIABLES & general SETTINGS
 set $mod Mod4
@@ -42,7 +42,8 @@ $exea $poly/polystart.sh
 # off: nm-applet, pamac-tray start
 #$exea dropbox-cli start
 $exe  dropbox start -i
-$exea compton --config ~/.config/compton/compton.conf
+# $exea compton --config ~/.config/compton/compton.conf
+$exea picom
 $exe  mocp -S
 #$exe  emacs --daemon
 $exea dunst                                            # notifier
