@@ -3,11 +3,11 @@
 #define foreground #a2adc3
 #define background #0a0c10
 #define dark2      #282828
-
+!1d2021
 #define red_alt    #cc241d
 #define grey       #928374
 
-#define  black      #1d2021
+#define  black      #1c1c1c
 #define  red        #cc241d
 #define  green      #98971a
 #define  yellow     #d79921
