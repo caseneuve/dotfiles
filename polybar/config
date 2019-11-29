@@ -14,47 +14,47 @@
 ;** colors
 [colors]
 ;background = ${xrdb:color0:#222}
-background = ${xrdb:poly_bg:#00708B98}
+background     = ${xrdb:poly_bg:#00708B98}
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = ${xrdb:poly_fg:#aaa69d}
+;foreground    = ${xrdb:color7:#222}
+foreground     = ${xrdb:poly_fg:#aaa69d}
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+primary        = #ffb52a
+secondary      = #e60053
+alert          = #bd2c40
 
 ;* BARS
 ;** BAR 1
 [bar/primary]
-enable-ipc = true
-monitor = ${env:MONITOR:eDP1}
-width = 100%
-height = 20
-;offset-x = 1%
-;offset-y = 1%
-radius = 0.0
-fixed-center = false
-bottom = true
+enable-ipc          = true
+monitor             = ${env:MONITOR:eDP1}
+width               = 100%
+height              = 20
+;offset-x           = 1%
+;offset-y           = 1%
+radius              = 0.0
+fixed-center        = false
+bottom              = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background          = ${colors.background}
+foreground          = ${colors.foreground}
 
-line-size = 0
-border-size = 0
+line-size           = 0
+border-size         = 0
 
-padding-left = 0
-padding-right = 1
+padding-left        = 0
+padding-right       = 1
 
-module-margin-left = 1
+module-margin-left  = 1
 module-margin-right = 1
 
 ;*** fonts 1
-font-0 = Monoid:style=Regular:pixelsize=8;3
+font-0  = Monoid:style=Regular:pixelsize=8;3
 ;font-0 = Lekton:style=Regular:pixelsize=9;3
-font-1 = FontAwesome:style=Regular:pixelsize=8:antialias=false;3
-font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
-font-3 = siji:pixelsize=12;3
-font-4 = file\-icons:style=icons:pixelsize=7;3.5
+font-1  = FontAwesome:style=Regular:pixelsize=8:antialias=false;3
+font-2  = Material icons:style=Regular:pixelsize=10:antialias=false;3
+font-3  = siji:pixelsize=12;3
+font-4  = file\-icons:style=icons:pixelsize=7;3.5
 
 ;font-0 = monospace:pixelsize=9;3
 ;font-0 = Roboto Condensed:style=Regular:pixelsize=9;3
@@ -68,52 +68,52 @@ font-4 = file\-icons:style=icons:pixelsize=7;3.5
 ;font-5 = Roboto Mono:style=Regular:pixelsize=9;3
 
 ;*** modules 1
-modules-left =  i3 wintitle
-modules-right = moc mpv cast alsa disk memory cpu loadavg battery wlan eth sysupdt mail date
+modules-left      =  i3 wintitle
+modules-right     = moc mpv cast alsa disk memory cpu loadavg battery wlan eth sysupdt mail date
 
-;wm-restack = bspwm
-;wm-restack = i3
+;wm-restack       = bspwm
+;wm-restack       = i3
 override-redirect = false
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+;scroll-up        = bspwm-desknext
+;scroll-down      = bspwm-deskprev
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+;scroll-up        = i3wm-wsnext
+;scroll-down      = i3wm-wsprev
 
-cursor-click = pointer
-cursor-scroll = ns-resize
+cursor-click      = pointer
+cursor-scroll     = ns-resize
 
 ;** BAR 2
 [bar/secondary]
-enable-ipc = true
-monitor = ${env:EXTERNAL:VGA1}
-width = 100%
-height = 20
-;offset-x = 1%
-;offset-y = 1%
-radius = ${bar/primary.radius}
-fixed-center = ${bar/primary.fixed-center}
-bottom = ${bar/primary.bottom}
+enable-ipc          = true
+monitor             = ${env:EXTERNAL:VGA1}
+width               = 100%
+height              = 20
+;offset-x           = 1%
+;offset-y           = 1%
+radius              = ${bar/primary.radius}
+fixed-center        = ${bar/primary.fixed-center}
+bottom              = ${bar/primary.bottom}
 
-background = ${bar/primary.background}
-foreground = ${bar/primary.foreground}
-line-size = 0
-border-size = 0
-;border-color = #000000
+background          = ${bar/primary.background}
+foreground          = ${bar/primary.foreground}
+line-size           = 0
+border-size         = 0
+;border-color       = #000000
 
-padding-left = 0
-padding-right = 1
-module-margin-left = 1
+padding-left        = 0
+padding-right       = 1
+module-margin-left  = 1
 module-margin-right = 1
 
 ;*** fonts 2
-font-0 = Monoid:style=Regular:pixelsize=8;3
+font-0  = Monoid:style=Regular:pixelsize=8;3
 ;font-0 = Lekton:style=Retular:pixelsize=10=;3
-font-1 = FontAwesome:style=Regular:pixelsize=10:antialias=false;3
-font-2 = Material icons:style=Regular:pixelsize=10:antialias=false;3
-font-3 = siji:pixelsize=12;2
-font-4 = file\-icons:style=icons:pixelsize=8;3
+font-1  = FontAwesome:style=Regular:pixelsize=10:antialias=false;3
+font-2  = Material icons:style=Regular:pixelsize=10:antialias=false;3
+font-3  = siji:pixelsize=12;2
+font-4  = file\-icons:style=icons:pixelsize=8;3
 
 ;font-0 = Roboto Condensed:style=Regular:pixelsize=10;3
 ;font-0 = monospace:pixelsize=10;4
@@ -124,244 +124,243 @@ font-4 = file\-icons:style=icons:pixelsize=8;3
 ;font-0 = VT323:style=Regular:pixelsize=14;2
 
 ;*** modules 2
-modules-left = i3 wintitle
-;modules-center = wintitle
-modules-right = alsa wlan eth date-long
+modules-left      = i3 wintitle
+;modules-center   = wintitle
+modules-right     = alsa wlan eth date-long
 
 override-redirect = false
-cursor-click = pointer
-cursor-scroll = ns-resize
+cursor-click      = pointer
+cursor-scroll     = ns-resize
 
 ;* MODULES
 ;** disk custom
 [module/disk]
-type = custom/script
-exec = ~/.dotfiles/polybar/poly-diskinfo.sh
+type     = custom/script
+exec     = ~/.dotfiles/polybar/poly-diskinfo.sh
 interval = 30
-label = %{T4}%{T-} %output%
+label    = %{T4}%{T-} %output%
 
 ;** workspaces i3 module
 [module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-strip-wsnumbers = true
-pin-workspaces = true
+type                       = internal/i3
+format                     = <label-state> <label-mode>
+index-sort                 = true
+wrapping-scroll            = false
+strip-wsnumbers            = true
+pin-workspaces             = true
 
-label-mode-padding = 1
-label-mode-foreground = #ececec
+label-mode-padding         = 1
+label-mode-foreground      = #ececec
 
-; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-foreground = ${xrdb:poly_foc_fg:#ffffff} 
-;label-focused-background = ${xrdb:poly_ws_bg:#50227093}
-label-focused-padding = 1
+; focused                  = Active workspace on focused monitor
+label-focused              = %index%
+label-focused-foreground   = ${xrdb:poly_foc_fg:#ffffff}
+;label-focused-background  = ${xrdb:poly_ws_bg:#50227093}
+label-focused-padding      = 1
 
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
-label-unfocused-padding = 1
+; unfocused                = Inactive workspace on any monitor
+label-unfocused            = %index%
+label-unfocused-padding    = 1
 label-unfocused-foreground = #aaa69d
 
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
+; visible                  = Active workspace on unfocused monitor
+label-visible              = %index%
 ; label-visible-background = ${xrdb:poly_vis_bg:#5040407a}
-label-visible-foreground = #aaa69d
-label-visible-padding = 1
+label-visible-foreground   = #aaa69d
+label-visible-padding      = 1
 
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = #b33939
-label-urgent-foreground = #ececec
-label-urgent-padding = 1
+; urgent                   = Workspace with urgency hint set
+label-urgent               = %index%
+label-urgent-background    = #b33939
+label-urgent-foreground    = #ececec
+label-urgent-padding       = 1
 
 ; Separator in between workspaces
-label-separator =
+label-separator            =
 
 ; [module/mpd]
-; type = internal/mpd
-; format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+; type                = internal/mpd
+; format-online       = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-; icon-prev = 
-; icon-stop = 
-; icon-play = 
-; icon-pause = 
-; icon-next = 
+; icon-prev           = 
+; icon-stop           = 
+; icon-play           = 
+; icon-pause          = 
+; icon-next           = 
 
-; label-song-maxlen = 25
+; label-song-maxlen   = 25
 ; label-song-ellipsis = true
 
 ;** cpu
 [module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = %{T4}%{T-}
+type                       = internal/cpu
+interval                   = 2
+format-prefix              = %{T4}%{T-}
 ; format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage:3:3%
+label                      = %percentage:3:3%
 
 ;** memory
 [module/memory]
-type = internal/memory
-interval = 2
+type          = internal/memory
+interval      = 2
 format-prefix = %{T4}%{T-}
-label = %percentage_used:3:3%
+label         = %percentage_used:3:3%
 
 ;** network: wifi
 [module/wlan]
-type = internal/network
-interface = ${env:WLAN:wls1}
-interval = 3.0
+type                = internal/network
+interface           = ${env:WLAN:wls1}
+interval            = 3.0
 
-;format-connected = <ramp-signal> <label-connected>
-format-connected = <ramp-signal>
-;label-connected = %signal%
+;format-connected   = <ramp-signal> <label-connected>
+format-connected    = <ramp-signal>
+;label-connected    = %signal%
 format-disconnected =
 
 ; sigi font!
-; ramp-signal-0 = %{T4}%{T-}
-; ramp-signal-1 = %{T4}%{T-}
-; ramp-signal-2 = %{T4}%{T-}
+; ramp-signal-0     = %{T4}%{T-}
+; ramp-signal-1     = %{T4}%{T-}
+; ramp-signal-2     = %{T4}%{T-}
 
-ramp-signal-0 = %{T4}%{T-}
-ramp-signal-1 = %{T4}%{T-}
-ramp-signal-2 = %{T4}%{T-}
-ramp-signal-3 = %{T4}%{T-}
-ramp-signal-4 = %{T4}%{T-}
+ramp-signal-0       = %{T4}%{T-}
+ramp-signal-1       = %{T4}%{T-}
+ramp-signal-2       = %{T4}%{T-}
+ramp-signal-3       = %{T4}%{T-}
+ramp-signal-4       = %{T4}%{T-}
 
 ;** network: ethernet
 [module/eth]
-type = internal/network
-interface = enp5s0
-interval = 3.0
+type                    = internal/network
+interface               = enp5s0
+interval                = 3.0
 
 format-connected-prefix = %{T4} %{T-}
-label-connected = %linkspeed%
-format-disconnected =
+label-connected         = %linkspeed%
+format-disconnected     =
 
 ;** date
 [module/date]
-type = internal/date
+type     = internal/date
 interval = 1
 
-date =
+date     =
 date-alt = "%a, %d %B "
-time = %H:%M
+time     = %H:%M
 time-alt = %H:%M:%S
-label = %date%%time%
+label    = %date%%time%
 
 ;** date-long
 [module/date-long]
-type = internal/date
+type     = internal/date
 interval = 1
 
-date = "%a, %d %B "
-date-alt = 
-time = "%H:%M"
+date     = "%a, %d %B "
+date-alt =
+time     = "%H:%M"
 time-alt = %H:%M
-label = %date%%time%
+label    = %date%%time%
 
 ;** volume alsa
 [module/alsa]
-type = internal/alsa
+type                    = internal/alsa
 
-format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%
+format-volume           = <ramp-volume> <label-volume>
+label-volume            = %percentage%
 label-volume-foreground = ${root.foreground}
 
-label-muted = %{T4}%{T-} %percentage%
-label-muted-foreground = #666
+label-muted             = %{T4}%{T-} %percentage%
+label-muted-foreground  = #666
 
-ramp-volume-0 = %{T4}%{T-}
-ramp-volume-1 = %{T4}%{T-}
+ramp-volume-0           = %{T4}%{T-}
+ramp-volume-1           = %{T4}%{T-}
 
 ;** battery
 [module/battery]
-type = internal/battery
-battery = ${env:BATTERY:BAT0}
-adapter = ${env:ADAPTER:AC}
-full-at = 99
-poll-interval = 5
+type                       = internal/battery
+battery                    = ${env:BATTERY:BAT0}
+adapter                    = ${env:ADAPTER:AC}
+full-at                    = 99
+poll-interval              = 5
 
-format-charging = <label-charging>
-format-discharging = <ramp-capacity>
+format-charging            = <label-charging>
+format-discharging         = <ramp-capacity>
 
-label-charging = %{T4}%{T-}
-label-full = %{T4}%{T-}
+label-charging             = %{T4}%{T-}
+label-full                 = %{T4}%{T-}
 
-ramp-capacity-0 = %{T4}%{T-}
-ramp-capacity-1 = %{T4}%{T-}
-ramp-capacity-2 = %{T4}%{T-}
-ramp-capacity-3 = %{T4}%{T-}
-ramp-capacity-4 = %{T4}%{T-}
-ramp-capacity-5 = %{T4}%{T-}
-ramp-capacity-6 = %{T4}%{T-}
-ramp-capacity-7 = %{T4}%{T-}
-ramp-capacity-8 = %{T4}%{T-}
-ramp-capacity-9 = %{T4}%{T-}
+ramp-capacity-0            = %{T4}%{T-}
+ramp-capacity-1            = %{T4}%{T-}
+ramp-capacity-2            = %{T4}%{T-}
+ramp-capacity-3            = %{T4}%{T-}
+ramp-capacity-4            = %{T4}%{T-}
+ramp-capacity-5            = %{T4}%{T-}
+ramp-capacity-6            = %{T4}%{T-}
+ramp-capacity-7            = %{T4}%{T-}
+ramp-capacity-8            = %{T4}%{T-}
+ramp-capacity-9            = %{T4}%{T-}
 
 ramp-capacity-0-foreground = ${xrdb:poly_urgent_fg:#C0392B}
 
 ;** mail
 [module/mail]
-type = custom/ipc
-hook-0 = ~/.dotfiles/i3/scripts/i3mailchecker
-hook-1 = mbsync gmail-default
-initial = 1
-click-left = mbsync gmail-default
-click-right = polybar-msg hook mail 1
+type          = custom/ipc
+hook-0        = ~/.dotfiles/i3/scripts/i3mailchecker
+hook-1        = mbsync gmail-default
+initial       = 1
+click-left    = mbsync gmail-default
+click-right   = polybar-msg hook mail 1
 format-prefix = %{T4} %{T-}
-label = %output%
+label         = %output%
 
 ;** load avg
 [module/loadavg]
-type = custom/script
-exec = ~/.dotfiles/i3/scripts/i3loadaverage
-interval = 10
-tail = true
+type          = custom/script
+exec          = ~/.dotfiles/i3/scripts/i3loadaverage
+interval      = 10
+tail          = true
 format-prefix = %{T4}%{T-}
-label = %output:5:5%
+label         = %output:5:5%
 
 [global/wm]
-margin-top = 5
+margin-top    = 5
 margin-bottom = 5
 
 ;** wintitle
 [module/wintitle]
-type = custom/ipc
-hook-0 = ~/git/hub/i3/i3wintitle.py
+type    = custom/ipc
+hook-0  = ~/git/hub/i3/i3wintitle.py
 initial = 1
 
 ;** sysupdt
 [module/sysupdt]
-type = custom/ipc
-initial = 1 
-hook-0 = ~/.dotfiles/bin/sys-updt.sh
+type          = custom/ipc
+initial       = 1
+hook-0        = ~/.dotfiles/bin/sys-updt.sh
 format-prefix = %{T4} %{T-}
-label = %output%
+label         = %output%
 
 ;** mpv
 [module/mpv]
-type = custom/ipc
-hook-0 = ~/.dotfiles/bin/mpv-socket2.sh -P 
-hook-1 = echo ""
-; hook-2 = echo "pause" 
-
+type     = custom/ipc
+hook-0   = ~/.dotfiles/bin/mpv-socket2.sh -P
+hook-1   = echo ""
+; hook-2 = echo "pause"
 
 ;** mocp
 [module/moc]
-type = custom/ipc
+type   = custom/ipc
 hook-0 = ~/.dotfiles/moc/moc-showtitle.sh play
 hook-1 = ~/.dotfiles/moc/moc-showtitle.sh pause
 hook-2 = echo ""
 
 ;** screencast
 [module/cast]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo " $(i3getgo -O)"
+type    = custom/ipc
+hook-0  = echo ""
+hook-1  = echo " $(i3getgo -O)"
 initial = 1
 
 ; [module/wint]
-; type = custom/ipc
+; type   = custom/ipc
 ; hook-0 = ~/biu/py/i3lis.py
-; label = %output&                                                          
+; label  = %output&
