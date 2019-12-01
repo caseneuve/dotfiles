@@ -26,7 +26,7 @@ abbr --add ggg ~/git
 abbr --add ggh ~/git/hub
 abbr --add ggl ~/git/lab
 abbr --add ggo ~/go
-abbr --add ggp ~/git/lab/py-exercises
+abbr --add ggp ~/git/pkaz
 abbr --add ggs ~/git/hub/st
 abbr --add gh ~
 abbr --add gm ~/muz

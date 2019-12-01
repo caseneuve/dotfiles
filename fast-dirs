@@ -1,5 +1,4 @@
 # -*- mode: conf-space;  -*-
-# Last update: 2019-10-09, 10:33:42 @lenovo
 
 # fast dirs shrotcuts for:
 # - bash_aliases
@@ -34,7 +33,7 @@ ggg -- ~/git
 ggh -- ~/git/hub
 ggl -- ~/git/lab
 ggo -- ~/go
-ggp -- ~/git/lab/py-exercises
+ggp -- ~/git/pkaz
 ggs -- ~/git/hub/st
 gh -- ~
 gm -- ~/muz
