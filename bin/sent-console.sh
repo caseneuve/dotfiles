@@ -2,7 +2,7 @@
 
 # Path:        ~/.dotfiles/bin/sent-console.sh
 # Created:     28.08.18, 19:37    @x200
-# Last update: 26.02.19, 13:12:24 @x200
+# Last update: 2019-12-01, 21:48:01 @lenovo
 
 # >> DOC: simple console to navigate through SENT slides
 # 12/09/2018 v0.3 → cosmetics (colors, args, <return> = new slide)
@@ -33,7 +33,7 @@ redbg=$(tput setab 1)
 # spr. czy podany arg jest plikiem 
 # >> - file ops @v
 if [[ -f $1 ]]; then
-    TOTAL=$(cat $1 | grep -v "^#" | cat -s | grep -c "^\s*$")
+    TOTAL=$(grep -v "^#" $1 | cat -s | grep -c "^\s*$")
     FILE=$(basename $1)
     COUNT=1
 elif [[ $1 == '-h' || -z $1 ]]; then
@@ -168,7 +168,7 @@ while true; do
                fi ;;
             g) COUNT=$TOTAL ;;
             a) COUNT=1 ;;
-            r) TOTAL=$(cat $1 | grep -v "^#" | cat -s | grep -c "^\s*$") ;;
+            r) TOTAL=$(grep -v "^#" $1 | cat -s | grep -c "^\s*$") ;;
         esac
     fi
 done

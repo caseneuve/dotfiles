@@ -2,8 +2,7 @@
 
 #  Path:        ~/.dotfiles/bin/mpv-socket
 #  Created:     2018-07-14, 09:12    @toshiba
-#  Last update: 2019-06-05, 10:56:33 @x200
-#* Doc:
+#  Doc:
 # requires socat
 # todo: zmienić kolory (bez kolorowego tła)
 # FIXME: playlist -P działa tylko dla url
@@ -48,8 +47,8 @@ SOURCE=$(echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/de
 
 if [[ $SOURCE =~ "http" ]]; then
     wget -qO- $SOURCE > /tmp/mpvurl
-    TITLE=$(cat /tmp/mpvurl | grep -iPo '(?<=<title>)(.*)(?=</title>)')
-    ARTIST=$(cat /tmp/mpvurl | grep '"name":' | sed 's/"//g' | awk '{print $2}')
+    TITLE=$(grep -iPo '(?<=<title>)(.*)(?=</title>)' /tmp/mpvurl)
+    ARTIST=$(grep '"name":' | sed 's/"//g' | awk '{print $2}' /tmp/mpvurl)
 else
     FILENAME=$(echo '{ "command": ["get_property", "filename" ] }' | socat - $SOC 2>/dev/null | jq .data | xargs)
 fi
@@ -60,21 +59,13 @@ STATUS=$(echo '{ "command": ["get_property", "pause"] }' | socat - $SOC 2>/dev/n
 #* FUNCTIONS:
 #** - playlist @func
 playlist(){
-    #[[ $POSITION ]] || echo "mpv-socket: no active playlist"; exit
     PLISTFILE=/tmp/mpv-playlist
     [[ -f $PLISTFILE ]] && rm $PLISTFILE
     c=1
-#    if [[ $SOURCE =~ "http" ]]; then
     for i in $PLAYLIST; do
         echo "$c. $(curl $i -so - | grep -iPo '(?<=<title>)(.*)(?=</title>)')" >> $PLISTFILE
-#        curl $i -so - | grep -iPo "(?<=<title>)(.*)(?=</title>)" >> $PLISTFILE
         ((c++))
     done
-    # else
-    #     for i in $PLAYLIST; do
-    #         echo "$c. $i" >> $PLISTFILE
-    #     done
-    # fi
     cat $PLISTFILE
 }
 
@@ -89,7 +80,6 @@ i3mpvstat(){
     [[ -z $ARTIST ]] && ARTIST="" || ARTIST="$ARTIST: "
     [[ -z $POSITION ]] && exit
     [[ $PLAYPOS == $PLAYTOT ]] && LIST="" || LIST="$PLAYPOS/$PLAYTOT "
-    # LIST="($PLAYPOS/$PLAYTOT) "
     if [[ "$STATUS" = "PLAY" ]]; then
         if (( $(($POSITION/3600)) < 1 )); then
             printf "<span fgcolor='$PLAY_COLOR' weight='$WEIGHT'> $GLYPH $LIST %02d:%02d </span>\n" \
@@ -100,15 +90,7 @@ i3mpvstat(){
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
-        # if (( $(($POSITION/3600)) < 1 )); then
-        #     printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST$ARTIST $TITLE %02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
-        #            $(($POSITION%3600/60)) $(($POSITION%60)) \
-        #            $(($REMAINING%3600/60)) $(($REMAINING%60))
-        # else
-        #     printf "<span bgcolor='$BGPLAY'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span>\n" \
-        #            $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
-        #            $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
-        # fi
+
     elif [[ "$STATUS" = "PAUSE" ]]; then 
         if (( $(($POSITION/3600)) < 1 )); then
             printf "<span fgcolor='$PAUSE_COLOR' weight='normal'> $GLYPH $LIST %02d:%02d </span>\n" \
@@ -119,15 +101,6 @@ i3mpvstat(){
                    $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
                    $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
         fi
-        # if (( $(($POSITION/3600)) < 1 )); then
-        #     printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST$ARTIST $TITLE %02d:%02d [-%02d:%02d] $GLYPH </span></span>\n" \
-        #            $(($POSITION%3600/60)) $(($POSITION%60)) \
-        #            $(($REMAINING%3600/60)) $(($REMAINING%60))
-        # else
-        #     printf "<span bgcolor='$BGPAUSE'><span color='$FGPAUSE'> $GLYPH $LIST$ARTIST $TITLE %02:%02d:%02d [-%02d:%02d] $GLYPH </span></span>\n" \
-        #            $(($POSITION/3600)) $(($POSITION%3600/60)) $(($POSITION%60)) \
-        #            $(($REMAINING/3600)) $(($REMAINING%3600/60)) $(($REMAINING%60))
-        # fi
     fi
 }
 
@@ -176,8 +149,6 @@ main(){
                ;;
             i) i3mpvstat
                ;;
-            # a) [[ $ALBUM ]] && echo $ALBUM
-            #    ;;
             p) if [[ $POSITION ]]; then
                    echo '{ "command": ["get_property", "playlist"] }' | socat - $SOC 2>/dev/null | jq .data[].filename | sed 's/\"//g'
                else
