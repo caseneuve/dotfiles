@@ -7,8 +7,6 @@
  #    ###   ###    #  #        ###   #      ##   #  #  ###     ##
                                #                       #
 
-# Last update: 2019-11-20, 00:44:28 @lenovo
-
 
 #* COLORS
 if test ! (set -q fish_prompt_cwd_color);    set -gx fish_prompt_cwd_color    brwhite; end
@@ -61,6 +59,7 @@ end
 #** git branch and status
 function git_status
     set -l GB (git branch 2>/dev/null | grep '^*' | colrm 1 2)
+    if test -z $GB; set GB (string lower (git status 2>/dev/null | sed 1q | awk '{print $3}')); end
     set -l porcelain
 
     function git_format --no-scope-shadowing
@@ -73,7 +72,7 @@ function git_status
 
         if test -n "$argv[1]"; set -a space " "; end
 
-        printf " %sin %sbranch %s%s%s%s%s%s" \
+        printf " %sin %sbranch %s%s%s%s%s%s%s" \
           (set_color -o $fish_prompt_commentary) \
           $loc \
           (set_color -o $fish_prompt_branch_color) \
@@ -88,7 +87,7 @@ function git_status
 
     function update_changes --no-scope-shadowing
         set -l lookup (git status --porcelain 2>/dev/null | grep -o -c "$argv[1]")
-        if test $lookup -gt 0; set -a porcelain (printf "%s%s" $argv[2] $lookup); end
+        if test $lookup -gt 0; set -a porcelain $argv[2]$lookup; end
     end
 
     if test -n "$GB"
@@ -98,6 +97,8 @@ function git_status
         if test (git status --porcelain --branch 2>/dev/null | grep "ahead [0-9]*, behind")
             set -a porcelain "diverged"
         end
+
+        if test (git status | grep "No commits yet"); set porcelain "no commits yet:"; end
 
         update_changes " M "  "m"
         update_changes "^M "  "c"
