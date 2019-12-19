@@ -2,7 +2,6 @@
 
 # Path:        ~/git/lab/lex-crawler/update-db.sh
 # Created:     2019-11-06, 22:04    @lenovo
-# Last update: 2019-11-14, 08:07:17 @x200
 
 DB=db.sqlite3
 
@@ -65,7 +64,8 @@ parse_args(){
             h) usage; exit 0 ;;
             b) print_green "Making database backup"
                mkdir -p bak
-               [[ -f $DB ]] && mv $DB bak/$DB$(date +"_%d%m%Y_%H%M")
+               BRANCH=$(git rev-parse --abbrev-ref HEAD)
+               [[ -f $DB ]] && mv $DB bak/$DB.$BRANCH$(date +"_%d%m%Y_%H%M")
                ;;
             d) [[ -f $DB ]] && print_red "Deleting current database"; rm $DB ;;
             f) force_git=true ;;
