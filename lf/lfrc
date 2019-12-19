@@ -99,7 +99,8 @@ map f $lf -remote "send $id select '$(fd . $HOME | fzf)'"
 #** custom 'open' command
 cmd open ${{
     case $(file --mime-type "$f" -b) in
-        application/vnd.oasis.opendocument.text\
+        application/vnd.openxmlformats-officedocument.wordprocessingml.document\
+            |application/vnd.oasis.opendocument.text\
             |application/msword\
             |application/vnd.ms-excel\
             |text/rtf)
