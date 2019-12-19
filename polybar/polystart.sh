@@ -13,12 +13,11 @@ WLAN=$(ip route | awk '/^default/ { print $5 ; exit }')
 BATTERY=$(ls -1 /sys/class/power_supply/ | grep -o "BAT[0-9]")
 ADAPTER=$(ls -1 /sys/class/power_supply/ | grep -o "AC.*$")
 # Launch bar1 and bar2
-MONITOR=$PRIMARY WLAN=$WLAN BATTERY=$BATTERY ADAPTER=$ADAPTER polybar -r primary &
+MONITOR=$PRIMARY WLAN=$WLAN BATTERY=$BATTERY ADAPTER=$ADAPTER polybar -q -r primary &
 ln -sf /tmp/polybar_mqueue.$! /tmp/polybar-ipc-primary
 
 if [[ -n $SECONDARY ]]; then
-    EXTERNAL=$SECONDARY WLAN=$WLAN BATTERY=$BATTERY ADAPTER=$ADAPTER polybar -r secondary &
+    EXTERNAL=$SECONDARY WLAN=$WLAN BATTERY=$BATTERY ADAPTER=$ADAPTER polybar -q -r secondary &
     ln -sf /tmp/polybar_mqueue.$! /tmp/polybar-ipc-secondary
 fi
 
-#notify-send "polybar" "Bars launched..."
