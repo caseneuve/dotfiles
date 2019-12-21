@@ -105,6 +105,7 @@ cmd open ${{
             |application/vnd.ms-excel\
             |text/rtf)
             libreoffice "$f" & ;;
+        application/epub+zip) FBReader "$f" &;;
         text/*)
             $EDITOR "$fx";;
         audio/*)
