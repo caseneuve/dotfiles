@@ -6,7 +6,6 @@
 #   ### ###  ## ### ### #   ### ### ##  ### #
 #     #
 
-# Last update: 2019-08-21, 13:14:08 @lenovo
 
 # * MY VARIABLES
 mpv_script_video = "~/.scripts/mpvsoc -v "
@@ -154,6 +153,7 @@ c.url.searchengines = {
     "wl": "https://en.wiktionary.org/wiki/{}",
     "ww": "archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}",
     "yt": "https://www.youtube.com/results?search_query={}&page=&utm_source=opensearch",
+    "te": "https://en.wiktionary.org/wiki/{}",
 }
 
 # * ZOOM LEVELS
