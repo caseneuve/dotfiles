@@ -2,7 +2,6 @@
 
 # Path:        ~/.dotfiles/bin/scratchpad.sh
 # Created:     2018-10-13, 01:19    @lenovo
-# Last update: 2019-11-17, 23:56:39 @lenovo
 # Doc:         start tmux scratchpad if doesn't exist or show it
 # Requires:    i3window installed; i3getgo
 
@@ -55,7 +54,7 @@ main() {
     if [[ -n $1 ]]; then
         while getopts "u:fcot:" flag; do
             case "${flag}" in
-                # tmux
+                # ** tmux
                 u) if [[ ! $(is_running dropdown) ]]; then
                        ARGS="-c scratch -t dropdown"
                        COMMAND="-e ~/.dotfiles/bin/tmux-starter.sh"
@@ -100,7 +99,7 @@ main() {
                        polybar-msg hook mail 1
                    fi
                    ;;
-                # quick scratch
+                # ** quick scratch
                 f) if [[ ! $(is_running myquickterm) ]]; then
                        ARGS="-c myquickterm -e fish"
                        i3msg "$I3EXEC $TRM $ARGS"
@@ -109,16 +108,17 @@ main() {
                        && [[ $($I3GET -c) =~ myquickterm ]] \
                        && $I3WINDOW shape south       
                    ;;
-                # calc
+                # ** calc
                 c) if [[ ! $(is_running m4ath) ]]; then
-                       ARGS="-c calculator -t m4ath -e R -q"
+                       # ARGS="-c calculator -t m4ath -e R -q"
+                       ARGS="-c calculator -t m4ath -e python"
                        i3msg "$I3EXEC $TRM $ARGS"
                    fi
                    i3msg "[class=\"calculator\"] scratchpad show" \
                        && [[ $($I3GET -c) =~ calculator ]] \
                        && $I3WINDOW move center
                    ;;
-                # whitaker words
+                # ** whitaker words
                 o) if [[ ! $(is_running w0rds) ]]; then
                        ARGS="-c whit4ker -t w0rds -e words"
                        i3msg "$I3EXEC $TRM $ARGS"
@@ -126,7 +126,7 @@ main() {
                    i3msg "[title=\"w0rds\"] scratchpad show" \
                          && $I3WINDOW resize -r 0.4 move -g 5 22 sw
                    ;;
-                # clock
+                # ** clock
                 t) if [[ ! $(is_running tty-clock) ]]; then
                        ARGS="-c cl0ck -t tty-clock -f 'monospace:size=10' -e tty-clock -C $OPTARG -c -b "
                        i3msg "$I3EXEC $TRM $ARGS"
