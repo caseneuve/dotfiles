@@ -1,15 +1,15 @@
 ! -*- eval:(rainbow-mode) -*-
-! gruvbox: old black #1c1c1c
+! gruvbox: old black #1c1c1c !1d2021 !green 98971a !br green b8bb26
+
 #define foreground #a2adc3
 #define background #0a0c10
 #define dark2      #282828
-!1d2021
 #define red_alt    #cc241d
 #define grey       #928374
 
 #define  black      #1d2021
 #define  red        #cc241d
-#define  green      #98971a
+#define  green      #6b8e23
 #define  yellow     #d79921
 #define  blue       #458588
 #define  magenta    #b16286
@@ -17,7 +17,7 @@
 #define  white      #a89984
 #define  br_black   #282828 
 #define  br_red     #fb4934
-#define  br_green   #b8bb26
+#define  br_green   #9acd32
 #define  br_yellow  #fabd2f
 #define  br_blue    #83a598
 #define  br_magenta #d3869b
