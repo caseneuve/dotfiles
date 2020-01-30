@@ -6,7 +6,6 @@
 #   ### ###  ## ### ### #   ### ### ##  ### #
 #     #
 
-# Last update: 2019-08-21, 13:14:08 @lenovo
 
 # * MY VARIABLES
 mpv_script_video = "~/.scripts/mpvsoc -v "
@@ -101,7 +100,6 @@ c.hints.dictionary = "/usr/share/dict/words"
 c.hints.min_chars = 1
 c.hints.hide_unmatched_rapid_hints = True
 
-
 # * PROMPT
 c.prompt.filebrowser = True
 
@@ -131,28 +129,57 @@ c.url.default_page = "file:///home/piotr/.dotfiles/qtbro/newtab.html"
 # ** searchengines
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
-    "aa": "https://allegro.pl/listing?string={}&order=d&bmatch=ss-base-relevance-floki-5-nga-hcp-wp-ele-1-1-0328",
+    # *** allegro
+    "aa": (
+        "https://allegro.pl/listing?string={}&order=d&bmatch="
+        "ss-base-relevance-floki-5-nga-hcp-wp-ele-1-1-0328"
+    ),
+    # *** arch linux
     "al": "https://wiki.archlinux.org/index.php/{}",
     "bib": "http://katalogi.bn.org.pl/iii/encore/search/C__S{}__U?lang=pol&suite=cobalt",
     "cam": "https://dictionary.cambridge.org/dictionary/english/{}",
+    # *** clojure docs and search
+    "clj": "https://clojuredocs.org/clojure.core/{}",
+    "cls": "https://clojuredocs.org/search?q={}",
+    # *** etymology
     "et": "https://www.etymonline.com/word/{}",
+    # *** libgen
     "gen": "http://gen.lib.rus.ec/search.php?req={}",
+    # *** google
     "gg": "https://www.google.pl/search?dcr=0&source=hp&ei=_b_EWsi2DoHpsQG_t4-gBw&q={}",
+    # *** go docs
     "go": "https://godoc.org/{}",
-    "img": "https://www.google.com/search?tbm=isch&source=hp&biw=1366&bih=688&ei=O4fEWo2xLYuQkwWI_q3gDA&q={}",
+    # *** google images
+    "img": (
+        "https://www.google.com/search?tbm=isch&source=hp&biw=1366&bih=688&ei="
+        "O4fEWo2xLYuQkwWI_q3gDA&q={}"
+    ),
+    # *** latin dictionary
     "lat": "archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}",
+    # *** google maps
     "map": "https://www.google.com/maps/place/{}",
     "maps": "https://www.google.com/maps/place/{}",
     "mg": "https://www.google.com/maps/place/{}",
+    # *** perseus
     "pers": "http://www.perseus.tufts.edu/hopper/searchresults?q={}",
+    # *** python (only adds full 'python' word at the beg of search in dd)
     "py": "https://duckduckgo.com/?q=python+{}&ia=webqutebrowser+",
+    # *** qtb (the same as python)
     "q": "https://duckduckgo.com/?q=qutebrowser+{}&ia=webqutebrowser+",
+    # *** słownik języka polskiego
     "sjp": "https://sjp.pl/{}",
+    # *** emacs stack exchange
     "sx": "https://emacs.stackexchange.com/search?q={}",
+    # *** wiktionary: english
+    "te": "https://en.wiktionary.org/wiki/{}",
     "we": "https://en.wikipedia.org/wiki/{}",
+    # *** wiki pl
     "wi": "https://pl.wikipedia.org/wiki/{}",
+    # *** wiki en
     "wl": "https://en.wiktionary.org/wiki/{}",
+    # *** william withaker words
     "ww": "archives.nd.edu/cgi-bin/wordz.pl?keyword=/{}",
+    # *** yt
     "yt": "https://www.youtube.com/results?search_query={}&page=&utm_source=opensearch",
 }
 
