@@ -80,18 +80,20 @@ c.downloads.position = "bottom"
 c.editor.command = ["st", "-e", "emacsclient", "-nw", "-s", "term", "{}"]
 
 # * FONTS
-c.fonts.completion.category = "9pt Monospace"
-c.fonts.completion.entry = "9pt Monospace"
-c.fonts.debug_console = "9pt Monospace"
-c.fonts.downloads = "8pt Monospace"
+monospace_9 = "9pt Monospace"
+monospace_8 = "8pt Monospace"
+c.fonts.completion.category = monospace_9
+c.fonts.completion.entry = monospace_9
+c.fonts.debug_console = monospace_9
+c.fonts.downloads = monospace_8
 c.fonts.hints = "9pt Roboto"
-c.fonts.keyhint = "9pt Monospace"
-c.fonts.messages.error = "8pt Monospace"
-c.fonts.messages.info = "8pt Monospace"
-c.fonts.messages.warning = "8pt Monospace"
-c.fonts.prompts = "9pt Monospace"
-c.fonts.statusbar = "9pt Monospace"
-c.fonts.tabs = "10pt Roboto Condensed"
+c.fonts.keyhint = monospace_9
+c.fonts.messages.error = monospace_8
+c.fonts.messages.info = monospace_8
+c.fonts.messages.warning = monospace_8
+c.fonts.prompts = monospace_9
+c.fonts.statusbar = monospace_9
+c.fonts.tabs = "9pt Roboto Condensed"
 
 # * HINTS
 c.hints.border = "1px solid #E3BE23"
